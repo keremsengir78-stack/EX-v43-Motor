@@ -174,7 +174,7 @@ def reconcile_staged_with_third(staged, third, as_of, alias=None):
         else:
             conflicts.append({**row,"third_source_status":"SCORE_CONFLICT",
                               "third_score":[other["home_goals"],other["away_goals"]]})
-    return {"status":"CONFLICT" if conflicts else ("PARTIAL" if unresolved else "PROVISIONAL_MATCH_UNAUDITED"),
+    return {"status":"NO_STAGED_RESULTS" if not staged else ("CONFLICT" if conflicts else ("PARTIAL" if unresolved else "PROVISIONAL_MATCH_UNAUDITED")),
             "verified":verified,"conflicts":conflicts,"unresolved":unresolved,
             "verified_count":len(verified),"conflict_count":len(conflicts),
             "unresolved_count":len(unresolved),"ex_final_allowed":False}
