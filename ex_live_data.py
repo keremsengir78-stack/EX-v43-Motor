@@ -24,7 +24,7 @@ def read_openfootball(blob,league,season,alias):
   try:
    day=dt.date.fromisoformat(m['date'][:10]);home=team(m['team1'],league,alias);away=team(m['team2'],league,alias)
    if not home or not away or canonical(home)==canonical(away):raise ValueError('invalid teams')
-   score=m.get('score') or {};ft=score.get('ft')
+   https://github.com/keremsengir78-stack/EX-v43-Motor/edit/main/ex_live_data.py?utm_source=chatgpt.com
    if ft is None:fixtures+=1;continue
    if not isinstance(ft,list) or len(ft)!=2 or any(not isinstance(x,int) or isinstance(x,bool) or x<0 or x>30 for x in ft):raise ValueError('invalid full-time score')
    out.append(dict(date=day.isoformat(),league=league,home=home,away=away,home_goals=ft[0],away_goals=ft[1],source='OpenFootball',season=season))
