@@ -34,8 +34,13 @@ def main():
                  candidates,a.as_of)
     secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check})
  ing['secondary_audits']=secondary_audits
- ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['matched']>0 and not x['comparison']['conflicts'])
+ ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['status']=='VERIFIED')
+ ing['independent_matches_confirmed']=sum(x['comparison']['matched']-len(x['comparison']['conflicts']) for x in secondary_audits)
+ ing['independent_source_coverage']={f"{x['season']}/{x['league']}":x['comparison']['coverage'] for x in secondary_audits}
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
+ ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
+ if ing['secondary_unverified'] or not secondary_audits:
+  ing['blocking_sources'].append({'reason':'incomplete_independent_verification','unmatched':ing['secondary_unverified']})
  if ing['secondary_conflicts']:
   ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'independent_source_score_conflict'})
