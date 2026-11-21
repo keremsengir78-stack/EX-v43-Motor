@@ -69,9 +69,9 @@ class TestEXMotor(unittest.TestCase):
             secondary=root/"secondary"
             secondary.mkdir()
             (secondary/"2627_E0.csv").write_text(
-                "Date,HomeTeam,AwayTeam,FTHG,FTAG\\n"
-                "15/11/2026,Arsenal,Chelsea,1,0\\n"
-                "19/11/2026,Leeds,Everton,2,1\\n")
+                "Date,HomeTeam,AwayTeam,FTHG,FTAG\n"
+                "15/11/2026,Arsenal,Chelsea,1,0\n"
+                "19/11/2026,Leeds,Everton,2,1\n")
             script=Path(__file__).resolve().parents[1]/"ex_one_command.py"
             subprocess.run([sys.executable,str(script),"--as-of","2026-11-21",
                             "--seasons","2026-27","--leagues","en.1",
