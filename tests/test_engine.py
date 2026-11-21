@@ -12,6 +12,17 @@ from ex_espn_provider import parse_espn_scoreboard
 
 class TestEXMotor(unittest.TestCase):
 
+    def test_malformed_market_evidence_fails_closed(self):
+        for payload in (None, [], "invalid", 17):
+            result=assess_markets(payload,as_of="2026-11-22")
+            self.assertFalse(result["evidence_complete"])
+            self.assertFalse(result["pup_allowed"])
+            self.assertFalse(result["ex_final_allowed"])
+            self.assertTrue(all(x["status"]=="BLOCKED" for x in result["markets"].values()))
+        result=assess_markets({"KG_VAR":None,"MS1":[]},as_of="2026-11-22")
+        self.assertEqual(result["markets"]["KG_VAR"]["status"],"BLOCKED")
+        self.assertEqual(result["markets"]["MS1"]["status"],"BLOCKED")
+
     def test_exg_date_only_cutoff_excludes_same_day(self):
         features={name:{"score":0.7,"verified":True,"source":"test",
                         "timestamp":"2026-11-20T23:59:59Z"}
