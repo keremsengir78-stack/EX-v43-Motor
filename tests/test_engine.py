@@ -3,7 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
-from ex_cross_verify import verify, secondary_rows, norm
+from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
@@ -55,6 +55,16 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(report["ex_final_allowed"])
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
+
+    def test_secondary_only_staging_excludes_verified_archive_and_future(self):
+        rows=[
+            {"date":day,"league":"en.1","home":"A","away":"B","home_goals":1,"away_goals":0}
+            for day in ("2026-09-20","2026-11-08","2026-11-21")
+        ]
+        staged=secondary_only_after_cutoff(rows,"2026-09-20","2026-11-21")
+        self.assertEqual(len(staged),1)
+        self.assertEqual(staged[0]["date"],"2026-11-08")
+        self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
 
     def test_premier_reviewed_alias_config(self):
         from pathlib import Path
