@@ -93,6 +93,12 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
             self.assertFalse(report["ex_final_allowed"])
 
+    def test_empty_third_reconciliation_not_success(self):
+        r=reconcile_staged_with_third([],[],"2026-11-21")
+        self.assertEqual(r["status"],"NO_STAGED_RESULTS")
+        self.assertEqual(r["verified_count"],0)
+        self.assertFalse(r["ex_final_allowed"])
+
     def test_espn_third_provider_completed_scores_only(self):
         def event(day,completed=True):
             return {"date":day+"T18:00:00Z",
