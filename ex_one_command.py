@@ -37,10 +37,12 @@ def main():
    for league in a.leagues:
     candidates,meta=secondary_rows(season,league,a.secondary_offline)
     subset=[r for r in rows if r['season']==season and r['league']==league]
+    primary_last=max((str(r['date']) for r in subset),default=None)
+    secondary_last=max((r['date'] for r in candidates if r['date']<a.as_of),default=None)
     check=verify([{'date':str(r['date']),'league':r['league'],'home':r['home'],
                    'away':r['away'],'home_goals':r['hg'],'away_goals':r['ag']} for r in subset],
                  candidates,a.as_of,reviewed_aliases)
-    secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check})
+    secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check,'primary_last_result':primary_last,'secondary_last_result':secondary_last,'secondary_newer_than_primary':bool(secondary_last and primary_last and secondary_last>primary_last)})
  ing['secondary_audits']=secondary_audits
  ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['status']=='VERIFIED')
  ing['independent_matches_confirmed']=sum(x['comparison']['matched']-len(x['comparison']['conflicts']) for x in secondary_audits)
