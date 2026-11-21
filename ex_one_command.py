@@ -10,6 +10,13 @@ from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
 from ex_espn_provider import fetch_espn_scoreboard
 
+def evidence_cutoff(as_of):
+ """Use the exclusive start-of-day cutoff; never ingest same-day evidence."""
+ day=dt.date.fromisoformat(as_of)
+ if day.isoformat()!=as_of:
+  raise ValueError('as_of must be YYYY-MM-DD')
+ return day.isoformat()
+
 def main():
  p=argparse.ArgumentParser()
  p.add_argument('--as-of',required=True,help='ISO date; results strictly before this date')
@@ -125,7 +132,7 @@ def main():
  result={'engine':'EX v4.3 integrated research v1.1','as_of':a.as_of,'ingestion':ing,'backtest':backtest(rows),'matches':[],'ex_final_allowed':False,'status':'NO_EX_FINAL','reason':'External-factor and match-context features, independent source validation, calibrated EX-G and market odds not verified'}
  if a.evidence:
   evidence=json.loads(Path(a.evidence).read_text(encoding='utf-8'))
-  result['decision_evidence']=assess_markets(evidence,as_of=a.as_of+'T23:59:59+00:00')
+  result['decision_evidence']=assess_markets(evidence,as_of=evidence_cutoff(a.as_of))
  if a.fixtures:
   with open(a.fixtures,encoding='utf-8-sig',newline='') as f: fixtures=list(csv.DictReader(f))
   for fixture in fixtures:
