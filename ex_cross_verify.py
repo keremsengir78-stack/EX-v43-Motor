@@ -91,12 +91,13 @@ def verify(primary, secondary, as_of, alias=None):
         if row["date"]>=as_of:continue
         key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),reviewed_name(row["away"],row["league"],alias))
         index.setdefault(key,[]).append(row)
-    matched=0;conflicts=[];unmatched=0;ambiguous=0
+    matched=0;conflicts=[];unmatched=0;ambiguous=0;unmatched_details=[]
     for row in primary:
         key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),reviewed_name(row["away"],row["league"],alias))
         candidates=index.get(key,[])
         if len(candidates)!=1:
             unmatched+=1
+            if len(unmatched_details)<250:unmatched_details.append({"date":row["date"],"league":row["league"],"home":row["home"],"away":row["away"],"reason":"ambiguous" if len(candidates)>1 else "not_found"})
             if len(candidates)>1:ambiguous+=1
             continue
         matched+=1
@@ -107,6 +108,6 @@ def verify(primary, secondary, as_of, alias=None):
                               "primary":[row["home_goals"],row["away_goals"]],
                               "secondary":[other["home_goals"],other["away_goals"]]})
     suggestions=unresolved_pairs(primary,secondary,as_of,alias)
-    return {"alias_suggestions":suggestions[:100],"alias_suggestion_count":len(suggestions),"matched":matched,"unmatched":unmatched,"ambiguous":ambiguous,"conflicts":conflicts,
+    return {"unmatched_details":unmatched_details,"alias_suggestions":suggestions[:100],"alias_suggestion_count":len(suggestions),"matched":matched,"unmatched":unmatched,"ambiguous":ambiguous,"conflicts":conflicts,
             "coverage":round(matched/len(primary),4) if primary else 0,
             "status":"CONFLICT" if conflicts else ("PARTIAL_VERIFICATION" if unmatched else "VERIFIED") if primary else "NO_PRIMARY_DATA"}
