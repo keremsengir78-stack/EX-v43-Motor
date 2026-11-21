@@ -63,6 +63,11 @@ class TestEXMotor(unittest.TestCase):
         secondary=[{"date":"2026-11-18","league":"en.1","home":"Man City",
                     "away":"Wolves","home_goals":2,"away_goals":1}]
         self.assertEqual(verify(primary,secondary,"2026-11-21",reviewed)["status"],"VERIFIED")
+        primary.append({"date":"2026-11-19","league":"en.1","home":"Leeds United FC",
+                        "away":"Arsenal FC","home_goals":0,"away_goals":1})
+        secondary.append({"date":"2026-11-19","league":"en.1","home":"Leeds",
+                          "away":"Arsenal","home_goals":0,"away_goals":1})
+        self.assertEqual(verify(primary,secondary,"2026-11-21",reviewed)["matched"],2)
         secondary[0]["away_goals"]=2
         self.assertEqual(verify(primary,secondary,"2026-11-21",reviewed)["status"],"CONFLICT")
 
