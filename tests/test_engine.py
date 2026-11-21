@@ -1,7 +1,7 @@
 import unittest
 import math
 
-from ex_engine import load, audit, backtest
+from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
 from ex_cross_verify import verify, secondary_rows
 
@@ -26,6 +26,13 @@ class TestEXMotor(unittest.TestCase):
             for k in range(30)
         )
         self.assertAlmostEqual(total, 1.0, places=8)
+
+    def test_market_probability_consistency(self):
+        d=distribution(1.6,1.2)
+        self.assertAlmostEqual(d["home_win"]+d["draw"]+d["away_win"],1,places=8)
+        self.assertAlmostEqual(d["probability_mass"],1,places=8)
+        for name in ("over25","btts","home_win","draw","away_win"):
+            self.assertTrue(0 <= d[name] <= 1)
 
     def test_openfootball_score_variants(self):
         import json
