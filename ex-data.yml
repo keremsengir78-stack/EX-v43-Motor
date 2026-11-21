@@ -1,0 +1,47 @@
+name: EX v4.3 Data Ingestion
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+permissions:
+  contents: read
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Fetch and audit data
+        id: ingest
+        shell: bash
+        run: |
+          set +e
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir ex_run
+          rc=$?
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Publish audit artifacts even on errors
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-data-audit-${{ github.run_id }}
+          path: ex_run/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Fail if ingestion failed or audit blocked
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path('ex_run/audit.json')
+          if not p.exists(): sys.exit('FAIL: audit missing; fetch or engine failed')
+          a=json.loads(p.read_text())
+          print('Ingestion:',a['status'],'results:',a['total_results'])
+          if a['status']=='BLOCKED' or a['total_results']==0:sys.exit('FAIL: data missing/stale/conflicting')
+          print('PASS: single-provider ingestion only; EX FINAL remains disabled')
+          PY
