@@ -12,6 +12,8 @@ MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
 def weighted_evidence(features, as_of=None):
     """Each feature: {'score': float [0,1], 'verified': bool, 'source': str,
     'timestamp': ISO 8601}. Missing evidence blocks instead of being imputed."""
+    if not isinstance(features,dict):
+        features={}
     issues=[];contributions={}
     cutoff=None
     if as_of:
@@ -47,6 +49,8 @@ def weighted_evidence(features, as_of=None):
             "weights":WEIGHTS,"calibrated_probability":None,"ex_final_allowed":False}
 
 def assess_markets(evidence_by_market, as_of=None):
+    if not isinstance(evidence_by_market,dict):
+        evidence_by_market={}
     result={m:weighted_evidence(evidence_by_market.get(m,{}),as_of=as_of) for m in MARKETS}
     return {"markets":result,"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
             "pup_allowed":False,"ex_final_allowed":False,
