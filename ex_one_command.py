@@ -125,7 +125,7 @@ def main():
  result={'engine':'EX v4.3 integrated research v1.1','as_of':a.as_of,'ingestion':ing,'backtest':backtest(rows),'matches':[],'ex_final_allowed':False,'status':'NO_EX_FINAL','reason':'External-factor and match-context features, independent source validation, calibrated EX-G and market odds not verified'}
  if a.evidence:
   evidence=json.loads(Path(a.evidence).read_text(encoding='utf-8'))
-  result['decision_evidence']=assess_markets(evidence)
+  result['decision_evidence']=assess_markets(evidence,as_of=a.as_of+'T23:59:59+00:00')
  if a.fixtures:
   with open(a.fixtures,encoding='utf-8-sig',newline='') as f: fixtures=list(csv.DictReader(f))
   for fixture in fixtures:
