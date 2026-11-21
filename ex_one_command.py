@@ -40,6 +40,7 @@ def main():
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
  ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
  if ing['secondary_unverified'] or not secondary_audits:
+  ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'incomplete_independent_verification','unmatched':ing['secondary_unverified']})
  if ing['secondary_conflicts']:
   ing['status']='BLOCKED'
