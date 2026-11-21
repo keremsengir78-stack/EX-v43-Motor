@@ -28,6 +28,36 @@ jobs:
         shell: bash
         run: |
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --outdir ex_premier_pilot
+      - name: ESPN third-source live pilot
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --espn-third-source --outdir ex_espn_pilot
+      - name: Print ESPN corroboration metrics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('ex_espn_pilot/audit.json')
+          if not p.exists():
+              print('ESPN PILOT UNAVAILABLE: EX FINAL disabled')
+          else:
+              a=json.loads(p.read_text())
+              r=a.get('third_source_reconciliation',{})
+              print('ESPN PILOT:',r.get('status'),'provisional matches:',r.get('verified_count',0),
+                    'unresolved:',r.get('unresolved_count',0),'conflicts:',r.get('conflict_count',0),
+                    'fetch errors:',len(r.get('source_errors',[])),'EX FINAL:',a.get('ex_final_allowed',False))
+          PY
+      - name: Publish ESPN pilot audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-espn-pilot-${{ github.run_id }}
+          path: ex_espn_pilot/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Print Premier League verification metrics
         if: always()
         shell: bash
