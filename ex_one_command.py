@@ -4,7 +4,7 @@ import argparse, json, csv, datetime as dt, hashlib
 from pathlib import Path
 from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
-from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff, reconcile_staged_with_third
+from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
@@ -53,13 +53,7 @@ def main():
  (out/'secondary_only_unverified.json').write_text(json.dumps(secondary_only_staged,ensure_ascii=False,indent=2),encoding='utf-8')
  ing['secondary_only_staging_file']='secondary_only_unverified.json'
  if a.third_source_csv:
-  if not a.third_source_provider or not a.third_source_reference:
-   raise ValueError('Third-source provenance requires --third-source-provider and --third-source-reference')
-  provider=a.third_source_provider.strip().casefold()
-  if provider in ('openfootball','football-data.co.uk','football data','football-data'):
-   raise ValueError('Third provider must be distinct from OpenFootball and football-data.co.uk')
-  if not a.third_source_reference.startswith('https://'):
-   raise ValueError('Third source reference must be an HTTPS URL')
+  provenance=validate_third_provenance(a.third_source_provider,a.third_source_reference)
   with open(a.third_source_csv,encoding='utf-8-sig',newline='') as source:
    third=list(csv.DictReader(source))
   required={'date','league','home','away','home_goals','away_goals'}
@@ -75,7 +69,7 @@ def main():
     raise ValueError('Invalid third-source result')
    clean.append({**r,'home_goals':hg,'away_goals':ag})
   reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
-  ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},'provider':a.third_source_provider,'reference':a.third_source_reference,'provenance_status':'DECLARED_NOT_INDEPENDENTLY_AUDITED'}
+  ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},**provenance}
   (out/'third_source_reconciliation.json').write_text(json.dumps(reconciliation,ensure_ascii=False,indent=2),encoding='utf-8')
  else:
   ing['third_source_reconciliation']={'status':'NOT_PROVIDED','verified_count':0,'ex_final_allowed':False}
