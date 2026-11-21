@@ -4,7 +4,7 @@ import argparse, json, csv, datetime as dt, hashlib
 from pathlib import Path
 from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
-from ex_cross_verify import secondary_rows, verify
+from ex_cross_verify import secondary_rows, verify, norm
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
@@ -21,12 +21,17 @@ def main():
  p.add_argument('--max-age-days',type=int,default=7)
  p.add_argument('--secondary-offline',help='Directory with Football-Data CSV files')
  p.add_argument('--no-secondary',action='store_true')
+ p.add_argument('--secondary-aliases',help='Reviewed cross-provider team aliases JSON')
  p.add_argument('--evidence',help='Verified market evidence JSON; remains uncalibrated')
  p.add_argument('--odds',help='JSON list of timestamped odds snapshots matching fixtures by order')
  a=p.parse_args(); out=Path(a.outdir);out.mkdir(parents=True,exist_ok=True)
  ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days)
  rows=load(out/'results.csv')
  secondary_audits=[]
+ reviewed_aliases={}
+ if a.secondary_aliases:
+  alias_data=json.loads(Path(a.secondary_aliases).read_text(encoding='utf-8'))
+  reviewed_aliases={league:{norm(k):v for k,v in names.items()} for league,names in alias_data.items()}
  if not a.no_secondary:
   for season in a.seasons:
    for league in a.leagues:
@@ -34,7 +39,7 @@ def main():
     subset=[r for r in rows if r['season']==season and r['league']==league]
     check=verify([{'date':str(r['date']),'league':r['league'],'home':r['home'],
                    'away':r['away'],'home_goals':r['hg'],'away_goals':r['ag']} for r in subset],
-                 candidates,a.as_of)
+                 candidates,a.as_of,reviewed_aliases)
     secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check})
  ing['secondary_audits']=secondary_audits
  ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['status']=='VERIFIED')
