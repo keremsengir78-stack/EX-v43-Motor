@@ -89,6 +89,11 @@ def main():
  if ing['secondary_unverified'] or ing['secondary_source_errors'] or not secondary_audits:
   ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'incomplete_independent_verification','unmatched':ing['secondary_unverified']})
+ if ing['secondary_newer_unverified_results']:
+  ing['status']='BLOCKED'
+  ing['blocking_sources'].append({'reason':'secondary_newer_results_not_independently_verified',
+                                  'count':ing['secondary_newer_unverified_results'],
+                                  'staging_file':'secondary_only_unverified.json'})
  if ing['secondary_conflicts']:
   ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'independent_source_score_conflict'})
