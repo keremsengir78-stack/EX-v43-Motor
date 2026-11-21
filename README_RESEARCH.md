@@ -36,3 +36,10 @@ Use `--evidence evidence.json` to pass a JSON mapping each market (`2.5_UST`, `K
 6. The historical venue-weighted baseline requires sufficient data for each bucket; missing samples must not be presented as complete.
 
 A successful CI run only proves that tests and configured data checks passed. It is not evidence of EX FINAL readiness. No EX FINAL picks should be issued by this code.
+
+
+### Independent-source alias reconciliation (pilot)
+
+Use `--secondary-aliases reviewed_aliases.json` with a JSON object such as
+`{"en.1":{"Man United":"Manchester United","Wolves":"Wolverhampton Wanderers"}}`.
+The secondary verifier normalizes accents and punctuation, applies only explicit reviewed aliases, and reports `alias_suggestions` for manual review. It never guesses team identities or treats suggested matches as verified. Missing/failed secondary feeds remain blocked. Run the Premier League pilot first, then expand league by league.
