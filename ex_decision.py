@@ -13,9 +13,16 @@ def weighted_evidence(features, as_of=None):
     """Each feature: {'score': float [0,1], 'verified': bool, 'source': str,
     'timestamp': ISO 8601}. Missing evidence blocks instead of being imputed."""
     issues=[];contributions={}
-    cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00')) if as_of else None
-    if cutoff is not None and cutoff.tzinfo is None:
-        raise ValueError('as_of must be timezone-aware')
+    cutoff=None
+    if as_of:
+        if isinstance(as_of,str) and len(as_of)==10:
+            cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
+        else:
+            cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
+            if cutoff.tzinfo is None:
+                raise ValueError('as_of must be timezone-aware')
+    # The cutoff is exclusive: a YYYY-MM-DD run cannot use evidence
+    # from any time on that date or later.
     for key,weight in WEIGHTS.items():
         item=features.get(key)
         if not isinstance(item,dict):
@@ -29,7 +36,7 @@ def weighted_evidence(features, as_of=None):
             timestamp=dt.datetime.fromisoformat(item["timestamp"].replace("Z","+00:00"))
             if timestamp.tzinfo is None:
                 raise ValueError("timezone missing")
-            if cutoff is not None and timestamp>cutoff:
+            if cutoff is not None and timestamp>=cutoff:
                 issues.append(key+":future_evidence");continue
         except (ValueError,TypeError,AttributeError):
             issues.append(key+":invalid_timestamp");continue
