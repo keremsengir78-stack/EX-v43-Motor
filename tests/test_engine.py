@@ -29,6 +29,18 @@ class TestEXMotor(unittest.TestCase):
         self.assertIn("team_strength:invalid_timestamp",
                       weighted_evidence(f)["issues"])
 
+    def test_pup_blocked_even_with_all_four_complete_uncalibrated_markets(self):
+        features={key:{"score":0.8,"verified":True,"source":"fixture-audit",
+                       "timestamp":"2026-11-21T10:00:00Z"}
+                  for key in ("team_strength","match_conditions","external_factors")}
+        r=assess_markets({m:features for m in ("2.5_UST","KG_VAR","MS1","MS2")},
+                         as_of="2026-11-21T12:00:00Z")
+        self.assertTrue(r["evidence_complete"])
+        self.assertFalse(r["pup_allowed"])
+        self.assertFalse(r["ex_final_allowed"])
+        self.assertTrue(all(x["calibrated_probability"] is None
+                            for x in r["markets"].values()))
+
     def test_exg_missing_evidence_blocks(self):
         r=weighted_evidence({"team_strength":{"score":0.8,"verified":True,
                                                "source":"sample","timestamp":"2026-11-21T10:00:00Z"}})
