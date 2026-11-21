@@ -86,6 +86,40 @@ def secondary_rows(season, league, offline=None):
         return [],{"url":url,"error":str(exc),"provider":"football-data.co.uk"}
 
 
+def validate_third_results(rows, as_of):
+    """Fail closed on malformed, conflicting or future-dated third-party scores."""
+    cutoff=dt.date.fromisoformat(as_of)
+    seen={}
+    clean=[]
+    for i,row in enumerate(rows):
+        try:
+            day=dt.date.fromisoformat(row["date"])
+            league=row["league"].strip()
+            home=row["home"].strip()
+            away=row["away"].strip()
+            hg=row["home_goals"]; ag=row["away_goals"]
+            if type(hg) is not int or type(ag) is not int:
+                raise ValueError("goals must be integers")
+            if not league or not home or not away or norm(home)==norm(away):
+                raise ValueError("invalid teams or league")
+            if min(hg,ag)<0 or max(hg,ag)>30:
+                raise ValueError("invalid goal range")
+            if day>=cutoff:
+                raise ValueError("result not before cutoff")
+            key=(day.isoformat(),league,norm(home),norm(away))
+            if key in seen:
+                raise ValueError("duplicate third-source fixture")
+            seen[key]=i
+            clean.append({**row,"date":day.isoformat(),"league":league,
+                          "home":home,"away":away,"home_goals":hg,"away_goals":ag})
+        except (KeyError,TypeError,AttributeError) as exc:
+            raise ValueError(f"invalid third-source row {i}: {exc}") from exc
+        except ValueError as exc:
+            raise ValueError(f"invalid third-source row {i}: {exc}") from exc
+    if not clean:
+        raise ValueError("empty third-source results")
+    return clean
+
 def validate_third_provenance(provider, reference):
     """Declared provenance gate; cannot establish actual independence by itself."""
     if not isinstance(provider,str) or not provider.strip():
