@@ -4,7 +4,7 @@ import argparse, json, csv, datetime as dt, hashlib
 from pathlib import Path
 from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
-from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance
+from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance, validate_third_results
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
@@ -69,6 +69,7 @@ def main():
    except (ValueError,TypeError,KeyError):
     raise ValueError('Invalid third-source result')
    clean.append({**r,'home_goals':hg,'away_goals':ag})
+  clean=validate_third_results(clean,a.as_of)
   reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
   ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},**provenance,'sha256':third_sha256}
   (out/'third_source_reconciliation.json').write_text(json.dumps(reconciliation,ensure_ascii=False,indent=2),encoding='utf-8')
