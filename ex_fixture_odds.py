@@ -4,7 +4,7 @@ import math
 
 def check_fixture(fixture, as_of):
     issues=[]
-    for field in ("date","league","home","away","fixture_source","fixture_checked_at"):
+    for field in ("date","league","home","away","fixture_source","fixture_checked_at","kickoff_at"):
         if not fixture.get(field):
             issues.append(field+":missing")
     try:
@@ -13,6 +13,14 @@ def check_fixture(fixture, as_of):
             issues.append("fixture:historical")
     except (KeyError,ValueError,TypeError):
         issues.append("fixture:invalid_date")
+    try:
+        kickoff_at=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
+        if kickoff_at.tzinfo is None:
+            issues.append("kickoff_at:timezone_missing")
+        elif kickoff_at.date()!=dt.date.fromisoformat(fixture["date"]):
+            issues.append("kickoff_at:date_mismatch")
+    except (KeyError,ValueError,TypeError,AttributeError):
+        issues.append("kickoff_at:invalid")
     if fixture.get("home")==fixture.get("away"):
         issues.append("fixture:identical_teams")
     return {"status":"VERIFIED_INPUT" if not issues else "BLOCKED",
@@ -37,8 +45,8 @@ def check_odds(snapshot, as_of):
         cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
         if observed.tzinfo is None or cutoff.tzinfo is None:
             issues.append("odds:timezone_missing")
-        elif observed>cutoff:
-            issues.append("odds:future_snapshot")
+        elif observed>=cutoff:
+            issues.append("odds:not_before_kickoff")
     except (KeyError,ValueError,TypeError,AttributeError):
         issues.append("odds:invalid_timestamp")
     return {"status":"VERIFIED_INPUT" if not issues else "BLOCKED",
