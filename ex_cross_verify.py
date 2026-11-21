@@ -57,12 +57,13 @@ def verify(primary, secondary, as_of):
         if row["date"]>=as_of:continue
         key=(row["date"],row["league"],norm(row["home"]),norm(row["away"]))
         index.setdefault(key,[]).append(row)
-    matched=0;conflicts=[];unmatched=0
+    matched=0;conflicts=[];unmatched=0;ambiguous=0
     for row in primary:
         key=(row["date"],row["league"],norm(row["home"]),norm(row["away"]))
         candidates=index.get(key,[])
         if len(candidates)!=1:
             unmatched+=1
+            if len(candidates)>1:ambiguous+=1
             continue
         matched+=1
         other=candidates[0]
@@ -71,6 +72,6 @@ def verify(primary, secondary, as_of):
                               "home":row["home"],"away":row["away"],
                               "primary":[row["home_goals"],row["away_goals"]],
                               "secondary":[other["home_goals"],other["away_goals"]]})
-    return {"matched":matched,"unmatched":unmatched,"conflicts":conflicts,
+    return {"matched":matched,"unmatched":unmatched,"ambiguous":ambiguous,"conflicts":conflicts,
             "coverage":round(matched/len(primary),4) if primary else 0,
-            "status":"CONFLICT" if conflicts else "PARTIAL_VERIFICATION"}
+            "status":"CONFLICT" if conflicts else ("PARTIAL_VERIFICATION" if unmatched else "VERIFIED") if primary else "NO_PRIMARY_DATA"}
