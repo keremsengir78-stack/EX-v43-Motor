@@ -3,7 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
-from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third
+from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
@@ -55,6 +55,15 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(report["ex_final_allowed"])
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
+
+    def test_third_source_provenance_gate(self):
+        for provider in ("OpenFootball","football-data.co.uk",""):
+            with self.assertRaises(ValueError):
+                validate_third_provenance(provider,"https://example.org/results")
+        with self.assertRaises(ValueError):
+            validate_third_provenance("Independent Sports","http://example.org/results")
+        valid=validate_third_provenance("Independent Sports","https://example.org/results")
+        self.assertEqual(valid["provenance_status"],"DECLARED_NOT_INDEPENDENTLY_AUDITED")
 
     def test_third_source_reconciliation_is_not_final(self):
         base={"date":"2026-11-08","league":"en.1","home":"Man City",
