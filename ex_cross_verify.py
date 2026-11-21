@@ -15,6 +15,9 @@ DIVISIONS = {"en.1":"E0","en.2":"E1","de.1":"D1","de.2":"D2",
 def norm(name):
     value=unicodedata.normalize("NFKD",name.casefold())
     value="".join(c for c in value if not unicodedata.combining(c))
+    value=re.sub(r"\\bfootball club\\b","",value)
+    value=re.sub(r"\\bfc\\b","",value)
+    value=re.sub(r"\\bafc\\b","",value)
     return re.sub(r"[^a-z0-9]+","",value)
 
 def reviewed_name(name, league, alias=None):
