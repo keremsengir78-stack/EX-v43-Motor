@@ -7,6 +7,7 @@ from ex_engine import load, audit, backtest
 from ex_cross_verify import secondary_rows, verify
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
+from ex_auto_control import auto_control
 
 def main():
  p=argparse.ArgumentParser()
@@ -66,6 +67,7 @@ def main():
    match['fixture_lock']=check_fixture(fixtures[i],a.as_of)
    match['odds_lock']=check_odds(odds[i] if odds else None,a.as_of+'T23:59:59+00:00')
    match['decision']='NO_FINAL'
+   match['auto_control']=auto_control(match,ing)
 
   if ing['status']=='BLOCKED':result['reason']='Data integrity/freshness gate blocked; '+result['reason']
  (out/'full_report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str),encoding='utf-8')
