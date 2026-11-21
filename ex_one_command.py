@@ -51,7 +51,8 @@ def main():
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
  ing['secondary_newer_unverified_results']=sum(x['secondary_results_after_primary_cutoff'] for x in secondary_audits)
  ing['secondary_alias_suggestions']=sum(x['comparison']['alias_suggestion_count'] for x in secondary_audits)
- ing['secondary_review_queue']=[{'season':x['season'],'league':x['league'],'suggestions':x['comparison']['alias_suggestions']} for x in secondary_audits if x['comparison']['alias_suggestion_count']]
+ ing['secondary_review_queue']=[{'season':x['season'],'league':x['league'],'suggestions':x['comparison']['alias_suggestions'],'unmatched':x['comparison']['unmatched_details']} for x in secondary_audits if x['comparison']['unmatched']]
+ ing['secondary_unmatched_by_season']={f"{x['season']}/{x['league']}":x['comparison']['unmatched'] for x in secondary_audits}
  (out/'alias_review.json').write_text(json.dumps(ing['secondary_review_queue'],ensure_ascii=False,indent=2),encoding='utf-8')
  ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
  ing['secondary_source_errors']=[{'season':x['season'],'league':x['league'],'error':x['source']['error']} for x in secondary_audits if x['source'].get('error')]
