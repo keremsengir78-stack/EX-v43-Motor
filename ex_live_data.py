@@ -191,6 +191,8 @@ def run(
     rejected = []
 
     cutoff = dt.date.fromisoformat(as_of)
+    if max_age_days < 0:
+        raise ValueError('max_age_days must be nonnegative')
 
     for season in seasons:
         for league in leagues:
@@ -243,11 +245,11 @@ def run(
                     default=None,
                 )
 
-                stale = (
+                # Historical seasons are archives, not live feeds.
+                active_season = season == max(seasons)
+                stale = active_season and (
                     not last
-                    or (
-                        cutoff - dt.date.fromisoformat(last)
-                    ).days > max_age_days
+                    or (cutoff - dt.date.fromisoformat(last)).days > max_age_days
                 )
 
                 reports.append({
@@ -260,6 +262,7 @@ def run(
                     "fixtures_without_score": fixtures,
                     "last_result": last,
                     "stale": stale,
+                    "active_season": active_season,
                     "errors": len(errors),
                     "retrieval": (
                         "local_fixture"
@@ -352,6 +355,12 @@ def run(
         "conflicts": conflicts,
         "rejected_rows": rejected,
         "independent_sources_confirmed": 0,
+        "freshness_policy": "Historical seasons are archives; newest requested season requires freshness.",
+        "blocking_sources": [
+            {"season": r["season"], "league": r["league"],
+             "reason": "stale" if r.get("stale") else "source_error"}
+            for r in reports if r.get("stale")
+        ],
         "ex_final_allowed": False,
         "warning": (
             "Single provider. Fixture coverage and "
