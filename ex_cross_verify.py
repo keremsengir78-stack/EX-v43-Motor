@@ -37,11 +37,15 @@ def unresolved_pairs(primary, secondary, as_of, alias=None):
     for key,prs in primary_by_date.items():
         srs=secondary_by_date.get(key,[])
         for p in prs:
-            matches=[s for s in srs if reviewed_name(p["home"],p["league"],alias)==reviewed_name(s["home"],s["league"],alias) or reviewed_name(p["away"],p["league"],alias)==reviewed_name(s["away"],s["league"],alias)]
+            matches=[s for s in srs if (
+                reviewed_name(p["home"],p["league"],alias)==reviewed_name(s["home"],s["league"],alias)
+                or reviewed_name(p["away"],p["league"],alias)==reviewed_name(s["away"],s["league"],alias)
+                or (p["home_goals"]==s["home_goals"] and p["away_goals"]==s["away_goals"])
+            )]
             if len(matches)==1:
                 s=matches[0]
                 if reviewed_name(p["home"],p["league"],alias)!=reviewed_name(s["home"],s["league"],alias) or reviewed_name(p["away"],p["league"],alias)!=reviewed_name(s["away"],s["league"],alias):
-                    suggestions.append({"date":key[0],"league":key[1],"primary":[p["home"],p["away"]],"secondary":[s["home"],s["away"]],"status":"REVIEW_REQUIRED"})
+                    suggestions.append({"date":key[0],"league":key[1],"primary":[p["home"],p["away"]],"secondary":[s["home"],s["away"]],"status":"REVIEW_REQUIRED","basis":"unique_date_and_opponent_or_score_candidate"})
     return suggestions
 
 def secondary_rows(season, league, offline=None):
