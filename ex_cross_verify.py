@@ -96,6 +96,36 @@ def secondary_only_after_cutoff(secondary, primary_last, as_of):
         if r["date"]<as_of and (primary_last is None or r["date"]>primary_last)
     ]
 
+def reconcile_staged_with_third(staged, third, as_of, alias=None):
+    """Cross-check staged second-source rows against an independent third provider.
+
+    This is a separate verification ledger, not an automatic history merge.
+    """
+    third_index={}
+    for row in third:
+        if row["date"]>=as_of: continue
+        key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),
+             reviewed_name(row["away"],row["league"],alias))
+        third_index.setdefault(key,[]).append(row)
+    verified=[]; conflicts=[]; unresolved=[]
+    for row in staged:
+        key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),
+             reviewed_name(row["away"],row["league"],alias))
+        matches=third_index.get(key,[])
+        if len(matches)!=1:
+            unresolved.append({**row,"third_source_status":"MISSING" if not matches else "AMBIGUOUS"})
+            continue
+        other=matches[0]
+        if (row["home_goals"],row["away_goals"])==(other["home_goals"],other["away_goals"]):
+            verified.append({**row,"third_source_status":"SCORE_CORROBORATED"})
+        else:
+            conflicts.append({**row,"third_source_status":"SCORE_CONFLICT",
+                              "third_score":[other["home_goals"],other["away_goals"]]})
+    return {"status":"CONFLICT" if conflicts else ("PARTIAL" if unresolved else "CORROBORATED"),
+            "verified":verified,"conflicts":conflicts,"unresolved":unresolved,
+            "verified_count":len(verified),"conflict_count":len(conflicts),
+            "unresolved_count":len(unresolved),"ex_final_allowed":False}
+
 def verify(primary, secondary, as_of, alias=None):
     index={}
     for row in secondary:
