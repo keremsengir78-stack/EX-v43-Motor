@@ -1,6 +1,7 @@
 """ESPN scoreboard adapter. Third-party scores remain provisional until provenance audited."""
 import datetime as dt
 import json
+import hashlib
 import urllib.request
 
 ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1"}
@@ -50,4 +51,4 @@ def fetch_espn_scoreboard(league,day,as_of,timeout=15):
     req=urllib.request.Request(url,headers={"User-Agent":"EX-v43-audit/1.0"})
     with urllib.request.urlopen(req,timeout=timeout) as response:
         raw=response.read()
-    return parse_espn_scoreboard(json.loads(raw),league,as_of),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day}
+    return parse_espn_scoreboard(json.loads(raw),league,as_of),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
