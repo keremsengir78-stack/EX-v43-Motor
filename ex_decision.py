@@ -41,5 +41,6 @@ def weighted_evidence(features, as_of=None):
 
 def assess_markets(evidence_by_market, as_of=None):
     result={m:weighted_evidence(evidence_by_market.get(m,{}),as_of=as_of) for m in MARKETS}
-    return {"markets":result,"pup_allowed":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
-            "ex_final_allowed":False,"reason":"Evidence weights alone are not calibrated outcome probabilities"}
+    return {"markets":result,"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
+            "pup_allowed":False,"ex_final_allowed":False,
+            "reason":"PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"}
