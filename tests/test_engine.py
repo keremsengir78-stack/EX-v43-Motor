@@ -56,6 +56,42 @@ class TestEXMotor(unittest.TestCase):
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
 
+    def test_integrated_secondary_freshness_block_and_quarantine(self):
+        import csv, json, subprocess, sys, tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            primary=root/"primary"/"2026-27"/"en.1.json"
+            primary.parent.mkdir(parents=True)
+            primary.write_text(json.dumps({"matches":[
+                {"date":"2026-11-15","team1":"Arsenal","team2":"Chelsea","score":[1,0]}
+            ]}))
+            secondary=root/"secondary"
+            secondary.mkdir()
+            (secondary/"2627_E0.csv").write_text(
+                "Date,HomeTeam,AwayTeam,FTHG,FTAG\\n"
+                "15/11/2026,Arsenal,Chelsea,1,0\\n"
+                "19/11/2026,Leeds,Everton,2,1\\n")
+            script=Path(__file__).resolve().parents[1]/"ex_one_command.py"
+            subprocess.run([sys.executable,str(script),"--as-of","2026-11-21",
+                            "--seasons","2026-27","--leagues","en.1",
+                            "--offline",str(root/"primary"),
+                            "--secondary-offline",str(secondary),
+                            "--outdir",str(root/"out")],
+                           check=True,capture_output=True,text=True)
+            audit=json.loads((root/"out"/"audit.json").read_text())
+            staged=json.loads((root/"out"/"secondary_only_unverified.json").read_text())
+            report=json.loads((root/"out"/"full_report.json").read_text())
+            self.assertEqual(audit["independent_matches_confirmed"],1)
+            self.assertEqual(audit["secondary_newer_unverified_results"],1)
+            self.assertEqual(audit["status"],"BLOCKED")
+            self.assertIn("secondary_newer_results_not_independently_verified",
+                          [x["reason"] for x in audit["blocking_sources"]])
+            self.assertEqual(len(staged),1)
+            self.assertEqual(staged[0]["home"],"Leeds")
+            self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
+            self.assertFalse(report["ex_final_allowed"])
+
     def test_third_source_provenance_gate(self):
         for provider in ("OpenFootball","football-data.co.uk",""):
             with self.assertRaises(ValueError):
