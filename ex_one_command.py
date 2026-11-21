@@ -4,7 +4,7 @@ import argparse, json, csv, datetime as dt, hashlib
 from pathlib import Path
 from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
-from ex_cross_verify import secondary_rows, verify, norm
+from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
@@ -28,6 +28,7 @@ def main():
  ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days)
  rows=load(out/'results.csv')
  secondary_audits=[]
+ secondary_only_staged=[]
  reviewed_aliases={}
  if a.secondary_aliases:
   alias_data=json.loads(Path(a.secondary_aliases).read_text(encoding='utf-8'))
@@ -42,8 +43,12 @@ def main():
     check=verify([{'date':str(r['date']),'league':r['league'],'home':r['home'],
                    'away':r['away'],'home_goals':r['hg'],'away_goals':r['ag']} for r in subset],
                  candidates,a.as_of,reviewed_aliases)
-    secondary_only_recent=sum(1 for r in candidates if r['date']<a.as_of and (not primary_last or r['date']>primary_last))
+    staged=secondary_only_after_cutoff(candidates,primary_last,a.as_of)
+    secondary_only_staged.extend([{'season':season,**r} for r in staged])
+    secondary_only_recent=len(staged)
     secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check,'primary_last_result':primary_last,'secondary_last_result':secondary_last,'secondary_newer_than_primary':bool(secondary_last and primary_last and secondary_last>primary_last),'secondary_results_after_primary_cutoff':secondary_only_recent})
+ (out/'secondary_only_unverified.json').write_text(json.dumps(secondary_only_staged,ensure_ascii=False,indent=2),encoding='utf-8')
+ ing['secondary_only_staging_file']='secondary_only_unverified.json'
  ing['secondary_audits']=secondary_audits
  ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['status']=='VERIFIED')
  ing['independent_matches_confirmed']=sum(x['comparison']['matched']-len(x['comparison']['conflicts']) for x in secondary_audits)
