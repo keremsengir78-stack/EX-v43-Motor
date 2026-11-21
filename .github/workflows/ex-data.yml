@@ -48,7 +48,9 @@ jobs:
               r=a.get('third_source_reconciliation',{})
               print('ESPN PILOT:',r.get('status'),'provisional matches:',r.get('verified_count',0),
                     'unresolved:',r.get('unresolved_count',0),'conflicts:',r.get('conflict_count',0),
-                    'fetch errors:',len(r.get('source_errors',[])),'EX FINAL:',a.get('ex_final_allowed',False))
+                    'fetch errors:',len(r.get('source_errors',[])),
+                    'request coverage:',str(r.get('successful_requests',0))+'/'+str(r.get('requested_dates',0)),
+                    'provisional coverage:',r.get('provisional_coverage',0),'EX FINAL:',a.get('ex_final_allowed',False))
           PY
       - name: Publish ESPN pilot audit
         if: always()
