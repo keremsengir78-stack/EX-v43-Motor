@@ -70,9 +70,10 @@ def main():
    clean=validate_third_results(third,a.as_of)
    reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
    (out/'third_source_reconciliation.json').write_text(json.dumps(reconciliation,ensure_ascii=False,indent=2),encoding='utf-8')
-   ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},'provider':'ESPN','source_requests':source_metadata,'source_errors':errors,'provenance_status':'AUTOMATIC_FETCH_NOT_INDEPENDENTLY_AUDITED'}
+   ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},'provider':'ESPN','source_requests':source_metadata,'source_errors':errors,'requested_dates':len(dates),'successful_requests':len(source_metadata),'provisional_coverage':round(reconciliation['verified_count']/len(secondary_only_staged),4) if secondary_only_staged else 0,'provenance_status':'AUTOMATIC_FETCH_NOT_INDEPENDENTLY_AUDITED'}
+   (out/'espn_source_manifest.json').write_text(json.dumps({'requests':source_metadata,'errors':errors,'as_of':a.as_of,'staged_matches':len(secondary_only_staged),'ex_final_allowed':False},ensure_ascii=False,indent=2),encoding='utf-8')
   else:
-   ing['third_source_reconciliation']={'status':'NO_RESULTS','verified_count':0,'source_errors':errors,'ex_final_allowed':False}
+   ing['third_source_reconciliation']={'status':'NO_RESULTS','verified_count':0,'source_errors':errors,'requested_dates':len(dates),'successful_requests':len(source_metadata),'provisional_coverage':0,'ex_final_allowed':False}
  elif a.third_source_csv:
   provenance=validate_third_provenance(a.third_source_provider,a.third_source_reference)
   third_sha256=hashlib.sha256(Path(a.third_source_csv).read_bytes()).hexdigest()
