@@ -2,7 +2,7 @@ import unittest
 import math
 
 from ex_engine import load, audit, backtest
-from ex_live_data import run
+from ex_live_data import run, read_openfootball
 
 
 class TestEXMotor(unittest.TestCase):
@@ -25,6 +25,49 @@ class TestEXMotor(unittest.TestCase):
             for k in range(30)
         )
         self.assertAlmostEqual(total, 1.0, places=8)
+
+    def test_openfootball_score_variants(self):
+        import json
+        blob = json.dumps({"matches": [
+            {"date": "2026-09-01", "team1": "A", "team2": "B", "score": [2, 1]},
+            {"date": "2026-09-02", "team1": "C", "team2": "D", "score": {"ft": [0, 0]}},
+            {"date": "2026-09-03", "team1": "E", "team2": "F", "score": None},
+        ]}).encode()
+        rows, errors, fixtures = read_openfootball(blob, "en.1", "2026-27", {})
+        self.assertEqual((len(rows), len(errors), fixtures), (2, 0, 1))
+
+    def test_historical_archive_not_stale(self):
+        import json, tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for season, day in [("2025-26", "2026-05-24"), ("2026-27", "2026-11-19")]:
+                p = root / "mirror" / season / "en.1.json"
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_text(json.dumps({"matches": [
+                    {"date": day, "team1": "A", "team2": "B", "score": [1, 0]}
+                ]}))
+            report = run(["2025-26", "2026-27"], ["en.1"],
+                         root / "out", "2026-11-21", offline=root / "mirror")
+            self.assertFalse(report["sources"][0]["stale"])
+            self.assertFalse(report["sources"][1]["stale"])
+            self.assertEqual(report["status"], "INGESTED_SINGLE_PROVIDER_NOT_CROSS_VERIFIED")
+            self.assertFalse(report["ex_final_allowed"])
+
+    def test_stale_active_season_blocks(self):
+        import json, tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            p = root / "mirror" / "2026-27" / "en.1.json"
+            p.parent.mkdir(parents=True)
+            p.write_text(json.dumps({"matches": [
+                {"date": "2026-09-20", "team1": "A", "team2": "B", "score": [1, 0]}
+            ]}))
+            report = run(["2026-27"], ["en.1"], root / "out",
+                         "2026-11-21", offline=root / "mirror")
+            self.assertEqual(report["status"], "BLOCKED")
+            self.assertEqual(report["blocking_sources"][0]["reason"], "stale")
 
 
 if __name__ == "__main__":
