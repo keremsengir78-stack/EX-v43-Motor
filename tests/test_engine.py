@@ -3,7 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
-from ex_cross_verify import verify, secondary_rows
+from ex_cross_verify import verify, secondary_rows, norm
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
@@ -50,6 +50,18 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(report["ex_final_allowed"])
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
+
+    def test_cross_provider_reviewed_alias(self):
+        primary=[{"date":"2026-11-18","league":"en.1","home":"Manchester United",
+                  "away":"Wolverhampton Wanderers","home_goals":2,"away_goals":1}]
+        secondary=[{"date":"2026-11-18","league":"en.1","home":"Man United",
+                    "away":"Wolves","home_goals":2,"away_goals":1}]
+        self.assertEqual(verify(primary,secondary,"2026-11-21")["matched"],0)
+        mapping={"en.1":{norm("Man United"):"Manchester United",
+                         norm("Wolves"):"Wolverhampton Wanderers"}}
+        result=verify(primary,secondary,"2026-11-21",mapping)
+        self.assertEqual(result["status"],"VERIFIED")
+        self.assertEqual(result["matched"],1)
 
     def test_modules_available(self):
         self.assertTrue(callable(load))
