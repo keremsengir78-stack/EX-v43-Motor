@@ -12,6 +12,23 @@ from ex_espn_provider import parse_espn_scoreboard
 
 class TestEXMotor(unittest.TestCase):
 
+    def test_exg_evidence_timestamp_cutoff(self):
+        f={name:{"score":0.7,"verified":True,"source":"test",
+                 "timestamp":"2026-11-21T10:00:00Z"}
+           for name in ("team_strength","match_conditions","external_factors")}
+        self.assertEqual(weighted_evidence(f,as_of="2026-11-21T12:00:00Z")["status"],
+                         "EVIDENCE_COMPLETE_UNCALIBRATED")
+        f["team_strength"]["timestamp"]="2026-11-22T10:00:00Z"
+        result=weighted_evidence(f,as_of="2026-11-21T12:00:00Z")
+        self.assertIn("team_strength:future_evidence",result["issues"])
+        self.assertIsNone(result["weighted_score"])
+        f["team_strength"]["timestamp"]="2026-11-21T10:00:00"
+        self.assertIn("team_strength:invalid_timestamp",
+                      weighted_evidence(f)["issues"])
+        f["team_strength"]["timestamp"]="not-a-time"
+        self.assertIn("team_strength:invalid_timestamp",
+                      weighted_evidence(f)["issues"])
+
     def test_exg_missing_evidence_blocks(self):
         r=weighted_evidence({"team_strength":{"score":0.8,"verified":True,
                                                "source":"sample","timestamp":"2026-11-21T10:00:00Z"}})
