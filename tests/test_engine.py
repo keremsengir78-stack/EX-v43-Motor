@@ -3,6 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest
 from ex_live_data import run, read_openfootball
+from ex_cross_verify import verify, secondary_rows
 
 
 class TestEXMotor(unittest.TestCase):
@@ -68,6 +69,28 @@ class TestEXMotor(unittest.TestCase):
                          "2026-11-21", offline=root / "mirror")
             self.assertEqual(report["status"], "BLOCKED")
             self.assertEqual(report["blocking_sources"][0]["reason"], "stale")
+
+    def test_independent_source_match_and_conflict(self):
+        primary=[{"date":"2026-11-18","league":"en.1","home":"Arsenal",
+                  "away":"Chelsea","home_goals":2,"away_goals":1}]
+        other=[dict(primary[0])]
+        ok=verify(primary,other,"2026-11-21")
+        self.assertEqual(ok["matched"],1)
+        self.assertEqual(ok["conflicts"],[])
+        other[0]["away_goals"]=2
+        bad=verify(primary,other,"2026-11-21")
+        self.assertEqual(len(bad["conflicts"]),1)
+
+    def test_independent_source_offline_csv(self):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as temp:
+            p=Path(temp)/"2627_E0.csv"
+            p.write_text("Date,HomeTeam,AwayTeam,FTHG,FTAG\\n18/11/2026,Arsenal,Chelsea,2,1\\n")
+            rows,meta=secondary_rows("2026-27","en.1",temp)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["home_goals"],2)
+            self.assertEqual(meta["provider"],"football-data.co.uk")
 
 
 if __name__ == "__main__":
