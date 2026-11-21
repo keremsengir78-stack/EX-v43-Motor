@@ -8,6 +8,7 @@ from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_c
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
+from ex_espn_provider import fetch_espn_scoreboard
 
 def main():
  p=argparse.ArgumentParser()
@@ -22,6 +23,7 @@ def main():
  p.add_argument('--secondary-offline',help='Directory with Football-Data CSV files')
  p.add_argument('--no-secondary',action='store_true')
  p.add_argument('--secondary-aliases',help='Reviewed cross-provider team aliases JSON')
+ p.add_argument('--espn-third-source',action='store_true',help='Fetch ESPN completed results for dates of staged matches; provisional evidence only')
  p.add_argument('--third-source-csv',help='Independent third-provider results with date,league,home,away,home_goals,away_goals; manual or offline evidence only')
  p.add_argument('--third-source-provider',help='Name of independently identified third data provider')
  p.add_argument('--third-source-reference',help='Verifiable URL or reference for third-provider provenance')
@@ -52,7 +54,26 @@ def main():
     secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check,'primary_last_result':primary_last,'secondary_last_result':secondary_last,'secondary_newer_than_primary':bool(secondary_last and primary_last and secondary_last>primary_last),'secondary_results_after_primary_cutoff':secondary_only_recent})
  (out/'secondary_only_unverified.json').write_text(json.dumps(secondary_only_staged,ensure_ascii=False,indent=2),encoding='utf-8')
  ing['secondary_only_staging_file']='secondary_only_unverified.json'
- if a.third_source_csv:
+ if a.espn_third_source and a.third_source_csv:
+  raise ValueError('Choose ESPN or CSV third source, not both')
+ if a.espn_third_source:
+  third=[]; source_metadata=[]; errors=[]
+  dates=sorted({(r['league'],r['date']) for r in secondary_only_staged})
+  for league,day in dates:
+   try:
+    found,metadata=fetch_espn_scoreboard(league,day,a.as_of)
+    third.extend(found)
+    source_metadata.append(metadata)
+   except (OSError,ValueError,KeyError) as exc:
+    errors.append({'league':league,'date':day,'error':str(exc)})
+  if third:
+   clean=validate_third_results(third,a.as_of)
+   reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
+   (out/'third_source_reconciliation.json').write_text(json.dumps(reconciliation,ensure_ascii=False,indent=2),encoding='utf-8')
+   ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},'provider':'ESPN','source_requests':source_metadata,'source_errors':errors,'provenance_status':'AUTOMATIC_FETCH_NOT_INDEPENDENTLY_AUDITED'}
+  else:
+   ing['third_source_reconciliation']={'status':'NO_RESULTS','verified_count':0,'source_errors':errors,'ex_final_allowed':False}
+ elif a.third_source_csv:
   provenance=validate_third_provenance(a.third_source_provider,a.third_source_reference)
   third_sha256=hashlib.sha256(Path(a.third_source_csv).read_bytes()).hexdigest()
   with open(a.third_source_csv,encoding='utf-8-sig',newline='') as source:
