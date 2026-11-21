@@ -42,18 +42,20 @@ def main():
     check=verify([{'date':str(r['date']),'league':r['league'],'home':r['home'],
                    'away':r['away'],'home_goals':r['hg'],'away_goals':r['ag']} for r in subset],
                  candidates,a.as_of,reviewed_aliases)
-    secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check,'primary_last_result':primary_last,'secondary_last_result':secondary_last,'secondary_newer_than_primary':bool(secondary_last and primary_last and secondary_last>primary_last)})
+    secondary_only_recent=sum(1 for r in candidates if r['date']<a.as_of and (not primary_last or r['date']>primary_last))
+    secondary_audits.append({'season':season,'league':league,'source':meta,'comparison':check,'primary_last_result':primary_last,'secondary_last_result':secondary_last,'secondary_newer_than_primary':bool(secondary_last and primary_last and secondary_last>primary_last),'secondary_results_after_primary_cutoff':secondary_only_recent})
  ing['secondary_audits']=secondary_audits
  ing['independent_sources_confirmed']=sum(1 for x in secondary_audits if x['comparison']['status']=='VERIFIED')
  ing['independent_matches_confirmed']=sum(x['comparison']['matched']-len(x['comparison']['conflicts']) for x in secondary_audits)
  ing['independent_source_coverage']={f"{x['season']}/{x['league']}":x['comparison']['coverage'] for x in secondary_audits}
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
+ ing['secondary_newer_unverified_results']=sum(x['secondary_results_after_primary_cutoff'] for x in secondary_audits)
  ing['secondary_alias_suggestions']=sum(x['comparison']['alias_suggestion_count'] for x in secondary_audits)
  ing['secondary_review_queue']=[{'season':x['season'],'league':x['league'],'suggestions':x['comparison']['alias_suggestions']} for x in secondary_audits if x['comparison']['alias_suggestion_count']]
  (out/'alias_review.json').write_text(json.dumps(ing['secondary_review_queue'],ensure_ascii=False,indent=2),encoding='utf-8')
  ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
  ing['secondary_source_errors']=[{'season':x['season'],'league':x['league'],'error':x['source']['error']} for x in secondary_audits if x['source'].get('error')]
- ing['source_coverage_warning']='Exact team-name matching can undercount valid matches; review aliases before treating unmatched records as score conflicts.'
+ ing['source_coverage_warning']='Unmatched names require review; newer secondary-only results are NOT automatically merged or independently confirmed.'
  if ing['secondary_unverified'] or ing['secondary_source_errors'] or not secondary_audits:
   ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'incomplete_independent_verification','unmatched':ing['secondary_unverified']})
