@@ -3,7 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
-from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance
+from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance, validate_third_results
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
@@ -91,6 +91,19 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(staged[0]["home"],"Leeds")
             self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
             self.assertFalse(report["ex_final_allowed"])
+
+    def test_third_source_input_validation(self):
+        row={"date":"2026-11-19","league":"en.1","home":"Arsenal",
+             "away":"Chelsea","home_goals":1,"away_goals":0}
+        self.assertEqual(len(validate_third_results([row],"2026-11-21")),1)
+        for invalid in ([row,row],
+                        [{**row,"date":"2026-11-21"}],
+                        [{**row,"away":"Arsenal"}],
+                        [{**row,"home_goals":True}],
+                        [{**row,"away_goals":31}],
+                        [{**row,"league":""}]):
+            with self.assertRaises(ValueError):
+                validate_third_results(invalid,"2026-11-21")
 
     def test_third_source_rejects_duplicate_and_cutoff_leakage(self):
         row={"date":"2026-11-19","league":"en.1","home":"Arsenal",
