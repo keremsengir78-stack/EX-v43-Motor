@@ -86,6 +86,17 @@ def secondary_rows(season, league, offline=None):
         return [],{"url":url,"error":str(exc),"provider":"football-data.co.uk"}
 
 
+def validate_third_provenance(provider, reference):
+    """Declared provenance gate; cannot establish actual independence by itself."""
+    if not isinstance(provider,str) or not provider.strip():
+        raise ValueError("third source provider missing")
+    if provider.strip().casefold() in ("openfootball","football-data.co.uk","football data","football-data"):
+        raise ValueError("third source duplicates a known provider")
+    if not isinstance(reference,str) or not reference.startswith("https://"):
+        raise ValueError("third source HTTPS reference missing")
+    return {"provider":provider.strip(),"reference":reference,
+            "provenance_status":"DECLARED_NOT_INDEPENDENTLY_AUDITED"}
+
 def secondary_only_after_cutoff(secondary, primary_last, as_of):
     """Stage newer independent-provider scores; never merge them as verified results."""
     return [
