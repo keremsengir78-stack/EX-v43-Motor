@@ -170,11 +170,11 @@ def reconcile_staged_with_third(staged, third, as_of, alias=None):
             continue
         other=matches[0]
         if (row["home_goals"],row["away_goals"])==(other["home_goals"],other["away_goals"]):
-            verified.append({**row,"third_source_status":"SCORE_CORROBORATED"})
+            verified.append({**row,"third_source_status":"SCORE_MATCH_PROVENANCE_UNAUDITED"})
         else:
             conflicts.append({**row,"third_source_status":"SCORE_CONFLICT",
                               "third_score":[other["home_goals"],other["away_goals"]]})
-    return {"status":"CONFLICT" if conflicts else ("PARTIAL" if unresolved else "CORROBORATED"),
+    return {"status":"CONFLICT" if conflicts else ("PARTIAL" if unresolved else "PROVISIONAL_MATCH_UNAUDITED"),
             "verified":verified,"conflicts":conflicts,"unresolved":unresolved,
             "verified_count":len(verified),"conflict_count":len(conflicts),
             "unresolved_count":len(unresolved),"ex_final_allowed":False}
