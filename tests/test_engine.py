@@ -31,7 +31,8 @@ class TestEXMotor(unittest.TestCase):
 
     def test_fixture_and_odds_lock(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
-                 "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z"}
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z",
+                 "kickoff_at":"2026-11-22T18:00:00+03:00"}
         self.assertEqual(check_fixture(fixture,"2026-11-21")["status"],"VERIFIED_INPUT")
         self.assertEqual(check_fixture({},"2026-11-21")["status"],"BLOCKED")
         snap={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"test",
@@ -40,6 +41,10 @@ class TestEXMotor(unittest.TestCase):
         snap["decimal_odds"]=1.20
         self.assertEqual(check_odds(snap,"2026-11-21T11:00:00Z")["decision"],"NO_FINAL")
         self.assertEqual(check_odds(None,"2026-11-21T11:00:00Z")["status"],"BLOCKED")
+        self.assertEqual(check_odds(snap,"2026-11-21T10:00:00Z")["status"],"BLOCKED")
+        self.assertIn("odds:not_before_kickoff",check_odds(snap,"2026-11-21T10:00:00Z")["issues"])
+        self.assertEqual(check_fixture({**fixture,"kickoff_at":"2026-11-22T18:00:00"},"2026-11-21")["status"],"BLOCKED")
+        self.assertEqual(check_fixture({k:v for k,v in fixture.items() if k!="kickoff_at"},"2026-11-21")["status"],"BLOCKED")
 
     def test_auto_control_never_promotes_baseline(self):
         report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
