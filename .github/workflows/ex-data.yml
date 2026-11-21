@@ -23,6 +23,19 @@ jobs:
         shell: bash
         run: |
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir ex_run
+      - name: Premier League two-source pilot
+        if: always()
+        shell: bash
+        run: |
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --outdir ex_premier_pilot
+      - name: Publish Premier League pilot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-premier-pilot-${{ github.run_id }}
+          path: ex_premier_pilot/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Publish audit artifacts even on errors
         if: always()
         uses: actions/upload-artifact@v4
