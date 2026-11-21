@@ -12,6 +12,19 @@ from ex_espn_provider import parse_espn_scoreboard
 
 class TestEXMotor(unittest.TestCase):
 
+    def test_exg_date_only_cutoff_excludes_same_day(self):
+        features={name:{"score":0.7,"verified":True,"source":"test",
+                        "timestamp":"2026-11-20T23:59:59Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        self.assertEqual(weighted_evidence(features,as_of="2026-11-21")["status"],
+                         "EVIDENCE_COMPLETE_UNCALIBRATED")
+        features["team_strength"]["timestamp"]="2026-11-21T00:00:00Z"
+        self.assertIn("team_strength:future_evidence",
+                      weighted_evidence(features,as_of="2026-11-21")["issues"])
+        self.assertIn("team_strength:future_evidence",
+                      weighted_evidence(features,as_of="2026-11-21T00:00:00Z")["issues"])
+        self.assertFalse(assess_markets({"KG_VAR":features},as_of="2026-11-21")["ex_final_allowed"])
+
     def test_exg_evidence_timestamp_cutoff(self):
         f={name:{"score":0.7,"verified":True,"source":"test",
                  "timestamp":"2026-11-21T10:00:00Z"}
