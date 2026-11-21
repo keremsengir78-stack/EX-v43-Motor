@@ -42,7 +42,9 @@ def main():
  ing['independent_source_coverage']={f"{x['season']}/{x['league']}":x['comparison']['coverage'] for x in secondary_audits}
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
  ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
- if ing['secondary_unverified'] or not secondary_audits:
+ ing['secondary_source_errors']=[{'season':x['season'],'league':x['league'],'error':x['source']['error']} for x in secondary_audits if x['source'].get('error')]
+ ing['source_coverage_warning']='Exact team-name matching can undercount valid matches; review aliases before treating unmatched records as score conflicts.'
+ if ing['secondary_unverified'] or ing['secondary_source_errors'] or not secondary_audits:
   ing['status']='BLOCKED'
   ing['blocking_sources'].append({'reason':'incomplete_independent_verification','unmatched':ing['secondary_unverified']})
  if ing['secondary_conflicts']:
