@@ -92,6 +92,20 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
             self.assertFalse(report["ex_final_allowed"])
 
+    def test_third_source_rejects_duplicate_and_cutoff_leakage(self):
+        row={"date":"2026-11-19","league":"en.1","home":"Arsenal",
+             "away":"Chelsea","home_goals":1,"away_goals":0}
+        duplicate=reconcile_staged_with_third([row,row],[row],"2026-11-21")
+        self.assertEqual(duplicate["verified_count"],1)
+        self.assertEqual(duplicate["unresolved_count"],1)
+        self.assertEqual(duplicate["status"],"PARTIAL")
+        self.assertEqual(duplicate["unresolved"][0]["third_source_status"],"DUPLICATE_STAGED_FIXTURE")
+        future={**row,"date":"2026-11-21"}
+        cutoff=reconcile_staged_with_third([future],[future],"2026-11-21")
+        self.assertEqual(cutoff["verified_count"],0)
+        self.assertEqual(cutoff["unresolved"][0]["third_source_status"],"AT_OR_AFTER_CUTOFF")
+        self.assertFalse(cutoff["ex_final_allowed"])
+
     def test_third_source_provenance_gate(self):
         for provider in ("OpenFootball","football-data.co.uk",""):
             with self.assertRaises(ValueError):
