@@ -51,6 +51,16 @@ class TestEXMotor(unittest.TestCase):
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
 
+    def test_unverified_alias_candidate_is_not_confirmed(self):
+        primary=[{"date":"2026-11-18","league":"en.1","home":"A FC",
+                  "away":"B FC","home_goals":2,"away_goals":1}]
+        secondary=[{"date":"2026-11-18","league":"en.1","home":"Alpha",
+                    "away":"Beta","home_goals":2,"away_goals":1}]
+        result=verify(primary,secondary,"2026-11-21")
+        self.assertEqual(result["matched"],0)
+        self.assertEqual(result["alias_suggestion_count"],1)
+        self.assertEqual(result["alias_suggestions"][0]["status"],"REVIEW_REQUIRED")
+
     def test_common_club_suffixes(self):
         self.assertEqual(norm("Liverpool FC"),norm("Liverpool"))
         self.assertEqual(norm("AFC Bournemouth"),norm("Bournemouth"))
