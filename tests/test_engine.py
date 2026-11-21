@@ -74,6 +74,7 @@ class TestEXMotor(unittest.TestCase):
         result=verify(primary,secondary,"2026-11-21")
         self.assertEqual(result["matched"],0)
         self.assertEqual(result["alias_suggestion_count"],1)
+        self.assertEqual(result["unmatched_details"][0]["reason"],"not_found")
         self.assertEqual(result["alias_suggestions"][0]["status"],"REVIEW_REQUIRED")
 
     def test_common_club_suffixes(self):
