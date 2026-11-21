@@ -4,9 +4,28 @@ import math
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
 from ex_cross_verify import verify, secondary_rows
+from ex_decision import weighted_evidence, assess_markets
 
 
 class TestEXMotor(unittest.TestCase):
+
+    def test_exg_missing_evidence_blocks(self):
+        r=weighted_evidence({"team_strength":{"score":0.8,"verified":True,
+                                               "source":"sample","timestamp":"2026-11-21T10:00:00Z"}})
+        self.assertEqual(r["status"],"BLOCKED")
+        self.assertIsNone(r["weighted_score"])
+        self.assertFalse(r["ex_final_allowed"])
+
+    def test_exg_weighted_score_is_not_probability(self):
+        f={name:{"score":score,"verified":True,"source":"test",
+                 "timestamp":"2026-11-21T10:00:00Z"}
+           for name,score in [("team_strength",0.8),("match_conditions",0.6),
+                              ("external_factors",0.5)]}
+        r=weighted_evidence(f)
+        self.assertAlmostEqual(r["weighted_score"],0.68)
+        self.assertIsNone(r["calibrated_probability"])
+        self.assertFalse(r["ex_final_allowed"])
+        self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
     def test_modules_available(self):
         self.assertTrue(callable(load))
