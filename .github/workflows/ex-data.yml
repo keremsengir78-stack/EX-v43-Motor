@@ -27,7 +27,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --outdir ex_premier_pilot
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --outdir ex_premier_pilot
       - name: Print Premier League verification metrics
         if: always()
         shell: bash
