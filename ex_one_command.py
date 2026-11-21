@@ -6,6 +6,7 @@ from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
 from ex_cross_verify import secondary_rows, verify
 from ex_decision import assess_markets
+from ex_fixture_odds import check_fixture, check_odds
 
 def main():
  p=argparse.ArgumentParser()
@@ -20,6 +21,7 @@ def main():
  p.add_argument('--secondary-offline',help='Directory with Football-Data CSV files')
  p.add_argument('--no-secondary',action='store_true')
  p.add_argument('--evidence',help='Verified market evidence JSON; remains uncalibrated')
+ p.add_argument('--odds',help='JSON list of timestamped odds snapshots matching fixtures by order')
  a=p.parse_args(); out=Path(a.outdir);out.mkdir(parents=True,exist_ok=True)
  ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days)
  rows=load(out/'results.csv')
@@ -55,6 +57,16 @@ def main():
   for fixture in fixtures:
    if fixture['date'] < a.as_of: raise ValueError('Historical fixture supplied: cannot present retrospective prediction as pre-match')
   result['matches']=audit(rows,fixtures)
+  odds=[]
+  if a.odds:
+   odds=json.loads(Path(a.odds).read_text(encoding='utf-8'))
+   if not isinstance(odds,list) or len(odds)!=len(fixtures):
+    raise ValueError('Odds snapshots must be a list matching fixture count')
+  for i,match in enumerate(result['matches']):
+   match['fixture_lock']=check_fixture(fixtures[i],a.as_of)
+   match['odds_lock']=check_odds(odds[i] if odds else None,a.as_of+'T23:59:59+00:00')
+   match['decision']='NO_FINAL'
+
   if ing['status']=='BLOCKED':result['reason']='Data integrity/freshness gate blocked; '+result['reason']
  (out/'full_report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str),encoding='utf-8')
  print(json.dumps({'status':result['status'],'rows':len(rows),'fixtures':len(result['matches']),'backtest_n':result['backtest'].get('n',0),'report':str(out/'full_report.json')},ensure_ascii=False))
