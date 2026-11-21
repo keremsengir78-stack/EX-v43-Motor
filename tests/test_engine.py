@@ -62,6 +62,8 @@ class TestEXMotor(unittest.TestCase):
         result=verify(primary,secondary,"2026-11-21",mapping)
         self.assertEqual(result["status"],"VERIFIED")
         self.assertEqual(result["matched"],1)
+        reverse={"en.1":{norm("Manchester United"):"Man United",norm("Wolverhampton Wanderers"):"Wolves"}}
+        self.assertEqual(verify(primary,secondary,"2026-11-21",reverse)["status"],"VERIFIED")
 
     def test_modules_available(self):
         self.assertTrue(callable(load))
