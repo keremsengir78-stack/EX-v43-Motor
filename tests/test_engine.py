@@ -5,6 +5,7 @@ from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
 from ex_cross_verify import verify, secondary_rows
 from ex_decision import weighted_evidence, assess_markets
+from ex_fixture_odds import check_fixture, check_odds
 
 
 class TestEXMotor(unittest.TestCase):
@@ -26,6 +27,18 @@ class TestEXMotor(unittest.TestCase):
         self.assertIsNone(r["calibrated_probability"])
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
+
+    def test_fixture_and_odds_lock(self):
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z"}
+        self.assertEqual(check_fixture(fixture,"2026-11-21")["status"],"VERIFIED_INPUT")
+        self.assertEqual(check_fixture({},"2026-11-21")["status"],"BLOCKED")
+        snap={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"test",
+              "source":"test","observed_at":"2026-11-21T10:00:00Z"}
+        self.assertEqual(check_odds(snap,"2026-11-21T11:00:00Z")["decision"],"PASS_ODDS_1_19_OR_LOWER")
+        snap["decimal_odds"]=1.20
+        self.assertEqual(check_odds(snap,"2026-11-21T11:00:00Z")["decision"],"NO_FINAL")
+        self.assertEqual(check_odds(None,"2026-11-21T11:00:00Z")["status"],"BLOCKED")
 
     def test_modules_available(self):
         self.assertTrue(callable(load))
