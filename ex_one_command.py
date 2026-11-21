@@ -54,6 +54,7 @@ def main():
  ing['secondary_only_staging_file']='secondary_only_unverified.json'
  if a.third_source_csv:
   provenance=validate_third_provenance(a.third_source_provider,a.third_source_reference)
+  third_sha256=hashlib.sha256(Path(a.third_source_csv).read_bytes()).hexdigest()
   with open(a.third_source_csv,encoding='utf-8-sig',newline='') as source:
    third=list(csv.DictReader(source))
   required={'date','league','home','away','home_goals','away_goals'}
@@ -69,7 +70,7 @@ def main():
     raise ValueError('Invalid third-source result')
    clean.append({**r,'home_goals':hg,'away_goals':ag})
   reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
-  ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},**provenance}
+  ing['third_source_reconciliation']={**{k:v for k,v in reconciliation.items() if k not in ('verified','unresolved','conflicts')},**provenance,'sha256':third_sha256}
   (out/'third_source_reconciliation.json').write_text(json.dumps(reconciliation,ensure_ascii=False,indent=2),encoding='utf-8')
  else:
   ing['third_source_reconciliation']={'status':'NOT_PROVIDED','verified_count':0,'ex_final_allowed':False}
