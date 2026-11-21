@@ -119,9 +119,17 @@ def reconcile_staged_with_third(staged, third, as_of, alias=None):
              reviewed_name(row["away"],row["league"],alias))
         third_index.setdefault(key,[]).append(row)
     verified=[]; conflicts=[]; unresolved=[]
+    seen_staged=set()
     for row in staged:
         key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),
              reviewed_name(row["away"],row["league"],alias))
+        if row["date"]>=as_of:
+            unresolved.append({**row,"third_source_status":"AT_OR_AFTER_CUTOFF"})
+            continue
+        if key in seen_staged:
+            unresolved.append({**row,"third_source_status":"DUPLICATE_STAGED_FIXTURE"})
+            continue
+        seen_staged.add(key)
         matches=third_index.get(key,[])
         if len(matches)!=1:
             unresolved.append({**row,"third_source_status":"MISSING" if not matches else "AMBIGUOUS"})
