@@ -1,23 +1,30 @@
-# EX v4.3 Integrated Research Motor v1.1
+# EX v4.3 Research Engine: verification status
 
-A one-command local workflow, integrating prior ingestion and goal-model modules. Requires Python 3.10+; standard library only.
+## Implemented in ex-v43-development
+
+- OpenFootball results with score format validation and dated cutoff.
+- Historical seasons treated as archives; the newest requested season retains a strict freshness check.
+- Football-Data independent CSV score comparison (league/date/team matching, coverage and conflicts).
+- Independent Poisson *baselines* for 2.5 UST, KG VAR, MS1, MSX, MS2.
+- Regression tests for parsing, freshness, cross-source conflicts and probability normalization.
+- GitHub Actions audit artifacts and BLOCKED status on stale data.
 
 ## Run
 
 ```bash
-python ex_one_command.py --as-of 2026-11-21 --seasons 2025-26 2026-27 --leagues en.1 de.1 --outdir output
+python -m unittest discover -s tests -v
+python ex_one_command.py --as-of 2026-11-21 --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir ex_run
 ```
 
-To use a downloaded OpenFootball mirror, add `--offline /path/to/mirror` with files like `2026-27/en.1.json`. To score upcoming matches, add `--fixtures fixtures.csv` with columns `date,league,home,away,season_start,previous_start`. Run `python -m unittest discover -v` for checks.
+The second source is football-data.co.uk. Team aliases must be reviewed; unmatched records are **not** independently verified. Its results are compared, not silently substituted into the OpenFootball dataset. If a provider is unavailable, coverage is not assumed.
 
-## Integrity rules
+## Outstanding gates (EX FINAL not authorized)
 
-* A score dated on or after `--as-of` is excluded. Match dates in `--fixtures` before `--as-of` are rejected.
-* No EX FINAL is authorized. Current baseline Poisson probabilities are **not** EX-G. Independent confirmation, market odds, context features, 50/30/20 calibrated model and trustworthy pre-match snapshots are missing.
-* The source freshness gate is conservative: a season ending months ago will be marked stale. This is an intentionally safe limitation of the inherited ingestion component; distinguish historical archives from current season in a future revision.
-* Alias resolution is explicit and league-scoped, not risky fuzzy auto-merge.
-* A provider's newest published commit does not prove all individual match records are up-to-date.
+1. OpenFootball active-season data may be stale; secondary verification alone does not refresh primary results.
+2. Current official fixture and lineup-independent context, opponent-strength and external-factor feature inputs need timestamped sources.
+3. The user-approved 50% strength / 30% match conditions / 20% external EX-G model requires specified, reproducible feature definitions, validation and calibration.
+4. Odds snapshots, source-specific coverage, market lock, Tur-2 independent verification and Auto-Control are incomplete.
+5. PUP is deferred until all three market families have been independently assessed.
+6. The historical venue-weighted baseline requires sufficient data for each bucket; missing samples must not be presented as complete.
 
-## Data rights
-
-OpenFootball football.json is CC0. Source: https://github.com/openfootball/football.json . It warns that upstream Football.TXT sources do not necessarily receive daily updates.
+A successful CI run only proves that tests and configured data checks passed. It is not evidence of EX FINAL readiness. No EX FINAL picks should be issued by this code.
