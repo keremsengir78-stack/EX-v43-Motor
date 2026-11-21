@@ -7,7 +7,8 @@
 - Football-Data independent CSV score comparison (league/date/team matching, coverage and conflicts).
 - Independent Poisson *baselines* for 2.5 UST, KG VAR, MS1, MSX, MS2.
 - Explicit 50/30/20 evidence scoring module (ex_decision.py); blocks missing/unverified inputs and does **not** mislabel scores as calibrated probabilities.
-- Regression tests for parsing, freshness, cross-source conflicts and probability normalization.
+- Regression tests for parsing, freshness, cross-source conflicts, probability normalization, fixture and odds gates.
+- Strict fixture/odds input checks with the user-approved 1.19-or-lower PASS threshold; no invented snapshots.
 - GitHub Actions audit artifacts and BLOCKED status on stale data.
 
 ## Run
@@ -20,6 +21,8 @@ python ex_one_command.py --as-of 2026-11-21 --seasons 2025-26 2026-27 --leagues 
 The second source is football-data.co.uk. Team aliases must be reviewed; unmatched records are **not** independently verified. Its results are compared, not silently substituted into the OpenFootball dataset. If a provider is unavailable, coverage is not assumed.
 
 ## Evidence input
+
+Use `--odds odds.json` with a JSON array of odds snapshots in the same order as `--fixtures`. Each entry requires `decimal_odds`, `market`, `bookmaker`, `observed_at` (timezone-aware), and `source`. Fixture CSV requires `fixture_source` and `fixture_checked_at` for verification. These are validation inputs, not an automatic live odds/official fixture provider.
 
 Use `--evidence evidence.json` to pass a JSON mapping each market (`2.5_UST`, `KG_VAR`, `MS1`, `MS2`) to `team_strength`, `match_conditions`, `external_factors`. Each input requires `score` in [0,1], `verified: true`, `source` and `timestamp`. This computes an auditable weighted score only, not a calibrated EX-G probability. No synthetic scores are inserted.
 
