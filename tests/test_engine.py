@@ -135,6 +135,8 @@ class TestEXMotor(unittest.TestCase):
         third={**base,"home":"Manchester City FC","away":"Wolverhampton Wanderers FC"}
         ok=reconcile_staged_with_third([base],[third],"2026-11-21",alias)
         self.assertEqual(ok["verified_count"],1)
+        self.assertEqual(ok["status"],"PROVISIONAL_MATCH_UNAUDITED")
+        self.assertEqual(ok["verified"][0]["third_source_status"],"SCORE_MATCH_PROVENANCE_UNAUDITED")
         self.assertFalse(ok["ex_final_allowed"])
         third["away_goals"]=0
         bad=reconcile_staged_with_third([base],[third],"2026-11-21",alias)
