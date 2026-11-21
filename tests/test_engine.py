@@ -7,6 +7,7 @@ from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_c
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
+from ex_espn_provider import parse_espn_scoreboard
 
 
 class TestEXMotor(unittest.TestCase):
@@ -91,6 +92,24 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(staged[0]["home"],"Leeds")
             self.assertEqual(staged[0]["verification_status"],"SECONDARY_ONLY_UNVERIFIED")
             self.assertFalse(report["ex_final_allowed"])
+
+    def test_espn_third_provider_completed_scores_only(self):
+        def event(day,completed=True):
+            return {"date":day+"T18:00:00Z",
+                    "status":{"type":{"completed":completed}},
+                    "competitions":[{"competitors":[
+                        {"homeAway":"home","team":{"displayName":"Arsenal"},"score":"2"},
+                        {"homeAway":"away","team":{"displayName":"Chelsea"},"score":"1"}]}]}
+        data={"events":[event("2026-11-19"),event("2026-11-20",False),
+                        event("2026-11-21")]}
+        rows=parse_espn_scoreboard(data,"en.1","2026-11-21")
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0]["home_goals"],2)
+        self.assertEqual(rows[0]["away_goals"],1)
+        with self.assertRaises(ValueError):
+            parse_espn_scoreboard(data,"tr.1","2026-11-21")
+        with self.assertRaises(ValueError):
+            parse_espn_scoreboard({"events":None},"en.1","2026-11-21")
 
     def test_third_source_input_validation(self):
         row={"date":"2026-11-19","league":"en.1","home":"Arsenal",
