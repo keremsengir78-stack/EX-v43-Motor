@@ -80,7 +80,8 @@ def main():
     raise ValueError('Odds snapshots must be a list matching fixture count')
   for i,match in enumerate(result['matches']):
    match['fixture_lock']=check_fixture(fixtures[i],a.as_of)
-   match['odds_lock']=check_odds(odds[i] if odds else None,a.as_of+'T23:59:59+00:00')
+   kickoff=fixtures[i].get('kickoff_at','')
+   match['odds_lock']=check_odds(odds[i] if odds else None,kickoff) if kickoff else {'status':'BLOCKED','issues':['kickoff_at:missing'],'decision':'NO_FINAL','ex_final_allowed':False}
    match['decision']='NO_FINAL'
    match['auto_control']=auto_control(match,ing)
 
