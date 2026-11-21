@@ -46,6 +46,9 @@ def main():
  ing['independent_matches_confirmed']=sum(x['comparison']['matched']-len(x['comparison']['conflicts']) for x in secondary_audits)
  ing['independent_source_coverage']={f"{x['season']}/{x['league']}":x['comparison']['coverage'] for x in secondary_audits}
  ing['secondary_conflicts']=sum(len(x['comparison']['conflicts']) for x in secondary_audits)
+ ing['secondary_alias_suggestions']=sum(x['comparison']['alias_suggestion_count'] for x in secondary_audits)
+ ing['secondary_review_queue']=[{'season':x['season'],'league':x['league'],'suggestions':x['comparison']['alias_suggestions']} for x in secondary_audits if x['comparison']['alias_suggestion_count']]
+ (out/'alias_review.json').write_text(json.dumps(ing['secondary_review_queue'],ensure_ascii=False,indent=2),encoding='utf-8')
  ing['secondary_unverified']=sum(x['comparison']['unmatched'] for x in secondary_audits)
  ing['secondary_source_errors']=[{'season':x['season'],'league':x['league'],'error':x['source']['error']} for x in secondary_audits if x['source'].get('error')]
  ing['source_coverage_warning']='Exact team-name matching can undercount valid matches; review aliases before treating unmatched records as score conflicts.'
