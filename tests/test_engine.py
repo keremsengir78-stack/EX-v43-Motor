@@ -13,6 +13,22 @@ from ex_espn_provider import parse_espn_scoreboard
 
 class TestEXMotor(unittest.TestCase):
 
+    def test_exg_invalid_analysis_cutoff_fails_closed(self):
+        features={name:{'score':0.8,'verified':True,'source':'audit',
+                        'timestamp':'2026-11-20T10:00:00Z'}
+                  for name in ('team_strength','match_conditions','external_factors')}
+        for cutoff in ('not-a-date','2026-13-22','2026-11-22T12:00:00',
+                       '', 123, [], '2026-11-22T25:00:00Z'):
+            result=weighted_evidence(features,as_of=cutoff)
+            self.assertEqual(result['status'],'BLOCKED')
+            self.assertIn('invalid_as_of',result['issues'])
+            self.assertIsNone(result['weighted_score'])
+            self.assertFalse(result['ex_final_allowed'])
+        result=assess_markets({'KG_VAR':features},as_of='bad-date')
+        self.assertFalse(result['pup_allowed'])
+        self.assertFalse(result['ex_final_allowed'])
+        self.assertEqual(result['markets']['KG_VAR']['status'],'BLOCKED')
+
     def test_integrated_evidence_cutoff_prevents_same_day_leakage(self):
         cutoff=evidence_cutoff('2026-11-22')
         self.assertEqual(cutoff,'2026-11-22')
