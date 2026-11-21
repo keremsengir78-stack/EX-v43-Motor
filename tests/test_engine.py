@@ -5,12 +5,24 @@ from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
 from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance, validate_third_results
 from ex_decision import weighted_evidence, assess_markets
+from ex_one_command import evidence_cutoff
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
 from ex_espn_provider import parse_espn_scoreboard
 
 
 class TestEXMotor(unittest.TestCase):
+
+    def test_integrated_evidence_cutoff_prevents_same_day_leakage(self):
+        cutoff=evidence_cutoff('2026-11-22')
+        self.assertEqual(cutoff,'2026-11-22')
+        features={key:{'score':0.8,'verified':True,'source':'test',
+                       'timestamp':'2026-11-22T01:00:00Z'}
+                  for key in ('team_strength','match_conditions','external_factors')}
+        self.assertIn('team_strength:future_evidence',weighted_evidence(features,as_of=cutoff)['issues'])
+        with self.assertRaises(ValueError):
+            evidence_cutoff('2026-11-22T12:00:00Z')
+
 
     def test_malformed_market_evidence_fails_closed(self):
         for payload in (None, [], "invalid", 17):
