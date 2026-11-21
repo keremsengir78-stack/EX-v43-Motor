@@ -51,6 +51,12 @@ class TestEXMotor(unittest.TestCase):
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
 
+    def test_common_club_suffixes(self):
+        self.assertEqual(norm("Liverpool FC"),norm("Liverpool"))
+        self.assertEqual(norm("AFC Bournemouth"),norm("Bournemouth"))
+        self.assertEqual(norm("Chelsea F.C."),norm("Chelsea F.C."))
+        self.assertEqual(norm("Manchester City FC"),norm("Manchester City"))
+
     def test_cross_provider_reviewed_alias(self):
         primary=[{"date":"2026-11-18","league":"en.1","home":"Manchester United",
                   "away":"Wolverhampton Wanderers","home_goals":2,"away_goals":1}]
