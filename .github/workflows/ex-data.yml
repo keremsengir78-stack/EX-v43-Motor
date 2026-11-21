@@ -28,6 +28,25 @@ jobs:
         shell: bash
         run: |
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --outdir ex_premier_pilot
+      - name: Print Premier League verification metrics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('ex_premier_pilot/audit.json')
+          if not p.exists():
+              print('PILOT UNAVAILABLE: no audit artifact')
+          else:
+              a=json.loads(p.read_text())
+              print('PILOT:',a['status'],'matched:',a.get('independent_matches_confirmed',0),
+                    'unmatched:',a.get('secondary_unverified',0),
+                    'alias review:',a.get('secondary_alias_suggestions',0),
+                    'secondary-only newer:',a.get('secondary_newer_unverified_results',0))
+              for x in a.get('secondary_audits',[]):
+                  print(x['season'],x['league'],'coverage:',x['comparison']['coverage'],
+                        'primary last:',x['primary_last_result'],'secondary last:',x['secondary_last_result'])
+          PY
       - name: Publish Premier League pilot
         if: always()
         uses: actions/upload-artifact@v4
