@@ -85,6 +85,17 @@ def secondary_rows(season, league, offline=None):
     except (OSError,ValueError,UnicodeError) as exc:
         return [],{"url":url,"error":str(exc),"provider":"football-data.co.uk"}
 
+
+def secondary_only_after_cutoff(secondary, primary_last, as_of):
+    """Stage newer independent-provider scores; never merge them as verified results."""
+    return [
+        {"date":r["date"],"league":r["league"],"home":r["home"],
+         "away":r["away"],"home_goals":r["home_goals"],"away_goals":r["away_goals"],
+         "verification_status":"SECONDARY_ONLY_UNVERIFIED"}
+        for r in secondary
+        if r["date"]<as_of and (primary_last is None or r["date"]>primary_last)
+    ]
+
 def verify(primary, secondary, as_of, alias=None):
     index={}
     for row in secondary:
