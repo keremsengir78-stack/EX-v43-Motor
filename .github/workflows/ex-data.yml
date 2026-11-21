@@ -1,8 +1,10 @@
 name: EX v4.3 Data Ingestion
 on:
+  pull_request:
+    branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: '17 7 * * *'
+    - cron: '7,37 * * * *'
 permissions:
   contents: read
 jobs:
@@ -11,6 +13,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ex-v43-development
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -20,11 +24,71 @@ jobs:
         id: ingest
         shell: bash
         run: |
-          set +e
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir ex_run
-          rc=$?
-          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
-          exit 0
+      - name: Premier League two-source pilot
+        if: always()
+        shell: bash
+        run: |
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --outdir ex_premier_pilot
+      - name: ESPN third-source live pilot
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --espn-third-source --outdir ex_espn_pilot
+      - name: Print ESPN corroboration metrics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('ex_espn_pilot/audit.json')
+          if not p.exists():
+              print('ESPN PILOT UNAVAILABLE: EX FINAL disabled')
+          else:
+              a=json.loads(p.read_text())
+              r=a.get('third_source_reconciliation',{})
+              print('ESPN PILOT:',r.get('status'),'provisional matches:',r.get('verified_count',0),
+                    'unresolved:',r.get('unresolved_count',0),'conflicts:',r.get('conflict_count',0),
+                    'fetch errors:',len(r.get('source_errors',[])),
+                    'request coverage:',str(r.get('successful_requests',0))+'/'+str(r.get('requested_dates',0)),
+                    'provisional coverage:',r.get('provisional_coverage',0),'EX FINAL:',a.get('ex_final_allowed',False))
+          PY
+      - name: Publish ESPN pilot audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-espn-pilot-${{ github.run_id }}
+          path: ex_espn_pilot/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Print Premier League verification metrics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('ex_premier_pilot/audit.json')
+          if not p.exists():
+              print('PILOT UNAVAILABLE: no audit artifact')
+          else:
+              a=json.loads(p.read_text())
+              print('PILOT:',a['status'],'matched:',a.get('independent_matches_confirmed',0),
+                    'unmatched:',a.get('secondary_unverified',0),
+                    'alias review:',a.get('secondary_alias_suggestions',0),
+                    'secondary-only newer:',a.get('secondary_newer_unverified_results',0))
+              for x in a.get('secondary_audits',[]):
+                  print(x['season'],x['league'],'coverage:',x['comparison']['coverage'],
+                        'primary last:',x['primary_last_result'],'secondary last:',x['secondary_last_result'])
+          PY
+      - name: Publish Premier League pilot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-premier-pilot-${{ github.run_id }}
+          path: ex_premier_pilot/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Publish audit artifacts even on errors
         if: always()
         uses: actions/upload-artifact@v4
@@ -33,15 +97,21 @@ jobs:
           path: ex_run/
           if-no-files-found: warn
           retention-days: 30
-      - name: Fail if ingestion failed or audit blocked
+      - name: Report data readiness (stale feed is not a code-test failure)
+        if: always()
         shell: bash
         run: |
           python - <<'PY'
           import json, pathlib, sys
           p=pathlib.Path('ex_run/audit.json')
-          if not p.exists(): sys.exit('FAIL: audit missing; fetch or engine failed')
+          if not p.exists():
+            print('DATA REPORT UNAVAILABLE: ingestion failed; EX FINAL disabled')
+            sys.exit(0)
           a=json.loads(p.read_text())
           print('Ingestion:',a['status'],'results:',a['total_results'])
-          if a['status']=='BLOCKED' or a['total_results']==0:sys.exit('FAIL: data missing/stale/conflicting')
-          print('PASS: single-provider ingestion only; EX FINAL remains disabled')
+          if a['status']=='BLOCKED' or a['total_results']==0:
+            print('DATA BLOCKED: live inputs require repair; EX FINAL disabled')
+          else:
+            print('DATA INGESTED: EX FINAL remains disabled pending validation')
+          print('Independent verified sources:',a.get('independent_sources_confirmed',0))
           PY
