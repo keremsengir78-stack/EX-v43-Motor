@@ -86,7 +86,7 @@ def verify(primary, secondary, as_of, alias=None):
         index.setdefault(key,[]).append(row)
     matched=0;conflicts=[];unmatched=0;ambiguous=0
     for row in primary:
-        key=(row["date"],row["league"],norm(row["home"]),norm(row["away"]))
+        key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),reviewed_name(row["away"],row["league"],alias))
         candidates=index.get(key,[])
         if len(candidates)!=1:
             unmatched+=1
