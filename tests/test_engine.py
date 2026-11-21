@@ -3,7 +3,7 @@ import math
 
 from ex_engine import load, audit, backtest, distribution
 from ex_live_data import run, read_openfootball
-from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff
+from ex_cross_verify import verify, secondary_rows, norm, secondary_only_after_cutoff, reconcile_staged_with_third
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control, snapshot
@@ -55,6 +55,20 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(report["ex_final_allowed"])
         self.assertIn("exg:uncalibrated",report["issues"])
         self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
+
+    def test_third_source_reconciliation_is_not_final(self):
+        base={"date":"2026-11-08","league":"en.1","home":"Man City",
+              "away":"Wolves","home_goals":2,"away_goals":1}
+        alias={"en.1":{norm("Man City"):"Manchester City",norm("Wolves"):"Wolverhampton Wanderers"}}
+        third={**base,"home":"Manchester City FC","away":"Wolverhampton Wanderers FC"}
+        ok=reconcile_staged_with_third([base],[third],"2026-11-21",alias)
+        self.assertEqual(ok["verified_count"],1)
+        self.assertFalse(ok["ex_final_allowed"])
+        third["away_goals"]=0
+        bad=reconcile_staged_with_third([base],[third],"2026-11-21",alias)
+        self.assertEqual(bad["conflict_count"],1)
+        self.assertEqual(bad["status"],"CONFLICT")
+        self.assertEqual(reconcile_staged_with_third([base],[],"2026-11-21",alias)["unresolved_count"],1)
 
     def test_secondary_only_staging_excludes_verified_archive_and_future(self):
         rows=[
