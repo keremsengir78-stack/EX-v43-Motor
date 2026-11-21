@@ -6,6 +6,7 @@ from ex_live_data import run, read_openfootball
 from ex_cross_verify import verify, secondary_rows
 from ex_decision import weighted_evidence, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
+from ex_auto_control import auto_control, snapshot
 
 
 class TestEXMotor(unittest.TestCase):
@@ -39,6 +40,16 @@ class TestEXMotor(unittest.TestCase):
         snap["decimal_odds"]=1.20
         self.assertEqual(check_odds(snap,"2026-11-21T11:00:00Z")["decision"],"NO_FINAL")
         self.assertEqual(check_odds(None,"2026-11-21T11:00:00Z")["status"],"BLOCKED")
+
+    def test_auto_control_never_promotes_baseline(self):
+        report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
+                             "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,
+                                                     "MS1":45,"MSX":25,"MS2":30}},
+                            {"status":"INGESTED_SINGLE_PROVIDER_NOT_CROSS_VERIFIED",
+                             "independent_sources_confirmed":1})
+        self.assertFalse(report["ex_final_allowed"])
+        self.assertIn("exg:uncalibrated",report["issues"])
+        self.assertEqual(snapshot({"b":2,"a":1}),snapshot({"a":1,"b":2}))
 
     def test_modules_available(self):
         self.assertTrue(callable(load))
@@ -125,7 +136,7 @@ class TestEXMotor(unittest.TestCase):
         from pathlib import Path
         with tempfile.TemporaryDirectory() as temp:
             p=Path(temp)/"2627_E0.csv"
-            p.write_text("Date,HomeTeam,AwayTeam,FTHG,FTAG\\n18/11/2026,Arsenal,Chelsea,2,1\\n")
+            p.write_text("Date,HomeTeam,AwayTeam,FTHG,FTAG\n18/11/2026,Arsenal,Chelsea,2,1\n")
             rows,meta=secondary_rows("2026-27","en.1",temp)
             self.assertEqual(len(rows),1)
             self.assertEqual(rows[0]["home_goals"],2)
