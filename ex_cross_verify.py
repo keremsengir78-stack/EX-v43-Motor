@@ -5,6 +5,7 @@ import io
 import json
 import re
 import urllib.request
+import unicodedata
 from pathlib import Path
 
 DIVISIONS = {"en.1":"E0","en.2":"E1","de.1":"D1","de.2":"D2",
@@ -12,7 +13,33 @@ DIVISIONS = {"en.1":"E0","en.2":"E1","de.1":"D1","de.2":"D2",
              "pt.1":"P1","be.1":"B1"}
 
 def norm(name):
-    return re.sub(r"[^a-z0-9]+", "", name.casefold())
+    value=unicodedata.normalize("NFKD",name.casefold())
+    value="".join(c for c in value if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+","",value)
+
+def reviewed_name(name, league, alias=None):
+    key=norm(name)
+    mapping=(alias or {}).get(league,{})
+    return norm(mapping.get(key,name))
+
+def unresolved_pairs(primary, secondary, as_of, alias=None):
+    """Candidate name pairs by unique date + opponent, never auto-approved."""
+    primary_by_date={}
+    secondary_by_date={}
+    for source, target in ((primary,primary_by_date),(secondary,secondary_by_date)):
+        for r in source:
+            if r["date"]>=as_of:continue
+            target.setdefault((r["date"],r["league"]),[]).append(r)
+    suggestions=[]
+    for key,prs in primary_by_date.items():
+        srs=secondary_by_date.get(key,[])
+        for p in prs:
+            matches=[s for s in srs if reviewed_name(p["home"],p["league"],alias)==reviewed_name(s["home"],s["league"],alias) or reviewed_name(p["away"],p["league"],alias)==reviewed_name(s["away"],s["league"],alias)]
+            if len(matches)==1:
+                s=matches[0]
+                if reviewed_name(p["home"],p["league"],alias)!=reviewed_name(s["home"],s["league"],alias) or reviewed_name(p["away"],p["league"],alias)!=reviewed_name(s["away"],s["league"],alias):
+                    suggestions.append({"date":key[0],"league":key[1],"primary":[p["home"],p["away"]],"secondary":[s["home"],s["away"]],"status":"REVIEW_REQUIRED"})
+    return suggestions
 
 def secondary_rows(season, league, offline=None):
     if league not in DIVISIONS:
@@ -51,11 +78,11 @@ def secondary_rows(season, league, offline=None):
     except (OSError,ValueError,UnicodeError) as exc:
         return [],{"url":url,"error":str(exc),"provider":"football-data.co.uk"}
 
-def verify(primary, secondary, as_of):
+def verify(primary, secondary, as_of, alias=None):
     index={}
     for row in secondary:
         if row["date"]>=as_of:continue
-        key=(row["date"],row["league"],norm(row["home"]),norm(row["away"]))
+        key=(row["date"],row["league"],reviewed_name(row["home"],row["league"],alias),reviewed_name(row["away"],row["league"],alias))
         index.setdefault(key,[]).append(row)
     matched=0;conflicts=[];unmatched=0;ambiguous=0
     for row in primary:
@@ -72,6 +99,7 @@ def verify(primary, secondary, as_of):
                               "home":row["home"],"away":row["away"],
                               "primary":[row["home_goals"],row["away_goals"]],
                               "secondary":[other["home_goals"],other["away_goals"]]})
-    return {"matched":matched,"unmatched":unmatched,"ambiguous":ambiguous,"conflicts":conflicts,
+    suggestions=unresolved_pairs(primary,secondary,as_of,alias)
+    return {"alias_suggestions":suggestions[:100],"alias_suggestion_count":len(suggestions),"matched":matched,"unmatched":unmatched,"ambiguous":ambiguous,"conflicts":conflicts,
             "coverage":round(matched/len(primary),4) if primary else 0,
             "status":"CONFLICT" if conflicts else ("PARTIAL_VERIFICATION" if unmatched else "VERIFIED") if primary else "NO_PRIMARY_DATA"}
