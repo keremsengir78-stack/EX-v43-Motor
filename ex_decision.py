@@ -16,13 +16,21 @@ def weighted_evidence(features, as_of=None):
         features={}
     issues=[];contributions={}
     cutoff=None
-    if as_of:
-        if isinstance(as_of,str) and len(as_of)==10:
-            cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
-        else:
-            cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
-            if cutoff.tzinfo is None:
-                raise ValueError('as_of must be timezone-aware')
+    if as_of is not None:
+        try:
+            if not isinstance(as_of,str) or not as_of.strip():
+                raise ValueError("as_of must be a nonempty ISO date or datetime")
+            if len(as_of)==10:
+                cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
+            else:
+                cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
+                if cutoff.tzinfo is None:
+                    raise ValueError('as_of must be timezone-aware')
+        except (ValueError,TypeError,OverflowError):
+            # Never accept evidence if the analysis cutoff cannot be established.
+            return {"status":"BLOCKED","weighted_score":None,"contributions":{},
+                    "issues":["invalid_as_of"],"weights":WEIGHTS,
+                    "calibrated_probability":None,"ex_final_allowed":False}
     # The cutoff is exclusive: a YYYY-MM-DD run cannot use evidence
     # from any time on that date or later.
     for key,weight in WEIGHTS.items():
