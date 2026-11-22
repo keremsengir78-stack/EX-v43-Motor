@@ -1,0 +1,13 @@
+{
+  "ingest_step": "success",
+  "review_step": "failure",
+  "source_audit_exists": true,
+  "summary_exists": false,
+  "germany_csv_exists": false,
+  "ex_final_allowed": false,
+  "commit": "a51e15698a614d3357497d48339eb82799c07c10",
+  "run_id": "45029444988",
+  "audit_status": "BLOCKED",
+  "source_errors": [],
+  "evidence_published": false
+}\n
