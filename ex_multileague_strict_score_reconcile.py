@@ -43,6 +43,9 @@ CLUB_IDENTITIES = {
         "rayovallecano": "vallecano",
         "espanyol": "espanol",
         "realsociedad": "sociedad",
+        "realracingclubdesantander": "racing",
+        "rcdeportivolacoruna": "deportivo",
+        "malaga": "malaga",
     },
     "it.1": {
         "internazionalemilano": "inter",
