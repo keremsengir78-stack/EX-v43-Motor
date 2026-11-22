@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 
-FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", "source_reference", "source_presence_status", "secondary_date_fixture_count", "secondary_shared_team_count", "secondary_home_team_count", "secondary_away_team_count", "secondary_reversed_fixture_count", "secondary_adjacent_day_exact_count")
+FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", "source_reference", "source_presence_status", "secondary_date_fixture_count", "secondary_shared_team_count", "secondary_home_team_count", "secondary_away_team_count", "secondary_reversed_fixture_count", "secondary_adjacent_day_exact_count", "secondary_shared_team_candidates")
 
 
 def review_rows(report):
@@ -70,6 +70,13 @@ def review_rows(report):
             row["secondary_away_team_count"] = fixture.get("secondary_away_team_count", "")
             row["secondary_reversed_fixture_count"] = fixture.get("secondary_reversed_fixture_count", "")
             row["secondary_adjacent_day_exact_count"] = fixture.get("secondary_adjacent_day_exact_count", "")
+            candidates = fixture.get("secondary_shared_team_candidates", [])
+            if not isinstance(candidates, list) or any(
+                not isinstance(item, dict) or not isinstance(item.get("home"), str)
+                or not isinstance(item.get("away"), str) for item in candidates
+            ):
+                raise ValueError("invalid same-day opponent candidates")
+            row["secondary_shared_team_candidates"] = json.dumps(candidates, ensure_ascii=False, sort_keys=True)
             rows.append(row)
     if report.get("data_gate") == "PROVISIONAL_COVERAGE_ONLY" and rows:
         raise ValueError("provisional full coverage contradicts unresolved fixtures")
