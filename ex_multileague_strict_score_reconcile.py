@@ -123,7 +123,9 @@ def reconcile(batches, primary, offline=None):
                 matches=index.get(key,[])
                 if meta.get("error"):
                     reason="SECONDARY_SOURCE_ERROR"
-                elif len(matches)!=1:
+                elif len(matches)>1:
+                    reason="SECONDARY_MISSING_OR_AMBIGUOUS"
+                elif len(matches)==0:
                     same_day=[r for (ss,dd,ll,hh,aa), rr in index.items() if ss==season and dd==day and ll==league for r in rr]
                     shared_team=any(club_norm(r["home"],league) in key[3:] or club_norm(r["away"],league) in key[3:] for r in same_day)
                     reason="SECONDARY_SAME_DAY_SHARED_TEAM" if shared_team else "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH" if same_day else "SECONDARY_DATE_NOT_PRESENT"
