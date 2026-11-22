@@ -83,6 +83,7 @@ jobs:
           from pathlib import Path
           status={"ingest_step":"${{ steps.ingest.outcome }}",
                   "review_step":"${{ steps.review.outcome }}",
+                  "shadow_step":"${{ steps.shadow.outcome }}",
                   "source_audit_exists":Path("ex_run/audit.json").is_file(),
                   "summary_exists":Path("ex_run/secondary_review_summary.json").is_file(),
                   "germany_csv_exists":Path("ex_run/germany_unresolved_review.csv").is_file(),
@@ -97,6 +98,8 @@ jobs:
                   status["source_errors"]=data.get("secondary_source_errors",[])
               except (ValueError, OSError) as exc:
                   status["audit_read_error"]=str(exc)
+          shadow_path=Path("ex_run/germany_shadow_comparison.json")
+          status["shadow_comparison_exists"]=shadow_path.is_file()
           if status["summary_exists"] and status["germany_csv_exists"]:
               try:
                   summary=json.loads(Path("ex_run/secondary_review_summary.json").read_text(encoding="utf-8"))
