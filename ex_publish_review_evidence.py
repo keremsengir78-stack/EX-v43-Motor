@@ -27,6 +27,26 @@ if audit.is_file():
         status["baseline_secondary_conflicts"]=data.get("secondary_conflicts")
         status["baseline_newer_unverified_results"]=data.get("secondary_newer_unverified_results")
         status["baseline_unmatched_by_season"]=data.get("secondary_unmatched_by_season",{})
+        # Fail closed: legacy source totals and scoped reconciliation are not interchangeable.
+        baseline_by_season=status["baseline_unmatched_by_season"]
+        if not isinstance(baseline_by_season,dict) or any(
+                type(count) is not int or count<0 for count in baseline_by_season.values()):
+            raise ValueError("Invalid baseline unmatched counts")
+        if sum(baseline_by_season.values())!=status["baseline_secondary_unverified"]:
+            raise ValueError("Baseline unmatched counts do not reconcile")
+        blockers=status["baseline_blocking_sources"]
+        if not isinstance(blockers,list):
+            raise ValueError("Invalid baseline blockers")
+        stale=[{"season":row.get("season"),"league":row.get("league")}
+               for row in blockers if row.get("reason")=="stale"]
+        status["baseline_stale_source_count"]=len(stale)
+        status["baseline_stale_sources"]=stale
+        status["baseline_unverified_results_pending"]=status["baseline_newer_unverified_results"]
+        status["baseline_source_gate_ready"]=(
+            status["audit_status"]=="READY" and not blockers
+            and status["baseline_secondary_unverified"]==0
+            and status["baseline_newer_unverified_results"]==0)
+        status["ex_final_allowed"]=False
     except (ValueError, OSError) as exc:
         status["audit_read_error"]=str(exc)
 shadow_path=Path("ex_run/germany_shadow_comparison.json")
