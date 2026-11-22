@@ -240,6 +240,15 @@ class StrictScoreReconcileTests(unittest.TestCase):
                 self.assertEqual(result["confirmed"],1)
                 self.assertFalse(result["ex_final_allowed"])
 
+    def test_german_bayern_fc_prefix_is_stripped_before_alias_lookup(self):
+        self.fixture.update({"league":"de.1","home":"SV 07 Elversberg","away":"FC Bayern München"})
+        self.primary[0].update({"league":"de.1","home":"SV 07 Elversberg","away":"FC Bayern München"})
+        self.secondary[0].update({"league":"de.1","home":"Elversberg","away":"Bayern Munich"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual((result["confirmed"],result["remaining"]),(1,0))
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
