@@ -57,6 +57,11 @@ if status["summary_exists"] and status["germany_csv_exists"]:
                 raise ValueError("Unsafe remaining alias candidate evidence")
             Path("reports/latest_germany_remaining_candidates.json").write_bytes(new_candidates_path.read_bytes())
             status["germany_remaining_alias_candidates"]=len(new_candidates["candidates"])
+            status["germany_remaining_candidate_names"]=[
+                {"primary":row["primary_name"],"secondary":row["secondary_name"]}
+                for row in new_candidates["candidates"]
+            ]
+            status["germany_candidates_approved"]=False
         queue_path=Path("ex_run/multileague_review_queue.json")
         if queue_path.is_file():
             queue=json.loads(queue_path.read_text(encoding="utf-8"))
