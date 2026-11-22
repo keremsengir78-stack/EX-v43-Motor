@@ -54,6 +54,16 @@ def build_windows(records, venue, season, previous_season, as_of):
         return {"status": "BLOCKED", "issues": issues, "windows": {},
                 "ex_final_allowed": False}
     clean.sort(key=lambda pair: pair[0], reverse=True)
+    allowed_seasons = {season, previous_season}
+    if any(row["season"] not in allowed_seasons for _, row in clean):
+        issues.append("season:unexpected_record")
+    current_dates = [when for when, row in clean if row["season"] == season]
+    previous_dates = [when for when, row in clean if row["season"] == previous_season]
+    if current_dates and previous_dates and min(current_dates) <= max(previous_dates):
+        issues.append("season:chronology_conflict")
+    if issues:
+        return {"status": "BLOCKED", "issues": issues, "windows": {},
+                "ex_final_allowed": False}
     current = [row for _, row in clean if row["season"] == season]
     relevant = [row for row in current if row["venue"] == venue]
     previous = [row for _, row in clean if row["season"] == previous_season and row["venue"] == venue]
