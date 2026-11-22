@@ -10,8 +10,8 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "56176bc750e51606465b2724b9fe04851cf64d01",
-  "run_id": "45069608180",
+  "commit": "ba835d68b4878833983ccac408c4337384d54857",
+  "run_id": "45075413509",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "baseline_blocking_sources": [
@@ -175,7 +175,9 @@
   "independently_verified_added": 0,
   "audit_blockers": [
     "GLOBAL_SOURCE_AUDIT_NOT_READY",
-    "BASELINE_SECONDARY_UNMATCHED"
+    "BASELINE_SECONDARY_UNMATCHED",
+    "BASELINE_STALE_PRIMARY_SOURCES",
+    "SECONDARY_NEWER_RESULTS_UNVERIFIED"
   ],
   "strict_score_scope_is_global": false,
   "germany_strict_score_scope_is_global": false
