@@ -154,3 +154,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `bc9039bcc40020aff467621c11e0f4dfaf5d8df2` 4/4 CI başarılı; `reports/latest_multileague_review_batches.json` 1177 maçın 50'li 24 partisini yayımladı (son parti 27 kayıt). Skor onayı yok.
 - `ex_multileague_batch_validation.py` kaynak gölge raporundaki her maçın lig/sezon/tarih/ev/deplasman kimliğini yayımlanan tüm partilerle birebir karşılaştırır; çift, eksik, sırasız ve onaylanmış gibi işaretlenen kayıtları reddeder. Testleri eklendi.
 - Workflow `reports/latest_multileague_batches_validated.json` ve zorunlu CI tamlık kontrolünü ekledi. Bu yeni CI henüz teyit edilmedi. EX FINAL kilitli.
+
+## 2026-11-22: 51. tur, parti içerik parmak izleri
+- `e505a73a175ee54ae529b902c56e21d5b00d218a` 4/4 CI başarılı; 50'li 24 partinin kimlik doğrulama raporu kontrol sırasında henüz yayımlanmış değildi.
+- `ex_multileague_batch_manifest.py` her inceleme partisinin kaynak maç kimliklerini SHA-256 ile özetler; skor onayı verilmez. Değişiklik algılama ve güvenlik regresyon testleri eklendi.
+- Workflow `reports/latest_multileague_batch_manifest.json` raporunu ve zorunlu CI yayım kontrolünü içerir. Yeni sürüm CI/yayın teyidi bekliyor. EX FINAL kapalı.
