@@ -5,6 +5,8 @@ from pathlib import Path
 
 
 def compare_audits(raw, reviewed):
+    if raw.get("reviewed_aliases_enabled") is True or reviewed.get("reviewed_aliases_enabled") is False:
+        raise ValueError("raw and reviewed audit modes are reversed")
     if raw.get("as_of") != reviewed.get("as_of"):
         raise ValueError("audit cutoffs differ")
     raw_cases = raw.get("cases")
@@ -18,8 +20,6 @@ def compare_audits(raw, reviewed):
         identity = ("league", "season", "day", "as_of")
         if any(original.get(key) != updated.get(key) for key in identity):
             raise ValueError("audit cases not aligned")
-        if original.get("conflict_count", 0) > updated.get("conflict_count", 0):
-            pass
         cases.append({
             "league": original["league"], "day": original["day"],
             "raw_matched": original["matched"], "reviewed_matched": updated["matched"],
