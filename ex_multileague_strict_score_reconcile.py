@@ -11,9 +11,31 @@ from pathlib import Path
 from ex_engine import load
 from ex_cross_verify import norm, secondary_rows
 
-def club_norm(name):
+# Exact, league-scoped identities; not fuzzy similarity or score-derived aliases.
+CLUB_IDENTITIES = {
+    "en.1": {
+        "newcastleunited": "newcastle",
+        "manchesterunited": "manunited",
+        "manchestercity": "mancity",
+        "tottenhamhotspur": "tottenham",
+        "brightonhovealbion": "brighton",
+        "wolverhamptonwanderers": "wolves",
+        "westhamunited": "westham",
+        "nottinghamforest": "nottmforest",
+    },
+    "it.1": {
+        "internazionalemilano": "inter",
+        "juventus": "juventus",
+        "parmacalcio1913": "parma",
+        "fiorentina": "fiorentina",
+        "atalanta": "atalanta",
+    },
+}
+
+def club_norm(name, league=None):
     """Remove only standalone club-form suffixes, never fuzzy-match identities."""
-    return norm(re.sub(r"\b(?:cf|ud|ca)\b", " ", name, flags=re.IGNORECASE))
+    key=norm(re.sub(r"\b(?:cf|ud|ca)\b", " ", name, flags=re.IGNORECASE))
+    return CLUB_IDENTITIES.get(league, {}).get(key, key)
 
 
 def reconcile(batches, primary, offline=None):
@@ -21,7 +43,7 @@ def reconcile(batches, primary, offline=None):
         raise ValueError("unsafe review batches")
     primary_index=defaultdict(list)
     for r in primary:
-        primary_index[(r["season"],str(r["date"]),r["league"],club_norm(r["home"]),club_norm(r["away"]))].append(r)
+        primary_index[(r["season"],str(r["date"]),r["league"],club_norm(r["home"],r["league"]),club_norm(r["away"],r["league"]))].append(r)
     cache={}
     used=set()
     confirmed=[]
@@ -30,7 +52,7 @@ def reconcile(batches, primary, offline=None):
     for batch in batches["batches"]:
         for fixture in batch["fixtures"]:
             league,season,day=(fixture[k] for k in ("league","season","date"))
-            key=(season,day,league,club_norm(fixture["home"]),club_norm(fixture["away"]))
+            key=(season,day,league,club_norm(fixture["home"],league),club_norm(fixture["away"],league))
             original=primary_index.get(key,[])
             if len(original)!=1:
                 reason="PRIMARY_MISSING_OR_AMBIGUOUS"
@@ -39,7 +61,7 @@ def reconcile(batches, primary, offline=None):
                     rows,meta=secondary_rows(season,league,offline=offline)
                     index=defaultdict(list)
                     for r in rows:
-                        index[(season,r["date"],league,club_norm(r["home"]),club_norm(r["away"]))].append(r)
+                        index[(season,r["date"],league,club_norm(r["home"],r["league"]),club_norm(r["away"],r["league"]))].append(r)
                     cache[(season,league)]=(index,meta)
                 index,meta=cache[(season,league)]
                 matches=index.get(key,[])
