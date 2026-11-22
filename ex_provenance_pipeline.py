@@ -64,6 +64,21 @@ def reconcile_with_provenance(provider_inputs, attestations, cutoff, settlements
                 "settlement": settlement, "externally_verified": False,
                 "ex_final_allowed": False}
     try:
+        normalized_source_by_group = {
+            item["provider_group"]: item["source_id"] for item in provider_inputs
+        }
+        if any(row.get("source_id") != normalized_source_by_group[row["provider_group"]]
+               for row in attestations):
+            return {"status": "BLOCKED", "issues": ["provenance:source_id_mismatch"],
+                    "provenance": provenance, "reconciliation": reconciliation,
+                    "settlement": settlement, "externally_verified": False,
+                    "ex_final_allowed": False}
+        if any(row.get("source_id") != normalized_source_by_group[row["provider_group"]]
+               for row in settlements):
+            return {"status": "BLOCKED", "issues": ["settlement:source_id_mismatch"],
+                    "provenance": provenance, "reconciliation": reconciliation,
+                    "settlement": settlement, "externally_verified": False,
+                    "ex_final_allowed": False}
         settlement_by_group = {
             row["provider_group"]: dt.datetime.fromisoformat(
                 row["settled_at"].replace("Z", "+00:00"))
