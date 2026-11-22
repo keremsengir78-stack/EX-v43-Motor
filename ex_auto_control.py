@@ -21,7 +21,7 @@ def auto_control(match, ingestion=None):
     if match.get("status")!="BASELINE_ONLY":
         issues.append("historical_samples:incomplete")
     for gate in ("fixture_lock","odds_lock"):
-        if match.get(gate,{}).get("status")!="VERIFIED_INPUT":
+        if not isinstance(match.get(gate),dict) or match[gate].get("status")!="VERIFIED_INPUT":
             issues.append(gate+":blocked")
     market=match.get("market_baselines_pct")
     if not isinstance(market,dict) or any(k not in market for k in MARKET_KEYS):
@@ -35,7 +35,10 @@ def auto_control(match, ingestion=None):
             issues.append("match_result_probabilities:sum_mismatch")
     if not isinstance(ingestion,dict) or ingestion.get("status")=="BLOCKED":
         issues.append("ingestion:blocked")
-    if not ingestion or ingestion.get("independent_sources_confirmed",0)<1:
+    if (not isinstance(ingestion,dict) or
+            isinstance(ingestion.get("independent_sources_confirmed"),bool) or
+            not isinstance(ingestion.get("independent_sources_confirmed"),int) or
+            ingestion.get("independent_sources_confirmed",0)<1):
         issues.append("second_source:unverified")
     # Explicitly unimplemented inputs cannot be silently treated as verified.
     issues.extend(["exg:uncalibrated","context:unverified","pup:unverified"])
