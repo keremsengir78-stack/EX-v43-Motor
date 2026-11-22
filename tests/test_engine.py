@@ -216,6 +216,28 @@ class TestEXMotor(unittest.TestCase):
         self.assertEqual(check_fixture({**fixture,"kickoff_at":"2026-11-22T18:00:00"},"2026-11-21")["status"],"BLOCKED")
         self.assertEqual(check_fixture({k:v for k,v in fixture.items() if k!="kickoff_at"},"2026-11-21")["status"],"BLOCKED")
 
+    def test_auto_control_malformed_locks_and_source_counts_fail_closed(self):
+        base={"status":"BASELINE_ONLY","recompute_consistent":True,
+              "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,"MS1":40,"MSX":30,"MS2":30},
+              "fixture_lock":{"status":"VERIFIED_INPUT"},
+              "odds_lock":{"status":"VERIFIED_INPUT"}}
+        for gate in ("fixture_lock","odds_lock"):
+            for malformed in (None, [], "VERIFIED_INPUT", 123):
+                result=auto_control({**base,gate:malformed},
+                                    {"status":"INGESTED","independent_sources_confirmed":2})
+                self.assertEqual(result["status"],"BLOCKED")
+                self.assertIn(gate+":blocked",result["issues"])
+                self.assertFalse(result["ex_final_allowed"])
+        for count in (None, "2", 2.5, True, [], -1, 0):
+            result=auto_control(base,{"status":"INGESTED",
+                                      "independent_sources_confirmed":count})
+            self.assertIn("second_source:unverified",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        result=auto_control(base,{"status":"INGESTED",
+                                  "independent_sources_confirmed":2})
+        self.assertNotIn("second_source:unverified",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_never_promotes_baseline(self):
         report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
                              "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,
