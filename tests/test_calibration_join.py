@@ -19,6 +19,36 @@ def inputs(n=30):
 
 
 class CalibrationJoinTests(unittest.TestCase):
+    def test_unhashable_market_blocks(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, [], "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("market:unsupported", result["issues"])
+
+    def test_prediction_offset_disguised_as_utc_blocks(self):
+        predictions, fixtures = inputs()
+        predictions[0]["predicted_at"] = "2025-12-01T15:00:00+03:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR", "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("prediction:0:temporal_leakage", result["issues"])
+
+    def test_settlement_offset_disguised_as_utc_blocks(self):
+        predictions, fixtures = inputs()
+        predictions[0]["settled_at"] = "2026-02-01T15:00:00+03:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR", "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("prediction:0:settlement_invalid", result["issues"])
+
+    def test_different_fixture_ids_same_count_block(self):
+        predictions, fixtures = inputs()
+        predictions[0]["fixture_id"] = "not-in-fixtures"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR", "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("predictions:fixture_coverage_incomplete", result["issues"])
+
+    def test_valid_utc_join_remains_not_certified(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR", "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+        self.assertFalse(result["calibration_certified"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_complete_join_audits_without_certification(self):
         predictions, fixtures = inputs()
         result = join_calibration_records(predictions, fixtures, "KG_VAR",
