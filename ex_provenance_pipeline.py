@@ -19,8 +19,15 @@ def reconcile_with_provenance(provider_inputs, attestations, cutoff, settlements
         return {"status": "BLOCKED", "issues": ["inputs:invalid"],
                 "provenance": provenance, "reconciliation": None,
                 "externally_verified": False, "ex_final_allowed": False}
-    provider_groups = {row.get("provider_group") for row in provider_inputs if isinstance(row, dict)}
-    attested_groups = {row.get("provider_group") for row in attestations if isinstance(row, dict)}
+    if (any(not isinstance(row, dict)
+            or not isinstance(row.get("provider_group"), str)
+            or not row["provider_group"].strip()
+            for row in provider_inputs + attestations)):
+        return {"status": "BLOCKED", "issues": ["inputs:provider_group_invalid"],
+                "provenance": provenance, "reconciliation": None,
+                "externally_verified": False, "ex_final_allowed": False}
+    provider_groups = {row["provider_group"] for row in provider_inputs}
+    attested_groups = {row["provider_group"] for row in attestations}
     if len(provider_groups) != len(provider_inputs) or provider_groups != attested_groups:
         return {"status": "BLOCKED", "issues": ["provenance:provider_group_mismatch"],
                 "provenance": provenance, "reconciliation": None,
