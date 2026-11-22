@@ -10,8 +10,8 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "fb150226a50d6878ef63a436cd2fe888f8d65782",
-  "run_id": "45043772588",
+  "commit": "b5089ef113170f5f0e5f65a7ef86c9ca5b536d3f",
+  "run_id": "45043783358",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "shadow_comparison_exists": true,
@@ -21,6 +21,17 @@
   "germany_name_only_candidates": 36,
   "germany_shadow_remaining_count": 8,
   "germany_remaining_alias_candidates": 2,
+  "germany_remaining_candidate_names": [
+    {
+      "primary": "SC Paderborn 07",
+      "secondary": "Paderborn"
+    },
+    {
+      "primary": "SV 07 Elversberg",
+      "secondary": "Elversberg"
+    }
+  ],
+  "germany_candidates_approved": false,
   "non_germany_review_queue_published": true,
   "non_germany_diagnostics_published": true,
   "non_germany_queue_validated": true,
