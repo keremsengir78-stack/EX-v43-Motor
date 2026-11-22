@@ -41,7 +41,14 @@ def distribution(lh,la):
     t=lh+la; over=1-math.exp(-t)*(1+t+t*t/2)
     btts=(1-math.exp(-lh))*(1-math.exp(-la))
     scores=sorted(((f'{h}-{a}',poisson(h,lh)*poisson(a,la)) for h in range(12) for a in range(12)),key=lambda x:-x[1])[:8]
-    return {'over25':over,'btts':btts,'top_scores':scores,'lambda_home':lh,'lambda_away':la,'p_11':poisson(1,lh)*poisson(1,la),'p_20':poisson(2,lh)*poisson(0,la),'p_30':poisson(3,lh)*poisson(0,la)}
+    grid=[(h,a,poisson(h,lh)*poisson(a,la)) for h in range(30) for a in range(30)]
+    home_win=sum(p for h,a,p in grid if h>a)
+    away_win=sum(p for h,a,p in grid if h<a)
+    draw=sum(p for h,a,p in grid if h==a)
+    return {'over25':over,'btts':btts,'home_win':home_win,
+            'draw':draw,'away_win':away_win,
+            'probability_mass':sum(p for h,a,p in grid),
+            'top_scores':scores,'lambda_home':lh,'lambda_away':la,'p_11':poisson(1,lh)*poisson(1,la),'p_20':poisson(2,lh)*poisson(0,la),'p_30':poisson(3,lh)*poisson(0,la)}
 def calculate(rows,fixture,threshold=.70):
     league=fixture['league']; cutoff=date(fixture['date']); ss=date(fixture['season_start']); ps=date(fixture['previous_start'])
     if not ps<ss<=cutoff:raise ValueError('season bounds inconsistent')
@@ -53,6 +60,13 @@ def calculate(rows,fixture,threshold=.70):
     lh=max(.05,min(5,(home[0]+away[1])/2));la=max(.05,min(5,(away[0]+home[1])/2))
     d=distribution(lh,la);base['baseline']=d
     base['baseline_over25_pct']=round(100*d['over25'],2)
+    base['market_baselines_pct']={
+        '2.5_UST':round(100*d['over25'],2),
+        'KG_VAR':round(100*d['btts'],2),
+        'MS1':round(100*d['home_win'],2),
+        'MSX':round(100*d['draw'],2),
+        'MS2':round(100*d['away_win'],2),
+    }
     base['status']='BASELINE_ONLY';base['missing']=['team_strength_50_30_20_operational_formula','verified_match_conditions','verified_external_factors','ex_g_calibration','odds_snapshot','independent_tur2_sources']
     return base
 def audit(rows,fixtures):
