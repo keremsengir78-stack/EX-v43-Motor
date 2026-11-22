@@ -7,6 +7,7 @@ def audit(matched, unmatched, conflicts=0, league="en.1", reviewed=False):
             "ex_final_allowed": False, "cases": [{
         "league": league, "season": "2026-2027", "day": "2026-10-25",
         "as_of": "2026-11-22", "matched": matched, "unmatched": unmatched,
+        "ex_final_allowed": False,
         "conflict_count": conflicts, "unmatched_details": [],
         "alias_suggestions": []}]}
 
@@ -74,6 +75,12 @@ class DeltaAuditTests(unittest.TestCase):
         self.assertEqual(result["review_queue"][0]["league"], "en.1")
         self.assertEqual(result["review_queue"][0]["unmatched"], 2)
         self.assertEqual(result["cases"][0]["unresolved_reason"], "NAME_OR_FIXTURE_MISMATCH_REQUIRES_SOURCE_REVIEW")
+
+    def test_case_level_final_certification_rejected(self):
+        reviewed = audit(3, 2, reviewed=True)
+        reviewed["cases"][0]["ex_final_allowed"] = True
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 3), reviewed)
 
     def test_missing_raw_mode_rejected(self):
         raw = audit(2, 3)
