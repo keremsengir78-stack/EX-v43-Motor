@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: '7,37 * * * *'
 permissions:
-  contents: read
+  contents: write
 jobs:
   ingest:
     runs-on: ubuntu-latest
@@ -120,6 +120,35 @@ jobs:
         run: |
           if [ -f ex_run/audit.json ]; then
             python ex_germany_review_export.py --audit ex_run/audit.json --out ex_run/germany_unresolved_review.csv || echo 'GERMANY REVIEW EXPORT BLOCKED: source evidence invalid'
+          fi
+      - name: Publish verified review evidence to development branch
+        if: always()
+        shell: bash
+        run: |
+          if [ ! -f ex_run/secondary_review_summary.json ] || [ ! -f ex_run/germany_unresolved_review.csv ]; then
+            echo 'REVIEW EVIDENCE NOT READY: no publication; EX FINAL blocked'
+            exit 0
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          summary = json.loads(Path("ex_run/secondary_review_summary.json").read_text(encoding="utf-8"))
+          if summary.get("ex_final_allowed") is not False:
+              raise SystemExit("Unsafe review summary; refusing publication")
+          if not isinstance(summary.get("unmatched_total"), int):
+              raise SystemExit("Missing verified mismatch total")
+          PY
+          mkdir -p reports
+          cp ex_run/secondary_review_summary.json reports/latest_secondary_review_summary.json
+          cp ex_run/germany_unresolved_review.csv reports/latest_germany_unresolved_review.csv
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv
+          if git diff --cached --quiet; then
+            echo 'Review evidence unchanged'
+          else
+            git commit -m 'Update source mismatch review evidence [skip ci]'
+            git push origin HEAD:ex-v43-development
           fi
       - name: Publish audit artifacts even on errors
         if: always()
