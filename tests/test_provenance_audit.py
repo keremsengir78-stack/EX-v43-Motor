@@ -42,6 +42,24 @@ class ProvenanceAuditTests(unittest.TestCase):
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("attestation:1:url_invalid", result["issues"])
 
+    def test_duplicate_url_with_different_evidence_id_blocks(self):
+        second = evidence("b")
+        second["evidence_url"] = "https://example.org/a/"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:url_duplicate", result["issues"])
+
+    def test_same_reviewer_across_providers_blocks(self):
+        second = evidence("b")
+        second["reviewer_id"] = "a-reviewer"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:reviewer_duplicate", result["issues"])
+
+    def test_invalid_url_port_blocks_without_crash(self):
+        second = evidence("b")
+        second["evidence_url"] = "https://example.org:bad/b"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:url_invalid", result["issues"])
+
     def test_fixture_mismatch_blocks(self):
         second = evidence("b")
         second["fixture_id"] = "other-fixture"
