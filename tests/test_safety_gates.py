@@ -144,6 +144,17 @@ class SafetyGates(unittest.TestCase):
             self.assertIn("fixture:invalid_date",result["issues"])
         self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
 
+    def test_odds_rejects_noncanonical_observation_timestamps(self):
+        odds={"decimal_odds":1.5,"market":"KG_VAR","bookmaker":"audit",
+              "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
+        cutoff="2026-11-22T10:00:00Z"
+        for observed in ("20261121T09:00:00Z","2026-W47-6T09:00:00Z"):
+            result=check_odds({**odds,"observed_at":observed},cutoff)
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("odds:invalid_timestamp",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(check_odds(odds,cutoff)["status"],"VERIFIED_INPUT")
+
     def test_odds_threshold_and_future_snapshot(self):
         odds={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"audit",
               "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
