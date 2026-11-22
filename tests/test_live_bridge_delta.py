@@ -20,7 +20,7 @@ class DeltaAuditTests(unittest.TestCase):
         self.assertFalse(result["calibration_certified"])
 
     def test_matching_regression_is_reported(self):
-        result = compare_audits(audit(4, 1, reviewed=True), audit(3, 2, reviewed=True))
+        result = compare_audits(audit(4, 1), audit(3, 2, reviewed=True))
         self.assertEqual(result["status"], "REGRESSION_DETECTED")
         self.assertEqual(result["regression_count"], 1)
 
