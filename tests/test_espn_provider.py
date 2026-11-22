@@ -16,6 +16,29 @@ def parse(events):
 
 
 class ESPNMalformedTests(unittest.TestCase):
+    def test_null_event_date_skipped(self):
+        bad = event()
+        bad["date"] = None
+        self.assertEqual(len(parse([bad, event()])), 1)
+
+    def test_numeric_event_date_skipped(self):
+        bad = event()
+        bad["date"] = 20260101
+        self.assertEqual(len(parse([bad, event()])), 1)
+
+    def test_short_event_date_skipped(self):
+        bad = event()
+        bad["date"] = "2026"
+        self.assertEqual(len(parse([bad, event()])), 1)
+
+    def test_same_team_fixture_skipped(self):
+        bad = event()
+        bad["competitions"][0]["competitors"][1]["team"]["displayName"] = "HOME"
+        self.assertEqual(parse([bad]), [])
+
+    def test_valid_fixture_remains_accepted(self):
+        self.assertEqual(len(parse([event()])), 1)
+
     def test_requested_day_filters_other_dates(self):
         first, second = event(), event()
         second["date"] = "2026-01-02T12:00:00Z"
