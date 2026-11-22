@@ -25,6 +25,31 @@ class ESPNFetchTests(unittest.TestCase):
             rows, provenance = fetch_espn_scoreboard("en.1", day, as_of)
         return rows, provenance, request
 
+    def test_fetch_zero_timeout_blocks_before_network(self):
+        with patch("ex_espn_provider.urllib.request.urlopen") as request:
+            with self.assertRaisesRegex(ValueError, "timeout"):
+                fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01", timeout=0)
+            request.assert_not_called()
+
+    def test_fetch_negative_timeout_blocks(self):
+        with self.assertRaisesRegex(ValueError, "timeout"):
+            fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01", timeout=-1)
+
+    def test_fetch_boolean_timeout_blocks(self):
+        with self.assertRaisesRegex(ValueError, "timeout"):
+            fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01", timeout=True)
+
+    def test_fetch_infinite_timeout_blocks(self):
+        with self.assertRaisesRegex(ValueError, "timeout"):
+            fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01", timeout=float("inf"))
+
+    def test_fetch_valid_timeout_passed_to_network(self):
+        raw = json.dumps({"events": [event()]}).encode()
+        with patch("ex_espn_provider.urllib.request.urlopen", return_value=io.BytesIO(raw)) as request:
+            rows, _ = fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01", timeout=2.5)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(request.call_args.kwargs["timeout"], 2.5)
+
     def test_fetch_oversized_response_rejected(self):
         with patch("ex_espn_provider.urllib.request.urlopen",
                    return_value=io.BytesIO(b"x" * (MAX_SCOREBOARD_BYTES + 1))):
