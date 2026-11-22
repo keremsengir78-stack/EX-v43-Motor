@@ -207,7 +207,17 @@ def secondary_presence_diagnostic(row, secondary, as_of, alias=None):
     shared = [s for s in day_rows
               if reviewed_name(s["home"], s["league"], alias) == home
               or reviewed_name(s["away"], s["league"], alias) == away]
+    exact_home = [s for s in day_rows
+                  if reviewed_name(s["home"], s["league"], alias) == home]
+    exact_away = [s for s in day_rows
+                  if reviewed_name(s["away"], s["league"], alias) == away]
+    reverse = [s for s in day_rows
+               if reviewed_name(s["home"], s["league"], alias) == away
+               and reviewed_name(s["away"], s["league"], alias) == home]
     return {
+        "secondary_home_team_count": len(exact_home),
+        "secondary_away_team_count": len(exact_away),
+        "secondary_reversed_fixture_count": len(reverse),
         "secondary_date_fixture_count": len(day_rows),
         "secondary_shared_team_count": len(shared),
         "source_presence_status": (
