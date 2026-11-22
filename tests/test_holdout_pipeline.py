@@ -31,6 +31,37 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_holdout_missing_fixture_settlement_provenance_blocks(self):
+        p, f = data()
+        del f[0]["settled_at"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:settlement_provenance_missing"])
+        self.assertIsNone(result["join"])
+
+    def test_holdout_blank_fixture_settlement_provenance_blocks(self):
+        p, f = data()
+        f[0]["settled_at"] = " "
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:settlement_provenance_missing"])
+
+    def test_holdout_missing_prediction_source_blocks(self):
+        p, f = data()
+        del p[0]["source"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["predictions:source_missing"])
+
+    def test_holdout_empty_prediction_source_blocks(self):
+        p, f = data()
+        p[0]["source"] = ""
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["predictions:source_missing"])
+
+    def test_holdout_provenance_present_remains_not_certified(self):
+        result = self.run_audit()
+        self.assertEqual(result["status"], "HOLDOUT_AUDITED_NOT_CERTIFIED")
+        self.assertFalse(result["pup_allowed"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_evaluation_start_equal_cutoff_blocks(self):
         result = self.run_audit(evaluation_start="2026-07-01T00:00:00Z")
         self.assertEqual(result["issues"], ["evaluation_window:invalid"])
