@@ -5,6 +5,7 @@ on:
     paths:
       - 'ex_live_bridge_pilot.py'
       - 'ex_live_bridge_batch.py'
+      - 'ex_live_bridge_delta.py'
       - 'ex_espn_football_data_bridge.py'
       - 'ex_espn_provider.py'
       - 'ex_cross_verify.py'
@@ -34,6 +35,16 @@ jobs:
         shell: bash
         run: |
           python ex_live_bridge_batch.py --as-of 2026-11-22 --reviewed-aliases --out ex_live_bridge_reviewed_alias_audit.json
+      - name: Compare raw and reviewed coverage without certifying EX FINAL
+        if: always()
+        shell: bash
+        run: |
+          if [ -f ex_live_bridge_batch_audit.json ] && [ -f ex_live_bridge_reviewed_alias_audit.json ]; then
+            python ex_live_bridge_delta.py --raw ex_live_bridge_batch_audit.json --reviewed ex_live_bridge_reviewed_alias_audit.json --out ex_live_bridge_delta_audit.json
+          else
+            echo "Missing audit inputs for delta comparison"
+            exit 2
+          fi
       - name: Print audit
         if: always()
         shell: bash
@@ -41,6 +52,7 @@ jobs:
           if [ -f ex_live_bridge_audit.json ]; then cat ex_live_bridge_audit.json; else echo "No live audit produced"; fi
           if [ -f ex_live_bridge_batch_audit.json ]; then cat ex_live_bridge_batch_audit.json; else echo "No batch audit produced"; fi
           if [ -f ex_live_bridge_reviewed_alias_audit.json ]; then cat ex_live_bridge_reviewed_alias_audit.json; else echo "No reviewed alias audit produced"; fi
+          if [ -f ex_live_bridge_delta_audit.json ]; then cat ex_live_bridge_delta_audit.json; else echo "No delta audit produced"; fi
       - name: Upload provisional audit
         if: always()
         uses: actions/upload-artifact@v4
@@ -50,5 +62,6 @@ jobs:
             ex_live_bridge_audit.json
             ex_live_bridge_batch_audit.json
             ex_live_bridge_reviewed_alias_audit.json
+            ex_live_bridge_delta_audit.json
           if-no-files-found: warn
           retention-days: 14
