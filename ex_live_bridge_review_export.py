@@ -10,6 +10,8 @@ FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", 
 
 
 def review_rows(report):
+    if report.get("technical_gate") == "FAILED_REGRESSION":
+        raise ValueError("cannot export regressed comparison as review baseline")
     if report.get("ex_final_allowed") is not False:
         raise ValueError("review report must keep EX FINAL blocked")
     as_of = report.get("as_of")
@@ -27,6 +29,13 @@ def review_rows(report):
     for item in queue:
         if not isinstance(item, dict) or not isinstance(item.get("fixtures"), list):
             raise ValueError("invalid review queue")
+        reasons = {}
+        for fixture in item["fixtures"]:
+            if isinstance(fixture, dict) and isinstance(fixture.get("reason"), str):
+                reason = fixture["reason"]
+                reasons[reason] = reasons.get(reason, 0) + 1
+        if item.get("reason_counts") is not None and item["reason_counts"] != reasons:
+            raise ValueError("review queue reason counts mismatch")
         if len(item["fixtures"]) != item.get("unmatched"):
             raise ValueError("review queue count mismatch")
         for fixture in item["fixtures"]:
