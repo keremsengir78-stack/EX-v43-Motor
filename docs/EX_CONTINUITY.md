@@ -92,3 +92,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex_germany_expanded_validation.py` sıralı sayısal kontrol, aday sayısı, eşleştirme çakışmaları, kaynak hatası ve EX FINAL kilidini doğrular; `tests/test_germany_expanded_validation.py` negatif regresyonları eklendi.
 - Workflow `reports/latest_germany_expanded_validated.json` üretmek ve yoksa CI başarısız saymak üzere güncellendi.
 - Son değişikliklerin CI sonucu ve yeni doğrulanmış raporu henüz teyit edilmedi. Diğer liglerdeki uyuşmazlıklar (toplam 1845, Almanya 339) ve gerçek bağımsız kaynak kanıtı çözülmedi.
+
+## 2026-11-22: Hızlandırılmış çok ligli uyuşmazlık incelemesi
+- Almanya genişletilmiş gölge `reports/latest_germany_expanded_validated.json` yayımlandı: 339→0 yalnızca aday isim eşleştirmesiyle; 18 aday, 0 bağımsız doğrulama, EX FINAL kilitli.
+- `ex_multileague_alias_candidates.py` İngiltere, İspanya, İtalya ve Fransa için toplam 1506 başlangıç uyuşmazlığından aynı gün aynı rakip kanıtlı isim adaylarını çıkarır; eşleştirme onaylamaz, skor doğrulamaz. `tests/test_multileague_alias_candidates.py` tamlık testleri eklendi.
+- Workflow `reports/latest_multileague_alias_candidates.json` yayımlayacak, sayısal uyuşmazlık toplamını çapraz doğrulayacak, başarısızlığı saklamayacak. Yeni CI/rapor henüz doğrulanmadı.
