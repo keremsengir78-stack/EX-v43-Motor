@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 
-FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", "source_reference", "source_presence_status", "secondary_date_fixture_count", "secondary_shared_team_count", "secondary_home_team_count", "secondary_away_team_count", "secondary_reversed_fixture_count")
+FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", "source_reference", "source_presence_status", "secondary_date_fixture_count", "secondary_shared_team_count", "secondary_home_team_count", "secondary_away_team_count", "secondary_reversed_fixture_count", "secondary_adjacent_day_exact_count")
 
 
 def review_rows(report):
@@ -69,6 +69,7 @@ def review_rows(report):
             row["secondary_home_team_count"] = fixture.get("secondary_home_team_count", "")
             row["secondary_away_team_count"] = fixture.get("secondary_away_team_count", "")
             row["secondary_reversed_fixture_count"] = fixture.get("secondary_reversed_fixture_count", "")
+            row["secondary_adjacent_day_exact_count"] = fixture.get("secondary_adjacent_day_exact_count", "")
             rows.append(row)
     if report.get("data_gate") == "PROVISIONAL_COVERAGE_ONLY" and rows:
         raise ValueError("provisional full coverage contradicts unresolved fixtures")
