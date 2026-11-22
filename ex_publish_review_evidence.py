@@ -100,6 +100,16 @@ if status["summary_exists"] and status["germany_csv_exists"]:
             status["non_germany_unique_candidates_published"]=True
             status["unique_name_candidates"]=unique_report["unique_name_candidates"]
             status["remaining_for_manual_review"]=unique_report["remaining_for_manual_review"]
+        score_audit_path=Path("ex_run/multileague_candidate_score_audit.json")
+        if not score_audit_path.is_file():
+            raise ValueError("Missing candidate score agreement audit")
+        score_audit=json.loads(score_audit_path.read_text(encoding="utf-8"))
+        if (score_audit.get("total_candidates")!=status["unique_name_candidates"]
+                or score_audit.get("independently_verified_added")!=0
+                or score_audit.get("ex_final_allowed") is not False):
+            raise ValueError("Unsafe candidate score agreement audit")
+        Path("reports/latest_multileague_candidate_score_audit.json").write_bytes(score_audit_path.read_bytes())
+        status["candidate_score_agreement_counts"]=score_audit["counts"]
         strict_path=Path("ex_run/multileague_strict_score_reconcile.json")
         if not strict_path.is_file():
             raise ValueError("Missing strict score reconciliation")
