@@ -56,6 +56,17 @@ class SafetyGates(unittest.TestCase):
                       check_fixture(fixture,"2026-11-22T15:00:00Z")["issues"])
         self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00")["status"],"BLOCKED")
 
+    def test_fixture_verification_at_exact_analysis_instant_is_blocked(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T10:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        cutoff="2026-11-22T10:00:00Z"
+        result=check_fixture(fixture,cutoff)
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("fixture:verified_after_analysis",result["issues"])
+        fixture["fixture_checked_at"]="2026-11-22T09:59:59Z"
+        self.assertEqual(check_fixture(fixture,cutoff)["status"],"VERIFIED_INPUT")
+
     def test_fixture_date_only_cutoff_prevents_lookahead(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
