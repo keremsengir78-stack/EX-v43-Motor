@@ -501,9 +501,9 @@ class TestEXMotor(unittest.TestCase):
                     "away":"Beta","home_goals":2,"away_goals":1}]
         result=verify(primary,secondary,"2026-11-21")
         self.assertEqual(result["matched"],0)
-        self.assertEqual(result["alias_suggestion_count"],1)
+        self.assertEqual(result["alias_suggestion_count"],0)
         self.assertEqual(result["unmatched_details"][0]["reason"],"not_found")
-        self.assertEqual(result["alias_suggestions"][0]["status"],"REVIEW_REQUIRED")
+        self.assertEqual(result["alias_suggestions"],[])
 
     def test_common_club_suffixes(self):
         self.assertEqual(norm("Liverpool FC"),norm("Liverpool"))
