@@ -31,6 +31,37 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_unverified_fixture_blocks_early(self):
+        p, f = data()
+        f[0]["verified"] = False
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:unverified"])
+        self.assertIsNone(result["join"])
+
+    def test_missing_fixture_verification_blocks(self):
+        p, f = data()
+        del f[-1]["verified"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:unverified"])
+
+    def test_unverified_prediction_blocks_early(self):
+        p, f = data()
+        p[0]["verified"] = False
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["predictions:unverified"])
+
+    def test_truthy_string_verification_is_not_accepted(self):
+        p, f = data()
+        p[-1]["verified"] = "true"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["predictions:unverified"])
+
+    def test_verified_flags_do_not_certify_model(self):
+        result = self.run_audit()
+        self.assertEqual(result["status"], "HOLDOUT_AUDITED_NOT_CERTIFIED")
+        self.assertFalse(result["calibration_certified"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_case_variant_source_overlap_blocks(self):
         p, f = data()
         p[0]["source"] = "INDEPENDENT-FIXTURE-RECORD"
