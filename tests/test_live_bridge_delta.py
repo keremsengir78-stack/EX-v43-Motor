@@ -4,7 +4,8 @@ from ex_live_bridge_delta import compare_audits
 
 def audit(matched, unmatched, conflicts=0, league="en.1", reviewed=False):
     return {"as_of": "2026-11-22", "reviewed_aliases_enabled": reviewed,
-            "ex_final_allowed": False, "cases": [{
+            "ex_final_allowed": False, "independent_sources_confirmed": False,
+            "calibration_certified": False, "cases": [{
         "league": league, "season": "2026-2027", "day": "2026-10-25",
         "as_of": "2026-11-22", "matched": matched, "unmatched": unmatched,
         "ex_final_allowed": False,
@@ -75,6 +76,12 @@ class DeltaAuditTests(unittest.TestCase):
         self.assertEqual(result["review_queue"][0]["league"], "en.1")
         self.assertEqual(result["review_queue"][0]["unmatched"], 2)
         self.assertEqual(result["cases"][0]["unresolved_reason"], "NAME_OR_FIXTURE_MISMATCH_REQUIRES_SOURCE_REVIEW")
+
+    def test_unverified_independence_claim_rejected(self):
+        reviewed = audit(3, 2, reviewed=True)
+        reviewed["independent_sources_confirmed"] = True
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 3), reviewed)
 
     def test_case_level_final_certification_rejected(self):
         reviewed = audit(3, 2, reviewed=True)
