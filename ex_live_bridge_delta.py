@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def compare_audits(raw, reviewed):
-    if raw.get("reviewed_aliases_enabled") is True or reviewed.get("reviewed_aliases_enabled") is False:
+    if raw.get("reviewed_aliases_enabled") is True or reviewed.get("reviewed_aliases_enabled") is not True:
         raise ValueError("raw and reviewed audit modes are reversed")
     if raw.get("as_of") != reviewed.get("as_of"):
         raise ValueError("audit cutoffs differ")
@@ -60,6 +60,7 @@ def compare_audits(raw, reviewed):
         "raw_unmatched": raw_unmatched, "reviewed_unmatched": reviewed_unmatched,
         "coverage_raw": raw_matched / (raw_matched + raw_unmatched) if raw_matched + raw_unmatched else 0,
         "coverage_reviewed": reviewed_matched / (reviewed_matched + reviewed_unmatched) if reviewed_matched + reviewed_unmatched else 0,
+        "coverage_gain_percentage_points": round(100 * (reviewed_matched / (reviewed_matched + reviewed_unmatched) - raw_matched / (raw_matched + raw_unmatched)), 2) if raw_matched + raw_unmatched and reviewed_matched + reviewed_unmatched else 0,
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
