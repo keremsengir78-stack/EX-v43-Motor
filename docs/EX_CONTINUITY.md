@@ -128,3 +128,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `a0a16ccde454f25f1e76cf33c411d537f334825f` 4/4 CI başarılı; `45031178981` raporunda ingest/review/shadow success, `non_germany_queue_validated=true`, 1845 başlangıç ve gölgede Almanya 0, Fransa 0, diğer üç lig 1177 uyuşmazlık. 0 bağımsız skor onayı.
 - `ex-review-sync.yml` dört lig gölge audit çıktısından `ex_secondary_review_summary.py` ile ayrı tamlık raporu, ardından `ex_multileague_review_queue.py` ile ilk 100 gölge-sonrası gerçek inceleme kaydı üretecek. `reports/latest_multileague_shadow_review_queue.json` yayımlanacak, sayısı mevcut `multileague_shadow_comparison.json` ile karşılaştırılacak. Rapor/CI henüz teyit edilmedi.
 - EX FINAL kapalı; gölge ad eşleştirmeleri onaylanmış bağımsız skor doğrulaması değildir.
+
+## 2026-11-22: 46. tur, gölge-sonrası inceleme ve çapraz aritmetik
+- `9d2d719ed4ad23e8c5432e322a5ece124176fdc1` için CI 4/4 başarılı. `reports/latest_multileague_shadow_review_queue.json` 1177 toplam / ilk 100 öncelikli maç / queue_version=2 olarak yayımlandı.
+- `ex-review-sync.yml` şimdi gölge audit dosyasından ayrı `reports/latest_multileague_shadow_diagnostics.json` üretiyor.
+- `ex_multileague_shadow_validation.py` ve testleri lig toplamlarını, 0 skor çelişkisini, 0 kaynak hatasını, 0 bağımsız doğrulamayı, onaylanmamış alias ve EX FINAL kilidini doğruluyor. `reports/latest_multileague_shadow_validated.json` için zorunlu CI kontrolü eklendi.
+- Son geliştirme CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
