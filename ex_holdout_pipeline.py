@@ -36,6 +36,14 @@ def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff
     if any(not isinstance(row, dict) or not isinstance(row.get("source"), str)
            or not row["source"].strip() for row in predictions):
         return blocked(["predictions:source_missing"])
+    # Source labels alone do not prove independence, but identical labels
+    # explicitly contradict the claimed independent prediction/result lineage.
+    fixture_sources = {row.get("source") for row in fixtures
+                       if isinstance(row, dict) and isinstance(row.get("source"), str)}
+    prediction_sources = {row.get("source") for row in predictions
+                          if isinstance(row, dict) and isinstance(row.get("source"), str)}
+    if fixture_sources & prediction_sources:
+        return blocked(["sources:prediction_result_overlap"])
     joined = join_calibration_records(predictions, fixtures, market, cutoff,
                                       min_samples=min_train + min_test)
     if joined["status"] != "AUDIT_COMPLETE_NOT_CALIBRATED":
