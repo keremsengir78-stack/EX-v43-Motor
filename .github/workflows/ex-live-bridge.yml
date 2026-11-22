@@ -23,7 +23,7 @@ jobs:
       - name: Fetch real provider data and preserve provisional audit
         shell: bash
         run: |
-          python ex_live_bridge_pilot.py --league en.1 --season 2026-2027 --day 2026-11-01 --as-of 2026-11-22 --out ex_live_bridge_audit.json || echo "Pilot unavailable or blocked; EX FINAL stays disabled"
+          python ex_live_bridge_pilot.py --league en.1 --season 2026-2027 --day 2026-11-01 --as-of 2026-11-22 --out ex_live_bridge_audit.json
       - name: Print audit
         if: always()
         shell: bash
