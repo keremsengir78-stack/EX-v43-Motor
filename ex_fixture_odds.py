@@ -4,8 +4,10 @@ import math
 
 def check_fixture(fixture, as_of):
     issues=[]
+    if not isinstance(fixture,dict):
+        return {"status":"BLOCKED","issues":["fixture:missing"],"ex_final_allowed":False}
     for field in ("date","league","home","away","fixture_source","fixture_checked_at","kickoff_at"):
-        if not fixture.get(field):
+        if not isinstance(fixture.get(field),str) or not fixture[field].strip():
             issues.append(field+":missing")
     try:
         kickoff=dt.date.fromisoformat(fixture["date"])
@@ -31,14 +33,17 @@ def check_odds(snapshot, as_of):
     if not isinstance(snapshot,dict):
         return {"status":"BLOCKED","issues":["odds:missing"],"decision":"NO_FINAL"}
     try:
-        odd=float(snapshot["decimal_odds"])
+        raw=snapshot["decimal_odds"]
+        if isinstance(raw,bool):
+            raise ValueError("boolean odds are invalid")
+        odd=float(raw)
         if not math.isfinite(odd) or odd<=1:
             issues.append("odds:invalid")
     except (ValueError,TypeError,KeyError):
         odd=None
         issues.append("odds:missing")
     for field in ("market","bookmaker","observed_at","source"):
-        if not snapshot.get(field):
+        if not isinstance(snapshot.get(field),str) or not snapshot[field].strip():
             issues.append(field+":missing")
     try:
         observed=dt.datetime.fromisoformat(snapshot["observed_at"].replace("Z","+00:00"))
