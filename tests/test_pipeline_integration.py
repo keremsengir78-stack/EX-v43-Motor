@@ -38,6 +38,36 @@ def measured_chain():
 
 
 class PipelineIntegrationTests(unittest.TestCase):
+    def test_pipeline_issues_override_success_status(self):
+        measured, historical = measured_chain()
+        pipeline = dict(PIPELINE, issues=["provenance:fixture_mismatch"])
+        result = evaluate_final_readiness(pipeline, measured, historical)
+        self.assertIn("source_pipeline", result["missing_checks"])
+
+    def test_pipeline_external_verified_claim_is_rejected(self):
+        measured, historical = measured_chain()
+        pipeline = dict(PIPELINE, externally_verified=True)
+        result = evaluate_final_readiness(pipeline, measured, historical)
+        self.assertIn("source_pipeline", result["missing_checks"])
+
+    def test_pipeline_final_allowed_claim_is_rejected(self):
+        measured, historical = measured_chain()
+        pipeline = dict(PIPELINE, ex_final_allowed=True)
+        result = evaluate_final_readiness(pipeline, measured, historical)
+        self.assertIn("source_pipeline", result["missing_checks"])
+
+    def test_nested_provenance_issues_are_rejected(self):
+        measured, historical = measured_chain()
+        pipeline = dict(PIPELINE, provenance={"issues": ["source:invalid"]})
+        result = evaluate_final_readiness(pipeline, measured, historical)
+        self.assertIn("source_pipeline", result["missing_checks"])
+
+    def test_nested_settlement_issues_are_rejected(self):
+        measured, historical = measured_chain()
+        pipeline = dict(PIPELINE, settlement={"issues": ["settlement:not_finished"]})
+        result = evaluate_final_readiness(pipeline, measured, historical)
+        self.assertIn("source_pipeline", result["missing_checks"])
+
     def test_real_auditors_complete_but_external_gate_stays_closed(self):
         measured, historical = measured_chain()
         self.assertEqual(measured["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
