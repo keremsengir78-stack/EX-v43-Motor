@@ -108,3 +108,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex_multileague_diagnostics.py` her ligde `source_presence_status` dağılımını ve sınırlı örnekleri tamlık denetimiyle çıkarır. `tests/test_multileague_diagnostics.py` eklendi.
 - Workflow `reports/latest_multileague_diagnostics.json` dosyasını yayımlamak ve yoksa CI başarısız saymak için güncellendi.
 - Önceki dört lig gölge raporu ve bu tur CI henüz teyit edilmedi. EX FINAL kilitli, hiçbir yeni skor bağımsız doğrulanmadı.
+
+## 2026-11-22: 42. tur, bağımsız kaynak inceleme sırası
+- `reports/latest_multileague_diagnostics.json` gerçek CI `45030861642` ile yayımlandı: en.1 222 aynı gün ortak takım / 85 aynı gün takım yok; es.1 114 / 328; fr.1 146 / 183; it.1 87 / 341. Toplam 1506 başlangıç uyuşmazlığı. Gölge 14 Fransa adayıyla 329→0, diğer üç lig 1177 kaldı.
+- `ex_multileague_review_queue.py` tüm 1506 kayıt için deterministik öncelik sıralaması üretir, ilk 100 kaydı ayrı raporda yayımlar; `tests/test_multileague_review_queue.py` eksik veri testleri eklendi.
+- Workflow `reports/latest_multileague_review_queue.json` raporunu yayımlamayı ve yoksa CI'yi başarısız saymayı zorunlu kılar. Son CI ve yeni rapor henüz teyit edilmedi. EX FINAL kilitli.
