@@ -1,0 +1,184 @@
+{
+  "unmatched_total": 8,
+  "fixtures": [
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-08-29",
+      "home": "1. FSV Mainz 05",
+      "away": "SC Paderborn 07",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 1,
+      "secondary_away_team_count": 0,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 6,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Mainz",
+          "away": "Paderborn"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-08-29",
+      "home": "SV 07 Elversberg",
+      "away": "Bayer 04 Leverkusen",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 0,
+      "secondary_away_team_count": 1,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 6,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Elversberg",
+          "away": "Leverkusen"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-05",
+      "home": "Borussia Mönchengladbach",
+      "away": "SV 07 Elversberg",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 1,
+      "secondary_away_team_count": 0,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 6,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "M'gladbach",
+          "away": "Elversberg"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-05",
+      "home": "SC Paderborn 07",
+      "away": "SC Freiburg",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 0,
+      "secondary_away_team_count": 1,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 6,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Paderborn",
+          "away": "Freiburg"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-12",
+      "home": "Borussia Dortmund",
+      "away": "SC Paderborn 07",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 1,
+      "secondary_away_team_count": 0,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 6,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Dortmund",
+          "away": "Paderborn"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-13",
+      "home": "SV 07 Elversberg",
+      "away": "FC Bayern München",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 0,
+      "secondary_away_team_count": 1,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 2,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Elversberg",
+          "away": "Bayern Munich"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-20",
+      "home": "FC Schalke 04",
+      "away": "SV 07 Elversberg",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 1,
+      "secondary_away_team_count": 0,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 3,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Schalke 04",
+          "away": "Elversberg"
+        }
+      ]
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "date": "2026-09-20",
+      "home": "SC Paderborn 07",
+      "away": "TSG 1899 Hoffenheim",
+      "reason": "not_found",
+      "secondary_adjacent_day_exact_candidates": [],
+      "secondary_adjacent_day_exact_count": 0,
+      "secondary_home_team_count": 0,
+      "secondary_away_team_count": 1,
+      "secondary_reversed_fixture_count": 0,
+      "secondary_date_fixture_count": 3,
+      "secondary_shared_team_count": 1,
+      "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "secondary_shared_team_candidates": [
+        {
+          "home": "Paderborn",
+          "away": "Hoffenheim"
+        }
+      ]
+    }
+  ],
+  "comparison_only": true,
+  "aliases_approved": false,
+  "ex_final_allowed": false
+}
