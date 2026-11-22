@@ -44,6 +44,12 @@ def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff
                           if isinstance(row, dict) and isinstance(row.get("source"), str)}
     if fixture_sources & prediction_sources:
         return blocked(["sources:prediction_result_overlap"])
+    # Distinct source names are not enough: all records must explicitly
+    # attest verification before they can enter an evaluation report.
+    if any(row.get("verified") is not True for row in fixtures):
+        return blocked(["fixtures:unverified"])
+    if any(row.get("verified") is not True for row in predictions):
+        return blocked(["predictions:unverified"])
     joined = join_calibration_records(predictions, fixtures, market, cutoff,
                                       min_samples=min_train + min_test)
     if joined["status"] != "AUDIT_COMPLETE_NOT_CALIBRATED":
