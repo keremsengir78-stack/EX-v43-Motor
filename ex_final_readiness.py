@@ -65,10 +65,19 @@ def _holdout_records_consistent(report):
         evaluation = report["evaluation"]
         if not isinstance(rows, list) or len(rows) != evaluation["sample_size"]:
             return False
-        boundary = dt.datetime.fromisoformat(split["evaluation_start"].replace("Z", "+00:00"))
-        if boundary.utcoffset() is None:
-            return False
+
+        def utc(value):
+            if not isinstance(value, str) or not value.endswith("Z"):
+                raise ValueError("UTC Z timestamp required")
+            result = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+            if result.utcoffset() != dt.timedelta(0):
+                raise ValueError("non-UTC timestamp")
+            return result
+
+        boundary = utc(split["evaluation_start"])
         seen = set()
+        probabilities = []
+        outcomes = []
         for row in rows:
             if not isinstance(row, dict):
                 return False
@@ -78,15 +87,44 @@ def _holdout_records_consistent(report):
             seen.add(fixture)
             if row.get("market") != evaluation.get("market"):
                 return False
-            predicted = dt.datetime.fromisoformat(row["predicted_at"].replace("Z", "+00:00"))
-            kickoff = dt.datetime.fromisoformat(row["kickoff_at"].replace("Z", "+00:00"))
-            settled = dt.datetime.fromisoformat(row["settled_at"].replace("Z", "+00:00"))
-            if any(t.utcoffset() is None for t in (predicted, kickoff, settled)):
+            probability = row.get("probability")
+            outcome = row.get("outcome")
+            if (isinstance(probability, bool)
+                    or not isinstance(probability, (int, float))
+                    or not math.isfinite(probability)
+                    or not 0 <= probability <= 1
+                    or type(outcome) is not int or outcome not in (0, 1)):
                 return False
+            predicted = utc(row["predicted_at"])
+            kickoff = utc(row["kickoff_at"])
+            settled = utc(row["settled_at"])
             if not (boundary <= predicted < kickoff < settled):
                 return False
-        return True
-    except (KeyError, TypeError, ValueError, AttributeError, OverflowError):
+            probabilities.append(probability)
+            outcomes.append(outcome)
+
+        training = split.get("train")
+        if not isinstance(training, list):
+            return False
+        training_ids = set()
+        for row in training:
+            if not isinstance(row, dict):
+                return False
+            fixture = row.get("fixture_id")
+            if not isinstance(fixture, str) or not fixture.strip() or fixture in training_ids:
+                return False
+            if fixture in seen or row.get("market") != evaluation.get("market"):
+                return False
+            if not utc(row["settled_at"]) < boundary:
+                return False
+            training_ids.add(fixture)
+
+        count = len(rows)
+        brier = sum((p - y) ** 2 for p, y in zip(probabilities, outcomes)) / count
+        return (abs(sum(probabilities) / count - evaluation["mean_predicted"]) <= 1e-6
+                and abs(sum(outcomes) / count - evaluation["observed_rate"]) <= 1e-6
+                and abs(brier - evaluation["brier_score"]) <= 1e-6)
+    except (KeyError, TypeError, ValueError, AttributeError, OverflowError, ZeroDivisionError):
         return False
 
 
