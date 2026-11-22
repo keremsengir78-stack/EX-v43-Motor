@@ -155,6 +155,15 @@ jobs:
           print(json.dumps(result))
           PY
           fi
+      - name: Independently score-check German shadow remainder
+        if: always()
+        continue-on-error: false
+        shell: bash
+        run: |
+          if [ -f ex_run/germany_shadow_remaining.json ] && [ -f ex_run/results.csv ]; then
+            python ex_germany_strict_batch.py --remaining ex_run/germany_shadow_remaining.json --out ex_run/germany_strict_batches.json
+            python ex_multileague_strict_score_reconcile.py --batches ex_run/germany_strict_batches.json --primary ex_run/results.csv --out ex_run/germany_strict_score_reconcile.json
+          fi
       - name: Expanded 18-candidate German shadow
         id: expanded_shadow
         if: always()
