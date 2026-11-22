@@ -253,6 +253,20 @@ class TestEXMotor(unittest.TestCase):
         self.assertNotIn("second_source:unverified",result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_auto_control_unknown_ingestion_status_fails_closed(self):
+        match={"status":"BASELINE_ONLY","recompute_consistent":True,
+               "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,"MS1":40,"MSX":30,"MS2":30},
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"}}
+        for state in (None, "", "ERROR", "PENDING", "BLOCKED", "INGESTED_SINGLE_PROVIDER_NOT_CROSS_VERIFIED", 123, []):
+            result=auto_control(match,{"status":state,"independent_sources_confirmed":2})
+            self.assertIn("ingestion:blocked",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        for state in ("INGESTED", "INGESTED_CROSS_VERIFIED"):
+            result=auto_control(match,{"status":state,"independent_sources_confirmed":2})
+            self.assertNotIn("ingestion:blocked",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_never_promotes_baseline(self):
         report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
                              "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,
