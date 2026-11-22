@@ -25,6 +25,9 @@ def run_pilot(league, season, day, as_of):
         "alias_suggestion_count": comparison.get("alias_suggestion_count", 0),
         "coverage": comparison.get("coverage", 0),
         "source_agreement_status": comparison.get("status", "NOT_CHECKED"),
+        "sample_size": comparison.get("matched", 0) + comparison.get("unmatched", 0),
+        "sample_sufficiency_certified": False,
+        "sample_limitations": ["single_historical_day", "not_a_calibration_sample"],
         "unmatched_details": comparison.get("unmatched_details", []),
         "alias_suggestions": comparison.get("alias_suggestions", []),
         "diagnostic_summary": {
