@@ -90,10 +90,11 @@ if status["summary_exists"] and status["germany_csv_exists"]:
                 raise ValueError("Non-German unmatched totals disagree")
             Path("reports/latest_multileague_alias_candidates.json").write_bytes(multi_path.read_bytes())
             status["non_germany_alias_candidates"]=multi["candidate_count"]
+        batch_total=json.loads(Path("ex_run/multileague_review_batches.json").read_text(encoding="utf-8"))["total_unmatched"]
         unique_path=Path("ex_run/multileague_unique_candidates.json")
         if unique_path.is_file():
             unique_report=json.loads(unique_path.read_text(encoding="utf-8"))
-            if unique_report.get("total_fixtures")!=1177 or unique_report.get("ex_final_allowed") is not False or unique_report.get("independently_verified_added")!=0:
+            if unique_report.get("total_fixtures")!=batch_total or unique_report.get("ex_final_allowed") is not False or unique_report.get("independently_verified_added")!=0:
                 raise ValueError("Unsafe unique source candidates")
             Path("reports/latest_multileague_unique_candidates.json").write_bytes(unique_path.read_bytes())
             status["non_germany_unique_candidates_published"]=True
@@ -103,7 +104,7 @@ if status["summary_exists"] and status["germany_csv_exists"]:
         if not strict_path.is_file():
             raise ValueError("Missing strict score reconciliation")
         strict=json.loads(strict_path.read_text(encoding="utf-8"))
-        if strict["total"]!=json.loads(Path("ex_run/multileague_review_batches.json").read_text(encoding="utf-8"))["total_unmatched"] or strict["confirmed"]+strict["remaining"]!=strict["total"] or strict["ex_final_allowed"] is not False:
+        if strict["total"]!=batch_total or strict["confirmed"]+strict["remaining"]!=strict["total"] or strict["ex_final_allowed"] is not False:
             raise ValueError("Unsafe strict score reconciliation")
         Path("reports/latest_multileague_strict_score_reconcile.json").write_bytes(strict_path.read_bytes())
         status["strict_score_confirmed"]=strict["confirmed"]
@@ -114,7 +115,7 @@ if status["summary_exists"] and status["germany_csv_exists"]:
         summary_path=Path("ex_run/multileague_candidate_summary.json")
         if summary_path.is_file():
             candidate_summary=json.loads(summary_path.read_text(encoding="utf-8"))
-            if candidate_summary.get("total_fixtures")!=1177 or candidate_summary.get("ex_final_allowed") is not False or candidate_summary.get("independently_verified_added")!=0:
+            if candidate_summary.get("total_fixtures")!=batch_total or candidate_summary.get("ex_final_allowed") is not False or candidate_summary.get("independently_verified_added")!=0:
                 raise ValueError("Unsafe candidate summary")
             Path("reports/latest_multileague_candidate_summary.json").write_bytes(summary_path.read_bytes())
             status["non_germany_candidate_summary_published"]=True
@@ -125,7 +126,7 @@ if status["summary_exists"] and status["germany_csv_exists"]:
         candidate_path=Path("ex_run/multileague_source_candidates.json")
         if candidate_path.is_file():
             candidate_report=json.loads(candidate_path.read_text(encoding="utf-8"))
-            if candidate_report.get("total_fixtures")!=1177 or candidate_report.get("ex_final_allowed") is not False or candidate_report.get("independently_verified_added")!=0:
+            if candidate_report.get("total_fixtures")!=batch_total or candidate_report.get("ex_final_allowed") is not False or candidate_report.get("independently_verified_added")!=0:
                 raise ValueError("Unsafe or incomplete source candidate report")
             Path("reports/latest_multileague_source_candidates.json").write_bytes(candidate_path.read_bytes())
             status["non_germany_source_candidates_published"]=True
