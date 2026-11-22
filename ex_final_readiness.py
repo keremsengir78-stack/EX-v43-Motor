@@ -14,6 +14,20 @@ def _calibration_measured(report):
             and isinstance(report.get("sample_size"), int)
             and not isinstance(report.get("sample_size"), bool)
             and report["sample_size"] >= 30
+            and isinstance(report.get("reliability_bins"), list)
+            and bool(report["reliability_bins"])
+            and all(isinstance(row, dict)
+                    and isinstance(row.get("count"), int)
+                    and not isinstance(row.get("count"), bool)
+                    and row["count"] > 0
+                    and all(isinstance(row.get(key), (int, float))
+                            and not isinstance(row.get(key), bool)
+                            and math.isfinite(row[key])
+                            and 0 <= row[key] <= 1
+                            for key in ("mean_predicted", "observed_rate"))
+                    for row in report["reliability_bins"])
+            and sum(row["count"] for row in report["reliability_bins"])
+            == report["sample_size"]
             and all(isinstance(report.get(key), (int, float))
                     and not isinstance(report.get(key), bool)
                     and math.isfinite(report[key])
