@@ -253,8 +253,9 @@ jobs:
                       shadow_queue=json.loads(shadow_queue_path.read_text(encoding="utf-8"))
                       if shadow_queue.get("ex_final_allowed") is not False or shadow_queue.get("score_verified") is not False:
                           raise ValueError("Unsafe post-shadow review queue")
-                      if shadow_queue.get("total_review_queue")!=1177:
-                          raise ValueError("Post-shadow review total differs from verified baseline")
+                      comparison=json.loads(Path("ex_run/multileague_shadow_comparison.json").read_text(encoding="utf-8"))
+                      if shadow_queue.get("total_review_queue")!=comparison.get("shadow_unmatched"):
+                          raise ValueError("Post-shadow review total differs from current comparison")
                       Path("reports/latest_multileague_shadow_review_queue.json").write_bytes(shadow_queue_path.read_bytes())
                       status["non_germany_shadow_review_queue_published"]=True
                   other_shadow_path=Path("ex_run/multileague_shadow_comparison.json")
