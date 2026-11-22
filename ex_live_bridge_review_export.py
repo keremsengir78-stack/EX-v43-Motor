@@ -53,6 +53,7 @@ def review_rows(report):
             rows.append(row)
     if len(rows) != report.get("reviewed_unmatched"):
         raise ValueError("incomplete review queue")
+    rows.sort(key=lambda row: (row["league"], row["date"], row["home"], row["away"]))
     return rows
 
 
