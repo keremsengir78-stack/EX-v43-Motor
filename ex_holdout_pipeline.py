@@ -24,6 +24,18 @@ def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff
             return blocked(["evaluation_window:invalid"])
     except (ValueError, TypeError, OverflowError):
         return blocked(["evaluation_window:invalid"])
+    # A holdout audit requires independently timestamped result records.
+    # Legacy joins may omit settlement provenance, but holdout certification cannot.
+    if not isinstance(fixtures, list) or not fixtures:
+        return blocked(["fixtures:missing"])
+    if any(not isinstance(row, dict) or not isinstance(row.get("settled_at"), str)
+           or not row["settled_at"].strip() for row in fixtures):
+        return blocked(["fixtures:settlement_provenance_missing"])
+    if not isinstance(predictions, list) or not predictions:
+        return blocked(["predictions:missing"])
+    if any(not isinstance(row, dict) or not isinstance(row.get("source"), str)
+           or not row["source"].strip() for row in predictions):
+        return blocked(["predictions:source_missing"])
     joined = join_calibration_records(predictions, fixtures, market, cutoff,
                                       min_samples=min_train + min_test)
     if joined["status"] != "AUDIT_COMPLETE_NOT_CALIBRATED":
