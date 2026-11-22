@@ -1,5 +1,8 @@
 import unittest
-from ex_espn_provider import parse_espn_scoreboard
+import io
+import json
+from unittest.mock import patch
+from ex_espn_provider import parse_espn_scoreboard, fetch_espn_scoreboard
 
 
 def event(home=2, away=1):
@@ -13,6 +16,46 @@ def event(home=2, away=1):
 
 def parse(events):
     return parse_espn_scoreboard({"events": events}, "en.1", "2026-02-01")
+
+
+class ESPNFetchTests(unittest.TestCase):
+    def _fetch(self, events, day="2026-01-01", as_of="2026-02-01"):
+        raw = json.dumps({"events": events}).encode("utf-8")
+        with patch("ex_espn_provider.urllib.request.urlopen", return_value=io.BytesIO(raw)) as request:
+            rows, provenance = fetch_espn_scoreboard("en.1", day, as_of)
+        return rows, provenance, request
+
+    def test_fetch_accepts_matching_historical_event(self):
+        rows, provenance, _ = self._fetch([event()])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(provenance["provider"], "ESPN")
+
+    def test_fetch_rejects_other_day_in_provider_response(self):
+        other = event()
+        other["date"] = "2026-01-02T12:00:00Z"
+        rows, _, _ = self._fetch([other])
+        self.assertEqual(rows, [])
+
+    def test_fetch_keeps_only_requested_day_in_mixed_response(self):
+        other = event()
+        other["date"] = "2026-01-02T12:00:00Z"
+        rows, _, _ = self._fetch([event(), other])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["date"], "2026-01-01")
+
+    def test_fetch_provenance_hash_matches_raw_bytes(self):
+        import hashlib
+        raw = json.dumps({"events": [event()]}).encode("utf-8")
+        rows, provenance, _ = self._fetch([event()])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(provenance["sha256"], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(provenance["raw_bytes"], len(raw))
+
+    def test_fetch_rejects_cutoff_day_before_network_request(self):
+        with patch("ex_espn_provider.urllib.request.urlopen") as request:
+            with self.assertRaises(ValueError):
+                fetch_espn_scoreboard("en.1", "2026-02-01", "2026-02-01")
+            request.assert_not_called()
 
 
 class ESPNMalformedTests(unittest.TestCase):
