@@ -13,7 +13,9 @@ from ex_market_outcomes import market_outcomes
 def join_calibration_records(predictions, fixtures, market, as_of, min_samples=100):
     issues = []
     if not isinstance(market, str) or market not in MARKETS:
-        issues.append("market:unsupported")
+        return {"status": "BLOCKED", "issues": ["market:unsupported"],
+                "joined_records": [], "audit": None,
+                "calibration_certified": False, "ex_final_allowed": False}
     outcome_result = market_outcomes(fixtures, as_of)
     if outcome_result["status"] != "OUTCOMES_READY":
         issues.extend("outcome:" + x for x in outcome_result["issues"])
