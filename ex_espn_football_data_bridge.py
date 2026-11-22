@@ -91,7 +91,7 @@ def fetch_and_compare_historical_day(league, season, day, as_of, offline_seconda
         base["provenance"] = {"espn": espn_meta}
         return base
     base["provenance"] = {"espn": espn_meta, "football_data": secondary_meta}
-    if "error" in secondary_meta:
+    if not isinstance(secondary_meta, dict) or "error" in secondary_meta:
         base["issues"] = ["football_data:fetch_or_parse_failed"]
         return base
     try:
