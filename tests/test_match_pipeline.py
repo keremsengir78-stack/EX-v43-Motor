@@ -60,7 +60,7 @@ class MatchPipelineTests(unittest.TestCase):
     def test_missing_sources_block_before_window_build(self):
         records, features, sources = inputs()
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
-                                        features, "2026-02-01T00:00:00Z", sources)
+                                        features, "2026-02-01T00:00:00Z")
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("sources:missing", result["issues"])
 
