@@ -2,8 +2,8 @@ import unittest
 from ex_live_bridge_delta import compare_audits
 
 
-def audit(matched, unmatched, conflicts=0, league="en.1"):
-    return {"as_of": "2026-11-22", "cases": [{
+def audit(matched, unmatched, conflicts=0, league="en.1", reviewed=False):
+    return {"as_of": "2026-11-22", "reviewed_aliases_enabled": reviewed, "cases": [{
         "league": league, "season": "2026-2027", "day": "2026-10-25",
         "as_of": "2026-11-22", "matched": matched, "unmatched": unmatched,
         "conflict_count": conflicts, "unmatched_details": [],
@@ -12,7 +12,7 @@ def audit(matched, unmatched, conflicts=0, league="en.1"):
 
 class DeltaAuditTests(unittest.TestCase):
     def test_gain_does_not_unlock_final(self):
-        result = compare_audits(audit(1, 4), audit(4, 1))
+        result = compare_audits(audit(1, 4), audit(4, 1, reviewed=True))
         self.assertEqual(result["matched_delta"], 3)
         self.assertEqual(result["reviewed_unmatched"], 1)
         self.assertEqual(result["regression_count"], 0)
@@ -20,22 +20,22 @@ class DeltaAuditTests(unittest.TestCase):
         self.assertFalse(result["calibration_certified"])
 
     def test_matching_regression_is_reported(self):
-        result = compare_audits(audit(4, 1), audit(3, 2))
+        result = compare_audits(audit(4, 1, reviewed=True), audit(3, 2, reviewed=True))
         self.assertEqual(result["status"], "REGRESSION_DETECTED")
         self.assertEqual(result["regression_count"], 1)
 
     def test_new_score_conflict_is_regression(self):
-        result = compare_audits(audit(2, 1), audit(2, 1, conflicts=1))
+        result = compare_audits(audit(2, 1), audit(2, 1, conflicts=1, reviewed=True))
         self.assertEqual(result["regression_count"], 1)
 
     def test_mismatched_cutoff_rejected(self):
-        reviewed = audit(3, 2)
+        reviewed = audit(3, 2, reviewed=True)
         reviewed["as_of"] = "2026-11-23"
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
     def test_mismatched_fixture_rejected(self):
-        reviewed = audit(3, 2, league="it.1")
+        reviewed = audit(3, 2, league="it.1", reviewed=True)
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
@@ -43,28 +43,28 @@ class DeltaAuditTests(unittest.TestCase):
         raw = audit(2, 3)
         raw["reviewed_aliases_enabled"] = True
         with self.assertRaises(ValueError):
-            compare_audits(raw, audit(3, 2))
+            compare_audits(raw, audit(3, 2, reviewed=True))
 
     def test_fixture_population_mismatch_rejected(self):
         with self.assertRaises(ValueError):
-            compare_audits(audit(2, 3), audit(3, 3))
+            compare_audits(audit(2, 3), audit(3, 3, reviewed=True))
 
     def test_duplicate_case_rejected(self):
         raw = audit(2, 3)
-        reviewed = audit(3, 2)
+        reviewed = audit(3, 2, reviewed=True)
         raw["cases"] *= 2
         reviewed["cases"] *= 2
         with self.assertRaises(ValueError):
             compare_audits(raw, reviewed)
 
     def test_invalid_counts_rejected(self):
-        reviewed = audit(3, 2)
+        reviewed = audit(3, 2, reviewed=True)
         reviewed["cases"][0]["matched"] = -1
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
     def test_remaining_by_league_reported(self):
-        result = compare_audits(audit(2, 3), audit(3, 2))
+        result = compare_audits(audit(2, 3), audit(3, 2, reviewed=True))
         self.assertEqual(result["remaining_by_league"], {"en.1": 2})
         self.assertEqual(result["cases_with_unresolved"], 1)
 
