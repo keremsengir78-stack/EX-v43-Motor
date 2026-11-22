@@ -5,11 +5,12 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "c389ee073fc14e9cb7a5708bc97275b692906759",
-  "run_id": "45029697937",
+  "commit": "adf53aa7bbb189251746754fc7087314ddfe4bb4",
+  "run_id": "45029715005",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "unmatched_total": 1845,
   "germany_unmatched": 339,
-  "evidence_published": true
+  "evidence_published": true,
+  "germany_alias_candidates": 16
 }

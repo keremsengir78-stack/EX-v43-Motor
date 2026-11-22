@@ -1,0 +1,201 @@
+{
+  "candidates": [
+    {
+      "league": "de.1",
+      "primary_name": "1. FC Heidenheim 1846",
+      "secondary_name": "Heidenheim",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "1. FC Köln",
+      "secondary_name": "FC Koln",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "1. FC Union Berlin",
+      "secondary_name": "Union Berlin",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "1. FSV Mainz 05",
+      "secondary_name": "Mainz",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "Bayer 04 Leverkusen",
+      "secondary_name": "Leverkusen",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "seasons": [
+        "2025-26",
+        "2026-27"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "Borussia Dortmund",
+      "secondary_name": "Dortmund",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "Borussia Mönchengladbach",
+      "secondary_name": "M'gladbach",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "seasons": [
+        "2025-26",
+        "2026-27"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "Eintracht Frankfurt",
+      "secondary_name": "Ein Frankfurt",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "FC Bayern München",
+      "secondary_name": "Bayern Munich",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "FC St. Pauli 1910",
+      "secondary_name": "St Pauli",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "Hamburger SV",
+      "secondary_name": "Hamburg",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "seasons": [
+        "2025-26",
+        "2026-27"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "SC Freiburg",
+      "secondary_name": "Freiburg",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "SV Werder Bremen",
+      "secondary_name": "Werder Bremen",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "seasons": [
+        "2025-26",
+        "2026-27"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "TSG 1899 Hoffenheim",
+      "secondary_name": "Hoffenheim",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "VfB Stuttgart",
+      "secondary_name": "Stuttgart",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "VfL Wolfsburg",
+      "secondary_name": "Wolfsburg",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "seasons": [
+        "2025-26"
+      ],
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    }
+  ],
+  "ex_final_allowed": false
+}
