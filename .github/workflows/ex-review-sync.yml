@@ -79,6 +79,7 @@ jobs:
             done
             python ex_multileague_candidate_summary.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_candidate_summary.json
             python ex_multileague_unique_candidates.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_unique_candidates.json
+            python ex_multileague_strict_score_reconcile.py --batches ex_run/multileague_review_batches.json --primary ex_run/results.csv --out ex_run/multileague_strict_score_reconcile.json
             python - <<'PY'
           import json
           from pathlib import Path
@@ -302,6 +303,15 @@ jobs:
                       status["non_germany_unique_candidates_published"]=True
                       status["unique_name_candidates"]=unique_report["unique_name_candidates"]
                       status["remaining_for_manual_review"]=unique_report["remaining_for_manual_review"]
+                  strict_path=Path("ex_run/multileague_strict_score_reconcile.json")
+                  if not strict_path.is_file():
+                      raise ValueError("Missing strict score reconciliation")
+                  strict=json.loads(strict_path.read_text(encoding="utf-8"))
+                  if strict["total"]!=1177 or strict["confirmed"]+strict["remaining"]!=1177 or strict["ex_final_allowed"] is not False:
+                      raise ValueError("Unsafe strict score reconciliation")
+                  Path("reports/latest_multileague_strict_score_reconcile.json").write_bytes(strict_path.read_bytes())
+                  status["strict_score_confirmed"]=strict["confirmed"]
+                  status["strict_score_remaining"]=strict["remaining"]
                   for required in ("ex_run/multileague_source_candidates.json", "ex_run/multileague_candidate_summary.json", "ex_run/multileague_unique_candidates.json"):
                       if not Path(required).is_file():
                           raise ValueError("Missing required source matching output: "+required)
@@ -478,7 +488,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json reports/latest_germany_shadow_remaining.json reports/latest_germany_remaining_candidates.json reports/latest_germany_expanded_shadow.json reports/latest_germany_expanded_validated.json reports/latest_multileague_alias_candidates.json reports/latest_multileague_shadow_comparison.json reports/latest_multileague_diagnostics.json reports/latest_multileague_review_queue.json reports/latest_multileague_queue_validated.json reports/latest_multileague_shadow_review_queue.json reports/latest_multileague_shadow_diagnostics.json reports/latest_multileague_shadow_validated.json reports/latest_multileague_priority_plan.json reports/latest_multileague_priority_validated.json reports/latest_multileague_review_batches.json reports/latest_multileague_batches_validated.json reports/latest_multileague_batch_manifest.json reports/latest_multileague_manifest_validated.json reports/latest_multileague_evidence_ledger_batch1.json reports/latest_multileague_evidence_validated_batch1.json reports/latest_multileague_source_candidates.json reports/latest_multileague_candidate_summary.json reports/latest_multileague_unique_candidates.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json reports/latest_germany_shadow_remaining.json reports/latest_germany_remaining_candidates.json reports/latest_germany_expanded_shadow.json reports/latest_germany_expanded_validated.json reports/latest_multileague_alias_candidates.json reports/latest_multileague_shadow_comparison.json reports/latest_multileague_diagnostics.json reports/latest_multileague_review_queue.json reports/latest_multileague_queue_validated.json reports/latest_multileague_shadow_review_queue.json reports/latest_multileague_shadow_diagnostics.json reports/latest_multileague_shadow_validated.json reports/latest_multileague_priority_plan.json reports/latest_multileague_priority_validated.json reports/latest_multileague_review_batches.json reports/latest_multileague_batches_validated.json reports/latest_multileague_batch_manifest.json reports/latest_multileague_manifest_validated.json reports/latest_multileague_evidence_ledger_batch1.json reports/latest_multileague_evidence_validated_batch1.json reports/latest_multileague_source_candidates.json reports/latest_multileague_candidate_summary.json reports/latest_multileague_unique_candidates.json reports/latest_multileague_strict_score_reconcile.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
