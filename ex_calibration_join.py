@@ -27,7 +27,7 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
         issues.append("predictions:missing")
         predictions = []
     outcome_map = {x["fixture_id"]: x for x in outcome_result["outcomes"]}
-    settlement_map = {x["fixture_id"]: x.get("settled_at") for x in fixtures
+    settlement_map = {x["fixture_id"]: x.get("settled_at") for x in (fixtures if isinstance(fixtures, list) else [])
                       if isinstance(x, dict) and isinstance(x.get("fixture_id"), str)}
     seen = set()
     joined = []
