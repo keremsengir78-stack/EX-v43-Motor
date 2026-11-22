@@ -78,7 +78,7 @@ jobs:
                   "comparison_only":True, "aliases_approved":False,
                   "ex_final_allowed":False}
           Path("ex_run/germany_shadow_comparison.json").write_text(
-              json.dumps(result,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+              json.dumps(result,ensure_ascii=False,indent=2)+chr(10),encoding="utf-8")
           print(json.dumps(result))
           PY
           fi
