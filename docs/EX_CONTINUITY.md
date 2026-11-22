@@ -113,3 +113,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `reports/latest_multileague_diagnostics.json` gerçek CI `45030861642` ile yayımlandı: en.1 222 aynı gün ortak takım / 85 aynı gün takım yok; es.1 114 / 328; fr.1 146 / 183; it.1 87 / 341. Toplam 1506 başlangıç uyuşmazlığı. Gölge 14 Fransa adayıyla 329→0, diğer üç lig 1177 kaldı.
 - `ex_multileague_review_queue.py` tüm 1506 kayıt için deterministik öncelik sıralaması üretir, ilk 100 kaydı ayrı raporda yayımlar; `tests/test_multileague_review_queue.py` eksik veri testleri eklendi.
 - Workflow `reports/latest_multileague_review_queue.json` raporunu yayımlamayı ve yoksa CI'yi başarısız saymayı zorunlu kılar. Son CI ve yeni rapor henüz teyit edilmedi. EX FINAL kilitli.
+
+## 2026-11-22: 43. tur, bağımsız kaynak kuyruğu sertleştirmesi
+- `ex_multileague_review_queue.py` yinelenen maçları reddeder; deterministik sıralama sürümü 2 ve öncelikli ilk 100 kaydı sunar.
+- `ex_multileague_queue_validation.py` kuyruk ve tanı raporu toplamlarını karşılaştırır. Negatif regresyonlar eklendi.
+- Workflow `reports/latest_multileague_queue_validated.json` raporunu üretmek ve yoksa CI başarısız saymak üzere güncellendi. Yeni CI henüz doğrulanmadı. EX FINAL kilitli.
