@@ -62,6 +62,8 @@ def _historical_measured(report):
             and report.get("status") == "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED"
             and isinstance(report.get("split"), dict)
             and report["split"].get("status") == "CHRONOLOGICAL_SPLIT_READY"
+            and isinstance(report["split"].get("test"), list)
+            and len(report["split"]["test"]) == report.get("evaluation", {}).get("sample_size")
             and _calibration_measured(report.get("evaluation")))
 
 
