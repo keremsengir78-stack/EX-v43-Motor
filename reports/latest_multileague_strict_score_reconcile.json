@@ -1,10 +1,8 @@
 {
   "total": 1177,
-  "confirmed": 1163,
-  "remaining": 14,
-  "reasons": {
-    "SECONDARY_SAME_DAY_SHARED_TEAM": 14
-  },
+  "confirmed": 1177,
+  "remaining": 0,
+  "reasons": {},
   "verified": [
     {
       "fixture": {
@@ -6680,6 +6678,46 @@
       "score": [
         2,
         4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-16",
+        "home": "FC Barcelona",
+        "away": "Real Racing Club de Santander",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        7,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-16",
+        "home": "RC Deportivo La Coruña",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
@@ -15610,6 +15648,46 @@
       "fixture": {
         "league": "es.1",
         "season": "2026-27",
+        "date": "2026-08-16",
+        "home": "Real Racing Club de Santander",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-17",
+        "home": "RC Deportivo La Coruña",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
         "date": "2026-08-19",
         "home": "Club Atlético de Madrid",
         "away": "Málaga CF",
@@ -15730,6 +15808,26 @@
       "fixture": {
         "league": "es.1",
         "season": "2026-27",
+        "date": "2026-08-23",
+        "home": "Getafe CF",
+        "away": "Real Racing Club de Santander",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
         "date": "2026-08-24",
         "home": "CA Osasuna",
         "away": "Levante UD",
@@ -15740,6 +15838,26 @@
       "score": [
         0,
         0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-24",
+        "home": "Málaga CF",
+        "away": "RC Deportivo La Coruña",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
@@ -15830,6 +15948,26 @@
       "fixture": {
         "league": "es.1",
         "season": "2026-27",
+        "date": "2026-08-28",
+        "home": "Real Racing Club de Santander",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
         "date": "2026-08-29",
         "home": "Levante UD",
         "away": "Real Betis Balompié",
@@ -15880,6 +16018,26 @@
       "score": [
         0,
         2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-30",
+        "home": "RC Deportivo La Coruña",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        1
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
@@ -15980,6 +16138,46 @@
       "score": [
         3,
         0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-05",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "Real Racing Club de Santander",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-05",
+        "home": "Villarreal CF",
+        "away": "RC Deportivo La Coruña",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        3
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
@@ -16119,6 +16317,46 @@
       },
       "score": [
         4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-12",
+        "home": "Real Racing Club de Santander",
+        "away": "Deportivo Alavés",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-13",
+        "home": "Getafe CF",
+        "away": "RC Deportivo La Coruña",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
         1
       ],
       "secondary_provider": "football-data.co.uk",
@@ -16370,6 +16608,26 @@
       "fixture": {
         "league": "es.1",
         "season": "2026-27",
+        "date": "2026-09-19",
+        "home": "RC Celta de Vigo",
+        "away": "Real Racing Club de Santander",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        5,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
         "date": "2026-09-20",
         "home": "Club Atlético de Madrid",
         "away": "Real Madrid CF",
@@ -16400,6 +16658,26 @@
       "score": [
         1,
         0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-20",
+        "home": "RC Deportivo La Coruña",
+        "away": "Real Betis Balompié",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
@@ -23267,343 +23545,6 @@
       "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
     }
   ],
-  "unresolved": [
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-16",
-        "home": "FC Barcelona",
-        "away": "Real Racing Club de Santander",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "Barcelona",
-            "away": "Santander",
-            "home_goals": 7,
-            "away_goals": 2
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-16",
-        "home": "RC Deportivo La Coruña",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "La Coruna",
-            "away": "Sevilla",
-            "home_goals": 0,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-16",
-        "home": "Real Racing Club de Santander",
-        "away": "Villarreal CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 2,
-        "shared_team_alternatives": [
-          {
-            "home": "Santander",
-            "away": "Villarreal",
-            "home_goals": 2,
-            "away_goals": 2
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-17",
-        "home": "RC Deportivo La Coruña",
-        "away": "Elche CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 1,
-        "shared_team_alternatives": [
-          {
-            "home": "La Coruna",
-            "away": "Elche",
-            "home_goals": 1,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-23",
-        "home": "Getafe CF",
-        "away": "Real Racing Club de Santander",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "Getafe",
-            "away": "Santander",
-            "home_goals": 1,
-            "away_goals": 0
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-24",
-        "home": "Málaga CF",
-        "away": "RC Deportivo La Coruña",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 2,
-        "shared_team_alternatives": [
-          {
-            "home": "Malaga",
-            "away": "La Coruna",
-            "home_goals": 1,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-28",
-        "home": "Real Racing Club de Santander",
-        "away": "Elche CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 2,
-        "shared_team_alternatives": [
-          {
-            "home": "Santander",
-            "away": "Elche",
-            "home_goals": 3,
-            "away_goals": 2
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-30",
-        "home": "RC Deportivo La Coruña",
-        "away": "Valencia CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "La Coruna",
-            "away": "Valencia",
-            "home_goals": 3,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-05",
-        "home": "Rayo Vallecano de Madrid",
-        "away": "Real Racing Club de Santander",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "Vallecano",
-            "away": "Santander",
-            "home_goals": 3,
-            "away_goals": 2
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-05",
-        "home": "Villarreal CF",
-        "away": "RC Deportivo La Coruña",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 3,
-        "shared_team_alternatives": [
-          {
-            "home": "Villarreal",
-            "away": "La Coruna",
-            "home_goals": 2,
-            "away_goals": 3
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-12",
-        "home": "Real Racing Club de Santander",
-        "away": "Deportivo Alavés",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 4,
-        "shared_team_alternatives": [
-          {
-            "home": "Santander",
-            "away": "Alaves",
-            "home_goals": 2,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-13",
-        "home": "Getafe CF",
-        "away": "RC Deportivo La Coruña",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 4,
-        "shared_team_alternatives": [
-          {
-            "home": "Getafe",
-            "away": "La Coruna",
-            "home_goals": 1,
-            "away_goals": 1
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-19",
-        "home": "RC Celta de Vigo",
-        "away": "Real Racing Club de Santander",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 4,
-        "shared_team_alternatives": [
-          {
-            "home": "Celta",
-            "away": "Santander",
-            "home_goals": 5,
-            "away_goals": 0
-          }
-        ]
-      }
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-20",
-        "home": "RC Deportivo La Coruña",
-        "away": "Real Betis Balompié",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-      "source_diagnostic": {
-        "same_day_secondary_matches": 5,
-        "shared_team_alternatives": [
-          {
-            "home": "La Coruna",
-            "away": "Betis",
-            "home_goals": 1,
-            "away_goals": 1
-          }
-        ]
-      }
-    }
-  ],
+  "unresolved": [],
   "ex_final_allowed": false
 }
