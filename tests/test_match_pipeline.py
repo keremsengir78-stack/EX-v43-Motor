@@ -3,7 +3,7 @@ from ex_match_pipeline import process_match_evidence
 
 
 def record(i, season="2026", venue="home"):
-    return {"fixture_id": str(i), "kickoff_at": "2026-01-%02dT12:00:00Z" % (i + 1),
+    return {"fixture_id": str(i), "kickoff_at": "%s-01-%02dT12:00:00Z" % (season, i + 1),
             "season": season, "venue": venue, "verified": True, "source": "audited",
             "goals_for": 2, "goals_against": 1, "home_goals": 2, "away_goals": 1}
 
