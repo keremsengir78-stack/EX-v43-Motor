@@ -34,6 +34,20 @@ class ProviderAdapterTests(unittest.TestCase):
         result = normalize_provider_fixture(raw(), MAPPING, "source-a", "")
         self.assertIn("provider_group:missing", result["issues"])
 
+    def test_offset_kickoff_is_rejected(self):
+        record = raw()
+        record["time"] = "2026-01-01T15:00:00+03:00"
+        result = normalize_provider_fixture(record, MAPPING, "source-a", "provider-a")
+        self.assertIn("kickoff_at:invalid", result["issues"])
+        self.assertIsNone(result["record"])
+
+    def test_malformed_offset_suffix_is_rejected(self):
+        record = raw()
+        record["time"] = "2026-01-01T15:00:00+03:00Z"
+        result = normalize_provider_fixture(record, MAPPING, "source-a", "provider-a")
+        self.assertIn("kickoff_at:invalid", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_non_utc_timestamp_blocks(self):
         record = raw()
         record["time"] = "2026-01-01T12:00:00"
