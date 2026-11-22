@@ -20,6 +20,19 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
         return {"status": "BLOCKED", "issues": ["min_samples:invalid"],
                 "joined_records": [], "audit": None,
                 "calibration_certified": False, "ex_final_allowed": False}
+    # A shared provider label contradicts independent prediction/result lineage.
+    # Different labels are not proof of independent verification.
+    if isinstance(fixtures, list) and isinstance(predictions, list):
+        fixture_sources = {row["source"].strip().casefold() for row in fixtures
+                           if isinstance(row, dict) and isinstance(row.get("source"), str)
+                           and row["source"].strip()}
+        prediction_sources = {row["source"].strip().casefold() for row in predictions
+                              if isinstance(row, dict) and isinstance(row.get("source"), str)
+                              and row["source"].strip()}
+        if fixture_sources & prediction_sources:
+            return {"status": "BLOCKED", "issues": ["sources:prediction_result_overlap"],
+                    "joined_records": [], "audit": None,
+                    "calibration_certified": False, "ex_final_allowed": False}
     outcome_result = market_outcomes(fixtures, as_of)
     if outcome_result["status"] != "OUTCOMES_READY":
         issues.extend("outcome:" + x for x in outcome_result["issues"])
