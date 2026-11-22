@@ -113,6 +113,7 @@ def reconcile(batches, primary, offline=None):
             league,season,day=(fixture[k] for k in ("league","season","date"))
             key=(season,day,league,club_norm(fixture["home"],league),club_norm(fixture["away"],league))
             original=primary_index.get(key,[])
+            diagnostic=None
             if len(original)!=1:
                 reason="PRIMARY_MISSING_OR_AMBIGUOUS"
             else:
@@ -132,6 +133,12 @@ def reconcile(batches, primary, offline=None):
                     same_day=[r for (ss,dd,ll,hh,aa), rr in index.items() if ss==season and dd==day and ll==league for r in rr]
                     shared_team=any(club_norm(r["home"],league) in key[3:] or club_norm(r["away"],league) in key[3:] for r in same_day)
                     reason="SECONDARY_SAME_DAY_SHARED_TEAM" if shared_team else "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH" if same_day else "SECONDARY_DATE_NOT_PRESENT"
+                    if same_day:
+                        related=[r for r in same_day if club_norm(r["home"],league) in key[3:] or club_norm(r["away"],league) in key[3:]]
+                        diagnostic={"same_day_secondary_matches":len(same_day),
+                                    "shared_team_alternatives":[{"home":r["home"],"away":r["away"],
+                                        "home_goals":r["home_goals"],"away_goals":r["away_goals"]}
+                                        for r in related[:10]]}
                 elif (original[0]["hg"],original[0]["ag"])!=(matches[0]["home_goals"],matches[0]["away_goals"]):
                     reason="SCORE_CONFLICT"
                 elif key in used:
@@ -143,7 +150,10 @@ def reconcile(batches, primary, offline=None):
                         "secondary_sha256":meta["sha256"],"verification":"EXACT_TEAM_DATE_SCORE_MATCH"})
                     continue
             reasons[reason]+=1
-            remaining.append({"fixture":fixture,"reason":reason})
+            item={"fixture":fixture,"reason":reason}
+            if diagnostic is not None:
+                item["source_diagnostic"]=diagnostic
+            remaining.append(item)
     return {"total":len(confirmed)+len(remaining),"confirmed":len(confirmed),
             "remaining":len(remaining),"reasons":dict(reasons),
             "verified":confirmed,"unresolved":remaining,"ex_final_allowed":False}
