@@ -43,7 +43,7 @@ class FinalReadinessTests(unittest.TestCase):
                     "brier_score": 0.25, "expected_calibration_error": 0.0,
                     "maximum_calibration_error": 0.0,
                     "mean_predicted": 0.5, "observed_rate": 0.5,
-                    "reliability_bins": [{"count": 30,
+                    "reliability_bins": [{"range": "50-60", "count": 30,
                                           "mean_predicted": 0.5,
                                           "observed_rate": 0.5}]}
         historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
@@ -51,6 +51,7 @@ class FinalReadinessTests(unittest.TestCase):
                                 "evaluation_start": "2026-01-01T00:00:00Z",
                                 "train": [{"fixture_id": "train-" + str(i),
                                            "market": "KG_VAR",
+                                           "probability": 0.5, "outcome": i % 2,
                                            "predicted_at": "2025-12-30T10:00:00Z",
                                            "kickoff_at": "2025-12-30T12:00:00Z",
                                            "settled_at": "2025-12-30T14:00:00Z"}
@@ -216,6 +217,45 @@ class FinalReadinessTests(unittest.TestCase):
             other, historical)
         self.assertIn("calibration:historical_market_mismatch", result["issues"])
         self.assertIn("calibration", result["missing_checks"])
+
+    def test_training_invalid_probability_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"][0]["probability"] = 1.5
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_training_invalid_outcome_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"][0]["outcome"] = "1"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_unsupported_calibration_market_blocks(self):
+        measured, historical = self._valid_holdout()
+        measured["market"] = "UNKNOWN"
+        self.assertIn("calibration", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_wrong_calibration_bin_range_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"] = dict(measured)
+        historical["evaluation"]["reliability_bins"] = [
+            dict(measured["reliability_bins"][0], range="60-70")]
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_wrong_calibration_bin_observed_rate_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"] = dict(measured)
+        historical["evaluation"]["reliability_bins"] = [
+            dict(measured["reliability_bins"][0], observed_rate=0.4)]
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
 
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
