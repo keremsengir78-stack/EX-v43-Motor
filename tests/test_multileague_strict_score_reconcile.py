@@ -219,6 +219,27 @@ class StrictScoreReconcileTests(unittest.TestCase):
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
             self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],0)
 
+    def test_german_real_provider_opponent_abbreviations(self):
+        pairs=[
+            ("1. FSV Mainz 05","SC Paderborn 07","Mainz","Paderborn"),
+            ("SV 07 Elversberg","Bayer 04 Leverkusen","Elversberg","Leverkusen"),
+            ("Borussia Mönchengladbach","SV 07 Elversberg","M'gladbach","Elversberg"),
+            ("SC Paderborn 07","SC Freiburg","Paderborn","Freiburg"),
+            ("Borussia Dortmund","SC Paderborn 07","Dortmund","Paderborn"),
+            ("SV 07 Elversberg","FC Bayern München","Elversberg","Bayern Munich"),
+            ("FC Schalke 04","SV 07 Elversberg","Schalke 04","Elversberg"),
+            ("SC Paderborn 07","TSG 1899 Hoffenheim","Paderborn","Hoffenheim"),
+        ]
+        for home,away,short_home,short_away in pairs:
+            with self.subTest(home=home,away=away):
+                self.fixture.update({"league":"de.1","home":home,"away":away})
+                self.primary[0].update({"league":"de.1","home":home,"away":away})
+                self.secondary[0].update({"league":"de.1","home":short_home,"away":short_away})
+                with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+                    result=reconcile(self.batches,self.primary)
+                self.assertEqual(result["confirmed"],1)
+                self.assertFalse(result["ex_final_allowed"])
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
