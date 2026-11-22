@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify review tools
-        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline tests.test_germany_shadow_metrics -v
+        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline tests.test_germany_shadow_metrics tests.test_germany_shadow_remaining -v
       - name: Collect real source audit
         id: ingest
         continue-on-error: true
@@ -65,6 +65,7 @@ jobs:
           if [ -f ex_run/germany_alias_candidates.json ]; then
             python ex_germany_alias_pilot.py --candidates ex_run/germany_alias_candidates.json --out ex_run/germany_shadow_aliases.json
             python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues de.1 --secondary-aliases ex_run/germany_shadow_aliases.json --outdir ex_germany_shadow
+            python ex_germany_shadow_remaining.py --audit ex_germany_shadow/audit.json --out ex_run/germany_shadow_remaining.json
             python - <<'PY'
           import json
           from pathlib import Path
@@ -129,6 +130,13 @@ jobs:
                           raise ValueError("Unsafe offline candidate evidence")
                       Path("reports/latest_germany_offline_shadow.json").write_bytes(offline_path.read_bytes())
                       status["germany_name_only_candidates"]=offline.get("unique_name_only_candidates")
+                  remaining_path=Path("ex_run/germany_shadow_remaining.json")
+                  if remaining_path.is_file():
+                      remaining=json.loads(remaining_path.read_text(encoding="utf-8"))
+                      if remaining.get("ex_final_allowed") is not False or remaining.get("aliases_approved") is not False:
+                          raise ValueError("Unsafe remaining shadow evidence")
+                      Path("reports/latest_germany_shadow_remaining.json").write_bytes(remaining_path.read_bytes())
+                      status["germany_shadow_remaining_count"]=remaining["unmatched_total"]
                   shadow_path=Path("ex_run/germany_shadow_comparison.json")
                   if shadow_path.is_file():
                       shadow=json.loads(shadow_path.read_text(encoding="utf-8"))
@@ -168,7 +176,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json reports/latest_germany_shadow_remaining.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
@@ -191,7 +199,7 @@ jobs:
               raise SystemExit("Audit pipeline failed: "+json.dumps(s))
           if s.get("shadow_step")!="success" or s.get("offline_shadow_step")!="success":
               raise SystemExit("Shadow comparison step failed: "+json.dumps(s))
-          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None or s.get("germany_shadow_reduction") is None:
+          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None or s.get("germany_shadow_reduction") is None or s.get("germany_shadow_remaining_count") is None:
               raise SystemExit("Missing shadow comparison output: "+json.dumps(s))
           PY
       - name: Upload evidence even if publication fails
