@@ -35,6 +35,34 @@ class TemporalValidationTests(unittest.TestCase):
         result = chronological_split(rows, "2026-01-01T00:00:00Z")
         self.assertIn("test:insufficient", result["issues"])
 
+    def test_unhashable_market_blocks_without_exception(self):
+        rows = [item(i, True) for i in range(30)] + [item(i, False) for i in range(30, 60)]
+        rows[0]["market"] = []
+        result = chronological_split(rows, "2026-01-01T00:00:00Z")
+        self.assertIn("record:0:duplicate_or_missing", result["issues"])
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_invalid_threshold_blocks_without_exception(self):
+        rows = [item(i, True) for i in range(30)] + [item(i, False) for i in range(30, 60)]
+        result = chronological_split(rows, "2026-01-01T00:00:00Z", min_train="30")
+        self.assertIn("sample_threshold:invalid", result["issues"])
+
+    def test_offset_boundary_blocks(self):
+        result = chronological_split([], "2026-01-01T03:00:00+03:00")
+        self.assertIn("evaluation_start:invalid", result["issues"])
+
+    def test_offset_record_timestamp_blocks(self):
+        rows = [item(i, True) for i in range(30)] + [item(i, False) for i in range(30, 60)]
+        rows[0]["predicted_at"] = "2025-01-01T03:00:00+03:00"
+        result = chronological_split(rows, "2026-01-01T00:00:00Z")
+        self.assertIn("record:0:timestamp_invalid_or_leakage", result["issues"])
+
+    def test_missing_market_blocks(self):
+        rows = [item(i, True) for i in range(30)] + [item(i, False) for i in range(30, 60)]
+        del rows[0]["market"]
+        result = chronological_split(rows, "2026-01-01T00:00:00Z")
+        self.assertIn("record:0:duplicate_or_missing", result["issues"])
+
     def test_invalid_utc_boundary_blocks(self):
         result = chronological_split([], "2026-01-01")
         self.assertIn("evaluation_start:invalid", result["issues"])
