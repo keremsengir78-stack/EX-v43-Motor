@@ -26,6 +26,8 @@ def weighted_evidence(features, as_of=None):
                     raise ValueError("analysis date must be YYYY-MM-DD")
                 cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
             else:
+                if not re.match(r"^\d{4}-\d{2}-\d{2}T",as_of):
+                    raise ValueError('analysis timestamp must start with YYYY-MM-DDT')
                 cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
                 if cutoff.tzinfo is None or cutoff.utcoffset() is None:
                     raise ValueError('as_of must be timezone-aware')
