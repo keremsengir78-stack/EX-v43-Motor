@@ -21,6 +21,10 @@ def run_pilot(league, season, day, as_of):
         "unmatched": comparison.get("unmatched", 0),
         "ambiguous": comparison.get("ambiguous", 0),
         "conflicts": comparison.get("conflicts", []),
+        "conflict_count": len(comparison.get("conflicts", [])),
+        "alias_suggestion_count": comparison.get("alias_suggestion_count", 0),
+        "coverage": comparison.get("coverage", 0),
+        "source_agreement_status": comparison.get("status", "NOT_CHECKED"),
         "provenance": result.get("provenance", {}),
         "independent_sources_confirmed": False,
         "calibration_certified": False, "ex_final_allowed": False,
@@ -38,7 +42,7 @@ def main():
     report = run_pilot(args.league, args.season, args.day, args.as_of)
     Path(args.out).write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     print(json.dumps({k: report[k] for k in ("status", "issues", "matched", "unmatched", "ambiguous", "ex_final_allowed")}, ensure_ascii=False))
-    return 0 if report["status"] != "BLOCKED" else 2
+    return 0 if report["status"] == "PROVISIONAL_MATCH_UNAUDITED" else 2
 
 
 if __name__ == "__main__":
