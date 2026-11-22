@@ -63,6 +63,26 @@ def reconcile_with_provenance(provider_inputs, attestations, cutoff, settlements
                 "provenance": provenance, "reconciliation": reconciliation,
                 "settlement": settlement, "externally_verified": False,
                 "ex_final_allowed": False}
+    try:
+        settlement_by_group = {
+            row["provider_group"]: dt.datetime.fromisoformat(
+                row["settled_at"].replace("Z", "+00:00"))
+            for row in settlements
+        }
+        if any(dt.datetime.fromisoformat(
+                row["reviewed_at"].replace("Z", "+00:00"))
+                < settlement_by_group[row["provider_group"]]
+                for row in attestations):
+            return {"status": "BLOCKED",
+                    "issues": ["provenance:review_before_settlement"],
+                    "provenance": provenance, "reconciliation": reconciliation,
+                    "settlement": settlement, "externally_verified": False,
+                    "ex_final_allowed": False}
+    except (KeyError, ValueError, TypeError, OverflowError):
+        return {"status": "BLOCKED", "issues": ["provenance:settlement_review_invalid"],
+                "provenance": provenance, "reconciliation": reconciliation,
+                "settlement": settlement, "externally_verified": False,
+                "ex_final_allowed": False}
     return {"status": "RECONCILED_WITH_METADATA_UNVERIFIED", "issues": [],
             "settlement": settlement,
             "provenance": provenance, "reconciliation": reconciliation,
