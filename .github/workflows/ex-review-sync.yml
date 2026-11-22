@@ -265,6 +265,9 @@ jobs:
                       status["non_germany_unique_candidates_published"]=True
                       status["unique_name_candidates"]=unique_report["unique_name_candidates"]
                       status["remaining_for_manual_review"]=unique_report["remaining_for_manual_review"]
+                  for required in ("ex_run/multileague_source_candidates.json", "ex_run/multileague_candidate_summary.json", "ex_run/multileague_unique_candidates.json"):
+                      if not Path(required).is_file():
+                          raise ValueError("Missing required source matching output: "+required)
                   summary_path=Path("ex_run/multileague_candidate_summary.json")
                   if summary_path.is_file():
                       candidate_summary=json.loads(summary_path.read_text(encoding="utf-8"))
@@ -459,6 +462,9 @@ jobs:
           s=json.loads(p.read_text(encoding="utf-8"))
           if str(s.get("run_id")) != "${{ github.run_id }}":
               raise SystemExit("Stale diagnostic belongs to a different workflow run")
+          for required_report in ("reports/latest_multileague_candidate_summary.json", "reports/latest_multileague_unique_candidates.json"):
+              if not Path(required_report).is_file():
+                  raise SystemExit("Required measurable source report not published: "+required_report)
           if s.get("ingest_step")!="success" or s.get("review_step")!="success" or s.get("evidence_published") is not True:
               raise SystemExit("Audit pipeline failed: "+json.dumps(s))
           if s.get("shadow_step")!="success" or s.get("offline_shadow_step")!="success":
