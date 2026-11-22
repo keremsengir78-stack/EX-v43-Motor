@@ -42,25 +42,25 @@ class MatchPipelineTests(unittest.TestCase):
         self.assertFalse(result["ex_final_allowed"])
 
     def test_duplicate_input_blocks_before_decision(self):
-        records, features = inputs()
+        records, features, sources = inputs()
         records.append(dict(records[0]))
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
-                                        features, "2026-02-01T00:00:00Z")
+                                        features, "2026-02-01T00:00:00Z", sources)
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIsNone(result["evidence"])
         self.assertTrue(any("duplicate" in issue for issue in result["issues"]))
 
     def test_missing_previous_season_blocks(self):
-        records, features = inputs()
+        records, features, sources = inputs()
         records = [row for row in records if row["season"] == "2026"]
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
-                                        features, "2026-02-01T00:00:00Z")
+                                        features, "2026-02-01T00:00:00Z", sources)
         self.assertEqual(result["status"], "BLOCKED")
 
     def test_missing_sources_block_before_window_build(self):
         records, features, sources = inputs()
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
-                                        features, "2026-02-01T00:00:00Z")
+                                        features, "2026-02-01T00:00:00Z", sources)
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("sources:missing", result["issues"])
 
@@ -81,10 +81,10 @@ class MatchPipelineTests(unittest.TestCase):
         self.assertIn("fixture:0:record_conflict", result["issues"])
 
     def test_missing_feature_blocks_after_window_build(self):
-        records, features = inputs()
+        records, features, sources = inputs()
         del features["external_factors"]
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
-                                        features, "2026-02-01T00:00:00Z")
+                                        features, "2026-02-01T00:00:00Z", sources)
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("decision:external_factors:missing", result["issues"])
 
