@@ -53,7 +53,7 @@ jobs:
       - name: Quarantined non-German shadow comparison
         id: other_shadow
         if: always()
-        continue-on-error: true
+        continue-on-error: false
         shell: bash
         run: |
           if [ -f ex_run/multileague_alias_candidates.json ]; then
@@ -167,6 +167,21 @@ jobs:
               json.dumps(report,ensure_ascii=False,indent=2)+chr(10),encoding="utf-8")
           PY
           fi
+      - name: Confirm candidate outputs immediately
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          names=("multileague_source_candidates","multileague_candidate_summary","multileague_unique_candidates")
+          for name in names:
+              path=Path("ex_run")/(name+".json")
+              if not path.is_file():
+                  raise SystemExit("SOURCE_MATCHING_MISSING: "+str(path))
+              report=json.loads(path.read_text(encoding="utf-8"))
+              print("SOURCE_MATCHING_RESULT",name,{k:v for k,v in report.items() if k in ("total_fixtures","with_candidates","without_candidates","high_name_similarity_candidates","unique_name_candidates","remaining_for_manual_review","independently_verified_added")})
+          PY
       - name: Persist real review evidence and diagnostic status
         if: always()
         shell: bash
