@@ -13,6 +13,10 @@ from ex_cross_verify import norm, secondary_rows
 
 # Exact, league-scoped identities; not fuzzy similarity or score-derived aliases.
 CLUB_IDENTITIES = {
+    "de.1": {
+        "scpaderborn07": "paderborn",
+        "sv07elversberg": "elversberg",
+    },
     "en.1": {
         "newcastleunited": "newcastle",
         "leedsunited": "leeds",
@@ -88,7 +92,7 @@ def club_norm(name, league=None):
 def validate_club_identities():
     """Aliases must be normalized, scoped, and free of ambiguous canonical chains."""
     for league, aliases in CLUB_IDENTITIES.items():
-        if league not in {"en.1", "es.1", "it.1"}:
+        if league not in {"en.1", "es.1", "it.1", "de.1"}:
             raise ValueError("unsupported alias league")
         for source, target in aliases.items():
             if source != norm(source) or target != norm(target):
