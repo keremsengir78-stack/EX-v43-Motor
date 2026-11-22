@@ -67,6 +67,20 @@ class LiveBridgePilotTests(unittest.TestCase):
         self.assertEqual(result["source_agreement_status"], "PARTIAL_VERIFICATION")
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_unmatched_and_alias_diagnostics_are_preserved(self):
+        unmatched = [{"date": "2026-11-01", "home": "Arsenal", "reason": "not_found"}]
+        suggestions = [{"status": "REVIEW_REQUIRED", "primary": ["Arsenal", "Chelsea"]}]
+        with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
+            "status": "PARTIAL_PROVISIONAL_MATCH", "issues": [],
+            "comparison": {"matched": 1, "unmatched": 1, "ambiguous": 0,
+                           "conflicts": [], "unmatched_details": unmatched,
+                           "alias_suggestions": suggestions, "alias_suggestion_count": 1}}):
+            result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
+        self.assertEqual(result["unmatched_details"], unmatched)
+        self.assertEqual(result["alias_suggestions"], suggestions)
+        self.assertEqual(result["diagnostic_summary"]["alias_review_required"], 1)
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_provenance_is_retained(self):
         provenance = {"espn": {"sha256": "123"}, "football_data": {"url": "https://example.test"}}
         with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
