@@ -7,6 +7,7 @@ verification. No caller-supplied Boolean may authorize EX FINAL.
 
 import math
 import datetime as dt
+from ex_calibration_audit import MARKETS
 
 
 def _calibration_bins_consistent(report):
@@ -32,6 +33,7 @@ def _calibration_bins_consistent(report):
 def _calibration_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "AUDIT_COMPLETE_NOT_CALIBRATED"
+            and report.get("market") in MARKETS
             and isinstance(report.get("sample_size"), int)
             and not isinstance(report.get("sample_size"), bool)
             and report["sample_size"] >= 30
@@ -115,6 +117,14 @@ def _holdout_records_consistent(report):
                 return False
             if fixture in seen or row.get("market") != evaluation.get("market"):
                 return False
+            probability = row.get("probability")
+            outcome = row.get("outcome")
+            if (isinstance(probability, bool)
+                    or not isinstance(probability, (int, float))
+                    or not math.isfinite(probability)
+                    or not 0 <= probability <= 1
+                    or type(outcome) is not int or outcome not in (0, 1)):
+                return False
             trained_prediction = utc(row["predicted_at"])
             trained_kickoff = utc(row["kickoff_at"])
             trained_settlement = utc(row["settled_at"])
@@ -126,6 +136,18 @@ def _holdout_records_consistent(report):
             return False
         count = len(rows)
         brier = sum((p - y) ** 2 for p, y in zip(probabilities, outcomes)) / count
+        for bucket in evaluation["reliability_bins"]:
+            low = int(bucket["range"].split("-")[0]) / 100
+            high = low + 0.1
+            selected = [(p, y) for p, y in zip(probabilities, outcomes)
+                        if low <= p < high or (low == 0.9 and p == 1)]
+            if (len(selected) != bucket["count"]
+                    or not selected
+                    or abs(sum(p for p, _ in selected) / len(selected)
+                           - bucket["mean_predicted"]) > 1e-6
+                    or abs(sum(y for _, y in selected) / len(selected)
+                           - bucket["observed_rate"]) > 1e-6):
+                return False
         return (abs(sum(probabilities) / count - evaluation["mean_predicted"]) <= 1e-6
                 and abs(sum(outcomes) / count - evaluation["observed_rate"]) <= 1e-6
                 and abs(brier - evaluation["brier_score"]) <= 1e-6)
