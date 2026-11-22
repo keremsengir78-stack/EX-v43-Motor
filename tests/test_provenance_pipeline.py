@@ -27,6 +27,43 @@ def settlements():
 
 
 class ProvenancePipelineTests(unittest.TestCase):
+    def test_unhashable_provider_group_blocks_without_exception(self):
+        first = provider("a")
+        first["provider_group"] = []
+        result = reconcile_with_provenance([first, provider("b")],
+                                           [evidence("a"), evidence("b")],
+                                           CUTOFF, settlements())
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_null_provider_group_blocks(self):
+        first = provider("a")
+        first["provider_group"] = None
+        result = reconcile_with_provenance([first, provider("b")],
+                                           [evidence("a"), evidence("b")],
+                                           CUTOFF, settlements())
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_blank_provider_group_blocks(self):
+        first = provider("a")
+        first["provider_group"] = " "
+        result = reconcile_with_provenance([first, provider("b")],
+                                           [evidence("a"), evidence("b")],
+                                           CUTOFF, settlements())
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_non_dict_provider_blocks(self):
+        result = reconcile_with_provenance([provider("a"), []],
+                                           [evidence("a"), evidence("b")],
+                                           CUTOFF, settlements())
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_valid_provider_groups_remain_metadata_only(self):
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), evidence("b")],
+                                           CUTOFF, settlements())
+        self.assertEqual(result["status"], "RECONCILED_WITH_METADATA_UNVERIFIED")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_missing_settlement_blocks(self):
         result = reconcile_with_provenance([provider("a"), provider("b")],
                                            [evidence("a"), evidence("b")], CUTOFF)
