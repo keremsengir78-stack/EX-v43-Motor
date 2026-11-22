@@ -64,7 +64,8 @@ class SafetyGates(unittest.TestCase):
         self.assertEqual(check_fixture(fixture,"2026-11-23T00:00:00+14:00")["status"],
                          "VERIFIED_INPUT")
         # The same instant is Nov 21 in -12:00, but kickoff has already passed.
-        result=check_fixture(fixture,"2026-11-21T04:00:00-12:00")
+        fixture["kickoff_at"]="2026-11-22T10:00:00Z"
+        result=check_fixture(fixture,"2026-11-21T23:00:00-12:00")
         self.assertEqual(result["status"],"BLOCKED")
         self.assertIn("fixture:analysis_after_kickoff",result["issues"])
 
