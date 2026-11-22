@@ -103,7 +103,7 @@ if status["summary_exists"] and status["germany_csv_exists"]:
         if not strict_path.is_file():
             raise ValueError("Missing strict score reconciliation")
         strict=json.loads(strict_path.read_text(encoding="utf-8"))
-        if strict["total"]!=status["non_germany_shadow_unmatched"] or strict["confirmed"]+strict["remaining"]!=strict["total"] or strict["ex_final_allowed"] is not False:
+        if strict["total"]!=json.loads(Path("ex_run/multileague_review_batches.json").read_text(encoding="utf-8"))["total_unmatched"] or strict["confirmed"]+strict["remaining"]!=strict["total"] or strict["ex_final_allowed"] is not False:
             raise ValueError("Unsafe strict score reconciliation")
         Path("reports/latest_multileague_strict_score_reconcile.json").write_bytes(strict_path.read_bytes())
         status["strict_score_confirmed"]=strict["confirmed"]
