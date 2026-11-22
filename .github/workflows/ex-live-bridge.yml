@@ -12,6 +12,7 @@ on:
       - 'ex_cross_verify.py'
       - 'ex_official_evidence.py'
       - 'ex_official_reconcile.py'
+      - 'ex_sample_readiness.py'
       - 'evidence/official_unresolved_2026_11.json'
       - '.github/workflows/ex-live-bridge.yml'
   workflow_dispatch:
@@ -72,6 +73,11 @@ jobs:
         run: |
           test -s ex_live_bridge_delta_audit.json
           python ex_official_reconcile.py --audit ex_live_bridge_delta_audit.json --out ex_official_reconciliation_audit.json
+      - name: Audit per-league historical sample readiness
+        shell: bash
+        run: |
+          test -s ex_live_bridge_delta_audit.json
+          python ex_sample_readiness.py --audit ex_live_bridge_delta_audit.json --out ex_sample_readiness_audit.json
       - name: Print audit
         if: always()
         shell: bash
@@ -92,5 +98,6 @@ jobs:
             ex_live_bridge_delta_audit.json
             ex_live_bridge_review_queue.csv
             ex_official_reconciliation_audit.json
+            ex_sample_readiness_audit.json
           if-no-files-found: warn
           retention-days: 14
