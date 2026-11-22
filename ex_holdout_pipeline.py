@@ -31,6 +31,9 @@ def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff
     if any(not isinstance(row, dict) or not isinstance(row.get("settled_at"), str)
            or not row["settled_at"].strip() for row in fixtures):
         return blocked(["fixtures:settlement_provenance_missing"])
+    if any(not isinstance(row.get("source"), str) or not row["source"].strip()
+           for row in fixtures):
+        return blocked(["fixtures:source_missing"])
     if not isinstance(predictions, list) or not predictions:
         return blocked(["predictions:missing"])
     if any(not isinstance(row, dict) or not isinstance(row.get("source"), str)
