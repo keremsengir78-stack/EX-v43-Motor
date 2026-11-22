@@ -38,9 +38,11 @@ def weighted_evidence(features, as_of=None):
         if not isinstance(item,dict):
             issues.append(key+":missing");continue
         score=item.get("score")
-        if isinstance(score,bool) or not isinstance(score,(int,float)) or not math.isfinite(score) or not 0<=score<=1:
+        if isinstance(score,bool) or not isinstance(score,(int,float)) or not 0<=score<=1:
             issues.append(key+":invalid_score");continue
-        if item.get("verified") is not True or not item.get("source") or not item.get("timestamp"):
+        if (item.get("verified") is not True or not isinstance(item.get("source"),str)
+                or not item["source"].strip() or not isinstance(item.get("timestamp"),str)
+                or not item["timestamp"].strip()):
             issues.append(key+":unverified");continue
         try:
             timestamp=dt.datetime.fromisoformat(item["timestamp"].replace("Z","+00:00"))
