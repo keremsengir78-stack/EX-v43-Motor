@@ -44,8 +44,12 @@ def validate_provenance(attestations, cutoff):
         if not isinstance(url, str) or not url.strip():
             issues.append("attestation:%d:url_invalid" % i)
         else:
-            parsed = urlparse(url)
-            if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+            try:
+                parsed = urlparse(url)
+                if (parsed.scheme != "https" or not parsed.hostname
+                        or parsed.username or parsed.password):
+                    issues.append("attestation:%d:url_invalid" % i)
+            except ValueError:
                 issues.append("attestation:%d:url_invalid" % i)
         try:
             stamp = row["reviewed_at"]
