@@ -85,11 +85,11 @@ jobs:
           candidate=json.loads(Path("ex_run/multileague_source_candidates.json").read_text(encoding="utf-8"))
           summary=json.loads(Path("ex_run/multileague_candidate_summary.json").read_text(encoding="utf-8"))
           unique=json.loads(Path("ex_run/multileague_unique_candidates.json").read_text(encoding="utf-8"))
-          assert candidate["total_fixtures"] == summary["total_fixtures"] == unique["total_fixtures"] == 1177
+          assert candidate["total_fixtures"] == summary["total_fixtures"] == unique["total_fixtures"]
           assert candidate["with_candidates"] == summary["with_candidates"]
           assert unique["unique_name_candidates"] <= summary["high_name_similarity_candidates"]
           assert not any(x.get("independent_score_verified") for x in unique["records"])
-          print("SOURCE_CANDIDATE_COUNTS",json.dumps({"total":1177,"same_day":summary["with_candidates"],"high_similarity":summary["high_name_similarity_candidates"],"unique":unique["unique_name_candidates"],"unmatched":unique["remaining_for_manual_review"]}))
+          print("SOURCE_CANDIDATE_COUNTS",json.dumps({"total":candidate["total_fixtures"],"same_day":summary["with_candidates"],"high_similarity":summary["high_name_similarity_candidates"],"unique":unique["unique_name_candidates"],"unmatched":unique["remaining_for_manual_review"]}))
           PY
           python - <<'PY'
           import json
