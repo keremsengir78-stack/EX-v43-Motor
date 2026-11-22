@@ -8,7 +8,11 @@ from ex_espn_football_data_bridge import fetch_and_compare_historical_day
 
 
 def run_pilot(league, season, day, as_of):
-    result = fetch_and_compare_historical_day(league, season, day, as_of)
+    try:
+        result = fetch_and_compare_historical_day(league, season, day, as_of)
+    except Exception as exc:
+        result = {"status": "BLOCKED", "issues": ["pilot:unexpected_error:" + type(exc).__name__],
+                  "comparison": None, "provenance": {}}
     comparison = result.get("comparison") or {}
     return {
         "league": league, "season": season, "day": day, "as_of": as_of,
