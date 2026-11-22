@@ -51,6 +51,8 @@ def main():
     target.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True),
                       encoding="utf-8")
     print(json.dumps({"unmatched_total": report["unmatched_total"],
+                      "unmatched_by_league": report["unmatched_by_league"],
+                      "germany_unmatched": report["germany_unmatched"],
                       "by_league": [{"league": g["league"], "season": g["season"],
                                      "unmatched": g["unmatched_count"]}
                                     for g in report["groups"]],
