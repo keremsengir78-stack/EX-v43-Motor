@@ -141,6 +141,25 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_parallel_extreme_market_and_naive_kickoff_fail_closed(self):
+        match={"recompute_consistent":True,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":50,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        ingestion={"status":"INGESTED_CROSS_VERIFIED","independent_sources_confirmed":2}
+        for value in (10**10000,float("inf"),float("nan")):
+            candidate={**match,"market_baselines_pct":{**match["market_baselines_pct"],"KG_VAR":value}}
+            result=auto_control(candidate,ingestion)
+            self.assertIn("market_baselines:invalid",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00"}
+        result=check_fixture(fixture,"2026-11-22")
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("kickoff_at:timezone_missing",result["issues"])
+
     def test_fixture_rejects_malformed_analysis_cutoff(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
