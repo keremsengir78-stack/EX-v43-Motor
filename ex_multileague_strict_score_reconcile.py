@@ -21,7 +21,7 @@ CLUB_IDENTITIES = {
         "borussiamonchengladbach": "mgladbach",
         "scfreiburg": "freiburg",
         "borussiadortmund": "dortmund",
-        "fcbayernmunchen": "bayernmunich",
+        "bayernmunchen": "bayernmunich",
         "fcschalke04": "schalke04",
         "tsg1899hoffenheim": "hoffenheim",
         "bayernmunich": "bayernmunich",
