@@ -6,8 +6,6 @@ on:
       - 'reports/**'
       - 'docs/EX_CONTINUITY.md'
   workflow_dispatch:
-  schedule:
-    - cron: '15 2 * * *'
 permissions:
   contents: write
 concurrency:
