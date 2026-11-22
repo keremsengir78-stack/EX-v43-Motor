@@ -70,6 +70,10 @@ def compare_audits(raw, reviewed):
         for fixture in case["unresolved_fixtures"]:
             status = fixture.get("source_presence_status", "NOT_DIAGNOSED")
             presence_counts[status] = presence_counts.get(status, 0) + 1
+    reversed_fixture_count = sum(
+        fixture.get("secondary_reversed_fixture_count", 0)
+        for case in cases for fixture in case["unresolved_fixtures"]
+    )
     remaining_by_league = {}
     for case in cases:
         remaining_by_league[case["league"]] = remaining_by_league.get(case["league"], 0) + case["reviewed_unmatched"]
@@ -86,6 +90,7 @@ def compare_audits(raw, reviewed):
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
         "source_presence_counts": dict(sorted(presence_counts.items())),
+        "secondary_reversed_fixture_candidate_count": reversed_fixture_count,
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
         "review_queue_complete": all(len(case["unresolved_fixtures"]) == case["reviewed_unmatched"] for case in cases),
         "review_queue_missing_count": sum(max(0, case["reviewed_unmatched"] - len(case["unresolved_fixtures"])) for case in cases),
