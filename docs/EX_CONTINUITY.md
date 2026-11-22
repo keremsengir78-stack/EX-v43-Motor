@@ -80,3 +80,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Gerçek `reports/latest_germany_shadow_remaining.json` sekiz kaydın tamamını yayımladı; hepsi 2026-27/de.1. Dört kayıtta `SC Paderborn 07` / `Paderborn`, dört kayıtta `SV 07 Elversberg` / `Elversberg` isim farkı görüldü.
 - `ex_germany_remaining_candidates.py` mevcut adaylarla çapraz karşılaştırıp yeni adayları yalnızca manuel inceleme için çıkarır. Testi `tests/test_germany_remaining_candidates.py`.
 - Workflow `reports/latest_germany_remaining_candidates.json` raporunu yayımlayacak. Son CI sonucu henüz doğrulanmadı. Hiçbir isim eşleştirmesi veya skor onaylanmadı, EX FINAL kilitli.
+
+## 2026-11-22: 38. tur, genişletilmiş Almanya gölge testi
+- CI 4/4 success ve gerçek `45030317436` raporu: 16 ilk aday + 2 yeni manuel aday (`SC Paderborn 07`→`Paderborn` 4 destek, `SV 07 Elversberg`→`Elversberg` 3 destek).
+- Elversberg'in 4 gölge uyuşmazlığından biri, diğer tarafın adı da değiştiği için tekil aday çıkarma testinde sayılmadı; bu skor doğrulaması değildir.
+- `ex_germany_shadow_merge.py` 16+2 adayın çakışmasız, onaysız birleşimini oluşturur; `tests/test_germany_shadow_merge.py` koruma testidir. Workflow yalnızca ayrı gölge denetimi yürütür, `reports/latest_germany_expanded_shadow.json` üretmeyi dener.
+- Son CI ve genişletilmiş gölge sonuçları henüz doğrulanmadı. Onaylı eşleştirme dosyaları ve EX FINAL kilidi değişmedi.
