@@ -27,7 +27,10 @@ class FinalReadinessTests(unittest.TestCase):
         measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
                     "sample_size": 100, "brier_score": 0.22,
                     "expected_calibration_error": 0.08,
-                    "maximum_calibration_error": 0.16}
+                    "maximum_calibration_error": 0.16,
+                    "reliability_bins": [{"count": 100,
+                                          "mean_predicted": 0.5,
+                                          "observed_rate": 0.45}]}
         historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
                       "split": {"status": "CHRONOLOGICAL_SPLIT_READY"},
                       "evaluation": measured}
@@ -36,6 +39,17 @@ class FinalReadinessTests(unittest.TestCase):
             measured, historical)
         self.assertEqual(result["missing_checks"], ["external_evidence"])
         self.assertFalse(result["ex_final_allowed"])
+
+    def test_reliability_bins_must_match_sample_size(self):
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+             "sample_size": 100, "brier_score": 0.22,
+             "expected_calibration_error": 0.08,
+             "maximum_calibration_error": 0.16,
+             "reliability_bins": [{"count": 99, "mean_predicted": 0.5,
+                                   "observed_rate": 0.45}]})
+        self.assertIn("calibration", result["missing_checks"])
 
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
