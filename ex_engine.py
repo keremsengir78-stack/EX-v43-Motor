@@ -37,6 +37,10 @@ def weighted_form(rows,team,side,cutoff,league,season_start,previous_start):
     return result,{'counts':list(map(len,chunks)),'rates':rates,'weights':W,'result':result,'match_dates':[[str(r['date']) for r in c] for c in chunks]}
 def poisson(k,lam):return math.exp(-lam)*lam**k/math.factorial(k)
 def distribution(lh,la):
+    # Reject invalid parameters before computing any market percentages.
+    # This function is a statistical baseline, never calibrated EX FINAL evidence.
+    if any(isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) or v<0 or v>5 for v in (lh,la)):
+        raise ValueError('goal intensities must be finite numbers in [0,5]')
     # analytic total goals: sum of independent Poissons
     t=lh+la; over=1-math.exp(-t)*(1+t+t*t/2)
     btts=(1-math.exp(-lh))*(1-math.exp(-la))
