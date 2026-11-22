@@ -19,7 +19,7 @@ REVIEWED_ALIASES = {
     "it.1": {"acmilan": "Milan", "internazionale": "Inter"},
     "en.1": {"newcastleunited": "Newcastle", "hullcity": "Hull",
              "brightonhovealbion": "Brighton",
-             "manchesterunited": "Man United", "afcbournemouth": "Bournemouth",
+             "manchesterunited": "Man United", "bournemouth": "Bournemouth",
              "leedsunited": "Leeds"},
     "es.1": {"realbetis": "Betis", "celtavigo": "Celta",
              "atleticomadrid": "Ath Madrid"},
