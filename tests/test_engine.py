@@ -216,15 +216,15 @@ class TestEXMotor(unittest.TestCase):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T14:00:00Z",
                  "kickoff_at":"2026-11-22T15:00:00Z"}
-        self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
+        self.assertEqual(check_fixture(fixture,"2026-11-22T14:30:00Z")["status"],"VERIFIED_INPUT")
         for checked in ("2026-11-22T15:00:00Z","2026-11-22T16:00:00Z"):
             fixture["fixture_checked_at"]=checked
-            result=check_fixture(fixture,"2026-11-22")
+            result=check_fixture(fixture,"2026-11-22T14:30:00Z")
             self.assertEqual(result["status"],"BLOCKED")
             self.assertIn("fixture:checked_after_kickoff",result["issues"])
         fixture["fixture_checked_at"]="2026-11-22T14:00:00"
         self.assertIn("fixture_checked_at:timezone_missing",
-                      check_fixture(fixture,"2026-11-22")["issues"])
+                      check_fixture(fixture,"2026-11-22T14:30:00Z")["issues"])
 
     def test_fixture_odds_malformed_inputs_fail_closed(self):
         for payload in (None, [], "bad", 123):
