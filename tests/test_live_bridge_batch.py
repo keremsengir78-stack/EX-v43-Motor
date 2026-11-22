@@ -33,6 +33,13 @@ class MultiCaseAuditTests(unittest.TestCase):
         self.assertEqual(result["conflict_count"], 1)
         self.assertEqual(result["status"], "INCOMPLETE_OR_CONFLICTING")
 
+    def test_partial_case_is_counted(self):
+        with patch.object(batch, "run_pilot", return_value=report("PARTIAL_PROVISIONAL_MATCH", 1, 2)):
+            result = batch.run_batch("2026-11-22", batch.DEFAULT_CASES[:1])
+        self.assertEqual(result["partial_cases"], 1)
+        self.assertEqual(result["blocked_cases"], 0)
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_empty_batch_not_success(self):
         result = batch.run_batch("2026-11-22", ())
         self.assertEqual(result["status"], "INCOMPLETE_OR_CONFLICTING")
