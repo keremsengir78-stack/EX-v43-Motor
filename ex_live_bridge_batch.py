@@ -24,10 +24,15 @@ def run_batch(as_of, cases=DEFAULT_CASES):
     ambiguous = sum(report["ambiguous"] for report in reports)
     conflicts = sum(report["conflict_count"] for report in reports)
     blocked = sum(report["status"] == "BLOCKED" for report in reports)
+    partial = sum(report["status"] == "PARTIAL_PROVISIONAL_MATCH" for report in reports)
+    score_conflict_cases = sum(report["status"] == "SCORE_CONFLICT" for report in reports)
+    alias_review = sum(report.get("alias_suggestion_count", 0) for report in reports)
     complete = sum(report["status"] == "PROVISIONAL_MATCH_UNAUDITED" for report in reports)
     return {
         "as_of": as_of, "case_count": len(reports),
         "completed_provisional_cases": complete, "blocked_cases": blocked,
+        "partial_cases": partial, "score_conflict_cases": score_conflict_cases,
+        "alias_review_required": alias_review,
         "matched": matched, "unmatched": unmatched,
         "ambiguous": ambiguous, "conflict_count": conflicts,
         "coverage": matched / (matched + unmatched) if matched + unmatched else 0.0,
