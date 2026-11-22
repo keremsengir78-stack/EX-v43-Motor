@@ -304,6 +304,70 @@ class FinalReadinessTests(unittest.TestCase):
             measured, historical)
         self.assertEqual(result["missing_checks"], ["external_evidence"])
 
+    def test_unhashable_bin_label_blocks_without_exception(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"][0]["range"] = []
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_null_bin_label_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"][0]["range"] = None
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_probability_zero_uses_first_bin(self):
+        measured, historical = self._valid_holdout()
+        for row in historical["split"]["test"]:
+            row["probability"] = 0.0
+            row["outcome"] = 0
+        measured.update(brier_score=0.0, expected_calibration_error=0.0,
+                        maximum_calibration_error=0.0, mean_predicted=0.0,
+                        observed_rate=0.0,
+                        reliability_bins=[{"range": "00-10", "count": 30,
+                                           "mean_predicted": 0.0,
+                                           "observed_rate": 0.0}])
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertEqual(result["missing_checks"], ["external_evidence"])
+
+    def test_exact_tenth_boundary_uses_upper_bin(self):
+        measured, historical = self._valid_holdout()
+        for row in historical["split"]["test"]:
+            row["probability"] = 0.3
+            row["outcome"] = 0
+        measured.update(brier_score=0.09, expected_calibration_error=0.3,
+                        maximum_calibration_error=0.3, mean_predicted=0.3,
+                        observed_rate=0.0,
+                        reliability_bins=[{"range": "30-40", "count": 30,
+                                           "mean_predicted": 0.3,
+                                           "observed_rate": 0.0}])
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertEqual(result["missing_checks"], ["external_evidence"])
+
+    def test_just_below_tenth_boundary_uses_lower_bin(self):
+        measured, historical = self._valid_holdout()
+        for row in historical["split"]["test"]:
+            row["probability"] = 0.299
+            row["outcome"] = 0
+        measured.update(brier_score=0.089401, expected_calibration_error=0.299,
+                        maximum_calibration_error=0.299, mean_predicted=0.299,
+                        observed_rate=0.0,
+                        reliability_bins=[{"range": "20-30", "count": 30,
+                                           "mean_predicted": 0.299,
+                                           "observed_rate": 0.0}])
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertEqual(result["missing_checks"], ["external_evidence"])
+
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
