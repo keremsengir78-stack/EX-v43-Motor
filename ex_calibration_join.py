@@ -66,11 +66,15 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
             issues.append("prediction:%d:temporal_leakage" % i)
             continue
         settled = row.get("settled_at")
+        fixture_settled = next((fixture.get("settled_at") for fixture in fixtures
+                                if isinstance(fixture, dict) and fixture.get("fixture_id") == fid), None)
+        if fixture_settled is not None and settled != fixture_settled:
+            issues.append("prediction:%d:settlement_mismatch" % i)
         try:
             if not isinstance(settled, str) or not settled.endswith("Z"):
                 raise ValueError("UTC settlement required")
             settlement = dt.datetime.fromisoformat(settled.replace("Z", "+00:00"))
-            if settlement.utcoffset() != dt.timedelta(0) or settlement <= kickoff:
+            if (settlement.utcoffset() != dt.timedelta(0) or settlement <= kickoff):
                 raise ValueError("settlement before kickoff")
         except (ValueError, TypeError, OverflowError):
             issues.append("prediction:%d:settlement_invalid" % i)
