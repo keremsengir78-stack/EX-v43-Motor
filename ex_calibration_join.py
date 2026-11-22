@@ -16,6 +16,10 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
         return {"status": "BLOCKED", "issues": ["market:unsupported"],
                 "joined_records": [], "audit": None,
                 "calibration_certified": False, "ex_final_allowed": False}
+    if isinstance(min_samples, bool) or not isinstance(min_samples, int) or min_samples < 30:
+        return {"status": "BLOCKED", "issues": ["min_samples:invalid"],
+                "joined_records": [], "audit": None,
+                "calibration_certified": False, "ex_final_allowed": False}
     outcome_result = market_outcomes(fixtures, as_of)
     if outcome_result["status"] != "OUTCOMES_READY":
         issues.extend("outcome:" + x for x in outcome_result["issues"])
