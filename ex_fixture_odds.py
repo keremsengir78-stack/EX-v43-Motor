@@ -10,6 +10,10 @@ def check_fixture(fixture, as_of):
     for field in ("date","league","home","away","fixture_source","fixture_checked_at","kickoff_at"):
         if not isinstance(fixture.get(field),str) or not fixture[field].strip():
             issues.append(field+":missing")
+    for field in ("fixture_checked_at","kickoff_at"):
+        value=fixture.get(field)
+        if isinstance(value,str) and value.strip() and not re.match(r"^\d{4}-\d{2}-\d{2}T",value):
+            issues.append(field+":noncanonical_timestamp")
     try:
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",fixture["date"]):
             raise ValueError("fixture date must be YYYY-MM-DD")
