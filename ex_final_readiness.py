@@ -33,6 +33,8 @@ def _calibration_bins_consistent(report):
 def _calibration_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "AUDIT_COMPLETE_NOT_CALIBRATED"
+            and report.get("issues", []) == []
+            and report.get("calibration_certified", False) is False
             and isinstance(report.get("market"), str)
             and report.get("market") in MARKETS
             and isinstance(report.get("sample_size"), int)
@@ -172,8 +174,11 @@ def _holdout_records_consistent(report):
 def _historical_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED"
+            and report.get("issues", []) == []
+            and report.get("calibration_certified", False) is False
             and isinstance(report.get("split"), dict)
             and report["split"].get("status") == "CHRONOLOGICAL_SPLIT_READY"
+            and report["split"].get("issues", []) == []
             and isinstance(report["split"].get("test"), list)
             and _holdout_records_consistent(report)
             and _calibration_measured(report.get("evaluation")))
