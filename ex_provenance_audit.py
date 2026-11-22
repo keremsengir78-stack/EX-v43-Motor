@@ -13,8 +13,8 @@ def validate_provenance(attestations, cutoff):
         if not isinstance(cutoff, str) or not cutoff.endswith("Z"):
             raise ValueError("UTC cutoff required")
         boundary = dt.datetime.fromisoformat(cutoff.replace("Z", "+00:00"))
-        if boundary.tzinfo is None:
-            raise ValueError("timezone required")
+        if boundary.utcoffset() != dt.timedelta(0):
+            raise ValueError("UTC timezone required")
     except (ValueError, TypeError, OverflowError):
         boundary = None
         issues.append("cutoff:invalid")
@@ -53,12 +53,13 @@ def validate_provenance(attestations, cutoff):
         else:
             try:
                 parsed = urlparse(url)
-                if (parsed.scheme != "https" or not parsed.hostname
-                        or parsed.username or parsed.password):
+                if (url != url.strip() or parsed.scheme != "https"
+                        or not parsed.hostname or parsed.username or parsed.password
+                        or parsed.fragment or any(ch.isspace() for ch in url)):
                     issues.append("attestation:%d:url_invalid" % i)
                 else:
                     normalized_url = (parsed.scheme.lower(), parsed.hostname.lower(),
-                                      parsed.port, parsed.path.rstrip("/") or "/",
+                                      parsed.port or 443, parsed.path.rstrip("/") or "/",
                                       parsed.query)
                     if normalized_url in seen_urls:
                         issues.append("attestation:%d:url_duplicate" % i)
@@ -70,7 +71,7 @@ def validate_provenance(attestations, cutoff):
             if not isinstance(stamp, str) or not stamp.endswith("Z"):
                 raise ValueError("UTC review required")
             when = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-            if when.tzinfo is None or (boundary is not None and when >= boundary):
+            if when.utcoffset() != dt.timedelta(0) or (boundary is not None and when >= boundary):
                 raise ValueError("future review")
         except (KeyError, ValueError, TypeError, OverflowError):
             issues.append("attestation:%d:date_invalid_or_future" % i)
