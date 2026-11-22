@@ -61,7 +61,7 @@ def check_fixture(fixture, as_of):
             if cutoff.tzinfo is None or cutoff.utcoffset() is None:
                 issues.append("as_of:timezone_missing")
             else:
-                if checked.tzinfo is not None and checked.utcoffset() is not None and checked>cutoff:
+                if checked.tzinfo is not None and checked.utcoffset() is not None and checked>=cutoff:
                     issues.append("fixture:verified_after_analysis")
                 if kickoff_time.tzinfo is not None and kickoff_time.utcoffset() is not None and kickoff_time<=cutoff:
                     issues.append("fixture:analysis_after_kickoff")
