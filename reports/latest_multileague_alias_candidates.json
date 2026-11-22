@@ -1,0 +1,155 @@
+{
+  "unmatched_by_league": {
+    "en.1": 307,
+    "es.1": 442,
+    "fr.1": 329,
+    "it.1": 428
+  },
+  "non_germany_unmatched": 1506,
+  "candidate_count": 14,
+  "candidates": [
+    {
+      "league": "fr.1",
+      "primary_name": "AJ Auxerre",
+      "secondary_name": "Auxerre",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "AS Monaco FC",
+      "secondary_name": "Monaco",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Angers SCO",
+      "secondary_name": "Angers",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "ES Troyes AC",
+      "secondary_name": "Troyes",
+      "supporting_fixtures": 1,
+      "distinct_dates": 1,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Le Havre AC",
+      "secondary_name": "Le Havre",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Lille OSC",
+      "secondary_name": "Lille",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "OGC Nice",
+      "secondary_name": "Nice",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Olympique Lyonnais",
+      "secondary_name": "Lyon",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Olympique de Marseille",
+      "secondary_name": "Marseille",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Paris Saint-Germain FC",
+      "secondary_name": "Paris SG",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "RC Strasbourg Alsace",
+      "secondary_name": "Strasbourg",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Racing Club de Lens",
+      "secondary_name": "Lens",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Stade Brestois 29",
+      "secondary_name": "Brest",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "fr.1",
+      "primary_name": "Stade Rennais FC 1901",
+      "secondary_name": "Rennes",
+      "supporting_fixtures": 2,
+      "distinct_dates": 2,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    }
+  ],
+  "aliases_approved": false,
+  "score_verified": false,
+  "ex_final_allowed": false
+}
