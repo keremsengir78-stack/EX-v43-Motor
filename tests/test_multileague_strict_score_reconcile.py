@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from ex_multileague_strict_score_reconcile import reconcile
+from ex_multileague_strict_score_reconcile import reconcile, validate_club_identities, CLUB_IDENTITIES
 
 class StrictScoreReconcileTests(unittest.TestCase):
     def setUp(self):
@@ -142,6 +142,14 @@ class StrictScoreReconcileTests(unittest.TestCase):
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
             result=reconcile(self.batches,self.primary)
         self.assertEqual(result["confirmed"],1)
+
+    def test_club_alias_table_has_no_chains(self):
+        validate_club_identities()
+
+    def test_chained_alias_is_rejected(self):
+        with patch.dict(CLUB_IDENTITIES["en.1"],{"newcastle":"otherclub"}):
+            with self.assertRaisesRegex(ValueError,"chained club alias"):
+                validate_club_identities()
 
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
