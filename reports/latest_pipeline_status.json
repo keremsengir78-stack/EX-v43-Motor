@@ -10,10 +10,61 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "d687e7aa2832caaff218a80c8e62060a643d01b8",
-  "run_id": "45057834455",
+  "commit": "63e033a7490d222056055d2c530650a9c5ba4548",
+  "run_id": "45064389677",
   "audit_status": "BLOCKED",
   "source_errors": [],
+  "baseline_blocking_sources": [
+    {
+      "season": "2026-27",
+      "league": "en.1",
+      "reason": "stale"
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "reason": "stale"
+    },
+    {
+      "season": "2026-27",
+      "league": "es.1",
+      "reason": "stale"
+    },
+    {
+      "season": "2026-27",
+      "league": "it.1",
+      "reason": "stale"
+    },
+    {
+      "season": "2026-27",
+      "league": "fr.1",
+      "reason": "stale"
+    },
+    {
+      "reason": "incomplete_independent_verification",
+      "unmatched": 1845
+    },
+    {
+      "reason": "secondary_newer_results_not_independently_verified",
+      "count": 250,
+      "staging_file": "secondary_only_unverified.json"
+    }
+  ],
+  "baseline_secondary_unverified": 1845,
+  "baseline_secondary_conflicts": 0,
+  "baseline_newer_unverified_results": 250,
+  "baseline_unmatched_by_season": {
+    "2025-26/en.1": 270,
+    "2025-26/de.1": 304,
+    "2025-26/es.1": 374,
+    "2025-26/it.1": 378,
+    "2025-26/fr.1": 286,
+    "2026-27/en.1": 37,
+    "2026-27/de.1": 35,
+    "2026-27/es.1": 68,
+    "2026-27/it.1": 50,
+    "2026-27/fr.1": 43
+  },
   "shadow_comparison_exists": true,
   "unmatched_total": 1845,
   "germany_unmatched": 339,
