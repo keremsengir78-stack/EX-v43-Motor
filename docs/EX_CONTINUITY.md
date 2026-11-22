@@ -123,3 +123,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `320bec952d66dfa8cd049d4f80444a7399f305e7` için 4/4 kontrol başarılı; run `45031102253` gerçek audit ve `non_germany_queue_validated=true` raporunu yayımladı. `latest_multileague_queue_validated.json` kontrol edilebilir.
 - Önceki başarısız test koşusunda `ingest_step=skipped` olmasına rağmen `latest_pipeline_status.json` üzerine yazılmıştı. Workflow `a0a16ccd` artık ingest skipped ise yayımlamayı durdurur ve kapanış kontrolünde `run_id` ile aktif workflow kimliğini karşılaştırarak eski raporun yeni sonuç gibi kullanılmasını reddeder.
 - Bu son CI korumasının workflow sonucu henüz teyit edilmedi. 1177 üç lig uyuşmazlığı, 0 bağımsız skor onayı ve EX FINAL kilidi korunuyor.
+
+## 2026-11-22: 45. tur, gölge sonrası gerçek inceleme kuyruğu
+- `a0a16ccde454f25f1e76cf33c411d537f334825f` 4/4 CI başarılı; `45031178981` raporunda ingest/review/shadow success, `non_germany_queue_validated=true`, 1845 başlangıç ve gölgede Almanya 0, Fransa 0, diğer üç lig 1177 uyuşmazlık. 0 bağımsız skor onayı.
+- `ex-review-sync.yml` dört lig gölge audit çıktısından `ex_secondary_review_summary.py` ile ayrı tamlık raporu, ardından `ex_multileague_review_queue.py` ile ilk 100 gölge-sonrası gerçek inceleme kaydı üretecek. `reports/latest_multileague_shadow_review_queue.json` yayımlanacak, sayısı mevcut `multileague_shadow_comparison.json` ile karşılaştırılacak. Rapor/CI henüz teyit edilmedi.
+- EX FINAL kapalı; gölge ad eşleştirmeleri onaylanmış bağımsız skor doğrulaması değildir.
