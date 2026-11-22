@@ -1,0 +1,11 @@
+{
+  "germany_unmatched_baseline": 339,
+  "unique_name_only_candidates": 36,
+  "ambiguous_name_candidates": 0,
+  "still_unverified": 339,
+  "verified_score_matches_added": 0,
+  "aliases_approved": false,
+  "ex_final_allowed": false,
+  "method": "same-day shared opponent and candidate alias; no score verification",
+  "comparison_only": true
+}
