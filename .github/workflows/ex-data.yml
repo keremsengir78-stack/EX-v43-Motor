@@ -114,6 +114,13 @@ jobs:
           else
             echo 'REVIEW SUMMARY UNAVAILABLE: no audit.json; EX FINAL disabled'
           fi
+      - name: Export Germany unresolved review CSV
+        if: always()
+        shell: bash
+        run: |
+          if [ -f ex_run/audit.json ]; then
+            python ex_germany_review_export.py --audit ex_run/audit.json --out ex_run/germany_unresolved_review.csv || echo 'GERMANY REVIEW EXPORT BLOCKED: source evidence invalid'
+          fi
       - name: Publish audit artifacts even on errors
         if: always()
         uses: actions/upload-artifact@v4
