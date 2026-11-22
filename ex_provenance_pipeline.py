@@ -6,9 +6,10 @@ does not prove evidence URL content or reviewer independence.
 import datetime as dt
 from ex_provenance_audit import validate_provenance
 from ex_provider_reconciliation import reconcile_provider_fixtures
+from ex_settlement_gate import verify_settlement_records
 
 
-def reconcile_with_provenance(provider_inputs, attestations, cutoff):
+def reconcile_with_provenance(provider_inputs, attestations, cutoff, settlements=None):
     provenance = validate_provenance(attestations, cutoff)
     if provenance["status"] != "PROVENANCE_METADATA_READY_UNVERIFIED":
         return {"status": "BLOCKED", "issues": ["provenance:" + x for x in provenance["issues"]],
@@ -45,6 +46,24 @@ def reconcile_with_provenance(provider_inputs, attestations, cutoff):
         return {"status": "BLOCKED", "issues": ["provenance:timestamp_invalid"],
                 "provenance": provenance, "reconciliation": reconciliation,
                 "externally_verified": False, "ex_final_allowed": False}
+    if settlements is None:
+        return {"status": "BLOCKED", "issues": ["settlement:missing"],
+                "provenance": provenance, "reconciliation": reconciliation,
+                "externally_verified": False, "ex_final_allowed": False}
+    settlement = verify_settlement_records(settlements, agreed["fixture_id"],
+                                            agreed["kickoff_at"], cutoff)
+    if settlement["status"] != "SETTLEMENT_METADATA_READY_UNVERIFIED":
+        return {"status": "BLOCKED",
+                "issues": ["settlement:" + x for x in settlement["issues"]],
+                "provenance": provenance, "reconciliation": reconciliation,
+                "settlement": settlement, "externally_verified": False,
+                "ex_final_allowed": False}
+    if {row["provider_group"] for row in settlements} != provider_groups:
+        return {"status": "BLOCKED", "issues": ["settlement:provider_group_mismatch"],
+                "provenance": provenance, "reconciliation": reconciliation,
+                "settlement": settlement, "externally_verified": False,
+                "ex_final_allowed": False}
     return {"status": "RECONCILED_WITH_METADATA_UNVERIFIED", "issues": [],
+            "settlement": settlement,
             "provenance": provenance, "reconciliation": reconciliation,
             "externally_verified": False, "ex_final_allowed": False}
