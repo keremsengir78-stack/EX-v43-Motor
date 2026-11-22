@@ -2,7 +2,7 @@ import hashlib
 import tempfile
 import unittest
 from pathlib import Path
-from ex_cross_verify import secondary_rows
+from ex_cross_verify import secondary_rows, MAX_SECONDARY_BYTES
 
 
 class FootballDataProvenanceTests(unittest.TestCase):
@@ -22,6 +22,19 @@ class FootballDataProvenanceTests(unittest.TestCase):
             rows, meta = secondary_rows("2026-2027", "en.1", offline=folder)
         self.assertEqual(rows, [])
         self.assertIn("error", meta)
+
+    def test_invalid_season_blocks_without_fetch(self):
+        for season in ("2026-2028", "../2026-2027", "2026-27", None):
+            rows, meta = secondary_rows(season, "en.1")
+            self.assertEqual(rows, [])
+            self.assertEqual(meta["error"], "invalid season")
+
+    def test_oversized_offline_csv_blocks(self):
+        with tempfile.TemporaryDirectory() as folder:
+            Path(folder, "2627_E0.csv").write_bytes(b"x" * (MAX_SECONDARY_BYTES + 1))
+            rows, meta = secondary_rows("2026-2027", "en.1", offline=folder)
+        self.assertEqual(rows, [])
+        self.assertIn("size limit", meta["error"])
 
     def test_unsupported_league_blocks(self):
         rows, meta = secondary_rows("2026-2027", "xx.1")
