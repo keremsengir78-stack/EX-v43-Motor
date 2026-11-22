@@ -38,7 +38,7 @@ def normalize_provider_fixture(raw, mapping, source_id, provider_group):
         if not isinstance(stamp, str) or not stamp.endswith("Z"):
             raise ValueError("UTC required")
         when = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-        if when.tzinfo is None:
+        if when.utcoffset() != dt.timedelta(0):
             raise ValueError("timezone missing")
     except (TypeError, ValueError, OverflowError):
         issues.append("kickoff_at:invalid")
