@@ -7,6 +7,8 @@ from pathlib import Path
 def summarize(audit):
     if not isinstance(audit, dict):
         raise ValueError("audit must be an object")
+    if audit.get("ex_final_allowed") is not False:
+        raise ValueError("audit must explicitly block EX FINAL")
     queue = audit.get("secondary_review_queue")
     if not isinstance(queue, list):
         raise ValueError("secondary_review_queue missing")
