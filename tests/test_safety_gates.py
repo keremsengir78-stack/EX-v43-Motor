@@ -28,6 +28,25 @@ class SafetyGates(unittest.TestCase):
         self.assertEqual(weighted_evidence(features,as_of="2026-11-22")["status"],
                          "EVIDENCE_COMPLETE_UNCALIBRATED")
 
+    def test_timestamp_cutoffs_reject_iso_week_and_compact_forms(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        odds={"decimal_odds":1.5,"market":"KG_VAR","bookmaker":"audit",
+              "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-21T09:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for cutoff in ("2026-W47-7T10:00:00Z","20261122T10:00:00Z"):
+            self.assertEqual(check_fixture(fixture,cutoff)["status"],"BLOCKED")
+            self.assertEqual(check_odds(odds,cutoff)["status"],"BLOCKED")
+            self.assertIn("invalid_as_of",weighted_evidence(features,cutoff)["issues"])
+        canonical="2026-11-22T10:00:00Z"
+        self.assertEqual(check_fixture(fixture,canonical)["status"],"VERIFIED_INPUT")
+        self.assertEqual(check_odds(odds,canonical)["status"],"VERIFIED_INPUT")
+        self.assertEqual(weighted_evidence(features,canonical)["status"],
+                         "EVIDENCE_COMPLETE_UNCALIBRATED")
+
     def test_fixture_time_boundaries(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
