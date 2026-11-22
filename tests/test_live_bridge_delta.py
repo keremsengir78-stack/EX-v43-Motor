@@ -122,6 +122,21 @@ class DeltaAuditTests(unittest.TestCase):
         result = compare_audits(audit(2, 3), reviewed)
         self.assertEqual(result["review_queue"][0]["reason_counts"], {"not_found": 2})
 
+    def test_incomplete_review_evidence_is_visible(self):
+        result = compare_audits(audit(2, 3), audit(3, 2, reviewed=True))
+        self.assertFalse(result["review_queue_complete"])
+        self.assertEqual(result["review_queue_missing_count"], 2)
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_complete_review_evidence_is_visible(self):
+        reviewed = audit(3, 2, reviewed=True)
+        reviewed["cases"][0]["unmatched_details"] = [
+            {"league": "en.1", "date": "2026-10-25", "home": "A", "away": "B", "reason": "not_found"},
+            {"league": "en.1", "date": "2026-10-25", "home": "C", "away": "D", "reason": "not_found"}]
+        result = compare_audits(audit(2, 3), reviewed)
+        self.assertTrue(result["review_queue_complete"])
+        self.assertEqual(result["review_queue_missing_count"], 0)
+
     def test_empty_audits_rejected(self):
         with self.assertRaises(ValueError):
             compare_audits({"as_of": "2026-11-22", "cases": []},
