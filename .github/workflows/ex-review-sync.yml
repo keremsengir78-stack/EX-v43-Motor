@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify review tools
-        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline -v
+        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline tests.test_germany_shadow_metrics -v
       - name: Collect real source audit
         id: ingest
         continue-on-error: true
@@ -143,6 +143,19 @@ jobs:
                           raise ValueError("Unsafe alias candidate evidence")
                       Path("reports/latest_germany_alias_candidates.json").write_bytes(candidate_path.read_bytes())
                       status["germany_alias_candidates"]=len(candidate_data["candidates"])
+                  offline_path=Path("ex_run/germany_offline_shadow.json")
+                  shadow_path=Path("ex_run/germany_shadow_comparison.json")
+                  if offline_path.is_file() and shadow_path.is_file():
+                      from ex_germany_shadow_metrics import validate_shadow_metrics
+                      comparison=validate_shadow_metrics(
+                          {"germany_unmatched":status["germany_unmatched"]},
+                          json.loads(shadow_path.read_text(encoding="utf-8")),
+                          json.loads(offline_path.read_text(encoding="utf-8")))
+                      Path("reports/latest_germany_shadow_validated_metrics.json").write_text(
+                          json.dumps(comparison,ensure_ascii=False,indent=2)+chr(10),
+                          encoding="utf-8")
+                      status["germany_shadow_reduction"]=comparison["shadow_reduction"]
+                      status["independently_verified_added"]=0
               except (ValueError, KeyError, OSError) as exc:
                   status["evidence_published"]=False
                   status["publication_error"]=str(exc)
@@ -155,7 +168,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
@@ -178,7 +191,7 @@ jobs:
               raise SystemExit("Audit pipeline failed: "+json.dumps(s))
           if s.get("shadow_step")!="success" or s.get("offline_shadow_step")!="success":
               raise SystemExit("Shadow comparison step failed: "+json.dumps(s))
-          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None:
+          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None or s.get("germany_shadow_reduction") is None:
               raise SystemExit("Missing shadow comparison output: "+json.dumps(s))
           PY
       - name: Upload evidence even if publication fails
