@@ -81,6 +81,16 @@ class LiveBridgePilotTests(unittest.TestCase):
         self.assertEqual(result["diagnostic_summary"]["alias_review_required"], 1)
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_single_day_never_certifies_calibration(self):
+        with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
+            "status": "PROVISIONAL_MATCH_UNAUDITED", "issues": [],
+            "comparison": {"matched": 1, "unmatched": 0, "conflicts": []}}):
+            result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
+        self.assertEqual(result["sample_size"], 1)
+        self.assertFalse(result["sample_sufficiency_certified"])
+        self.assertFalse(result["calibration_certified"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_provenance_is_retained(self):
         provenance = {"espn": {"sha256": "123"}, "football_data": {"url": "https://example.test"}}
         with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
