@@ -23,6 +23,7 @@ def verify_fixture_sources(observations, cutoff):
         observations = observations if isinstance(observations, list) else []
         issues.append("sources:insufficient")
     source_ids = set()
+    provider_groups = set()
     values = []
     for i, row in enumerate(observations):
         if not isinstance(row, dict):
@@ -33,6 +34,11 @@ def verify_fixture_sources(observations, cutoff):
             issues.append("source:%d:duplicate_or_missing" % i)
         else:
             source_ids.add(sid)
+        group = row.get("provider_group")
+        if not isinstance(group, str) or not group.strip() or group in provider_groups:
+            issues.append("source:%d:provider_group_duplicate_or_missing" % i)
+        else:
+            provider_groups.add(group)
         if row.get("verified") is not True:
             issues.append("source:%d:unverified" % i)
         if any(field not in row for field in FIELDS):
@@ -57,6 +63,6 @@ def verify_fixture_sources(observations, cutoff):
     if len(values) >= 2 and len(set(values)) != 1:
         issues.append("sources:fixture_conflict")
     return {"status": "CROSS_VERIFIED_INPUT" if not issues else "BLOCKED",
-            "issues": issues, "independent_sources_confirmed": len(source_ids) if not issues else 0,
+            "issues": issues, "independent_sources_confirmed": len(provider_groups) if not issues else 0,
             "agreed_fixture": dict(zip(FIELDS, values[0])) if values and not issues else None,
             "ex_final_allowed": False}
