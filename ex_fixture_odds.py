@@ -55,6 +55,9 @@ def check_odds(snapshot, as_of):
     for field in ("market","bookmaker","observed_at","source"):
         if not isinstance(snapshot.get(field),str) or not snapshot[field].strip():
             issues.append(field+":missing")
+    # Never allow an unmodelled market to masquerade as an audited EX selection.
+    if isinstance(snapshot.get("market"),str) and snapshot["market"].strip() and snapshot["market"] not in ("2.5_UST","KG_VAR","MS1","MS2"):
+        issues.append("market:unsupported")
     try:
         observed=dt.datetime.fromisoformat(snapshot["observed_at"].replace("Z","+00:00"))
         cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
