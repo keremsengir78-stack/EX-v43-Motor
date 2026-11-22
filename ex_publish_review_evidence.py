@@ -346,6 +346,10 @@ if status.get("audit_status") != "READY":
     status["audit_blockers"].append("GLOBAL_SOURCE_AUDIT_NOT_READY")
 if status.get("unmatched_total",0):
     status["audit_blockers"].append("BASELINE_SECONDARY_UNMATCHED")
+if status.get("baseline_stale_source_count",0):
+    status["audit_blockers"].append("BASELINE_STALE_PRIMARY_SOURCES")
+if status.get("baseline_unverified_results_pending",0):
+    status["audit_blockers"].append("SECONDARY_NEWER_RESULTS_UNVERIFIED")
 if status.get("source_errors"):
     status["audit_blockers"].append("SECONDARY_SOURCE_ERRORS")
 if not status.get("evidence_published"):
