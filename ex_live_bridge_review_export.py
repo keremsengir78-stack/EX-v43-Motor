@@ -1,16 +1,24 @@
 """Export unresolved fixtures from the provisional comparison for manual source review."""
 import argparse
 import csv
+import datetime as dt
 import json
 from pathlib import Path
 
 
-FIELDS = ("league", "date", "home", "away", "reason", "review_status")
+FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", "source_reference")
 
 
 def review_rows(report):
     if report.get("ex_final_allowed") is not False:
         raise ValueError("review report must keep EX FINAL blocked")
+    as_of = report.get("as_of")
+    if not isinstance(as_of, str):
+        raise ValueError("audit cutoff missing")
+    try:
+        cutoff = dt.date.fromisoformat(as_of)
+    except ValueError as exc:
+        raise ValueError("invalid audit cutoff") from exc
     queue = report.get("review_queue")
     if not isinstance(queue, list):
         raise ValueError("review queue missing")
@@ -24,9 +32,15 @@ def review_rows(report):
         for fixture in item["fixtures"]:
             if not isinstance(fixture, dict):
                 raise ValueError("invalid fixture")
-            row = {field: fixture.get(field) for field in FIELDS[:-1]}
+            row = {field: fixture.get(field) for field in ("league", "date", "home", "away", "reason")}
             if any(not isinstance(value, str) or not value.strip() for value in row.values()):
                 raise ValueError("missing fixture identity")
+            try:
+                fixture_day = dt.date.fromisoformat(row["date"])
+            except ValueError as exc:
+                raise ValueError("invalid fixture date") from exc
+            if fixture_day > cutoff:
+                raise ValueError("future fixture relative to audit cutoff")
             if row["league"] != item.get("league") or row["date"] != item.get("day"):
                 raise ValueError("fixture belongs to different review group")
             identity = tuple(row[field] for field in FIELDS[:-1])
@@ -34,6 +48,8 @@ def review_rows(report):
                 raise ValueError("duplicate review fixture")
             seen.add(identity)
             row["review_status"] = "REQUIRES_INDEPENDENT_SOURCE_REVIEW"
+            row["as_of"] = as_of
+            row["source_reference"] = "NOT_VERIFIED"
             rows.append(row)
     if len(rows) != report.get("reviewed_unmatched"):
         raise ValueError("incomplete review queue")
