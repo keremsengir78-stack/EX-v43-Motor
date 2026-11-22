@@ -31,6 +31,34 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_evaluation_start_equal_cutoff_blocks(self):
+        result = self.run_audit(evaluation_start="2026-07-01T00:00:00Z")
+        self.assertEqual(result["issues"], ["evaluation_window:invalid"])
+
+    def test_evaluation_start_after_cutoff_blocks(self):
+        result = self.run_audit(evaluation_start="2026-08-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIsNone(result["join"])
+
+    def test_non_utc_evaluation_start_blocks_early(self):
+        result = self.run_audit(evaluation_start="2026-01-01T03:00:00+03:00Z")
+        self.assertEqual(result["issues"], ["evaluation_window:invalid"])
+
+    def test_invalid_cutoff_blocks_early(self):
+        result = self.run_audit(cutoff="invalid")
+        self.assertEqual(result["issues"], ["evaluation_window:invalid"])
+
+    def test_boundary_overlap_blocks_without_holdout(self):
+        p, f = data()
+        p[0]["predicted_at"] = "2025-12-31T12:00:00Z"
+        f[0]["kickoff_at"] = "2026-01-01T12:00:00Z"
+        f[0]["settled_at"] = "2026-01-02T12:00:00Z"
+        p[0]["kickoff_at"] = f[0]["kickoff_at"]
+        p[0]["settled_at"] = f[0]["settled_at"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("boundary_overlap" in x for x in result["issues"]))
+
     def test_complete_chronological_audit_never_certifies(self):
         result = self.run_audit()
         self.assertEqual(result["status"], "HOLDOUT_AUDITED_NOT_CERTIFIED")
