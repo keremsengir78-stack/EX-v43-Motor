@@ -1,0 +1,39 @@
+name: EX live bridge verification pilot
+on:
+  push:
+    branches: [ex-v43-development]
+    paths:
+      - 'ex_live_bridge_pilot.py'
+      - 'ex_espn_football_data_bridge.py'
+      - 'ex_espn_provider.py'
+      - 'ex_cross_verify.py'
+      - '.github/workflows/ex-live-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch real provider data and preserve provisional audit
+        shell: bash
+        run: |
+          python ex_live_bridge_pilot.py --league en.1 --season 2026-2027 --day 2026-11-01 --as-of 2026-11-22 --out ex_live_bridge_audit.json || echo "Pilot unavailable or blocked; EX FINAL stays disabled"
+      - name: Print audit
+        if: always()
+        shell: bash
+        run: |
+          if [ -f ex_live_bridge_audit.json ]; then cat ex_live_bridge_audit.json; else echo "No live audit produced"; fi
+      - name: Upload provisional audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ex-live-bridge-audit
+          path: ex_live_bridge_audit.json
+          if-no-files-found: warn
+          retention-days: 14
