@@ -20,6 +20,39 @@ class ESPNFootballDataBridgeTests(unittest.TestCase):
                     "en.1", "2025-2026", "2026-01-01", "2026-02-01")
         return result, fetch, csv
 
+    def test_previous_calendar_year_outside_season_blocks(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard") as fetch:
+            result = fetch_and_compare_historical_day(
+                "en.1", "2025-2026", "2025-01-15", "2026-02-01")
+        self.assertIn("season:invalid_or_mismatched", result["issues"])
+        fetch.assert_not_called()
+
+    def test_next_calendar_year_outside_season_blocks(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard") as fetch:
+            result = fetch_and_compare_historical_day(
+                "en.1", "2025-2026", "2026-11-01", "2027-02-01")
+        self.assertIn("season:invalid_or_mismatched", result["issues"])
+        fetch.assert_not_called()
+
+    def test_season_opening_boundary_reaches_providers(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard", return_value=([match()], {"provider":"ESPN"})) as fetch:
+            with patch("ex_cross_verify.secondary_rows", return_value=([match()], {"provider":"football-data.co.uk"})):
+                fetch_and_compare_historical_day("en.1", "2025-2026", "2025-07-01", "2026-02-01")
+        fetch.assert_called_once()
+
+    def test_season_closing_boundary_reaches_providers(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard", return_value=([match()], {"provider":"ESPN"})) as fetch:
+            with patch("ex_cross_verify.secondary_rows", return_value=([match()], {"provider":"football-data.co.uk"})):
+                fetch_and_compare_historical_day("en.1", "2025-2026", "2026-06-30", "2026-07-01")
+        fetch.assert_called_once()
+
+    def test_nonconsecutive_season_blocks_before_network(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard") as fetch:
+            result = fetch_and_compare_historical_day(
+                "en.1", "2024-2026", "2026-01-01", "2026-02-01")
+        self.assertIn("season:invalid_or_mismatched", result["issues"])
+        fetch.assert_not_called()
+
     def test_two_provider_fetch_matches_provisionally(self):
         result, fetch, csv = self._run()
         self.assertEqual(result["status"], "PROVISIONAL_MATCH_UNAUDITED")
