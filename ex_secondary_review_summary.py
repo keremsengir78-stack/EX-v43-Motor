@@ -28,6 +28,22 @@ def summarize(audit):
     expected = audit.get("secondary_unverified")
     if type(expected) is not int or expected < 0 or expected != total:
         raise ValueError("unmatched totals disagree with audit")
+    expected_by_season = audit.get("secondary_unmatched_by_season")
+    if expected_by_season is not None:
+        if not isinstance(expected_by_season, dict):
+            raise ValueError("invalid season-level source counts")
+        observed_by_season = {}
+        for group in groups:
+            key = group["season"] + "/" + group["league"]
+            if key in observed_by_season:
+                raise ValueError("duplicate season and league review group")
+            observed_by_season[key] = group["unmatched_count"]
+        expected_positive = {key: value for key, value in expected_by_season.items()
+                             if type(value) is int and value > 0}
+        if (any(type(value) is not int or value < 0
+                for value in expected_by_season.values())
+                or observed_by_season != expected_positive):
+            raise ValueError("season-level source counts disagree with review queue")
     groups.sort(key=lambda g: (g["league"], g["season"]))
     by_league = {}
     for group in groups:
