@@ -19,6 +19,43 @@ def inputs(n=30):
 
 
 class CalibrationJoinTests(unittest.TestCase):
+    def test_fixture_settlement_disagreement_blocks(self):
+        predictions, fixtures = inputs()
+        fixtures[0]["settled_at"] = "2026-02-02T12:00:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("prediction:0:settlement_mismatch", result["issues"])
+
+    def test_matching_fixture_settlement_is_accepted(self):
+        predictions, fixtures = inputs()
+        for fixture in fixtures:
+            fixture["settled_at"] = "2026-02-01T12:00:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+
+    def test_settlement_mismatch_does_not_emit_partial_records(self):
+        predictions, fixtures = inputs()
+        fixtures[-1]["settled_at"] = "2026-02-02T12:00:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["joined_records"], [])
+        self.assertIsNone(result["audit"])
+
+    def test_fixture_settlement_utc_offset_disagreement_blocks(self):
+        predictions, fixtures = inputs()
+        fixtures[0]["settled_at"] = "2026-02-01T15:00:00+03:00Z"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("prediction:0:settlement_mismatch", result["issues"])
+
+    def test_fixture_settlement_is_optional_for_legacy_records(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+        self.assertFalse(result["calibration_certified"])
+
     def test_boolean_min_samples_blocks_before_audit(self):
         predictions, fixtures = inputs()
         result = join_calibration_records(predictions, fixtures, "KG_VAR",
