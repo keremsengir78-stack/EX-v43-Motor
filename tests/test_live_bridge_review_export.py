@@ -92,6 +92,16 @@ class ReviewExportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             review_rows(data)
 
+    def test_same_fixture_with_different_reason_rejected(self):
+        data = report()
+        duplicate = dict(data["review_queue"][0]["fixtures"][0])
+        duplicate["reason"] = "ambiguous"
+        data["review_queue"][0]["fixtures"].append(duplicate)
+        data["review_queue"][0]["unmatched"] = 2
+        data["reviewed_unmatched"] = 2
+        with self.assertRaises(ValueError):
+            review_rows(data)
+
     def test_duplicate_fixture_rejected(self):
         data = report()
         data["review_queue"][0]["fixtures"] *= 2
