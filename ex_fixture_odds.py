@@ -35,7 +35,7 @@ def check_fixture(fixture, as_of):
         kickoff_at=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
         if kickoff_at.tzinfo is None or kickoff_at.utcoffset() is None:
             issues.append("kickoff_at:timezone_missing")
-        elif kickoff_at.astimezone(dt.timezone.utc).date()!=dt.date.fromisoformat(fixture["date"]):
+        elif kickoff_at.date()!=dt.date.fromisoformat(fixture["date"]):
             issues.append("kickoff_at:date_mismatch")
     except (KeyError,ValueError,TypeError,AttributeError):
         issues.append("kickoff_at:invalid")
