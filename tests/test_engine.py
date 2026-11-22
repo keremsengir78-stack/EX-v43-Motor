@@ -124,6 +124,28 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_fixture_odds_malformed_inputs_fail_closed(self):
+        for payload in (None, [], "bad", 123):
+            result=check_fixture(payload,"2026-11-21")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertFalse(result["ex_final_allowed"])
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z",
+                 "kickoff_at":"2026-11-22T18:00:00+03:00"}
+        for field,value in (("home",[]),("fixture_source","   "),("league",42)):
+            bad=dict(fixture)
+            bad[field]=value
+            self.assertEqual(check_fixture(bad,"2026-11-21")["status"],"BLOCKED")
+        odds={"decimal_odds":1.20,"market":"KG_VAR","bookmaker":"test",
+              "source":"test","observed_at":"2026-11-21T10:00:00Z"}
+        for field,value in (("decimal_odds",True),("source",[]),
+                            ("bookmaker","   "),("market",42)):
+            bad=dict(odds)
+            bad[field]=value
+            result=check_odds(bad,"2026-11-21T11:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertEqual(result["decision"],"NO_FINAL")
+
     def test_fixture_and_odds_lock(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z",
