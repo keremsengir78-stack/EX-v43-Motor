@@ -144,3 +144,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Önceki `6ca5e85c1bd064d2a6b5cefd5afdcd7d28a34804` 4/4 CI başarılı. En son yayımlanan audit eski `d000790f` koşusuna ait; yeni öncelik raporu henüz yayımlanmış olarak teyit edilmedi.
 - `ex_multileague_priority_validation.py` ve regresyon testleri; gölge toplamı, üç lig kaynak nedenleri, tüm bucket sayıları, öncelik ağırlıkları, yinelenme ve EX FINAL kilidini çapraz doğrular.
 - Workflow `reports/latest_multileague_priority_validated.json` yayımlamayı ve yoksa CI'yi başarısız saymayı zorunlu kılar. Bu turun yeni CI sonucu henüz teyit edilmedi. Bağımsız skor onayı 0.
+
+## 2026-11-22: 49. tur, kaynak doğrulama için 50'li kayıt partileri
+- `4bc4e44057bd960610b090e56666cca79e489dd6` 4/4 CI başarılı; `reports/latest_multileague_priority_plan.json` yayımlandı. Öncelik grupları İtalya tarih var/eşleşme yok 341, İngiltere aynı gün ortak takım 222, İspanya tarih var/eşleşme yok 328, İspanya ortak takım 114, İtalya ortak takım 87, İngiltere tarih var/eşleşme yok 85.
+- `ex_multileague_review_batches.py` ve testleri gölge-sonrası 1177 eşleşmeyen maçı deterministik 50'li partilere ayırır, çift/eksik/bilinmeyen kaynak kayıtlarını reddeder; skorları onaylamaz.
+- Workflow `reports/latest_multileague_review_batches.json` yayımlar, sayısal tamlığı denetler ve eksik raporda CI'yi başarısız sayar. Bu turun CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
