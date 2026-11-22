@@ -6,10 +6,13 @@ import urllib.request
 
 ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1"}
 
-def parse_espn_scoreboard(payload,league,as_of):
+def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
     if league not in ESPN_LEAGUES:
         raise ValueError("unsupported ESPN league")
     cutoff=dt.date.fromisoformat(as_of)
+    requested=dt.date.fromisoformat(requested_day) if requested_day is not None else None
+    if requested is not None and requested>=cutoff:
+        raise ValueError("requested date must precede cutoff")
     if not isinstance(payload,dict) or not isinstance(payload.get("events"),list):
         raise ValueError("invalid ESPN scoreboard response")
     out=[]
@@ -34,7 +37,7 @@ def parse_espn_scoreboard(payload,league,as_of):
             continue
         try:
             day=dt.date.fromisoformat(event["date"][:10])
-            if day>=cutoff:
+            if day>=cutoff or (requested is not None and day!=requested):
                 continue
             home=by_side["home"];away=by_side["away"]
             home_name=home["team"]["displayName"].strip()
@@ -73,4 +76,4 @@ def fetch_espn_scoreboard(league,day,as_of,timeout=15):
     req=urllib.request.Request(url,headers={"User-Agent":"EX-v43-audit/1.0"})
     with urllib.request.urlopen(req,timeout=timeout) as response:
         raw=response.read()
-    return parse_espn_scoreboard(json.loads(raw),league,as_of),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
+    return parse_espn_scoreboard(json.loads(raw),league,as_of,requested_day=day),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
