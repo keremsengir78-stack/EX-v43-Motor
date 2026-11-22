@@ -6,6 +6,7 @@ verification. No caller-supplied Boolean may authorize EX FINAL.
 
 
 import math
+import datetime as dt
 
 
 def _calibration_bins_consistent(report):
@@ -57,13 +58,45 @@ def _calibration_measured(report):
                                 "maximum_calibration_error")))
 
 
+def _holdout_records_consistent(report):
+    try:
+        split = report["split"]
+        rows = split["test"]
+        evaluation = report["evaluation"]
+        if not isinstance(rows, list) or len(rows) != evaluation["sample_size"]:
+            return False
+        boundary = dt.datetime.fromisoformat(split["evaluation_start"].replace("Z", "+00:00"))
+        if boundary.utcoffset() is None:
+            return False
+        seen = set()
+        for row in rows:
+            if not isinstance(row, dict):
+                return False
+            fixture = row.get("fixture_id")
+            if not isinstance(fixture, str) or not fixture.strip() or fixture in seen:
+                return False
+            seen.add(fixture)
+            if row.get("market") != evaluation.get("market"):
+                return False
+            predicted = dt.datetime.fromisoformat(row["predicted_at"].replace("Z", "+00:00"))
+            kickoff = dt.datetime.fromisoformat(row["kickoff_at"].replace("Z", "+00:00"))
+            settled = dt.datetime.fromisoformat(row["settled_at"].replace("Z", "+00:00"))
+            if any(t.utcoffset() is None for t in (predicted, kickoff, settled)):
+                return False
+            if not (boundary <= predicted < kickoff < settled):
+                return False
+        return True
+    except (KeyError, TypeError, ValueError, AttributeError, OverflowError):
+        return False
+
+
 def _historical_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED"
             and isinstance(report.get("split"), dict)
             and report["split"].get("status") == "CHRONOLOGICAL_SPLIT_READY"
             and isinstance(report["split"].get("test"), list)
-            and len(report["split"]["test"]) == report.get("evaluation", {}).get("sample_size")
+            and _holdout_records_consistent(report)
             and _calibration_measured(report.get("evaluation")))
 
 
