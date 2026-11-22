@@ -9,6 +9,41 @@ def fixture(source):
 
 
 class SourceAgreementTests(unittest.TestCase):
+    def test_missing_home_team_blocks_without_exception(self):
+        second = fixture("provider-B")
+        del second["home_team"]
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:fields_missing", result["issues"])
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_missing_goals_blocks_without_exception(self):
+        second = fixture("provider-B")
+        del second["home_goals"]
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:fields_missing", result["issues"])
+
+    def test_missing_kickoff_blocks_without_exception(self):
+        second = fixture("provider-B")
+        del second["kickoff_at"]
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:fields_missing", result["issues"])
+
+    def test_missing_fields_in_both_sources_blocks(self):
+        first, second = fixture("provider-A"), fixture("provider-B")
+        del first["fixture_id"]
+        del second["away_goals"]
+        result = verify_fixture_sources([first, second], "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIsNone(result["agreed_fixture"])
+
+    def test_non_dict_source_blocks_without_exception(self):
+        result = verify_fixture_sources([fixture("provider-A"), None],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:invalid", result["issues"])
+
     def test_offset_cutoff_is_blocked(self):
         result = verify_fixture_sources([fixture("provider-A"), fixture("provider-B")],
                                         "2026-02-01T03:00:00+03:00")
