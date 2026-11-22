@@ -29,12 +29,20 @@ jobs:
       - name: Compare five real historical league-date cases
         shell: bash
         run: |
-          python ex_live_bridge_batch.py --as-of 2026-11-22 --out ex_live_bridge_batch_audit.json
-      - name: Compare reviewed Italian aliases separately
+          python ex_live_bridge_batch.py --as-of 2026-11-22 --out ex_live_bridge_batch_audit.json || result=$?
+          if [ "${result:-0}" -ne 0 ]; then
+            test "${result}" -eq 2 && test -s ex_live_bridge_batch_audit.json || exit "${result}"
+            echo "Partial provider coverage preserved in audit; EX FINAL remains blocked"
+          fi
+      - name: Compare reviewed league aliases separately
         if: always()
         shell: bash
         run: |
-          python ex_live_bridge_batch.py --as-of 2026-11-22 --reviewed-aliases --out ex_live_bridge_reviewed_alias_audit.json
+          python ex_live_bridge_batch.py --as-of 2026-11-22 --reviewed-aliases --out ex_live_bridge_reviewed_alias_audit.json || result=$?
+          if [ "${result:-0}" -ne 0 ]; then
+            test "${result}" -eq 2 && test -s ex_live_bridge_reviewed_alias_audit.json || exit "${result}"
+            echo "Partial reviewed provider coverage preserved; EX FINAL remains blocked"
+          fi
       - name: Compare raw and reviewed coverage without certifying EX FINAL
         if: always()
         shell: bash
