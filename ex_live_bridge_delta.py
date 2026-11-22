@@ -42,6 +42,7 @@ def compare_audits(raw, reviewed):
             "new_conflicts": max(0, updated["conflict_count"] - original["conflict_count"]),
             "unresolved_fixtures": updated.get("unmatched_details", []),
             "review_candidates": updated.get("alias_suggestions", []),
+            "unresolved_reason": "NAME_OR_FIXTURE_MISMATCH_REQUIRES_SOURCE_REVIEW" if updated["unmatched"] else "NONE",
         })
     raw_matched = sum(case["raw_matched"] for case in cases)
     reviewed_matched = sum(case["reviewed_matched"] for case in cases)
@@ -64,6 +65,13 @@ def compare_audits(raw, reviewed):
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
+        "review_queue": [
+            {"league": case["league"], "day": case["day"],
+             "unmatched": case["reviewed_unmatched"],
+             "fixtures": case["unresolved_fixtures"]}
+            for case in sorted(cases, key=lambda item: (-item["reviewed_unmatched"], item["league"], item["day"]))
+            if case["reviewed_unmatched"]
+        ],
         "data_gate": "BLOCKED_UNRESOLVED_FIXTURES" if reviewed_unmatched else "PROVISIONAL_COVERAGE_ONLY",
         "technical_gate": "FAILED_REGRESSION" if regressions else "PASSED_AUDIT_COMPARISON",
         "independent_sources_confirmed": False,
