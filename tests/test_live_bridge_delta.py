@@ -115,6 +115,13 @@ class DeltaAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
+    def test_review_queue_counts_actual_mismatch_reasons(self):
+        reviewed = audit(3, 2, reviewed=True)
+        reviewed["cases"][0]["unmatched_details"] = [
+            {"reason": "not_found"}, {"reason": "not_found"}]
+        result = compare_audits(audit(2, 3), reviewed)
+        self.assertEqual(result["review_queue"][0]["reason_counts"], {"not_found": 2})
+
     def test_empty_audits_rejected(self):
         with self.assertRaises(ValueError):
             compare_audits({"as_of": "2026-11-22", "cases": []},
