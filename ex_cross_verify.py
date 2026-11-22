@@ -9,6 +9,8 @@ import urllib.request
 import unicodedata
 from pathlib import Path
 
+MAX_SECONDARY_BYTES = 2_000_000
+
 DIVISIONS = {"en.1":"E0","en.2":"E1","de.1":"D1","de.2":"D2",
              "es.1":"SP1","it.1":"I1","fr.1":"F1","nl.1":"N1",
              "pt.1":"P1","be.1":"B1"}
@@ -52,18 +54,29 @@ def unresolved_pairs(primary, secondary, as_of, alias=None):
 def secondary_rows(season, league, offline=None):
     if league not in DIVISIONS:
         return [], {"error":"unsupported league"}
-    years=season.split("-")
+    try:
+        years=season.split("-")
+        if (len(years) != 2 or any(len(year) != 4 or not year.isascii() or not year.isdigit() for year in years)
+                or int(years[1]) != int(years[0]) + 1):
+            raise ValueError("invalid season")
+    except (AttributeError, TypeError, ValueError):
+        return [], {"error":"invalid season","provider":"football-data.co.uk"}
     code=years[0][-2:]+years[1][-2:]
     url=f"https://www.football-data.co.uk/mmz4281/{code}/{DIVISIONS[league]}.csv"
     try:
         if offline:
-            raw=(Path(offline)/f"{code}_{DIVISIONS[league]}.csv").read_bytes()
+            path = Path(offline)/f"{code}_{DIVISIONS[league]}.csv"
+            if path.stat().st_size > MAX_SECONDARY_BYTES:
+                raise ValueError("secondary CSV exceeds size limit")
+            raw=path.read_bytes()
         else:
             with urllib.request.urlopen(
                 urllib.request.Request(url,headers={"User-Agent":"EX-v43-research/1.0"}),
                 timeout=20
             ) as response:
-                raw=response.read()
+                raw=response.read(MAX_SECONDARY_BYTES + 1)
+        if len(raw) > MAX_SECONDARY_BYTES:
+            raise ValueError("secondary CSV exceeds size limit")
         parsed=list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))))
         rows=[]
         for item in parsed:
