@@ -1,5 +1,7 @@
 name: EX v4.3 Data Ingestion
 on:
+  push:
+    branches: [ex-v43-development]
   pull_request:
     branches: [main]
   workflow_dispatch:
