@@ -141,6 +141,17 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_fixture_datetime_cutoff_not_misread_as_invalid_date(self):
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        before=check_fixture(fixture,"2026-11-22T10:00:00Z")
+        self.assertEqual(before["status"],"VERIFIED_INPUT")
+        self.assertNotIn("fixture:invalid_date",before["issues"])
+        after=check_fixture(fixture,"2026-11-22T16:00:00Z")
+        self.assertEqual(after["status"],"BLOCKED")
+        self.assertIn("fixture:analysis_after_kickoff",after["issues"])
+
     def test_fixture_lock_rejects_future_verification_and_started_match(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T11:00:00Z",
