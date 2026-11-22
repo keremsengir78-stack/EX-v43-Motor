@@ -160,6 +160,19 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(result["status"],"BLOCKED")
             self.assertEqual(result["decision"],"NO_FINAL")
 
+    def test_odds_rejects_coerced_numeric_strings(self):
+        base={"decimal_odds":1.55,"market":"KG_VAR","bookmaker":"verified",
+              "source":"audit","observed_at":"2026-11-21T10:00:00Z"}
+        for value in ("1.55","1e2"," 1.20 ",None,True,[],{}):
+            result=check_odds({**base,"decimal_odds":value},"2026-11-22T15:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertFalse(result["ex_final_allowed"])
+            self.assertEqual(result["decision"],"NO_FINAL")
+        for value in (1.20,1.55):
+            self.assertEqual(check_odds({**base,"decimal_odds":value},
+                                         "2026-11-22T15:00:00Z")["status"],
+                             "VERIFIED_INPUT")
+
     def test_odds_rejects_unsupported_market(self):
         base={"decimal_odds":1.55,"market":"KG_VAR","bookmaker":"verified",
               "source":"audit","observed_at":"2026-11-21T10:00:00Z"}
