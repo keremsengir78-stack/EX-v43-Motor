@@ -16,6 +16,26 @@ def parse(events):
 
 
 class ESPNMalformedTests(unittest.TestCase):
+    def test_blank_home_team_skipped(self):
+        bad = event()
+        bad["competitions"][0]["competitors"][0]["team"]["displayName"] = " "
+        self.assertEqual(parse([bad]), [])
+
+    def test_blank_away_team_skipped(self):
+        bad = event()
+        bad["competitions"][0]["competitors"][1]["team"]["displayName"] = ""
+        self.assertEqual(parse([bad]), [])
+
+    def test_arabic_indic_digits_rejected(self):
+        self.assertEqual(parse([event("٢", "١")]), [])
+
+    def test_fullwidth_digits_rejected(self):
+        self.assertEqual(parse([event("２", "１")]), [])
+
+    def test_ascii_digits_still_accepted(self):
+        result = parse([event("2", "1")])
+        self.assertEqual(len(result), 1)
+
     def test_null_event_date_skipped(self):
         bad = event()
         bad["date"] = None
