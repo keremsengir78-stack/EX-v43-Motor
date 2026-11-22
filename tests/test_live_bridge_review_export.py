@@ -5,6 +5,7 @@ from ex_live_bridge_review_export import review_rows
 def report():
     return {"ex_final_allowed": False, "as_of": "2026-11-22", "reviewed_unmatched": 1,
             "technical_gate": "PASSED_AUDIT_COMPARISON",
+            "review_queue_complete": True, "review_queue_missing_count": 0,
             "data_gate": "BLOCKED_UNRESOLVED_FIXTURES",
             "review_queue": [{"league": "es.1", "day": "2026-11-08",
                 "unmatched": 1, "fixtures": [{
@@ -28,6 +29,13 @@ class ReviewExportTests(unittest.TestCase):
         data["review_queue"][0]["unmatched"] = 2
         data["reviewed_unmatched"] = 2
         self.assertEqual([row["home"] for row in review_rows(data)], ["Elche", "Real Sociedad"])
+
+    def test_truncated_review_evidence_rejected(self):
+        data = report()
+        data["review_queue_complete"] = False
+        data["review_queue_missing_count"] = 1
+        with self.assertRaises(ValueError):
+            review_rows(data)
 
     def test_missing_technical_gate_rejected(self):
         data = report()
