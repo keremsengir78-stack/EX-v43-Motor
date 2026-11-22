@@ -19,6 +19,44 @@ def inputs(n=30):
 
 
 class CalibrationJoinTests(unittest.TestCase):
+    def test_identical_prediction_result_source_blocks(self):
+        predictions, fixtures = inputs()
+        predictions[0]["source"] = "results"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+        self.assertEqual(result["joined_records"], [])
+
+    def test_casefold_source_overlap_blocks(self):
+        predictions, fixtures = inputs()
+        predictions[-1]["source"] = "RESULTS"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIsNone(result["audit"])
+
+    def test_whitespace_source_overlap_blocks(self):
+        predictions, fixtures = inputs()
+        fixtures[0]["source"] = "  FROZEN-FORECAST "
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("sources:prediction_result_overlap", result["issues"])
+
+    def test_unicode_casefold_source_overlap_blocks(self):
+        predictions, fixtures = inputs()
+        predictions[0]["source"] = "Straße"
+        fixtures[0]["source"] = "STRASSE"
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertIn("sources:prediction_result_overlap", result["issues"])
+
+    def test_distinct_source_labels_not_certified(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+        self.assertFalse(result["calibration_certified"])
+
     def test_none_fixtures_blocks_without_exception(self):
         predictions, _ = inputs()
         result = join_calibration_records(predictions, None, "KG_VAR",
