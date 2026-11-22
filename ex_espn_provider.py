@@ -4,6 +4,8 @@ import json
 import hashlib
 import urllib.request
 
+MAX_SCOREBOARD_BYTES=2_000_000
+
 ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1"}
 
 def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
@@ -83,5 +85,7 @@ def fetch_espn_scoreboard(league,day,as_of,timeout=15):
     url=f"https://site.api.espn.com/apis/site/v2/sports/soccer/{code}/scoreboard?dates={requested:%Y%m%d}"
     req=urllib.request.Request(url,headers={"User-Agent":"EX-v43-audit/1.0"})
     with urllib.request.urlopen(req,timeout=timeout) as response:
-        raw=response.read()
+        raw=response.read(MAX_SCOREBOARD_BYTES+1)
+    if len(raw)>MAX_SCOREBOARD_BYTES:
+        raise ValueError("ESPN scoreboard response exceeds size limit")
     return parse_espn_scoreboard(json.loads(raw),league,as_of,requested_day=day),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
