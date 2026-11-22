@@ -39,10 +39,18 @@ def candidates(rows):
             pairs[key]["dates"].add(row["date"])
             pairs[key]["seasons"].add(row["season"])
             pairs[key]["fixtures"] += 1
+    primary_to_secondary = defaultdict(set)
+    secondary_to_primary = defaultdict(set)
+    for p, s in pairs:
+        primary_to_secondary[p].add(s)
+        secondary_to_primary[s].add(p)
     return [
         {"league": "de.1", "primary_name": p, "secondary_name": s,
          "supporting_fixtures": v["fixtures"], "distinct_dates": len(v["dates"]),
-         "seasons": sorted(v["seasons"]), "review_status": "MANUAL_REVIEW_REQUIRED",
+         "seasons": sorted(v["seasons"]),
+         "mapping_conflict": (len(primary_to_secondary[p]) > 1 or
+                              len(secondary_to_primary[s]) > 1),
+         "review_status": "MANUAL_REVIEW_REQUIRED",
          "auto_approved": False}
         for (p, s), v in sorted(pairs.items())
     ]
