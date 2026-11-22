@@ -51,6 +51,20 @@ class StrictScoreReconcileTests(unittest.TestCase):
             result=reconcile(self.batches,self.primary)
         self.assertEqual(result["confirmed"],0)
 
+    def test_normalized_primary_collision_is_rejected(self):
+        self.primary.append(dict(self.primary[0],home="Aston Villa",away="Newcastle United"))
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],0)
+        self.assertEqual(result["reasons"],{"PRIMARY_MISSING_OR_AMBIGUOUS":1})
+
+    def test_duplicate_fixture_claim_is_rejected(self):
+        self.batches["batches"][0]["fixtures"].append(dict(self.fixture))
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+        self.assertEqual(result["reasons"],{"DUPLICATE_CLAIM":1})
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
