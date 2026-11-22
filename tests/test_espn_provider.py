@@ -2,7 +2,7 @@ import unittest
 import io
 import json
 from unittest.mock import patch
-from ex_espn_provider import parse_espn_scoreboard, fetch_espn_scoreboard
+from ex_espn_provider import parse_espn_scoreboard, fetch_espn_scoreboard, MAX_SCOREBOARD_BYTES
 
 
 def event(home=2, away=1):
@@ -24,6 +24,39 @@ class ESPNFetchTests(unittest.TestCase):
         with patch("ex_espn_provider.urllib.request.urlopen", return_value=io.BytesIO(raw)) as request:
             rows, provenance = fetch_espn_scoreboard("en.1", day, as_of)
         return rows, provenance, request
+
+    def test_fetch_oversized_response_rejected(self):
+        with patch("ex_espn_provider.urllib.request.urlopen",
+                   return_value=io.BytesIO(b"x" * (MAX_SCOREBOARD_BYTES + 1))):
+            with self.assertRaisesRegex(ValueError, "size limit"):
+                fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01")
+
+    def test_fetch_exact_limit_does_not_raise_size_error(self):
+        raw = b" " * MAX_SCOREBOARD_BYTES
+        with patch("ex_espn_provider.urllib.request.urlopen", return_value=io.BytesIO(raw)):
+            with self.assertRaises(json.JSONDecodeError):
+                fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01")
+
+    def test_fetch_read_uses_bounded_size(self):
+        class RecordingStream(io.BytesIO):
+            requested = None
+            def read(self, size=-1):
+                self.requested = size
+                return super().read(size)
+        stream = RecordingStream(json.dumps({"events": [event()]}).encode())
+        with patch("ex_espn_provider.urllib.request.urlopen", return_value=stream):
+            fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01")
+        self.assertEqual(stream.requested, MAX_SCOREBOARD_BYTES + 1)
+
+    def test_fetch_small_valid_response_still_works(self):
+        rows, provenance, _ = self._fetch([event()])
+        self.assertEqual(len(rows), 1)
+        self.assertGreater(provenance["raw_bytes"], 0)
+
+    def test_fetch_empty_response_does_not_certify(self):
+        with patch("ex_espn_provider.urllib.request.urlopen", return_value=io.BytesIO(b"")):
+            with self.assertRaises(json.JSONDecodeError):
+                fetch_espn_scoreboard("en.1", "2026-01-01", "2026-02-01")
 
     def test_fetch_accepts_matching_historical_event(self):
         rows, provenance, _ = self._fetch([event()])
