@@ -118,3 +118,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex_multileague_review_queue.py` yinelenen maçları reddeder; deterministik sıralama sürümü 2 ve öncelikli ilk 100 kaydı sunar.
 - `ex_multileague_queue_validation.py` kuyruk ve tanı raporu toplamlarını karşılaştırır. Negatif regresyonlar eklendi.
 - Workflow `reports/latest_multileague_queue_validated.json` raporunu üretmek ve yoksa CI başarısız saymak üzere güncellendi. Yeni CI henüz doğrulanmadı. EX FINAL kilitli.
+
+## 2026-11-22: 44. tur, CI tanı raporu güvenliği
+- `320bec952d66dfa8cd049d4f80444a7399f305e7` için 4/4 kontrol başarılı; run `45031102253` gerçek audit ve `non_germany_queue_validated=true` raporunu yayımladı. `latest_multileague_queue_validated.json` kontrol edilebilir.
+- Önceki başarısız test koşusunda `ingest_step=skipped` olmasına rağmen `latest_pipeline_status.json` üzerine yazılmıştı. Workflow `a0a16ccd` artık ingest skipped ise yayımlamayı durdurur ve kapanış kontrolünde `run_id` ile aktif workflow kimliğini karşılaştırarak eski raporun yeni sonuç gibi kullanılmasını reddeder.
+- Bu son CI korumasının workflow sonucu henüz teyit edilmedi. 1177 üç lig uyuşmazlığı, 0 bağımsız skor onayı ve EX FINAL kilidi korunuyor.
