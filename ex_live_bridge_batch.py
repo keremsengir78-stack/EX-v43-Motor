@@ -15,7 +15,11 @@ DEFAULT_CASES = (
 )
 
 
-REVIEWED_ALIASES = {"it.1": {"acmilan": "Milan", "internazionale": "Inter"}}
+REVIEWED_ALIASES = {
+    "it.1": {"acmilan": "Milan", "internazionale": "Inter"},
+    "en.1": {"newcastleunited": "Newcastle", "hullcity": "Hull",
+             "brightonhovealbion": "Brighton"},
+}
 
 
 def run_batch(as_of, cases=DEFAULT_CASES, reviewed_aliases=False):
@@ -37,7 +41,7 @@ def run_batch(as_of, cases=DEFAULT_CASES, reviewed_aliases=False):
     return {
         "as_of": as_of, "case_count": len(reports),
         "reviewed_aliases_enabled": reviewed_aliases,
-        "alias_mapping_scope": list(REVIEWED_ALIASES) if reviewed_aliases else [],
+        "alias_mapping_scope": sorted(REVIEWED_ALIASES) if reviewed_aliases else [],
         "completed_provisional_cases": complete, "blocked_cases": blocked,
         "partial_cases": partial, "score_conflict_cases": score_conflict_cases,
         "alias_review_required": alias_review,
