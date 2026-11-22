@@ -102,3 +102,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Gerçek pipeline `45030681373`: 1506 Almanya dışı uyuşmazlık; en.1=307, es.1=442, it.1=428, fr.1=329. Toplam 14 manuel isim adayı ve tamamı fr.1; 0 otomatik onay, 0 skor doğrulaması.
 - `ex_multileague_shadow_map.py` adayları yalnızca izolasyon amaçlı ikincil→birincil isim haritasına çevirir; `tests/test_multileague_shadow_map.py` güvenlik testleri eklendi.
 - Workflow dört ligi ayrı `ex_other_shadow` dizininde denetleyecek ve `reports/latest_multileague_shadow_comparison.json` yayımlayacak. Son CI ve gölge sonuçları henüz teyit edilmedi; EX FINAL kilitli.
+
+## 2026-11-22: 41. tur, dört lig için hata nedeni ayrıştırma
+- Önceki 14 manuel adayın tamamı Fransa (`fr.1`); İngiltere, İspanya, İtalya için tek tarafı eşleşen aday yok. Başlangıç dağılımı: en.1=307, es.1=442, fr.1=329, it.1=428.
+- `ex_multileague_diagnostics.py` her ligde `source_presence_status` dağılımını ve sınırlı örnekleri tamlık denetimiyle çıkarır. `tests/test_multileague_diagnostics.py` eklendi.
+- Workflow `reports/latest_multileague_diagnostics.json` dosyasını yayımlamak ve yoksa CI başarısız saymak için güncellendi.
+- Önceki dört lig gölge raporu ve bu tur CI henüz teyit edilmedi. EX FINAL kilitli, hiçbir yeni skor bağımsız doğrulanmadı.
