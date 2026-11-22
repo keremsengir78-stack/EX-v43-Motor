@@ -20,6 +20,33 @@ class ESPNFootballDataBridgeTests(unittest.TestCase):
                     "en.1", "2025-2026", "2026-01-01", "2026-02-01")
         return result, fetch, csv
 
+    def test_duplicate_primary_fixture_blocks(self):
+        result = compare_espn_football_data([match(), match()], [match()], "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_duplicate_secondary_fixture_blocks(self):
+        result = compare_espn_football_data([match()], [match(), match()], "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_same_team_fixture_blocks(self):
+        result = compare_espn_football_data([match(home="Arsenal", away="ARSENAL")],
+                                            [match()], "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_fetch_wrong_espn_day_blocks(self):
+        wrong = match()
+        wrong["date"] = "2026-01-02"
+        result, _, _ = self._run(espn=[wrong])
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("espn:wrong_day_or_league", result["issues"])
+
+    def test_fetch_wrong_secondary_league_blocks(self):
+        wrong = match()
+        wrong["league"] = "de.1"
+        result, _, _ = self._run(secondary=[wrong])
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("football_data:wrong_league", result["issues"])
+
     def test_previous_calendar_year_outside_season_blocks(self):
         with patch("ex_espn_provider.fetch_espn_scoreboard") as fetch:
             result = fetch_and_compare_historical_day(
