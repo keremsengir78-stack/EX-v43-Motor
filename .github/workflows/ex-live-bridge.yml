@@ -6,6 +6,7 @@ on:
       - 'ex_live_bridge_pilot.py'
       - 'ex_live_bridge_batch.py'
       - 'ex_live_bridge_delta.py'
+      - 'ex_live_bridge_review_export.py'
       - 'ex_espn_football_data_bridge.py'
       - 'ex_espn_provider.py'
       - 'ex_cross_verify.py'
@@ -53,6 +54,16 @@ jobs:
             echo "Missing audit inputs for delta comparison"
             exit 2
           fi
+      - name: Export unresolved fixture review CSV
+        if: always()
+        shell: bash
+        run: |
+          if [ -s ex_live_bridge_delta_audit.json ]; then
+            python ex_live_bridge_review_export.py --audit ex_live_bridge_delta_audit.json --out ex_live_bridge_review_queue.csv
+          else
+            echo "No delta audit to export"
+            exit 2
+          fi
       - name: Print audit
         if: always()
         shell: bash
@@ -71,5 +82,6 @@ jobs:
             ex_live_bridge_batch_audit.json
             ex_live_bridge_reviewed_alias_audit.json
             ex_live_bridge_delta_audit.json
+            ex_live_bridge_review_queue.csv
           if-no-files-found: warn
           retention-days: 14
