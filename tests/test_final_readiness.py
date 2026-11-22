@@ -25,6 +25,7 @@ class FinalReadinessTests(unittest.TestCase):
 
     def test_measured_audits_still_cannot_unlock_external_evidence(self):
         measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+                    "market": "KG_VAR",
                     "sample_size": 100, "brier_score": 0.22,
                     "expected_calibration_error": 0.05,
                     "maximum_calibration_error": 0.05,
@@ -34,7 +35,12 @@ class FinalReadinessTests(unittest.TestCase):
                                           "observed_rate": 0.45}]}
         historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
                       "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
-                                "test": [{} for _ in range(100)]},
+                                "evaluation_start": "2026-01-01T00:00:00Z",
+                                "test": [{"fixture_id": str(i), "market": "KG_VAR",
+                                          "predicted_at": "2026-01-02T10:00:00Z",
+                                          "kickoff_at": "2026-01-02T12:00:00Z",
+                                          "settled_at": "2026-01-02T14:00:00Z"}
+                                         for i in range(100)]},
                       "evaluation": measured}
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
@@ -91,6 +97,50 @@ class FinalReadinessTests(unittest.TestCase):
                       "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
                                 "test": [{} for _ in range(99)]},
                       "evaluation": measured}
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_holdout_rejects_duplicate_fixtures(self):
+        self._assert_bad_holdout("duplicate")
+
+    def test_holdout_rejects_wrong_market(self):
+        self._assert_bad_holdout("market")
+
+    def test_holdout_rejects_prediction_before_boundary(self):
+        self._assert_bad_holdout("boundary")
+
+    def test_holdout_rejects_temporal_leakage(self):
+        self._assert_bad_holdout("time")
+
+    def _assert_bad_holdout(self, defect):
+        measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+                    "market": "KG_VAR", "sample_size": 30, "brier_score": 0.22,
+                    "expected_calibration_error": 0.05,
+                    "maximum_calibration_error": 0.05,
+                    "mean_predicted": 0.5, "observed_rate": 0.45,
+                    "reliability_bins": [{"count": 30,
+                                          "mean_predicted": 0.5,
+                                          "observed_rate": 0.45}]}
+        rows = [{"fixture_id": str(i), "market": "KG_VAR",
+                 "predicted_at": "2026-01-02T10:00:00Z",
+                 "kickoff_at": "2026-01-02T12:00:00Z",
+                 "settled_at": "2026-01-02T14:00:00Z"} for i in range(30)]
+        if defect == "duplicate":
+            rows[1]["fixture_id"] = rows[0]["fixture_id"]
+        elif defect == "market":
+            rows[1]["market"] = "MS1"
+        elif defect == "boundary":
+            rows[1]["predicted_at"] = "2025-12-31T10:00:00Z"
+            rows[1]["kickoff_at"] = "2025-12-31T12:00:00Z"
+            rows[1]["settled_at"] = "2025-12-31T14:00:00Z"
+        else:
+            rows[1]["settled_at"] = "2026-01-02T11:00:00Z"
+        historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
+                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
+                                "evaluation_start": "2026-01-01T00:00:00Z",
+                                "test": rows}, "evaluation": measured}
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
             measured, historical)
