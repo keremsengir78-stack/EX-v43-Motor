@@ -9,8 +9,13 @@ from ex_calibration_audit import audit_predictions, MARKETS
 
 def audit_out_of_sample(records, market, evaluation_start, cutoff,
                         min_train=30, min_test=30):
-    if market not in MARKETS:
+    if not isinstance(market, str) or market not in MARKETS:
         return {"status": "BLOCKED", "issues": ["market:unsupported"],
+                "split": None, "evaluation": None,
+                "calibration_certified": False, "ex_final_allowed": False}
+    if (any(isinstance(n, bool) or not isinstance(n, int) or n < 30
+            for n in (min_train, min_test))):
+        return {"status": "BLOCKED", "issues": ["sample_threshold:invalid"],
                 "split": None, "evaluation": None,
                 "calibration_certified": False, "ex_final_allowed": False}
     if not isinstance(records, list):
