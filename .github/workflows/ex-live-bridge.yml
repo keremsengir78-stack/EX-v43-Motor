@@ -4,6 +4,7 @@ on:
     branches: [ex-v43-development]
     paths:
       - 'ex_live_bridge_pilot.py'
+      - 'ex_live_bridge_batch.py'
       - 'ex_espn_football_data_bridge.py'
       - 'ex_espn_provider.py'
       - 'ex_cross_verify.py'
@@ -24,16 +25,23 @@ jobs:
         shell: bash
         run: |
           python ex_live_bridge_pilot.py --league en.1 --season 2026-2027 --day 2026-11-01 --as-of 2026-11-22 --out ex_live_bridge_audit.json
+      - name: Compare five real historical league-date cases
+        shell: bash
+        run: |
+          python ex_live_bridge_batch.py --as-of 2026-11-22 --out ex_live_bridge_batch_audit.json
       - name: Print audit
         if: always()
         shell: bash
         run: |
           if [ -f ex_live_bridge_audit.json ]; then cat ex_live_bridge_audit.json; else echo "No live audit produced"; fi
+          if [ -f ex_live_bridge_batch_audit.json ]; then cat ex_live_bridge_batch_audit.json; else echo "No batch audit produced"; fi
       - name: Upload provisional audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ex-live-bridge-audit
-          path: ex_live_bridge_audit.json
+          path: |
+            ex_live_bridge_audit.json
+            ex_live_bridge_batch_audit.json
           if-no-files-found: warn
           retention-days: 14
