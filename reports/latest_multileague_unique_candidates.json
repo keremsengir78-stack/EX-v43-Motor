@@ -1,0 +1,1353 @@
+{
+  "total_fixtures": 1177,
+  "unique_name_candidates": 56,
+  "remaining_for_manual_review": 1121,
+  "records": [
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-23",
+        "home": "Levante UD",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Levante",
+        "away": "Barcelona",
+        "home_goals": 2,
+        "away_goals": 3,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-24",
+        "home": "Villarreal CF",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Villarreal",
+        "away": "Girona",
+        "home_goals": 5,
+        "away_goals": 0,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-25",
+        "home": "Sevilla FC",
+        "away": "Getafe CF"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Getafe",
+        "home_goals": 1,
+        "away_goals": 2,
+        "name_similarity": 0.92857,
+        "home_similarity": 1.0,
+        "away_similarity": 0.85714
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-14",
+        "home": "FC Barcelona",
+        "away": "Valencia CF"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Valencia",
+        "home_goals": 6,
+        "away_goals": 0,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-20",
+        "home": "Girona FC",
+        "away": "Levante UD"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Levante",
+        "home_goals": 0,
+        "away_goals": 4,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-21",
+        "home": "FC Barcelona",
+        "away": "Getafe CF"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Getafe",
+        "home_goals": 3,
+        "away_goals": 0,
+        "name_similarity": 0.92857,
+        "home_similarity": 1.0,
+        "away_similarity": 0.85714
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-23",
+        "home": "Sevilla FC",
+        "away": "Villarreal CF"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Villarreal",
+        "home_goals": 1,
+        "away_goals": 2,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Girona FC",
+        "away": "Valencia CF"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Valencia",
+        "home_goals": 2,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-26",
+        "home": "Real Madrid CF",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Real Madrid",
+        "away": "Barcelona",
+        "home_goals": 2,
+        "away_goals": 1,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-31",
+        "home": "Getafe CF",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Getafe",
+        "away": "Girona",
+        "home_goals": 2,
+        "away_goals": 1,
+        "name_similarity": 0.92857,
+        "home_similarity": 0.85714,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-08",
+        "home": "Sevilla FC",
+        "away": "CA Osasuna"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Osasuna",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-30",
+        "home": "Girona FC",
+        "away": "Real Madrid CF"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Real Madrid",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-07",
+        "home": "Valencia CF",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Valencia",
+        "away": "Sevilla",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-13",
+        "home": "FC Barcelona",
+        "away": "CA Osasuna"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Osasuna",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-20",
+        "home": "Real Madrid CF",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Real Madrid",
+        "away": "Sevilla",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-21",
+        "home": "Villarreal CF",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Villarreal",
+        "away": "Barcelona",
+        "home_goals": 0,
+        "away_goals": 2,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-04",
+        "home": "Sevilla FC",
+        "away": "Levante UD"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Levante",
+        "home_goals": 0,
+        "away_goals": 3,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Girona FC",
+        "away": "CA Osasuna"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Osasuna",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-26",
+        "home": "Girona FC",
+        "away": "Getafe CF"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Getafe",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.92857,
+        "home_similarity": 1.0,
+        "away_similarity": 0.85714
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "FC Barcelona",
+        "away": "Levante UD"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Levante",
+        "home_goals": 3,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 1.0,
+        "away_similarity": 0.875
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "Getafe CF",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Getafe",
+        "away": "Sevilla",
+        "home_goals": 0,
+        "away_goals": 1,
+        "name_similarity": 0.92857,
+        "home_similarity": 0.85714,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-28",
+        "home": "FC Barcelona",
+        "away": "Villarreal CF"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Villarreal",
+        "home_goals": 4,
+        "away_goals": 1,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-07",
+        "home": "Levante UD",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Levante",
+        "away": "Girona",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "CA Osasuna",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Osasuna",
+        "away": "Girona",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "Sevilla FC",
+        "away": "Valencia CF"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Valencia",
+        "home_goals": 0,
+        "away_goals": 2,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-06",
+        "home": "Girona FC",
+        "away": "Villarreal CF"
+      },
+      "candidate": {
+        "home": "Girona",
+        "away": "Villarreal",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-10",
+        "home": "Real Madrid CF",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Real Madrid",
+        "away": "Girona",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-23",
+        "home": "Levante UD",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Levante",
+        "away": "Sevilla",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Getafe CF",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Getafe",
+        "away": "Barcelona",
+        "home_goals": 0,
+        "away_goals": 2,
+        "name_similarity": 0.92857,
+        "home_similarity": 0.85714,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.92857,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Valencia CF",
+        "away": "Girona FC"
+      },
+      "candidate": {
+        "home": "Valencia",
+        "away": "Girona",
+        "home_goals": 2,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-26",
+        "home": "CA Osasuna",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Osasuna",
+        "away": "Sevilla",
+        "home_goals": 2,
+        "away_goals": 1,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-02",
+        "home": "CA Osasuna",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Osasuna",
+        "away": "Barcelona",
+        "home_goals": 1,
+        "away_goals": 2,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-10",
+        "home": "FC Barcelona",
+        "away": "Real Madrid CF"
+      },
+      "candidate": {
+        "home": "Barcelona",
+        "away": "Real Madrid",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-13",
+        "home": "Villarreal CF",
+        "away": "Sevilla FC"
+      },
+      "candidate": {
+        "home": "Villarreal",
+        "away": "Sevilla",
+        "home_goals": 2,
+        "away_goals": 3,
+        "name_similarity": 0.95455,
+        "home_similarity": 0.90909,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Sevilla FC",
+        "away": "Real Madrid CF"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Real Madrid",
+        "home_goals": 0,
+        "away_goals": 1,
+        "name_similarity": 0.95455,
+        "home_similarity": 1.0,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.95455,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-23",
+        "home": "Valencia CF",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Valencia",
+        "away": "Barcelona",
+        "home_goals": 3,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-06",
+        "home": "Valencia CF",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Valencia",
+        "away": "Barcelona",
+        "home_goals": 0,
+        "away_goals": 5,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "source_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-11",
+        "home": "Sevilla FC",
+        "away": "Valencia CF"
+      },
+      "candidate": {
+        "home": "Sevilla",
+        "away": "Valencia",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "source_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-13",
+        "home": "Levante UD",
+        "away": "FC Barcelona"
+      },
+      "candidate": {
+        "home": "Levante",
+        "away": "Barcelona",
+        "home_goals": 2,
+        "away_goals": 4,
+        "name_similarity": 0.9375,
+        "home_similarity": 0.875,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "source_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "name_similarity": 0.9375,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-08-31",
+        "home": "Torino FC",
+        "away": "ACF Fiorentina"
+      },
+      "candidate": {
+        "home": "Torino",
+        "away": "Fiorentina",
+        "home_goals": 0,
+        "away_goals": 0,
+        "name_similarity": 0.93478,
+        "home_similarity": 1.0,
+        "away_similarity": 0.86957
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-09-21",
+        "home": "Torino FC",
+        "away": "Atalanta BC"
+      },
+      "candidate": {
+        "home": "Torino",
+        "away": "Atalanta",
+        "home_goals": 0,
+        "away_goals": 3,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-09-27",
+        "home": "Juventus FC",
+        "away": "Atalanta BC"
+      },
+      "candidate": {
+        "home": "Juventus",
+        "away": "Atalanta",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-11-01",
+        "home": "US Cremonese",
+        "away": "Juventus FC"
+      },
+      "candidate": {
+        "home": "Cremonese",
+        "away": "Juventus",
+        "home_goals": 1,
+        "away_goals": 2,
+        "name_similarity": 0.95,
+        "home_similarity": 0.9,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.95,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-11-22",
+        "home": "ACF Fiorentina",
+        "away": "Juventus FC"
+      },
+      "candidate": {
+        "home": "Fiorentina",
+        "away": "Juventus",
+        "home_goals": 1,
+        "away_goals": 1,
+        "name_similarity": 0.93478,
+        "home_similarity": 0.86957,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-12-13",
+        "home": "Torino FC",
+        "away": "US Cremonese"
+      },
+      "candidate": {
+        "home": "Torino",
+        "away": "Cremonese",
+        "home_goals": 1,
+        "away_goals": 0,
+        "name_similarity": 0.95,
+        "home_similarity": 1.0,
+        "away_similarity": 0.9
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.95,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Atalanta BC",
+        "away": "Torino FC"
+      },
+      "candidate": {
+        "home": "Atalanta",
+        "away": "Torino",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-01-12",
+        "home": "Juventus FC",
+        "away": "US Cremonese"
+      },
+      "candidate": {
+        "home": "Juventus",
+        "away": "Cremonese",
+        "home_goals": 5,
+        "away_goals": 0,
+        "name_similarity": 0.95,
+        "home_similarity": 1.0,
+        "away_similarity": 0.9
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.95,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-02-07",
+        "home": "ACF Fiorentina",
+        "away": "Torino FC"
+      },
+      "candidate": {
+        "home": "Fiorentina",
+        "away": "Torino",
+        "home_goals": 2,
+        "away_goals": 2,
+        "name_similarity": 0.93478,
+        "home_similarity": 0.86957,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-04-11",
+        "home": "Atalanta BC",
+        "away": "Juventus FC"
+      },
+      "candidate": {
+        "home": "Atalanta",
+        "away": "Juventus",
+        "home_goals": 0,
+        "away_goals": 1,
+        "name_similarity": 0.94444,
+        "home_similarity": 0.88889,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-04-19",
+        "home": "US Cremonese",
+        "away": "Torino FC"
+      },
+      "candidate": {
+        "home": "Cremonese",
+        "away": "Torino",
+        "home_goals": 0,
+        "away_goals": 0,
+        "name_similarity": 0.95,
+        "home_similarity": 0.9,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.95,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Juventus FC",
+        "away": "ACF Fiorentina"
+      },
+      "candidate": {
+        "home": "Juventus",
+        "away": "Fiorentina",
+        "home_goals": 0,
+        "away_goals": 2,
+        "name_similarity": 0.93478,
+        "home_similarity": 1.0,
+        "away_similarity": 0.86957
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "source_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-05",
+        "home": "ACF Fiorentina",
+        "away": "Torino FC"
+      },
+      "candidate": {
+        "home": "Fiorentina",
+        "away": "Torino",
+        "home_goals": 1,
+        "away_goals": 2,
+        "name_similarity": 0.93478,
+        "home_similarity": 0.86957,
+        "away_similarity": 1.0
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "source_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-11",
+        "home": "Venezia FC",
+        "away": "ACF Fiorentina"
+      },
+      "candidate": {
+        "home": "Venezia",
+        "away": "Fiorentina",
+        "home_goals": 2,
+        "away_goals": 4,
+        "name_similarity": 0.93478,
+        "home_similarity": 1.0,
+        "away_similarity": 0.86957
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "source_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "name_similarity": 0.93478,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-20",
+        "home": "Juventus FC",
+        "away": "Atalanta BC"
+      },
+      "candidate": {
+        "home": "Juventus",
+        "away": "Atalanta",
+        "home_goals": 2,
+        "away_goals": 0,
+        "name_similarity": 0.94444,
+        "home_similarity": 1.0,
+        "away_similarity": 0.88889
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "source_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "name_similarity": 0.94444,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Real Madrid CF",
+        "away": "Villarreal CF"
+      },
+      "candidate": {
+        "home": "Real Madrid",
+        "away": "Villarreal",
+        "home_goals": 3,
+        "away_goals": 1,
+        "name_similarity": 0.90909,
+        "home_similarity": 0.90909,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.90909,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-24",
+        "home": "Villarreal CF",
+        "away": "Real Madrid CF"
+      },
+      "candidate": {
+        "home": "Villarreal",
+        "away": "Real Madrid",
+        "home_goals": 0,
+        "away_goals": 2,
+        "name_similarity": 0.90909,
+        "home_similarity": 0.90909,
+        "away_similarity": 0.90909
+      },
+      "source_provider": "football-data.co.uk",
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "source_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "name_similarity": 0.90909,
+      "review_status": "HIGH_CONFIDENCE_NAME_CANDIDATE",
+      "independent_score_verified": false
+    }
+  ],
+  "independently_verified_added": 0,
+  "ex_final_allowed": false
+}
