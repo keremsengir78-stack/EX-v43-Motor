@@ -65,6 +65,16 @@ def check_fixture(fixture, as_of):
                     issues.append("fixture:analysis_after_kickoff")
         except (KeyError,ValueError,TypeError,AttributeError):
             issues.append("as_of:invalid_timestamp")
+    # Date-only analysis has no trusted clock time. Reject same-day or later
+    # verification to prevent using information unavailable at the cutoff.
+    if isinstance(as_of,str) and len(as_of)==10 and re.fullmatch(r"\d{4}-\d{2}-\d{2}",as_of):
+        try:
+            cutoff_date=dt.date.fromisoformat(as_of)
+            checked=dt.datetime.fromisoformat(fixture["fixture_checked_at"].replace("Z","+00:00"))
+            if checked.tzinfo is not None and checked.utcoffset() is not None and checked.date()>=cutoff_date:
+                issues.append("fixture:verified_after_analysis")
+        except (KeyError,ValueError,TypeError,AttributeError):
+            pass
     if fixture.get("home")==fixture.get("away"):
         issues.append("fixture:identical_teams")
     return {"status":"VERIFIED_INPUT" if not issues else "BLOCKED",
