@@ -96,6 +96,19 @@ class ESPNFootballDataBridgeTests(unittest.TestCase):
         self.assertEqual(result["status"], "BLOCKED")
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_abbreviated_season_supported_in_bridge(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard", return_value=([match()], {"provider": "ESPN"})):
+            with patch("ex_cross_verify.secondary_rows", return_value=([match()], {"provider": "football-data.co.uk"})) as secondary:
+                result = fetch_and_compare_historical_day("en.1", "2025-26", "2026-01-01", "2026-02-01")
+        self.assertEqual(result["status"], "PROVISIONAL_MATCH_UNAUDITED")
+        secondary.assert_called_once_with("2025-26", "en.1", offline=None)
+
+    def test_malformed_abbreviated_season_blocks(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard") as fetch:
+            result = fetch_and_compare_historical_day("en.1", "2025-27", "2026-01-01", "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+        fetch.assert_not_called()
+
     def test_two_provider_fetch_matches_provisionally(self):
         result, fetch, csv = self._run()
         self.assertEqual(result["status"], "PROVISIONAL_MATCH_UNAUDITED")
