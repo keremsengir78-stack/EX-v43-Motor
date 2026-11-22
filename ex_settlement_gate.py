@@ -13,8 +13,8 @@ def verify_settlement_records(records, fixture_id, kickoff_at, cutoff):
             if not isinstance(value, str) or not value.endswith("Z"):
                 raise ValueError("UTC required")
             result = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
-            if result.tzinfo is None:
-                raise ValueError("timezone missing")
+            if result.utcoffset() != dt.timedelta(0):
+                raise ValueError("UTC timezone required")
             return result
         kickoff = utc(kickoff_at)
         boundary = utc(cutoff)
@@ -23,6 +23,10 @@ def verify_settlement_records(records, fixture_id, kickoff_at, cutoff):
     except (ValueError, TypeError, OverflowError):
         return {"status": "BLOCKED", "issues": ["time:invalid"], "settled_at": None,
                 "externally_verified": False, "ex_final_allowed": False}
+    if not isinstance(fixture_id, str) or not fixture_id.strip():
+        return {"status": "BLOCKED", "issues": ["fixture:invalid"],
+                "settled_at": None, "externally_verified": False,
+                "ex_final_allowed": False}
     if not isinstance(records, list) or len(records) < 2:
         return {"status": "BLOCKED", "issues": ["settlements:insufficient"],
                 "settled_at": None, "externally_verified": False, "ex_final_allowed": False}
