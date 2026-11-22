@@ -171,6 +171,19 @@ class SafetyGates(unittest.TestCase):
         self.assertIn("team_strength:future_evidence",result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_tur2_snapshot_is_deterministic_and_strict(self):
+        from ex_auto_control import snapshot
+        original={"status":"BASELINE_ONLY",
+                  "market_baselines_pct":{"KG_VAR":55,"MS1":40}}
+        reordered={"market_baselines_pct":{"MS1":40,"KG_VAR":55},
+                   "status":"BASELINE_ONLY"}
+        changed={"status":"BASELINE_ONLY",
+                 "market_baselines_pct":{"KG_VAR":56,"MS1":40}}
+        self.assertEqual(snapshot(original),snapshot(reordered))
+        self.assertNotEqual(snapshot(original),snapshot(changed))
+        with self.assertRaises(ValueError):
+            snapshot({"bad":float("nan")})
+
     def test_auto_control_rejects_non_json_snapshot_objects(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
