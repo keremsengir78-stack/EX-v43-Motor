@@ -41,6 +41,11 @@ def auto_control(match, ingestion=None):
         issues.append("second_source:unverified")
     # Explicitly unimplemented inputs cannot be silently treated as verified.
     issues.extend(["exg:uncalibrated","context:unverified","pup:unverified"])
+    try:
+        digest=snapshot(match)
+    except (ValueError,TypeError,OverflowError):
+        issues.append("snapshot:invalid")
+        digest=None
     return {"status":"BLOCKED" if issues else "CHECKS_PASSED",
-            "issues":issues,"snapshot_sha256":snapshot(match),
+            "issues":issues,"snapshot_sha256":digest,
             "ex_final_allowed":False}
