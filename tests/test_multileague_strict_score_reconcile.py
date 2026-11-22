@@ -37,6 +37,20 @@ class StrictScoreReconcileTests(unittest.TestCase):
             result=reconcile(self.batches,self.primary)
         self.assertEqual(result["reasons"],{"SECONDARY_SOURCE_ERROR":1})
 
+    def test_standalone_club_suffixes_are_equivalent(self):
+        self.fixture.update({"league":"es.1","home":"Levante UD","away":"FC Barcelona"})
+        self.primary[0].update({"league":"es.1","home":"Levante UD","away":"FC Barcelona","hg":2,"ag":3})
+        self.secondary[0].update({"league":"es.1","home":"Levante","away":"Barcelona","home_goals":2,"away_goals":3})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
+    def test_similar_but_different_clubs_are_not_equivalent(self):
+        self.secondary[0]["away"]="Newcastle City"
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],0)
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
