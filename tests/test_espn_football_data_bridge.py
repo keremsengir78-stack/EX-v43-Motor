@@ -80,6 +80,15 @@ class ESPNFootballDataBridgeTests(unittest.TestCase):
         self.assertIn("season:invalid_or_mismatched", result["issues"])
         fetch.assert_not_called()
 
+    def test_secondary_provider_exception_preserves_espn_audit(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard", return_value=([match()], {"sha256": "abc"})):
+            with patch("ex_cross_verify.secondary_rows", side_effect=OSError("network unavailable")):
+                result = fetch_and_compare_historical_day("en.1", "2025-2026", "2026-01-01", "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("football_data:fetch_or_parse_failed", result["issues"])
+        self.assertEqual(result["provenance"]["espn"]["sha256"], "abc")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_two_provider_fetch_matches_provisionally(self):
         result, fetch, csv = self._run()
         self.assertEqual(result["status"], "PROVISIONAL_MATCH_UNAUDITED")
