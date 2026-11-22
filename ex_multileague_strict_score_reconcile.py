@@ -13,7 +13,7 @@ from ex_cross_verify import norm, secondary_rows
 
 def club_norm(name):
     """Remove only standalone club-form suffixes, never fuzzy-match identities."""
-    return norm(re.sub(r"\\b(?:cf|ud|ca)\\b", " ", name, flags=re.IGNORECASE))
+    return norm(re.sub(r"\b(?:cf|ud|ca)\b", " ", name, flags=re.IGNORECASE))
 
 
 def reconcile(batches, primary, offline=None):
