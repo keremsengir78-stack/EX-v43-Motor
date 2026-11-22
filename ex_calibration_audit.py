@@ -75,6 +75,17 @@ def audit_predictions(records, market, cutoff, min_samples=100):
                     "mean_predicted": round(sum(p for p, _ in selected) / len(selected), 8),
                     "observed_rate": round(sum(y for _, y in selected) / len(selected), 8),
                 })
+    expected_calibration_error = (
+        round(sum(
+            item["count"] * abs(item["mean_predicted"] - item["observed_rate"])
+            for item in bins
+        ) / len(records), 8)
+        if not issues else None
+    )
+    maximum_calibration_error = (
+        round(max(abs(item["mean_predicted"] - item["observed_rate"]) for item in bins), 8)
+        if not issues else None
+    )
     mean_predicted = (round(sum(record["probability"] for record in records) / len(records), 8)
                       if not issues else None)
     observed_rate = (round(sum(record["outcome"] for record in records) / len(records), 8)
@@ -86,6 +97,8 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         "brier_score": round(sum(scores) / len(scores), 8) if scores and not issues else None,
         "issues": issues,
         "reliability_bins": bins,
+        "expected_calibration_error": expected_calibration_error,
+        "maximum_calibration_error": maximum_calibration_error,
         "mean_predicted": mean_predicted,
         "observed_rate": observed_rate,
         "calibration_certified": False,
