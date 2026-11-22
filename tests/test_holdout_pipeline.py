@@ -31,6 +31,31 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_case_variant_source_overlap_blocks(self):
+        p, f = data()
+        p[0]["source"] = "INDEPENDENT-FIXTURE-RECORD"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+
+    def test_whitespace_variant_source_overlap_blocks(self):
+        p, f = data()
+        p[0]["source"] = "  independent-fixture-record  "
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+
+    def test_case_and_whitespace_variant_overlap_blocks(self):
+        p, f = data()
+        f[0]["source"] = "  FROZEN-PREDICTION "
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+
+    def test_unicode_casefold_overlap_blocks(self):
+        p, f = data()
+        p[0]["source"] = "Straße"
+        f[0]["source"] = "STRASSE"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+
     def test_identical_prediction_and_result_source_blocks(self):
         p, f = data()
         p[0]["source"] = "independent-fixture-record"
