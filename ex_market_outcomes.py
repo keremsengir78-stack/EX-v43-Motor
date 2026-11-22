@@ -51,6 +51,18 @@ def market_outcomes(fixtures, as_of):
         except (KeyError, ValueError, TypeError, OverflowError):
             issues.append("fixture:%d:date_invalid_or_future" % i)
             continue
+        if "settled_at" in row:
+            try:
+                settled_stamp = row["settled_at"]
+                if not isinstance(settled_stamp, str) or not settled_stamp.endswith("Z"):
+                    raise ValueError("UTC settlement required")
+                settled = dt.datetime.fromisoformat(settled_stamp.replace("Z", "+00:00"))
+                if (settled.utcoffset() != dt.timedelta(0)
+                        or not when < settled < cutoff):
+                    raise ValueError("settlement outside valid historical window")
+            except (ValueError, TypeError, OverflowError):
+                issues.append("fixture:%d:settlement_invalid_or_future" % i)
+                continue
         labels.append({"fixture_id": fid, "kickoff_at": stamp,
                        "MS1": int(home > away), "MS2": int(away > home),
                        "KG_VAR": int(home > 0 and away > 0),
