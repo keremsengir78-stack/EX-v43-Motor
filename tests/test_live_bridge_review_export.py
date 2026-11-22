@@ -1,3 +1,4 @@
+import json
 import unittest
 from ex_live_bridge_review_export import review_rows
 
@@ -32,6 +33,22 @@ class ReviewExportTests(unittest.TestCase):
         self.assertEqual(row["secondary_away_team_count"], 0)
         self.assertEqual(row["secondary_reversed_fixture_count"], 0)
         self.assertEqual(row["source_reference"], "NOT_VERIFIED")
+
+    def test_export_includes_actual_opponent_candidates(self):
+        data = report()
+        data["review_queue"][0]["fixtures"][0]["secondary_shared_team_candidates"] = [
+            {"home": "Elche", "away": "Barcelona"}]
+        row = review_rows(data)[0]
+        self.assertEqual(json.loads(row["secondary_shared_team_candidates"]),
+                         [{"home": "Elche", "away": "Barcelona"}])
+        self.assertEqual(row["review_status"], "REQUIRES_INDEPENDENT_SOURCE_REVIEW")
+
+    def test_rejects_malformed_candidate(self):
+        data = report()
+        data["review_queue"][0]["fixtures"][0]["secondary_shared_team_candidates"] = [
+            {"home": "Elche"}]
+        with self.assertRaises(ValueError):
+            review_rows(data)
 
     def test_export_is_sorted_deterministically(self):
         data = report()
