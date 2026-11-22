@@ -35,6 +35,20 @@ class CalibrationAuditTests(unittest.TestCase):
         }])
         self.assertFalse(result["calibration_certified"])
 
+    def test_calibration_errors_capture_overconfidence(self):
+        records = [row(i, 0.75, 1 if i % 2 == 0 else 0) for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["expected_calibration_error"], 0.25)
+        self.assertEqual(result["maximum_calibration_error"], 0.25)
+        self.assertFalse(result["calibration_certified"])
+
+    def test_calibration_errors_weight_bins_by_sample_count(self):
+        records = [row(i, 0.2, 0) for i in range(80)]
+        records += [row(i, 0.9, 0) for i in range(80, 100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["expected_calibration_error"], 0.34)
+        self.assertEqual(result["maximum_calibration_error"], 0.9)
+
     def test_probability_one_is_in_final_bin(self):
         records = [row(i, 1.0, 1) for i in range(100)]
         result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
@@ -48,6 +62,8 @@ class CalibrationAuditTests(unittest.TestCase):
         self.assertEqual(result["reliability_bins"], [])
         self.assertIsNone(result["mean_predicted"])
         self.assertIsNone(result["observed_rate"])
+        self.assertIsNone(result["expected_calibration_error"])
+        self.assertIsNone(result["maximum_calibration_error"])
 
     def test_insufficient_sample_is_blocked(self):
         result = audit_predictions([row(i) for i in range(30)], "KG_VAR", "2026-02-01T00:00:00Z")
