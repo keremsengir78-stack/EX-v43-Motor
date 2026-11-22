@@ -136,25 +136,25 @@ def _holdout_records_consistent(report):
             return False
         count = len(rows)
         brier = sum((p - y) ** 2 for p, y in zip(probabilities, outcomes)) / count
-        expected_ranges = {
-            "%02d-%02d" % (low, low + 10): (
-                [(p, y) for p, y in zip(probabilities, outcomes)
-                 if low / 100 <= p < (low + 10) / 100
-                 or (low == 90 and p == 1)])
-            for low in range(0, 100, 10)
-        }
-        nonempty_ranges = {key for key, values in expected_ranges.items() if values}
-        provided_ranges = [bucket.get("range") for bucket in evaluation["reliability_bins"]]
-        if (len(provided_ranges) != len(set(provided_ranges))
-                or set(provided_ranges) != nonempty_ranges):
+        def bin_label(probability):
+            lower = min(int(probability * 10), 9) * 10
+            return "%02d-%02d" % (lower, lower + 10)
+
+        expected_ranges = {}
+        for probability, outcome in zip(probabilities, outcomes):
+            expected_ranges.setdefault(bin_label(probability), []).append(
+                (probability, outcome))
+        buckets = evaluation["reliability_bins"]
+        if not isinstance(buckets, list) or not all(isinstance(b, dict) for b in buckets):
             return False
-        for bucket in evaluation["reliability_bins"]:
-            low = int(bucket["range"].split("-")[0]) / 100
-            high = low + 0.1
-            selected = [(p, y) for p, y in zip(probabilities, outcomes)
-                        if low <= p < high or (low == 0.9 and p == 1)]
+        provided_ranges = [bucket.get("range") for bucket in buckets]
+        if (not all(isinstance(label, str) for label in provided_ranges)
+                or len(provided_ranges) != len(set(provided_ranges))
+                or set(provided_ranges) != set(expected_ranges)):
+            return False
+        for bucket in buckets:
+            selected = expected_ranges[bucket["range"]]
             if (len(selected) != bucket["count"]
-                    or not selected
                     or abs(sum(p for p, _ in selected) / len(selected)
                            - bucket["mean_predicted"]) > 1e-6
                     or abs(sum(y for _, y in selected) / len(selected)
