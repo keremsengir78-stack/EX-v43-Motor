@@ -20,5 +20,7 @@ jobs:
           python-version: '3.11'
       - name: Python syntax check
         run: python -m compileall -q .
+      - name: Isolated safety gates
+        run: python -m unittest discover -s tests -p 'test_safety_gates.py' -v
       - name: Full unittest regression
         run: python -m unittest discover -s tests -p 'test*.py' -v
