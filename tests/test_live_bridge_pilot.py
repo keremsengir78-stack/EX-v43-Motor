@@ -44,6 +44,14 @@ class LiveBridgePilotTests(unittest.TestCase):
             path.write_text(json.dumps(result))
             self.assertFalse(json.loads(path.read_text())["ex_final_allowed"])
 
+    def test_unexpected_fetch_exception_is_audited(self):
+        with patch.object(pilot, "fetch_and_compare_historical_day", side_effect=RuntimeError("secret")):
+            result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("pilot:unexpected_error:RuntimeError", result["issues"])
+        self.assertNotIn("secret", json.dumps(result))
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_provenance_is_retained(self):
         provenance = {"espn": {"sha256": "123"}, "football_data": {"url": "https://example.test"}}
         with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
