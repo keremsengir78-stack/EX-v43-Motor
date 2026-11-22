@@ -39,6 +39,12 @@ class DeltaAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
+    def test_reversed_audit_modes_rejected(self):
+        raw = audit(2, 3)
+        raw["reviewed_aliases_enabled"] = True
+        with self.assertRaises(ValueError):
+            compare_audits(raw, audit(3, 2))
+
     def test_empty_audits_rejected(self):
         with self.assertRaises(ValueError):
             compare_audits({"as_of": "2026-11-22", "cases": []},
