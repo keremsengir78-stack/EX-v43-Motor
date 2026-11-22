@@ -80,6 +80,32 @@ class MatchPipelineTests(unittest.TestCase):
                                         features, "2026-02-01T00:00:00Z", sources)
         self.assertIn("fixture:0:record_conflict", result["issues"])
 
+    def test_venue_goal_inversion_blocks(self):
+        records, features, sources = inputs()
+        records[0]["goals_for"] = 1
+        records[0]["goals_against"] = 2
+        result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
+                                        features, "2026-02-01T00:00:00Z", sources)
+        self.assertIn("fixture:0:venue_score_conflict", result["issues"])
+        self.assertIsNone(result["evidence"])
+
+    def test_away_venue_uses_reverse_goal_perspective(self):
+        records, features, sources = inputs()
+        records[0]["venue"] = "away"
+        records[0]["goals_for"] = 1
+        records[0]["goals_against"] = 2
+        result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
+                                        features, "2026-02-01T00:00:00Z", sources)
+        self.assertNotIn("fixture:0:venue_score_conflict", result["issues"])
+        self.assertEqual(result["status"], "EVIDENCE_READY_UNCALIBRATED")
+
+    def test_team_name_conflict_blocks(self):
+        records, features, sources = inputs()
+        records[0]["home_team"] = "Wrong team"
+        result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
+                                        features, "2026-02-01T00:00:00Z", sources)
+        self.assertIn("fixture:0:team_identity_conflict", result["issues"])
+
     def test_missing_feature_blocks_after_window_build(self):
         records, features, sources = inputs()
         del features["external_factors"]
