@@ -169,3 +169,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ee8b7f15dc51b4e661e21fcdb3fe870334d9a0f9` 4/4 CI başarılı. Hash manifesti yayımlandı; ayrı hash doğrulama raporu kontrol anında henüz yayımlanmadı.
 - `ex_multileague_evidence_ledger.py` ve testleri ilk 50 maç için ayrı kaynak URL/sağlayıcı/erişim tarihi, bağımsız takım ve skor alanları ile üç teyit bayrağını boş ve false başlatır. Bu aşama veri toplamaz, skor doğrulamaz.
 - Workflow `reports/latest_multileague_evidence_ledger_batch1.json` raporunu güvenlik kilidiyle yayımlamak üzere güncellendi. Yeni CI ve yayın sonucu henüz teyit edilmedi. EX FINAL kapalı.
+
+## 2026-11-22: 54. tur, ilk 50 kaynak kanıt kaydının güvenlik doğrulaması
+- `c6d6ecf7cbfe9bb0cd8c57bd7c85fbbb27fe9d81` 4/4 CI başarılı; `reports/latest_multileague_manifest_validated.json` 24/24 SHA-256 hash doğrulaması yayımlandı.
+- `ex_multileague_evidence_validation.py` kanıt defterindeki lig/sezon/tarih/takım kimliklerini özgün 50 maçla birebir denetler; kaynaksız URL, skor, yanlış durum ve sahte teyit reddedilir. Regresyon testleri eklendi.
+- Workflow `reports/latest_multileague_evidence_validated_batch1.json` yayımlar ve eksik doğrulamada CI kilidini korur. Yeni CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
