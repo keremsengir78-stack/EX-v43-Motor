@@ -10,6 +10,9 @@ on:
       - 'ex_espn_football_data_bridge.py'
       - 'ex_espn_provider.py'
       - 'ex_cross_verify.py'
+      - 'ex_official_evidence.py'
+      - 'ex_official_reconcile.py'
+      - 'evidence/official_unresolved_2026_11.json'
       - '.github/workflows/ex-live-bridge.yml'
   workflow_dispatch:
 permissions:
@@ -64,6 +67,11 @@ jobs:
             echo "No delta audit to export"
             exit 2
           fi
+      - name: Reconcile official results against unresolved fixture identities
+        shell: bash
+        run: |
+          test -s ex_live_bridge_delta_audit.json
+          python ex_official_reconcile.py --audit ex_live_bridge_delta_audit.json --out ex_official_reconciliation_audit.json
       - name: Print audit
         if: always()
         shell: bash
@@ -83,5 +91,6 @@ jobs:
             ex_live_bridge_reviewed_alias_audit.json
             ex_live_bridge_delta_audit.json
             ex_live_bridge_review_queue.csv
+            ex_official_reconciliation_audit.json
           if-no-files-found: warn
           retention-days: 14
