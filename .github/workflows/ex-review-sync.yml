@@ -263,6 +263,8 @@ jobs:
                           raise ValueError("Unsafe unique source candidates")
                       Path("reports/latest_multileague_unique_candidates.json").write_bytes(unique_path.read_bytes())
                       status["non_germany_unique_candidates_published"]=True
+                      status["unique_name_candidates"]=unique_report["unique_name_candidates"]
+                      status["remaining_for_manual_review"]=unique_report["remaining_for_manual_review"]
                   summary_path=Path("ex_run/multileague_candidate_summary.json")
                   if summary_path.is_file():
                       candidate_summary=json.loads(summary_path.read_text(encoding="utf-8"))
@@ -270,6 +272,10 @@ jobs:
                           raise ValueError("Unsafe candidate summary")
                       Path("reports/latest_multileague_candidate_summary.json").write_bytes(summary_path.read_bytes())
                       status["non_germany_candidate_summary_published"]=True
+                      status["candidate_same_day_found"]=candidate_summary["with_candidates"]
+                      status["candidate_same_day_missing"]=candidate_summary["without_candidates"]
+                      status["candidate_high_similarity"]=candidate_summary["high_name_similarity_candidates"]
+                      status["candidate_by_league"]=candidate_summary["by_league"]
                   candidate_path=Path("ex_run/multileague_source_candidates.json")
                   if candidate_path.is_file():
                       candidate_report=json.loads(candidate_path.read_text(encoding="utf-8"))
