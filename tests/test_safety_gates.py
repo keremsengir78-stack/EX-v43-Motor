@@ -112,6 +112,22 @@ class SafetyGates(unittest.TestCase):
         self.assertIn("team_strength:future_evidence",result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_auto_control_nonfinite_snapshot_rejected(self):
+        match={"recompute_consistent":True,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":50,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        ingestion={"status":"INGESTED_CROSS_VERIFIED","independent_sources_confirmed":2}
+        for bad in (float("nan"),float("inf"),float("-inf")):
+            candidate={**match,"market_baselines_pct":{**match["market_baselines_pct"],"KG_VAR":bad}}
+            result=auto_control(candidate,ingestion)
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("market_baselines:invalid",result["issues"])
+            self.assertIn("snapshot:invalid",result["issues"])
+            self.assertIsNone(result["snapshot_sha256"])
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_extreme_snapshot_does_not_crash(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
