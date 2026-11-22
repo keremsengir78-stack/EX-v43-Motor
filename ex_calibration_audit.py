@@ -59,12 +59,35 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         scores.append((probability - outcome) ** 2)
     if not issues and len(scores) < min_samples:
         issues.append("sample:insufficient")
+    bins = []
+    if not issues:
+        for low in range(0, 100, 10):
+            selected = [
+                (record["probability"], record["outcome"])
+                for record in records
+                if low / 100 <= record["probability"] < (low + 10) / 100
+                or (low == 90 and record["probability"] == 1)
+            ]
+            if selected:
+                bins.append({
+                    "range": "%02d-%02d" % (low, low + 10),
+                    "count": len(selected),
+                    "mean_predicted": round(sum(p for p, _ in selected) / len(selected), 8),
+                    "observed_rate": round(sum(y for _, y in selected) / len(selected), 8),
+                })
+    mean_predicted = (round(sum(record["probability"] for record in records) / len(records), 8)
+                      if not issues else None)
+    observed_rate = (round(sum(record["outcome"] for record in records) / len(records), 8)
+                     if not issues else None)
     return {
         "status": "AUDIT_COMPLETE_NOT_CALIBRATED" if not issues else "BLOCKED",
         "market": market,
         "sample_size": len(scores),
         "brier_score": round(sum(scores) / len(scores), 8) if scores and not issues else None,
         "issues": issues,
+        "reliability_bins": bins,
+        "mean_predicted": mean_predicted,
+        "observed_rate": observed_rate,
         "calibration_certified": False,
         "pup_allowed": False,
         "ex_final_allowed": False,
