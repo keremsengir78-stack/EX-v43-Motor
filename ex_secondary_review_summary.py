@@ -29,7 +29,13 @@ def summarize(audit):
     if type(expected) is not int or expected < 0 or expected != total:
         raise ValueError("unmatched totals disagree with audit")
     groups.sort(key=lambda g: (g["league"], g["season"]))
+    by_league = {}
+    for group in groups:
+        league = group["league"]
+        by_league[league] = by_league.get(league, 0) + group["unmatched_count"]
     return {"as_of": audit.get("as_of"), "unmatched_total": total,
+            "unmatched_by_league": dict(sorted(by_league.items())),
+            "germany_unmatched": by_league.get("de.1", 0),
             "groups": groups, "ex_final_allowed": False,
             "review_status": "REQUIRES_INDEPENDENT_SOURCE_REVIEW"}
 
