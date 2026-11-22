@@ -24,29 +24,34 @@ class FinalReadinessTests(unittest.TestCase):
         self.assertFalse(result["ex_final_allowed"])
 
     def test_measured_audits_still_cannot_unlock_external_evidence(self):
-        measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
-                    "market": "KG_VAR",
-                    "sample_size": 100, "brier_score": 0.22,
-                    "expected_calibration_error": 0.05,
-                    "maximum_calibration_error": 0.05,
-                    "mean_predicted": 0.5, "observed_rate": 0.45,
-                    "reliability_bins": [{"count": 100,
-                                          "mean_predicted": 0.5,
-                                          "observed_rate": 0.45}]}
-        historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
-                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
-                                "evaluation_start": "2026-01-01T00:00:00Z",
-                                "test": [{"fixture_id": str(i), "market": "KG_VAR",
-                                          "predicted_at": "2026-01-02T10:00:00Z",
-                                          "kickoff_at": "2026-01-02T12:00:00Z",
-                                          "settled_at": "2026-01-02T14:00:00Z"}
-                                         for i in range(100)]},
-                      "evaluation": measured}
+        measured, historical = self._valid_holdout()
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
             measured, historical)
         self.assertEqual(result["missing_checks"], ["external_evidence"])
         self.assertFalse(result["ex_final_allowed"])
+
+    @staticmethod
+    def _valid_holdout():
+        rows = [{"fixture_id": str(i), "market": "KG_VAR",
+                 "probability": 0.5, "outcome": i % 2,
+                 "predicted_at": "2026-01-02T10:00:00Z",
+                 "kickoff_at": "2026-01-02T12:00:00Z",
+                 "settled_at": "2026-01-02T14:00:00Z"} for i in range(30)]
+        measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+                    "market": "KG_VAR", "sample_size": 30,
+                    "brier_score": 0.25, "expected_calibration_error": 0.0,
+                    "maximum_calibration_error": 0.0,
+                    "mean_predicted": 0.5, "observed_rate": 0.5,
+                    "reliability_bins": [{"count": 30,
+                                          "mean_predicted": 0.5,
+                                          "observed_rate": 0.5}]}
+        historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
+                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
+                                "evaluation_start": "2026-01-01T00:00:00Z",
+                                "train": [], "test": rows},
+                      "evaluation": measured}
+        return measured, historical
 
     def test_incorrect_mean_prediction_is_rejected(self):
         report = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
@@ -115,18 +120,8 @@ class FinalReadinessTests(unittest.TestCase):
         self._assert_bad_holdout("time")
 
     def _assert_bad_holdout(self, defect):
-        measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
-                    "market": "KG_VAR", "sample_size": 30, "brier_score": 0.22,
-                    "expected_calibration_error": 0.05,
-                    "maximum_calibration_error": 0.05,
-                    "mean_predicted": 0.5, "observed_rate": 0.45,
-                    "reliability_bins": [{"count": 30,
-                                          "mean_predicted": 0.5,
-                                          "observed_rate": 0.45}]}
-        rows = [{"fixture_id": str(i), "market": "KG_VAR",
-                 "predicted_at": "2026-01-02T10:00:00Z",
-                 "kickoff_at": "2026-01-02T12:00:00Z",
-                 "settled_at": "2026-01-02T14:00:00Z"} for i in range(30)]
+        measured, historical = self._valid_holdout()
+        rows = historical["split"]["test"]
         if defect == "duplicate":
             rows[1]["fixture_id"] = rows[0]["fixture_id"]
         elif defect == "market":
@@ -137,14 +132,47 @@ class FinalReadinessTests(unittest.TestCase):
             rows[1]["settled_at"] = "2025-12-31T14:00:00Z"
         else:
             rows[1]["settled_at"] = "2026-01-02T11:00:00Z"
-        historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
-                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
-                                "evaluation_start": "2026-01-01T00:00:00Z",
-                                "test": rows}, "evaluation": measured}
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
             measured, historical)
         self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_invalid_probability_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["test"][0]["probability"] = float("nan")
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_invalid_outcome_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["test"][0]["outcome"] = True
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_non_utc_timestamp_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["test"][0]["predicted_at"] = "2026-01-02T12:00:00+02:00"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_training_test_overlap_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"] = [{
+            "fixture_id": "0", "market": "KG_VAR",
+            "settled_at": "2025-12-31T10:00:00Z"}]
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_fabricated_brier_score_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"] = dict(measured, brier_score=0.1)
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
 
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
