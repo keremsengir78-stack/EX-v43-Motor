@@ -64,7 +64,7 @@ def check_odds(snapshot, as_of):
             raise ValueError("boolean odds are invalid")
         if not isinstance(raw,(int,float)):
             raise ValueError("odds must be numeric, not a string or object")
-        odd=float(raw)
+        odd=float(raw) if not isinstance(raw,int) or raw.bit_length()<1024 else float("inf")
         if not math.isfinite(odd) or odd<=1:
             issues.append("odds:invalid")
     except (ValueError,TypeError,KeyError):
