@@ -28,6 +28,7 @@ class FinalReadinessTests(unittest.TestCase):
                     "sample_size": 100, "brier_score": 0.22,
                     "expected_calibration_error": 0.05,
                     "maximum_calibration_error": 0.05,
+                    "mean_predicted": 0.5, "observed_rate": 0.45,
                     "reliability_bins": [{"count": 100,
                                           "mean_predicted": 0.5,
                                           "observed_rate": 0.45}]}
@@ -39,6 +40,19 @@ class FinalReadinessTests(unittest.TestCase):
             measured, historical)
         self.assertEqual(result["missing_checks"], ["external_evidence"])
         self.assertFalse(result["ex_final_allowed"])
+
+    def test_incorrect_mean_prediction_is_rejected(self):
+        report = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+                  "sample_size": 100, "brier_score": 0.22,
+                  "expected_calibration_error": 0.05,
+                  "maximum_calibration_error": 0.05,
+                  "mean_predicted": 0.8, "observed_rate": 0.45,
+                  "reliability_bins": [{"count": 100,
+                                        "mean_predicted": 0.5,
+                                        "observed_rate": 0.45}]}
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"}, report)
+        self.assertIn("calibration", result["missing_checks"])
 
     def test_incorrect_calibration_error_is_rejected(self):
         report = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
