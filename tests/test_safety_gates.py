@@ -56,6 +56,18 @@ class SafetyGates(unittest.TestCase):
                       check_fixture(fixture,"2026-11-22T15:00:00Z")["issues"])
         self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00")["status"],"BLOCKED")
 
+    def test_fixture_timestamp_cutoff_uses_instant_not_local_calendar_date(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        # The same instant is Nov 23 in +14:00, but kickoff is still in the future.
+        self.assertEqual(check_fixture(fixture,"2026-11-23T00:00:00+14:00")["status"],
+                         "VERIFIED_INPUT")
+        # The same instant is Nov 21 in -12:00, but kickoff has already passed.
+        result=check_fixture(fixture,"2026-11-21T04:00:00-12:00")
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("fixture:analysis_after_kickoff",result["issues"])
+
     def test_fixture_verification_at_exact_analysis_instant_is_blocked(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T10:00:00Z",
