@@ -27,6 +27,18 @@ class ReviewExportTests(unittest.TestCase):
         data["reviewed_unmatched"] = 2
         self.assertEqual([row["home"] for row in review_rows(data)], ["Elche", "Real Sociedad"])
 
+    def test_regressed_baseline_rejected(self):
+        data = report()
+        data["technical_gate"] = "FAILED_REGRESSION"
+        with self.assertRaises(ValueError):
+            review_rows(data)
+
+    def test_inconsistent_reason_count_rejected(self):
+        data = report()
+        data["review_queue"][0]["reason_counts"] = {"not_found": 2}
+        with self.assertRaises(ValueError):
+            review_rows(data)
+
     def test_future_fixture_rejected(self):
         data = report()
         data["review_queue"][0]["day"] = "2026-11-23"
