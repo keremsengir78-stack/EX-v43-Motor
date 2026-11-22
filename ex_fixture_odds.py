@@ -23,6 +23,16 @@ def check_fixture(fixture, as_of):
             issues.append("kickoff_at:date_mismatch")
     except (KeyError,ValueError,TypeError,AttributeError):
         issues.append("kickoff_at:invalid")
+    # A fixture lock is valid only when its source was checked before kickoff.
+    try:
+        checked=dt.datetime.fromisoformat(fixture["fixture_checked_at"].replace("Z","+00:00"))
+        kickoff_time=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
+        if checked.tzinfo is None:
+            issues.append("fixture_checked_at:timezone_missing")
+        elif kickoff_time.tzinfo is not None and checked>=kickoff_time:
+            issues.append("fixture:checked_after_kickoff")
+    except (KeyError,ValueError,TypeError,AttributeError):
+        issues.append("fixture_checked_at:invalid")
     if fixture.get("home")==fixture.get("away"):
         issues.append("fixture:identical_teams")
     return {"status":"VERIFIED_INPUT" if not issues else "BLOCKED",
