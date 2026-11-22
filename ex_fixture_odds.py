@@ -11,7 +11,16 @@ def check_fixture(fixture, as_of):
             issues.append(field+":missing")
     try:
         kickoff=dt.date.fromisoformat(fixture["date"])
-        if kickoff<dt.date.fromisoformat(as_of[:10] if isinstance(as_of,str) else as_of):
+        if not isinstance(as_of,str) or not as_of.strip():
+            raise ValueError("invalid analysis cutoff")
+        if len(as_of)==10:
+            analysis_date=dt.date.fromisoformat(as_of)
+        else:
+            analysis_instant=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
+            if analysis_instant.tzinfo is None or analysis_instant.utcoffset() is None:
+                raise ValueError("analysis cutoff must be timezone aware")
+            analysis_date=analysis_instant.date()
+        if kickoff<analysis_date:
             issues.append("fixture:historical")
     except (KeyError,ValueError,TypeError):
         issues.append("fixture:invalid_date")
