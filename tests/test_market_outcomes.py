@@ -11,6 +11,33 @@ def match(fid, home, away, **updates):
 
 
 class MarketOutcomeTests(unittest.TestCase):
+    def test_settlement_before_kickoff_blocks(self):
+        result = market_outcomes([match("a", 2, 1,
+            settled_at="2026-01-01T11:59:00Z")], "2026-02-01T00:00:00Z")
+        self.assertIn("fixture:0:settlement_invalid_or_future", result["issues"])
+
+    def test_settlement_after_cutoff_blocks(self):
+        result = market_outcomes([match("a", 2, 1,
+            settled_at="2026-02-02T00:00:00Z")], "2026-02-01T00:00:00Z")
+        self.assertIn("fixture:0:settlement_invalid_or_future", result["issues"])
+
+    def test_settlement_at_cutoff_blocks(self):
+        result = market_outcomes([match("a", 2, 1,
+            settled_at="2026-02-01T00:00:00Z")], "2026-02-01T00:00:00Z")
+        self.assertIn("fixture:0:settlement_invalid_or_future", result["issues"])
+
+    def test_settlement_with_disguised_timezone_blocks(self):
+        result = market_outcomes([match("a", 2, 1,
+            settled_at="2026-01-01T18:00:00+03:00Z")],
+            "2026-02-01T00:00:00Z")
+        self.assertIn("fixture:0:settlement_invalid_or_future", result["issues"])
+
+    def test_valid_settlement_accepted_without_final(self):
+        result = market_outcomes([match("a", 2, 1,
+            settled_at="2026-01-01T14:00:00Z")], "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "OUTCOMES_READY")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_non_utc_cutoff_is_blocked(self):
         result = market_outcomes([match("a", 2, 1)],
                                  "2026-02-01T03:00:00+03:00Z")
