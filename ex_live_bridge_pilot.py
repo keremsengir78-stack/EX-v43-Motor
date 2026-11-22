@@ -40,7 +40,9 @@ def main():
     parser.add_argument("--out", default="ex_live_bridge_audit.json")
     args = parser.parse_args()
     report = run_pilot(args.league, args.season, args.day, args.as_of)
-    Path(args.out).write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    output = Path(args.out)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     print(json.dumps({k: report[k] for k in ("status", "issues", "matched", "unmatched", "ambiguous", "ex_final_allowed")}, ensure_ascii=False))
     return 0 if report["status"] == "PROVISIONAL_MATCH_UNAUDITED" else 2
 
