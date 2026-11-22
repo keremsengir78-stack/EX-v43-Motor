@@ -46,8 +46,9 @@ class MultiCaseAuditTests(unittest.TestCase):
         self.assertTrue(result["reviewed_aliases_enabled"])
         self.assertEqual(fetch.call_count, 5)
         self.assertEqual(fetch.call_args.kwargs["alias"], batch.REVIEWED_ALIASES)
-        for call in fetch.call_args_list[:-1]:
-            self.assertNotIn("alias", call.kwargs)
+        for call in fetch.call_args_list:
+            league = call.args[0]
+            self.assertEqual("alias" in call.kwargs, league in batch.REVIEWED_ALIASES)
         self.assertFalse(result["ex_final_allowed"])
 
     def test_empty_batch_not_success(self):
