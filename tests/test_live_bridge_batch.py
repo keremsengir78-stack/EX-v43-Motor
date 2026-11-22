@@ -44,7 +44,7 @@ class MultiCaseAuditTests(unittest.TestCase):
         with patch.object(batch, "run_pilot", return_value=report()) as fetch:
             result = batch.run_batch("2026-11-22", batch.DEFAULT_CASES, reviewed_aliases=True)
         self.assertTrue(result["reviewed_aliases_enabled"])
-        self.assertEqual(fetch.call_count, 5)
+        self.assertEqual(fetch.call_count, len(batch.DEFAULT_CASES))
         self.assertEqual(fetch.call_args.kwargs["alias"], batch.REVIEWED_ALIASES)
         for call in fetch.call_args_list:
             league = call.args[0]
