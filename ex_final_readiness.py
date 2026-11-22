@@ -184,6 +184,19 @@ def _historical_measured(report):
             and _calibration_measured(report.get("evaluation")))
 
 
+def _pipeline_metadata_consistent(report):
+    """A claimed successful pipeline must not contradict its own metadata."""
+    return (isinstance(report, dict)
+            and report.get("status") == "RECONCILED_WITH_METADATA_UNVERIFIED"
+            and report.get("issues", []) == []
+            and report.get("externally_verified", False) is False
+            and report.get("ex_final_allowed", False) is False
+            and all(isinstance(report.get(key), dict)
+                    and report[key].get("issues", []) == []
+                    for key in ("provenance", "reconciliation", "settlement")
+                    if key in report))
+
+
 def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
                              historical_validation=None):
     issues = []
@@ -194,7 +207,7 @@ def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
         issues.append("calibration:historical_market_mismatch")
     if not isinstance(provenance_pipeline, dict):
         issues.append("pipeline:missing")
-    elif provenance_pipeline.get("status") != "RECONCILED_WITH_METADATA_UNVERIFIED":
+    elif not _pipeline_metadata_consistent(provenance_pipeline):
         issues.append("pipeline:blocked")
     if not isinstance(calibration_audit, dict):
         issues.append("calibration:missing")
@@ -209,8 +222,7 @@ def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
     # evidence retrieval implementation in this repository.
     issues.append("external_evidence:verification_not_implemented")
     checks = {
-        "source_pipeline": isinstance(provenance_pipeline, dict)
-        and provenance_pipeline.get("status") == "RECONCILED_WITH_METADATA_UNVERIFIED",
+        "source_pipeline": _pipeline_metadata_consistent(provenance_pipeline),
         "calibration": isinstance(calibration_audit, dict)
         and _calibration_measured(calibration_audit)
         and "calibration:historical_market_mismatch" not in issues,
