@@ -174,3 +174,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `c6d6ecf7cbfe9bb0cd8c57bd7c85fbbb27fe9d81` 4/4 CI başarılı; `reports/latest_multileague_manifest_validated.json` 24/24 SHA-256 hash doğrulaması yayımlandı.
 - `ex_multileague_evidence_validation.py` kanıt defterindeki lig/sezon/tarih/takım kimliklerini özgün 50 maçla birebir denetler; kaynaksız URL, skor, yanlış durum ve sahte teyit reddedilir. Regresyon testleri eklendi.
 - Workflow `reports/latest_multileague_evidence_validated_batch1.json` yayımlar ve eksik doğrulamada CI kilidini korur. Yeni CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
+
+## 2026-11-22: hızlandırılmış kaynak eşleştirme turu
+- Meta raporlar yerine 1177 açık maç için gerçek football-data.co.uk sezon CSV verisinden aynı günün maçlarını bulup ev/deplasman isim benzerliğine göre sıralayan `ex_multileague_candidate_resolution.py` eklendi.
+- `tests/test_multileague_candidate_resolution.py` farklı günün skorunun alınmamasını ve otomatik onay verilmemesini sınar.
+- CI `reports/latest_multileague_source_candidates.json` raporunu üretmeye ayarlandı. Kaynak eşleşmesi sadece inceleme adayıdır, bağımsız skor onayı değildir. Yeni CI ve yayımlama henüz doğrulanmadı.
