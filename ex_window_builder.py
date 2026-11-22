@@ -57,7 +57,8 @@ def build_windows(records, venue, season, previous_season, as_of):
     current = [row for _, row in clean if row["season"] == season]
     relevant = [row for row in current if row["venue"] == venue]
     previous = [row for _, row in clean if row["season"] == previous_season and row["venue"] == venue]
-    windows = {"venue_last5": relevant[:5], "venue_last10": relevant[:10],
+    venue_history = sorted(relevant + previous, key=lambda row: row["kickoff_at"], reverse=True)
+    windows = {"venue_last5": venue_history[:5], "venue_last10": venue_history[:10],
                "current_season": current, "previous_venue": previous}
     for key, value in windows.items():
         if len(value) < (10 if key == "venue_last10" else 5 if key == "venue_last5" else 1):
