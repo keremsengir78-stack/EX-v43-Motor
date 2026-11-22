@@ -47,7 +47,7 @@ class CalibrationJoinTests(unittest.TestCase):
         fixtures[0]["settled_at"] = "2026-02-01T15:00:00+03:00Z"
         result = join_calibration_records(predictions, fixtures, "KG_VAR",
                                           "2026-03-01T00:00:00Z", min_samples=30)
-        self.assertIn("prediction:0:settlement_mismatch", result["issues"])
+        self.assertIn("outcome:fixture:0:settlement_invalid_or_future", result["issues"])
 
     def test_fixture_settlement_is_optional_for_legacy_records(self):
         predictions, fixtures = inputs()
