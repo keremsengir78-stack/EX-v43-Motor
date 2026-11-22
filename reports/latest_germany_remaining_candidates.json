@@ -1,0 +1,28 @@
+{
+  "candidates": [
+    {
+      "league": "de.1",
+      "primary_name": "SC Paderborn 07",
+      "secondary_name": "Paderborn",
+      "supporting_fixtures": 4,
+      "distinct_dates": 4,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    },
+    {
+      "league": "de.1",
+      "primary_name": "SV 07 Elversberg",
+      "secondary_name": "Elversberg",
+      "supporting_fixtures": 3,
+      "distinct_dates": 3,
+      "mapping_conflict": false,
+      "review_status": "MANUAL_REVIEW_REQUIRED",
+      "auto_approved": false
+    }
+  ],
+  "aliases_approved": false,
+  "ex_final_allowed": false,
+  "score_verified": false,
+  "source": "remaining_shadow_fixture_diagnostics"
+}
