@@ -36,6 +36,20 @@ class SecondaryPresenceTests(unittest.TestCase):
         self.assertEqual(result["conflicts"], [])
         self.assertEqual(result["unmatched_details"][0]["reason"], "not_found")
 
+    def test_reversed_fixture_is_diagnostic_only(self):
+        reversed_row = dict(self.other, home="SV Elversberg", away="Borussia Dortmund")
+        result = secondary_presence_diagnostic(self.primary, [reversed_row], "2026-11-22")
+        self.assertEqual(result["secondary_reversed_fixture_count"], 1)
+        self.assertEqual(result["secondary_home_team_count"], 0)
+        self.assertEqual(result["secondary_away_team_count"], 0)
+        verified = verify([self.primary], [reversed_row], "2026-11-22")
+        self.assertEqual(verified["matched"], 0)
+
+    def test_home_only_candidate_count(self):
+        result = secondary_presence_diagnostic(self.primary, [self.other], "2026-11-22")
+        self.assertEqual(result["secondary_home_team_count"], 1)
+        self.assertEqual(result["secondary_away_team_count"], 0)
+
     def test_future_secondary_excluded(self):
         result = secondary_presence_diagnostic(self.primary, [self.other], "2026-11-07")
         self.assertEqual(result["source_presence_status"], "SECONDARY_DATE_EMPTY")
