@@ -23,11 +23,20 @@ def validate(base, first, expanded, candidate_reports):
     if expanded["expanded_shadow_score_conflicts"] != 0:
         raise ValueError("expanded shadow score conflict")
     pairs=[]
+    primary_to_secondary={}
+    secondary_to_primary={}
     for report in candidate_reports:
         for row in report.get("candidates",[]):
             if row.get("mapping_conflict") is not False or row.get("auto_approved") is not False:
                 raise ValueError("conflicting or approved candidate")
-            pairs.append((row.get("primary_name"),row.get("secondary_name")))
+            p,s=row.get("primary_name"),row.get("secondary_name")
+            if not isinstance(p,str) or not p.strip() or not isinstance(s,str) or not s.strip():
+                raise ValueError("invalid candidate name")
+            if (p in primary_to_secondary and primary_to_secondary[p]!=s) or (s in secondary_to_primary and secondary_to_primary[s]!=p):
+                raise ValueError("cross-report mapping conflict")
+            primary_to_secondary[p]=s
+            secondary_to_primary[s]=p
+            pairs.append((p,s))
     if len(pairs)!=expanded.get("candidate_count") or len(pairs)!=len(set(pairs)):
         raise ValueError("candidate count or duplicate mismatch")
     return {"baseline_unmatched":original,
