@@ -179,3 +179,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Meta raporlar yerine 1177 açık maç için gerçek football-data.co.uk sezon CSV verisinden aynı günün maçlarını bulup ev/deplasman isim benzerliğine göre sıralayan `ex_multileague_candidate_resolution.py` eklendi.
 - `tests/test_multileague_candidate_resolution.py` farklı günün skorunun alınmamasını ve otomatik onay verilmemesini sınar.
 - CI `reports/latest_multileague_source_candidates.json` raporunu üretmeye ayarlandı. Kaynak eşleşmesi sadece inceleme adayıdır, bağımsız skor onayı değildir. Yeni CI ve yayımlama henüz doğrulanmadı.
+
+## 2026-11-22: 56. tur, gerçek kaynak adaylarının sayısal ölçümü
+- `ad4d65a1e4d0de8cbcf8d44a1bc2b8a9453eaaf3` 4/4 CI başarılı; 1177 maçın aday raporu yayımlandı, ilk 50 kanıt kaydı doğrulandı. Aday raporu büyük olduğundan konektör çıktısı tam okunamadı.
+- `ex_multileague_candidate_summary.py` her lig için aynı gün adayları, hiç aday bulunmayanlar, yüksek isim benzerliği ve kaynak hatalarını ayrı sayar; skor onayı üretmez.
+- Regresyon testleri, CI yayın entegrasyonu ve `reports/latest_multileague_candidate_summary.json` eklendi. Yeni CI henüz teyit edilmedi.
