@@ -14,11 +14,11 @@ def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
         issues.append("pipeline:blocked")
     if not isinstance(calibration_audit, dict):
         issues.append("calibration:missing")
-    elif calibration_audit.get("status") in (None, "BLOCKED"):
+    elif not _calibration_measured(calibration_audit):
         issues.append("calibration:unavailable")
     if not isinstance(historical_validation, dict):
         issues.append("historical_validation:missing")
-    elif historical_validation.get("status") in (None, "BLOCKED"):
+    elif not _historical_measured(historical_validation):
         issues.append("historical_validation:unavailable")
     # Neither a matching provider result nor a caller-supplied assertion proves
     # independent external source inspection. There is currently no verified
@@ -28,9 +28,9 @@ def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
         "source_pipeline": isinstance(provenance_pipeline, dict)
         and provenance_pipeline.get("status") == "RECONCILED_WITH_METADATA_UNVERIFIED",
         "calibration": isinstance(calibration_audit, dict)
-        and calibration_audit.get("status") not in (None, "BLOCKED"),
+        and _calibration_measured(calibration_audit),
         "historical_validation": isinstance(historical_validation, dict)
-        and historical_validation.get("status") not in (None, "BLOCKED"),
+        and _historical_measured(historical_validation),
         "external_evidence": False,
     }
     return {"status": "BLOCKED", "issues": issues,
