@@ -238,6 +238,21 @@ class TestEXMotor(unittest.TestCase):
         self.assertNotIn("second_source:unverified",result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_auto_control_requires_two_independent_sources(self):
+        base={"status":"BASELINE_ONLY","recompute_consistent":True,
+              "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,"MS1":40,"MSX":30,"MS2":30},
+              "fixture_lock":{"status":"VERIFIED_INPUT"},
+              "odds_lock":{"status":"VERIFIED_INPUT"}}
+        for count in (0, 1, -1, True, "2", 1.5, None):
+            result=auto_control(base,{"status":"INGESTED",
+                                      "independent_sources_confirmed":count})
+            self.assertIn("second_source:unverified",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        result=auto_control(base,{"status":"INGESTED",
+                                  "independent_sources_confirmed":2})
+        self.assertNotIn("second_source:unverified",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_never_promotes_baseline(self):
         report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
                              "market_baselines_pct":{"2.5_UST":55,"KG_VAR":50,
