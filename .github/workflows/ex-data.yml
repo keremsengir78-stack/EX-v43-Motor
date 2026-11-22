@@ -89,6 +89,15 @@ jobs:
           path: ex_premier_pilot/
           if-no-files-found: warn
           retention-days: 30
+      - name: Summarize unresolved secondary fixtures
+        if: always()
+        shell: bash
+        run: |
+          if [ -f ex_run/audit.json ]; then
+            python ex_secondary_review_summary.py --audit ex_run/audit.json --out ex_run/secondary_review_summary.json || echo 'REVIEW SUMMARY BLOCKED: invalid or incomplete audit evidence; EX FINAL disabled'
+          else
+            echo 'REVIEW SUMMARY UNAVAILABLE: no audit.json; EX FINAL disabled'
+          fi
       - name: Publish audit artifacts even on errors
         if: always()
         uses: actions/upload-artifact@v4
