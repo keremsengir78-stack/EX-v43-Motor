@@ -1,0 +1,56 @@
+{
+  "total_unmatched": 1177,
+  "priority_buckets": [
+    {
+      "league": "it.1",
+      "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+      "count": 341,
+      "priority_score": 682,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    },
+    {
+      "league": "en.1",
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "count": 222,
+      "priority_score": 666,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    },
+    {
+      "league": "es.1",
+      "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+      "count": 328,
+      "priority_score": 656,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    },
+    {
+      "league": "es.1",
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "count": 114,
+      "priority_score": 342,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    },
+    {
+      "league": "it.1",
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "count": 87,
+      "priority_score": 261,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    },
+    {
+      "league": "en.1",
+      "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+      "count": 85,
+      "priority_score": 170,
+      "action": "CHECK_DATE_TEAM_MAPPING_AND_INDEPENDENT_FINAL_SCORE",
+      "auto_approved": false
+    }
+  ],
+  "independently_verified_added": 0,
+  "aliases_approved": false,
+  "ex_final_allowed": false
+}
