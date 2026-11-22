@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify review tools
-        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline tests.test_germany_shadow_metrics tests.test_germany_shadow_remaining tests.test_germany_remaining_candidates tests.test_germany_shadow_merge tests.test_germany_expanded_validation -v
+        run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export tests.test_cross_verify_full_evidence tests.test_germany_alias_candidates tests.test_germany_alias_pilot tests.test_germany_shadow_offline tests.test_germany_shadow_metrics tests.test_germany_shadow_remaining tests.test_germany_remaining_candidates tests.test_germany_shadow_merge tests.test_germany_expanded_validation tests.test_multileague_alias_candidates -v
       - name: Collect real source audit
         id: ingest
         continue-on-error: true
@@ -39,6 +39,15 @@ jobs:
         run: |
           python ex_secondary_review_summary.py --audit ex_run/audit.json --out ex_run/secondary_review_summary.json
           python ex_germany_review_export.py --audit ex_run/audit.json --out ex_run/germany_unresolved_review.csv
+      - name: Extract non-German review-only alias candidates
+        id: other_leagues
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ex_run/secondary_review_summary.json ]; then
+            python ex_multileague_alias_candidates.py --summary ex_run/secondary_review_summary.json --out ex_run/multileague_alias_candidates.json
+          fi
       - name: Extract German manual alias candidates
         if: always()
         continue-on-error: true
@@ -121,6 +130,7 @@ jobs:
                   "shadow_step":"${{ steps.shadow.outcome }}",
                   "offline_shadow_step":"${{ steps.offline_shadow.outcome }}",
                   "expanded_shadow_step":"${{ steps.expanded_shadow.outcome }}",
+                  "other_leagues_step":"${{ steps.other_leagues.outcome }}",
                   "source_audit_exists":Path("ex_run/audit.json").is_file(),
                   "summary_exists":Path("ex_run/secondary_review_summary.json").is_file(),
                   "germany_csv_exists":Path("ex_run/germany_unresolved_review.csv").is_file(),
@@ -170,6 +180,15 @@ jobs:
                           raise ValueError("Unsafe remaining alias candidate evidence")
                       Path("reports/latest_germany_remaining_candidates.json").write_bytes(new_candidates_path.read_bytes())
                       status["germany_remaining_alias_candidates"]=len(new_candidates["candidates"])
+                  multi_path=Path("ex_run/multileague_alias_candidates.json")
+                  if multi_path.is_file():
+                      multi=json.loads(multi_path.read_text(encoding="utf-8"))
+                      if multi.get("ex_final_allowed") is not False or multi.get("score_verified") is not False or multi.get("aliases_approved") is not False:
+                          raise ValueError("Unsafe multi-league alias report")
+                      if multi.get("non_germany_unmatched")!=status["unmatched_total"]-status["germany_unmatched"]:
+                          raise ValueError("Non-German unmatched totals disagree")
+                      Path("reports/latest_multileague_alias_candidates.json").write_bytes(multi_path.read_bytes())
+                      status["non_germany_alias_candidates"]=multi["candidate_count"]
                   expanded_path=Path("ex_run/germany_expanded_shadow.json")
                   if expanded_path.is_file():
                       expanded=json.loads(expanded_path.read_text(encoding="utf-8"))
@@ -226,7 +245,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json reports/latest_germany_shadow_remaining.json reports/latest_germany_remaining_candidates.json reports/latest_germany_expanded_shadow.json reports/latest_germany_expanded_validated.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json reports/latest_germany_shadow_validated_metrics.json reports/latest_germany_shadow_remaining.json reports/latest_germany_remaining_candidates.json reports/latest_germany_expanded_shadow.json reports/latest_germany_expanded_validated.json reports/latest_multileague_alias_candidates.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
@@ -249,7 +268,7 @@ jobs:
               raise SystemExit("Audit pipeline failed: "+json.dumps(s))
           if s.get("shadow_step")!="success" or s.get("offline_shadow_step")!="success":
               raise SystemExit("Shadow comparison step failed: "+json.dumps(s))
-          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None or s.get("germany_shadow_reduction") is None or s.get("germany_shadow_remaining_count") is None or s.get("germany_remaining_alias_candidates") is None or s.get("germany_expanded_shadow_unmatched") is None or s.get("germany_expanded_validated") is not True:
+          if not s.get("shadow_comparison_exists") or s.get("germany_name_only_candidates") is None or s.get("germany_shadow_reduction") is None or s.get("germany_shadow_remaining_count") is None or s.get("germany_remaining_alias_candidates") is None or s.get("germany_expanded_shadow_unmatched") is None or s.get("germany_expanded_validated") is not True or s.get("non_germany_alias_candidates") is None or s.get("other_leagues_step")!="success":
               raise SystemExit("Missing shadow comparison output: "+json.dumps(s))
           PY
       - name: Upload evidence even if publication fails
