@@ -10,6 +10,8 @@ FIELDS = ("league", "date", "home", "away", "reason", "review_status", "as_of", 
 
 
 def review_rows(report):
+    if report.get("review_queue_complete") is not True or report.get("review_queue_missing_count") != 0:
+        raise ValueError("incomplete unresolved fixture evidence")
     if report.get("technical_gate") != "PASSED_AUDIT_COMPARISON":
         raise ValueError("cannot export regressed comparison as review baseline")
     if report.get("data_gate") not in ("BLOCKED_UNRESOLVED_FIXTURES", "PROVISIONAL_COVERAGE_ONLY"):
