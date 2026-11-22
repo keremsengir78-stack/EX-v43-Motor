@@ -1,0 +1,24 @@
+name: EX v4.3 regression
+on:
+  push:
+    branches: [ex-v43-development]
+  pull_request:
+    branches: [main, ex-v43-development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Python syntax check
+        run: python -m compileall -q .
+      - name: Full unittest regression
+        run: python -m unittest discover -s tests -p 'test*.py' -v
