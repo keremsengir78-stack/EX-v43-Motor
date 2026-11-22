@@ -14,14 +14,14 @@ def provider(name):
 
 
 def evidence(name):
-    return {"provider_group": name, "evidence_id": name + "-evidence",
+    return {"provider_group": name, "source_id": name, "evidence_id": name + "-evidence",
             "reviewer_id": name + "-reviewer", "fixture_id": "fixture-1",
             "evidence_url": "https://example.org/" + name,
             "reviewed_at": "2026-01-03T12:00:00Z"}
 
 
 def settlements():
-    return [{"provider_group": group, "fixture_id": "fixture-1",
+    return [{"provider_group": group, "source_id": group, "fixture_id": "fixture-1",
              "status": "finished", "settled_at": "2026-01-01T15:00:00Z"}
             for group in ("a", "b")]
 
@@ -60,6 +60,20 @@ class ProvenancePipelineTests(unittest.TestCase):
         result = reconcile_with_provenance([provider("a"), provider("b")],
                                            [evidence("a"), evidence("b")], CUTOFF, rows)
         self.assertIn("settlement:provider_group_mismatch", result["issues"])
+
+    def test_provenance_source_identity_mismatch_blocks(self):
+        wrong = evidence("b")
+        wrong["source_id"] = "other"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), wrong], CUTOFF, settlements())
+        self.assertIn("provenance:source_id_mismatch", result["issues"])
+
+    def test_settlement_source_identity_mismatch_blocks(self):
+        rows = settlements()
+        rows[1]["source_id"] = "other"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), evidence("b")], CUTOFF, rows)
+        self.assertIn("settlement:source_id_mismatch", result["issues"])
 
     def test_consistent_metadata_still_unverified(self):
         result = reconcile_with_provenance([provider("a"), provider("b")],
