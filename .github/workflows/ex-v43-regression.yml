@@ -20,12 +20,15 @@ jobs:
         with:
           python-version: '3.11'
       - name: Python syntax check
+        id: syntax
         run: python -m compileall -q .
       - name: Isolated safety gates
+        id: safety
         run: |
           set -o pipefail
           python -m unittest discover -s tests -p 'test_safety_gates.py' -v 2>&1 | tee safety-gates.log
       - name: Full unittest regression
+        id: full
         if: success()
         run: |
           set -o pipefail
@@ -46,12 +49,28 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           JOB_STATUS: ${{ job.status }}
+          SYNTAX_RESULT: ${{ steps.syntax.outcome }}
+          SAFETY_RESULT: ${{ steps.safety.outcome }}
+          FULL_RESULT: ${{ steps.full.outcome }}
         run: |
           if [ "$JOB_STATUS" = "success" ]; then
             state=success
           else
             state=failure
           fi
+          for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT"; do
+            stage="${item%%:*}"
+            outcome="${item#*:}"
+            case "$outcome" in
+              success) stage_state=success ;;
+              failure|cancelled) stage_state=failure ;;
+              *) stage_state=pending ;;
+            esac
+            gh api "repos/$GH_REPO/statuses/$GITHUB_SHA" \
+              -f state="$stage_state" \
+              -f context="ex-v43/$stage" \
+              -f description="Stage outcome: $outcome"
+          done
           gh api "repos/$GH_REPO/statuses/$GITHUB_SHA" \
             -f state="$state" \
             -f context="ex-v43/regression" \
