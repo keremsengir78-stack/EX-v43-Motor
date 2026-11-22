@@ -160,6 +160,17 @@ class TestEXMotor(unittest.TestCase):
             self.assertEqual(result["status"],"BLOCKED")
             self.assertEqual(result["decision"],"NO_FINAL")
 
+    def test_odds_rejects_unsupported_market(self):
+        base={"decimal_odds":1.55,"market":"KG_VAR","bookmaker":"verified",
+              "source":"audit","observed_at":"2026-11-21T10:00:00Z"}
+        for market in ("MSX","1.5_UST","KG_YOK","MS1 "):
+            result=check_odds({**base,"market":market},"2026-11-22T15:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("market:unsupported",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        for market in ("2.5_UST","KG_VAR","MS1","MS2"):
+            self.assertEqual(check_odds({**base,"market":market},"2026-11-22T15:00:00Z")["status"],"VERIFIED_INPUT")
+
     def test_fixture_and_odds_lock(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z",
