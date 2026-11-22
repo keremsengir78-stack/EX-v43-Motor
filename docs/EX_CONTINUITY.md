@@ -75,3 +75,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `tests/test_germany_shadow_remaining.py` iki regresyon testi eklendi.
 - `ex-review-sync.yml` yeni `reports/latest_germany_shadow_remaining.json` dosyasını yayımlayacak ve eksikse çalışmayı başarısız sayacak.
 - Yeni CI sonucu ve kalan 8 kaydın gerçek listesi **henüz teyit edilmedi**; sonraki turda kontrol edilmeli. Asıl 339 kayıt halen doğrulama bekliyor.
+
+## 2026-11-22: Kalan sekiz Almanya gölge kaydı
+- Gerçek `reports/latest_germany_shadow_remaining.json` sekiz kaydın tamamını yayımladı; hepsi 2026-27/de.1. Dört kayıtta `SC Paderborn 07` / `Paderborn`, dört kayıtta `SV 07 Elversberg` / `Elversberg` isim farkı görüldü.
+- `ex_germany_remaining_candidates.py` mevcut adaylarla çapraz karşılaştırıp yeni adayları yalnızca manuel inceleme için çıkarır. Testi `tests/test_germany_remaining_candidates.py`.
+- Workflow `reports/latest_germany_remaining_candidates.json` raporunu yayımlayacak. Son CI sonucu henüz doğrulanmadı. Hiçbir isim eşleştirmesi veya skor onaylanmadı, EX FINAL kilitli.
