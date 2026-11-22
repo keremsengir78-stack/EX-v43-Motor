@@ -58,6 +58,26 @@ class SecondaryReviewSummaryTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     summarize({**audit, "secondary_unmatched_by_season": counts})
 
+    def test_keeps_alias_candidates_and_source_errors(self):
+        candidate = {"secondary": "FC Bayern", "primary": "Bayern Munich"}
+        error = {"league": "de.1", "error": "source_unavailable"}
+        audit = {"ex_final_allowed": False, "secondary_unverified": 1,
+                 "secondary_source_errors": [error],
+                 "secondary_review_queue": [
+                     {"season": "2026-27", "league": "de.1",
+                      "suggestions": [candidate], "unmatched": [{"home": "FC Bayern"}]}]}
+        result = summarize(audit)
+        self.assertEqual(result["groups"][0]["alias_suggestions"], [candidate])
+        self.assertEqual(result["source_errors"], [error])
+        self.assertEqual(result["groups_with_alias_suggestions"], 1)
+        for key, value in (("secondary_source_errors", "bad"),
+                           ("secondary_review_queue", [
+                               {"season": "2026-27", "league": "de.1",
+                                "suggestions": "bad", "unmatched": [{}]}])):
+            with self.subTest(key=key):
+                with self.assertRaises(ValueError):
+                    summarize({**audit, key: value})
+
     def test_rejects_missing_queue(self):
         with self.assertRaises(ValueError):
             summarize({"secondary_unverified": 0})
