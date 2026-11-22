@@ -4,6 +4,8 @@ from ex_live_bridge_review_export import review_rows
 
 def report():
     return {"ex_final_allowed": False, "as_of": "2026-11-22", "reviewed_unmatched": 1,
+            "technical_gate": "PASSED_AUDIT_COMPARISON",
+            "data_gate": "BLOCKED_UNRESOLVED_FIXTURES",
             "review_queue": [{"league": "es.1", "day": "2026-11-08",
                 "unmatched": 1, "fixtures": [{
                     "league": "es.1", "date": "2026-11-08",
@@ -26,6 +28,18 @@ class ReviewExportTests(unittest.TestCase):
         data["review_queue"][0]["unmatched"] = 2
         data["reviewed_unmatched"] = 2
         self.assertEqual([row["home"] for row in review_rows(data)], ["Elche", "Real Sociedad"])
+
+    def test_missing_technical_gate_rejected(self):
+        data = report()
+        del data["technical_gate"]
+        with self.assertRaises(ValueError):
+            review_rows(data)
+
+    def test_contradictory_data_gate_rejected(self):
+        data = report()
+        data["data_gate"] = "PROVISIONAL_COVERAGE_ONLY"
+        with self.assertRaises(ValueError):
+            review_rows(data)
 
     def test_regressed_baseline_rejected(self):
         data = report()
