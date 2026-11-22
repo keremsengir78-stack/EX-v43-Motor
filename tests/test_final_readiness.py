@@ -368,6 +368,46 @@ class FinalReadinessTests(unittest.TestCase):
             measured, historical)
         self.assertEqual(result["missing_checks"], ["external_evidence"])
 
+    def test_unhashable_market_blocks_without_exception(self):
+        measured, historical = self._valid_holdout()
+        measured["market"] = []
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("calibration", result["missing_checks"])
+
+    def test_non_numeric_ece_blocks_without_exception(self):
+        measured, historical = self._valid_holdout()
+        measured["expected_calibration_error"] = "bad"
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("calibration", result["missing_checks"])
+
+    def test_non_numeric_mean_blocks_without_exception(self):
+        measured, historical = self._valid_holdout()
+        measured["mean_predicted"] = []
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("calibration", result["missing_checks"])
+
+    def test_unhashable_historical_market_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["market"] = {}
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_invalid_bin_count_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"][0]["count"] = True
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
