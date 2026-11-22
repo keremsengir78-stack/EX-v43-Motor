@@ -48,6 +48,10 @@ def compare_audits(raw, reviewed):
     raw_unmatched = sum(case["raw_unmatched"] for case in cases)
     reviewed_unmatched = sum(case["reviewed_unmatched"] for case in cases)
     regressions = [case for case in cases if case["matched_delta"] < 0 or case["new_conflicts"] > 0]
+    remaining_by_league = {}
+    for case in cases:
+        remaining_by_league[case["league"]] = remaining_by_league.get(case["league"], 0) + case["reviewed_unmatched"]
+    remaining_by_league = dict(sorted(remaining_by_league.items(), key=lambda pair: (-pair[1], pair[0])))
     return {
         "status": "REGRESSION_DETECTED" if regressions else "PROVISIONAL_COMPARISON",
         "as_of": raw["as_of"], "case_count": len(cases),
@@ -57,6 +61,8 @@ def compare_audits(raw, reviewed):
         "coverage_raw": raw_matched / (raw_matched + raw_unmatched) if raw_matched + raw_unmatched else 0,
         "coverage_reviewed": reviewed_matched / (reviewed_matched + reviewed_unmatched) if reviewed_matched + reviewed_unmatched else 0,
         "regression_count": len(regressions), "cases": cases,
+        "remaining_by_league": remaining_by_league,
+        "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
         "independent_sources_confirmed": False,
         "sample_sufficiency_certified": False,
         "calibration_certified": False, "ex_final_allowed": False,
