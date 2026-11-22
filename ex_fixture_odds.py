@@ -11,7 +11,7 @@ def check_fixture(fixture, as_of):
             issues.append(field+":missing")
     try:
         kickoff=dt.date.fromisoformat(fixture["date"])
-        if kickoff<dt.date.fromisoformat(as_of):
+        if kickoff<dt.date.fromisoformat(as_of[:10] if isinstance(as_of,str) else as_of):
             issues.append("fixture:historical")
     except (KeyError,ValueError,TypeError):
         issues.append("fixture:invalid_date")
