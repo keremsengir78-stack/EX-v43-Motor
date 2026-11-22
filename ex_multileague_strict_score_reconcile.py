@@ -16,6 +16,15 @@ CLUB_IDENTITIES = {
     "de.1": {
         "scpaderborn07": "paderborn",
         "sv07elversberg": "elversberg",
+        "1fsvmainz05": "mainz",
+        "bayer04leverkusen": "leverkusen",
+        "borussiamonchengladbach": "mgladbach",
+        "scfreiburg": "freiburg",
+        "borussiadortmund": "dortmund",
+        "fcbayernmunchen": "bayernmunich",
+        "fcschalke04": "schalke04",
+        "tsg1899hoffenheim": "hoffenheim",
+        "bayernmunich": "bayernmunich",
     },
     "en.1": {
         "newcastleunited": "newcastle",
