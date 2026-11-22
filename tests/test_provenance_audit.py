@@ -66,6 +66,35 @@ class ProvenanceAuditTests(unittest.TestCase):
         result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
         self.assertIn("attestations:fixture_conflict", result["issues"])
 
+    def test_explicit_https_default_port_duplicate_blocks(self):
+        second = evidence("b")
+        second["evidence_url"] = "https://example.org:443/a"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:url_duplicate", result["issues"])
+
+    def test_fragment_url_blocks(self):
+        second = evidence("b")
+        second["evidence_url"] = "https://example.org/b#copy"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:url_invalid", result["issues"])
+
+    def test_whitespace_url_blocks(self):
+        second = evidence("b")
+        second["evidence_url"] = " https://example.org/b "
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:url_invalid", result["issues"])
+
+    def test_non_utc_cutoff_blocks(self):
+        result = validate_provenance([evidence("a"), evidence("b")],
+                                     "2026-02-01T03:00:00+03:00")
+        self.assertIn("cutoff:invalid", result["issues"])
+
+    def test_non_utc_review_blocks(self):
+        second = evidence("b")
+        second["reviewed_at"] = "2026-01-03T15:00:00+03:00Z"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertIn("attestation:1:date_invalid_or_future", result["issues"])
+
     def test_future_review_blocks(self):
         second = evidence("b")
         second["reviewed_at"] = "2026-03-01T00:00:00Z"
