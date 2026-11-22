@@ -1,0 +1,1298 @@
+{
+  "total_candidates": 56,
+  "counts": {
+    "SCORE_AGREES_IDENTITY_UNREVIEWED": 56
+  },
+  "records": [
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-23",
+        "home": "Levante UD",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Levante",
+        "Barcelona"
+      ],
+      "source_score": [
+        2,
+        3
+      ],
+      "primary_score": [
+        2,
+        3
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-24",
+        "home": "Villarreal CF",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Villarreal",
+        "Girona"
+      ],
+      "source_score": [
+        5,
+        0
+      ],
+      "primary_score": [
+        5,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-25",
+        "home": "Sevilla FC",
+        "away": "Getafe CF"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Getafe"
+      ],
+      "source_score": [
+        1,
+        2
+      ],
+      "primary_score": [
+        1,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-14",
+        "home": "FC Barcelona",
+        "away": "Valencia CF"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Valencia"
+      ],
+      "source_score": [
+        6,
+        0
+      ],
+      "primary_score": [
+        6,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-20",
+        "home": "Girona FC",
+        "away": "Levante UD"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Levante"
+      ],
+      "source_score": [
+        0,
+        4
+      ],
+      "primary_score": [
+        0,
+        4
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-21",
+        "home": "FC Barcelona",
+        "away": "Getafe CF"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Getafe"
+      ],
+      "source_score": [
+        3,
+        0
+      ],
+      "primary_score": [
+        3,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-23",
+        "home": "Sevilla FC",
+        "away": "Villarreal CF"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Villarreal"
+      ],
+      "source_score": [
+        1,
+        2
+      ],
+      "primary_score": [
+        1,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Girona FC",
+        "away": "Valencia CF"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Valencia"
+      ],
+      "source_score": [
+        2,
+        1
+      ],
+      "primary_score": [
+        2,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-26",
+        "home": "Real Madrid CF",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Real Madrid",
+        "Barcelona"
+      ],
+      "source_score": [
+        2,
+        1
+      ],
+      "primary_score": [
+        2,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-31",
+        "home": "Getafe CF",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Getafe",
+        "Girona"
+      ],
+      "source_score": [
+        2,
+        1
+      ],
+      "primary_score": [
+        2,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-08",
+        "home": "Sevilla FC",
+        "away": "CA Osasuna"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Osasuna"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-30",
+        "home": "Girona FC",
+        "away": "Real Madrid CF"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Real Madrid"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-07",
+        "home": "Valencia CF",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Valencia",
+        "Sevilla"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-13",
+        "home": "FC Barcelona",
+        "away": "CA Osasuna"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Osasuna"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-20",
+        "home": "Real Madrid CF",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Real Madrid",
+        "Sevilla"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-21",
+        "home": "Villarreal CF",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Villarreal",
+        "Barcelona"
+      ],
+      "source_score": [
+        0,
+        2
+      ],
+      "primary_score": [
+        0,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-04",
+        "home": "Sevilla FC",
+        "away": "Levante UD"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Levante"
+      ],
+      "source_score": [
+        0,
+        3
+      ],
+      "primary_score": [
+        0,
+        3
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Girona FC",
+        "away": "CA Osasuna"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Osasuna"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-26",
+        "home": "Girona FC",
+        "away": "Getafe CF"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Getafe"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "FC Barcelona",
+        "away": "Levante UD"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Levante"
+      ],
+      "source_score": [
+        3,
+        0
+      ],
+      "primary_score": [
+        3,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "Getafe CF",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Getafe",
+        "Sevilla"
+      ],
+      "source_score": [
+        0,
+        1
+      ],
+      "primary_score": [
+        0,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-28",
+        "home": "FC Barcelona",
+        "away": "Villarreal CF"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Villarreal"
+      ],
+      "source_score": [
+        4,
+        1
+      ],
+      "primary_score": [
+        4,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-07",
+        "home": "Levante UD",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Levante",
+        "Girona"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "CA Osasuna",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Osasuna",
+        "Girona"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "Sevilla FC",
+        "away": "Valencia CF"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Valencia"
+      ],
+      "source_score": [
+        0,
+        2
+      ],
+      "primary_score": [
+        0,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-06",
+        "home": "Girona FC",
+        "away": "Villarreal CF"
+      },
+      "secondary_team_names": [
+        "Girona",
+        "Villarreal"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-10",
+        "home": "Real Madrid CF",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Real Madrid",
+        "Girona"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-23",
+        "home": "Levante UD",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Levante",
+        "Sevilla"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Getafe CF",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Getafe",
+        "Barcelona"
+      ],
+      "source_score": [
+        0,
+        2
+      ],
+      "primary_score": [
+        0,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Valencia CF",
+        "away": "Girona FC"
+      },
+      "secondary_team_names": [
+        "Valencia",
+        "Girona"
+      ],
+      "source_score": [
+        2,
+        1
+      ],
+      "primary_score": [
+        2,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-26",
+        "home": "CA Osasuna",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Osasuna",
+        "Sevilla"
+      ],
+      "source_score": [
+        2,
+        1
+      ],
+      "primary_score": [
+        2,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-02",
+        "home": "CA Osasuna",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Osasuna",
+        "Barcelona"
+      ],
+      "source_score": [
+        1,
+        2
+      ],
+      "primary_score": [
+        1,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-10",
+        "home": "FC Barcelona",
+        "away": "Real Madrid CF"
+      },
+      "secondary_team_names": [
+        "Barcelona",
+        "Real Madrid"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-13",
+        "home": "Villarreal CF",
+        "away": "Sevilla FC"
+      },
+      "secondary_team_names": [
+        "Villarreal",
+        "Sevilla"
+      ],
+      "source_score": [
+        2,
+        3
+      ],
+      "primary_score": [
+        2,
+        3
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Sevilla FC",
+        "away": "Real Madrid CF"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Real Madrid"
+      ],
+      "source_score": [
+        0,
+        1
+      ],
+      "primary_score": [
+        0,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-23",
+        "home": "Valencia CF",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Valencia",
+        "Barcelona"
+      ],
+      "source_score": [
+        3,
+        1
+      ],
+      "primary_score": [
+        3,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-06",
+        "home": "Valencia CF",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Valencia",
+        "Barcelona"
+      ],
+      "source_score": [
+        0,
+        5
+      ],
+      "primary_score": [
+        0,
+        5
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-11",
+        "home": "Sevilla FC",
+        "away": "Valencia CF"
+      },
+      "secondary_team_names": [
+        "Sevilla",
+        "Valencia"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-13",
+        "home": "Levante UD",
+        "away": "FC Barcelona"
+      },
+      "secondary_team_names": [
+        "Levante",
+        "Barcelona"
+      ],
+      "source_score": [
+        2,
+        4
+      ],
+      "primary_score": [
+        2,
+        4
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-08-31",
+        "home": "Torino FC",
+        "away": "ACF Fiorentina"
+      },
+      "secondary_team_names": [
+        "Torino",
+        "Fiorentina"
+      ],
+      "source_score": [
+        0,
+        0
+      ],
+      "primary_score": [
+        0,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-09-21",
+        "home": "Torino FC",
+        "away": "Atalanta BC"
+      },
+      "secondary_team_names": [
+        "Torino",
+        "Atalanta"
+      ],
+      "source_score": [
+        0,
+        3
+      ],
+      "primary_score": [
+        0,
+        3
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-09-27",
+        "home": "Juventus FC",
+        "away": "Atalanta BC"
+      },
+      "secondary_team_names": [
+        "Juventus",
+        "Atalanta"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-11-01",
+        "home": "US Cremonese",
+        "away": "Juventus FC"
+      },
+      "secondary_team_names": [
+        "Cremonese",
+        "Juventus"
+      ],
+      "source_score": [
+        1,
+        2
+      ],
+      "primary_score": [
+        1,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-11-22",
+        "home": "ACF Fiorentina",
+        "away": "Juventus FC"
+      },
+      "secondary_team_names": [
+        "Fiorentina",
+        "Juventus"
+      ],
+      "source_score": [
+        1,
+        1
+      ],
+      "primary_score": [
+        1,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2025-12-13",
+        "home": "Torino FC",
+        "away": "US Cremonese"
+      },
+      "secondary_team_names": [
+        "Torino",
+        "Cremonese"
+      ],
+      "source_score": [
+        1,
+        0
+      ],
+      "primary_score": [
+        1,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Atalanta BC",
+        "away": "Torino FC"
+      },
+      "secondary_team_names": [
+        "Atalanta",
+        "Torino"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-01-12",
+        "home": "Juventus FC",
+        "away": "US Cremonese"
+      },
+      "secondary_team_names": [
+        "Juventus",
+        "Cremonese"
+      ],
+      "source_score": [
+        5,
+        0
+      ],
+      "primary_score": [
+        5,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-02-07",
+        "home": "ACF Fiorentina",
+        "away": "Torino FC"
+      },
+      "secondary_team_names": [
+        "Fiorentina",
+        "Torino"
+      ],
+      "source_score": [
+        2,
+        2
+      ],
+      "primary_score": [
+        2,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-04-11",
+        "home": "Atalanta BC",
+        "away": "Juventus FC"
+      },
+      "secondary_team_names": [
+        "Atalanta",
+        "Juventus"
+      ],
+      "source_score": [
+        0,
+        1
+      ],
+      "primary_score": [
+        0,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-04-19",
+        "home": "US Cremonese",
+        "away": "Torino FC"
+      },
+      "secondary_team_names": [
+        "Cremonese",
+        "Torino"
+      ],
+      "source_score": [
+        0,
+        0
+      ],
+      "primary_score": [
+        0,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Juventus FC",
+        "away": "ACF Fiorentina"
+      },
+      "secondary_team_names": [
+        "Juventus",
+        "Fiorentina"
+      ],
+      "source_score": [
+        0,
+        2
+      ],
+      "primary_score": [
+        0,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-05",
+        "home": "ACF Fiorentina",
+        "away": "Torino FC"
+      },
+      "secondary_team_names": [
+        "Fiorentina",
+        "Torino"
+      ],
+      "source_score": [
+        1,
+        2
+      ],
+      "primary_score": [
+        1,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-11",
+        "home": "Venezia FC",
+        "away": "ACF Fiorentina"
+      },
+      "secondary_team_names": [
+        "Venezia",
+        "Fiorentina"
+      ],
+      "source_score": [
+        2,
+        4
+      ],
+      "primary_score": [
+        2,
+        4
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "it.1",
+        "season": "2026-27",
+        "date": "2026-09-20",
+        "home": "Juventus FC",
+        "away": "Atalanta BC"
+      },
+      "secondary_team_names": [
+        "Juventus",
+        "Atalanta"
+      ],
+      "source_score": [
+        2,
+        0
+      ],
+      "primary_score": [
+        2,
+        0
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Real Madrid CF",
+        "away": "Villarreal CF"
+      },
+      "secondary_team_names": [
+        "Real Madrid",
+        "Villarreal"
+      ],
+      "source_score": [
+        3,
+        1
+      ],
+      "primary_score": [
+        3,
+        1
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-24",
+        "home": "Villarreal CF",
+        "away": "Real Madrid CF"
+      },
+      "secondary_team_names": [
+        "Villarreal",
+        "Real Madrid"
+      ],
+      "source_score": [
+        0,
+        2
+      ],
+      "primary_score": [
+        0,
+        2
+      ],
+      "status": "SCORE_AGREES_IDENTITY_UNREVIEWED",
+      "independent_score_verified": false
+    }
+  ],
+  "independently_verified_added": 0,
+  "ex_final_allowed": false
+}
