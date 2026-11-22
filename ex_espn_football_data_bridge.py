@@ -63,7 +63,8 @@ def fetch_and_compare_historical_day(league, season, day, as_of, offline_seconda
         requested = dt.date.fromisoformat(day)
         cutoff = dt.date.fromisoformat(as_of)
         start_year, end_year = (int(x) for x in season.split("-"))
-        if end_year != start_year + 1 or not start_year <= requested.year <= end_year:
+        if (end_year != start_year + 1
+                or not dt.date(start_year, 7, 1) <= requested <= dt.date(end_year, 6, 30)):
             raise ValueError("season:invalid_or_mismatched")
         if requested >= cutoff:
             raise ValueError("day:at_or_after_cutoff")
