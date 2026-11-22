@@ -69,6 +69,14 @@ class ReviewExportTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     review_rows(data)
 
+    def test_rejects_duplicate_opponent_candidates(self):
+        data = report()
+        data["review_queue"][0]["fixtures"][0]["secondary_shared_team_candidates"] = [
+            {"home": "Bayern Munich", "away": "Dortmund"},
+            {"home": " bayern munich ", "away": "DORTMUND"}]
+        with self.assertRaises(ValueError):
+            review_rows(data)
+
     def test_export_is_sorted_deterministically(self):
         data = report()
         data["review_queue"][0]["fixtures"].insert(0, {
