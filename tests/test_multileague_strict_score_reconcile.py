@@ -194,6 +194,31 @@ class StrictScoreReconcileTests(unittest.TestCase):
         self.assertEqual(result["unresolved"][0]["reason"],"SECONDARY_SAME_DAY_SHARED_TEAM")
         self.assertEqual(result["unresolved"][0]["source_diagnostic"]["shared_team_alternatives"][0]["away"],"Sevilla")
 
+    def test_german_paderborn_identity_requires_exact_score(self):
+        self.fixture.update({"league":"de.1","home":"1. FSV Mainz 05","away":"SC Paderborn 07"})
+        self.primary[0].update({"league":"de.1","home":"1. FSV Mainz 05","away":"SC Paderborn 07"})
+        self.secondary[0].update({"league":"de.1","home":"1. FSV Mainz 05","away":"Paderborn"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+        self.assertFalse(result["ex_final_allowed"])
+        self.secondary[0]["away_goals"]=3
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["reasons"],{"SCORE_CONFLICT":1})
+
+    def test_german_elversberg_identity_is_league_scoped(self):
+        self.fixture.update({"league":"de.1","home":"SV 07 Elversberg","away":"Bayer 04 Leverkusen"})
+        self.primary[0].update({"league":"de.1","home":"SV 07 Elversberg","away":"Bayer 04 Leverkusen"})
+        self.secondary[0].update({"league":"de.1","home":"Elversberg","away":"Bayer 04 Leverkusen"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],1)
+        self.fixture["league"]="en.1"
+        self.primary[0]["league"]="en.1"
+        self.secondary[0]["league"]="en.1"
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],0)
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
