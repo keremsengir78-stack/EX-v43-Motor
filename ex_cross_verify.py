@@ -214,7 +214,24 @@ def secondary_presence_diagnostic(row, secondary, as_of, alias=None):
     reverse = [s for s in day_rows
                if reviewed_name(s["home"], s["league"], alias) == away
                and reviewed_name(s["away"], s["league"], alias) == home]
+    near_day = []
+    try:
+        fixture_day = dt.date.fromisoformat(row["date"])
+        for s in secondary:
+            if s["league"] != row["league"] or s["date"] >= as_of:
+                continue
+            delta = (dt.date.fromisoformat(s["date"]) - fixture_day).days
+            if abs(delta) != 1:
+                continue
+            if (reviewed_name(s["home"], s["league"], alias) == home
+                    and reviewed_name(s["away"], s["league"], alias) == away):
+                near_day.append({"date": s["date"], "home": s["home"],
+                                 "away": s["away"], "day_offset": delta})
+    except (ValueError, TypeError, KeyError):
+        near_day = []
     return {
+        "secondary_adjacent_day_exact_candidates": near_day[:5],
+        "secondary_adjacent_day_exact_count": len(near_day),
         "secondary_home_team_count": len(exact_home),
         "secondary_away_team_count": len(exact_away),
         "secondary_reversed_fixture_count": len(reverse),
