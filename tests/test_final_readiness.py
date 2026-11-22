@@ -408,6 +408,46 @@ class FinalReadinessTests(unittest.TestCase):
             measured, historical)
         self.assertIn("historical_validation", result["missing_checks"])
 
+    def test_calibration_report_with_issues_blocks(self):
+        measured, historical = self._valid_holdout()
+        measured["issues"] = ["sample:insufficient"]
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("calibration", result["missing_checks"])
+
+    def test_calibration_claiming_certification_blocks(self):
+        measured, historical = self._valid_holdout()
+        measured["calibration_certified"] = True
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("calibration", result["missing_checks"])
+
+    def test_historical_report_with_issues_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["issues"] = ["split:boundary_overlap"]
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_historical_claiming_certification_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["calibration_certified"] = True
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
+    def test_split_report_with_issues_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["issues"] = ["record:0:boundary_overlap"]
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
+
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
