@@ -217,6 +217,21 @@ class SafetyGates(unittest.TestCase):
         self.assertIn("ingestion:blocked",result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_exg_rejects_noncanonical_evidence_timestamps(self):
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-21T09:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for invalid in ("2026-W47-6T09:00:00Z","20261121T09:00:00Z",
+                        "2026-11-21T09:00:00"):
+            candidate={key:dict(value) for key,value in features.items()}
+            candidate["team_strength"]["timestamp"]=invalid
+            result=weighted_evidence(candidate,as_of="2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("team_strength:invalid_timestamp",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(weighted_evidence(features,as_of="2026-11-22")["status"],
+                         "EVIDENCE_COMPLETE_UNCALIBRATED")
+
     def test_exg_rejects_future_and_nonfinite_evidence(self):
         features={name:{"score":0.8,"verified":True,"source":"audit",
                         "timestamp":"2026-11-21T09:00:00Z"}
