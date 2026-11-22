@@ -86,3 +86,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Elversberg'in 4 gölge uyuşmazlığından biri, diğer tarafın adı da değiştiği için tekil aday çıkarma testinde sayılmadı; bu skor doğrulaması değildir.
 - `ex_germany_shadow_merge.py` 16+2 adayın çakışmasız, onaysız birleşimini oluşturur; `tests/test_germany_shadow_merge.py` koruma testidir. Workflow yalnızca ayrı gölge denetimi yürütür, `reports/latest_germany_expanded_shadow.json` üretmeyi dener.
 - Son CI ve genişletilmiş gölge sonuçları henüz doğrulanmadı. Onaylı eşleştirme dosyaları ve EX FINAL kilidi değişmedi.
+
+## 2026-11-22: Hızlandırılmış toplu tur, 18 aday gölge testi
+- Gerçek CI `45030430515` (commit `f2a67dc`): dört custom check success, expanded_shadow_step success, evidence_published=true. Almanya baseline unmatched 339, ilk 16 aday gölgesi 8, 18 aday genişletilmiş gölge 0, skor çelişkisi 0, kaynak hata listesi boş. `independently_verified_added=0`, `aliases_approved=false`, `ex_final_allowed=false`.
+- `ex_germany_expanded_validation.py` sıralı sayısal kontrol, aday sayısı, eşleştirme çakışmaları, kaynak hatası ve EX FINAL kilidini doğrular; `tests/test_germany_expanded_validation.py` negatif regresyonları eklendi.
+- Workflow `reports/latest_germany_expanded_validated.json` üretmek ve yoksa CI başarısız saymak üzere güncellendi.
+- Son değişikliklerin CI sonucu ve yeni doğrulanmış raporu henüz teyit edilmedi. Diğer liglerdeki uyuşmazlıklar (toplam 1845, Almanya 339) ve gerçek bağımsız kaynak kanıtı çözülmedi.
