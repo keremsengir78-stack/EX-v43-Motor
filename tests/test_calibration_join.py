@@ -19,6 +19,40 @@ def inputs(n=30):
 
 
 class CalibrationJoinTests(unittest.TestCase):
+    def test_none_fixtures_blocks_without_exception(self):
+        predictions, _ = inputs()
+        result = join_calibration_records(predictions, None, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_numeric_fixtures_blocks_without_exception(self):
+        predictions, _ = inputs()
+        result = join_calibration_records(predictions, 42, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertEqual(result["joined_records"], [])
+
+    def test_string_fixtures_blocks_without_exception(self):
+        predictions, _ = inputs()
+        result = join_calibration_records(predictions, "bad", "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIsNone(result["audit"])
+
+    def test_dict_fixtures_blocks_without_exception(self):
+        predictions, _ = inputs()
+        result = join_calibration_records(predictions, {"fixture_id": "0"}, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertFalse(result["calibration_certified"])
+
+    def test_valid_fixture_list_still_audits(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+
     def test_fixture_settlement_disagreement_blocks(self):
         predictions, fixtures = inputs()
         fixtures[0]["settled_at"] = "2026-02-02T12:00:00Z"
