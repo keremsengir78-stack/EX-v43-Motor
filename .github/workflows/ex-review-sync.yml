@@ -6,6 +6,8 @@ on:
       - 'reports/**'
       - 'docs/EX_CONTINUITY.md'
   workflow_dispatch:
+  schedule:
+    - cron: '15 2 * * *'
 permissions:
   contents: write
 concurrency:
@@ -66,7 +68,17 @@ jobs:
             python ex_multileague_review_batches.py --summary ex_other_shadow/review_summary.json --batch-size 50 --out ex_run/multileague_review_batches.json
             python ex_multileague_batch_manifest.py --batches ex_run/multileague_review_batches.json --out ex_run/multileague_batch_manifest.json
             python ex_multileague_evidence_ledger.py --batches ex_run/multileague_review_batches.json --batch-id 1 --out ex_run/multileague_evidence_ledger_batch1.json
-            python ex_multileague_candidate_resolution.py --batches ex_run/multileague_review_batches.json --out ex_run/multileague_source_candidates.json
+            # Retry transient provider/network failures, never manufacture score approvals.
+            for attempt in 1 2 3; do
+              if python ex_multileague_candidate_resolution.py --batches ex_run/multileague_review_batches.json --out ex_run/multileague_source_candidates.json; then
+                break
+              fi
+              if [ "$attempt" = 3 ]; then
+                echo "::error::Source candidate resolution failed after three attempts"
+                exit 1
+              fi
+              sleep $((attempt * 10))
+            done
             python ex_multileague_candidate_summary.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_candidate_summary.json
             python ex_multileague_unique_candidates.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_unique_candidates.json
             python - <<'PY'
