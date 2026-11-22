@@ -41,7 +41,7 @@ def check_fixture(fixture, as_of):
 def check_odds(snapshot, as_of):
     issues=[]
     if not isinstance(snapshot,dict):
-        return {"status":"BLOCKED","issues":["odds:missing"],"decision":"NO_FINAL"}
+        return {"status":"BLOCKED","issues":["odds:missing"],"decision":"NO_FINAL","ex_final_allowed":False}
     try:
         raw=snapshot["decimal_odds"]
         if isinstance(raw,bool):
