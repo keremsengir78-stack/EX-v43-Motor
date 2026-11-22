@@ -134,3 +134,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex-review-sync.yml` şimdi gölge audit dosyasından ayrı `reports/latest_multileague_shadow_diagnostics.json` üretiyor.
 - `ex_multileague_shadow_validation.py` ve testleri lig toplamlarını, 0 skor çelişkisini, 0 kaynak hatasını, 0 bağımsız doğrulamayı, onaylanmamış alias ve EX FINAL kilidini doğruluyor. `reports/latest_multileague_shadow_validated.json` için zorunlu CI kontrolü eklendi.
 - Son geliştirme CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
+
+## 2026-11-22: 47. tur, kalan üç lig için kaynak önceliklendirme
+- `86d7672ebeaf5d4f3c2ae23f776cdbb25418cc68` 4/4 CI başarılı; `45031405859` raporu `non_germany_shadow_validated=true` ve `reports/latest_multileague_shadow_validated.json` toplam 1506→1177, isim eşleşmesi 329, 0 bağımsız skor onayı gösterdi.
+- `ex_multileague_priority_plan.py` İngiltere/İspanya/İtalya kaynak uyuşmazlıklarını aynı gün ortak takım ve aynı gün takım bulunamaması nedenlerine göre, doğrulanabilir öncelik puanıyla sınıflandırır. Hatalı/eksik/çift kayıtlar reddedilir. `tests/test_multileague_priority_plan.py` eklendi.
+- Workflow `reports/latest_multileague_priority_plan.json` üretimini ve CI kilidini içeriyor. Bu tur CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
