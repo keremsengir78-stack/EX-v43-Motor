@@ -17,6 +17,7 @@ def compare_espn_football_data(espn_rows, football_data_rows, as_of, alias=None)
         import datetime as dt
         cutoff = dt.date.fromisoformat(as_of)
         for rows in (espn_rows, football_data_rows):
+            seen = set()
             for row in rows:
                 if not isinstance(row, dict):
                     raise ValueError("invalid row")
@@ -26,6 +27,13 @@ def compare_espn_football_data(espn_rows, football_data_rows, as_of, alias=None)
                 for field in ("league", "home", "away"):
                     if not isinstance(row[field], str) or not row[field].strip():
                         raise ValueError("invalid team or league")
+                if row["home"].strip().casefold() == row["away"].strip().casefold():
+                    raise ValueError("same team")
+                key = (day, row["league"].strip(), row["home"].strip().casefold(),
+                       row["away"].strip().casefold())
+                if key in seen:
+                    raise ValueError("duplicate fixture")
+                seen.add(key)
                 for field in ("home_goals", "away_goals"):
                     score = row[field]
                     if type(score) is not int or not 0 <= score <= 30:
@@ -86,6 +94,13 @@ def fetch_and_compare_historical_day(league, season, day, as_of, offline_seconda
             [row for row in secondary if row["date"] == day], as_of)
     except (KeyError, TypeError, ValueError):
         base["issues"] = ["football_data:missing_or_invalid_day"]
+        return base
+    if any(not isinstance(row, dict) or row.get("date") != day or row.get("league") != league
+           for row in espn):
+        base["issues"] = ["espn:wrong_day_or_league"]
+        return base
+    if any(row["league"] != league for row in filtered):
+        base["issues"] = ["football_data:wrong_league"]
         return base
     result = compare_espn_football_data(espn, filtered, as_of, alias=alias)
     base.update(result)
