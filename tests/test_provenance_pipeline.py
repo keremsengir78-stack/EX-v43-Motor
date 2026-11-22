@@ -47,6 +47,20 @@ class ProvenancePipelineTests(unittest.TestCase):
                                            [evidence("a"), evidence("b")], CUTOFF)
         self.assertEqual(result["status"], "BLOCKED")
 
+    def test_review_before_kickoff_blocks(self):
+        second = evidence("b")
+        second["reviewed_at"] = "2025-12-31T12:00:00Z"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), second], CUTOFF)
+        self.assertIn("provenance:review_before_or_at_kickoff", result["issues"])
+
+    def test_review_at_kickoff_blocks(self):
+        second = evidence("b")
+        second["reviewed_at"] = "2026-01-01T12:00:00Z"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), second], CUTOFF)
+        self.assertIn("provenance:review_before_or_at_kickoff", result["issues"])
+
     def test_conflicting_scores_block(self):
         second = provider("b")
         second["raw"]["ag"] = 3
