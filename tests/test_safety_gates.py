@@ -128,6 +128,22 @@ class SafetyGates(unittest.TestCase):
             self.assertIn("second_source:unverified",result["issues"])
             self.assertFalse(result["ex_final_allowed"])
 
+    def test_ingested_but_not_cross_verified_is_blocked(self):
+        match={"recompute_consistent":True,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":50,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        ingestion={"status":"INGESTED","independent_sources_confirmed":2}
+        result=auto_control(match,ingestion)
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("ingestion:blocked",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+        ingestion["status"]="INGESTED_CROSS_VERIFIED"
+        result=auto_control(match,ingestion)
+        self.assertNotIn("ingestion:blocked",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_tur2_and_ingestion_fail_closed(self):
         match={"recompute_consistent":False,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
