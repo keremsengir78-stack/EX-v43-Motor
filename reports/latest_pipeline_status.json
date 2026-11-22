@@ -7,14 +7,15 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "040d7ef8f2875ef2e1b8a24b17a4e664f3e0867f",
-  "run_id": "45029983841",
+  "commit": "868e795012b9bb8e1fa0b8dba0a0de1c01fbcaa6",
+  "run_id": "45030047515",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "shadow_comparison_exists": true,
   "unmatched_total": 1845,
   "germany_unmatched": 339,
-  "evidence_published": false,
+  "evidence_published": true,
   "germany_name_only_candidates": 36,
-  "publication_error": "Extra data: line 9 column 2 (char 218)"
+  "germany_shadow_unmatched": 8,
+  "germany_alias_candidates": 16
 }

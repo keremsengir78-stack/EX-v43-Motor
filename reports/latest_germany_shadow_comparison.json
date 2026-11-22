@@ -1,0 +1,9 @@
+{
+  "baseline_germany_unmatched": 339,
+  "shadow_germany_unmatched": 8,
+  "shadow_score_conflicts": 0,
+  "shadow_source_errors": [],
+  "comparison_only": true,
+  "aliases_approved": false,
+  "ex_final_allowed": false
+}
