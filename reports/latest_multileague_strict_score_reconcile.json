@@ -23279,7 +23279,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "Barcelona",
+            "away": "Santander",
+            "home_goals": 7,
+            "away_goals": 2
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23292,7 +23303,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "La Coruna",
+            "away": "Sevilla",
+            "home_goals": 0,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23305,7 +23327,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 2,
+        "shared_team_alternatives": [
+          {
+            "home": "Santander",
+            "away": "Villarreal",
+            "home_goals": 2,
+            "away_goals": 2
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23318,7 +23351,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 1,
+        "shared_team_alternatives": [
+          {
+            "home": "La Coruna",
+            "away": "Elche",
+            "home_goals": 1,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23331,7 +23375,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "Getafe",
+            "away": "Santander",
+            "home_goals": 1,
+            "away_goals": 0
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23344,7 +23399,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 2,
+        "shared_team_alternatives": [
+          {
+            "home": "Malaga",
+            "away": "La Coruna",
+            "home_goals": 1,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23357,7 +23423,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 2,
+        "shared_team_alternatives": [
+          {
+            "home": "Santander",
+            "away": "Elche",
+            "home_goals": 3,
+            "away_goals": 2
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23370,7 +23447,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "La Coruna",
+            "away": "Valencia",
+            "home_goals": 3,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23383,7 +23471,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "Vallecano",
+            "away": "Santander",
+            "home_goals": 3,
+            "away_goals": 2
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23396,7 +23495,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 3,
+        "shared_team_alternatives": [
+          {
+            "home": "Villarreal",
+            "away": "La Coruna",
+            "home_goals": 2,
+            "away_goals": 3
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23409,7 +23519,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 4,
+        "shared_team_alternatives": [
+          {
+            "home": "Santander",
+            "away": "Alaves",
+            "home_goals": 2,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23422,7 +23543,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 4,
+        "shared_team_alternatives": [
+          {
+            "home": "Getafe",
+            "away": "La Coruna",
+            "home_goals": 1,
+            "away_goals": 1
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23435,7 +23567,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 4,
+        "shared_team_alternatives": [
+          {
+            "home": "Celta",
+            "away": "Santander",
+            "home_goals": 5,
+            "away_goals": 0
+          }
+        ]
+      }
     },
     {
       "fixture": {
@@ -23448,7 +23591,18 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+      "source_diagnostic": {
+        "same_day_secondary_matches": 5,
+        "shared_team_alternatives": [
+          {
+            "home": "La Coruna",
+            "away": "Betis",
+            "home_goals": 1,
+            "away_goals": 1
+          }
+        ]
+      }
     }
   ],
   "ex_final_allowed": false
