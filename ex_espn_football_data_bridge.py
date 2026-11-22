@@ -70,7 +70,12 @@ def fetch_and_compare_historical_day(league, season, day, as_of, offline_seconda
             raise ValueError("league:unsupported")
         requested = dt.date.fromisoformat(day)
         cutoff = dt.date.fromisoformat(as_of)
-        start_year, end_year = (int(x) for x in season.split("-"))
+        years = season.split("-")
+        if (len(years) != 2 or len(years[0]) != 4 or len(years[1]) not in (2, 4)
+                or any(not year.isascii() or not year.isdigit() for year in years)):
+            raise ValueError("season:invalid_or_mismatched")
+        start_year = int(years[0])
+        end_year = int(years[1]) if len(years[1]) == 4 else int(years[0][:2] + years[1])
         if (end_year != start_year + 1
                 or not dt.date(start_year, 7, 1) <= requested <= dt.date(end_year, 6, 30)):
             raise ValueError("season:invalid_or_mismatched")
