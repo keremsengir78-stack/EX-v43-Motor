@@ -44,6 +44,20 @@ class SecondaryReviewSummaryTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     summarize({**audit, "ex_final_allowed": flag})
 
+    def test_season_source_counts_must_agree(self):
+        audit = {"ex_final_allowed": False, "secondary_unverified": 1,
+                 "secondary_review_queue": [
+                     {"season": "2026-27", "league": "de.1",
+                      "unmatched": [{"home": "A", "away": "B"}]}]}
+        good = {**audit, "secondary_unmatched_by_season": {"2026-27/de.1": 1,
+                                                            "2025-26/de.1": 0}}
+        self.assertEqual(summarize(good)["germany_unmatched"], 1)
+        for counts in ({"2026-27/de.1": 2}, {"2026-27/es.1": 1},
+                       {"2026-27/de.1": -1}, {"2026-27/de.1": True}):
+            with self.subTest(counts=counts):
+                with self.assertRaises(ValueError):
+                    summarize({**audit, "secondary_unmatched_by_season": counts})
+
     def test_rejects_missing_queue(self):
         with self.assertRaises(ValueError):
             summarize({"secondary_unverified": 0})
