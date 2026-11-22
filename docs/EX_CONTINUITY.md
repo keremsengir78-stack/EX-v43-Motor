@@ -184,3 +184,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ad4d65a1e4d0de8cbcf8d44a1bc2b8a9453eaaf3` 4/4 CI başarılı; 1177 maçın aday raporu yayımlandı, ilk 50 kanıt kaydı doğrulandı. Aday raporu büyük olduğundan konektör çıktısı tam okunamadı.
 - `ex_multileague_candidate_summary.py` her lig için aynı gün adayları, hiç aday bulunmayanlar, yüksek isim benzerliği ve kaynak hatalarını ayrı sayar; skor onayı üretmez.
 - Regresyon testleri, CI yayın entegrasyonu ve `reports/latest_multileague_candidate_summary.json` eklendi. Yeni CI henüz teyit edilmedi.
+
+## 2026-11-22: 58. tur, birebir kaynak eşleşme adayları
+- `ex_multileague_unique_candidates.py` aynı gün, iki takımda yüksek isim benzerliği ve ikinci adayla güvenli fark koşullarını sağlayan kayıtları seçer. Bir kaynak maçına iki ayrı ana maç talip olursa ikisi de elenir.
+- Regresyon testleri, CI entegrasyonu ve `reports/latest_multileague_unique_candidates.json` yayımı eklendi. Bunlar yalnızca inceleme adayıdır; bağımsız skor teyidi sıfır ve EX FINAL kapalı.
+- Yeni sürüm CI ve rapor yayımı henüz teyit edilmedi.
