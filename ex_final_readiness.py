@@ -26,13 +26,14 @@ def _calibration_bins_consistent(report):
                 and abs(mce - report["maximum_calibration_error"]) <= 1e-6
                 and abs(mean_prediction - report["mean_predicted"]) <= 1e-6
                 and abs(observed - report["observed_rate"]) <= 1e-6)
-    except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError):
+    except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError, AttributeError):
         return False
 
 
 def _calibration_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "AUDIT_COMPLETE_NOT_CALIBRATED"
+            and isinstance(report.get("market"), str)
             and report.get("market") in MARKETS
             and isinstance(report.get("sample_size"), int)
             and not isinstance(report.get("sample_size"), bool)
@@ -136,6 +137,7 @@ def _holdout_records_consistent(report):
             return False
         count = len(rows)
         brier = sum((p - y) ** 2 for p, y in zip(probabilities, outcomes)) / count
+
         def bin_label(probability):
             lower = min(int(probability * 10), 9) * 10
             return "%02d-%02d" % (lower, lower + 10)
