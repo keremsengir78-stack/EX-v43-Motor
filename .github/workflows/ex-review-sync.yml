@@ -47,6 +47,32 @@ jobs:
           if [ -f ex_run/germany_unresolved_review.csv ]; then
             python ex_germany_alias_candidates.py --csv ex_run/germany_unresolved_review.csv --out ex_run/germany_alias_candidates.json
           fi
+      - name: Quarantined German alias shadow comparison
+        id: shadow
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ex_run/germany_alias_candidates.json ]; then
+            python ex_germany_alias_pilot.py --candidates ex_run/germany_alias_candidates.json --out ex_run/germany_shadow_aliases.json
+            python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues de.1 --secondary-aliases ex_run/germany_shadow_aliases.json --outdir ex_germany_shadow
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          baseline=json.loads(Path("ex_run/audit.json").read_text(encoding="utf-8"))
+          shadow=json.loads(Path("ex_germany_shadow/audit.json").read_text(encoding="utf-8"))
+          base_count=sum(x.get("comparison",{}).get("unmatched",0) for x in baseline.get("secondary_audits",[]) if x.get("league")=="de.1")
+          result={"baseline_germany_unmatched":base_count,
+                  "shadow_germany_unmatched":shadow.get("secondary_unverified"),
+                  "shadow_score_conflicts":shadow.get("secondary_conflicts"),
+                  "shadow_source_errors":shadow.get("secondary_source_errors",[]),
+                  "comparison_only":True, "aliases_approved":False,
+                  "ex_final_allowed":False}
+          Path("ex_run/germany_shadow_comparison.json").write_text(
+              json.dumps(result,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+          print(json.dumps(result))
+          PY
+          fi
       - name: Persist real review evidence and diagnostic status
         if: always()
         shell: bash
@@ -83,6 +109,13 @@ jobs:
                   Path("reports/latest_germany_unresolved_review.csv").write_bytes(
                       Path("ex_run/germany_unresolved_review.csv").read_bytes())
                   status["evidence_published"]=True
+                  shadow_path=Path("ex_run/germany_shadow_comparison.json")
+                  if shadow_path.is_file():
+                      shadow=json.loads(shadow_path.read_text(encoding="utf-8"))
+                      if shadow.get("ex_final_allowed") is not False or shadow.get("aliases_approved") is not False:
+                          raise ValueError("Unsafe shadow evidence")
+                      Path("reports/latest_germany_shadow_comparison.json").write_bytes(shadow_path.read_bytes())
+                      status["germany_shadow_unmatched"]=shadow.get("shadow_germany_unmatched")
                   candidate_path=Path("ex_run/germany_alias_candidates.json")
                   if candidate_path.is_file():
                       candidate_data=json.loads(candidate_path.read_text(encoding="utf-8"))
@@ -102,7 +135,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
