@@ -34,6 +34,11 @@ def compare_audits(raw, reviewed):
             for field in ("matched", "unmatched", "conflict_count"):
                 if type(record.get(field)) is not int or record[field] < 0:
                     raise ValueError("invalid audit counts")
+        for record in (original, updated):
+            if record["conflict_count"] and record.get("status") != "SCORE_CONFLICT":
+                raise ValueError("score conflict hidden by audit status")
+            if record["unmatched"] and record.get("status") == "PROVISIONAL_MATCH_UNAUDITED":
+                raise ValueError("incomplete fixture falsely marked complete")
         if any(record.get("ex_final_allowed") is not False for record in (original, updated)):
             raise ValueError("case unexpectedly certifies EX FINAL")
         if original["matched"] + original["unmatched"] != updated["matched"] + updated["unmatched"]:
