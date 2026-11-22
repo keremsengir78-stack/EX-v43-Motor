@@ -189,3 +189,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex_multileague_unique_candidates.py` aynı gün, iki takımda yüksek isim benzerliği ve ikinci adayla güvenli fark koşullarını sağlayan kayıtları seçer. Bir kaynak maçına iki ayrı ana maç talip olursa ikisi de elenir.
 - Regresyon testleri, CI entegrasyonu ve `reports/latest_multileague_unique_candidates.json` yayımı eklendi. Bunlar yalnızca inceleme adayıdır; bağımsız skor teyidi sıfır ve EX FINAL kapalı.
 - Yeni sürüm CI ve rapor yayımı henüz teyit edilmedi.
+
+## 2026-11-22: kaynak raporu yayımlama hatasına karşı zorunlu kilit
+- GitHub Actions CI 4/4 geçmiş olsa da en son okunan pipeline status `d9b5353...` çalışmasına aitti ve aday özet/benzersiz aday raporları henüz depoda yoktu. CI sonucu ile gerçek kaynak doğrulama ayrı tutuluyor.
+- `722078d1fdc6956c37766d92eb2019ab132fe3f1` workflow güncellemesi, kaynak aday/özet/benzersiz aday çıktıları yoksa açık hata verir; yayımlanan küçük özet ve benzersiz aday raporlarını son fail-closed aşamasında zorunlu kılar.
+- 1177 açık kayıt, bağımsız skor onayı 0. Yeni workflow çalışmasının sonucu henüz teyit edilmedi.
