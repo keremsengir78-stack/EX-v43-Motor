@@ -31,6 +31,31 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_identical_prediction_and_result_source_blocks(self):
+        p, f = data()
+        p[0]["source"] = "independent-fixture-record"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["sources:prediction_result_overlap"])
+        self.assertIsNone(result["join"])
+
+    def test_overlap_in_later_prediction_blocks(self):
+        p, f = data()
+        p[-1]["source"] = "independent-fixture-record"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_overlap_in_later_fixture_blocks(self):
+        p, f = data()
+        f[-1]["source"] = "frozen-prediction"
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertIn("sources:prediction_result_overlap", result["issues"])
+
+    def test_distinct_source_labels_still_not_certified(self):
+        result = self.run_audit()
+        self.assertEqual(result["status"], "HOLDOUT_AUDITED_NOT_CERTIFIED")
+        self.assertFalse(result["calibration_certified"])
+
     def test_holdout_missing_fixture_settlement_provenance_blocks(self):
         p, f = data()
         del f[0]["settled_at"]
