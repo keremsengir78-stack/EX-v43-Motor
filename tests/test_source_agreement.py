@@ -9,6 +9,25 @@ def fixture(source):
 
 
 class SourceAgreementTests(unittest.TestCase):
+    def test_offset_cutoff_is_blocked(self):
+        result = verify_fixture_sources([fixture("provider-A"), fixture("provider-B")],
+                                        "2026-02-01T03:00:00+03:00")
+        self.assertIn("cutoff:invalid", result["issues"])
+
+    def test_offset_kickoff_is_blocked(self):
+        second = fixture("provider-B")
+        second["kickoff_at"] = "2026-01-01T15:00:00+03:00"
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:kickoff_invalid_or_future", result["issues"])
+
+    def test_both_sources_offset_kickoff_are_blocked(self):
+        first, second = fixture("provider-A"), fixture("provider-B")
+        first["kickoff_at"] = "2026-01-01T15:00:00+03:00"
+        second["kickoff_at"] = "2026-01-01T15:00:00+03:00"
+        result = verify_fixture_sources([first, second], "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+
     def test_two_matching_sources(self):
         result = verify_fixture_sources([fixture("provider-A"), fixture("provider-B")],
                                         "2026-02-01T00:00:00Z")
