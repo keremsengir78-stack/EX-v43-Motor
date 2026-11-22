@@ -73,7 +73,8 @@ def review_rows(report):
             candidates = fixture.get("secondary_shared_team_candidates", [])
             if not isinstance(candidates, list) or any(
                 not isinstance(item, dict) or not isinstance(item.get("home"), str)
-                or not isinstance(item.get("away"), str) for item in candidates
+                or not isinstance(item.get("away"), str)
+                or not item["home"].strip() or not item["away"].strip() for item in candidates
             ):
                 raise ValueError("invalid same-day opponent candidates")
             row["secondary_shared_team_candidates"] = json.dumps(candidates, ensure_ascii=False, sort_keys=True)
