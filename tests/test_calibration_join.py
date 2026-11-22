@@ -19,6 +19,33 @@ def inputs(n=30):
 
 
 class CalibrationJoinTests(unittest.TestCase):
+    def test_boolean_min_samples_blocks_before_audit(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=True)
+        self.assertEqual(result["issues"], ["min_samples:invalid"])
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_below_minimum_sample_threshold_blocks(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=29)
+        self.assertIn("min_samples:invalid", result["issues"])
+
+    def test_string_minimum_sample_threshold_blocks(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples="30")
+        self.assertIn("min_samples:invalid", result["issues"])
+
+    def test_insufficient_valid_sample_blocks_without_certification(self):
+        predictions, fixtures = inputs()
+        result = join_calibration_records(predictions, fixtures, "KG_VAR",
+                                          "2026-03-01T00:00:00Z", min_samples=31)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("sample:insufficient", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_unhashable_market_blocks(self):
         predictions, fixtures = inputs()
         result = join_calibration_records(predictions, fixtures, [], "2026-03-01T00:00:00Z", min_samples=30)
