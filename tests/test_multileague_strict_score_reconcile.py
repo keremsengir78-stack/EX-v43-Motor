@@ -182,6 +182,18 @@ class StrictScoreReconcileTests(unittest.TestCase):
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
             self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],1)
 
+    def test_conflicting_same_day_fixture_keeps_final_locked_and_exposes_evidence(self):
+        self.fixture.update({"league":"es.1","home":"FC Barcelona","away":"Real Racing Club de Santander"})
+        self.primary[0].update({"league":"es.1","home":"FC Barcelona","away":"Real Racing Club de Santander"})
+        self.secondary[0].update({"home":"Barcelona","away":"Sevilla"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],0)
+        self.assertEqual(result["remaining"],1)
+        self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(result["unresolved"][0]["reason"],"SECONDARY_SAME_DAY_SHARED_TEAM")
+        self.assertEqual(result["unresolved"][0]["source_diagnostic"]["shared_team_alternatives"][0]["away"],"Sevilla")
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
