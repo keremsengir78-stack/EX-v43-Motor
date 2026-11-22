@@ -1,0 +1,31 @@
+{
+  "total_fixtures": 1177,
+  "with_candidates": 1177,
+  "without_candidates": 0,
+  "high_name_similarity_candidates": 56,
+  "by_league": {
+    "en.1": {
+      "total": 307,
+      "same_day_candidates": 307,
+      "no_same_day_candidates": 0,
+      "high_name_similarity": 0,
+      "source_errors": 0
+    },
+    "es.1": {
+      "total": 442,
+      "same_day_candidates": 442,
+      "no_same_day_candidates": 0,
+      "high_name_similarity": 41,
+      "source_errors": 0
+    },
+    "it.1": {
+      "total": 428,
+      "same_day_candidates": 428,
+      "no_same_day_candidates": 0,
+      "high_name_similarity": 15,
+      "source_errors": 0
+    }
+  },
+  "independently_verified_added": 0,
+  "ex_final_allowed": false
+}
