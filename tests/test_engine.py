@@ -124,6 +124,21 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_fixture_lock_rejects_future_verification_and_started_match(self):
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T11:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        before=check_fixture(fixture,"2026-11-22T12:00:00Z")
+        self.assertEqual(before["status"],"VERIFIED_INPUT")
+        future=check_fixture(fixture,"2026-11-22T10:00:00Z")
+        self.assertEqual(future["status"],"BLOCKED")
+        self.assertIn("fixture:verified_after_analysis",future["issues"])
+        self.assertFalse(future["ex_final_allowed"])
+        started=check_fixture(fixture,"2026-11-22T15:00:00Z")
+        self.assertEqual(started["status"],"BLOCKED")
+        self.assertIn("fixture:analysis_after_kickoff",started["issues"])
+        self.assertEqual(check_fixture(fixture,"2026-11-22T12:00:00")["status"],"BLOCKED")
+
     def test_fixture_lock_rejects_post_kickoff_verification(self):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T14:00:00Z",
