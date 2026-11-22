@@ -55,6 +55,10 @@ def compare_audits(raw, reviewed):
             "unresolved_fixtures": updated.get("unmatched_details", []),
             "review_candidates": updated.get("alias_suggestions", []),
             "unresolved_reason": "NAME_OR_FIXTURE_MISMATCH_REQUIRES_SOURCE_REVIEW" if updated["unmatched"] else "NONE",
+            "unresolved_reason_counts": {
+                reason: sum(item.get("reason") == reason for item in updated.get("unmatched_details", []))
+                for reason in sorted({item.get("reason") for item in updated.get("unmatched_details", []) if isinstance(item, dict) and isinstance(item.get("reason"), str)})
+            },
         })
     raw_matched = sum(case["raw_matched"] for case in cases)
     reviewed_matched = sum(case["reviewed_matched"] for case in cases)
@@ -80,7 +84,8 @@ def compare_audits(raw, reviewed):
         "review_queue": [
             {"league": case["league"], "day": case["day"],
              "unmatched": case["reviewed_unmatched"],
-             "fixtures": case["unresolved_fixtures"]}
+             "fixtures": case["unresolved_fixtures"],
+             "reason_counts": case["unresolved_reason_counts"]}
             for case in sorted(cases, key=lambda item: (-item["reviewed_unmatched"], item["league"], item["day"]))
             if case["reviewed_unmatched"]
         ],
