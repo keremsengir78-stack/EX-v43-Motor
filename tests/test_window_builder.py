@@ -4,7 +4,7 @@ from ex_window_builder import build_windows
 
 
 def record(i, season="2026", venue="home"):
-    return {"fixture_id": str(i), "kickoff_at": "2026-01-%02dT12:00:00Z" % (i + 1),
+    return {"fixture_id": str(i), "kickoff_at": "%s-01-%02dT12:00:00Z" % (season, i + 1),
             "season": season, "venue": venue, "verified": True, "source": "audited",
             "goals_for": 2, "goals_against": 1}
 
@@ -45,6 +45,18 @@ class WindowBuilderTests(unittest.TestCase):
         rows = [row for row in sample() if row["season"] != "2025"]
         result = build_windows(rows, "home", "2026", "2025", "2026-02-01T00:00:00Z")
         self.assertIn("previous_venue:sample_incomplete", result["issues"])
+
+    def test_unexpected_season_blocks(self):
+        rows = sample()
+        rows[0]["season"] = "2024"
+        result = build_windows(rows, "home", "2026", "2025", "2026-02-01T00:00:00Z")
+        self.assertIn("season:unexpected_record", result["issues"])
+
+    def test_season_chronology_conflict_blocks(self):
+        rows = sample()
+        rows[12]["kickoff_at"] = "2026-01-20T12:00:00Z"
+        result = build_windows(rows, "home", "2026", "2025", "2026-02-01T00:00:00Z")
+        self.assertIn("season:chronology_conflict", result["issues"])
 
     def test_unverified_fixture_blocks(self):
         rows = sample()
