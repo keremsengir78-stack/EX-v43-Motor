@@ -20,11 +20,15 @@ def summarize(audit):
         season, league = group.get("season"), group.get("league")
         if not all(isinstance(x, str) and x.strip() for x in (season, league)):
             raise ValueError("missing group identity")
+        suggestions = group.get("suggestions", [])
+        if not isinstance(suggestions, list):
+            raise ValueError("invalid alias suggestions")
         unmatched = group["unmatched"]
         total += len(unmatched)
         groups.append({"season": season, "league": league,
                        "unmatched_count": len(unmatched),
-                       "unmatched_details": unmatched})
+                       "unmatched_details": unmatched,
+                       "alias_suggestions": suggestions})
     expected = audit.get("secondary_unverified")
     if type(expected) is not int or expected < 0 or expected != total:
         raise ValueError("unmatched totals disagree with audit")
@@ -49,10 +53,15 @@ def summarize(audit):
     for group in groups:
         league = group["league"]
         by_league[league] = by_league.get(league, 0) + group["unmatched_count"]
+    source_errors = audit.get("secondary_source_errors", [])
+    if not isinstance(source_errors, list):
+        raise ValueError("invalid independent source errors")
     return {"as_of": audit.get("as_of"), "unmatched_total": total,
             "unmatched_by_league": dict(sorted(by_league.items())),
             "germany_unmatched": by_league.get("de.1", 0),
-            "groups": groups, "ex_final_allowed": False,
+            "groups": groups, "source_errors": source_errors,
+            "groups_with_alias_suggestions": sum(bool(g["alias_suggestions"]) for g in groups),
+            "ex_final_allowed": False,
             "review_status": "REQUIRES_INDEPENDENT_SOURCE_REVIEW"}
 
 
