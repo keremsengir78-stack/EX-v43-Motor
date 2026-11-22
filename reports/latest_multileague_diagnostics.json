@@ -1,0 +1,204 @@
+{
+  "unmatched_total": 1506,
+  "by_league": {
+    "en.1": {
+      "count": 307,
+      "source_presence": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": 85,
+        "SECONDARY_SAME_DAY_SHARED_TEAM": 222
+      },
+      "samples": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": [
+          {
+            "date": "2025-08-16",
+            "home": "Wolverhampton Wanderers FC",
+            "away": "Manchester City FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-23",
+            "home": "Manchester City FC",
+            "away": "Tottenham Hotspur FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-30",
+            "home": "Leeds United FC",
+            "away": "Newcastle United FC",
+            "reason": "not_found"
+          }
+        ],
+        "SECONDARY_SAME_DAY_SHARED_TEAM": [
+          {
+            "date": "2025-08-16",
+            "home": "Aston Villa FC",
+            "away": "Newcastle United FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "Brighton & Hove Albion FC",
+            "away": "Fulham FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "Sunderland AFC",
+            "away": "West Ham United FC",
+            "reason": "not_found"
+          }
+        ]
+      }
+    },
+    "es.1": {
+      "count": 442,
+      "source_presence": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": 328,
+        "SECONDARY_SAME_DAY_SHARED_TEAM": 114
+      },
+      "samples": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": [
+          {
+            "date": "2025-08-15",
+            "home": "Villarreal CF",
+            "away": "Real Oviedo",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "Deportivo Alavés",
+            "away": "Levante UD",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "Valencia CF",
+            "away": "Real Sociedad de Fútbol",
+            "reason": "not_found"
+          }
+        ],
+        "SECONDARY_SAME_DAY_SHARED_TEAM": [
+          {
+            "date": "2025-08-15",
+            "home": "Girona FC",
+            "away": "Rayo Vallecano de Madrid",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "RCD Mallorca",
+            "away": "FC Barcelona",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-17",
+            "home": "Athletic Club",
+            "away": "Sevilla FC",
+            "reason": "not_found"
+          }
+        ]
+      }
+    },
+    "fr.1": {
+      "count": 329,
+      "source_presence": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": 183,
+        "SECONDARY_SAME_DAY_SHARED_TEAM": 146
+      },
+      "samples": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": [
+          {
+            "date": "2025-08-15",
+            "home": "Stade Rennais FC 1901",
+            "away": "Olympique de Marseille",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "AS Monaco FC",
+            "away": "Le Havre AC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-16",
+            "home": "Racing Club de Lens",
+            "away": "Olympique Lyonnais",
+            "reason": "not_found"
+          }
+        ],
+        "SECONDARY_SAME_DAY_SHARED_TEAM": [
+          {
+            "date": "2025-08-16",
+            "home": "OGC Nice",
+            "away": "Toulouse FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-17",
+            "home": "AJ Auxerre",
+            "away": "FC Lorient",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-17",
+            "home": "Angers SCO",
+            "away": "Paris FC",
+            "reason": "not_found"
+          }
+        ]
+      }
+    },
+    "it.1": {
+      "count": 428,
+      "source_presence": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": 341,
+        "SECONDARY_SAME_DAY_SHARED_TEAM": 87
+      },
+      "samples": {
+        "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH": [
+          {
+            "date": "2025-08-23",
+            "home": "AC Milan",
+            "away": "US Cremonese",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-23",
+            "home": "AS Roma",
+            "away": "Bologna FC 1909",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-23",
+            "home": "Genoa CFC",
+            "away": "US Lecce",
+            "reason": "not_found"
+          }
+        ],
+        "SECONDARY_SAME_DAY_SHARED_TEAM": [
+          {
+            "date": "2025-08-24",
+            "home": "Juventus FC",
+            "away": "Parma Calcio 1913",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-25",
+            "home": "FC Internazionale Milano",
+            "away": "Torino FC",
+            "reason": "not_found"
+          },
+          {
+            "date": "2025-08-31",
+            "home": "Genoa CFC",
+            "away": "Juventus FC",
+            "reason": "not_found"
+          }
+        ]
+      }
+    }
+  },
+  "score_verified": false,
+  "aliases_approved": false,
+  "ex_final_allowed": false
+}
