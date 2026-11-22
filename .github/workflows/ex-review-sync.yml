@@ -1,0 +1,23 @@
+name: EX v4.3 24-hour scheduler
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+permissions:
+  actions: write
+  contents: read
+concurrency:
+  group: ex-v43-hourly-dispatch
+  cancel-in-progress: false
+jobs:
+  dispatch-development-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Start EX engine on development branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh workflow run ex-review-sync.yml --ref ex-v43-development
+          echo "Requested EX v4.3 development run. Source evidence and EX FINAL safety gates remain enforced."
