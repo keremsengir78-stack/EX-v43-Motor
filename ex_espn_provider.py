@@ -3,6 +3,7 @@ import datetime as dt
 import json
 import hashlib
 import urllib.request
+import math
 
 MAX_SCOREBOARD_BYTES=2_000_000
 
@@ -78,6 +79,8 @@ def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
 def fetch_espn_scoreboard(league,day,as_of,timeout=15):
     if league not in ESPN_LEAGUES:
         raise ValueError("unsupported ESPN league")
+    if isinstance(timeout,bool) or not isinstance(timeout,(int,float)) or not math.isfinite(timeout) or not 0<timeout<=60:
+        raise ValueError("invalid ESPN request timeout")
     requested=dt.date.fromisoformat(day)
     if requested>=dt.date.fromisoformat(as_of):
         raise ValueError("requested date must precede cutoff")
