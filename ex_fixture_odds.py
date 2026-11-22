@@ -1,6 +1,7 @@
 """Auditable fixture and odds gates. No inferred fixture, price, or kickoff."""
 import datetime as dt
 import math
+import re
 
 def check_fixture(fixture, as_of):
     issues=[]
@@ -10,10 +11,14 @@ def check_fixture(fixture, as_of):
         if not isinstance(fixture.get(field),str) or not fixture[field].strip():
             issues.append(field+":missing")
     try:
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",fixture["date"]):
+            raise ValueError("fixture date must be YYYY-MM-DD")
         kickoff=dt.date.fromisoformat(fixture["date"])
         if not isinstance(as_of,str) or not as_of.strip():
             raise ValueError("invalid analysis cutoff")
         if len(as_of)==10:
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",as_of):
+                raise ValueError("analysis date must be YYYY-MM-DD")
             analysis_date=dt.date.fromisoformat(as_of)
         else:
             analysis_instant=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
