@@ -24,6 +24,31 @@ class OutOfSampleAuditTests(unittest.TestCase):
         self.assertFalse(result["calibration_certified"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_unhashable_market_blocks(self):
+        result = audit_out_of_sample(dataset(), [], "2026-01-01T00:00:00Z",
+                                     "2026-03-01T00:00:00Z")
+        self.assertIn("market:unsupported", result["issues"])
+
+    def test_non_numeric_test_threshold_blocks(self):
+        result = audit_out_of_sample(dataset(), "KG_VAR", "2026-01-01T00:00:00Z",
+                                     "2026-03-01T00:00:00Z", min_test="30")
+        self.assertIn("sample_threshold:invalid", result["issues"])
+
+    def test_boolean_train_threshold_blocks(self):
+        result = audit_out_of_sample(dataset(), "KG_VAR", "2026-01-01T00:00:00Z",
+                                     "2026-03-01T00:00:00Z", min_train=True)
+        self.assertIn("sample_threshold:invalid", result["issues"])
+
+    def test_train_threshold_below_thirty_blocks(self):
+        result = audit_out_of_sample(dataset(), "KG_VAR", "2026-01-01T00:00:00Z",
+                                     "2026-03-01T00:00:00Z", min_train=29)
+        self.assertIn("sample_threshold:invalid", result["issues"])
+
+    def test_test_threshold_below_thirty_blocks(self):
+        result = audit_out_of_sample(dataset(), "KG_VAR", "2026-01-01T00:00:00Z",
+                                     "2026-03-01T00:00:00Z", min_test=29)
+        self.assertIn("sample_threshold:invalid", result["issues"])
+
     def test_boundary_overlap_blocks(self):
         rows = dataset()
         rows[30]["predicted_at"] = "2025-12-31T00:00:00Z"
