@@ -13,6 +13,7 @@ def parse_espn_scoreboard(payload,league,as_of):
     if not isinstance(payload,dict) or not isinstance(payload.get("events"),list):
         raise ValueError("invalid ESPN scoreboard response")
     out=[]
+    seen={}
     for event in payload["events"]:
         if not isinstance(event,dict):
             continue
@@ -44,9 +45,16 @@ def parse_espn_scoreboard(payload,league,as_of):
             hg=int(raw_hg);ag=int(raw_ag)
             if not home_name or not away_name or min(hg,ag)<0 or max(hg,ag)>30:
                 continue
+            key=(day.isoformat(),league,home_name.casefold(),away_name.casefold())
+            score=(hg,ag)
+            if key in seen:
+                if seen[key]!=score:
+                    raise ValueError("conflicting ESPN scores for duplicate fixture")
+                continue
+            seen[key]=score
             out.append({"date":day.isoformat(),"league":league,"home":home_name,
                         "away":away_name,"home_goals":hg,"away_goals":ag})
-        except (KeyError,TypeError,ValueError,AttributeError):
+        except (KeyError,TypeError,AttributeError):
             continue
     return out
 
