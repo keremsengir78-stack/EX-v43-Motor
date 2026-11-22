@@ -64,6 +64,8 @@ def compare_audits(raw, reviewed):
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
+        "data_gate": "BLOCKED_UNRESOLVED_FIXTURES" if reviewed_unmatched else "PROVISIONAL_COVERAGE_ONLY",
+        "technical_gate": "FAILED_REGRESSION" if regressions else "PASSED_AUDIT_COMPARISON",
         "independent_sources_confirmed": False,
         "sample_sufficiency_certified": False,
         "calibration_certified": False, "ex_final_allowed": False,
