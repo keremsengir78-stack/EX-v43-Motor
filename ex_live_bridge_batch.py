@@ -15,10 +15,16 @@ DEFAULT_CASES = (
 )
 
 
-def run_batch(as_of, cases=DEFAULT_CASES):
+REVIEWED_ALIASES = {"it.1": {"acmilan": "Milan", "internazionale": "Inter"}}
+
+
+def run_batch(as_of, cases=DEFAULT_CASES, reviewed_aliases=False):
     reports = []
     for league, season, day in cases:
-        reports.append(run_pilot(league, season, day, as_of))
+        if reviewed_aliases and league in REVIEWED_ALIASES:
+            reports.append(run_pilot(league, season, day, as_of, alias=REVIEWED_ALIASES))
+        else:
+            reports.append(run_pilot(league, season, day, as_of))
     matched = sum(report["matched"] for report in reports)
     unmatched = sum(report["unmatched"] for report in reports)
     ambiguous = sum(report["ambiguous"] for report in reports)
@@ -30,6 +36,8 @@ def run_batch(as_of, cases=DEFAULT_CASES):
     complete = sum(report["status"] == "PROVISIONAL_MATCH_UNAUDITED" for report in reports)
     return {
         "as_of": as_of, "case_count": len(reports),
+        "reviewed_aliases_enabled": reviewed_aliases,
+        "alias_mapping_scope": list(REVIEWED_ALIASES) if reviewed_aliases else [],
         "completed_provisional_cases": complete, "blocked_cases": blocked,
         "partial_cases": partial, "score_conflict_cases": score_conflict_cases,
         "alias_review_required": alias_review,
@@ -49,8 +57,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--as-of", default=dt.date.today().isoformat())
     parser.add_argument("--out", default="ex_live_bridge_batch_audit.json")
+    parser.add_argument("--reviewed-aliases", action="store_true")
     args = parser.parse_args()
-    report = run_batch(args.as_of)
+    report = run_batch(args.as_of, reviewed_aliases=args.reviewed_aliases)
     path = Path(args.out)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
