@@ -172,6 +172,17 @@ class SafetyGates(unittest.TestCase):
             self.assertFalse(result["ex_final_allowed"])
         self.assertEqual(check_odds(odds,cutoff)["status"],"VERIFIED_INPUT")
 
+    def test_odds_timestamp_offsets_compare_absolute_instants(self):
+        odds={"decimal_odds":1.5,"market":"KG_VAR","bookmaker":"audit",
+              "source":"audit","observed_at":"2026-11-22T12:30:00+03:00"}
+        cutoff="2026-11-22T10:00:00Z"
+        self.assertEqual(check_odds(odds,cutoff)["status"],"VERIFIED_INPUT")
+        later={**odds,"observed_at":"2026-11-22T13:30:00+03:00"}
+        result=check_odds(later,cutoff)
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("odds:not_before_kickoff",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_odds_threshold_and_future_snapshot(self):
         odds={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"audit",
               "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
