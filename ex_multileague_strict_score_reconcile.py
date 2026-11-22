@@ -16,6 +16,9 @@ CLUB_IDENTITIES = {
     "en.1": {
         "newcastleunited": "newcastle",
         "leedsunited": "leeds",
+        "coventrycity": "coventry",
+        "ipswichtown": "ipswich",
+        "hullcity": "hull",
         "manchesterunited": "manunited",
         "manchestercity": "mancity",
         "tottenhamhotspur": "tottenham",
@@ -34,6 +37,13 @@ CLUB_IDENTITIES = {
         "clubatleticodemadrid": "atleticomadrid",
         "athleticclub": "athbilbao",
         "athleticbilbao": "athbilbao",
+        "realbetisbalompie": "betis",
+        "clubatleticodemadrid": "atleticomadrid",
+        "atleticomadrid": "atleticomadrid",
+        "realoviedo": "oviedo",
+        "rayovallecano": "rayovallecano",
+        "espanyol": "espanyol",
+        "realsociedad": "realsociedad",
     },
     "it.1": {
         "internazionalemilano": "inter",
@@ -56,6 +66,12 @@ CLUB_IDENTITIES = {
         "pisa1909": "pisa",
         "acpisa1909": "pisa",
         "como1907": "como",
+        "asroma": "roma",
+        "atalantabc": "atalanta",
+        "acmilan": "milan",
+        "cagliaricalcio": "cagliari",
+        "uslecce": "lecce",
+        "ussassuolocalcio": "sassuolo",
     },
 }
 
