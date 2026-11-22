@@ -276,7 +276,7 @@ class TestEXMotor(unittest.TestCase):
         fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-21T10:00:00Z",
                  "kickoff_at":"2026-11-22T18:00:00+03:00"}
-        self.assertEqual(check_fixture(fixture,"2026-11-21")["status"],"VERIFIED_INPUT")
+        self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
         self.assertEqual(check_fixture({},"2026-11-21")["status"],"BLOCKED")
         snap={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"test",
               "source":"test","observed_at":"2026-11-21T10:00:00Z"}
