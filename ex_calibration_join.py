@@ -27,6 +27,8 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
         issues.append("predictions:missing")
         predictions = []
     outcome_map = {x["fixture_id"]: x for x in outcome_result["outcomes"]}
+    settlement_map = {x["fixture_id"]: x.get("settled_at") for x in fixtures
+                      if isinstance(x, dict) and isinstance(x.get("fixture_id"), str)}
     seen = set()
     joined = []
     for i, row in enumerate(predictions):
@@ -66,8 +68,7 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
             issues.append("prediction:%d:temporal_leakage" % i)
             continue
         settled = row.get("settled_at")
-        fixture_settled = next((fixture.get("settled_at") for fixture in fixtures
-                                if isinstance(fixture, dict) and fixture.get("fixture_id") == fid), None)
+        fixture_settled = settlement_map.get(fid)
         if fixture_settled is not None and settled != fixture_settled:
             issues.append("prediction:%d:settlement_mismatch" % i)
         try:
