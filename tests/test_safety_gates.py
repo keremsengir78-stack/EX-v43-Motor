@@ -70,6 +70,18 @@ class SafetyGates(unittest.TestCase):
                       check_fixture(fixture,"2026-11-22T15:00:00Z")["issues"])
         self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00")["status"],"BLOCKED")
 
+    def test_fixture_date_follows_kickoff_local_calendar_not_utc(self):
+        fixture={"date":"2026-11-23","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T18:00:00Z",
+                 "kickoff_at":"2026-11-23T00:30:00+03:00"}
+        # Local fixture date is Nov 23 even though the UTC date is Nov 22.
+        result=check_fixture(fixture,"2026-11-22T19:00:00Z")
+        self.assertEqual(result["status"],"VERIFIED_INPUT")
+        self.assertFalse(result["ex_final_allowed"])
+        self.assertIn("kickoff_at:date_mismatch",
+                      check_fixture({**fixture,"date":"2026-11-22"},
+                                    "2026-11-22T19:00:00Z")["issues"])
+
     def test_fixture_timestamp_cutoff_uses_instant_not_local_calendar_date(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
