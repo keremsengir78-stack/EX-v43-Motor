@@ -39,6 +39,28 @@ class ProvenancePipelineTests(unittest.TestCase):
                                            [evidence("a"), evidence("b")], CUTOFF, rows)
         self.assertIn("settlement:settlement:1:not_finished", result["issues"])
 
+    def test_review_before_provider_settlement_blocks(self):
+        rows = settlements()
+        rows[1]["settled_at"] = "2026-01-04T15:00:00Z"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), evidence("b")], CUTOFF, rows)
+        self.assertIn("provenance:review_before_settlement", result["issues"])
+
+    def test_review_after_provider_settlement_passes_metadata_gate(self):
+        rows = settlements()
+        rows[1]["settled_at"] = "2026-01-02T15:00:00Z"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), evidence("b")], CUTOFF, rows)
+        self.assertEqual(result["status"], "RECONCILED_WITH_METADATA_UNVERIFIED")
+        self.assertFalse(result["externally_verified"])
+
+    def test_settlement_provider_group_mismatch_blocks(self):
+        rows = settlements()
+        rows[1]["provider_group"] = "c"
+        result = reconcile_with_provenance([provider("a"), provider("b")],
+                                           [evidence("a"), evidence("b")], CUTOFF, rows)
+        self.assertIn("settlement:provider_group_mismatch", result["issues"])
+
     def test_consistent_metadata_still_unverified(self):
         result = reconcile_with_provenance([provider("a"), provider("b")],
                                            [evidence("a"), evidence("b")], CUTOFF, settlements())
