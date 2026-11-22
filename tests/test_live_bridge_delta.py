@@ -16,6 +16,8 @@ class DeltaAuditTests(unittest.TestCase):
         self.assertEqual(result["matched_delta"], 3)
         self.assertEqual(result["reviewed_unmatched"], 1)
         self.assertEqual(result["regression_count"], 0)
+        self.assertEqual(result["technical_gate"], "PASSED_AUDIT_COMPARISON")
+        self.assertEqual(result["data_gate"], "BLOCKED_UNRESOLVED_FIXTURES")
         self.assertFalse(result["ex_final_allowed"])
         self.assertFalse(result["calibration_certified"])
 
@@ -23,6 +25,7 @@ class DeltaAuditTests(unittest.TestCase):
         result = compare_audits(audit(4, 1), audit(3, 2, reviewed=True))
         self.assertEqual(result["status"], "REGRESSION_DETECTED")
         self.assertEqual(result["regression_count"], 1)
+        self.assertEqual(result["technical_gate"], "FAILED_REGRESSION")
 
     def test_new_score_conflict_is_regression(self):
         result = compare_audits(audit(2, 1), audit(2, 1, conflicts=1, reviewed=True))
