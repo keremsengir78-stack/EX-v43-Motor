@@ -141,6 +141,20 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_auto_control_extreme_integer_snapshot_fails_closed(self):
+        match={"recompute_consistent":True,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":10**10000,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        ingestion={"status":"INGESTED_CROSS_VERIFIED","independent_sources_confirmed":2}
+        result=auto_control(match,ingestion)
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("market_baselines:invalid",result["issues"])
+        self.assertIn("snapshot:invalid",result["issues"])
+        self.assertIsNone(result["snapshot_sha256"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_parallel_extreme_market_and_naive_kickoff_fail_closed(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
