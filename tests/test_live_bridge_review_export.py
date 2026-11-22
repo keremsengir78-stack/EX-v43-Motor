@@ -50,6 +50,15 @@ class ReviewExportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             review_rows(data)
 
+    def test_rejects_blank_opponent_candidate_names(self):
+        for home, away in [("", "Barcelona"), ("Elche", "   "), ("  ", "Barcelona")]:
+            with self.subTest(home=home, away=away):
+                data = report()
+                data["review_queue"][0]["fixtures"][0]["secondary_shared_team_candidates"] = [
+                    {"home": home, "away": away}]
+                with self.assertRaises(ValueError):
+                    review_rows(data)
+
     def test_export_is_sorted_deterministically(self):
         data = report()
         data["review_queue"][0]["fixtures"].insert(0, {
