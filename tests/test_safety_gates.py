@@ -36,6 +36,29 @@ class SafetyGates(unittest.TestCase):
         odds["observed_at"]="2026-11-22T10:00:00Z"
         self.assertEqual(check_odds(odds,"2026-11-22T10:00:00Z")["status"],"BLOCKED")
 
+    def test_invalid_odds_and_unsupported_market_fail_closed(self):
+        odds={"decimal_odds":1.5,"market":"KG_VAR","bookmaker":"audit",
+              "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
+        for value in (float("nan"),float("inf"),True,"1.5",10**10000):
+            result=check_odds({**odds,"decimal_odds":value},"2026-11-22T10:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertFalse(result["ex_final_allowed"])
+        result=check_odds({**odds,"market":"UNSUPPORTED"},"2026-11-22T10:00:00Z")
+        self.assertIn("market:unsupported",result["issues"])
+
+    def test_auto_control_requires_independent_sources(self):
+        match={"recompute_consistent":True,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":50,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        for count in (0,1,True,"2"):
+            ingestion={"status":"INGESTED_CROSS_VERIFIED",
+                       "independent_sources_confirmed":count}
+            result=auto_control(match,ingestion)
+            self.assertIn("second_source:unverified",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_extreme_snapshot_does_not_crash(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
