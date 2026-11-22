@@ -1,0 +1,16 @@
+{
+  "baseline_unmatched": 1506,
+  "shadow_unmatched": 1177,
+  "shadow_unmatched_by_league": {
+    "en.1": 307,
+    "es.1": 442,
+    "it.1": 428,
+    "fr.1": 0
+  },
+  "score_conflicts": 0,
+  "source_errors": [],
+  "comparison_only": true,
+  "aliases_approved": false,
+  "independently_verified_added": 0,
+  "ex_final_allowed": false
+}
