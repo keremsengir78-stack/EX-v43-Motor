@@ -45,3 +45,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ffc5bd7d31e3e77d9327421ed6d8b397a394feb5`: inceleme özetinde alias önerileri ve bağımsız kaynak hataları korunuyor.
 - `0579c9783c840e1e2b4b6de1f00e397009c6ddd4`: bu alanlar ve hatalı kanıt biçimleri için regresyon testi eklendi.
 - Bu commitlerin CI sonucu henüz doğrulanmadı. Canlı denetim raporları hâlâ erişim/doğrulama bekliyor; EX FINAL kilitli.
+
+## 2026-11-22: Gerçek denetim raporları erişilebilir
+- GitHub Actions `45029537883` durum kaydı: ingest=success, review=success, evidence_published=true, audit_status=BLOCKED, EX FINAL=false.
+- `reports/latest_pipeline_status.json` doğrudan okundu. 2025-26/2026-27 çoklu lig denetiminde **1845** uyuşmazlık; Almanya (`de.1`) **339**. Bunlar önceki 25/16 örneklemiyle karşılaştırılmamalıdır.
+- `reports/latest_germany_unresolved_review.csv` okundu: 339 satırın **74**'ü `SECONDARY_SAME_DAY_SHARED_TEAM`, **265**'i `SECONDARY_DATE_PRESENT_NO_TEAM_MATCH`. 74 kayıt, yalnızca adlandırma/aday karşılaştırmasına elverişlidir; doğrulanmış maç değildir.
+- Kaynak inceleme raporları artık depoda; kalan iş, lig bazlı kontrollü alias incelemesi, bağımsız skor ve tarih eşleşmesi, ikinci tur test/kalibrasyondur. EX FINAL kilitli.
