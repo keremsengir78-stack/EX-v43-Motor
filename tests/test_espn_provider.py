@@ -16,6 +16,29 @@ def parse(events):
 
 
 class ESPNMalformedTests(unittest.TestCase):
+    def test_date_prefix_with_garbage_suffix_rejected(self):
+        bad = event()
+        bad["date"] = "2026-01-01garbage"
+        self.assertEqual(parse([bad]), [])
+
+    def test_date_only_without_timezone_rejected(self):
+        bad = event()
+        bad["date"] = "2026-01-01"
+        self.assertEqual(parse([bad]), [])
+
+    def test_naive_timestamp_rejected(self):
+        bad = event()
+        bad["date"] = "2026-01-01T12:00:00"
+        self.assertEqual(parse([bad]), [])
+
+    def test_non_utc_offset_timestamp_rejected(self):
+        bad = event()
+        bad["date"] = "2026-01-01T15:00:00+03:00"
+        self.assertEqual(parse([bad]), [])
+
+    def test_valid_utc_timestamp_accepted(self):
+        self.assertEqual(len(parse([event()])), 1)
+
     def test_blank_home_team_skipped(self):
         bad = event()
         bad["competitions"][0]["competitors"][0]["team"]["displayName"] = " "
