@@ -29,6 +29,22 @@ class GermanAliasCandidateTests(unittest.TestCase):
                          {"home": "Bayern Munich", "away": "Leipzig"}]})}]
         self.assertEqual(candidates(rows), [])
 
+    def test_flags_conflicting_alias_mappings(self):
+        rows = []
+        for date, secondary in (("2025-08-22", "Bayern Munich"),
+                                ("2025-08-30", "Bayern")):
+            rows.append({
+                "season": "2025-26", "league": "de.1", "date": date,
+                "home": "FC Bayern München", "away": "RB Leipzig",
+                "source_evidence_json": json.dumps({
+                    "source_presence_status": "SECONDARY_SAME_DAY_SHARED_TEAM",
+                    "secondary_shared_team_candidates": [
+                        {"home": secondary, "away": "RB Leipzig"}]})})
+        found = candidates(rows)
+        self.assertEqual(len(found), 2)
+        self.assertTrue(all(x["mapping_conflict"] for x in found))
+        self.assertTrue(all(not x["auto_approved"] for x in found))
+
     def test_rejects_broken_evidence(self):
         with self.assertRaises(ValueError):
             candidates([{"league": "de.1", "source_evidence_json": "not json"}])
