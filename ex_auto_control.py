@@ -28,8 +28,7 @@ def auto_control(match, ingestion=None):
         issues.append("market_baselines:missing")
     else:
         values=[market[k] for k in MARKET_KEYS]
-        if any(not isinstance(v,(float,int)) or isinstance(v,bool) or not math.isfinite(v)
-               or v<0 or v>100 for v in values):
+        if any(not isinstance(v,(float,int)) or isinstance(v,bool) or (not 0<=v<=100 or not math.isfinite(float(v))) for v in values):
             issues.append("market_baselines:invalid")
         elif abs(sum(market[k] for k in ("MS1","MSX","MS2"))-100)>0.1:
             issues.append("match_result_probabilities:sum_mismatch")
