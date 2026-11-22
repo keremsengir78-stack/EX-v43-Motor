@@ -1,0 +1,71 @@
+"""Compare raw and opt-in alias audits without granting model certification."""
+import argparse
+import json
+from pathlib import Path
+
+
+def compare_audits(raw, reviewed):
+    if raw.get("as_of") != reviewed.get("as_of"):
+        raise ValueError("audit cutoffs differ")
+    raw_cases = raw.get("cases")
+    reviewed_cases = reviewed.get("cases")
+    if not isinstance(raw_cases, list) or not isinstance(reviewed_cases, list):
+        raise ValueError("missing case lists")
+    if len(raw_cases) != len(reviewed_cases) or not raw_cases:
+        raise ValueError("case counts differ or empty")
+    cases = []
+    for original, updated in zip(raw_cases, reviewed_cases):
+        identity = ("league", "season", "day", "as_of")
+        if any(original.get(key) != updated.get(key) for key in identity):
+            raise ValueError("audit cases not aligned")
+        if original.get("conflict_count", 0) > updated.get("conflict_count", 0):
+            pass
+        cases.append({
+            "league": original["league"], "day": original["day"],
+            "raw_matched": original["matched"], "reviewed_matched": updated["matched"],
+            "matched_delta": updated["matched"] - original["matched"],
+            "raw_unmatched": original["unmatched"], "reviewed_unmatched": updated["unmatched"],
+            "unmatched_delta": updated["unmatched"] - original["unmatched"],
+            "raw_conflicts": original["conflict_count"],
+            "reviewed_conflicts": updated["conflict_count"],
+            "new_conflicts": max(0, updated["conflict_count"] - original["conflict_count"]),
+            "unresolved_fixtures": updated.get("unmatched_details", []),
+            "review_candidates": updated.get("alias_suggestions", []),
+        })
+    raw_matched = sum(case["raw_matched"] for case in cases)
+    reviewed_matched = sum(case["reviewed_matched"] for case in cases)
+    raw_unmatched = sum(case["raw_unmatched"] for case in cases)
+    reviewed_unmatched = sum(case["reviewed_unmatched"] for case in cases)
+    regressions = [case for case in cases if case["matched_delta"] < 0 or case["new_conflicts"] > 0]
+    return {
+        "status": "REGRESSION_DETECTED" if regressions else "PROVISIONAL_COMPARISON",
+        "as_of": raw["as_of"], "case_count": len(cases),
+        "raw_matched": raw_matched, "reviewed_matched": reviewed_matched,
+        "matched_delta": reviewed_matched - raw_matched,
+        "raw_unmatched": raw_unmatched, "reviewed_unmatched": reviewed_unmatched,
+        "coverage_raw": raw_matched / (raw_matched + raw_unmatched) if raw_matched + raw_unmatched else 0,
+        "coverage_reviewed": reviewed_matched / (reviewed_matched + reviewed_unmatched) if reviewed_matched + reviewed_unmatched else 0,
+        "regression_count": len(regressions), "cases": cases,
+        "independent_sources_confirmed": False,
+        "sample_sufficiency_certified": False,
+        "calibration_certified": False, "ex_final_allowed": False,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--raw", required=True)
+    parser.add_argument("--reviewed", required=True)
+    parser.add_argument("--out", default="ex_live_bridge_delta_audit.json")
+    args = parser.parse_args()
+    report = compare_audits(json.loads(Path(args.raw).read_text()),
+                            json.loads(Path(args.reviewed).read_text()))
+    Path(args.out).write_text(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+    print(json.dumps({key: report[key] for key in
+                      ("status", "raw_matched", "reviewed_matched", "matched_delta",
+                       "reviewed_unmatched", "regression_count", "ex_final_allowed")}))
+    return 2 if report["regression_count"] else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
