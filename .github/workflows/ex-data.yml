@@ -106,7 +106,7 @@ jobs:
           lines += [f"| {league} | {count} |" for league, count in report["unmatched_by_league"].items()]
           lines += ["", "**EX FINAL: BLOCKED**"]
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as output:
-              output.write("\\n".join(lines) + "\\n")
+              output.write("\n".join(lines) + "\n")
           PY
             else
               echo 'REVIEW SUMMARY BLOCKED: invalid or incomplete audit evidence; EX FINAL disabled'
