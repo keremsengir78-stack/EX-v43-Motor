@@ -5,8 +5,10 @@ from pathlib import Path
 
 
 def compare_audits(raw, reviewed):
-    if raw.get("reviewed_aliases_enabled") is True or reviewed.get("reviewed_aliases_enabled") is not True:
+    if raw.get("reviewed_aliases_enabled") is not False or reviewed.get("reviewed_aliases_enabled") is not True:
         raise ValueError("raw and reviewed audit modes are reversed")
+    if raw.get("ex_final_allowed") is not False or reviewed.get("ex_final_allowed") is not False:
+        raise ValueError("unexpected EX FINAL certification in provisional audit")
     if raw.get("as_of") != reviewed.get("as_of"):
         raise ValueError("audit cutoffs differ")
     raw_cases = raw.get("cases")
