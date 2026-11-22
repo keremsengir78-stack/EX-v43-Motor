@@ -89,6 +89,13 @@ class ESPNFootballDataBridgeTests(unittest.TestCase):
         self.assertEqual(result["provenance"]["espn"]["sha256"], "abc")
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_malformed_secondary_metadata_blocks(self):
+        with patch("ex_espn_provider.fetch_espn_scoreboard", return_value=([match()], {"sha256": "abc"})):
+            with patch("ex_cross_verify.secondary_rows", return_value=([match()], None)):
+                result = fetch_and_compare_historical_day("en.1", "2025-2026", "2026-01-01", "2026-02-01")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_two_provider_fetch_matches_provisionally(self):
         result, fetch, csv = self._run()
         self.assertEqual(result["status"], "PROVISIONAL_MATCH_UNAUDITED")
