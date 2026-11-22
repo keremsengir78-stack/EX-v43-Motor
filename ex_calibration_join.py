@@ -12,7 +12,7 @@ from ex_market_outcomes import market_outcomes
 
 def join_calibration_records(predictions, fixtures, market, as_of, min_samples=100):
     issues = []
-    if market not in MARKETS:
+    if not isinstance(market, str) or market not in MARKETS:
         issues.append("market:unsupported")
     outcome_result = market_outcomes(fixtures, as_of)
     if outcome_result["status"] != "OUTCOMES_READY":
@@ -52,7 +52,9 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
                 raise ValueError("UTC prediction required")
             predicted = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
             kickoff = dt.datetime.fromisoformat(outcome["kickoff_at"].replace("Z", "+00:00"))
-            if predicted.tzinfo is None or predicted >= kickoff:
+            if (predicted.utcoffset() != dt.timedelta(0)
+                    or kickoff.utcoffset() != dt.timedelta(0)
+                    or predicted >= kickoff):
                 raise ValueError("leakage")
         except (KeyError, ValueError, TypeError, AttributeError, OverflowError):
             issues.append("prediction:%d:temporal_leakage" % i)
@@ -62,7 +64,7 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
             if not isinstance(settled, str) or not settled.endswith("Z"):
                 raise ValueError("UTC settlement required")
             settlement = dt.datetime.fromisoformat(settled.replace("Z", "+00:00"))
-            if settlement.tzinfo is None or settlement <= kickoff:
+            if settlement.utcoffset() != dt.timedelta(0) or settlement <= kickoff:
                 raise ValueError("settlement before kickoff")
         except (ValueError, TypeError, OverflowError):
             issues.append("prediction:%d:settlement_invalid" % i)
@@ -70,7 +72,7 @@ def join_calibration_records(predictions, fixtures, market, as_of, min_samples=1
         joined.append({"fixture_id": fid, "market": market, "probability": probability,
                        "outcome": outcome[market], "predicted_at": stamp,
                        "kickoff_at": outcome["kickoff_at"], "settled_at": settled})
-    if len(seen) != len(outcome_map):
+    if seen != set(outcome_map):
         issues.append("predictions:fixture_coverage_incomplete")
     if issues:
         return {"status": "BLOCKED", "issues": sorted(set(issues)), "joined_records": [],
