@@ -56,7 +56,7 @@ def review_rows(report):
                 raise ValueError("future fixture relative to audit cutoff")
             if row["league"] != item.get("league") or row["date"] != item.get("day"):
                 raise ValueError("fixture belongs to different review group")
-            identity = tuple(row[field] for field in ("league", "date", "home", "away", "reason"))
+            identity = tuple(row[field] for field in ("league", "date", "home", "away"))
             if identity in seen:
                 raise ValueError("duplicate review fixture")
             seen.add(identity)
