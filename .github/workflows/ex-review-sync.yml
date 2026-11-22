@@ -79,6 +79,7 @@ jobs:
             done
             python ex_multileague_candidate_summary.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_candidate_summary.json
             python ex_multileague_unique_candidates.py --candidates ex_run/multileague_source_candidates.json --out ex_run/multileague_unique_candidates.json
+            python ex_multileague_candidate_score_audit.py --candidates ex_run/multileague_unique_candidates.json --primary ex_run/results.csv --out ex_run/multileague_candidate_score_audit.json
             python ex_multileague_strict_score_reconcile.py --batches ex_run/multileague_review_batches.json --primary ex_run/results.csv --out ex_run/multileague_strict_score_reconcile.json
             python - <<'PY'
           import json
