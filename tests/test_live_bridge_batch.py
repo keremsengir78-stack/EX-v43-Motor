@@ -40,6 +40,16 @@ class MultiCaseAuditTests(unittest.TestCase):
         self.assertEqual(result["blocked_cases"], 0)
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_reviewed_aliases_are_opt_in_and_scoped(self):
+        with patch.object(batch, "run_pilot", return_value=report()) as fetch:
+            result = batch.run_batch("2026-11-22", batch.DEFAULT_CASES, reviewed_aliases=True)
+        self.assertTrue(result["reviewed_aliases_enabled"])
+        self.assertEqual(fetch.call_count, 5)
+        self.assertEqual(fetch.call_args.kwargs["alias"], batch.REVIEWED_ALIASES)
+        for call in fetch.call_args_list[:-1]:
+            self.assertNotIn("alias", call.kwargs)
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_empty_batch_not_success(self):
         result = batch.run_batch("2026-11-22", ())
         self.assertEqual(result["status"], "INCOMPLETE_OR_CONFLICTING")
