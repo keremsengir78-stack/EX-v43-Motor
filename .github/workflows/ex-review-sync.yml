@@ -1,7 +1,7 @@
 name: EX v4.3 24-hour scheduler
 on:
   schedule:
-    - cron: '7 * * * *'
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 permissions:
   actions: write
@@ -12,12 +12,24 @@ concurrency:
 jobs:
   dispatch-development-engine:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Start EX engine on development branch
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          gh workflow run ex-review-sync.yml --ref ex-v43-development
-          echo "Requested EX v4.3 development run. Source evidence and EX FINAL safety gates remain enforced."
+          # 1. Trigger the development engine. 2. Retry transient GitHub API failures.
+          # 3. Log dispatch evidence. 4. Keep scheduled runs serialized.
+          # 5. Leave fixture/score approval to the development workflow's safety checks.
+          for attempt in 1 2 3; do
+            if gh workflow run ex-review-sync.yml --ref ex-v43-development; then
+              echo "EX_DISPATCH_ACCEPTED attempt=$attempt ref=ex-v43-development"
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::EX_DISPATCH_FAILED after three attempts"
+              exit 1
+            fi
+            sleep $((attempt * 15))
+          done
