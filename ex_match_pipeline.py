@@ -5,10 +5,34 @@ This is not an online data fetcher and never promotes evidence to EX FINAL.
 """
 from ex_window_builder import build_windows
 from ex_evidence_pipeline import prepare_market_evidence
+from ex_source_agreement import verify_fixture_sources
 
 
 def process_match_evidence(market, records, venue, season, previous_season,
-                           feature_scores, as_of):
+                           feature_scores, as_of, source_observations=None):
+    # Source agreement is mandatory for every historical fixture.
+    if not isinstance(records, list) or not isinstance(source_observations, dict):
+        return {"status": "BLOCKED", "issues": ["sources:missing"],
+                "windows": None, "evidence": None, "calibrated_probability": None,
+                "pup_allowed": False, "ex_final_allowed": False}
+    source_issues = []
+    for i, row in enumerate(records):
+        fixture_id = row.get("fixture_id") if isinstance(row, dict) else None
+        observations = source_observations.get(fixture_id) if isinstance(fixture_id, str) else None
+        checked = verify_fixture_sources(observations, as_of)
+        if checked["status"] != "CROSS_VERIFIED_INPUT":
+            source_issues.extend("fixture:%d:%s" % (i, issue) for issue in checked["issues"])
+            continue
+        agreed = checked["agreed_fixture"]
+        # Never silently trust a record that contradicts either source.
+        if (not isinstance(row, dict) or
+                any(row.get(key) != agreed[key] for key in
+                    ("fixture_id", "kickoff_at", "home_goals", "away_goals"))):
+            source_issues.append("fixture:%d:record_conflict" % i)
+    if source_issues:
+        return {"status": "BLOCKED", "issues": source_issues,
+                "windows": None, "evidence": None, "calibrated_probability": None,
+                "pup_allowed": False, "ex_final_allowed": False}
     built = build_windows(records, venue, season, previous_season, as_of)
     if built["status"] != "WINDOWS_READY":
         return {"status": "BLOCKED", "issues": ["window:" + x for x in built["issues"]],
