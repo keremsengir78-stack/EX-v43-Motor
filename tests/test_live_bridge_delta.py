@@ -9,7 +9,9 @@ def audit(matched, unmatched, conflicts=0, league="en.1", reviewed=False):
         "league": league, "season": "2026-2027", "day": "2026-10-25",
         "as_of": "2026-11-22", "matched": matched, "unmatched": unmatched,
         "ex_final_allowed": False,
-        "conflict_count": conflicts, "unmatched_details": [],
+        "conflict_count": conflicts,
+        "status": "SCORE_CONFLICT" if conflicts else ("PARTIAL_PROVISIONAL_MATCH" if unmatched else "PROVISIONAL_MATCH_UNAUDITED"),
+        "unmatched_details": [],
         "alias_suggestions": []}]}
 
 
@@ -98,6 +100,18 @@ class DeltaAuditTests(unittest.TestCase):
     def test_unexpected_final_certification_rejected(self):
         reviewed = audit(3, 2, reviewed=True)
         reviewed["ex_final_allowed"] = True
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 3), reviewed)
+
+    def test_hidden_conflict_status_rejected(self):
+        reviewed = audit(2, 1, conflicts=1, reviewed=True)
+        reviewed["cases"][0]["status"] = "PARTIAL_PROVISIONAL_MATCH"
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 1), reviewed)
+
+    def test_false_complete_status_rejected(self):
+        reviewed = audit(3, 2, reviewed=True)
+        reviewed["cases"][0]["status"] = "PROVISIONAL_MATCH_UNAUDITED"
         with self.assertRaises(ValueError):
             compare_audits(audit(2, 3), reviewed)
 
