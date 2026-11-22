@@ -40,3 +40,8 @@
 
 ## Kalıcılık ilkesi
 GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam için kaynak. Sohbet belleği tek başına doğrulama değildir. Her tamamlanan adımın commit SHA'sı ve test durumu bu dosyaya eklenmelidir.
+
+## 2026-11-22 hızlı eksik giderme turu
+- `ffc5bd7d31e3e77d9327421ed6d8b397a394feb5`: inceleme özetinde alias önerileri ve bağımsız kaynak hataları korunuyor.
+- `0579c9783c840e1e2b4b6de1f00e397009c6ddd4`: bu alanlar ve hatalı kanıt biçimleri için regresyon testi eklendi.
+- Bu commitlerin CI sonucu henüz doğrulanmadı. Canlı denetim raporları hâlâ erişim/doğrulama bekliyor; EX FINAL kilitli.
