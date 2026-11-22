@@ -45,10 +45,10 @@ def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
             home=by_side["home"];away=by_side["away"]
             home_name=home["team"]["displayName"].strip()
             away_name=away["team"]["displayName"].strip()
-            if home_name.casefold()==away_name.casefold():
+            if not home_name or not away_name or home_name.casefold()==away_name.casefold():
                 continue
             raw_hg,raw_ag=home["score"],away["score"]
-            if any(isinstance(v,bool) or not isinstance(v,(int,str)) or not str(v).isdigit() for v in (raw_hg,raw_ag)):
+            if any(isinstance(v,bool) or not isinstance(v,(int,str)) or not str(v).isascii() or not str(v).isdigit() for v in (raw_hg,raw_ag)):
                 continue
             hg=int(raw_hg);ag=int(raw_ag)
             if not home_name or not away_name or min(hg,ag)<0 or max(hg,ag)>30:
