@@ -16,6 +16,28 @@ def parse(events):
 
 
 class ESPNMalformedTests(unittest.TestCase):
+    def test_identical_duplicate_match_deduplicated(self):
+        self.assertEqual(len(parse([event(), event()])), 1)
+
+    def test_conflicting_duplicate_match_blocks(self):
+        with self.assertRaisesRegex(ValueError, "conflicting ESPN scores"):
+            parse([event(2, 1), event(3, 1)])
+
+    def test_duplicate_team_case_variants_deduplicated(self):
+        first, second = event(), event()
+        second["competitions"][0]["competitors"][0]["team"]["displayName"] = "HOME"
+        self.assertEqual(len(parse([first, second])), 1)
+
+    def test_malformed_date_does_not_crash_other_results(self):
+        bad = event()
+        bad["date"] = "invalid"
+        self.assertEqual(len(parse([bad, event()])), 1)
+
+    def test_different_match_scores_are_independent(self):
+        first, second = event(), event(3, 0)
+        second["competitions"][0]["competitors"][0]["team"]["displayName"] = "Other"
+        self.assertEqual(len(parse([first, second])), 2)
+
     def test_non_dict_event_skipped(self):
         self.assertEqual(len(parse([None, event()])), 1)
 
