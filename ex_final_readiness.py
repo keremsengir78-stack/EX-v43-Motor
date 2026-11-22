@@ -5,6 +5,31 @@ verification. No caller-supplied Boolean may authorize EX FINAL.
 """
 
 
+import math
+
+
+def _calibration_measured(report):
+    return (isinstance(report, dict)
+            and report.get("status") == "AUDIT_COMPLETE_NOT_CALIBRATED"
+            and isinstance(report.get("sample_size"), int)
+            and not isinstance(report.get("sample_size"), bool)
+            and report["sample_size"] >= 30
+            and all(isinstance(report.get(key), (int, float))
+                    and not isinstance(report.get(key), bool)
+                    and math.isfinite(report[key])
+                    and 0 <= report[key] <= 1
+                    for key in ("brier_score", "expected_calibration_error",
+                                "maximum_calibration_error")))
+
+
+def _historical_measured(report):
+    return (isinstance(report, dict)
+            and report.get("status") == "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED"
+            and isinstance(report.get("split"), dict)
+            and report["split"].get("status") == "CHRONOLOGICAL_SPLIT_READY"
+            and _calibration_measured(report.get("evaluation")))
+
+
 def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
                              historical_validation=None):
     issues = []
