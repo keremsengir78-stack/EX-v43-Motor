@@ -65,6 +65,11 @@ def compare_audits(raw, reviewed):
     raw_unmatched = sum(case["raw_unmatched"] for case in cases)
     reviewed_unmatched = sum(case["reviewed_unmatched"] for case in cases)
     regressions = [case for case in cases if case["matched_delta"] < 0 or case["new_conflicts"] > 0]
+    presence_counts = {}
+    for case in cases:
+        for fixture in case["unresolved_fixtures"]:
+            status = fixture.get("source_presence_status", "NOT_DIAGNOSED")
+            presence_counts[status] = presence_counts.get(status, 0) + 1
     remaining_by_league = {}
     for case in cases:
         remaining_by_league[case["league"]] = remaining_by_league.get(case["league"], 0) + case["reviewed_unmatched"]
@@ -80,6 +85,7 @@ def compare_audits(raw, reviewed):
         "coverage_gain_percentage_points": round(100 * (reviewed_matched / (reviewed_matched + reviewed_unmatched) - raw_matched / (raw_matched + raw_unmatched)), 2) if raw_matched + raw_unmatched and reviewed_matched + reviewed_unmatched else 0,
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
+        "source_presence_counts": dict(sorted(presence_counts.items())),
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
         "review_queue_complete": all(len(case["unresolved_fixtures"]) == case["reviewed_unmatched"] for case in cases),
         "review_queue_missing_count": sum(max(0, case["reviewed_unmatched"] - len(case["unresolved_fixtures"])) for case in cases),
