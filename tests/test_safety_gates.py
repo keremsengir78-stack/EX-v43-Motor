@@ -61,6 +61,23 @@ class SafetyGates(unittest.TestCase):
         self.assertEqual(weighted_evidence(features,canonical)["status"],
                          "EVIDENCE_COMPLETE_UNCALIBRATED")
 
+    def test_fixture_rejects_noncanonical_event_timestamps(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        for field,invalid in (
+            ("fixture_checked_at","20261121T09:00:00Z"),
+            ("fixture_checked_at","2026-W47-6T09:00:00Z"),
+            ("kickoff_at","20261122T15:00:00Z"),
+            ("kickoff_at","2026-W47-7T15:00:00Z"),
+        ):
+            result=check_fixture({**fixture,field:invalid},"2026-11-22T10:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn(field+":noncanonical_timestamp",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00Z")["status"],
+                         "VERIFIED_INPUT")
+
     def test_fixture_time_boundaries(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
