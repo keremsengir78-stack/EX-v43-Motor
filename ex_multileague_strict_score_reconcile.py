@@ -15,7 +15,7 @@ def reconcile(batches, primary, offline=None):
         raise ValueError("unsafe review batches")
     primary_index=defaultdict(list)
     for r in primary:
-        primary_index[(str(r["date"]),r["league"],norm(r["home"]),norm(r["away"]))].append(r)
+        primary_index[(r["season"],str(r["date"]),r["league"],norm(r["home"]),norm(r["away"]))].append(r)
     cache={}
     used=set()
     confirmed=[]
@@ -24,7 +24,7 @@ def reconcile(batches, primary, offline=None):
     for batch in batches["batches"]:
         for fixture in batch["fixtures"]:
             league,season,day=(fixture[k] for k in ("league","season","date"))
-            key=(day,league,norm(fixture["home"]),norm(fixture["away"]))
+            key=(season,day,league,norm(fixture["home"]),norm(fixture["away"]))
             original=primary_index.get(key,[])
             if len(original)!=1:
                 reason="PRIMARY_MISSING_OR_AMBIGUOUS"
@@ -33,7 +33,7 @@ def reconcile(batches, primary, offline=None):
                     rows,meta=secondary_rows(season,league,offline=offline)
                     index=defaultdict(list)
                     for r in rows:
-                        index[(r["date"],league,norm(r["home"]),norm(r["away"]))].append(r)
+                        index[(season,r["date"],league,norm(r["home"]),norm(r["away"]))].append(r)
                     cache[(season,league)]=(index,meta)
                 index,meta=cache[(season,league)]
                 matches=index.get(key,[])
@@ -43,10 +43,10 @@ def reconcile(batches, primary, offline=None):
                     reason="SECONDARY_MISSING_OR_AMBIGUOUS"
                 elif (original[0]["hg"],original[0]["ag"])!=(matches[0]["home_goals"],matches[0]["away_goals"]):
                     reason="SCORE_CONFLICT"
-                elif (season,key) in used:
+                elif key in used:
                     reason="DUPLICATE_CLAIM"
                 else:
-                    used.add((season,key))
+                    used.add(key)
                     confirmed.append({"fixture":fixture,"score":[original[0]["hg"],original[0]["ag"]],
                         "secondary_provider":meta["provider"],"secondary_url":meta["url"],
                         "secondary_sha256":meta["sha256"],"verification":"EXACT_TEAM_DATE_SCORE_MATCH"})
