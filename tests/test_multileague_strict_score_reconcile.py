@@ -10,7 +10,7 @@ class StrictScoreReconcileTests(unittest.TestCase):
         self.primary=[{"date":"2025-08-16","league":"en.1","season":"2025-26",
                        "home":"Aston Villa FC","away":"Newcastle United FC","hg":0,"ag":0}]
         self.secondary=[{"date":"2025-08-16","league":"en.1",
-                         "home":"Aston Villa","away":"Newcastle","home_goals":0,"away_goals":0}]
+                         "home":"Aston Villa","away":"Newcastle United","home_goals":0,"away_goals":0}]
         self.meta={"provider":"football-data.co.uk","url":"https://example.org/secondary.csv","sha256":"abc"}
 
     def test_exact_match_with_equal_scores(self):
