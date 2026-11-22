@@ -103,6 +103,22 @@ class StrictScoreReconcileTests(unittest.TestCase):
             result=reconcile(self.batches,self.primary)
         self.assertEqual(result["confirmed"],1)
 
+    def test_italian_fiorentina_prefix_with_equal_score(self):
+        self.fixture.update({"league":"it.1","home":"Torino FC","away":"ACF Fiorentina"})
+        self.primary[0].update({"league":"it.1","home":"Torino FC","away":"ACF Fiorentina"})
+        self.secondary[0].update({"home":"Torino","away":"Fiorentina"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
+    def test_spanish_athletic_provider_abbreviation_with_equal_score(self):
+        self.fixture.update({"league":"es.1","home":"Athletic Club","away":"Sevilla FC"})
+        self.primary[0].update({"league":"es.1","home":"Athletic Club","away":"Sevilla FC"})
+        self.secondary[0].update({"home":"Ath Bilbao","away":"Sevilla"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
