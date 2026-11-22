@@ -27,6 +27,10 @@ def build(summary, limit=100):
             raise ValueError("incomplete review group")
         for fixture in fixtures:
             status=fixture.get("source_presence_status","MISSING_SOURCE_PRESENCE_STATUS")
+            key=(league,group["season"],fixture.get("date"),fixture.get("home"),fixture.get("away"))
+            if key in seen:
+                raise ValueError("duplicate fixture in review queue")
+            seen.add(key)
             rows.append({"league":league,"season":group["season"],
                          "date":fixture.get("date"),"home":fixture.get("home"),
                          "away":fixture.get("away"),"reason":status,
@@ -37,6 +41,7 @@ def build(summary, limit=100):
     rows.sort(key=lambda r:(PRIORITY.get(r["reason"],5),r["league"],
                             str(r["date"]),str(r["home"]),str(r["away"])))
     return {"total_review_queue":len(rows),"exported":min(limit,len(rows)),
+            "queue_version":2,"sort_policy":"reason_league_date_team",
             "fixtures":rows[:limit],"truncated":len(rows)>limit,
             "aliases_approved":False,"score_verified":False,
             "ex_final_allowed":False}
