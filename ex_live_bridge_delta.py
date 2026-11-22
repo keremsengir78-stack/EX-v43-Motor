@@ -81,6 +81,8 @@ def compare_audits(raw, reviewed):
         "regression_count": len(regressions), "cases": cases,
         "remaining_by_league": remaining_by_league,
         "cases_with_unresolved": sum(case["reviewed_unmatched"] > 0 for case in cases),
+        "review_queue_complete": all(len(case["unresolved_fixtures"]) == case["reviewed_unmatched"] for case in cases),
+        "review_queue_missing_count": sum(max(0, case["reviewed_unmatched"] - len(case["unresolved_fixtures"])) for case in cases),
         "review_queue": [
             {"league": case["league"], "day": case["day"],
              "unmatched": case["reviewed_unmatched"],
