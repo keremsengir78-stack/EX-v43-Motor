@@ -14,15 +14,22 @@ def parse_espn_scoreboard(payload,league,as_of):
         raise ValueError("invalid ESPN scoreboard response")
     out=[]
     for event in payload["events"]:
+        if not isinstance(event,dict):
+            continue
         competitions=event.get("competitions",[])
+        if not isinstance(competitions,list) or not all(isinstance(x,dict) for x in competitions):
+            continue
         if len(competitions)!=1:
             continue
         competitors=competitions[0].get("competitors",[])
-        status=event.get("status",{}).get("type",{})
+        raw_status=event.get("status")
+        status=raw_status.get("type") if isinstance(raw_status,dict) else None
+        if not isinstance(status,dict) or not isinstance(competitors,list) or not all(isinstance(x,dict) for x in competitors):
+            continue
         if status.get("completed") is not True or len(competitors)!=2:
             continue
         by_side={x.get("homeAway"):x for x in competitors}
-        if set(by_side)!={"home","away"}:
+        if len(by_side)!=2 or set(by_side)!={"home","away"}:
             continue
         try:
             day=dt.date.fromisoformat(event["date"][:10])
@@ -31,7 +38,10 @@ def parse_espn_scoreboard(payload,league,as_of):
             home=by_side["home"];away=by_side["away"]
             home_name=home["team"]["displayName"].strip()
             away_name=away["team"]["displayName"].strip()
-            hg=int(home["score"]);ag=int(away["score"])
+            raw_hg,raw_ag=home["score"],away["score"]
+            if any(isinstance(v,bool) or not isinstance(v,(int,str)) or not str(v).isdigit() for v in (raw_hg,raw_ag)):
+                continue
+            hg=int(raw_hg);ag=int(raw_ag)
             if not home_name or not away_name or min(hg,ag)<0 or max(hg,ag)>30:
                 continue
             out.append({"date":day.isoformat(),"league":league,"home":home_name,
