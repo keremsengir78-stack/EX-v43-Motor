@@ -119,6 +119,12 @@ if status["summary_exists"] and status["germany_csv_exists"]:
         Path("reports/latest_multileague_strict_score_reconcile.json").write_bytes(strict_path.read_bytes())
         status["strict_score_confirmed"]=strict["confirmed"]
         status["strict_score_remaining"]=strict["remaining"]
+        # Strict reconciliation is a scoped review batch, not a global EX FINAL approval.
+        status["strict_score_scope"]="non_german_review_batches"
+        status["strict_score_batch_complete"]=(strict["remaining"]==0)
+        status["global_audit_blocked"]=(status.get("audit_status")!="READY")
+        status["remaining_review_scope_note"]="Legacy unmatched and shadow counts are separate from strict score batch"
+        status["ex_final_allowed"]=False
         for required in ("ex_run/multileague_source_candidates.json", "ex_run/multileague_candidate_summary.json", "ex_run/multileague_unique_candidates.json"):
             if not Path(required).is_file():
                 raise ValueError("Missing required source matching output: "+required)
