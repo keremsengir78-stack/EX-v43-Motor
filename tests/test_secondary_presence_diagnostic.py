@@ -50,6 +50,20 @@ class SecondaryPresenceTests(unittest.TestCase):
         self.assertEqual(result["secondary_home_team_count"], 1)
         self.assertEqual(result["secondary_away_team_count"], 0)
 
+    def test_adjacent_day_exact_fixture_is_not_approved(self):
+        adjacent = dict(self.primary, date="2026-11-08")
+        detail = secondary_presence_diagnostic(self.primary, [adjacent], "2026-11-22")
+        self.assertEqual(detail["secondary_adjacent_day_exact_count"], 1)
+        self.assertEqual(detail["secondary_adjacent_day_exact_candidates"][0]["day_offset"], 1)
+        result = verify([self.primary], [adjacent], "2026-11-22")
+        self.assertEqual(result["matched"], 0)
+        self.assertEqual(result["unmatched"], 1)
+
+    def test_adjacent_day_different_opponent_not_candidate(self):
+        adjacent = dict(self.other, date="2026-11-08")
+        detail = secondary_presence_diagnostic(self.primary, [adjacent], "2026-11-22")
+        self.assertEqual(detail["secondary_adjacent_day_exact_count"], 0)
+
     def test_future_secondary_excluded(self):
         result = secondary_presence_diagnostic(self.primary, [self.other], "2026-11-07")
         self.assertEqual(result["source_presence_status"], "SECONDARY_DATE_EMPTY")
