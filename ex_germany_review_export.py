@@ -7,7 +7,7 @@ from pathlib import Path
 from ex_secondary_review_summary import summarize
 
 FIELDS = ("season", "league", "date", "home", "away", "home_goals",
-          "away_goals", "reason", "review_status")
+          "away_goals", "reason", "review_status", "source_evidence_json")
 
 
 def germany_rows(audit):
@@ -23,6 +23,7 @@ def germany_rows(audit):
             row["season"] = group["season"]
             row["league"] = group["league"]
             row["review_status"] = "REQUIRES_INDEPENDENT_SOURCE_REVIEW"
+            row["source_evidence_json"] = json.dumps(fixture, ensure_ascii=False, sort_keys=True)
             rows.append(row)
     if len(rows) != report["germany_unmatched"]:
         raise ValueError("German unresolved count mismatch")
