@@ -1,5 +1,6 @@
 """Independent score corroboration from football-data.co.uk; never silently merge."""
 import csv
+import hashlib
 import datetime as dt
 import io
 import json
@@ -81,7 +82,10 @@ def secondary_rows(season, league, offline=None):
                 continue
             rows.append({"date":date.isoformat(),"league":league,
                          "home":home,"away":away,"home_goals":hg,"away_goals":ag})
-        return rows,{"url":url,"rows":len(rows),"provider":"football-data.co.uk"}
+        return rows,{"url":url,"rows":len(rows),"provider":"football-data.co.uk",
+                     "sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw),
+                     "retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),
+                     "retrieval_mode":"offline" if offline else "https"}
     except (OSError,ValueError,UnicodeError) as exc:
         return [],{"url":url,"error":str(exc),"provider":"football-data.co.uk"}
 
