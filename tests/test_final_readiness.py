@@ -33,7 +33,8 @@ class FinalReadinessTests(unittest.TestCase):
                                           "mean_predicted": 0.5,
                                           "observed_rate": 0.45}]}
         historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
-                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY"},
+                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
+                                "test": [{} for _ in range(100)]},
                       "evaluation": measured}
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
@@ -76,6 +77,24 @@ class FinalReadinessTests(unittest.TestCase):
              "reliability_bins": [{"count": 99, "mean_predicted": 0.5,
                                    "observed_rate": 0.45}]})
         self.assertIn("calibration", result["missing_checks"])
+
+    def test_holdout_count_mismatch_blocks(self):
+        measured = {"status": "AUDIT_COMPLETE_NOT_CALIBRATED",
+                    "sample_size": 100, "brier_score": 0.22,
+                    "expected_calibration_error": 0.05,
+                    "maximum_calibration_error": 0.05,
+                    "mean_predicted": 0.5, "observed_rate": 0.45,
+                    "reliability_bins": [{"count": 100,
+                                          "mean_predicted": 0.5,
+                                          "observed_rate": 0.45}]}
+        historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
+                      "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
+                                "test": [{} for _ in range(99)]},
+                      "evaluation": measured}
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertIn("historical_validation", result["missing_checks"])
 
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
