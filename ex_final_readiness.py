@@ -8,6 +8,20 @@ verification. No caller-supplied Boolean may authorize EX FINAL.
 import math
 
 
+def _calibration_bins_consistent(report):
+    try:
+        bins = report["reliability_bins"]
+        total = report["sample_size"]
+        ece = sum(row["count"] * abs(row["mean_predicted"] - row["observed_rate"])
+                  for row in bins) / total
+        mce = max(abs(row["mean_predicted"] - row["observed_rate"])
+                  for row in bins)
+        return (abs(ece - report["expected_calibration_error"]) <= 1e-6
+                and abs(mce - report["maximum_calibration_error"]) <= 1e-6)
+    except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError):
+        return False
+
+
 def _calibration_measured(report):
     return (isinstance(report, dict)
             and report.get("status") == "AUDIT_COMPLETE_NOT_CALIBRATED"
@@ -28,6 +42,7 @@ def _calibration_measured(report):
                     for row in report["reliability_bins"])
             and sum(row["count"] for row in report["reliability_bins"])
             == report["sample_size"]
+            and _calibration_bins_consistent(report)
             and all(isinstance(report.get(key), (int, float))
                     and not isinstance(report.get(key), bool)
                     and math.isfinite(report[key])
