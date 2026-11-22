@@ -15,6 +15,8 @@ class LiveBridgePilotTests(unittest.TestCase):
             "provenance": {"espn": {"sha256": "abc"}}}):
             result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
         self.assertEqual(result["matched"], 3)
+        self.assertEqual(result["coverage"], 0)
+        self.assertEqual(result["conflict_count"], 0)
         self.assertFalse(result["ex_final_allowed"])
         self.assertFalse(result["calibration_certified"])
 
@@ -25,6 +27,7 @@ class LiveBridgePilotTests(unittest.TestCase):
             "comparison": {"matched": 1, "unmatched": 0, "ambiguous": 0, "conflicts": [conflict]}}):
             result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
         self.assertEqual(result["conflicts"], [conflict])
+        self.assertEqual(result["conflict_count"], 1)
         self.assertFalse(result["ex_final_allowed"])
 
     def test_blocked_fetch_stays_blocked(self):
@@ -50,6 +53,18 @@ class LiveBridgePilotTests(unittest.TestCase):
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("pilot:unexpected_error:RuntimeError", result["issues"])
         self.assertNotIn("secret", json.dumps(result))
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_comparison_metrics_preserved(self):
+        with patch.object(pilot, "fetch_and_compare_historical_day", return_value={
+            "status": "PARTIAL_PROVISIONAL_MATCH", "issues": [],
+            "comparison": {"matched": 2, "unmatched": 1, "ambiguous": 1,
+                           "conflicts": [], "coverage": 0.6667,
+                           "alias_suggestion_count": 3, "status": "PARTIAL_VERIFICATION"}}):
+            result = pilot.run_pilot("en.1", "2026-2027", "2026-11-01", "2026-11-22")
+        self.assertEqual(result["coverage"], 0.6667)
+        self.assertEqual(result["alias_suggestion_count"], 3)
+        self.assertEqual(result["source_agreement_status"], "PARTIAL_VERIFICATION")
         self.assertFalse(result["ex_final_allowed"])
 
     def test_provenance_is_retained(self):
