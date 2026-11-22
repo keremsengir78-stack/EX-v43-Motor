@@ -21,6 +21,8 @@ def check_fixture(fixture, as_of):
                 raise ValueError("analysis date must be YYYY-MM-DD")
             analysis_date=dt.date.fromisoformat(as_of)
         else:
+            if not re.match(r"^\d{4}-\d{2}-\d{2}T",as_of):
+                raise ValueError("analysis timestamp must start with YYYY-MM-DDT")
             analysis_instant=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
             if analysis_instant.tzinfo is None or analysis_instant.utcoffset() is None:
                 raise ValueError("analysis cutoff must be timezone aware")
@@ -103,6 +105,8 @@ def check_odds(snapshot, as_of):
     if isinstance(snapshot.get("market"),str) and snapshot["market"].strip() and snapshot["market"] not in ("2.5_UST","KG_VAR","MS1","MS2"):
         issues.append("market:unsupported")
     try:
+        if not isinstance(as_of,str) or not re.match(r"^\d{4}-\d{2}-\d{2}T",as_of):
+            raise ValueError("odds cutoff must be a canonical timestamp")
         observed=dt.datetime.fromisoformat(snapshot["observed_at"].replace("Z","+00:00"))
         cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
         if observed.tzinfo is None or cutoff.tzinfo is None or observed.utcoffset() is None or cutoff.utcoffset() is None:
