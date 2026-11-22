@@ -18,6 +18,33 @@ class SettlementGateTests(unittest.TestCase):
         self.assertFalse(result["externally_verified"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_invalid_fixture_identifier_blocks(self):
+        result = verify_settlement_records([record("a"), record("b")],
+                                           [], KICKOFF, CUTOFF)
+        self.assertIn("fixture:invalid", result["issues"])
+
+    def test_non_utc_kickoff_blocks(self):
+        result = verify_settlement_records([record("a"), record("b")],
+                                           "fixture-1", "2026-01-01T15:00:00+03:00Z", CUTOFF)
+        self.assertIn("time:invalid", result["issues"])
+
+    def test_non_utc_cutoff_blocks(self):
+        result = verify_settlement_records([record("a"), record("b")],
+                                           "fixture-1", KICKOFF, "2026-02-01T03:00:00+03:00")
+        self.assertIn("time:invalid", result["issues"])
+
+    def test_non_utc_settlement_blocks(self):
+        second = record("b")
+        second["settled_at"] = "2026-01-01T18:00:00+03:00"
+        result = verify_settlement_records([record("a"), second],
+                                           "fixture-1", KICKOFF, CUTOFF)
+        self.assertIn("settlement:1:time_invalid", result["issues"])
+
+    def test_blank_fixture_identifier_blocks(self):
+        result = verify_settlement_records([record("a"), record("b")],
+                                           " ", KICKOFF, CUTOFF)
+        self.assertIn("fixture:invalid", result["issues"])
+
     def test_live_match_blocks(self):
         second = record("b")
         second["status"] = "live"
