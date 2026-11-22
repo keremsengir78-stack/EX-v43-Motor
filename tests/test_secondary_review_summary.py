@@ -13,6 +13,8 @@ class SecondaryReviewSummaryTests(unittest.TestCase):
         self.assertEqual(result["unmatched_total"], 1)
         self.assertEqual(result["groups"][0]["unmatched_details"], [item])
         self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(result["germany_unmatched"], 1)
+        self.assertEqual(result["unmatched_by_league"], {"de.1": 1})
 
     def test_rejects_missing_or_inconsistent_counts(self):
         base = {"ex_final_allowed": False, "secondary_review_queue": [
