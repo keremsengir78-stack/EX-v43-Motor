@@ -5,21 +5,22 @@ from collections import defaultdict
 from pathlib import Path
 
 
-def derive(report):
+def derive(report, known_candidates):
     if report.get("ex_final_allowed") is not False or report.get("aliases_approved") is not False:
         raise ValueError("remaining evidence must be quarantined")
     fixtures=report.get("fixtures")
     if not isinstance(fixtures,list) or len(fixtures)!=report.get("unmatched_total"):
         raise ValueError("incomplete remaining evidence")
+    known={x["primary_name"]:x["secondary_name"] for x in known_candidates.get("candidates",[]) if x.get("mapping_conflict") is False and x.get("auto_approved") is False}
     pairs=defaultdict(lambda: {"dates":set(),"fixtures":0})
     for row in fixtures:
         options=row.get("secondary_shared_team_candidates",[])
         if len(options)!=1:
             continue
         other=options[0]
-        if row["home"]==other.get("home") and row["away"]!=other.get("away"):
+        if (row["home"]==other.get("home") or known.get(row["home"])==other.get("home")) and row["away"]!=other.get("away"):
             p,s=row["away"],other["away"]
-        elif row["away"]==other.get("away") and row["home"]!=other.get("home"):
+        elif (row["away"]==other.get("away") or known.get(row["away"])==other.get("away")) and row["home"]!=other.get("home"):
             p,s=row["home"],other["home"]
         elif row["home"]!=other.get("home") and row["away"]!=other.get("away"):
             # Two-sided mismatch needs separate evidence; never infer either.
@@ -45,8 +46,10 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--remaining",required=True)
     p.add_argument("--out",required=True)
+    p.add_argument("--known-candidates",required=True)
     a=p.parse_args()
-    result=derive(json.loads(Path(a.remaining).read_text(encoding="utf-8")))
+    result=derive(json.loads(Path(a.remaining).read_text(encoding="utf-8")),
+                  json.loads(Path(a.known_candidates).read_text(encoding="utf-8")))
     out=Path(a.out);out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+chr(10),encoding="utf-8")
     print(f"Remaining alias candidates: {len(result['candidates'])}")
