@@ -18,6 +18,7 @@ def build(summary, limit=100):
     if type(limit) is not int or limit<1:
         raise ValueError("invalid review limit")
     rows=[]
+    seen=set()
     for group in summary.get("groups",[]):
         league=group["league"]
         if league=="de.1":
