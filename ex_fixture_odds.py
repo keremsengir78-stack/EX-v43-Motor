@@ -107,6 +107,8 @@ def check_odds(snapshot, as_of):
     try:
         if not isinstance(as_of,str) or not re.match(r"^\d{4}-\d{2}-\d{2}T",as_of):
             raise ValueError("odds cutoff must be a canonical timestamp")
+        if not isinstance(snapshot.get("observed_at"),str) or not re.match(r"^\d{4}-\d{2}-\d{2}T",snapshot["observed_at"]):
+            raise ValueError("odds observation must use canonical timestamp")
         observed=dt.datetime.fromisoformat(snapshot["observed_at"].replace("Z","+00:00"))
         cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
         if observed.tzinfo is None or cutoff.tzinfo is None or observed.utcoffset() is None or cutoff.utcoffset() is None:
