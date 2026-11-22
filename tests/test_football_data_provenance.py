@@ -46,6 +46,15 @@ class FootballDataProvenanceTests(unittest.TestCase):
         self.assertEqual(rows, [])
         self.assertIn("size limit", meta["error"])
 
+    def test_exact_size_limit_csv_does_not_exceed_bound(self):
+        raw = b"Date,HomeTeam,AwayTeam,FTHG,FTAG\n01/11/2026,Arsenal,Chelsea,2,1\n"
+        with tempfile.TemporaryDirectory() as folder:
+            Path(folder, "2627_E0.csv").write_bytes(raw)
+            with patch("ex_cross_verify.MAX_SECONDARY_BYTES", len(raw)):
+                rows, meta = secondary_rows("2026-2027", "en.1", offline=folder)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(meta["raw_bytes"], len(raw))
+
     def test_oversized_http_response_blocks(self):
         class Response:
             def __enter__(self): return self
