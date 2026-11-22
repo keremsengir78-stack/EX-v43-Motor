@@ -58,6 +58,19 @@ jobs:
           else
             state=failure
           fi
+          if [ "$FULL_RESULT" = "failure" ] && [ -f full-regression.log ]; then
+            failure_lines=$(grep -E '^(FAIL|ERROR): ' full-regression.log | head -n 3 | tr '\n' ';' || true)
+            if [ -z "$failure_lines" ]; then
+              failure_lines=$(grep -E '^(FAILED|ImportError|ModuleNotFoundError):?' full-regression.log | head -n 2 | tr '\n' ';' || true)
+            fi
+            if [ -z "$failure_lines" ]; then
+              failure_lines="Full regression failed; inspect workflow log"
+            fi
+            gh api "repos/$GH_REPO/statuses/$GITHUB_SHA" \
+              -f state=failure \
+              -f context="ex-v43/full-diagnostic" \
+              -f description="${failure_lines:0:140}"
+          fi
           for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT"; do
             stage="${item%%:*}"
             outcome="${item#*:}"
