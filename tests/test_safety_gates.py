@@ -208,6 +208,18 @@ class SafetyGates(unittest.TestCase):
         with self.assertRaises(ValueError):
             snapshot({"bad":float("nan")})
 
+    def test_exg_extreme_integer_scores_fail_closed(self):
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-21T09:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for score in (10**10000,-10**10000):
+            features["team_strength"]["score"]=score
+            result=weighted_evidence(features,as_of="2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("team_strength:invalid_score",result["issues"])
+            self.assertIsNone(result["weighted_score"])
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_rejects_non_json_snapshot_objects(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
