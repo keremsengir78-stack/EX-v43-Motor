@@ -45,6 +45,29 @@ class DeltaAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             compare_audits(raw, audit(3, 2))
 
+    def test_fixture_population_mismatch_rejected(self):
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 3), audit(3, 3))
+
+    def test_duplicate_case_rejected(self):
+        raw = audit(2, 3)
+        reviewed = audit(3, 2)
+        raw["cases"] *= 2
+        reviewed["cases"] *= 2
+        with self.assertRaises(ValueError):
+            compare_audits(raw, reviewed)
+
+    def test_invalid_counts_rejected(self):
+        reviewed = audit(3, 2)
+        reviewed["cases"][0]["matched"] = -1
+        with self.assertRaises(ValueError):
+            compare_audits(audit(2, 3), reviewed)
+
+    def test_remaining_by_league_reported(self):
+        result = compare_audits(audit(2, 3), audit(3, 2))
+        self.assertEqual(result["remaining_by_league"], {"en.1": 2})
+        self.assertEqual(result["cases_with_unresolved"], 1)
+
     def test_empty_audits_rejected(self):
         with self.assertRaises(ValueError):
             compare_audits({"as_of": "2026-11-22", "cases": []},
