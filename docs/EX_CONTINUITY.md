@@ -56,3 +56,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - GitHub Actions run `45029715005`, kaynak commit `adf53aa7bbb189251746754fc7087314ddfe4bb4`: ingest/review başarılı, evidence_published=true, Almanya uyuşmazlık=339, otomatik çıkarılmış **16** alias adayı (`reports/latest_germany_alias_candidates.json`). Hepsi MANUAL_REVIEW_REQUIRED; otomatik onay yok.
 - `7dfa827cd098fece1985e4d408ea9276fed676a5`: çakışan çoklu isim eşleştirmelerine `mapping_conflict` bayrağı eklendi.
 - `4f0f5bee80fd664d95767b3dc5ac165019d38c0c`: çelişkili eşleştirme testi. Yeni commitlerin CI sonucu henüz doğrulanmadı; yayımlanmış 16 aday eski şemadadır, sonraki iş akışında conflict alanı bekleniyor.
+
+## 2026-11-22: İzole Almanya gölge testi
+- 16 adaylı rapor doğrulandı, mapping_conflict=0, EX FINAL=false.
+- `ex_germany_alias_pilot.py` adayları yalnızca izole test haritasına dönüştürür; onaylı alias dosyalarına yazmaz. `tests/test_germany_alias_pilot.py` güvenlik regresyonlarını içerir.
+- `a6ed4f3eed876ebca9b9f485a6d9b73b231e6181` gölge karşılaştırma iş akışını ekledi. `b4f083d04b3dda0f3aa8cbaabdbfe9faab90af1e` gölge adım sonucu ve çıktı varlığı teşhisini ekledi.
+- Son kontrol anında `reports/latest_germany_shadow_comparison.json` henüz yoktu; gölge testin sayısal etkisi **doğrulanmadı**. Sonraki turda `reports/latest_pipeline_status.json` ve ilgili Actions run logunu kontrol et.
