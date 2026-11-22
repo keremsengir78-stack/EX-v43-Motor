@@ -97,3 +97,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Almanya genişletilmiş gölge `reports/latest_germany_expanded_validated.json` yayımlandı: 339→0 yalnızca aday isim eşleştirmesiyle; 18 aday, 0 bağımsız doğrulama, EX FINAL kilitli.
 - `ex_multileague_alias_candidates.py` İngiltere, İspanya, İtalya ve Fransa için toplam 1506 başlangıç uyuşmazlığından aynı gün aynı rakip kanıtlı isim adaylarını çıkarır; eşleştirme onaylamaz, skor doğrulamaz. `tests/test_multileague_alias_candidates.py` tamlık testleri eklendi.
 - Workflow `reports/latest_multileague_alias_candidates.json` yayımlayacak, sayısal uyuşmazlık toplamını çapraz doğrulayacak, başarısızlığı saklamayacak. Yeni CI/rapor henüz doğrulanmadı.
+
+## 2026-11-22: 40. tur, dört lig gölge karşılaştırması
+- Gerçek pipeline `45030681373`: 1506 Almanya dışı uyuşmazlık; en.1=307, es.1=442, it.1=428, fr.1=329. Toplam 14 manuel isim adayı ve tamamı fr.1; 0 otomatik onay, 0 skor doğrulaması.
+- `ex_multileague_shadow_map.py` adayları yalnızca izolasyon amaçlı ikincil→birincil isim haritasına çevirir; `tests/test_multileague_shadow_map.py` güvenlik testleri eklendi.
+- Workflow dört ligi ayrı `ex_other_shadow` dizininde denetleyecek ve `reports/latest_multileague_shadow_comparison.json` yayımlayacak. Son CI ve gölge sonuçları henüz teyit edilmedi; EX FINAL kilitli.
