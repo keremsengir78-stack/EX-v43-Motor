@@ -81,7 +81,7 @@ jobs:
           assert not any(x.get("independent_score_verified") for x in unique["records"])
           print("SOURCE_CANDIDATE_COUNTS",json.dumps({"total":1177,"same_day":summary["with_candidates"],"high_similarity":summary["high_name_similarity_candidates"],"unique":unique["unique_name_candidates"],"unmatched":unique["remaining_for_manual_review"]}))
           PY
-            python - <<'PY'
+          python - <<'PY'
           import json
           from pathlib import Path
           base=json.loads(Path("ex_run/audit.json").read_text(encoding="utf-8"))
