@@ -14,7 +14,7 @@ def market_outcomes(fixtures, as_of):
         if not isinstance(as_of, str) or not as_of.endswith("Z"):
             raise ValueError("UTC cutoff required")
         cutoff = dt.datetime.fromisoformat(as_of.replace("Z", "+00:00"))
-        if cutoff.tzinfo is None:
+        if cutoff.utcoffset() != dt.timedelta(0):
             raise ValueError("timezone missing")
     except (TypeError, ValueError, OverflowError):
         return {"status": "BLOCKED", "issues": ["as_of:invalid"], "outcomes": [],
@@ -46,7 +46,7 @@ def market_outcomes(fixtures, as_of):
             if not isinstance(stamp, str) or not stamp.endswith("Z"):
                 raise ValueError("UTC kickoff required")
             when = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-            if when.tzinfo is None or when >= cutoff:
+            if when.utcoffset() != dt.timedelta(0) or when >= cutoff:
                 raise ValueError("future fixture")
         except (KeyError, ValueError, TypeError, OverflowError):
             issues.append("fixture:%d:date_invalid_or_future" % i)
