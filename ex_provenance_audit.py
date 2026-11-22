@@ -23,6 +23,8 @@ def validate_provenance(attestations, cutoff):
         issues.append("attestations:insufficient")
     seen_groups = set()
     seen_evidence = set()
+    seen_urls = set()
+    seen_reviewers = set()
     for i, row in enumerate(attestations):
         if not isinstance(row, dict):
             issues.append("attestation:%d:invalid" % i)
@@ -40,6 +42,11 @@ def validate_provenance(attestations, cutoff):
         for field in ("reviewer_id", "fixture_id"):
             if not isinstance(row.get(field), str) or not row[field].strip():
                 issues.append("attestation:%d:%s_missing" % (i, field))
+        reviewer = row.get("reviewer_id")
+        if isinstance(reviewer, str) and reviewer.strip():
+            if reviewer in seen_reviewers:
+                issues.append("attestation:%d:reviewer_duplicate" % i)
+            seen_reviewers.add(reviewer)
         url = row.get("evidence_url")
         if not isinstance(url, str) or not url.strip():
             issues.append("attestation:%d:url_invalid" % i)
@@ -49,6 +56,13 @@ def validate_provenance(attestations, cutoff):
                 if (parsed.scheme != "https" or not parsed.hostname
                         or parsed.username or parsed.password):
                     issues.append("attestation:%d:url_invalid" % i)
+                else:
+                    normalized_url = (parsed.scheme.lower(), parsed.hostname.lower(),
+                                      parsed.port, parsed.path.rstrip("/") or "/",
+                                      parsed.query)
+                    if normalized_url in seen_urls:
+                        issues.append("attestation:%d:url_duplicate" % i)
+                    seen_urls.add(normalized_url)
             except ValueError:
                 issues.append("attestation:%d:url_invalid" % i)
         try:
