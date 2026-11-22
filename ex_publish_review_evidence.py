@@ -20,6 +20,13 @@ if audit.is_file():
         data=json.loads(audit.read_text(encoding="utf-8"))
         status["audit_status"]=data.get("status")
         status["source_errors"]=data.get("secondary_source_errors",[])
+        # Publish raw baseline audit reasons separately from scoped strict reconciliations.
+        # These fields are diagnostics, never independent approval evidence.
+        status["baseline_blocking_sources"]=data.get("blocking_sources",[])
+        status["baseline_secondary_unverified"]=data.get("secondary_unverified")
+        status["baseline_secondary_conflicts"]=data.get("secondary_conflicts")
+        status["baseline_newer_unverified_results"]=data.get("secondary_newer_unverified_results")
+        status["baseline_unmatched_by_season"]=data.get("secondary_unmatched_by_season",{})
     except (ValueError, OSError) as exc:
         status["audit_read_error"]=str(exc)
 shadow_path=Path("ex_run/germany_shadow_comparison.json")
