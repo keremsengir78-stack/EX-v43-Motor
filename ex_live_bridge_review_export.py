@@ -79,6 +79,12 @@ def review_rows(report):
                 for item in candidates
             ):
                 raise ValueError("invalid same-day opponent candidates")
+            candidate_keys = [
+                (candidate["home"].strip().casefold(), candidate["away"].strip().casefold())
+                for candidate in candidates
+            ]
+            if len(candidate_keys) != len(set(candidate_keys)):
+                raise ValueError("duplicate same-day opponent candidates")
             row["secondary_shared_team_candidates"] = json.dumps(candidates, ensure_ascii=False, sort_keys=True)
             rows.append(row)
     if report.get("data_gate") == "PROVISIONAL_COVERAGE_ONLY" and rows:
