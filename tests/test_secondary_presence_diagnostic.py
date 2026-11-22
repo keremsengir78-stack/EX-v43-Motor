@@ -30,6 +30,12 @@ class SecondaryPresenceTests(unittest.TestCase):
         result = secondary_presence_diagnostic(self.primary, [unrelated], "2026-11-22")
         self.assertEqual(result["source_presence_status"], "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH")
 
+    def test_diagnostic_never_approves_conflicting_opponent(self):
+        result = verify([self.primary], [self.other], "2026-11-22")
+        self.assertNotEqual(result["status"], "VERIFIED")
+        self.assertEqual(result["conflicts"], [])
+        self.assertEqual(result["unmatched_details"][0]["reason"], "not_found")
+
     def test_future_secondary_excluded(self):
         result = secondary_presence_diagnostic(self.primary, [self.other], "2026-11-07")
         self.assertEqual(result["source_presence_status"], "SECONDARY_DATE_EMPTY")
