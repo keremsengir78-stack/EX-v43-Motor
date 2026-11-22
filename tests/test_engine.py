@@ -124,6 +124,20 @@ class TestEXMotor(unittest.TestCase):
         self.assertFalse(r["ex_final_allowed"])
         self.assertFalse(assess_markets({"KG_VAR":f})["pup_allowed"])
 
+    def test_fixture_lock_rejects_post_kickoff_verification(self):
+        fixture={"date":"2026-11-22","league":"en.1","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T14:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
+        for checked in ("2026-11-22T15:00:00Z","2026-11-22T16:00:00Z"):
+            fixture["fixture_checked_at"]=checked
+            result=check_fixture(fixture,"2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("fixture:checked_after_kickoff",result["issues"])
+        fixture["fixture_checked_at"]="2026-11-22T14:00:00"
+        self.assertIn("fixture_checked_at:timezone_missing",
+                      check_fixture(fixture,"2026-11-22")["issues"])
+
     def test_fixture_odds_malformed_inputs_fail_closed(self):
         for payload in (None, [], "bad", 123):
             result=check_fixture(payload,"2026-11-21")
