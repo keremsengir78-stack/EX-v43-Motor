@@ -1,6 +1,8 @@
 {
   "total_review_queue": 1506,
   "exported": 100,
+  "queue_version": 2,
+  "sort_policy": "reason_league_date_team",
   "fixtures": [
     {
       "league": "en.1",
