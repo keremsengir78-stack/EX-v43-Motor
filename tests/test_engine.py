@@ -13,6 +13,19 @@ from ex_espn_provider import parse_espn_scoreboard
 
 class TestEXMotor(unittest.TestCase):
 
+    def test_exg_malformed_provenance_and_huge_integer_fail_closed(self):
+        base={key:{"score":0.8,"verified":True,"source":"audit",
+                   "timestamp":"2026-11-20T10:00:00Z"}
+              for key in ("team_strength","match_conditions","external_factors")}
+        for field,value in (("score",10**10000),("source","   "),
+                            ("source",[]),("timestamp",[]),("timestamp",123)):
+            evidence={key:dict(item) for key,item in base.items()}
+            evidence["team_strength"][field]=value
+            result=weighted_evidence(evidence,as_of="2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIsNone(result["weighted_score"])
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_exg_invalid_analysis_cutoff_fails_closed(self):
         features={name:{'score':0.8,'verified':True,'source':'audit',
                         'timestamp':'2026-11-20T10:00:00Z'}
