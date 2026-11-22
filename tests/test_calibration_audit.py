@@ -111,6 +111,35 @@ class CalibrationAuditTests(unittest.TestCase):
         result = audit_predictions([record], "KG_VAR", "2026-02-01T00:00:00Z")
         self.assertIn("record:0:invalid_timestamp", result["issues"])
 
+    def test_exact_decimal_boundary_uses_upper_bin(self):
+        records = [row(i, 0.3, 0) for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["reliability_bins"][0]["range"], "30-40")
+
+    def test_just_below_boundary_uses_lower_bin(self):
+        records = [row(i, 0.299, 0) for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["reliability_bins"][0]["range"], "20-30")
+
+    def test_mixed_boundary_bins_cover_all_records(self):
+        records = [row(i, 0.3 if i % 2 else 0.299, 0)
+                   for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual([b["range"] for b in result["reliability_bins"]],
+                         ["20-30", "30-40"])
+        self.assertEqual(sum(b["count"] for b in result["reliability_bins"]), 100)
+
+    def test_zero_probability_uses_first_bin(self):
+        result = audit_predictions([row(i, 0.0, 0) for i in range(100)],
+                                   "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["reliability_bins"][0]["range"], "00-10")
+
+    def test_all_tenth_boundaries_cover_every_record(self):
+        records = [row(i, (i % 11) / 10, 0) for i in range(110)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+        self.assertEqual(sum(b["count"] for b in result["reliability_bins"]), 110)
+
     def test_wrong_market_is_blocked(self):
         result = audit_predictions([row(1)], "MS1", "2026-02-01T00:00:00Z")
         self.assertIn("record:0:market_mismatch", result["issues"])
