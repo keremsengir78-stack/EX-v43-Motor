@@ -94,7 +94,23 @@ jobs:
         shell: bash
         run: |
           if [ -f ex_run/audit.json ]; then
-            python ex_secondary_review_summary.py --audit ex_run/audit.json --out ex_run/secondary_review_summary.json || echo 'REVIEW SUMMARY BLOCKED: invalid or incomplete audit evidence; EX FINAL disabled'
+            if python ex_secondary_review_summary.py --audit ex_run/audit.json --out ex_run/secondary_review_summary.json; then
+              python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads(Path("ex_run/secondary_review_summary.json").read_text(encoding="utf-8"))
+          lines = ["## EX v4.3 independent source review", "",
+                   f"Unmatched total: **{report['unmatched_total']}**",
+                   f"Germany (de.1): **{report['germany_unmatched']}**", "",
+                   "| League | Unmatched |", "|---|---:|"]
+          lines += [f"| {league} | {count} |" for league, count in report["unmatched_by_league"].items()]
+          lines += ["", "**EX FINAL: BLOCKED**"]
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as output:
+              output.write("\\n".join(lines) + "\\n")
+          PY
+            else
+              echo 'REVIEW SUMMARY BLOCKED: invalid or incomplete audit evidence; EX FINAL disabled'
+            fi
           else
             echo 'REVIEW SUMMARY UNAVAILABLE: no audit.json; EX FINAL disabled'
           fi
