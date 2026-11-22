@@ -7,8 +7,8 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "79995df0f4521967127727227f64cf69d13d4d15",
-  "run_id": "45030115825",
+  "commit": "9582168b5e6d7e1ba62d7dea2c961ce08f25dcdf",
+  "run_id": "45030131008",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "shadow_comparison_exists": true,
@@ -17,5 +17,7 @@
   "evidence_published": true,
   "germany_name_only_candidates": 36,
   "germany_shadow_unmatched": 8,
-  "germany_alias_candidates": 16
+  "germany_alias_candidates": 16,
+  "germany_shadow_reduction": 331,
+  "independently_verified_added": 0
 }

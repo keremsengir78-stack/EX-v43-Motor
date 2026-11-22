@@ -1,0 +1,11 @@
+{
+  "baseline_unmatched": 339,
+  "shadow_unmatched": 8,
+  "shadow_reduction": 331,
+  "name_only_candidates": 36,
+  "shadow_score_conflicts": 0,
+  "independently_verified_added": 0,
+  "comparison_only": true,
+  "aliases_approved": false,
+  "ex_final_allowed": false
+}
