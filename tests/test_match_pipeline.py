@@ -20,7 +20,7 @@ def source_map(records):
     result = {}
     for row in records:
         result[row["fixture_id"]] = [
-            {"source_id": source, "verified": True, "fixture_id": row["fixture_id"],
+            {"source_id": source, "provider_group": source, "verified": True, "fixture_id": row["fixture_id"],
              "home_team": "Home", "away_team": "Away",
              "kickoff_at": row["kickoff_at"], "home_goals": row["home_goals"],
              "away_goals": row["away_goals"]}
