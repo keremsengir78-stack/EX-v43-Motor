@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-11-22",
+  "status": "MANUAL_OFFICIAL_SOURCE_EVIDENCE_NOT_MERGED",
+  "ex_final_allowed": false,
+  "records": [
+    {
+      "league": "de.1",
+      "date": "2026-11-07",
+      "home": "Borussia Dortmund",
+      "away": "SV Elversberg",
+      "home_goals": 2,
+      "away_goals": 1,
+      "provider": "DFB Datencenter",
+      "source_url": "https://datencenter.dfb.de/en/data-center/bundesliga/2026-2027/9/2419395",
+      "verification_status": "OFFICIAL_RESULT_OBSERVED_NOT_CROSS_MERGED"
+    },
+    {
+      "league": "de.1",
+      "date": "2026-11-07",
+      "home": "SC Paderborn 07",
+      "away": "Eintracht Frankfurt",
+      "home_goals": 2,
+      "away_goals": 2,
+      "provider": "DFB Datencenter",
+      "source_url": "https://datencenter.dfb.de/datencenter/bundesliga/2026-2027/9",
+      "verification_status": "OFFICIAL_RESULT_OBSERVED_NOT_CROSS_MERGED"
+    },
+    {
+      "league": "es.1",
+      "date": "2026-11-08",
+      "home": "Real Sociedad",
+      "away": "Rayo Vallecano",
+      "home_goals": 1,
+      "away_goals": 0,
+      "provider": "LaLiga",
+      "source_url": "https://iaas-public-front-pro.laliga.com/partido/temporada-2026-2027-laliga-ea-sports-real-sociedad-rayo-vallecano-12",
+      "verification_status": "OFFICIAL_RESULT_OBSERVED_NOT_CROSS_MERGED"
+    }
+  ]
+}
