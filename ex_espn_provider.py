@@ -39,7 +39,10 @@ def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
             raw_date=event["date"]
             if not isinstance(raw_date,str) or len(raw_date)<10:
                 continue
-            day=dt.date.fromisoformat(raw_date[:10])
+            stamp=dt.datetime.fromisoformat(raw_date.replace("Z","+00:00"))
+            if stamp.tzinfo is None or stamp.utcoffset()!=dt.timedelta(0):
+                continue
+            day=stamp.date()
             if day>=cutoff or (requested is not None and day!=requested):
                 continue
             home=by_side["home"];away=by_side["away"]
