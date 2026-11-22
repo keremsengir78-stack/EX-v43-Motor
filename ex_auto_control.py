@@ -33,7 +33,7 @@ def auto_control(match, ingestion=None):
             issues.append("market_baselines:invalid")
         elif abs(sum(market[k] for k in ("MS1","MSX","MS2"))-100)>0.1:
             issues.append("match_result_probabilities:sum_mismatch")
-    if not isinstance(ingestion,dict) or ingestion.get("status")=="BLOCKED":
+    if not isinstance(ingestion,dict) or ingestion.get("status") not in ("INGESTED", "INGESTED_CROSS_VERIFIED"):
         issues.append("ingestion:blocked")
     if (not isinstance(ingestion,dict) or
             isinstance(ingestion.get("independent_sources_confirmed"),bool) or
