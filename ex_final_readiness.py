@@ -115,10 +115,15 @@ def _holdout_records_consistent(report):
                 return False
             if fixture in seen or row.get("market") != evaluation.get("market"):
                 return False
-            if not utc(row["settled_at"]) < boundary:
+            trained_prediction = utc(row["predicted_at"])
+            trained_kickoff = utc(row["kickoff_at"])
+            trained_settlement = utc(row["settled_at"])
+            if not trained_prediction < trained_kickoff < trained_settlement < boundary:
                 return False
             training_ids.add(fixture)
 
+        if len(training) < 30:
+            return False
         count = len(rows)
         brier = sum((p - y) ** 2 for p, y in zip(probabilities, outcomes)) / count
         return (abs(sum(probabilities) / count - evaluation["mean_predicted"]) <= 1e-6
@@ -141,6 +146,11 @@ def _historical_measured(report):
 def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
                              historical_validation=None):
     issues = []
+    if (_calibration_measured(calibration_audit)
+            and _historical_measured(historical_validation)
+            and calibration_audit.get("market")
+            != historical_validation["evaluation"].get("market")):
+        issues.append("calibration:historical_market_mismatch")
     if not isinstance(provenance_pipeline, dict):
         issues.append("pipeline:missing")
     elif provenance_pipeline.get("status") != "RECONCILED_WITH_METADATA_UNVERIFIED":
@@ -161,7 +171,8 @@ def evaluate_final_readiness(provenance_pipeline, calibration_audit=None,
         "source_pipeline": isinstance(provenance_pipeline, dict)
         and provenance_pipeline.get("status") == "RECONCILED_WITH_METADATA_UNVERIFIED",
         "calibration": isinstance(calibration_audit, dict)
-        and _calibration_measured(calibration_audit),
+        and _calibration_measured(calibration_audit)
+        and "calibration:historical_market_mismatch" not in issues,
         "historical_validation": isinstance(historical_validation, dict)
         and _historical_measured(historical_validation),
         "external_evidence": False,
