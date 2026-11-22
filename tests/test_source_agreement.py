@@ -54,6 +54,22 @@ class SourceAgreementTests(unittest.TestCase):
                                         "2026-02-01T00:00:00Z")
         self.assertIn("source:1:provider_group_duplicate_or_missing", result["issues"])
 
+    def test_unhashable_identity_blocks_without_crash(self):
+        second = fixture("provider-B")
+        second["home_team"] = ["Home"]
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("source:1:identity_invalid", result["issues"])
+
+    def test_unhashable_score_blocks_without_crash(self):
+        second = fixture("provider-B")
+        second["home_goals"] = {"goals": 2}
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("source:1:score_invalid", result["issues"])
+
     def test_missing_source_is_blocked(self):
         result = verify_fixture_sources([fixture("provider-A")], "2026-02-01T00:00:00Z")
         self.assertIn("sources:insufficient", result["issues"])
