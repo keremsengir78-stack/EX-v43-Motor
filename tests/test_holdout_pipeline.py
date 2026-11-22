@@ -31,6 +31,38 @@ class HoldoutPipelineTests(unittest.TestCase):
                                     kwargs.pop("cutoff", "2026-07-01T00:00:00Z"),
                                     **kwargs)
 
+    def test_missing_fixture_source_blocks_early(self):
+        p, f = data()
+        del f[0]["source"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:source_missing"])
+        self.assertIsNone(result["join"])
+
+    def test_whitespace_fixture_source_blocks(self):
+        p, f = data()
+        f[-1]["source"] = "  "
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:source_missing"])
+
+    def test_non_string_fixture_source_blocks(self):
+        p, f = data()
+        f[0]["source"] = ["provider"]
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["issues"], ["fixtures:source_missing"])
+
+    def test_source_missing_not_hidden_by_verified_flag(self):
+        p, f = data()
+        f[0]["verified"] = True
+        f[0]["source"] = None
+        result = self.run_audit(predictions=p, fixtures=f)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_valid_fixture_source_still_not_certified(self):
+        result = self.run_audit()
+        self.assertEqual(result["status"], "HOLDOUT_AUDITED_NOT_CERTIFIED")
+        self.assertFalse(result["calibration_certified"])
+
     def test_unverified_fixture_blocks_early(self):
         p, f = data()
         f[0]["verified"] = False
