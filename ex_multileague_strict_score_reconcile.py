@@ -38,7 +38,6 @@ CLUB_IDENTITIES = {
         "athleticclub": "athbilbao",
         "athleticbilbao": "athbilbao",
         "realbetisbalompie": "betis",
-        "clubatleticodemadrid": "atleticomadrid",
         "atleticomadrid": "atleticomadrid",
         "realoviedo": "oviedo",
         "rayovallecano": "rayovallecano",
@@ -81,7 +80,19 @@ def club_norm(name, league=None):
     return CLUB_IDENTITIES.get(league, {}).get(key, key)
 
 
+def validate_club_identities():
+    """Aliases must be normalized, scoped, and free of ambiguous canonical chains."""
+    for league, aliases in CLUB_IDENTITIES.items():
+        if league not in {"en.1", "es.1", "it.1"}:
+            raise ValueError("unsupported alias league")
+        for source, target in aliases.items():
+            if source != norm(source) or target != norm(target):
+                raise ValueError("noncanonical alias")
+            if target in aliases and aliases[target] != target:
+                raise ValueError("chained club alias")
+
 def reconcile(batches, primary, offline=None):
+    validate_club_identities()
     if batches.get("ex_final_allowed") is not False:
         raise ValueError("unsafe review batches")
     primary_index=defaultdict(list)
