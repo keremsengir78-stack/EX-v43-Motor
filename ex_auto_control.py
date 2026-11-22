@@ -38,7 +38,7 @@ def auto_control(match, ingestion=None):
     if (not isinstance(ingestion,dict) or
             isinstance(ingestion.get("independent_sources_confirmed"),bool) or
             not isinstance(ingestion.get("independent_sources_confirmed"),int) or
-            ingestion.get("independent_sources_confirmed",0)<1):
+            ingestion.get("independent_sources_confirmed",0)<2):
         issues.append("second_source:unverified")
     # Explicitly unimplemented inputs cannot be silently treated as verified.
     issues.extend(["exg:uncalibrated","context:unverified","pup:unverified"])
