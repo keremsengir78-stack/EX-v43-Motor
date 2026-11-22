@@ -18,6 +18,15 @@ class ReviewExportTests(unittest.TestCase):
         self.assertEqual(rows[0]["as_of"], "2026-11-22")
         self.assertEqual(rows[0]["source_reference"], "NOT_VERIFIED")
 
+    def test_export_is_sorted_deterministically(self):
+        data = report()
+        data["review_queue"][0]["fixtures"].insert(0, {
+            "league": "es.1", "date": "2026-11-08",
+            "home": "Real Sociedad", "away": "Rayo Vallecano", "reason": "not_found"})
+        data["review_queue"][0]["unmatched"] = 2
+        data["reviewed_unmatched"] = 2
+        self.assertEqual([row["home"] for row in review_rows(data)], ["Elche", "Real Sociedad"])
+
     def test_future_fixture_rejected(self):
         data = report()
         data["review_queue"][0]["day"] = "2026-11-23"
