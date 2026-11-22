@@ -11,6 +11,28 @@ def match(fid, home, away, **updates):
 
 
 class MarketOutcomeTests(unittest.TestCase):
+    def test_non_utc_cutoff_is_blocked(self):
+        result = market_outcomes([match("a", 2, 1)],
+                                 "2026-02-01T03:00:00+03:00Z")
+        self.assertIn("as_of:invalid", result["issues"])
+
+    def test_non_utc_kickoff_is_blocked(self):
+        result = market_outcomes(
+            [match("a", 2, 1, kickoff_at="2026-01-01T15:00:00+03:00Z")],
+            "2026-02-01T00:00:00Z")
+        self.assertIn("fixture:0:date_invalid_or_future", result["issues"])
+
+    def test_matching_non_utc_cutoff_and_kickoff_block(self):
+        result = market_outcomes(
+            [match("a", 2, 1, kickoff_at="2026-01-01T15:00:00+03:00Z")],
+            "2026-02-01T03:00:00+03:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+
+    def test_utc_labels_remain_unfinalized(self):
+        result = market_outcomes([match("a", 2, 1)], "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "OUTCOMES_READY")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_four_markets_are_independent(self):
         result = market_outcomes([match("a", 2, 1), match("b", 0, 3),
                                   match("c", 1, 1), match("d", 0, 0)],
