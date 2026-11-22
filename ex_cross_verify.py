@@ -260,7 +260,7 @@ def verify(primary, secondary, as_of, alias=None):
         candidates=index.get(key,[])
         if len(candidates)!=1:
             unmatched+=1
-            if len(unmatched_details)<250:unmatched_details.append({"date":row["date"],"league":row["league"],"home":row["home"],"away":row["away"],"reason":"ambiguous" if len(candidates)>1 else "not_found",
+            unmatched_details.append({"date":row["date"],"league":row["league"],"home":row["home"],"away":row["away"],"reason":"ambiguous" if len(candidates)>1 else "not_found",
                 **secondary_presence_diagnostic(row, secondary, as_of, alias)})
             if len(candidates)>1:ambiguous+=1
             continue
