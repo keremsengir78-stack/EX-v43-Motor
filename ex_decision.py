@@ -50,6 +50,8 @@ def weighted_evidence(features, as_of=None):
                 or not item["timestamp"].strip()):
             issues.append(key+":unverified");continue
         try:
+            if not re.match(r"^\d{4}-\d{2}-\d{2}T",item["timestamp"]):
+                raise ValueError("evidence timestamp must be canonical")
             timestamp=dt.datetime.fromisoformat(item["timestamp"].replace("Z","+00:00"))
             if timestamp.tzinfo is None or timestamp.utcoffset() is None:
                 raise ValueError("timezone missing")
