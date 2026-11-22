@@ -70,6 +70,9 @@ class DeltaAuditTests(unittest.TestCase):
         result = compare_audits(audit(2, 3), audit(3, 2, reviewed=True))
         self.assertEqual(result["remaining_by_league"], {"en.1": 2})
         self.assertEqual(result["cases_with_unresolved"], 1)
+        self.assertEqual(result["review_queue"][0]["league"], "en.1")
+        self.assertEqual(result["review_queue"][0]["unmatched"], 2)
+        self.assertEqual(result["cases"][0]["unresolved_reason"], "NAME_OR_FIXTURE_MISMATCH_REQUIRES_SOURCE_REVIEW")
 
     def test_empty_audits_rejected(self):
         with self.assertRaises(ValueError):
