@@ -16,6 +16,18 @@ class SafetyGates(unittest.TestCase):
         self.assertIsNone(result["calibrated_probability"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_exg_rejects_noncanonical_analysis_dates(self):
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-21T09:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for cutoff in ("2026-W47-7","20261122","2026-11-2"):
+            result=weighted_evidence(features,as_of=cutoff)
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("invalid_as_of",result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(weighted_evidence(features,as_of="2026-11-22")["status"],
+                         "EVIDENCE_COMPLETE_UNCALIBRATED")
+
     def test_fixture_time_boundaries(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-22T09:00:00Z",
