@@ -16,6 +16,18 @@ class SecondaryReviewSummaryTests(unittest.TestCase):
         self.assertEqual(result["germany_unmatched"], 1)
         self.assertEqual(result["unmatched_by_league"], {"de.1": 1})
 
+    def test_combines_multiple_seasons_for_germany(self):
+        audit = {"ex_final_allowed": False, "secondary_unverified": 3,
+                 "secondary_review_queue": [
+                     {"season": "2025-26", "league": "de.1", "unmatched": [{"id": 1}]},
+                     {"season": "2026-27", "league": "de.1", "unmatched": [{"id": 2}]},
+                     {"season": "2026-27", "league": "es.1", "unmatched": [{"id": 3}]}]}
+        result = summarize(audit)
+        self.assertEqual(result["germany_unmatched"], 2)
+        self.assertEqual(result["unmatched_by_league"], {"de.1": 2, "es.1": 1})
+        self.assertEqual(result["unmatched_total"], 3)
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_rejects_missing_or_inconsistent_counts(self):
         base = {"ex_final_allowed": False, "secondary_review_queue": [
             {"season": "2026-27", "league": "de.1",
