@@ -16,10 +16,21 @@ def compare_audits(raw, reviewed):
     if len(raw_cases) != len(reviewed_cases) or not raw_cases:
         raise ValueError("case counts differ or empty")
     cases = []
+    seen = set()
     for original, updated in zip(raw_cases, reviewed_cases):
         identity = ("league", "season", "day", "as_of")
         if any(original.get(key) != updated.get(key) for key in identity):
             raise ValueError("audit cases not aligned")
+        case_id = tuple(original.get(key) for key in identity)
+        if case_id in seen:
+            raise ValueError("duplicate audit case")
+        seen.add(case_id)
+        for record in (original, updated):
+            for field in ("matched", "unmatched", "conflict_count"):
+                if type(record.get(field)) is not int or record[field] < 0:
+                    raise ValueError("invalid audit counts")
+        if original["matched"] + original["unmatched"] != updated["matched"] + updated["unmatched"]:
+            raise ValueError("different fixture populations cannot be compared")
         cases.append({
             "league": original["league"], "day": original["day"],
             "raw_matched": original["matched"], "reviewed_matched": updated["matched"],
