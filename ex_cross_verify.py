@@ -56,8 +56,9 @@ def secondary_rows(season, league, offline=None):
         return [], {"error":"unsupported league"}
     try:
         years=season.split("-")
-        if (len(years) != 2 or any(len(year) != 4 or not year.isascii() or not year.isdigit() for year in years)
-                or int(years[1]) != int(years[0]) + 1):
+        if (len(years) != 2 or len(years[0]) != 4 or len(years[1]) not in (2, 4)
+                or any(not year.isascii() or not year.isdigit() for year in years)
+                or (int(years[1]) if len(years[1]) == 4 else int(years[0][:2] + years[1])) != int(years[0]) + 1):
             raise ValueError("invalid season")
     except (AttributeError, TypeError, ValueError):
         return [], {"error":"invalid season","provider":"football-data.co.uk"}
