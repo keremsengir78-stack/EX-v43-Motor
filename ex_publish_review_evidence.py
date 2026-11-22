@@ -62,6 +62,19 @@ if status["summary_exists"] and status["germany_csv_exists"]:
                 for row in new_candidates["candidates"]
             ]
             status["germany_candidates_approved"]=False
+        german_strict_path=Path("ex_run/germany_strict_score_reconcile.json")
+        if german_strict_path.is_file():
+            german_strict=json.loads(german_strict_path.read_text(encoding="utf-8"))
+            expected=status.get("germany_shadow_remaining_count")
+            if (german_strict.get("ex_final_allowed") is not False
+                    or type(german_strict.get("confirmed")) is not int
+                    or type(german_strict.get("remaining")) is not int
+                    or german_strict["confirmed"]+german_strict["remaining"]!=expected):
+                raise ValueError("Unsafe German strict score reconciliation")
+            Path("reports/latest_germany_strict_score_reconcile.json").write_bytes(german_strict_path.read_bytes())
+            status["germany_strict_score_confirmed"]=german_strict["confirmed"]
+            status["germany_strict_score_remaining"]=german_strict["remaining"]
+            status["germany_strict_score_scope"]="german_shadow_remainder_only"
         queue_path=Path("ex_run/multileague_review_queue.json")
         if queue_path.is_file():
             queue=json.loads(queue_path.read_text(encoding="utf-8"))
