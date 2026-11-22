@@ -16,6 +16,20 @@ class SafetyGates(unittest.TestCase):
         self.assertIsNone(result["calibrated_probability"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_exg_weighted_contributions_are_independent_of_final_probability(self):
+        features={
+            "team_strength":{"score":0.8,"verified":True,"source":"audit","timestamp":"2026-11-21T09:00:00Z"},
+            "match_conditions":{"score":0.6,"verified":True,"source":"audit","timestamp":"2026-11-21T09:00:00Z"},
+            "external_factors":{"score":0.5,"verified":True,"source":"audit","timestamp":"2026-11-21T09:00:00Z"},
+        }
+        result=weighted_evidence(features,as_of="2026-11-22")
+        self.assertEqual(result["contributions"],{
+            "team_strength":0.4,"match_conditions":0.18,"external_factors":0.1})
+        self.assertAlmostEqual(result["weighted_score"],0.68)
+        self.assertEqual(result["status"],"EVIDENCE_COMPLETE_UNCALIBRATED")
+        self.assertIsNone(result["calibrated_probability"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_exg_rejects_noncanonical_analysis_dates(self):
         features={name:{"score":0.8,"verified":True,"source":"audit",
                         "timestamp":"2026-11-21T09:00:00Z"}
