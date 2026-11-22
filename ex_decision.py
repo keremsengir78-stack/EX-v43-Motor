@@ -5,6 +5,7 @@ A percentage must not be labelled EX FINAL without external calibration.
 """
 import math
 import datetime as dt
+import re
 
 WEIGHTS={"team_strength":0.50,"match_conditions":0.30,"external_factors":0.20}
 MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
@@ -21,6 +22,8 @@ def weighted_evidence(features, as_of=None):
             if not isinstance(as_of,str) or not as_of.strip():
                 raise ValueError("as_of must be a nonempty ISO date or datetime")
             if len(as_of)==10:
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",as_of):
+                    raise ValueError("analysis date must be YYYY-MM-DD")
                 cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
             else:
                 cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
