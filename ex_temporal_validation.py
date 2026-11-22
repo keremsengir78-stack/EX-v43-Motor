@@ -10,8 +10,8 @@ def _timestamp(value):
     if not isinstance(value, str) or not value.endswith("Z"):
         raise ValueError("UTC timestamp required")
     parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
-    if parsed.tzinfo is None:
-        raise ValueError("timezone missing")
+    if parsed.utcoffset() != dt.timedelta(0):
+        raise ValueError("UTC timezone required")
     return parsed
 
 
@@ -25,6 +25,8 @@ def chronological_split(records, evaluation_start, min_train=30, min_test=30):
     if any(isinstance(x, bool) or not isinstance(x, int) or x < 1
            for x in (min_train, min_test)):
         issues.append("sample_threshold:invalid")
+        min_train = 30
+        min_test = 30
     if not isinstance(records, list) or not records:
         issues.append("records:missing")
         records = []
@@ -34,8 +36,11 @@ def chronological_split(records, evaluation_start, min_train=30, min_test=30):
         if not isinstance(row, dict):
             issues.append("record:%d:invalid" % i)
             continue
-        key = (row.get("fixture_id"), row.get("market"))
-        if not isinstance(key[0], str) or not key[0].strip() or key in seen:
+        fixture, market = row.get("fixture_id"), row.get("market")
+        key = (fixture, market) if isinstance(market, str) else None
+        if (not isinstance(fixture, str) or not fixture.strip()
+                or not isinstance(market, str) or not market.strip()
+                or key in seen):
             issues.append("record:%d:duplicate_or_missing" % i)
         else:
             seen.add(key)
