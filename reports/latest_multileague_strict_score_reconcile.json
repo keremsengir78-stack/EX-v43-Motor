@@ -1,11 +1,1932 @@
 {
   "total": 1177,
-  "confirmed": 0,
-  "remaining": 1177,
+  "confirmed": 96,
+  "remaining": 1081,
   "reasons": {
-    "SECONDARY_MISSING_OR_AMBIGUOUS": 1177
+    "SECONDARY_MISSING_OR_AMBIGUOUS": 1081
   },
-  "verified": [],
+  "verified": [
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-23",
+        "home": "Levante UD",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-24",
+        "home": "Villarreal CF",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        5,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-25",
+        "home": "Sevilla FC",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-12",
+        "home": "Sevilla FC",
+        "away": "Elche CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-14",
+        "home": "FC Barcelona",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        6,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-20",
+        "home": "Girona FC",
+        "away": "Levante UD",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-21",
+        "home": "FC Barcelona",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-23",
+        "home": "Sevilla FC",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Girona FC",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-26",
+        "home": "Real Madrid CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-31",
+        "home": "Getafe CF",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-02",
+        "home": "FC Barcelona",
+        "away": "Elche CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-08",
+        "home": "Sevilla FC",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-30",
+        "home": "Girona FC",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-07",
+        "home": "Elche CF",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-07",
+        "home": "Valencia CF",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-13",
+        "home": "FC Barcelona",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-20",
+        "home": "Real Madrid CF",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-21",
+        "home": "Villarreal CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-04",
+        "home": "Sevilla FC",
+        "away": "Levante UD",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Girona FC",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-19",
+        "home": "Elche CF",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-26",
+        "home": "Girona FC",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-31",
+        "home": "Elche CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "FC Barcelona",
+        "away": "Levante UD",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "Getafe CF",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-28",
+        "home": "FC Barcelona",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-07",
+        "home": "Levante UD",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "CA Osasuna",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-21",
+        "home": "Sevilla FC",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-06",
+        "home": "Girona FC",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-10",
+        "home": "Real Madrid CF",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-23",
+        "home": "Levante UD",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Getafe CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-25",
+        "home": "Valencia CF",
+        "away": "Girona FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-26",
+        "home": "CA Osasuna",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-02",
+        "home": "CA Osasuna",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-10",
+        "home": "FC Barcelona",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-13",
+        "home": "Villarreal CF",
+        "away": "Sevilla FC",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Sevilla FC",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-23",
+        "home": "Girona FC",
+        "away": "Elche CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-23",
+        "home": "Valencia CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-23",
+        "home": "Elche CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        5
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-06",
+        "home": "Valencia CF",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        5
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-11",
+        "home": "Sevilla FC",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-13",
+        "home": "Levante UD",
+        "away": "FC Barcelona",
+        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-19",
+        "home": "Real Madrid CF",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-24",
+        "home": "CA Osasuna",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-29",
+        "home": "Elche CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-08-29",
+        "home": "Valencia CF",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-20",
+        "home": "Villarreal CF",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-23",
+        "home": "Levante UD",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-25",
+        "home": "CA Osasuna",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-09-27",
+        "home": "Getafe CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-03",
+        "home": "CA Osasuna",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-04",
+        "home": "Real Madrid CF",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-19",
+        "home": "Getafe CF",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-10-25",
+        "home": "Valencia CF",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-01",
+        "home": "Real Madrid CF",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-21",
+        "home": "Valencia CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-23",
+        "home": "Elche CF",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-11-28",
+        "home": "Getafe CF",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-06",
+        "home": "Villarreal CF",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2025-12-08",
+        "home": "CA Osasuna",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-03",
+        "home": "Elche CF",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-10",
+        "home": "Valencia CF",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-17",
+        "home": "Real Madrid CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-18",
+        "home": "Getafe CF",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-23",
+        "home": "Levante UD",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-24",
+        "home": "Villarreal CF",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-01-31",
+        "home": "CA Osasuna",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-08",
+        "home": "Valencia CF",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-13",
+        "home": "Elche CF",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-14",
+        "home": "Getafe CF",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-15",
+        "home": "Levante UD",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-18",
+        "home": "Levante UD",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-21",
+        "home": "CA Osasuna",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-02-22",
+        "home": "Villarreal CF",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-01",
+        "home": "Valencia CF",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-02",
+        "home": "Real Madrid CF",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-08",
+        "home": "Villarreal CF",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-03-14",
+        "home": "Real Madrid CF",
+        "away": "Elche CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-11",
+        "home": "Elche CF",
+        "away": "Valencia CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-04-13",
+        "home": "Levante UD",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-02",
+        "home": "Villarreal CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        5,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-08",
+        "home": "Levante UD",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-17",
+        "home": "Elche CF",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2025-26",
+        "date": "2026-05-23",
+        "home": "Getafe CF",
+        "away": "CA Osasuna",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-24",
+        "home": "CA Osasuna",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-30",
+        "home": "Real Madrid CF",
+        "away": "Málaga CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-08-31",
+        "home": "CA Osasuna",
+        "away": "Getafe CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-06",
+        "home": "Málaga CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-15",
+        "home": "Elche CF",
+        "away": "Real Madrid CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-17",
+        "home": "Málaga CF",
+        "away": "Villarreal CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-20",
+        "home": "Getafe CF",
+        "away": "Málaga CF",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    },
+    {
+      "fixture": {
+        "league": "es.1",
+        "season": "2026-27",
+        "date": "2026-09-20",
+        "home": "Villarreal CF",
+        "away": "Levante UD",
+        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
+        "independent_score_verified": false,
+        "review_status": "PENDING_SOURCE_REVIEW"
+      },
+      "score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "verification": "EXACT_TEAM_DATE_SCORE_MATCH"
+    }
+  ],
   "unresolved": [
     {
       "fixture": {
@@ -2936,74 +4857,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-08-23",
-        "home": "Levante UD",
-        "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-08-24",
-        "home": "Villarreal CF",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-08-25",
-        "home": "Sevilla FC",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-08-31",
         "home": "Rayo Vallecano de Madrid",
         "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-12",
-        "home": "Sevilla FC",
-        "away": "Elche CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-14",
-        "home": "FC Barcelona",
-        "away": "Valencia CF",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3040,48 +4896,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-09-20",
-        "home": "Girona FC",
-        "away": "Levante UD",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-21",
-        "home": "FC Barcelona",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-09-23",
         "home": "Athletic Club",
         "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-23",
-        "home": "Sevilla FC",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3144,19 +4961,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-10-04",
-        "home": "Girona FC",
-        "away": "Valencia CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-10-18",
         "home": "Sevilla FC",
         "away": "RCD Mallorca",
@@ -3196,32 +5000,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-10-26",
-        "home": "Real Madrid CF",
-        "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-10-31",
-        "home": "Getafe CF",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-11-01",
         "home": "Club Atlético de Madrid",
         "away": "Sevilla FC",
@@ -3235,35 +5013,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-11-02",
-        "home": "FC Barcelona",
-        "away": "Elche CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-11-08",
         "home": "Girona FC",
         "away": "Deportivo Alavés",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-11-08",
-        "home": "Sevilla FC",
-        "away": "CA Osasuna",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3340,19 +5092,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2025-11-30",
-        "home": "Girona FC",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-11-30",
         "home": "Sevilla FC",
         "away": "Real Betis Balompié",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
@@ -3391,48 +5130,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-12-07",
-        "home": "Elche CF",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-12-07",
-        "home": "Valencia CF",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-12-12",
         "home": "Real Sociedad de Fútbol",
         "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-12-13",
-        "home": "FC Barcelona",
-        "away": "CA Osasuna",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3456,35 +5156,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-12-20",
-        "home": "Real Madrid CF",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-12-21",
         "home": "Girona FC",
         "away": "Club Atlético de Madrid",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-12-21",
-        "home": "Villarreal CF",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3511,32 +5185,6 @@
         "date": "2026-01-04",
         "home": "RCD Mallorca",
         "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-04",
-        "home": "Sevilla FC",
-        "away": "Levante UD",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-10",
-        "home": "Girona FC",
-        "away": "CA Osasuna",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3586,19 +5234,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-01-19",
-        "home": "Elche CF",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-01-24",
         "home": "Sevilla FC",
         "away": "Athletic Club",
@@ -3615,32 +5250,6 @@
         "date": "2026-01-25",
         "home": "FC Barcelona",
         "away": "Real Oviedo",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-26",
-        "home": "Girona FC",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-31",
-        "home": "Elche CF",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3703,48 +5312,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-02-22",
-        "home": "FC Barcelona",
-        "away": "Levante UD",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-22",
-        "home": "Getafe CF",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-02-23",
         "home": "Deportivo Alavés",
         "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-28",
-        "home": "FC Barcelona",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3794,19 +5364,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-03-07",
-        "home": "Levante UD",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-03-08",
         "home": "Sevilla FC",
         "away": "Rayo Vallecano de Madrid",
@@ -3823,32 +5380,6 @@
         "date": "2026-03-14",
         "home": "Girona FC",
         "away": "Athletic Club",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-03-21",
-        "home": "CA Osasuna",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-03-21",
-        "home": "Sevilla FC",
-        "away": "Valencia CF",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3888,32 +5419,6 @@
         "date": "2026-04-05",
         "home": "Real Oviedo",
         "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-06",
-        "home": "Girona FC",
-        "away": "Villarreal CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-10",
-        "home": "Real Madrid CF",
-        "away": "Girona FC",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -3976,74 +5481,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-04-23",
-        "home": "Levante UD",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-25",
-        "home": "Getafe CF",
-        "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-25",
-        "home": "Valencia CF",
-        "away": "Girona FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-26",
-        "home": "CA Osasuna",
-        "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-05-01",
         "home": "Girona FC",
         "away": "RCD Mallorca",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-02",
-        "home": "CA Osasuna",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -4080,19 +5520,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-05-10",
-        "home": "FC Barcelona",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-05-11",
         "home": "Rayo Vallecano de Madrid",
         "away": "Girona FC",
@@ -4109,19 +5536,6 @@
         "date": "2026-05-13",
         "home": "Deportivo Alavés",
         "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-13",
-        "home": "Villarreal CF",
-        "away": "Sevilla FC",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -4171,48 +5585,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-05-17",
-        "home": "Sevilla FC",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-23",
-        "home": "Girona FC",
-        "away": "Elche CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-05-23",
         "home": "RC Celta de Vigo",
         "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-23",
-        "home": "Valencia CF",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -4239,19 +5614,6 @@
         "date": "2026-08-22",
         "home": "Athletic Club",
         "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-23",
-        "home": "Elche CF",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -4304,45 +5666,6 @@
         "date": "2026-09-06",
         "home": "RCD Espanyol de Barcelona",
         "away": "Sevilla FC",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-06",
-        "home": "Valencia CF",
-        "away": "FC Barcelona",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-11",
-        "home": "Sevilla FC",
-        "away": "Valencia CF",
-        "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-13",
-        "home": "Levante UD",
-        "away": "FC Barcelona",
         "reason": "SECONDARY_SAME_DAY_SHARED_TEAM",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -6693,19 +8016,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-08-19",
-        "home": "Real Madrid CF",
-        "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-08-22",
         "home": "Real Betis Balompié",
         "away": "Deportivo Alavés",
@@ -6735,19 +8045,6 @@
         "date": "2025-08-23",
         "home": "RCD Mallorca",
         "away": "RC Celta de Vigo",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-08-24",
-        "home": "CA Osasuna",
-        "away": "Valencia CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -6800,32 +8097,6 @@
         "date": "2025-08-27",
         "home": "RC Celta de Vigo",
         "away": "Real Betis Balompié",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-08-29",
-        "home": "Elche CF",
-        "away": "Levante UD",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-08-29",
-        "home": "Valencia CF",
-        "away": "Getafe CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7044,19 +8315,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-09-20",
-        "home": "Villarreal CF",
-        "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-09-21",
         "home": "Elche CF",
         "away": "Real Oviedo",
@@ -7086,19 +8344,6 @@
         "date": "2025-09-21",
         "home": "Rayo Vallecano de Madrid",
         "away": "RC Celta de Vigo",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-23",
-        "home": "Levante UD",
-        "away": "Real Madrid CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7161,35 +8406,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-09-25",
-        "home": "CA Osasuna",
-        "away": "Elche CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-09-27",
         "home": "Club Atlético de Madrid",
         "away": "Real Madrid CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-09-27",
-        "home": "Getafe CF",
-        "away": "Levante UD",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7265,35 +8484,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-10-03",
-        "home": "CA Osasuna",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-10-04",
         "home": "Athletic Club",
         "away": "RCD Mallorca",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-10-04",
-        "home": "Real Madrid CF",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7422,19 +8615,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2025-10-19",
-        "home": "Getafe CF",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-10-19",
         "home": "Levante UD",
         "away": "Rayo Vallecano de Madrid",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -7499,19 +8679,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-10-25",
-        "home": "Valencia CF",
-        "away": "Villarreal CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-10-26",
         "home": "CA Osasuna",
         "away": "RC Celta de Vigo",
@@ -7554,19 +8721,6 @@
         "date": "2025-10-27",
         "home": "Real Betis Balompié",
         "away": "Club Atlético de Madrid",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-11-01",
-        "home": "Real Madrid CF",
-        "away": "Valencia CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7746,19 +8900,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-11-21",
-        "home": "Valencia CF",
-        "away": "Levante UD",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-11-22",
         "home": "CA Osasuna",
         "away": "Real Sociedad de Fútbol",
@@ -7799,19 +8940,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2025-11-23",
-        "home": "Elche CF",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-11-23",
         "home": "Getafe CF",
         "away": "Club Atlético de Madrid",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -7827,19 +8955,6 @@
         "date": "2025-11-23",
         "home": "Real Oviedo",
         "away": "Rayo Vallecano de Madrid",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-11-28",
-        "home": "Getafe CF",
-        "away": "Elche CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -7980,19 +9095,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2025-12-06",
-        "home": "Villarreal CF",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2025-12-07",
         "home": "RCD Espanyol de Barcelona",
         "away": "Rayo Vallecano de Madrid",
@@ -8009,19 +9111,6 @@
         "date": "2025-12-07",
         "home": "Real Madrid CF",
         "away": "RC Celta de Vigo",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2025-12-08",
-        "home": "CA Osasuna",
-        "away": "Levante UD",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8228,19 +9317,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2026-01-03",
-        "home": "Elche CF",
-        "away": "Villarreal CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-03",
         "home": "RC Celta de Vigo",
         "away": "Valencia CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -8308,19 +9384,6 @@
         "date": "2026-01-10",
         "home": "Real Oviedo",
         "away": "Real Betis Balompié",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-10",
-        "home": "Valencia CF",
-        "away": "Elche CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8409,19 +9472,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-01-17",
-        "home": "Real Madrid CF",
-        "away": "Levante UD",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-01-18",
         "home": "Club Atlético de Madrid",
         "away": "Deportivo Alavés",
@@ -8436,34 +9486,8 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2026-01-18",
-        "home": "Getafe CF",
-        "away": "Valencia CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-18",
         "home": "RC Celta de Vigo",
         "away": "Rayo Vallecano de Madrid",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-23",
-        "home": "Levante UD",
-        "away": "Elche CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8490,19 +9514,6 @@
         "date": "2026-01-24",
         "home": "Valencia CF",
         "away": "RCD Espanyol de Barcelona",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-24",
-        "home": "Villarreal CF",
-        "away": "Real Madrid CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8555,19 +9566,6 @@
         "date": "2026-01-30",
         "home": "RCD Espanyol de Barcelona",
         "away": "Deportivo Alavés",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-01-31",
-        "home": "CA Osasuna",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8708,48 +9706,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-02-08",
-        "home": "Valencia CF",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-02-09",
         "home": "Villarreal CF",
         "away": "RCD Espanyol de Barcelona",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-13",
-        "home": "Elche CF",
-        "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-14",
-        "home": "Getafe CF",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8776,19 +9735,6 @@
         "date": "2026-02-14",
         "home": "Real Madrid CF",
         "away": "Real Sociedad de Fútbol",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-15",
-        "home": "Levante UD",
-        "away": "Valencia CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8838,35 +9784,9 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-02-18",
-        "home": "Levante UD",
-        "away": "Villarreal CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-02-20",
         "home": "Athletic Club",
         "away": "Elche CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-21",
-        "home": "CA Osasuna",
-        "away": "Real Madrid CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8919,19 +9839,6 @@
         "date": "2026-02-22",
         "home": "RC Celta de Vigo",
         "away": "RCD Mallorca",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-02-22",
-        "home": "Villarreal CF",
-        "away": "Valencia CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -8997,32 +9904,6 @@
         "date": "2026-03-01",
         "home": "Elche CF",
         "away": "RCD Espanyol de Barcelona",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-03-01",
-        "home": "Valencia CF",
-        "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-03-02",
-        "home": "Real Madrid CF",
-        "away": "Getafe CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -9111,19 +9992,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-03-08",
-        "home": "Villarreal CF",
-        "away": "Elche CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-03-09",
         "home": "RCD Espanyol de Barcelona",
         "away": "Real Oviedo",
@@ -9153,19 +10021,6 @@
         "date": "2026-03-14",
         "home": "Club Atlético de Madrid",
         "away": "Getafe CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-03-14",
-        "home": "Real Madrid CF",
-        "away": "Elche CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -9424,19 +10279,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2026-04-11",
-        "home": "Elche CF",
-        "away": "Valencia CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-11",
         "home": "Real Sociedad de Fútbol",
         "away": "Deportivo Alavés",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -9491,19 +10333,6 @@
         "date": "2026-04-12",
         "home": "RCD Mallorca",
         "away": "Rayo Vallecano de Madrid",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-04-13",
-        "home": "Levante UD",
-        "away": "Getafe CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -9722,19 +10551,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2025-26",
-        "date": "2026-05-02",
-        "home": "Villarreal CF",
-        "away": "Levante UD",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
         "date": "2026-05-03",
         "home": "Getafe CF",
         "away": "Rayo Vallecano de Madrid",
@@ -9777,19 +10593,6 @@
         "date": "2026-05-03",
         "home": "Real Betis Balompié",
         "away": "Real Oviedo",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-08",
-        "home": "Levante UD",
-        "away": "CA Osasuna",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -9996,19 +10799,6 @@
         "league": "es.1",
         "season": "2025-26",
         "date": "2026-05-17",
-        "home": "Elche CF",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-17",
         "home": "Levante UD",
         "away": "RCD Mallorca",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -10063,19 +10853,6 @@
         "date": "2026-05-23",
         "home": "Deportivo Alavés",
         "away": "Rayo Vallecano de Madrid",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2025-26",
-        "date": "2026-05-23",
-        "home": "Getafe CF",
-        "away": "CA Osasuna",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -10295,19 +11072,6 @@
         "league": "es.1",
         "season": "2026-27",
         "date": "2026-08-24",
-        "home": "CA Osasuna",
-        "away": "Levante UD",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-24",
         "home": "Málaga CF",
         "away": "RC Deportivo La Coruña",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -10437,32 +11201,6 @@
       "fixture": {
         "league": "es.1",
         "season": "2026-27",
-        "date": "2026-08-30",
-        "home": "Real Madrid CF",
-        "away": "Málaga CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-08-31",
-        "home": "CA Osasuna",
-        "away": "Getafe CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
         "date": "2026-09-03",
         "home": "Real Sociedad de Fútbol",
         "away": "RC Celta de Vigo",
@@ -10531,19 +11269,6 @@
         "date": "2026-09-06",
         "home": "Deportivo Alavés",
         "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-06",
-        "home": "Málaga CF",
-        "away": "Levante UD",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -10698,19 +11423,6 @@
         "league": "es.1",
         "season": "2026-27",
         "date": "2026-09-15",
-        "home": "Elche CF",
-        "away": "Real Madrid CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-15",
         "home": "Rayo Vallecano de Madrid",
         "away": "RCD Espanyol de Barcelona",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -10726,19 +11438,6 @@
         "date": "2026-09-16",
         "home": "Club Atlético de Madrid",
         "away": "CA Osasuna",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-17",
-        "home": "Málaga CF",
-        "away": "Villarreal CF",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
@@ -10828,19 +11527,6 @@
         "league": "es.1",
         "season": "2026-27",
         "date": "2026-09-20",
-        "home": "Getafe CF",
-        "away": "Málaga CF",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-20",
         "home": "RC Deportivo La Coruña",
         "away": "Real Betis Balompié",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
@@ -10856,19 +11542,6 @@
         "date": "2026-09-20",
         "home": "Valencia CF",
         "away": "Real Sociedad de Fútbol",
-        "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
-        "independent_score_verified": false,
-        "review_status": "PENDING_SOURCE_REVIEW"
-      },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
-    },
-    {
-      "fixture": {
-        "league": "es.1",
-        "season": "2026-27",
-        "date": "2026-09-20",
-        "home": "Villarreal CF",
-        "away": "Levante UD",
         "reason": "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH",
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
