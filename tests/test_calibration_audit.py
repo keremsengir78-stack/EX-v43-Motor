@@ -25,6 +25,30 @@ class CalibrationAuditTests(unittest.TestCase):
         self.assertFalse(result["pup_allowed"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_reliability_bins_and_observed_frequency(self):
+        records = [row(i, 0.75, 1 if i % 2 == 0 else 0) for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["mean_predicted"], 0.75)
+        self.assertEqual(result["observed_rate"], 0.5)
+        self.assertEqual(result["reliability_bins"], [{
+            "range": "70-80", "count": 100, "mean_predicted": 0.75, "observed_rate": 0.5
+        }])
+        self.assertFalse(result["calibration_certified"])
+
+    def test_probability_one_is_in_final_bin(self):
+        records = [row(i, 1.0, 1) for i in range(100)]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["reliability_bins"][0]["range"], "90-100")
+        self.assertEqual(result["reliability_bins"][0]["count"], 100)
+        self.assertEqual(result["brier_score"], 0.0)
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_blocked_audit_never_emits_reliability_metrics(self):
+        result = audit_predictions([row(1)], "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertEqual(result["reliability_bins"], [])
+        self.assertIsNone(result["mean_predicted"])
+        self.assertIsNone(result["observed_rate"])
+
     def test_insufficient_sample_is_blocked(self):
         result = audit_predictions([row(i) for i in range(30)], "KG_VAR", "2026-02-01T00:00:00Z")
         self.assertIn("sample:insufficient", result["issues"])
