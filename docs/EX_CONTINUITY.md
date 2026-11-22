@@ -51,3 +51,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `reports/latest_pipeline_status.json` doğrudan okundu. 2025-26/2026-27 çoklu lig denetiminde **1845** uyuşmazlık; Almanya (`de.1`) **339**. Bunlar önceki 25/16 örneklemiyle karşılaştırılmamalıdır.
 - `reports/latest_germany_unresolved_review.csv` okundu: 339 satırın **74**'ü `SECONDARY_SAME_DAY_SHARED_TEAM`, **265**'i `SECONDARY_DATE_PRESENT_NO_TEAM_MATCH`. 74 kayıt, yalnızca adlandırma/aday karşılaştırmasına elverişlidir; doğrulanmış maç değildir.
 - Kaynak inceleme raporları artık depoda; kalan iş, lig bazlı kontrollü alias incelemesi, bağımsız skor ve tarih eşleşmesi, ikinci tur test/kalibrasyondur. EX FINAL kilitli.
+
+## 2026-11-22: Almanya alias aday raporu
+- GitHub Actions run `45029715005`, kaynak commit `adf53aa7bbb189251746754fc7087314ddfe4bb4`: ingest/review başarılı, evidence_published=true, Almanya uyuşmazlık=339, otomatik çıkarılmış **16** alias adayı (`reports/latest_germany_alias_candidates.json`). Hepsi MANUAL_REVIEW_REQUIRED; otomatik onay yok.
+- `7dfa827cd098fece1985e4d408ea9276fed676a5`: çakışan çoklu isim eşleştirmelerine `mapping_conflict` bayrağı eklendi.
+- `4f0f5bee80fd664d95767b3dc5ac165019d38c0c`: çelişkili eşleştirme testi. Yeni commitlerin CI sonucu henüz doğrulanmadı; yayımlanmış 16 aday eski şemadadır, sonraki iş akışında conflict alanı bekleniyor.
