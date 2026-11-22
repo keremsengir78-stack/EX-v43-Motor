@@ -24,7 +24,7 @@ def weighted_evidence(features, as_of=None):
                 cutoff=dt.datetime.combine(dt.date.fromisoformat(as_of),dt.time.min,dt.timezone.utc)
             else:
                 cutoff=dt.datetime.fromisoformat(as_of.replace('Z','+00:00'))
-                if cutoff.tzinfo is None:
+                if cutoff.tzinfo is None or cutoff.utcoffset() is None:
                     raise ValueError('as_of must be timezone-aware')
         except (ValueError,TypeError,OverflowError):
             # Never accept evidence if the analysis cutoff cannot be established.
@@ -38,7 +38,7 @@ def weighted_evidence(features, as_of=None):
         if not isinstance(item,dict):
             issues.append(key+":missing");continue
         score=item.get("score")
-        if isinstance(score,bool) or not isinstance(score,(int,float)) or not 0<=score<=1:
+        if isinstance(score,bool) or not isinstance(score,(int,float)) or not math.isfinite(score) or not 0<=score<=1:
             issues.append(key+":invalid_score");continue
         if (item.get("verified") is not True or not isinstance(item.get("source"),str)
                 or not item["source"].strip() or not isinstance(item.get("timestamp"),str)
@@ -46,7 +46,7 @@ def weighted_evidence(features, as_of=None):
             issues.append(key+":unverified");continue
         try:
             timestamp=dt.datetime.fromisoformat(item["timestamp"].replace("Z","+00:00"))
-            if timestamp.tzinfo is None:
+            if timestamp.tzinfo is None or timestamp.utcoffset() is None:
                 raise ValueError("timezone missing")
             if cutoff is not None and timestamp>=cutoff:
                 issues.append(key+":future_evidence");continue
