@@ -68,6 +68,18 @@ class SafetyGates(unittest.TestCase):
         fixture["fixture_checked_at"]="2026-11-22T09:00:00Z"
         self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00Z")["status"],"VERIFIED_INPUT")
 
+    def test_fixture_date_only_cutoff_normalizes_timezone_to_utc(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-22T01:30:00+03:00",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        # This verification is still on Nov 21 in UTC.
+        self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
+        fixture["fixture_checked_at"]="2026-11-21T23:30:00-03:00"
+        # This verification is already Nov 22 in UTC.
+        result=check_fixture(fixture,"2026-11-22")
+        self.assertEqual(result["status"],"BLOCKED")
+        self.assertIn("fixture:verified_after_analysis",result["issues"])
+
     def test_fixture_rejects_noncanonical_dates(self):
         fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
                  "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
