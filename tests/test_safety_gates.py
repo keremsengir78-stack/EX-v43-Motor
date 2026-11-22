@@ -59,6 +59,33 @@ class SafetyGates(unittest.TestCase):
             self.assertIn("second_source:unverified",result["issues"])
             self.assertFalse(result["ex_final_allowed"])
 
+    def test_auto_control_tur2_and_ingestion_fail_closed(self):
+        match={"recompute_consistent":False,"status":"BASELINE_ONLY",
+               "fixture_lock":{"status":"VERIFIED_INPUT"},
+               "odds_lock":{"status":"VERIFIED_INPUT"},
+               "market_baselines_pct":{"2.5_UST":50,"KG_VAR":50,
+                                       "MS1":40,"MSX":30,"MS2":30}}
+        ingestion={"status":"UNKNOWN","independent_sources_confirmed":2}
+        result=auto_control(match,ingestion)
+        self.assertIn("tur2:recompute_mismatch",result["issues"])
+        self.assertIn("ingestion:blocked",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_exg_rejects_future_and_nonfinite_evidence(self):
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-21T09:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for invalid in (float("nan"),float("inf"),float("-inf")):
+            candidate={key:dict(value) for key,value in features.items()}
+            candidate["team_strength"]["score"]=invalid
+            result=weighted_evidence(candidate,as_of="2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIsNone(result["weighted_score"])
+        features["team_strength"]["timestamp"]="2026-11-22T01:00:00Z"
+        result=weighted_evidence(features,as_of="2026-11-22")
+        self.assertIn("team_strength:future_evidence",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_auto_control_extreme_snapshot_does_not_crash(self):
         match={"recompute_consistent":True,"status":"BASELINE_ONLY",
                "fixture_lock":{"status":"VERIFIED_INPUT"},
