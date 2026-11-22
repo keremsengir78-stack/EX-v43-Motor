@@ -36,12 +36,17 @@ def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
         if len(by_side)!=2 or set(by_side)!={"home","away"}:
             continue
         try:
-            day=dt.date.fromisoformat(event["date"][:10])
+            raw_date=event["date"]
+            if not isinstance(raw_date,str) or len(raw_date)<10:
+                continue
+            day=dt.date.fromisoformat(raw_date[:10])
             if day>=cutoff or (requested is not None and day!=requested):
                 continue
             home=by_side["home"];away=by_side["away"]
             home_name=home["team"]["displayName"].strip()
             away_name=away["team"]["displayName"].strip()
+            if home_name.casefold()==away_name.casefold():
+                continue
             raw_hg,raw_ag=home["score"],away["score"]
             if any(isinstance(v,bool) or not isinstance(v,(int,str)) or not str(v).isdigit() for v in (raw_hg,raw_ag)):
                 continue
