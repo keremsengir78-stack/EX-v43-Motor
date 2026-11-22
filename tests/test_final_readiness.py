@@ -49,7 +49,13 @@ class FinalReadinessTests(unittest.TestCase):
         historical = {"status": "OUT_OF_SAMPLE_AUDIT_COMPLETE_NOT_CERTIFIED",
                       "split": {"status": "CHRONOLOGICAL_SPLIT_READY",
                                 "evaluation_start": "2026-01-01T00:00:00Z",
-                                "train": [], "test": rows},
+                                "train": [{"fixture_id": "train-" + str(i),
+                                           "market": "KG_VAR",
+                                           "predicted_at": "2025-12-30T10:00:00Z",
+                                           "kickoff_at": "2025-12-30T12:00:00Z",
+                                           "settled_at": "2025-12-30T14:00:00Z"}
+                                          for i in range(30)],
+                                "test": rows},
                       "evaluation": measured}
         return measured, historical
 
@@ -173,6 +179,43 @@ class FinalReadinessTests(unittest.TestCase):
         self.assertIn("historical_validation", evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
             measured, historical)["missing_checks"])
+
+    def test_training_insufficient_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"] = historical["split"]["train"][:29]
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_training_time_leakage_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"][0]["settled_at"] = "2026-01-02T14:00:00Z"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_training_invalid_prediction_order_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"][0]["predicted_at"] = "2025-12-30T13:00:00Z"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_training_duplicate_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["split"]["train"][1]["fixture_id"] = "train-0"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_cross_audit_market_mismatch_blocks(self):
+        measured, historical = self._valid_holdout()
+        other = dict(measured, market="MS1")
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            other, historical)
+        self.assertIn("calibration:historical_market_mismatch", result["issues"])
+        self.assertIn("calibration", result["missing_checks"])
 
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
