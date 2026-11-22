@@ -16,6 +16,34 @@ def parse(events):
 
 
 class ESPNMalformedTests(unittest.TestCase):
+    def test_requested_day_filters_other_dates(self):
+        first, second = event(), event()
+        second["date"] = "2026-01-02T12:00:00Z"
+        result = parse_espn_scoreboard({"events": [first, second]}, "en.1",
+                                       "2026-02-01", requested_day="2026-01-01")
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["date"], "2026-01-01")
+
+    def test_requested_day_accepts_matching_date(self):
+        result = parse_espn_scoreboard({"events": [event()]}, "en.1",
+                                       "2026-02-01", requested_day="2026-01-01")
+        self.assertEqual(len(result), 1)
+
+    def test_requested_day_at_cutoff_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_espn_scoreboard({"events": [event()]}, "en.1",
+                                  "2026-02-01", requested_day="2026-02-01")
+
+    def test_invalid_requested_day_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_espn_scoreboard({"events": [event()]}, "en.1",
+                                  "2026-02-01", requested_day="invalid")
+
+    def test_no_requested_day_preserves_legacy_parser(self):
+        first, second = event(), event()
+        second["date"] = "2026-01-02T12:00:00Z"
+        self.assertEqual(len(parse([first, second])), 2)
+
     def test_identical_duplicate_match_deduplicated(self):
         self.assertEqual(len(parse([event(), event()])), 1)
 
