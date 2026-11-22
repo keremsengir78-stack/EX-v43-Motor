@@ -68,3 +68,10 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Kaynak Almanya unmatched=339, aday haritalı izole gölge unmatched=8, gölge farkı=331; gölge skor çelişkisi=0 ve kaynak hata listesi boş. Bu **331 bağımsız doğrulanmış maç değildir**. Offline inceleme: 36 tekil isim adayı, 0 doğrulanmış skor, 339 kayıt halen doğrulama bekliyor.
 - `ex_germany_shadow_metrics.py` yeni sayısal ve EX FINAL güvenlik kontrolünü uygular; `tests/test_germany_shadow_metrics.py` regresyonları eklendi; `ex-review-sync.yml` doğrulanmış metrikleri ayrı rapora yazar ve yoksa CI başarısız olur.
 - Son değişikliklerin yeni CI ve `reports/latest_germany_shadow_validated_metrics.json` çıktısı henüz teyit edilmedi. Onaylı alias map değişmedi; EX FINAL kilitli.
+
+## 2026-11-22: 5'li toplu devam, kalan gölge uyuşmazlıklar
+- Önceki metrik doğrulama işi `45030131008` başarıyla yayımlandı: 339 baseline, 8 shadow, 331 yalnızca gölge farkı, 36 isim adayı, 0 bağımsız doğrulama, 0 gölge skor çelişkisi. EX FINAL=false.
+- `ex_germany_shadow_remaining.py` izole gölge denetiminin 8 kalan kaydını tam ayrıntılarıyla çıkarır; toplamlar tutmazsa reddeder.
+- `tests/test_germany_shadow_remaining.py` iki regresyon testi eklendi.
+- `ex-review-sync.yml` yeni `reports/latest_germany_shadow_remaining.json` dosyasını yayımlayacak ve eksikse çalışmayı başarısız sayacak.
+- Yeni CI sonucu ve kalan 8 kaydın gerçek listesi **henüz teyit edilmedi**; sonraki turda kontrol edilmeli. Asıl 339 kayıt halen doğrulama bekliyor.
