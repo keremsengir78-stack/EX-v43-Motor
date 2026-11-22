@@ -69,7 +69,8 @@ def secondary_rows(season, league, offline=None):
             path = Path(offline)/f"{code}_{DIVISIONS[league]}.csv"
             if path.stat().st_size > MAX_SECONDARY_BYTES:
                 raise ValueError("secondary CSV exceeds size limit")
-            raw=path.read_bytes()
+            with path.open("rb") as stream:
+                raw=stream.read(MAX_SECONDARY_BYTES + 1)
         else:
             with urllib.request.urlopen(
                 urllib.request.Request(url,headers={"User-Agent":"EX-v43-research/1.0"}),
