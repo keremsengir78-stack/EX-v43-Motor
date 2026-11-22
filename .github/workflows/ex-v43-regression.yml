@@ -70,6 +70,11 @@ jobs:
               -f state=failure \
               -f context="ex-v43/full-diagnostic" \
               -f description="${failure_lines:0:140}"
+            diagnostic=$(printf "%s" "$failure_lines" | cut -d";" -f1 | sed -E 's/[^A-Za-z0-9_.:-]+/_/g' | cut -c1-90)
+            gh api "repos/$GH_REPO/statuses/$GITHUB_SHA" \
+              -f state=failure \
+              -f context="ex-v43/failing-test/$diagnostic" \
+              -f description="First full regression failure identifier"
           fi
           for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT"; do
             stage="${item%%:*}"
