@@ -11,11 +11,11 @@ def report(status="PROVISIONAL_MATCH_UNAUDITED", matched=2, unmatched=0, ambiguo
 
 
 class MultiCaseAuditTests(unittest.TestCase):
-    def test_five_case_aggregate(self):
+    def test_twenty_case_aggregate(self):
         with patch.object(batch, "run_pilot", return_value=report()) as fetch:
             result = batch.run_batch("2026-11-22")
-        self.assertEqual(fetch.call_count, 5)
-        self.assertEqual(result["matched"], 10)
+        self.assertEqual(fetch.call_count, len(batch.DEFAULT_CASES))
+        self.assertEqual(result["matched"], 2 * len(batch.DEFAULT_CASES))
         self.assertEqual(result["coverage"], 1.0)
         self.assertEqual(result["status"], "PROVISIONAL_MULTI_CASE")
         self.assertFalse(result["ex_final_allowed"])
