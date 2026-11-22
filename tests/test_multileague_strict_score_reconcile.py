@@ -165,6 +165,23 @@ class StrictScoreReconcileTests(unittest.TestCase):
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
             self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],1)
 
+    def test_racing_santander_provider_name_requires_equal_score(self):
+        self.fixture.update({"league":"es.1","home":"Real Racing Club de Santander","away":"Villarreal CF"})
+        self.primary[0].update({"league":"es.1","home":"Real Racing Club de Santander","away":"Villarreal CF"})
+        self.secondary[0].update({"home":"Racing","away":"Villarreal"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],1)
+        self.secondary[0]["away_goals"]=2
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            self.assertEqual(reconcile(self.batches,self.primary)["reasons"],{"SCORE_CONFLICT":1})
+
+    def test_deportivo_la_coruna_provider_name(self):
+        self.fixture.update({"league":"es.1","home":"RC Deportivo La Coruña","away":"Sevilla FC"})
+        self.primary[0].update({"league":"es.1","home":"RC Deportivo La Coruña","away":"Sevilla FC"})
+        self.secondary[0].update({"home":"Deportivo","away":"Sevilla"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            self.assertEqual(reconcile(self.batches,self.primary)["confirmed"],1)
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
