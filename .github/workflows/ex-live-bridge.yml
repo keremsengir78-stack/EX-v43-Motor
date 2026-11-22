@@ -21,7 +21,7 @@ permissions:
 jobs:
   live-bridge:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           python ex_live_bridge_pilot.py --league en.1 --season 2026-2027 --day 2026-11-01 --as-of 2026-11-22 --out ex_live_bridge_audit.json
-      - name: Compare five real historical league-date cases
+      - name: Compare twenty historical league-date cases
         shell: bash
         run: |
           python ex_live_bridge_batch.py --as-of 2026-11-22 --out ex_live_bridge_batch_audit.json || result=$?
