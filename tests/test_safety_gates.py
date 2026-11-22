@@ -25,6 +25,20 @@ class SafetyGates(unittest.TestCase):
                       check_fixture(fixture,"2026-11-22T15:00:00Z")["issues"])
         self.assertEqual(check_fixture(fixture,"2026-11-22T10:00:00")["status"],"BLOCKED")
 
+    def test_fixture_rejects_noncanonical_dates(self):
+        fixture={"date":"2026-11-22","league":"test","home":"A","away":"B",
+                 "fixture_source":"official","fixture_checked_at":"2026-11-21T09:00:00Z",
+                 "kickoff_at":"2026-11-22T15:00:00Z"}
+        for invalid in ("20261122","2026-W47-7","2026-11-2"):
+            result=check_fixture({**fixture,"date":invalid},"2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("fixture:invalid_date",result["issues"])
+        for invalid in ("20261122","2026-W47-7","2026-11-2"):
+            result=check_fixture(fixture,invalid)
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIn("fixture:invalid_date",result["issues"])
+        self.assertEqual(check_fixture(fixture,"2026-11-22")["status"],"VERIFIED_INPUT")
+
     def test_odds_threshold_and_future_snapshot(self):
         odds={"decimal_odds":1.19,"market":"KG_VAR","bookmaker":"audit",
               "source":"audit","observed_at":"2026-11-21T09:00:00Z"}
