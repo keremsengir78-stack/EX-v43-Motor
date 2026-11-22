@@ -56,6 +56,10 @@ def parse_espn_scoreboard(payload,league,as_of):
                         "away":away_name,"home_goals":hg,"away_goals":ag})
         except (KeyError,TypeError,AttributeError):
             continue
+        except ValueError as exc:
+            if str(exc) == "conflicting ESPN scores for duplicate fixture":
+                raise
+            continue
     return out
 
 def fetch_espn_scoreboard(league,day,as_of,timeout=15):
