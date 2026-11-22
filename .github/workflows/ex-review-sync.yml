@@ -81,12 +81,15 @@ jobs:
           else:
               status["evidence_published"]=False
           Path("reports/latest_pipeline_status.json").write_text(
-              json.dumps(status,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+              json.dumps(status,ensure_ascii=False,indent=2)+chr(10),encoding="utf-8")
           print(json.dumps(status,ensure_ascii=False))
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add reports/latest_pipeline_status.json reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv 2>/dev/null || git add reports/latest_pipeline_status.json
+          git add reports/latest_pipeline_status.json
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv; do
+            if [ -f "$report" ]; then git add "$report"; fi
+          done
           if ! git diff --cached --quiet; then
             git commit -m 'Sync audited review evidence and pipeline diagnostic [skip ci]'
             git pull --rebase origin ex-v43-development
