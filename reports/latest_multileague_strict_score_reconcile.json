@@ -3,7 +3,7 @@
   "confirmed": 1163,
   "remaining": 14,
   "reasons": {
-    "SECONDARY_MISSING_OR_AMBIGUOUS": 14
+    "SECONDARY_SAME_DAY_SHARED_TEAM": 14
   },
   "verified": [
     {
@@ -23279,7 +23279,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23292,7 +23292,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23305,7 +23305,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23318,7 +23318,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23331,7 +23331,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23344,7 +23344,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23357,7 +23357,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23370,7 +23370,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23383,7 +23383,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23396,7 +23396,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23409,7 +23409,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23422,7 +23422,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23435,7 +23435,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     },
     {
       "fixture": {
@@ -23448,7 +23448,7 @@
         "independent_score_verified": false,
         "review_status": "PENDING_SOURCE_REVIEW"
       },
-      "reason": "SECONDARY_MISSING_OR_AMBIGUOUS"
+      "reason": "SECONDARY_SAME_DAY_SHARED_TEAM"
     }
   ],
   "ex_final_allowed": false
