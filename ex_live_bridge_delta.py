@@ -11,6 +11,9 @@ def compare_audits(raw, reviewed):
         raise ValueError("unexpected EX FINAL certification in provisional audit")
     if raw.get("as_of") != reviewed.get("as_of"):
         raise ValueError("audit cutoffs differ")
+    for record in (raw, reviewed):
+        if record.get("independent_sources_confirmed") is not False or record.get("calibration_certified") is not False:
+            raise ValueError("unverified provider comparison claims independent validation")
     raw_cases = raw.get("cases")
     reviewed_cases = reviewed.get("cases")
     if not isinstance(raw_cases, list) or not isinstance(reviewed_cases, list):
