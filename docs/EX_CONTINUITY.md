@@ -139,3 +139,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `86d7672ebeaf5d4f3c2ae23f776cdbb25418cc68` 4/4 CI başarılı; `45031405859` raporu `non_germany_shadow_validated=true` ve `reports/latest_multileague_shadow_validated.json` toplam 1506→1177, isim eşleşmesi 329, 0 bağımsız skor onayı gösterdi.
 - `ex_multileague_priority_plan.py` İngiltere/İspanya/İtalya kaynak uyuşmazlıklarını aynı gün ortak takım ve aynı gün takım bulunamaması nedenlerine göre, doğrulanabilir öncelik puanıyla sınıflandırır. Hatalı/eksik/çift kayıtlar reddedilir. `tests/test_multileague_priority_plan.py` eklendi.
 - Workflow `reports/latest_multileague_priority_plan.json` üretimini ve CI kilidini içeriyor. Bu tur CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
+
+## 2026-11-22: 48. tur, öncelik planı çapraz doğrulaması
+- Önceki `6ca5e85c1bd064d2a6b5cefd5afdcd7d28a34804` 4/4 CI başarılı. En son yayımlanan audit eski `d000790f` koşusuna ait; yeni öncelik raporu henüz yayımlanmış olarak teyit edilmedi.
+- `ex_multileague_priority_validation.py` ve regresyon testleri; gölge toplamı, üç lig kaynak nedenleri, tüm bucket sayıları, öncelik ağırlıkları, yinelenme ve EX FINAL kilidini çapraz doğrular.
+- Workflow `reports/latest_multileague_priority_validated.json` yayımlamayı ve yoksa CI'yi başarısız saymayı zorunlu kılar. Bu turun yeni CI sonucu henüz teyit edilmedi. Bağımsız skor onayı 0.
