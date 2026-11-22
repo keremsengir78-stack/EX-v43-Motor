@@ -26,10 +26,18 @@ class FootballDataProvenanceTests(unittest.TestCase):
         self.assertIn("error", meta)
 
     def test_invalid_season_blocks_without_fetch(self):
-        for season in ("2026-2028", "../2026-2027", "2026-27", None):
+        for season in ("2026-2028", "../2026-2027", "2026-28", None):
             rows, meta = secondary_rows(season, "en.1")
             self.assertEqual(rows, [])
             self.assertEqual(meta["error"], "invalid season")
+
+    def test_short_season_year_remains_supported(self):
+        raw = b"Date,HomeTeam,AwayTeam,FTHG,FTAG\n01/11/2026,Arsenal,Chelsea,2,1\n"
+        with tempfile.TemporaryDirectory() as folder:
+            Path(folder, "2627_E0.csv").write_bytes(raw)
+            rows, meta = secondary_rows("2026-27", "en.1", offline=folder)
+        self.assertEqual(len(rows), 1)
+        self.assertNotIn("error", meta)
 
     def test_oversized_offline_csv_blocks(self):
         with tempfile.TemporaryDirectory() as folder:
