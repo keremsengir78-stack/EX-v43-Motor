@@ -47,6 +47,15 @@ jobs:
           if [ -f ex_run/germany_unresolved_review.csv ]; then
             python ex_germany_alias_candidates.py --csv ex_run/germany_unresolved_review.csv --out ex_run/germany_alias_candidates.json
           fi
+      - name: Offline German candidate coverage
+        id: offline_shadow
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f ex_run/germany_unresolved_review.csv ] && [ -f ex_run/germany_alias_candidates.json ]; then
+            python ex_germany_shadow_offline.py --csv ex_run/germany_unresolved_review.csv --candidates ex_run/germany_alias_candidates.json --out ex_run/germany_offline_shadow.json
+          fi
       - name: Quarantined German alias shadow comparison
         id: shadow
         if: always()
@@ -84,6 +93,7 @@ jobs:
           status={"ingest_step":"${{ steps.ingest.outcome }}",
                   "review_step":"${{ steps.review.outcome }}",
                   "shadow_step":"${{ steps.shadow.outcome }}",
+                  "offline_shadow_step":"${{ steps.offline_shadow.outcome }}",
                   "source_audit_exists":Path("ex_run/audit.json").is_file(),
                   "summary_exists":Path("ex_run/secondary_review_summary.json").is_file(),
                   "germany_csv_exists":Path("ex_run/germany_unresolved_review.csv").is_file(),
@@ -112,6 +122,13 @@ jobs:
                   Path("reports/latest_germany_unresolved_review.csv").write_bytes(
                       Path("ex_run/germany_unresolved_review.csv").read_bytes())
                   status["evidence_published"]=True
+                  offline_path=Path("ex_run/germany_offline_shadow.json")
+                  if offline_path.is_file():
+                      offline=json.loads(offline_path.read_text(encoding="utf-8"))
+                      if offline.get("ex_final_allowed") is not False or offline.get("verified_score_matches_added") != 0:
+                          raise ValueError("Unsafe offline candidate evidence")
+                      Path("reports/latest_germany_offline_shadow.json").write_bytes(offline_path.read_bytes())
+                      status["germany_name_only_candidates"]=offline.get("unique_name_only_candidates")
                   shadow_path=Path("ex_run/germany_shadow_comparison.json")
                   if shadow_path.is_file():
                       shadow=json.loads(shadow_path.read_text(encoding="utf-8"))
@@ -138,7 +155,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
-          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json; do
+          for report in reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv reports/latest_germany_alias_candidates.json reports/latest_germany_shadow_comparison.json reports/latest_germany_offline_shadow.json; do
             if [ -f "$report" ]; then git add "$report"; fi
           done
           if ! git diff --cached --quiet; then
