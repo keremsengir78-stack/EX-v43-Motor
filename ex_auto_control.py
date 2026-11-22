@@ -9,7 +9,7 @@ import math
 MARKET_KEYS=("2.5_UST","KG_VAR","MS1","MSX","MS2")
 
 def snapshot(data):
-    raw=json.dumps(data,sort_keys=True,ensure_ascii=False,separators=(",",":"),default=str,allow_nan=False)
+    raw=json.dumps(data,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 def auto_control(match, ingestion=None):
