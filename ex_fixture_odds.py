@@ -33,6 +33,22 @@ def check_fixture(fixture, as_of):
             issues.append("fixture:checked_after_kickoff")
     except (KeyError,ValueError,TypeError,AttributeError):
         issues.append("fixture_checked_at:invalid")
+    # A fixture verified only after the analysis instant cannot be used for a pre-match snapshot.
+    # Date-only as_of inputs have no instant, so retain the historical date-level behavior.
+    if isinstance(as_of,str) and "T" in as_of:
+        try:
+            cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
+            checked=dt.datetime.fromisoformat(fixture["fixture_checked_at"].replace("Z","+00:00"))
+            kickoff_time=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
+            if cutoff.tzinfo is None or cutoff.utcoffset() is None:
+                issues.append("as_of:timezone_missing")
+            else:
+                if checked.tzinfo is not None and checked.utcoffset() is not None and checked>cutoff:
+                    issues.append("fixture:verified_after_analysis")
+                if kickoff_time.tzinfo is not None and kickoff_time.utcoffset() is not None and kickoff_time<=cutoff:
+                    issues.append("fixture:analysis_after_kickoff")
+        except (KeyError,ValueError,TypeError,AttributeError):
+            issues.append("as_of:invalid_timestamp")
     if fixture.get("home")==fixture.get("away"):
         issues.append("fixture:identical_teams")
     return {"status":"VERIFIED_INPUT" if not issues else "BLOCKED",
