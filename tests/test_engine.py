@@ -335,10 +335,12 @@ class TestEXMotor(unittest.TestCase):
             result=auto_control(match,{"status":state,"independent_sources_confirmed":2})
             self.assertIn("ingestion:blocked",result["issues"])
             self.assertFalse(result["ex_final_allowed"])
-        for state in ("INGESTED", "INGESTED_CROSS_VERIFIED"):
-            result=auto_control(match,{"status":state,"independent_sources_confirmed":2})
-            self.assertNotIn("ingestion:blocked",result["issues"])
-            self.assertFalse(result["ex_final_allowed"])
+        result=auto_control(match,{"status":"INGESTED","independent_sources_confirmed":2})
+        self.assertIn("ingestion:blocked",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+        result=auto_control(match,{"status":"INGESTED_CROSS_VERIFIED","independent_sources_confirmed":2})
+        self.assertNotIn("ingestion:blocked",result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
 
     def test_auto_control_never_promotes_baseline(self):
         report=auto_control({"status":"BASELINE_ONLY","recompute_consistent":True,
