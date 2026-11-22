@@ -59,8 +59,9 @@ def verify_fixture_sources(observations, cutoff):
                 raise ValueError("future kickoff")
         except (ValueError, TypeError, OverflowError):
             issues.append("source:%d:kickoff_invalid_or_future" % i)
+        # Invalid nested provider payloads must BLOCK, never crash set comparison.
         values.append(tuple(row[k] for k in FIELDS))
-    if len(values) >= 2 and len(set(values)) != 1:
+    if len(values) >= 2 and any(value != values[0] for value in values[1:]):
         issues.append("sources:fixture_conflict")
     return {"status": "CROSS_VERIFIED_INPUT" if not issues else "BLOCKED",
             "issues": issues, "independent_sources_confirmed": len(provider_groups) if not issues else 0,
