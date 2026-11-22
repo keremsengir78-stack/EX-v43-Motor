@@ -257,6 +257,53 @@ class FinalReadinessTests(unittest.TestCase):
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
             measured, historical)["missing_checks"])
 
+    def test_duplicate_bin_range_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"].append(
+            dict(historical["evaluation"]["reliability_bins"][0]))
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_missing_nonempty_bin_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"] = []
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_invented_bin_range_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"][0]["range"] = "55-65"
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_extra_empty_bin_blocks(self):
+        measured, historical = self._valid_holdout()
+        historical["evaluation"]["reliability_bins"].append(
+            {"range": "00-10", "count": 0, "mean_predicted": 0.0,
+             "observed_rate": 0.0})
+        self.assertIn("historical_validation", evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)["missing_checks"])
+
+    def test_probability_one_uses_final_bin(self):
+        measured, historical = self._valid_holdout()
+        for row in historical["split"]["test"]:
+            row["probability"] = 1.0
+            row["outcome"] = 1
+        measured.update(brier_score=0.0, expected_calibration_error=0.0,
+                        maximum_calibration_error=0.0, mean_predicted=1.0,
+                        observed_rate=1.0,
+                        reliability_bins=[{"range": "90-100", "count": 30,
+                                           "mean_predicted": 1.0,
+                                           "observed_rate": 1.0}])
+        result = evaluate_final_readiness(
+            {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
+            measured, historical)
+        self.assertEqual(result["missing_checks"], ["external_evidence"])
+
     def test_fabricated_nan_metric_is_rejected(self):
         result = evaluate_final_readiness(
             {"status": "RECONCILED_WITH_METADATA_UNVERIFIED"},
