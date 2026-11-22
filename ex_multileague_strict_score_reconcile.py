@@ -5,17 +5,23 @@ date, league, both normalized team names and both goals agree one-to-one.
 """
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 from ex_engine import load
 from ex_cross_verify import norm, secondary_rows
+
+def club_norm(name):
+    """Remove only standalone club-form suffixes, never fuzzy-match identities."""
+    return norm(re.sub(r"\\b(?:cf|ud|ca)\\b", " ", name, flags=re.IGNORECASE))
+
 
 def reconcile(batches, primary, offline=None):
     if batches.get("ex_final_allowed") is not False:
         raise ValueError("unsafe review batches")
     primary_index=defaultdict(list)
     for r in primary:
-        primary_index[(r["season"],str(r["date"]),r["league"],norm(r["home"]),norm(r["away"]))].append(r)
+        primary_index[(r["season"],str(r["date"]),r["league"],club_norm(r["home"]),club_norm(r["away"]))].append(r)
     cache={}
     used=set()
     confirmed=[]
@@ -24,7 +30,7 @@ def reconcile(batches, primary, offline=None):
     for batch in batches["batches"]:
         for fixture in batch["fixtures"]:
             league,season,day=(fixture[k] for k in ("league","season","date"))
-            key=(season,day,league,norm(fixture["home"]),norm(fixture["away"]))
+            key=(season,day,league,club_norm(fixture["home"]),club_norm(fixture["away"]))
             original=primary_index.get(key,[])
             if len(original)!=1:
                 reason="PRIMARY_MISSING_OR_AMBIGUOUS"
@@ -33,7 +39,7 @@ def reconcile(batches, primary, offline=None):
                     rows,meta=secondary_rows(season,league,offline=offline)
                     index=defaultdict(list)
                     for r in rows:
-                        index[(season,r["date"],league,norm(r["home"]),norm(r["away"]))].append(r)
+                        index[(season,r["date"],league,club_norm(r["home"]),club_norm(r["away"]))].append(r)
                     cache[(season,league)]=(index,meta)
                 index,meta=cache[(season,league)]
                 matches=index.get(key,[])
