@@ -62,3 +62,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `ex_germany_alias_pilot.py` adayları yalnızca izole test haritasına dönüştürür; onaylı alias dosyalarına yazmaz. `tests/test_germany_alias_pilot.py` güvenlik regresyonlarını içerir.
 - `a6ed4f3eed876ebca9b9f485a6d9b73b231e6181` gölge karşılaştırma iş akışını ekledi. `b4f083d04b3dda0f3aa8cbaabdbfe9faab90af1e` gölge adım sonucu ve çıktı varlığı teşhisini ekledi.
 - Son kontrol anında `reports/latest_germany_shadow_comparison.json` henüz yoktu; gölge testin sayısal etkisi **doğrulanmadı**. Sonraki turda `reports/latest_pipeline_status.json` ve ilgili Actions run logunu kontrol et.
+
+## 2026-11-22: 5'li toplu çalışma, Almanya gölge test doğrulaması
+- GitHub Actions `45030047515` raporu: ingest/review/shadow/offline_shadow=success; evidence_published=true; audit_status=BLOCKED.
+- Kaynak Almanya unmatched=339, aday haritalı izole gölge unmatched=8, gölge farkı=331; gölge skor çelişkisi=0 ve kaynak hata listesi boş. Bu **331 bağımsız doğrulanmış maç değildir**. Offline inceleme: 36 tekil isim adayı, 0 doğrulanmış skor, 339 kayıt halen doğrulama bekliyor.
+- `ex_germany_shadow_metrics.py` yeni sayısal ve EX FINAL güvenlik kontrolünü uygular; `tests/test_germany_shadow_metrics.py` regresyonları eklendi; `ex-review-sync.yml` doğrulanmış metrikleri ayrı rapora yazar ve yoksa CI başarısız olur.
+- Son değişikliklerin yeni CI ve `reports/latest_germany_shadow_validated_metrics.json` çıktısı henüz teyit edilmedi. Onaylı alias map değişmedi; EX FINAL kilitli.
