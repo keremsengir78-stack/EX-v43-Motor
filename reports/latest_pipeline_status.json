@@ -1,13 +1,15 @@
 {
   "ingest_step": "success",
-  "review_step": "failure",
+  "review_step": "success",
   "source_audit_exists": true,
-  "summary_exists": false,
-  "germany_csv_exists": false,
+  "summary_exists": true,
+  "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "b6850f0e4d9bd80d1d0b54849d9507e096dd75d5",
-  "run_id": "45029452626",
+  "commit": "51336c1b87e31d8f1f05232167fc4ed0d95f76ea",
+  "run_id": "45029537883",
   "audit_status": "BLOCKED",
   "source_errors": [],
-  "evidence_published": false
+  "unmatched_total": 1845,
+  "germany_unmatched": 339,
+  "evidence_published": true
 }
