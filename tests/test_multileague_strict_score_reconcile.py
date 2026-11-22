@@ -119,6 +119,30 @@ class StrictScoreReconcileTests(unittest.TestCase):
             result=reconcile(self.batches,self.primary)
         self.assertEqual(result["confirmed"],1)
 
+    def test_remaining_spanish_real_betis_name(self):
+        self.fixture.update({"league":"es.1","home":"Real Betis Balompié","away":"Sevilla FC"})
+        self.primary[0].update({"league":"es.1","home":"Real Betis Balompié","away":"Sevilla FC"})
+        self.secondary[0].update({"home":"Betis","away":"Sevilla"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
+    def test_remaining_italian_atalanta_name(self):
+        self.fixture.update({"league":"it.1","home":"Atalanta BC","away":"AC Milan"})
+        self.primary[0].update({"league":"it.1","home":"Atalanta BC","away":"AC Milan"})
+        self.secondary[0].update({"home":"Atalanta","away":"Milan"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
+    def test_remaining_english_coventry_name(self):
+        self.fixture.update({"home":"Coventry City FC","away":"Arsenal FC"})
+        self.primary[0].update({"home":"Coventry City FC","away":"Arsenal FC"})
+        self.secondary[0].update({"home":"Coventry","away":"Arsenal"})
+        with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
+            result=reconcile(self.batches,self.primary)
+        self.assertEqual(result["confirmed"],1)
+
     def test_wrong_season_cannot_confirm(self):
         self.primary[0]["season"]="2024-25"
         with patch("ex_multileague_strict_score_reconcile.secondary_rows",return_value=(self.secondary,self.meta)):
