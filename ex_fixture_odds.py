@@ -26,8 +26,8 @@ def check_fixture(fixture, as_of):
             analysis_instant=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
             if analysis_instant.tzinfo is None or analysis_instant.utcoffset() is None:
                 raise ValueError("analysis cutoff must be timezone aware")
-            analysis_date=analysis_instant.date()
-        if kickoff<analysis_date:
+            analysis_date=None  # Timestamp cutoffs use kickoff_at instant below.
+        if analysis_date is not None and kickoff<analysis_date:
             issues.append("fixture:historical")
     except (KeyError,ValueError,TypeError):
         issues.append("fixture:invalid_date")
