@@ -17,7 +17,7 @@ def check_fixture(fixture, as_of):
         issues.append("fixture:invalid_date")
     try:
         kickoff_at=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
-        if kickoff_at.tzinfo is None:
+        if kickoff_at.tzinfo is None or kickoff_at.utcoffset() is None:
             issues.append("kickoff_at:timezone_missing")
         elif kickoff_at.date()!=dt.date.fromisoformat(fixture["date"]):
             issues.append("kickoff_at:date_mismatch")
@@ -27,7 +27,7 @@ def check_fixture(fixture, as_of):
     try:
         checked=dt.datetime.fromisoformat(fixture["fixture_checked_at"].replace("Z","+00:00"))
         kickoff_time=dt.datetime.fromisoformat(fixture["kickoff_at"].replace("Z","+00:00"))
-        if checked.tzinfo is None:
+        if checked.tzinfo is None or checked.utcoffset() is None:
             issues.append("fixture_checked_at:timezone_missing")
         elif kickoff_time.tzinfo is not None and checked>=kickoff_time:
             issues.append("fixture:checked_after_kickoff")
@@ -46,6 +46,8 @@ def check_odds(snapshot, as_of):
         raw=snapshot["decimal_odds"]
         if isinstance(raw,bool):
             raise ValueError("boolean odds are invalid")
+        if not isinstance(raw,(int,float)):
+            raise ValueError("odds must be numeric, not a string or object")
         odd=float(raw)
         if not math.isfinite(odd) or odd<=1:
             issues.append("odds:invalid")
@@ -61,7 +63,7 @@ def check_odds(snapshot, as_of):
     try:
         observed=dt.datetime.fromisoformat(snapshot["observed_at"].replace("Z","+00:00"))
         cutoff=dt.datetime.fromisoformat(as_of.replace("Z","+00:00"))
-        if observed.tzinfo is None or cutoff.tzinfo is None:
+        if observed.tzinfo is None or cutoff.tzinfo is None or observed.utcoffset() is None or cutoff.utcoffset() is None:
             issues.append("odds:timezone_missing")
         elif observed>=cutoff:
             issues.append("odds:not_before_kickoff")
