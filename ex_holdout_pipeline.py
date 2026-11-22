@@ -5,6 +5,7 @@ No probability fitting, no automatic source verification and no EX FINAL promoti
 from ex_calibration_join import join_calibration_records
 from ex_out_of_sample_audit import audit_out_of_sample
 from ex_calibration_audit import MARKETS
+from ex_temporal_validation import _timestamp
 
 
 def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff,
@@ -18,6 +19,11 @@ def audit_joined_holdout(predictions, fixtures, market, evaluation_start, cutoff
     if any(isinstance(x, bool) or not isinstance(x, int) or x < 30
            for x in (min_train, min_test)):
         return blocked(["sample_threshold:invalid"])
+    try:
+        if _timestamp(evaluation_start) >= _timestamp(cutoff):
+            return blocked(["evaluation_window:invalid"])
+    except (ValueError, TypeError, OverflowError):
+        return blocked(["evaluation_window:invalid"])
     joined = join_calibration_records(predictions, fixtures, market, cutoff,
                                       min_samples=min_train + min_test)
     if joined["status"] != "AUDIT_COMPLETE_NOT_CALIBRATED":
