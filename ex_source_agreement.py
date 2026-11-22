@@ -14,7 +14,7 @@ def verify_fixture_sources(observations, cutoff):
         if not isinstance(cutoff, str) or not cutoff.endswith("Z"):
             raise ValueError("UTC cutoff")
         boundary = dt.datetime.fromisoformat(cutoff.replace("Z", "+00:00"))
-        if boundary.tzinfo is None:
+        if boundary.utcoffset() != dt.timedelta(0):
             raise ValueError("timezone required")
     except (ValueError, TypeError, OverflowError):
         issues.append("cutoff:invalid")
@@ -55,7 +55,7 @@ def verify_fixture_sources(observations, cutoff):
             if not isinstance(stamp, str) or not stamp.endswith("Z"):
                 raise ValueError("UTC kickoff")
             kickoff = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-            if kickoff.tzinfo is None or (boundary is not None and kickoff >= boundary):
+            if kickoff.utcoffset() != dt.timedelta(0) or (boundary is not None and kickoff >= boundary):
                 raise ValueError("future kickoff")
         except (ValueError, TypeError, OverflowError):
             issues.append("source:%d:kickoff_invalid_or_future" % i)
