@@ -149,3 +149,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - `4bc4e44057bd960610b090e56666cca79e489dd6` 4/4 CI başarılı; `reports/latest_multileague_priority_plan.json` yayımlandı. Öncelik grupları İtalya tarih var/eşleşme yok 341, İngiltere aynı gün ortak takım 222, İspanya tarih var/eşleşme yok 328, İspanya ortak takım 114, İtalya ortak takım 87, İngiltere tarih var/eşleşme yok 85.
 - `ex_multileague_review_batches.py` ve testleri gölge-sonrası 1177 eşleşmeyen maçı deterministik 50'li partilere ayırır, çift/eksik/bilinmeyen kaynak kayıtlarını reddeder; skorları onaylamaz.
 - Workflow `reports/latest_multileague_review_batches.json` yayımlar, sayısal tamlığı denetler ve eksik raporda CI'yi başarısız sayar. Bu turun CI sonucu henüz teyit edilmedi. EX FINAL kapalı.
+
+## 2026-11-22: 50. tur, 24 inceleme partisinin kimlik bazlı tamlık kilidi
+- `bc9039bcc40020aff467621c11e0f4dfaf5d8df2` 4/4 CI başarılı; `reports/latest_multileague_review_batches.json` 1177 maçın 50'li 24 partisini yayımladı (son parti 27 kayıt). Skor onayı yok.
+- `ex_multileague_batch_validation.py` kaynak gölge raporundaki her maçın lig/sezon/tarih/ev/deplasman kimliğini yayımlanan tüm partilerle birebir karşılaştırır; çift, eksik, sırasız ve onaylanmış gibi işaretlenen kayıtları reddeder. Testleri eklendi.
+- Workflow `reports/latest_multileague_batches_validated.json` ve zorunlu CI tamlık kontrolünü ekledi. Bu yeni CI henüz teyit edilmedi. EX FINAL kilitli.
