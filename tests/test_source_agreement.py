@@ -3,7 +3,7 @@ from ex_source_agreement import verify_fixture_sources
 
 
 def fixture(source):
-    return {"source_id": source, "verified": True, "fixture_id": "match-1",
+    return {"source_id": source, "provider_group": source, "verified": True, "fixture_id": "match-1",
             "home_team": "Home", "away_team": "Away",
             "kickoff_at": "2026-01-01T12:00:00Z", "home_goals": 2, "away_goals": 1}
 
@@ -39,6 +39,20 @@ class SourceAgreementTests(unittest.TestCase):
         result = verify_fixture_sources([fixture("provider-A"), second],
                                         "2026-02-01T00:00:00Z")
         self.assertIn("source:1:unverified", result["issues"])
+
+    def test_same_provider_under_two_names_is_blocked(self):
+        second = fixture("provider-B")
+        second["provider_group"] = "provider-A"
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:provider_group_duplicate_or_missing", result["issues"])
+
+    def test_provider_group_missing_is_blocked(self):
+        second = fixture("provider-B")
+        del second["provider_group"]
+        result = verify_fixture_sources([fixture("provider-A"), second],
+                                        "2026-02-01T00:00:00Z")
+        self.assertIn("source:1:provider_group_duplicate_or_missing", result["issues"])
 
     def test_missing_source_is_blocked(self):
         result = verify_fixture_sources([fixture("provider-A")], "2026-02-01T00:00:00Z")
