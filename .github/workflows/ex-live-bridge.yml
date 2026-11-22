@@ -29,12 +29,18 @@ jobs:
         shell: bash
         run: |
           python ex_live_bridge_batch.py --as-of 2026-11-22 --out ex_live_bridge_batch_audit.json
+      - name: Compare reviewed Italian aliases separately
+        if: always()
+        shell: bash
+        run: |
+          python ex_live_bridge_batch.py --as-of 2026-11-22 --reviewed-aliases --out ex_live_bridge_reviewed_alias_audit.json
       - name: Print audit
         if: always()
         shell: bash
         run: |
           if [ -f ex_live_bridge_audit.json ]; then cat ex_live_bridge_audit.json; else echo "No live audit produced"; fi
           if [ -f ex_live_bridge_batch_audit.json ]; then cat ex_live_bridge_batch_audit.json; else echo "No batch audit produced"; fi
+          if [ -f ex_live_bridge_reviewed_alias_audit.json ]; then cat ex_live_bridge_reviewed_alias_audit.json; else echo "No reviewed alias audit produced"; fi
       - name: Upload provisional audit
         if: always()
         uses: actions/upload-artifact@v4
@@ -43,5 +49,6 @@ jobs:
           path: |
             ex_live_bridge_audit.json
             ex_live_bridge_batch_audit.json
+            ex_live_bridge_reviewed_alias_audit.json
           if-no-files-found: warn
           retention-days: 14
