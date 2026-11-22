@@ -35,6 +35,13 @@ class ProvenanceAuditTests(unittest.TestCase):
         result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
         self.assertIn("attestation:1:url_invalid", result["issues"])
 
+    def test_malformed_ipv6_url_blocks_without_crash(self):
+        second = evidence("b")
+        second["evidence_url"] = "https://[broken-ipv6/b"
+        result = validate_provenance([evidence("a"), second], "2026-02-01T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("attestation:1:url_invalid", result["issues"])
+
     def test_fixture_mismatch_blocks(self):
         second = evidence("b")
         second["fixture_id"] = "other-fixture"
