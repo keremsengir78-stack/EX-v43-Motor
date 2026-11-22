@@ -73,7 +73,7 @@ def check_fixture(fixture, as_of):
         try:
             cutoff_date=dt.date.fromisoformat(as_of)
             checked=dt.datetime.fromisoformat(fixture["fixture_checked_at"].replace("Z","+00:00"))
-            if checked.tzinfo is not None and checked.utcoffset() is not None and checked.date()>=cutoff_date:
+            if checked.tzinfo is not None and checked.utcoffset() is not None and checked.astimezone(dt.timezone.utc).date()>=cutoff_date:
                 issues.append("fixture:verified_after_analysis")
         except (KeyError,ValueError,TypeError,AttributeError):
             pass
