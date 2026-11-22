@@ -16,8 +16,14 @@ def _calibration_bins_consistent(report):
                   for row in bins) / total
         mce = max(abs(row["mean_predicted"] - row["observed_rate"])
                   for row in bins)
+        mean_prediction = sum(row["count"] * row["mean_predicted"]
+                              for row in bins) / total
+        observed = sum(row["count"] * row["observed_rate"]
+                       for row in bins) / total
         return (abs(ece - report["expected_calibration_error"]) <= 1e-6
-                and abs(mce - report["maximum_calibration_error"]) <= 1e-6)
+                and abs(mce - report["maximum_calibration_error"]) <= 1e-6
+                and abs(mean_prediction - report["mean_predicted"]) <= 1e-6
+                and abs(observed - report["observed_rate"]) <= 1e-6)
     except (KeyError, TypeError, ValueError, ZeroDivisionError, OverflowError):
         return False
 
