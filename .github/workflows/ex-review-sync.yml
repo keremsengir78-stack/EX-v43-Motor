@@ -27,33 +27,68 @@ jobs:
       - name: Verify review tools
         run: python -m unittest tests.test_secondary_review_summary tests.test_germany_review_export -v
       - name: Collect real source audit
+        id: ingest
+        continue-on-error: true
         shell: bash
         run: |
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir ex_run
       - name: Generate guarded evidence
+        id: review
+        continue-on-error: true
         shell: bash
         run: |
           python ex_secondary_review_summary.py --audit ex_run/audit.json --out ex_run/secondary_review_summary.json
           python ex_germany_review_export.py --audit ex_run/audit.json --out ex_run/germany_unresolved_review.csv
-      - name: Persist real review evidence
+      - name: Persist real review evidence and diagnostic status
+        if: always()
         shell: bash
         run: |
           mkdir -p reports
-          cp ex_run/secondary_review_summary.json reports/latest_secondary_review_summary.json
-          cp ex_run/germany_unresolved_review.csv reports/latest_germany_unresolved_review.csv
           python - <<'PY'
           import json
           from pathlib import Path
-          a=json.loads(Path("reports/latest_secondary_review_summary.json").read_text(encoding="utf-8"))
-          if a.get("ex_final_allowed") is not False:
-              raise SystemExit("Unsafe review data: EX FINAL not explicitly blocked")
-          print("Real unresolved:",a["unmatched_total"],"Germany:",a["germany_unmatched"])
+          status={"ingest_step":"${{ steps.ingest.outcome }}",
+                  "review_step":"${{ steps.review.outcome }}",
+                  "source_audit_exists":Path("ex_run/audit.json").is_file(),
+                  "summary_exists":Path("ex_run/secondary_review_summary.json").is_file(),
+                  "germany_csv_exists":Path("ex_run/germany_unresolved_review.csv").is_file(),
+                  "ex_final_allowed":False,
+                  "commit":"${{ github.sha }}",
+                  "run_id":"${{ github.run_id }}"}
+          audit=Path("ex_run/audit.json")
+          if audit.is_file():
+              try:
+                  data=json.loads(audit.read_text(encoding="utf-8"))
+                  status["audit_status"]=data.get("status")
+                  status["source_errors"]=data.get("secondary_source_errors",[])
+              except (ValueError, OSError) as exc:
+                  status["audit_read_error"]=str(exc)
+          if status["summary_exists"] and status["germany_csv_exists"]:
+              try:
+                  summary=json.loads(Path("ex_run/secondary_review_summary.json").read_text(encoding="utf-8"))
+                  if summary.get("ex_final_allowed") is not False:
+                      raise ValueError("EX FINAL lock not explicit")
+                  status["unmatched_total"]=summary["unmatched_total"]
+                  status["germany_unmatched"]=summary["germany_unmatched"]
+                  Path("reports/latest_secondary_review_summary.json").write_bytes(
+                      Path("ex_run/secondary_review_summary.json").read_bytes())
+                  Path("reports/latest_germany_unresolved_review.csv").write_bytes(
+                      Path("ex_run/germany_unresolved_review.csv").read_bytes())
+                  status["evidence_published"]=True
+              except (ValueError, KeyError, OSError) as exc:
+                  status["evidence_published"]=False
+                  status["publication_error"]=str(exc)
+          else:
+              status["evidence_published"]=False
+          Path("reports/latest_pipeline_status.json").write_text(
+              json.dumps(status,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+          print(json.dumps(status,ensure_ascii=False))
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv
+          git add reports/latest_pipeline_status.json reports/latest_secondary_review_summary.json reports/latest_germany_unresolved_review.csv 2>/dev/null || git add reports/latest_pipeline_status.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Sync independently audited unresolved review evidence [skip ci]'
+            git commit -m 'Sync audited review evidence and pipeline diagnostic [skip ci]'
             git pull --rebase origin ex-v43-development
             git push origin HEAD:ex-v43-development
           fi
