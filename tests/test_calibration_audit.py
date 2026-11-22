@@ -83,6 +83,34 @@ class CalibrationAuditTests(unittest.TestCase):
             result = audit_predictions([row(1, probability, outcome)], "KG_VAR", "2026-02-01T00:00:00Z")
             self.assertIn("record:0:invalid_prediction_or_outcome", result["issues"])
 
+    def test_unhashable_market_fails_closed(self):
+        result = audit_predictions([row(1)], [], "2026-02-01T00:00:00Z")
+        self.assertIn("market:unsupported", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_invalid_min_samples_fails_closed(self):
+        result = audit_predictions([row(1)], "KG_VAR",
+                                   "2026-02-01T00:00:00Z", min_samples="100")
+        self.assertIn("min_samples:invalid", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_non_utc_cutoff_is_rejected(self):
+        result = audit_predictions([row(1)], "KG_VAR",
+                                   "2026-02-01T03:00:00+03:00")
+        self.assertIn("cutoff:invalid", result["issues"])
+
+    def test_offset_prediction_is_rejected(self):
+        record = row(1)
+        record["predicted_at"] = "2026-01-01T13:00:00+03:00"
+        result = audit_predictions([record], "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertIn("record:0:invalid_timestamp", result["issues"])
+
+    def test_naive_settlement_is_rejected(self):
+        record = row(1)
+        record["settled_at"] = "2026-01-01T15:00:00"
+        result = audit_predictions([record], "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertIn("record:0:invalid_timestamp", result["issues"])
+
     def test_wrong_market_is_blocked(self):
         result = audit_predictions([row(1)], "MS1", "2026-02-01T00:00:00Z")
         self.assertIn("record:0:market_mismatch", result["issues"])
