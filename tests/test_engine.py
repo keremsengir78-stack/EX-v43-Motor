@@ -26,6 +26,23 @@ class TestEXMotor(unittest.TestCase):
             self.assertIsNone(result["weighted_score"])
             self.assertFalse(result["ex_final_allowed"])
 
+    def test_parallel_numeric_hardening_fail_closed(self):
+        features={name:{"score":0.8,"verified":True,"source":"audit",
+                        "timestamp":"2026-11-20T10:00:00Z"}
+                  for name in ("team_strength","match_conditions","external_factors")}
+        for score in (float("nan"), float("inf"), -float("inf"), 10**10000):
+            evidence={key:dict(value) for key,value in features.items()}
+            evidence["team_strength"]["score"]=score
+            result=weighted_evidence(evidence,as_of="2026-11-22")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertIsNone(result["weighted_score"])
+        odds={"decimal_odds":1.5,"market":"KG_VAR","bookmaker":"audit",
+              "source":"audit","observed_at":"2026-11-20T10:00:00Z"}
+        for value in (10**10000, float("nan"), float("inf"), -float("inf")):
+            result=check_odds({**odds,"decimal_odds":value},"2026-11-22T10:00:00Z")
+            self.assertEqual(result["status"],"BLOCKED")
+            self.assertFalse(result["ex_final_allowed"])
+
     def test_exg_invalid_analysis_cutoff_fails_closed(self):
         features={name:{'score':0.8,'verified':True,'source':'audit',
                         'timestamp':'2026-11-20T10:00:00Z'}
