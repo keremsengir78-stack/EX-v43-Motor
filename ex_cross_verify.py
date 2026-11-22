@@ -197,6 +197,30 @@ def reconcile_staged_with_third(staged, third, as_of, alias=None):
             "verified_count":len(verified),"conflict_count":len(conflicts),
             "unresolved_count":len(unresolved),"ex_final_allowed":False}
 
+def secondary_presence_diagnostic(row, secondary, as_of, alias=None):
+    """Describe secondary coverage without asserting a match or inventing aliases."""
+    day_rows = [s for s in secondary
+                if s["date"] == row["date"] and s["league"] == row["league"]
+                and s["date"] < as_of]
+    home = reviewed_name(row["home"], row["league"], alias)
+    away = reviewed_name(row["away"], row["league"], alias)
+    shared = [s for s in day_rows
+              if reviewed_name(s["home"], s["league"], alias) == home
+              or reviewed_name(s["away"], s["league"], alias) == away]
+    return {
+        "secondary_date_fixture_count": len(day_rows),
+        "secondary_shared_team_count": len(shared),
+        "source_presence_status": (
+            "SECONDARY_DATE_EMPTY" if not day_rows else
+            "SECONDARY_SAME_DAY_SHARED_TEAM" if shared else
+            "SECONDARY_DATE_PRESENT_NO_TEAM_MATCH"
+        ),
+        "secondary_shared_team_candidates": [
+            {"home": s["home"], "away": s["away"]} for s in shared[:5]
+        ],
+    }
+
+
 def verify(primary, secondary, as_of, alias=None):
     index={}
     for row in secondary:
@@ -209,7 +233,8 @@ def verify(primary, secondary, as_of, alias=None):
         candidates=index.get(key,[])
         if len(candidates)!=1:
             unmatched+=1
-            if len(unmatched_details)<250:unmatched_details.append({"date":row["date"],"league":row["league"],"home":row["home"],"away":row["away"],"reason":"ambiguous" if len(candidates)>1 else "not_found"})
+            if len(unmatched_details)<250:unmatched_details.append({"date":row["date"],"league":row["league"],"home":row["home"],"away":row["away"],"reason":"ambiguous" if len(candidates)>1 else "not_found",
+                **secondary_presence_diagnostic(row, secondary, as_of, alias)})
             if len(candidates)>1:ambiguous+=1
             continue
         matched+=1
