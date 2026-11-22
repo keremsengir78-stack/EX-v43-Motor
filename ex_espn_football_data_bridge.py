@@ -84,7 +84,12 @@ def fetch_and_compare_historical_day(league, season, day, as_of, offline_seconda
     except (OSError, ValueError, TypeError, UnicodeError) as exc:
         base["issues"] = ["espn:fetch_or_parse_failed"]
         return base
-    secondary, secondary_meta = secondary_rows(season, league, offline=offline_secondary)
+    try:
+        secondary, secondary_meta = secondary_rows(season, league, offline=offline_secondary)
+    except (OSError, ValueError, TypeError, UnicodeError, KeyError):
+        base["issues"] = ["football_data:fetch_or_parse_failed"]
+        base["provenance"] = {"espn": espn_meta}
+        return base
     base["provenance"] = {"espn": espn_meta, "football_data": secondary_meta}
     if "error" in secondary_meta:
         base["issues"] = ["football_data:fetch_or_parse_failed"]
