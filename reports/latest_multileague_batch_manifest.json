@@ -1,0 +1,229 @@
+{
+  "total_unmatched": 1177,
+  "batch_count": 24,
+  "batches": [
+    {
+      "batch_id": 1,
+      "count": 50,
+      "by_league": {
+        "en.1": 50
+      },
+      "sha256": "117e94013a2570e8b67e739ee4dd578bacc7c5f27b62518693f47c4ca39c0b37",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 2,
+      "count": 50,
+      "by_league": {
+        "en.1": 50
+      },
+      "sha256": "0cd4ba60a89a8bee99177789e9eeb24dc3781fe982abf2378340419bcae0fdc7",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 3,
+      "count": 50,
+      "by_league": {
+        "en.1": 50
+      },
+      "sha256": "5bd38486617c7569a9e892e48603626ba93ecf4f5bb831de6635fba08d5d6715",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 4,
+      "count": 50,
+      "by_league": {
+        "en.1": 50
+      },
+      "sha256": "e8d634065501f12914dcd4c18ab7bf6cb536555ebc74b908b0aeeaa551713090",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 5,
+      "count": 50,
+      "by_league": {
+        "en.1": 22,
+        "es.1": 28
+      },
+      "sha256": "4e5b73422885ba53a5c253b25da95f4618758c5e25b13281ff936ea1cf4d980f",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 6,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "24495fb26a1ba6a29a7feadd3cc521f6a9a4d724aa3840571fb1f87c1a62bf65",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 7,
+      "count": 50,
+      "by_league": {
+        "es.1": 36,
+        "it.1": 14
+      },
+      "sha256": "bd08f6e29ef17796c276736ddbeb03a395fc08b042a0192466a5b315b6e6dbb8",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 8,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "72ea4a617ad8ebc6705a02c4997a5f93d7f11ba1678992bf7f37d14b23016ab1",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 9,
+      "count": 50,
+      "by_league": {
+        "en.1": 27,
+        "it.1": 23
+      },
+      "sha256": "dd4f473a6b5f2f777be3c4d266c17cb2adb4fd6749a098c21d2c627833c2b9d5",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 10,
+      "count": 50,
+      "by_league": {
+        "en.1": 50
+      },
+      "sha256": "ce7d142a15f67088f9e4365a88cbad0da8eb64e40f327adecdf6867fdb122778",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 11,
+      "count": 50,
+      "by_league": {
+        "en.1": 8,
+        "es.1": 42
+      },
+      "sha256": "6a436878d6d454587afe3e6f27ffe7bf86b1457ed1f6f2860e168fb932ebb928",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 12,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "9698651d64115f4ef098fd740ab43a2ed86c0753c38881ee20f1d21114f08122",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 13,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "662c3f48a4ca84db2c8934400ac1f148bde612deeccda579414a3fb2d94a7022",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 14,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "3010496020c00f9a4086e3e8ca2973e75f04f3ace253a00e52957d660676e803",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 15,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "3cf841c876e4f5ac1a7ed6cc1c4e155f5fc6eb8daee33e2b33ac8471b8276053",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 16,
+      "count": 50,
+      "by_league": {
+        "es.1": 50
+      },
+      "sha256": "5d733eb6b8a4bb2d1b185d9a0cd228943290f2db0b9c606a7500e4f10d680671",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 17,
+      "count": 50,
+      "by_league": {
+        "es.1": 36,
+        "it.1": 14
+      },
+      "sha256": "115bb4a19e7a2b7e172092288658114aba6b63435ef247526d6b4a3213edf1e6",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 18,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "6b5d6e347fce4e184ccc47eed63c7895e66c878703e022c013c6e7fd7317b945",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 19,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "d9ae9fd46ebd490e1674aab12d6728fcfb108e549b4d328927d9771854c70de3",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 20,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "b27f8f363884d0974bee82e1e7e68bc8d4bdb6af09e1c18ad04b8992aa02f360",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 21,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "cdb6fbf2d5b074c7eb52c326cf98ff738f7fcbb243ebdf80b5fa22ffb8f4b4e1",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 22,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "46ceaa008bfe4146be457eddbea673a8ea88bfd59ba70c05a14e034e1d386611",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 23,
+      "count": 50,
+      "by_league": {
+        "it.1": 50
+      },
+      "sha256": "0d592ede9c6bebc971efd8d4ba968d5a4f8f6ef6cef3db3fbfd5943451dc304f",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    },
+    {
+      "batch_id": 24,
+      "count": 27,
+      "by_league": {
+        "it.1": 27
+      },
+      "sha256": "edf52e9d4f60a8de370c8a61cc8377f7dc74c43357a8101e4955d384cb3823ff",
+      "review_status": "PENDING_SOURCE_REVIEW"
+    }
+  ],
+  "independently_verified_added": 0,
+  "ex_final_allowed": false
+}
