@@ -15,6 +15,7 @@ from ex_cross_verify import norm, secondary_rows
 CLUB_IDENTITIES = {
     "en.1": {
         "newcastleunited": "newcastle",
+        "leedsunited": "leeds",
         "manchesterunited": "manunited",
         "manchestercity": "mancity",
         "tottenhamhotspur": "tottenham",
@@ -23,12 +24,32 @@ CLUB_IDENTITIES = {
         "westhamunited": "westham",
         "nottinghamforest": "nottmforest",
     },
+    "es.1": {
+        "rayovallecanodemadrid": "rayovallecano",
+        "rcdmallorca": "mallorca",
+        "rcdespanyoldebarcelona": "espanyol",
+        "rcceltadevigo": "celta",
+        "deportivoalaves": "alaves",
+        "realsociedaddefutbol": "realsociedad",
+        "clubatleticodemadrid": "atleticomadrid",
+        "athleticclub": "athleticbilbao",
+    },
     "it.1": {
         "internazionalemilano": "inter",
         "juventus": "juventus",
         "parmacalcio1913": "parma",
         "fiorentina": "fiorentina",
         "atalanta": "atalanta",
+        "genoacfc": "genoa",
+        "torino": "torino",
+        "hellasverona": "verona",
+        "lazio": "lazio",
+        "napoli": "napoli",
+        "bologna1909": "bologna",
+        "udinesecalcio": "udinese",
+        "cremonese": "cremonese",
+        "pisa1909": "pisa",
+        "como1907": "como",
     },
 }
 
