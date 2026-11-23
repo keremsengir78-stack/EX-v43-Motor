@@ -82,5 +82,22 @@ class ContentGateTests(unittest.TestCase):
             self.assertIn("expected:invalid_kickoff", result["issues"])
             self.assertFalse(result["ex_final_allowed"])
 
+    def test_duplicate_json_fixture_key_blocks(self):
+        snapshot = '{"fixture_id":"wrong","fixture_id":"m1","home_team":"A","away_team":"B","kickoff_at":"2026-01-01T12:00:00Z","home_goals":2,"away_goals":1}'
+        row = {"provider_group": "B", "captured_content": snapshot,
+               "content_sha256": hashlib.sha256(snapshot.encode()).hexdigest()}
+        result = compare_source_content([captured("A"), row], FACTS)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("source:1:content_not_structured", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_nonfinite_json_metadata_blocks(self):
+        snapshot = json.dumps(FACTS)[:-1] + ',"confidence":NaN}'
+        row = {"provider_group": "B", "captured_content": snapshot,
+               "content_sha256": hashlib.sha256(snapshot.encode()).hexdigest()}
+        result = compare_source_content([captured("A"), row], FACTS)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("source:1:content_not_structured", result["issues"])
+
 if __name__ == "__main__":
     unittest.main()
