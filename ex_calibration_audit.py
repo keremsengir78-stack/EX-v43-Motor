@@ -35,10 +35,10 @@ def audit_predictions(records, market, cutoff, min_samples=100):
             issues.append("record:%d:invalid" % i)
             continue
         identifier = record.get("fixture_id")
-        if not isinstance(identifier, str) or not identifier.strip() or identifier in seen:
+        if not isinstance(identifier, str) or not identifier.strip() or identifier.strip() in seen:
             issues.append("record:%d:duplicate_or_missing_fixture" % i)
         else:
-            seen.add(identifier)
+            seen.add(identifier.strip())
         if record.get("market") != market:
             issues.append("record:%d:market_mismatch" % i)
         probability = record.get("probability")
