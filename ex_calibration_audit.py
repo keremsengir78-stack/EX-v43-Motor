@@ -37,6 +37,7 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         records = []
     seen = set()
     scores = []
+    log_losses = []
     for i, record in enumerate(records):
         if not isinstance(record, dict):
             issues.append("record:%d:invalid" % i)
@@ -64,6 +65,10 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         except (KeyError, ValueError, TypeError, AttributeError, OverflowError):
             issues.append("record:%d:invalid_timestamp" % i)
         scores.append((probability - outcome) ** 2)
+        # Clamp only for logarithms: retain the original probability for Brier/ECE.
+        safe_probability = min(max(float(probability), 1e-15), 1 - 1e-15)
+        log_losses.append(-(outcome * math.log(safe_probability) +
+                            (1 - outcome) * math.log1p(-safe_probability)))
     if not issues and len(scores) < min_samples:
         issues.append("sample:insufficient")
     bins = []
@@ -102,6 +107,8 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         "market": market,
         "sample_size": len(scores),
         "brier_score": round(sum(scores) / len(scores), 8) if scores and not issues else None,
+        "log_loss": round(sum(log_losses) / len(log_losses), 8)
+                    if log_losses and not issues else None,
         "issues": issues,
         "reliability_bins": bins,
         "expected_calibration_error": expected_calibration_error,
