@@ -73,6 +73,38 @@ class CalibrationSafetyTests(unittest.TestCase):
         self.assertFalse(result["pup_allowed"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_unsupported_market_fails_closed(self):
+        result = audit_predictions([sample()], "UNKNOWN", "2026-10-02T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("market:unsupported", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_boolean_minimum_sample_is_invalid(self):
+        result = audit_predictions([sample()], "KG_VAR", "2026-10-02T00:00:00Z",
+                                   min_samples=True)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("min_samples:invalid", result["issues"])
+        self.assertFalse(result["calibration_certified"])
+
+    def test_cutoff_equal_settlement_is_blocked(self):
+        result = audit_predictions([sample(settled_at="2026-10-02T00:00:00Z")],
+                                   "KG_VAR", "2026-10-02T00:00:00Z")
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("temporal_leakage" in issue for issue in result["issues"]))
+
+    def test_valid_boundary_probabilities_are_not_certified(self):
+        records = [sample(fixture_id="boundary-%d" % i,
+                          probability=float(i % 2), outcome=i % 2)
+                   for i in range(30)]
+        result = audit_predictions(records, "KG_VAR", "2026-10-02T00:00:00Z",
+                                   min_samples=30)
+        self.assertEqual(result["status"], "AUDIT_COMPLETE_NOT_CALIBRATED")
+        self.assertEqual(result["brier_score"], 0.0)
+        self.assertEqual(result["sample_size"], 30)
+        self.assertFalse(result["calibration_certified"])
+        self.assertFalse(result["pup_allowed"])
+        self.assertFalse(result["ex_final_allowed"])
+
 
 if __name__ == "__main__":
     unittest.main()
