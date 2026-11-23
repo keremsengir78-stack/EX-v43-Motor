@@ -41,13 +41,17 @@ def verify_fixture_sources(observations, cutoff):
             provider_groups.add(group)
         if row.get("verified") is not True:
             issues.append("source:%d:unverified" % i)
+        if not isinstance(row.get("evidence_url"), str) or not row["evidence_url"].startswith("https://"):
+            issues.append("source:%d:evidence_url_missing_or_invalid" % i)
+        if not isinstance(row.get("retrieved_at"), str) or not row["retrieved_at"].endswith("Z"):
+            issues.append("source:%d:retrieved_at_missing_or_invalid" % i)
         if any(field not in row for field in FIELDS):
             issues.append("source:%d:fields_missing" % i)
             continue
         if any(not isinstance(row[k], str) or not row[k].strip()
                for k in ("fixture_id", "home_team", "away_team")):
             issues.append("source:%d:identity_invalid" % i)
-        if any(isinstance(row[k], bool) or not isinstance(row[k], int) or row[k] < 0
+        if any(isinstance(row[k], bool) or not isinstance(row[k], int) or row[k] < 0 or row[k] > 30
                for k in ("home_goals", "away_goals")):
             issues.append("source:%d:score_invalid" % i)
         try:
@@ -57,9 +61,9 @@ def verify_fixture_sources(observations, cutoff):
             kickoff = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
             if kickoff.utcoffset() != dt.timedelta(0) or (boundary is not None and kickoff >= boundary):
                 raise ValueError("future kickoff")
-        except (ValueError, TypeError, OverflowError):
+        except (ValueError, TypeError, OverflowError, AttributeError):
             issues.append("source:%d:kickoff_invalid_or_future" % i)
-        # Invalid nested provider payloads must BLOCK, never crash set comparison.
+        # Preserve untrusted values for equality checks without trusting their types.
         values.append(tuple(row.get(k) for k in FIELDS))
     if len(values) >= 2 and any(value != values[0] for value in values[1:]):
         issues.append("sources:fixture_conflict")
