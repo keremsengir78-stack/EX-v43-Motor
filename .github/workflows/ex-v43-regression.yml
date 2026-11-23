@@ -69,6 +69,12 @@ jobs:
         run: |
           set -o pipefail
           python -m unittest tests.test_bulk_match_pipeline -v 2>&1 | tee bulk-pipeline-smoke.log
+      - name: Ingestion-to-match bridge smoke test
+        id: ingestion_bridge
+        if: success()
+        run: |
+          set -o pipefail
+          python -m unittest tests.test_ingestion_to_match_bridge -v 2>&1 | tee ingestion-bridge-smoke.log
       - name: Publish regression logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -83,6 +89,7 @@ jobs:
             source-lineage-audit.log
             ex-readiness-audit.log
             bulk-pipeline-smoke.log
+            ingestion-bridge-smoke.log
           if-no-files-found: warn
           retention-days: 14
       - name: Publish machine-readable commit regression status
@@ -100,6 +107,7 @@ jobs:
           LINEAGE_AUDIT_RESULT: ${{ steps.lineage_audit.outcome }}
           READINESS_AUDIT_RESULT: ${{ steps.readiness_audit.outcome }}
           BULK_SMOKE_RESULT: ${{ steps.bulk_smoke.outcome }}
+          INGESTION_BRIDGE_RESULT: ${{ steps.ingestion_bridge.outcome }}
         run: |
           if [ "$JOB_STATUS" = "success" ]; then
             state=success
@@ -124,7 +132,7 @@ jobs:
               -f context="ex-v43/failing-test/$diagnostic" \
               -f description="First full regression failure identifier"
           fi
-          for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT" "review-audit:$REVIEW_AUDIT_RESULT" "external-audit:$EXTERNAL_AUDIT_RESULT" "official-batch-audit:$OFFICIAL_BATCH_AUDIT_RESULT" "lineage-audit:$LINEAGE_AUDIT_RESULT" "readiness-audit:$READINESS_AUDIT_RESULT" "bulk-smoke:$BULK_SMOKE_RESULT"; do
+          for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT" "review-audit:$REVIEW_AUDIT_RESULT" "external-audit:$EXTERNAL_AUDIT_RESULT" "official-batch-audit:$OFFICIAL_BATCH_AUDIT_RESULT" "lineage-audit:$LINEAGE_AUDIT_RESULT" "readiness-audit:$READINESS_AUDIT_RESULT" "bulk-smoke:$BULK_SMOKE_RESULT" "ingestion-bridge:$INGESTION_BRIDGE_RESULT"; do
             stage="${item%%:*}"
             outcome="${item#*:}"
             case "$outcome" in
