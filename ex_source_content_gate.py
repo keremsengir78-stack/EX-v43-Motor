@@ -24,10 +24,10 @@ def compare_source_content(observations, expected):
             issues.append("source:%d:invalid" % i)
             continue
         group = row.get("provider_group")
-        if not isinstance(group, str) or not group.strip() or group in providers:
+        if not isinstance(group, str) or not group.strip() or group.strip().casefold() in providers:
             issues.append("source:%d:provider_duplicate_or_missing" % i)
         else:
-            providers.add(group)
+            providers.add(group.strip().casefold())
         snapshot = row.get("captured_content")
         if not isinstance(snapshot, str) or not snapshot.strip():
             issues.append("source:%d:content_missing" % i)
