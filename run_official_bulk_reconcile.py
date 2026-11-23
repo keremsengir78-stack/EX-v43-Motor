@@ -2,8 +2,8 @@
 
 Input CSV: source_index,league,date,home,away,home_goals,away_goals,
            official_source_url,source_provider,evidence_reviewed
-Only manually reviewed official-source evidence (evidence_reviewed=true) can
-receive OFFICIAL_SCORE_MATCH. This program does not scrape or attest websites.
+A reviewer flag and official-looking URL are not remote content verification.
+This program records provisional score matches only and never certifies them.
 """
 import argparse
 import csv
@@ -74,19 +74,23 @@ def reconcile(queue, batches, evidence_rows):
                               "reference_score": candidate["reference_score"]})
             continue
         item = by_index[idx]
-        item["official_score"] = score
-        item["official_source_url"] = url
-        item["official_verified"] = True
-        item["review_status"] = "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
+        item["reviewed_candidate_score"] = score
+        item["reviewed_candidate_source_url"] = url
+        item["official_verified"] = False
+        item["official_score"] = None
+        item["official_source_url"] = None
+        item["review_status"] = "REVIEWER_ASSERTED_SCORE_MATCH_REMOTE_CONTENT_UNVERIFIED"
         accepted.append(idx)
     for batch in batches:
         batch["official_verified_count"] = sum(x["official_verified"] for x in batch["records"])
         batch["remaining_count"] = 25 - batch["official_verified_count"]
         batch["ex_final_allowed"] = False
-    return {"accepted_indices": accepted, "rejected": rejected, "score_conflicts": conflicts,
+    return {"provisional_match_indices": accepted, "accepted_indices": [],
+            "rejected": rejected, "score_conflicts": conflicts,
             "official_verified_total": sum(b["official_verified_count"] for b in batches),
             "remaining": 75 - sum(b["official_verified_count"] for b in batches),
-            "source_independence_certified": False, "ex_final_allowed": False}
+            "source_independence_certified": False,
+            "remote_content_verified_by_reconciler": False, "ex_final_allowed": False}
 
 
 def main():
