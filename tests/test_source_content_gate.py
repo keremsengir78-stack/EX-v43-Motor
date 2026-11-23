@@ -53,5 +53,15 @@ class ContentGateTests(unittest.TestCase):
         self.assertIn("source:1:content_not_structured", result["issues"])
 
 
+    def test_provider_alias_with_case_and_whitespace_blocks(self):
+        result = compare_source_content([captured("Provider"), captured(" provider ")], FACTS)
+        self.assertIn("source:1:provider_duplicate_or_missing", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_distinct_provider_groups_still_unattested(self):
+        result = compare_source_content([captured("Provider A"), captured("Provider B")], FACTS)
+        self.assertEqual(result["status"], "CONTENT_CONSISTENT_UNATTESTED")
+        self.assertFalse(result["editorial_independence_attested"])
+
 if __name__ == "__main__":
     unittest.main()
