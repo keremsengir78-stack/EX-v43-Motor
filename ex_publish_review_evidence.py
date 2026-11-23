@@ -32,7 +32,12 @@ if audit.is_file():
         if not isinstance(baseline_by_season,dict) or any(
                 type(count) is not int or count<0 for count in baseline_by_season.values()):
             raise ValueError("Invalid baseline unmatched counts")
-        if sum(baseline_by_season.values())!=status["baseline_secondary_unverified"]:
+        # Validate the aggregate before comparing it with the per-season counts.
+        # Otherwise a malformed string/null total can silently reach later logic.
+        aggregate=status["baseline_secondary_unverified"]
+        if type(aggregate) is not int or aggregate < 0:
+            raise ValueError("Invalid nonnegative audit counter: baseline_secondary_unverified")
+        if sum(baseline_by_season.values())!=aggregate:
             raise ValueError("Baseline unmatched counts do not reconcile")
         # Reject malformed counters before publishing source-gate diagnostics.
         for field in ("baseline_secondary_unverified", "baseline_secondary_conflicts",
