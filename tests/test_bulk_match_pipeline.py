@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from ex_bulk_match_pipeline import run_batch
+from ex_bulk_match_pipeline import run_batch, run_large_batch
 
 
 def match(i):
@@ -41,6 +41,34 @@ class BulkMatchPipelineTests(unittest.TestCase):
         self.assertEqual(result["evidence_ready_uncalibrated"], 2)
         self.assertTrue(all(r["calibrated_probability"] is None for r in result["results"]))
         self.assertFalse(result["ex_final_allowed"])
+
+
+    def test_same_fixture_multiple_markets(self):
+        a, b = match(1), match(1)
+        b["market"] = "OVER_2_5"
+        with patch("ex_bulk_match_pipeline.process_match_evidence",
+                   return_value={"status": "BLOCKED", "issues": ["sources:missing"]}):
+            result = run_batch({"matches": [a, b]})
+        self.assertEqual(result["processed"], 2)
+
+    def test_chunked_501_matches_no_omission(self):
+        with patch("ex_bulk_match_pipeline.process_match_evidence",
+                   return_value={"status": "BLOCKED", "issues": ["sources:missing"]}):
+            result = run_large_batch({"matches": [match(i) for i in range(501)]})
+        self.assertEqual(result["processed"], 501)
+        self.assertEqual(result["chunk_count"], 2)
+        self.assertEqual(result["blocked"], 501)
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_chunk_size_invalid(self):
+        with self.assertRaises(ValueError):
+            run_large_batch({"matches": [match(1)]}, 0)
+
+    def test_large_batch_duplicate_across_chunks_rejected(self):
+        rows = [match(i) for i in range(501)]
+        rows[-1] = match(0)
+        with self.assertRaises(ValueError):
+            run_large_batch({"matches": rows})
 
     def test_bad_fixture_is_isolated(self):
         with patch("ex_bulk_match_pipeline.process_match_evidence",
