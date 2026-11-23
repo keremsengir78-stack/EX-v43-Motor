@@ -9,7 +9,7 @@ from ex_source_agreement import verify_fixture_sources
 
 
 def process_match_evidence(market, records, venue, season, previous_season,
-                           feature_scores, as_of, source_observations=None):
+                           feature_scores, as_of, source_observations=None, require_evidence_locator=False):
     # Source agreement is mandatory for every historical fixture.
     if not isinstance(records, list) or not isinstance(source_observations, dict):
         return {"status": "BLOCKED", "issues": ["sources:missing"],
@@ -19,7 +19,8 @@ def process_match_evidence(market, records, venue, season, previous_season,
     for i, row in enumerate(records):
         fixture_id = row.get("fixture_id") if isinstance(row, dict) else None
         observations = source_observations.get(fixture_id) if isinstance(fixture_id, str) else None
-        checked = verify_fixture_sources(observations, as_of)
+        checked = verify_fixture_sources(observations, as_of,
+                                         require_evidence_locator=require_evidence_locator)
         if checked["status"] != "CROSS_VERIFIED_INPUT":
             source_issues.extend("fixture:%d:%s" % (i, issue) for issue in checked["issues"])
             continue
