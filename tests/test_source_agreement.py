@@ -147,6 +147,34 @@ class SourceAgreementTests(unittest.TestCase):
         result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z")
         self.assertIn("source:0:score_invalid", result["issues"])
 
+
+    def test_strict_mode_rejects_retrieval_after_cutoff(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        for row in (a, b):
+            row["evidence_url"] = "https://example.org/results"
+            row["retrieved_at"] = "2026-03-01T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:0:retrieved_at_missing_or_invalid", result["issues"])
+
+    def test_strict_mode_rejects_retrieval_before_kickoff(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        for row in (a, b):
+            row["evidence_url"] = "https://example.org/results"
+            row["retrieved_at"] = "2025-12-31T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:0:retrieved_at_missing_or_invalid", result["issues"])
+
+    def test_strict_mode_rejects_malformed_https_url(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        for row in (a, b):
+            row["evidence_url"] = "https:///missing-host"
+            row["retrieved_at"] = "2026-01-02T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:0:evidence_url_missing_or_invalid", result["issues"])
+
     def test_missing_source_is_blocked(self):
         result = verify_fixture_sources([fixture("provider-A")], "2026-02-01T00:00:00Z")
         self.assertIn("sources:insufficient", result["issues"])
