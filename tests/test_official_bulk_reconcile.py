@@ -29,7 +29,13 @@ class BulkOfficialReconcileTests(unittest.TestCase):
 
     def test_bulk_match_accepted(self):
         r = reconcile(self.queue, self.batches, [self.evidence()])
-        self.assertEqual(r["official_verified_total"], 1)
+        self.assertEqual(r["official_verified_total"], 0)
+        self.assertEqual(r["provisional_match_indices"], [0])
+        self.assertEqual(r["accepted_indices"], [])
+        self.assertEqual(self.batches[0]["records"][0]["review_status"],
+                         "REVIEWER_ASSERTED_SCORE_MATCH_REMOTE_CONTENT_UNVERIFIED")
+        self.assertFalse(self.batches[0]["records"][0]["official_verified"])
+        self.assertFalse(r["remote_content_verified_by_reconciler"])
         self.assertFalse(r["ex_final_allowed"])
 
     def test_non_official_host_rejected(self):
