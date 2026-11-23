@@ -4,6 +4,7 @@ Sources must be explicitly supplied, distinct and independently verified.
 This is a structural agreement check, not proof of true editorial independence.
 """
 import datetime as dt
+from urllib.parse import urlsplit
 
 FIELDS = ("fixture_id", "home_team", "away_team", "kickoff_at", "home_goals", "away_goals")
 
@@ -42,9 +43,27 @@ def verify_fixture_sources(observations, cutoff, require_evidence_locator=False)
         if row.get("verified") is not True:
             issues.append("source:%d:unverified" % i)
         if require_evidence_locator:
-            if not isinstance(row.get("evidence_url"), str) or not row["evidence_url"].startswith("https://"):
+            url = row.get("evidence_url")
+            try:
+                parsed = urlsplit(url)
+                if (parsed.scheme != "https" or not parsed.hostname or
+                        parsed.username or parsed.password or any(ch.isspace() for ch in url)):
+                    raise ValueError("invalid evidence locator")
+            except (ValueError, TypeError, AttributeError):
                 issues.append("source:%d:evidence_url_missing_or_invalid" % i)
-            if not isinstance(row.get("retrieved_at"), str) or not row["retrieved_at"].endswith("Z"):
+            try:
+                stamp = row.get("retrieved_at")
+                if not isinstance(stamp, str) or not stamp.endswith("Z"):
+                    raise ValueError("retrieval must be UTC")
+                retrieved = dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+                if retrieved.utcoffset() != dt.timedelta(0) or (boundary is not None and retrieved > boundary):
+                    raise ValueError("retrieval after cutoff")
+                event = row.get("kickoff_at")
+                if isinstance(event, str) and event.endswith("Z"):
+                    kickoff_time = dt.datetime.fromisoformat(event.replace("Z", "+00:00"))
+                    if retrieved < kickoff_time:
+                        raise ValueError("retrieval before fixture")
+            except (ValueError, TypeError, AttributeError, OverflowError):
                 issues.append("source:%d:retrieved_at_missing_or_invalid" % i)
         if any(field not in row for field in FIELDS):
             issues.append("source:%d:fields_missing" % i)
