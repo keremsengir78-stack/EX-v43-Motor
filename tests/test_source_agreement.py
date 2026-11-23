@@ -185,6 +185,34 @@ class SourceAgreementTests(unittest.TestCase):
         self.assertEqual(result["status"], "BLOCKED")
         self.assertIn("source:1:duplicate_evidence_url", result["issues"])
 
+    def test_strict_mode_blocks_localhost_evidence(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        for row in (a, b):
+            row["evidence_url"] = "https://localhost/fixture/1"
+            row["retrieved_at"] = "2026-01-02T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:0:evidence_url_missing_or_invalid", result["issues"])
+
+    def test_strict_mode_blocks_custom_port(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        for row in (a, b):
+            row["evidence_url"] = "https://example.org:8443/fixture/1"
+            row["retrieved_at"] = "2026-01-02T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:0:evidence_url_missing_or_invalid", result["issues"])
+
+    def test_strict_mode_detects_case_variant_duplicate_host(self):
+        a, b = fixture("provider-A"), fixture("provider-B")
+        a["evidence_url"] = "https://EXAMPLE.org/fixture/1"
+        b["evidence_url"] = "https://example.org/fixture/1"
+        for row in (a, b):
+            row["retrieved_at"] = "2026-01-02T00:00:00Z"
+        result = verify_fixture_sources([a, b], "2026-02-01T00:00:00Z",
+                                        require_evidence_locator=True)
+        self.assertIn("source:1:duplicate_evidence_url", result["issues"])
+
     def test_missing_source_is_blocked(self):
         result = verify_fixture_sources([fixture("provider-A")], "2026-02-01T00:00:00Z")
         self.assertIn("sources:insufficient", result["issues"])
