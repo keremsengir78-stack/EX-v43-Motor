@@ -38,6 +38,20 @@ class BulkOfficialReconcileTests(unittest.TestCase):
         self.assertFalse(r["remote_content_verified_by_reconciler"])
         self.assertFalse(r["ex_final_allowed"])
 
+    def test_legacy_verified_flags_are_reset(self):
+        self.batches[0]["records"][1]["official_verified"] = True
+        self.batches[0]["records"][1]["official_score"] = [3, 0]
+        self.batches[0]["records"][1]["official_source_url"] = "https://www.laliga.com/results"
+        r = reconcile(self.queue, self.batches, [])
+        self.assertEqual(r["official_verified_total"], 0)
+        self.assertFalse(self.batches[0]["records"][1]["official_verified"])
+        self.assertIsNone(self.batches[0]["records"][1]["official_score"])
+
+    def test_implausible_score_rejected(self):
+        r = reconcile(self.queue, self.batches, [self.evidence(home_goals="31")])
+        self.assertEqual(r["rejected"][0]["reason"], "SCORE_OUT_OF_RANGE")
+        self.assertEqual(r["official_verified_total"], 0)
+
     def test_non_official_host_rejected(self):
         r = reconcile(self.queue, self.batches,
                       [self.evidence(official_source_url="https://laliga.com.evil.org/results")])
