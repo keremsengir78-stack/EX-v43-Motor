@@ -23,6 +23,32 @@ class OfficialEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_evidence(self.document)
 
+
+    def test_rejects_credentialed_official_url(self):
+        self.document["records"][0]["source_url"] = "https://attacker@datencenter.dfb.de/results"
+        with self.assertRaises(ValueError):
+            validate_evidence(self.document)
+
+    def test_rejects_official_url_with_unapproved_port(self):
+        self.document["records"][0]["source_url"] = "https://datencenter.dfb.de:8080/results"
+        with self.assertRaises(ValueError):
+            validate_evidence(self.document)
+
+    def test_rejects_non_object_record(self):
+        self.document["records"][0] = None
+        with self.assertRaises(ValueError):
+            validate_evidence(self.document)
+
+    def test_rejects_missing_score(self):
+        del self.document["records"][0]["home_goals"]
+        with self.assertRaises(ValueError):
+            validate_evidence(self.document)
+
+    def test_rejects_same_team_case_insensitive(self):
+        self.document["records"][0]["away"] = self.document["records"][0]["home"].upper()
+        with self.assertRaises(ValueError):
+            validate_evidence(self.document)
+
     def test_rejects_duplicate(self):
         self.document["records"].append(dict(self.document["records"][0]))
         with self.assertRaises(ValueError):
