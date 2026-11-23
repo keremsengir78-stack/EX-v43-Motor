@@ -27,9 +27,15 @@ def run_batch(payload):
         if not isinstance(item, dict):
             raise ValueError("Match %d is not an object" % i)
         fixture_id = item.get("fixture_id")
-        if not isinstance(fixture_id, str) or not fixture_id.strip() or fixture_id in ids:
-            raise ValueError("Missing or duplicate fixture ID")
-        ids.add(fixture_id)
+        market = item.get("market")
+        if not isinstance(fixture_id, str) or not fixture_id.strip():
+            raise ValueError("Missing fixture ID")
+        if not isinstance(market, str) or not market.strip():
+            raise ValueError("Missing market")
+        key = (fixture_id, market)
+        if key in ids:
+            raise ValueError("Duplicate fixture and market pair")
+        ids.add(key)
         missing = [key for key in REQUIRED if key not in item]
         if missing:
             result = {"status": "BLOCKED", "issues": ["input:missing:" + key for key in missing]}
@@ -39,7 +45,7 @@ def run_batch(payload):
                     item["market"], item["records"], item["venue"], item["season"],
                     item["previous_season"], item["feature_scores"], item["as_of"],
                     item["source_observations"])
-            except (ValueError, KeyError, TypeError, IndexError, AttributeError) as exc:
+            except (ValueError, KeyError, TypeError, IndexError, AttributeError, OSError, TimeoutError, ConnectionError) as exc:
                 result = {"status": "BLOCKED", "issues": ["pipeline:invalid_input:" + type(exc).__name__]}
         status = result.get("status", "BLOCKED")
         if status not in ("BLOCKED", "EVIDENCE_READY_UNCALIBRATED"):
@@ -59,12 +65,42 @@ def run_batch(payload):
             "ex_final_allowed": False, "source_type": "REVIEWED_INPUT_ONLY_NO_LIVE_FETCH"}
 
 
+
+def run_large_batch(payload, chunk_size=500):
+    """Process fixture/market pairs in bounded chunks without silent omissions."""
+    if not isinstance(payload, dict) or not isinstance(payload.get("matches"), list):
+        raise ValueError("Expected object with matches array")
+    matches = payload["matches"]
+    if not matches:
+        raise ValueError("No matches provided")
+    if type(chunk_size) is not int or not 1 <= chunk_size <= 500:
+        raise ValueError("chunk_size must be an integer between 1 and 500")
+    keys = [(row.get("fixture_id"), row.get("market"))
+            for row in matches if isinstance(row, dict)]
+    if len(keys) != len(matches) or len(set(keys)) != len(matches):
+        raise ValueError("Duplicate or malformed match input")
+    batches = [run_batch({"matches": matches[i:i + chunk_size]})
+               for i in range(0, len(matches), chunk_size)]
+    results = [row for batch in batches for row in batch["results"]]
+    blockers = Counter()
+    for batch in batches:
+        blockers.update(batch["blocker_categories"])
+    if len(results) != len(matches):
+        raise RuntimeError("Batch result count mismatch")
+    return {"processed": len(results), "chunk_count": len(batches),
+            "evidence_ready_uncalibrated": sum(b["evidence_ready_uncalibrated"] for b in batches),
+            "blocked": sum(b["blocked"] for b in batches),
+            "blocker_categories": dict(blockers), "results": results,
+            "ex_final_allowed": False, "source_type": "REVIEWED_INPUT_ONLY_NO_LIVE_FETCH"}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--chunk-size", type=int, default=500)
     args = parser.parse_args()
-    report = run_batch(json.loads(args.input.read_text(encoding="utf-8")))
+    report = run_large_batch(json.loads(args.input.read_text(encoding="utf-8")), args.chunk_size)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "results"}, ensure_ascii=False))
