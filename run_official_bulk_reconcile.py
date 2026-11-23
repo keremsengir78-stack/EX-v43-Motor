@@ -34,6 +34,13 @@ def reconcile(queue, batches, evidence_rows):
             by_index[idx] = item
     if set(index) != set(by_index):
         raise ValueError("Missing candidate records")
+    # Prior reports may carry reviewer-asserted flags from older versions.
+    # Reset all unsubstantiated certifications before processing new input.
+    for batch in batches:
+        for item in batch["records"]:
+            item["official_verified"] = False
+            item["official_score"] = None
+            item["official_source_url"] = None
     seen = set()
     accepted, rejected, conflicts = [], [], []
     for row in evidence_rows:
@@ -66,8 +73,8 @@ def reconcile(queue, batches, evidence_rows):
         except (ValueError, TypeError, KeyError):
             rejected.append({"source_index": idx, "reason": "INVALID_SCORE"})
             continue
-        if min(score) < 0:
-            rejected.append({"source_index": idx, "reason": "NEGATIVE_SCORE"})
+        if min(score) < 0 or max(score) > 30:
+            rejected.append({"source_index": idx, "reason": "SCORE_OUT_OF_RANGE"})
             continue
         if score != candidate["reference_score"]:
             conflicts.append({"source_index": idx, "official_score": score,
