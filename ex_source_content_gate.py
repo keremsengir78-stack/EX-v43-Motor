@@ -86,6 +86,15 @@ def compare_source_content(observations, expected):
                 type(parsed.get(k)) is not type(expected[k]) or parsed.get(k) != expected[k]
                 for k in FIELDS):
             issues.append("source:%d:fixture_content_conflict" % i)
+        # A caller-controlled provider_group must not contradict an explicit
+        # publisher identity embedded in the supplied snapshot. This is still
+        # not proof that either publisher actually served the content.
+        if isinstance(parsed, dict) and "publisher" in parsed:
+            publisher = parsed["publisher"]
+            if (not isinstance(publisher, str) or not publisher.strip()
+                    or not isinstance(group, str)
+                    or publisher.strip().casefold() != group.strip().casefold()):
+                issues.append("source:%d:publisher_identity_conflict" % i)
     return {"status": "CONTENT_CONSISTENT_UNATTESTED" if not issues else "BLOCKED",
             "issues": issues, "provider_groups": len(providers) if not issues else 0,
             "content_verified_by_live_fetch": False, "official_source_attested": False,
