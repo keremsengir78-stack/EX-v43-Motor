@@ -19,14 +19,18 @@
       "total": 25
     }
   ],
-  "official_primary_source_result_matches": 38,
-  "broadcaster_only_result_matches": 37,
+  "official_primary_source_result_matches": 0,
+  "broadcaster_only_result_matches": 0,
   "source_independence_certified": false,
   "upstream_lineage_audit_pending": true,
   "ex_final_allowed": false,
   "notes": [
-    "Official result match does not attest original dataset independence.",
-    "NBC Sports broadcaster comparison is not official league primary-source certification.",
+    "38 official-domain claims have not been machine-verified against exact fixture content.",
+    "37 NBC matches were self-attested by copying candidate scores and have been withdrawn.",
+    "75/75 candidate records exist, but 0/75 independently certified exact-match evidence in this audit.",
     "EX FINAL remains fail-closed."
-  ]
+  ],
+  "official_primary_source_claims_pending_exact_fixture_content_verification": 38,
+  "broadcaster_candidates_pending_independent_score_extraction": 37,
+  "automatically_certified_exact_match_results": 0
 }
