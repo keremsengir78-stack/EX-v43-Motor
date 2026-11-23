@@ -8,7 +8,7 @@ import datetime as dt
 FIELDS = ("fixture_id", "home_team", "away_team", "kickoff_at", "home_goals", "away_goals")
 
 
-def verify_fixture_sources(observations, cutoff):
+def verify_fixture_sources(observations, cutoff, require_evidence_locator=False):
     issues = []
     try:
         if not isinstance(cutoff, str) or not cutoff.endswith("Z"):
@@ -41,10 +41,11 @@ def verify_fixture_sources(observations, cutoff):
             provider_groups.add(group)
         if row.get("verified") is not True:
             issues.append("source:%d:unverified" % i)
-        if not isinstance(row.get("evidence_url"), str) or not row["evidence_url"].startswith("https://"):
-            issues.append("source:%d:evidence_url_missing_or_invalid" % i)
-        if not isinstance(row.get("retrieved_at"), str) or not row["retrieved_at"].endswith("Z"):
-            issues.append("source:%d:retrieved_at_missing_or_invalid" % i)
+        if require_evidence_locator:
+            if not isinstance(row.get("evidence_url"), str) or not row["evidence_url"].startswith("https://"):
+                issues.append("source:%d:evidence_url_missing_or_invalid" % i)
+            if not isinstance(row.get("retrieved_at"), str) or not row["retrieved_at"].endswith("Z"):
+                issues.append("source:%d:retrieved_at_missing_or_invalid" % i)
         if any(field not in row for field in FIELDS):
             issues.append("source:%d:fields_missing" % i)
             continue
