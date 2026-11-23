@@ -34,6 +34,12 @@ if audit.is_file():
             raise ValueError("Invalid baseline unmatched counts")
         if sum(baseline_by_season.values())!=status["baseline_secondary_unverified"]:
             raise ValueError("Baseline unmatched counts do not reconcile")
+        # Reject malformed counters before publishing source-gate diagnostics.
+        for field in ("baseline_secondary_unverified", "baseline_secondary_conflicts",
+                      "baseline_newer_unverified_results"):
+            value=status[field]
+            if type(value) is not int or value < 0:
+                raise ValueError("Invalid nonnegative audit counter: "+field)
         blockers=status["baseline_blocking_sources"]
         if not isinstance(blockers,list):
             raise ValueError("Invalid baseline blockers")
