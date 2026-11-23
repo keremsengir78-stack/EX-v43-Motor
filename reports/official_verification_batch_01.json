@@ -158,10 +158,13 @@
         2,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_DATE_APPROPRIATE_OFFICIAL_SOURCE"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1",
+      "official_score": [
+        2,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 796,
@@ -245,10 +248,13 @@
         3,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4",
+      "official_score": [
+        3,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 331,
@@ -260,10 +266,13 @@
         0,
         5
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4",
+      "official_score": [
+        0,
+        5
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 809,
@@ -275,10 +284,13 @@
         5,
         2
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4",
+      "official_score": [
+        5,
+        2
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 810,
@@ -290,10 +302,13 @@
         0,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4",
+      "official_score": [
+        0,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 330,
@@ -305,10 +320,13 @@
         1,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4",
+      "official_score": [
+        1,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 332,
@@ -392,10 +410,13 @@
         0,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+      "official_score": [
+        0,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 822,
@@ -407,10 +428,13 @@
         2,
         3
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+      "official_score": [
+        2,
+        3
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 824,
@@ -422,15 +446,18 @@
         4,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+      "official_score": [
+        4,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     }
   ],
-  "official_verified_count": 16,
+  "official_verified_count": 25,
   "ex_final_allowed": false,
-  "remaining_count": 9,
+  "remaining_count": 0,
   "evidence_scope": "MATCH_RESULT_ONLY",
   "secondary_reconciliation_cleared": false
 }
