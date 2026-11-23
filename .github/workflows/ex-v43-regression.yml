@@ -57,6 +57,12 @@ jobs:
         run: |
           set -o pipefail
           python run_source_lineage_audit.py 2>&1 | tee source-lineage-audit.log
+      - name: Audit end-to-end evidence readiness
+        id: readiness_audit
+        if: success()
+        run: |
+          set -o pipefail
+          python run_ex_readiness_audit.py 2>&1 | tee ex-readiness-audit.log
       - name: Publish regression logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,6 +75,7 @@ jobs:
             external-candidate-audit.log
             official-batch-audit.log
             source-lineage-audit.log
+            ex-readiness-audit.log
           if-no-files-found: warn
           retention-days: 14
       - name: Publish machine-readable commit regression status
@@ -84,6 +91,7 @@ jobs:
           EXTERNAL_AUDIT_RESULT: ${{ steps.external_audit.outcome }}
           OFFICIAL_BATCH_AUDIT_RESULT: ${{ steps.official_batch_audit.outcome }}
           LINEAGE_AUDIT_RESULT: ${{ steps.lineage_audit.outcome }}
+          READINESS_AUDIT_RESULT: ${{ steps.readiness_audit.outcome }}
         run: |
           if [ "$JOB_STATUS" = "success" ]; then
             state=success
@@ -108,7 +116,7 @@ jobs:
               -f context="ex-v43/failing-test/$diagnostic" \
               -f description="First full regression failure identifier"
           fi
-          for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT" "review-audit:$REVIEW_AUDIT_RESULT" "external-audit:$EXTERNAL_AUDIT_RESULT" "official-batch-audit:$OFFICIAL_BATCH_AUDIT_RESULT" "lineage-audit:$LINEAGE_AUDIT_RESULT"; do
+          for item in "syntax:$SYNTAX_RESULT" "safety:$SAFETY_RESULT" "full:$FULL_RESULT" "review-audit:$REVIEW_AUDIT_RESULT" "external-audit:$EXTERNAL_AUDIT_RESULT" "official-batch-audit:$OFFICIAL_BATCH_AUDIT_RESULT" "lineage-audit:$LINEAGE_AUDIT_RESULT" "readiness-audit:$READINESS_AUDIT_RESULT"; do
             stage="${item%%:*}"
             outcome="${item#*:}"
             case "$outcome" in
