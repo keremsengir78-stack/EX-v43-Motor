@@ -39,5 +39,5 @@ def verify_strict_report(report):
             issues.append("fixture:%d:source_provenance_missing" % i)
     return {"status": "BLOCKED" if issues else "EVIDENCE_FIELDS_PRESENT_NOT_CERTIFIED",
             "issues": issues,
-            "independent_score_verified": not issues,
+            "independent_score_verified": False,
             "ex_final_allowed": False}
