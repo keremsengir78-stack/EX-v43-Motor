@@ -1,0 +1,1713 @@
+{
+  "schema_version": 1,
+  "batch_id": "strict-review-05",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "source_total": 1177,
+  "offset": 400,
+  "exported": 100,
+  "truncated": true,
+  "fixtures": [
+    {
+      "index": 400,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-04-26",
+      "home": "AC Milan",
+      "away": "Juventus FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 401,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-04-26",
+      "home": "Torino FC",
+      "away": "FC Internazionale Milano",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 402,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-02",
+      "home": "Udinese Calcio",
+      "away": "Torino FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 403,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-03",
+      "home": "Juventus FC",
+      "away": "Hellas Verona FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 404,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-08",
+      "home": "Torino FC",
+      "away": "US Sassuolo Calcio",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 405,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-09",
+      "home": "US Lecce",
+      "away": "Juventus FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 406,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Cagliari Calcio",
+      "away": "Torino FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 407,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Juventus FC",
+      "away": "ACF Fiorentina",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 408,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-23",
+      "home": "Frosinone Calcio",
+      "away": "Juventus FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 409,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-23",
+      "home": "Torino FC",
+      "away": "AC Milan",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 410,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-23",
+      "home": "Venezia FC",
+      "away": "US Lecce",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 411,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-28",
+      "home": "AC Milan",
+      "away": "Venezia FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 412,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "Juventus FC",
+      "away": "Parma Calcio 1913",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 413,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "US Sassuolo Calcio",
+      "away": "Torino FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 414,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-05",
+      "home": "ACF Fiorentina",
+      "away": "Torino FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 415,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-06",
+      "home": "Frosinone Calcio",
+      "away": "Venezia FC",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 416,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-06",
+      "home": "Juventus FC",
+      "away": "AC Milan",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 417,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-11",
+      "home": "Venezia FC",
+      "away": "ACF Fiorentina",
+      "matched_score": [
+        2,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 418,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-13",
+      "home": "US Sassuolo Calcio",
+      "away": "Juventus FC",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 419,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-14",
+      "home": "Torino FC",
+      "away": "AS Roma",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 420,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-19",
+      "home": "Bologna FC 1909",
+      "away": "Torino FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 421,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-19",
+      "home": "Venezia FC",
+      "away": "SS Lazio",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 422,
+      "league": "it.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "Juventus FC",
+      "away": "Atalanta BC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+      "secondary_sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 423,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-16",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        0,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 424,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-23",
+      "home": "Manchester City FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 425,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-30",
+      "home": "Leeds United FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 426,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-31",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 427,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-31",
+      "home": "Nottingham Forest FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 428,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-13",
+      "home": "Newcastle United FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 429,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-13",
+      "home": "West Ham United FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 430,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-14",
+      "home": "Manchester City FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 431,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-20",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 432,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-20",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 433,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-09-27",
+      "home": "Tottenham Hotspur FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 434,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-04",
+      "home": "Leeds United FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 435,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "Newcastle United FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 436,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 437,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-18",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 438,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-24",
+      "home": "Leeds United FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 439,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-10-25",
+      "home": "Manchester United FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        4,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 440,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-01",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 441,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-01",
+      "home": "Nottingham Forest FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 442,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-02",
+      "home": "West Ham United FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 443,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-08",
+      "home": "Tottenham Hotspur FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 444,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-09",
+      "home": "Nottingham Forest FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 445,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-22",
+      "home": "Newcastle United FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 446,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-29",
+      "home": "Manchester City FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 447,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-11-30",
+      "home": "Nottingham Forest FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 448,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-02",
+      "home": "Newcastle United FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 449,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-03",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 450,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-04",
+      "home": "Manchester United FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 451,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-07",
+      "home": "Brighton & Hove Albion FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 452,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-08",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        1,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 453,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-14",
+      "home": "Nottingham Forest FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 454,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-20",
+      "home": "Manchester City FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 455,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-26",
+      "home": "Manchester United FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 456,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-27",
+      "home": "Nottingham Forest FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 457,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-30",
+      "home": "Manchester United FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 458,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-12-30",
+      "home": "West Ham United FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 459,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-03",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 460,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-04",
+      "home": "Leeds United FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 461,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-06",
+      "home": "West Ham United FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 462,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-07",
+      "home": "Manchester City FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 463,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-07",
+      "home": "Newcastle United FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        4,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 464,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-17",
+      "home": "Manchester United FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 465,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-17",
+      "home": "Tottenham Hotspur FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 466,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-18",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 467,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-01-24",
+      "home": "Manchester City FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 468,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-01",
+      "home": "Tottenham Hotspur FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 469,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-06",
+      "home": "Leeds United FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 470,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-07",
+      "home": "Manchester United FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 471,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-10",
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 472,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-10",
+      "home": "West Ham United FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 473,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-11",
+      "home": "Nottingham Forest FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 474,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-21",
+      "home": "Manchester City FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 475,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-02-28",
+      "home": "Leeds United FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 476,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-03-01",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 477,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-03-04",
+      "home": "Manchester City FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 478,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-03-04",
+      "home": "Newcastle United FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 479,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-03-14",
+      "home": "West Ham United FC",
+      "away": "Manchester City FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 480,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-03-22",
+      "home": "Tottenham Hotspur FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 481,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-04-10",
+      "home": "West Ham United FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 482,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-04-13",
+      "home": "Manchester United FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 483,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-04-18",
+      "home": "Leeds United FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 484,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-04-18",
+      "home": "Tottenham Hotspur FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 485,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-04-25",
+      "home": "Wolverhampton Wanderers FC",
+      "away": "Tottenham Hotspur FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 486,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-02",
+      "home": "Newcastle United FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 487,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-09",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Wolverhampton Wanderers FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 488,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-10",
+      "home": "Nottingham Forest FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 489,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-11",
+      "home": "Tottenham Hotspur FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 490,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Leeds United FC",
+      "away": "Brighton & Hove Albion FC",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 491,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Manchester United FC",
+      "away": "Nottingham Forest FC",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 492,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Newcastle United FC",
+      "away": "West Ham United FC",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 493,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-24",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 494,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2026-05-24",
+      "home": "West Ham United FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "secondary_sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 495,
+      "league": "en.1",
+      "season": "2026-27",
+      "date": "2026-08-22",
+      "home": "Hull City AFC",
+      "away": "Manchester United FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+      "secondary_sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 496,
+      "league": "en.1",
+      "season": "2026-27",
+      "date": "2026-08-22",
+      "home": "Nottingham Forest FC",
+      "away": "Leeds United FC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+      "secondary_sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 497,
+      "league": "en.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "Coventry City FC",
+      "away": "Hull City AFC",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+      "secondary_sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 498,
+      "league": "en.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+      "secondary_sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 499,
+      "league": "en.1",
+      "season": "2026-27",
+      "date": "2026-08-30",
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
+      "matched_score": [
+        5,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+      "secondary_sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false
+}
