@@ -49,6 +49,19 @@ class OfficialEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_evidence(self.document)
 
+    def test_rejects_case_and_whitespace_variant_duplicate(self):
+        duplicate = dict(self.document["records"][0])
+        duplicate["home"] = "  " + duplicate["home"].upper() + " "
+        duplicate["away"] = duplicate["away"].upper()
+        self.document["records"].append(duplicate)
+        with self.assertRaisesRegex(ValueError, "duplicate evidence"):
+            validate_evidence(self.document)
+
+    def test_rejects_generic_official_homepage_as_fixture_proof(self):
+        self.document["records"][0]["source_url"] = "https://datencenter.dfb.de/"
+        with self.assertRaisesRegex(ValueError, "resource path"):
+            validate_evidence(self.document)
+
     def test_rejects_duplicate(self):
         self.document["records"].append(dict(self.document["records"][0]))
         with self.assertRaises(ValueError):
