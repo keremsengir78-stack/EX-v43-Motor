@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "scope": "2026-27 bulk candidate provenance review",
+  "source_scan": "reports/external_2627_bulk_candidate_scan.json",
+  "external_dataset": "oladeeayo/open-matchday",
+  "external_dataset_documentation": "https://github.com/oladeeayo/open-matchday",
+  "candidate_count": 38,
+  "by_league": {
+    "es.1": 31,
+    "it.1": 7,
+    "en.1": 0
+  },
+  "duplicate_candidate_keys": 0,
+  "candidate_provider": "fixturedl",
+  "independence_assessment": "PENDING_UPSTREAM_LINEAGE_AND_OFFICIAL_CROSSCHECK",
+  "independent_verified_in_this_batch": 0,
+  "not_certified_count": 38,
+  "issues": [
+    {
+      "code": "AGGREGATOR_NOT_PRIMARY_SOURCE",
+      "detail": "open-matchday merges fixturedownload, ESPN, football-data.co.uk and other providers; candidate source field does not by itself establish independent lineage."
+    },
+    {
+      "code": "DATE_AND_TEAM_MATCH_ONLY",
+      "detail": "Conservative name normalization and matching cannot establish real-world match authenticity; official league records are required."
+    },
+    {
+      "code": "ENGLAND_ZERO_MATCHES",
+      "detail": "0 matched Premier League fixtures among 108 external rows; investigate season fixtures, source freshness and aliases before any approval."
+    },
+    {
+      "code": "DATASET_FRESHNESS",
+      "detail": "Published build_summary showed generated_utc 2026-11-20T06:33:06Z, latest league match dates 2026-11-08; not sufficient for November 23 current results."
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false
+}
