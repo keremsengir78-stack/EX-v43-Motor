@@ -10,6 +10,26 @@ class BulkCompareTests(unittest.TestCase):
                     "away_goals": "0", "provider": "Independent Official",
                     "source_url": "https://example.org/match"}
 
+
+    def test_url_fragment_or_nonstandard_port_is_unresolved(self):
+        for url in ("https://example.org/match#fragment", "https://example.org:8443/match"):
+            with self.subTest(url=url):
+                self.assertEqual(compare(self.fixture, [dict(self.row, source_url=url)])["counts"]["unresolved"], 1)
+
+    def test_non_integer_independent_score_is_unresolved(self):
+        for score in (True, 1.0, "1.0", " 1"):
+            with self.subTest(score=score):
+                self.assertEqual(compare(self.fixture, [dict(self.row, home_goals=score)])["counts"]["unresolved"], 1)
+
+    def test_malformed_review_record_fails_closed(self):
+        for record in (None, {"index": 7}, dict(self.fixture[0], matched_score="1-0"),
+                       dict(self.fixture[0], matched_score=[True, 0])):
+            with self.subTest(record=record):
+                result = compare([record], [self.row])
+                self.assertEqual(result["counts"]["matched"], 0)
+                self.assertEqual(result["counts"]["unresolved"], 1)
+                self.assertFalse(result["independent_score_verified"])
+
     def test_matching_candidate_is_not_certified(self):
         result = compare(self.fixture, [self.row])
         self.assertEqual(result["counts"]["matched"], 1)
