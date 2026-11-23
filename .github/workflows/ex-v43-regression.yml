@@ -33,6 +33,12 @@ jobs:
         run: |
           set -o pipefail
           python -m unittest discover -s tests -p 'test*.py' -v 2>&1 | tee full-regression.log
+      - name: Audit actual 1177 review exports
+        id: review_audit
+        if: success()
+        run: |
+          set -o pipefail
+          python run_strict_review_export_audit.py 2>&1 | tee strict-review-export-audit.log
       - name: Publish regression logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -41,6 +47,7 @@ jobs:
           path: |
             safety-gates.log
             full-regression.log
+            strict-review-export-audit.log
           if-no-files-found: warn
           retention-days: 14
       - name: Publish machine-readable commit regression status
