@@ -5,8 +5,19 @@ measures calibration; it does not train a model or certify a market.
 """
 import datetime as dt
 import math
+import re
 
 MARKETS = ("2.5_UST", "KG_VAR", "MS1", "MS2")
+UTC_TIMESTAMP = re.compile(r"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")
+
+
+def canonical_utc(value):
+    if not isinstance(value, str) or UTC_TIMESTAMP.fullmatch(value) is None:
+        raise ValueError("canonical UTC timestamp required")
+    parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.utcoffset() != dt.timedelta(0):
+        raise ValueError("UTC timestamp required")
+    return parsed
 
 
 def audit_predictions(records, market, cutoff, min_samples=100):
@@ -17,11 +28,7 @@ def audit_predictions(records, market, cutoff, min_samples=100):
         issues.append("min_samples:invalid")
         min_samples = 30
     try:
-        if not isinstance(cutoff, str) or not cutoff.endswith("Z"):
-            raise ValueError("UTC cutoff required")
-        boundary = dt.datetime.fromisoformat(cutoff.replace("Z", "+00:00"))
-        if boundary.utcoffset() != dt.timedelta(0):
-            raise ValueError("UTC cutoff required")
+        boundary = canonical_utc(cutoff)
     except (ValueError, TypeError, OverflowError):
         boundary = None
         issues.append("cutoff:invalid")
@@ -51,16 +58,7 @@ def audit_predictions(records, market, cutoff, min_samples=100):
             continue
         try:
             timestamps = [record[key] for key in ("predicted_at", "kickoff_at", "settled_at")]
-            if any(not isinstance(value, str) or not value.endswith("Z")
-                   for value in timestamps):
-                raise ValueError("UTC Z timestamps required")
-            predicted, kickoff, settled = [
-                dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
-                for value in timestamps
-            ]
-            if any(value.utcoffset() != dt.timedelta(0)
-                   for value in (predicted, kickoff, settled)):
-                raise ValueError("UTC timestamps required")
+            predicted, kickoff, settled = [canonical_utc(value) for value in timestamps]
             if not (predicted < kickoff < settled) or (boundary is not None and settled >= boundary):
                 issues.append("record:%d:temporal_leakage" % i)
         except (KeyError, ValueError, TypeError, AttributeError, OverflowError):
