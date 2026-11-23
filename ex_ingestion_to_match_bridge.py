@@ -20,6 +20,16 @@ def prepare_ingested_records(rows, fixtures, as_of=None):
         cutoff = dt.date.fromisoformat(as_of)
         if cutoff.isoformat() != as_of:
             raise ValueError("as_of must be YYYY-MM-DD")
+    indexed = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("Result row must be object")
+        league, home, away = row.get("league"), row.get("home"), row.get("away")
+        if not all(isinstance(v, str) and v.strip() for v in (league, home, away)):
+            continue
+        indexed.setdefault((league, home), []).append(row)
+        if away != home:
+            indexed.setdefault((league, away), []).append(row)
     output = []
     seen_fixture_ids = set()
     for fixture in fixtures:
@@ -35,11 +45,7 @@ def prepare_ingested_records(rows, fixtures, as_of=None):
         historical = []
         issues = []
         seen_results = set()
-        for row in rows:
-            if not isinstance(row, dict):
-                raise ValueError("Result row must be object")
-            if row.get("league") != league or team not in (row.get("home"), row.get("away")):
-                continue
+        for row in indexed.get((league, team), []):
             venue = "home" if team == row["home"] else "away"
             try:
                 day = dt.date.fromisoformat(row["date"])
