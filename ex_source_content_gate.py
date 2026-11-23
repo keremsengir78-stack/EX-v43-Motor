@@ -8,6 +8,12 @@ import hashlib
 import json
 import datetime as dt
 import re
+import unicodedata
+
+
+def _identity(value):
+    """Canonical comparison key; never evidence of publisher independence."""
+    return " ".join(unicodedata.normalize("NFKC", value).split()).casefold()
 
 
 FIELDS = ("fixture_id", "home_team", "away_team", "kickoff_at", "home_goals", "away_goals")
@@ -39,7 +45,7 @@ def compare_source_content(observations, expected):
     if (not isinstance(fixture_id, str) or not fixture_id.strip()
             or not isinstance(home, str) or not home.strip()
             or not isinstance(away, str) or not away.strip()
-            or home.strip().casefold() == away.strip().casefold()
+            or _identity(home) == _identity(away)
             or any(type(g) is not int or g < 0 or g > 30 for g in goals)):
         return {"status": "BLOCKED", "issues": ["expected:invalid_fixture_facts"],
                 "ex_final_allowed": False}
@@ -60,10 +66,10 @@ def compare_source_content(observations, expected):
             issues.append("source:%d:invalid" % i)
             continue
         group = row.get("provider_group")
-        if not isinstance(group, str) or not group.strip() or group.strip().casefold() in providers:
+        if not isinstance(group, str) or not group.strip() or _identity(group) in providers:
             issues.append("source:%d:provider_duplicate_or_missing" % i)
         else:
-            providers.add(group.strip().casefold())
+            providers.add(_identity(group))
         snapshot = row.get("captured_content")
         if not isinstance(snapshot, str) or not snapshot.strip():
             issues.append("source:%d:content_missing" % i)
@@ -93,7 +99,7 @@ def compare_source_content(observations, expected):
             publisher = parsed["publisher"]
             if (not isinstance(publisher, str) or not publisher.strip()
                     or not isinstance(group, str)
-                    or publisher.strip().casefold() != group.strip().casefold()):
+                    or _identity(publisher) != _identity(group)):
                 issues.append("source:%d:publisher_identity_conflict" % i)
     return {"status": "CONTENT_CONSISTENT_UNATTESTED" if not issues else "BLOCKED",
             "issues": issues, "provider_groups": len(providers) if not issues else 0,
