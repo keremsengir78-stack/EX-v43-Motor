@@ -46,6 +46,9 @@ def validate_evidence(document):
             valid_url = False
         if not valid_url:
             raise ValueError("unapproved official evidence domain")
+        # A generic domain URL does not identify an auditable fixture record.
+        if not url.path or url.path == "/":
+            raise ValueError("official evidence must identify a resource path")
         if row.get("verification_status") != "OFFICIAL_RESULT_OBSERVED_NOT_CROSS_MERGED":
             raise ValueError("evidence falsely certified")
         home, away = row.get("home"), row.get("away")
@@ -56,7 +59,7 @@ def validate_evidence(document):
         if any(type(row.get(k)) is not int or not 0 <= row[k] <= 30
                for k in ("home_goals", "away_goals")):
             raise ValueError("invalid score")
-        key = (league, date, row["home"], row["away"])
+        key = (league, date, home.strip().casefold(), away.strip().casefold())
         if key in seen:
             raise ValueError("duplicate evidence")
         seen.add(key)
