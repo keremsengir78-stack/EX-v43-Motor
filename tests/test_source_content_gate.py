@@ -63,5 +63,24 @@ class ContentGateTests(unittest.TestCase):
         self.assertEqual(result["status"], "CONTENT_CONSISTENT_UNATTESTED")
         self.assertFalse(result["editorial_independence_attested"])
 
+    def test_impossible_score_and_boolean_score_block(self):
+        for score in (-1, 31, True, 2.5):
+            facts = dict(FACTS, home_goals=score)
+            result = compare_source_content([captured("A", facts), captured("B", facts)], facts)
+            self.assertEqual(result["status"], "BLOCKED")
+            self.assertIn("expected:invalid_fixture_facts", result["issues"])
+
+    def test_same_team_and_missing_fixture_block(self):
+        for facts in (dict(FACTS, away_team=" a "), dict(FACTS, fixture_id=" ")):
+            result = compare_source_content([captured("A", facts), captured("B", facts)], facts)
+            self.assertIn("expected:invalid_fixture_facts", result["issues"])
+
+    def test_invalid_kickoff_blocks_matching_snapshots(self):
+        for kickoff in ("2026-02-30T12:00:00Z", "2026-01-01T12:00:00+00:00", "not-a-date"):
+            facts = dict(FACTS, kickoff_at=kickoff)
+            result = compare_source_content([captured("A", facts), captured("B", facts)], facts)
+            self.assertIn("expected:invalid_kickoff", result["issues"])
+            self.assertFalse(result["ex_final_allowed"])
+
 if __name__ == "__main__":
     unittest.main()
