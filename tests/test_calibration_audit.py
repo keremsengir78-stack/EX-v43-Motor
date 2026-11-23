@@ -78,6 +78,12 @@ class CalibrationAuditTests(unittest.TestCase):
         result = audit_predictions([row(1), row(1)], "KG_VAR", "2026-02-01T00:00:00Z")
         self.assertIn("record:1:duplicate_or_missing_fixture", result["issues"])
 
+    def test_whitespace_variant_fixture_id_is_duplicate(self):
+        records = [row(1), {**row(1), "fixture_id": " match-1 "}]
+        result = audit_predictions(records, "KG_VAR", "2026-02-01T00:00:00Z")
+        self.assertIn("record:1:duplicate_or_missing_fixture", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_invalid_probability_and_boolean_outcome_are_blocked(self):
         for probability, outcome in ((float("nan"), 1), (1.2, 1), (True, 1), (0.5, True)):
             result = audit_predictions([row(1, probability, outcome)], "KG_VAR", "2026-02-01T00:00:00Z")
