@@ -30,6 +30,24 @@ class BulkCompareTests(unittest.TestCase):
     def test_missing_candidate_unresolved(self):
         self.assertEqual(compare(self.fixture, [])["counts"]["unresolved"], 1)
 
+
+    def test_invalid_https_locator_is_unresolved(self):
+        for url in ("https://", "https:///match", "https://user:pass@example.org/match"):
+            with self.subTest(url=url):
+                self.assertEqual(compare(self.fixture, [dict(self.row, source_url=url)])["counts"]["unresolved"], 1)
+
+    def test_invalid_fixture_date_is_unresolved(self):
+        self.assertEqual(compare(self.fixture, [dict(self.row, date="2025-02-30")])["counts"]["unresolved"], 1)
+
+    def test_score_over_thirty_is_unresolved(self):
+        self.assertEqual(compare(self.fixture, [dict(self.row, home_goals="31")])["counts"]["unresolved"], 1)
+
+    def test_non_dict_independent_row_does_not_crash(self):
+        self.assertEqual(compare(self.fixture, [None, self.row])["counts"]["matched"], 1)
+
+    def test_blank_provider_is_unresolved(self):
+        self.assertEqual(compare(self.fixture, [dict(self.row, provider="  ")])["counts"]["unresolved"], 1)
+
     def test_invalid_score_unresolved(self):
         row = dict(self.row, home_goals="-1")
         self.assertEqual(compare(self.fixture, [row])["counts"]["unresolved"], 1)
