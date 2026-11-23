@@ -10,8 +10,8 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "9b95674c9406043903e9bbdfe2cb2be252861ea0",
-  "run_id": "45284999871",
+  "commit": "011ccc9c8b47f4826f431719d82fd78c3f069de2",
+  "run_id": "45285019306",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "baseline_blocking_sources": [
