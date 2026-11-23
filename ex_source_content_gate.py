@@ -32,7 +32,7 @@ def compare_source_content(observations, expected):
                 "ex_final_allowed": False}
     try:
         if not isinstance(kickoff, str) or not re.fullmatch(
-                r"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z", kickoff):
+                r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", kickoff):
             raise ValueError("noncanonical kickoff")
         dt.datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
     except (ValueError, OverflowError, TypeError):
