@@ -1,0 +1,1713 @@
+{
+  "schema_version": 1,
+  "batch_id": "strict-review-09",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "source_total": 1177,
+  "offset": 800,
+  "exported": 100,
+  "truncated": true,
+  "fixtures": [
+    {
+      "index": 800,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-30",
+      "home": "RC Celta de Vigo",
+      "away": "Athletic Club",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 801,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-30",
+      "home": "RC Deportivo La Coruña",
+      "away": "Valencia CF",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 802,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-30",
+      "home": "Real Madrid CF",
+      "away": "Málaga CF",
+      "matched_score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 803,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-31",
+      "home": "CA Osasuna",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 804,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-03",
+      "home": "Real Sociedad de Fútbol",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 805,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-04",
+      "home": "Real Betis Balompié",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 806,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-05",
+      "home": "Athletic Club",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 807,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-05",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Real Racing Club de Santander",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 808,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-05",
+      "home": "Villarreal CF",
+      "away": "RC Deportivo La Coruña",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 809,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-06",
+      "home": "Deportivo Alavés",
+      "away": "CA Osasuna",
+      "matched_score": [
+        5,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 810,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-06",
+      "home": "Málaga CF",
+      "away": "Levante UD",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 811,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-07",
+      "home": "Elche CF",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 812,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-07",
+      "home": "Getafe CF",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 813,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-12",
+      "home": "Athletic Club",
+      "away": "Elche CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 814,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-12",
+      "home": "CA Osasuna",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 815,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-12",
+      "home": "Real Madrid CF",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 816,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-12",
+      "home": "Real Racing Club de Santander",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 817,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-13",
+      "home": "Getafe CF",
+      "away": "RC Deportivo La Coruña",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 818,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-13",
+      "home": "RC Celta de Vigo",
+      "away": "Málaga CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 819,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-13",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 820,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-14",
+      "home": "Villarreal CF",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 821,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-15",
+      "home": "Deportivo Alavés",
+      "away": "Valencia CF",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 822,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-15",
+      "home": "Elche CF",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 823,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-15",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 824,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-16",
+      "home": "Club Atlético de Madrid",
+      "away": "CA Osasuna",
+      "matched_score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 825,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-17",
+      "home": "Málaga CF",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 826,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-17",
+      "home": "Real Betis Balompié",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 827,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-18",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Elche CF",
+      "matched_score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 828,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-19",
+      "home": "Athletic Club",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 829,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-19",
+      "home": "CA Osasuna",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 830,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-19",
+      "home": "RC Celta de Vigo",
+      "away": "Real Racing Club de Santander",
+      "matched_score": [
+        5,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 831,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "Club Atlético de Madrid",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 832,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "Getafe CF",
+      "away": "Málaga CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 833,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "RC Deportivo La Coruña",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 834,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "Valencia CF",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 835,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-09-20",
+      "home": "Villarreal CF",
+      "away": "Levante UD",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 836,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-23",
+      "home": "AC Milan",
+      "away": "US Cremonese",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 837,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-23",
+      "home": "AS Roma",
+      "away": "Bologna FC 1909",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 838,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-23",
+      "home": "Genoa CFC",
+      "away": "US Lecce",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 839,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-23",
+      "home": "US Sassuolo Calcio",
+      "away": "SSC Napoli",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 840,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-24",
+      "home": "Atalanta BC",
+      "away": "AC Pisa 1909",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 841,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-24",
+      "home": "Cagliari Calcio",
+      "away": "ACF Fiorentina",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 842,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-24",
+      "home": "Como 1907",
+      "away": "SS Lazio",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 843,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-25",
+      "home": "Udinese Calcio",
+      "away": "Hellas Verona FC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 844,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-29",
+      "home": "US Cremonese",
+      "away": "US Sassuolo Calcio",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 845,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-29",
+      "home": "US Lecce",
+      "away": "AC Milan",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 846,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-30",
+      "home": "AC Pisa 1909",
+      "away": "AS Roma",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 847,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-30",
+      "home": "Bologna FC 1909",
+      "away": "Como 1907",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 848,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-30",
+      "home": "Parma Calcio 1913",
+      "away": "Atalanta BC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 849,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-30",
+      "home": "SSC Napoli",
+      "away": "Cagliari Calcio",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 850,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-31",
+      "home": "FC Internazionale Milano",
+      "away": "Udinese Calcio",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 851,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-08-31",
+      "home": "SS Lazio",
+      "away": "Hellas Verona FC",
+      "matched_score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 852,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-13",
+      "home": "ACF Fiorentina",
+      "away": "SSC Napoli",
+      "matched_score": [
+        1,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 853,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-13",
+      "home": "Cagliari Calcio",
+      "away": "Parma Calcio 1913",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 854,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-14",
+      "home": "AC Milan",
+      "away": "Bologna FC 1909",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 855,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-14",
+      "home": "AC Pisa 1909",
+      "away": "Udinese Calcio",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 856,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-14",
+      "home": "Atalanta BC",
+      "away": "US Lecce",
+      "matched_score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 857,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-14",
+      "home": "US Sassuolo Calcio",
+      "away": "SS Lazio",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 858,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-15",
+      "home": "Como 1907",
+      "away": "Genoa CFC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 859,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-15",
+      "home": "Hellas Verona FC",
+      "away": "US Cremonese",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 860,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-19",
+      "home": "US Lecce",
+      "away": "Cagliari Calcio",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 861,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-20",
+      "home": "Bologna FC 1909",
+      "away": "Genoa CFC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 862,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-20",
+      "home": "Udinese Calcio",
+      "away": "AC Milan",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 863,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-21",
+      "home": "ACF Fiorentina",
+      "away": "Como 1907",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 864,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-21",
+      "home": "FC Internazionale Milano",
+      "away": "US Sassuolo Calcio",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 865,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-21",
+      "home": "SS Lazio",
+      "away": "AS Roma",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 866,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-21",
+      "home": "US Cremonese",
+      "away": "Parma Calcio 1913",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 867,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-22",
+      "home": "SSC Napoli",
+      "away": "AC Pisa 1909",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 868,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-27",
+      "home": "Cagliari Calcio",
+      "away": "FC Internazionale Milano",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 869,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-27",
+      "home": "Como 1907",
+      "away": "US Cremonese",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 870,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-28",
+      "home": "AC Milan",
+      "away": "SSC Napoli",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 871,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-28",
+      "home": "AC Pisa 1909",
+      "away": "ACF Fiorentina",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 872,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-28",
+      "home": "AS Roma",
+      "away": "Hellas Verona FC",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 873,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-28",
+      "home": "US Lecce",
+      "away": "Bologna FC 1909",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 874,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-28",
+      "home": "US Sassuolo Calcio",
+      "away": "Udinese Calcio",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 875,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-09-29",
+      "home": "Genoa CFC",
+      "away": "SS Lazio",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 876,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-03",
+      "home": "Hellas Verona FC",
+      "away": "US Sassuolo Calcio",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 877,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-04",
+      "home": "Atalanta BC",
+      "away": "Como 1907",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 878,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-04",
+      "home": "FC Internazionale Milano",
+      "away": "US Cremonese",
+      "matched_score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 879,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-04",
+      "home": "Parma Calcio 1913",
+      "away": "US Lecce",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 880,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "ACF Fiorentina",
+      "away": "AS Roma",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 881,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "Bologna FC 1909",
+      "away": "AC Pisa 1909",
+      "matched_score": [
+        4,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 882,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "SSC Napoli",
+      "away": "Genoa CFC",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 883,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-05",
+      "home": "Udinese Calcio",
+      "away": "Cagliari Calcio",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 884,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-18",
+      "home": "AC Pisa 1909",
+      "away": "Hellas Verona FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 885,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-18",
+      "home": "AS Roma",
+      "away": "FC Internazionale Milano",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 886,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-18",
+      "home": "US Lecce",
+      "away": "US Sassuolo Calcio",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 887,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-19",
+      "home": "AC Milan",
+      "away": "ACF Fiorentina",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 888,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-19",
+      "home": "Atalanta BC",
+      "away": "SS Lazio",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 889,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-19",
+      "home": "Cagliari Calcio",
+      "away": "Bologna FC 1909",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 890,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-19",
+      "home": "Genoa CFC",
+      "away": "Parma Calcio 1913",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 891,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-20",
+      "home": "US Cremonese",
+      "away": "Udinese Calcio",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 892,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-24",
+      "home": "AC Milan",
+      "away": "AC Pisa 1909",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 893,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-25",
+      "home": "Parma Calcio 1913",
+      "away": "Como 1907",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 894,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-25",
+      "home": "SSC Napoli",
+      "away": "FC Internazionale Milano",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 895,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-25",
+      "home": "US Cremonese",
+      "away": "Atalanta BC",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 896,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-25",
+      "home": "Udinese Calcio",
+      "away": "US Lecce",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 897,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-26",
+      "home": "ACF Fiorentina",
+      "away": "Bologna FC 1909",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 898,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-26",
+      "home": "Hellas Verona FC",
+      "away": "Cagliari Calcio",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 899,
+      "league": "it.1",
+      "season": "2025-26",
+      "date": "2025-10-26",
+      "home": "US Sassuolo Calcio",
+      "away": "AS Roma",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+      "secondary_sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false
+}
