@@ -38,6 +38,36 @@ class ReadinessAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build_report(self.queue, self.batches, self.broadcaster)
 
+    def test_unsupported_broadcaster_match_rejected(self):
+        self.broadcaster["records"] = [{
+            "source_index": 0, "independent_broadcaster_match": True,
+            "independent_broadcaster_score": [1, 0],
+        }]
+        self.broadcaster["matching_score_count"] = 1
+        with self.assertRaises(ValueError):
+            build_report(self.queue, self.batches, self.broadcaster)
+
+    def test_pending_broadcaster_is_not_verified(self):
+        self.broadcaster["records"] = [{
+            "source_index": 0, "independent_broadcaster_match": False,
+            "independent_broadcaster_score": None,
+        }]
+        result = build_report(self.queue, self.batches, self.broadcaster)
+        self.assertEqual(result["classification"]["broadcaster_evidence_not_extracted"], 1)
+
+    def test_pending_broadcaster_with_copied_score_rejected(self):
+        self.broadcaster["records"] = [{
+            "source_index": 0, "independent_broadcaster_match": False,
+            "independent_broadcaster_score": [1, 0],
+        }]
+        with self.assertRaises(ValueError):
+            build_report(self.queue, self.batches, self.broadcaster)
+
+    def test_inconsistent_broadcaster_count_rejected(self):
+        self.broadcaster["matching_score_count"] = 37
+        with self.assertRaises(ValueError):
+            build_report(self.queue, self.batches, self.broadcaster)
+
     def test_duplicate_rejected(self):
         self.batches[1]["records"][0]["source_index"] = 0
         with self.assertRaises(ValueError):
