@@ -13,6 +13,19 @@ import re
 FIELDS = ("fixture_id", "home_team", "away_team", "kickoff_at", "home_goals", "away_goals")
 
 
+def _reject_duplicate_keys(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("duplicate JSON key")
+        result[key] = value
+    return result
+
+
+def _reject_nonfinite(value):
+    raise ValueError("non-finite JSON number")
+
+
 def compare_source_content(observations, expected):
     issues = []
     if not isinstance(expected, dict) or any(k not in expected for k in FIELDS):
@@ -64,7 +77,8 @@ def compare_source_content(observations, expected):
         # Machine-readable facts must be embedded in the captured snapshot;
         # metadata alone cannot claim that the page contains a score.
         try:
-            parsed = json.loads(snapshot)
+            parsed = json.loads(snapshot, object_pairs_hook=_reject_duplicate_keys,
+                                parse_constant=_reject_nonfinite)
         except (ValueError, TypeError):
             issues.append("source:%d:content_not_structured" % i)
             continue
