@@ -69,6 +69,21 @@ class IngestionToMatchBridgeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             prepare_ingested_records(self.rows, self.fixtures, "tomorrow")
 
+
+    def test_indexed_results_keep_leagues_separate(self):
+        other = dict(self.rows[0], league="es.1")
+        result = prepare_ingested_records(self.rows + [other], self.fixtures)
+        self.assertEqual(result["historical_records_staged"], 2)
+
+    def test_many_teams_only_match_relevant_history(self):
+        fixtures = [{"fixture_id": "fixture-" + str(i), "league": "en.1",
+                     "team": "T" + str(i)} for i in range(100)]
+        fixtures.append(self.fixtures[0])
+        result = prepare_ingested_records(self.rows, fixtures)
+        self.assertEqual(result["fixture_count"], 101)
+        self.assertEqual(result["historical_records_staged"], 1)
+        self.assertEqual(result["results"][-1]["historical_record_count"], 1)
+
     def test_invalid_fixture_rejected(self):
         with self.assertRaises(ValueError):
             prepare_ingested_records(self.rows, [{"league": "en.1", "team": "A"}])
