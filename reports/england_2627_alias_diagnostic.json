@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "scope": "England 2026-27 conservative alias diagnosis",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "external_dataset": "oladeeayo/open-matchday/data/ENG_1_premier-league/results_2627.csv",
+  "source_fixture_count": 37,
+  "alias_map": {
+    "coventry city": "coventry",
+    "tottenham hotspur": "spurs",
+    "ipswich town": "ipswich",
+    "brighton hove albion": "brighton",
+    "manchester city": "man city",
+    "manchester united": "man utd",
+    "newcastle united": "newcastle",
+    "nottingham forest": "nottm forest",
+    "afc bournemouth": "bournemouth",
+    "west ham united": "west ham",
+    "wolverhampton wanderers": "wolves",
+    "leeds united": "leeds",
+    "leicester city": "leicester",
+    "hull city": "hull"
+  },
+  "matched": 27,
+  "same_score": 27,
+  "conflicting_score": 0,
+  "records": [
+    {
+      "date": "2026-08-21",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Brentford FC",
+      "away": "Tottenham Hotspur FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Ipswich Town FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Manchester City FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Newcastle United FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-28",
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        1,
+        4
+      ],
+      "other_score": [
+        1,
+        4
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-04",
+      "home": "Ipswich Town FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "other_score": [
+        0,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Hull City AFC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Newcastle United FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-06",
+      "home": "Everton FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Chelsea FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Crystal Palace FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Tottenham Hotspur FC",
+      "away": "Everton FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Everton FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Tottenham Hotspur FC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Fulham FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Leeds United FC",
+      "away": "Crystal Palace FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Manchester City FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        5,
+        3
+      ],
+      "other_score": [
+        5,
+        3
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Hull City AFC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        0
+      ],
+      "other_score": [
+        2,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Coventry City FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "other_score": [
+        0,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        5,
+        2
+      ],
+      "other_score": [
+        5,
+        2
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Manchester City FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Manchester United FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-14",
+      "home": "Leeds United FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        4,
+        1
+      ],
+      "other_score": [
+        4,
+        1
+      ],
+      "score_equal": true
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Newcastle United FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false,
+  "note": "Alias matching does not certify independent score evidence."
+}
