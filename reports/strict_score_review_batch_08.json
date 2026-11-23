@@ -1,0 +1,1713 @@
+{
+  "schema_version": 1,
+  "batch_id": "strict-review-08",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "source_total": 1177,
+  "offset": 700,
+  "exported": 100,
+  "truncated": true,
+  "fixtures": [
+    {
+      "index": 700,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-08",
+      "home": "Villarreal CF",
+      "away": "Elche CF",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 701,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-09",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Oviedo",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 702,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-13",
+      "home": "Deportivo Alavés",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 703,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-14",
+      "home": "Club Atlético de Madrid",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 704,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-14",
+      "home": "Real Madrid CF",
+      "away": "Elche CF",
+      "matched_score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 705,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-14",
+      "home": "Real Oviedo",
+      "away": "Valencia CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 706,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-15",
+      "home": "RCD Mallorca",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 707,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-15",
+      "home": "Real Betis Balompié",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 708,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-15",
+      "home": "Real Sociedad de Fútbol",
+      "away": "CA Osasuna",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 709,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-16",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Levante UD",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 710,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-20",
+      "home": "Villarreal CF",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 711,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-21",
+      "home": "Elche CF",
+      "away": "RCD Mallorca",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 712,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-21",
+      "home": "Levante UD",
+      "away": "Real Oviedo",
+      "matched_score": [
+        4,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 713,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-21",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 714,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-22",
+      "home": "Athletic Club",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 715,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-22",
+      "home": "RC Celta de Vigo",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        3,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 716,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-03-22",
+      "home": "Real Madrid CF",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 717,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-03",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Elche CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 718,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-04",
+      "home": "RCD Mallorca",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 719,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-04",
+      "home": "Real Betis Balompié",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 720,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-04",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Levante UD",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 721,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-05",
+      "home": "Deportivo Alavés",
+      "away": "CA Osasuna",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 722,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-05",
+      "home": "Getafe CF",
+      "away": "Athletic Club",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 723,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-05",
+      "home": "Valencia CF",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 724,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-11",
+      "home": "Elche CF",
+      "away": "Valencia CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 725,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-11",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        3,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 726,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-12",
+      "home": "Athletic Club",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 727,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-12",
+      "home": "CA Osasuna",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 728,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-12",
+      "home": "RC Celta de Vigo",
+      "away": "Real Oviedo",
+      "matched_score": [
+        0,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 729,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-12",
+      "home": "RCD Mallorca",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 730,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-13",
+      "home": "Levante UD",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 731,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-21",
+      "home": "Athletic Club",
+      "away": "CA Osasuna",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 732,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-21",
+      "home": "RCD Mallorca",
+      "away": "Valencia CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 733,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-21",
+      "home": "Real Madrid CF",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 734,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-22",
+      "home": "Elche CF",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 735,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-22",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Getafe CF",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 736,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-23",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 737,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-23",
+      "home": "Real Oviedo",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 738,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-24",
+      "home": "Real Betis Balompié",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 739,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-25",
+      "home": "Club Atlético de Madrid",
+      "away": "Athletic Club",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 740,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-25",
+      "home": "Deportivo Alavés",
+      "away": "RCD Mallorca",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 741,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-26",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        3,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 742,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-26",
+      "home": "Real Oviedo",
+      "away": "Elche CF",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 743,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-26",
+      "home": "Villarreal CF",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 744,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-04-27",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 745,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-02",
+      "home": "Deportivo Alavés",
+      "away": "Athletic Club",
+      "matched_score": [
+        2,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 746,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-02",
+      "home": "Valencia CF",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 747,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-02",
+      "home": "Villarreal CF",
+      "away": "Levante UD",
+      "matched_score": [
+        5,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 748,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-03",
+      "home": "Getafe CF",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 749,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-03",
+      "home": "RC Celta de Vigo",
+      "away": "Elche CF",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 750,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-03",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        0,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 751,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-03",
+      "home": "Real Betis Balompié",
+      "away": "Real Oviedo",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 752,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-08",
+      "home": "Levante UD",
+      "away": "CA Osasuna",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 753,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-09",
+      "home": "Club Atlético de Madrid",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 754,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-09",
+      "home": "Elche CF",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 755,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-09",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 756,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-10",
+      "home": "Athletic Club",
+      "away": "Valencia CF",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 757,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-10",
+      "home": "RCD Mallorca",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 758,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-10",
+      "home": "Real Oviedo",
+      "away": "Getafe CF",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 759,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-12",
+      "home": "CA Osasuna",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 760,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-12",
+      "home": "RC Celta de Vigo",
+      "away": "Levante UD",
+      "matched_score": [
+        2,
+        3
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 761,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-12",
+      "home": "Real Betis Balompié",
+      "away": "Elche CF",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 762,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-13",
+      "home": "Getafe CF",
+      "away": "RCD Mallorca",
+      "matched_score": [
+        3,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 763,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-13",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Athletic Club",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 764,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-14",
+      "home": "Real Madrid CF",
+      "away": "Real Oviedo",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 765,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-14",
+      "home": "Valencia CF",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 766,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Athletic Club",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 767,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "CA Osasuna",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 768,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Elche CF",
+      "away": "Getafe CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 769,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Levante UD",
+      "away": "RCD Mallorca",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 770,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Villarreal CF",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 771,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Real Oviedo",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 772,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-17",
+      "home": "Real Sociedad de Fútbol",
+      "away": "Valencia CF",
+      "matched_score": [
+        3,
+        4
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 773,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "Deportivo Alavés",
+      "away": "Rayo Vallecano de Madrid",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 774,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "Getafe CF",
+      "away": "CA Osasuna",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 775,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 776,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "RCD Mallorca",
+      "away": "Real Oviedo",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 777,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "Real Betis Balompié",
+      "away": "Levante UD",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 778,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-23",
+      "home": "Real Madrid CF",
+      "away": "Athletic Club",
+      "matched_score": [
+        4,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 779,
+      "league": "es.1",
+      "season": "2025-26",
+      "date": "2026-05-24",
+      "home": "Villarreal CF",
+      "away": "Club Atlético de Madrid",
+      "matched_score": [
+        5,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+      "secondary_sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 780,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-15",
+      "home": "Deportivo Alavés",
+      "away": "Getafe CF",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 781,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-16",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "matched_score": [
+        3,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 782,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-16",
+      "home": "Real Racing Club de Santander",
+      "away": "Villarreal CF",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 783,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-17",
+      "home": "RC Deportivo La Coruña",
+      "away": "Elche CF",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 784,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-19",
+      "home": "Club Atlético de Madrid",
+      "away": "Málaga CF",
+      "matched_score": [
+        2,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 785,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-20",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Deportivo Alavés",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 786,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-21",
+      "home": "Real Betis Balompié",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 787,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-22",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Madrid CF",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 788,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-22",
+      "home": "Valencia CF",
+      "away": "RC Celta de Vigo",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 789,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-23",
+      "home": "Club Atlético de Madrid",
+      "away": "Villarreal CF",
+      "matched_score": [
+        2,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 790,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-23",
+      "home": "Getafe CF",
+      "away": "Real Racing Club de Santander",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 791,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-24",
+      "home": "CA Osasuna",
+      "away": "Levante UD",
+      "matched_score": [
+        0,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 792,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-24",
+      "home": "Málaga CF",
+      "away": "RC Deportivo La Coruña",
+      "matched_score": [
+        1,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 793,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-25",
+      "home": "Valencia CF",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        0,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 794,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-26",
+      "home": "Real Madrid CF",
+      "away": "Real Sociedad de Fútbol",
+      "matched_score": [
+        4,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 795,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-27",
+      "home": "RC Celta de Vigo",
+      "away": "CA Osasuna",
+      "matched_score": [
+        1,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 796,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-28",
+      "home": "Deportivo Alavés",
+      "away": "Villarreal CF",
+      "matched_score": [
+        1,
+        0
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 797,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-28",
+      "home": "Real Racing Club de Santander",
+      "away": "Elche CF",
+      "matched_score": [
+        3,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 798,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "Levante UD",
+      "away": "Real Betis Balompié",
+      "matched_score": [
+        5,
+        2
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    },
+    {
+      "index": 799,
+      "league": "es.1",
+      "season": "2026-27",
+      "date": "2026-08-29",
+      "home": "Real Sociedad de Fútbol",
+      "away": "RCD Espanyol de Barcelona",
+      "matched_score": [
+        2,
+        1
+      ],
+      "secondary_provider": "football-data.co.uk",
+      "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+      "secondary_sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
+      "independent_score_verified": false
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false
+}
