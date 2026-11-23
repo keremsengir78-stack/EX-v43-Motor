@@ -70,6 +70,20 @@ class BulkMatchPipelineTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             run_large_batch({"matches": rows})
 
+
+    def test_large_batch_unhashable_identity_rejected_cleanly(self):
+        for field, value in (("fixture_id", ["fixture-1"]), ("market", {"bad": "market"}),
+                             ("fixture_id", None), ("market", " ")):
+            with self.subTest(field=field, value=value):
+                row = match(1)
+                row[field] = value
+                with self.assertRaisesRegex(ValueError, "malformed"):
+                    run_large_batch({"matches": [row]})
+
+    def test_large_batch_malformed_row_rejected_cleanly(self):
+        with self.assertRaisesRegex(ValueError, "malformed"):
+            run_large_batch({"matches": [match(1), None]})
+
     def test_bad_fixture_is_isolated(self):
         with patch("ex_bulk_match_pipeline.process_match_evidence",
                    side_effect=[ValueError("bad"), {"status": "BLOCKED", "issues": ["window:missing"]}]):
