@@ -91,6 +91,29 @@ class ContentGateTests(unittest.TestCase):
         self.assertIn("source:1:content_not_structured", result["issues"])
         self.assertFalse(result["ex_final_allowed"])
 
+    def test_embedded_publisher_disagrees_with_claimed_provider(self):
+        row = captured("Publisher A")
+        row["provider_group"] = "Publisher B"
+        result = compare_source_content([captured("Publisher C"), row], FACTS)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertIn("source:1:publisher_identity_conflict", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_two_claimed_groups_cannot_relabel_one_publisher(self):
+        row = captured("Publisher A")
+        row["provider_group"] = "Publisher B"
+        result = compare_source_content([captured("Publisher A"), row], FACTS)
+        self.assertIn("source:1:publisher_identity_conflict", result["issues"])
+        self.assertFalse(result["editorial_independence_attested"])
+
+    def test_missing_or_invalid_embedded_publisher_blocks(self):
+        for publisher in ("", None, 42):
+            snapshot = json.dumps(dict(FACTS, publisher=publisher))
+            row = {"provider_group": "Publisher B", "captured_content": snapshot,
+                   "content_sha256": hashlib.sha256(snapshot.encode()).hexdigest()}
+            result = compare_source_content([captured("Publisher A"), row], FACTS)
+            self.assertIn("source:1:publisher_identity_conflict", result["issues"])
+
     def test_nonfinite_json_metadata_blocks(self):
         snapshot = json.dumps(FACTS)[:-1] + ',"confidence":NaN}'
         row = {"provider_group": "B", "captured_content": snapshot,
