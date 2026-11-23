@@ -44,7 +44,7 @@ def run_batch(payload):
                 result = process_match_evidence(
                     item["market"], item["records"], item["venue"], item["season"],
                     item["previous_season"], item["feature_scores"], item["as_of"],
-                    item["source_observations"])
+                    item["source_observations"], require_evidence_locator=True)
             except (ValueError, KeyError, TypeError, IndexError, AttributeError, OSError, TimeoutError, ConnectionError) as exc:
                 result = {"status": "BLOCKED", "issues": ["pipeline:invalid_input:" + type(exc).__name__]}
         status = result.get("status", "BLOCKED")
