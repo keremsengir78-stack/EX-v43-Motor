@@ -4,6 +4,8 @@ Input CSV must have: date,home,away,home_goals,away_goals,provider,source_url.
 No fuzzy aliases, no self-attestation, and no EX FINAL promotion.
 """
 import csv
+import datetime as dt
+from urllib.parse import urlsplit
 import json
 import sys
 from collections import Counter
@@ -14,12 +16,25 @@ def compare(source, independent_rows):
     lookup = {}
     conflicts = set()
     for row in independent_rows:
+        if not isinstance(row, dict):
+            continue
         key = (row.get("date"), row.get("home"), row.get("away"))
         try:
             score = [int(row["home_goals"]), int(row["away_goals"])]
         except (KeyError, TypeError, ValueError):
             continue
-        if min(score) < 0 or not all(key) or not row.get("provider") or not row.get("source_url", "").startswith("https://"):
+        try:
+            date = dt.date.fromisoformat(key[0])
+            if date.isoformat() != key[0] or any(not isinstance(v, str) or not v.strip() for v in key):
+                continue
+            url = row.get("source_url")
+            parsed = urlsplit(url)
+            if (parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password
+                    or any(ch.isspace() for ch in url)):
+                continue
+        except (TypeError, ValueError, AttributeError):
+            continue
+        if min(score) < 0 or max(score) > 30 or not isinstance(row.get("provider"), str) or not row["provider"].strip():
             continue
         if key in lookup:
             conflicts.add(key)
