@@ -143,13 +143,10 @@
         2,
         0
       ],
-      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1",
-      "official_score": [
-        2,
-        0
-      ],
-      "official_verified": true,
-      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_DATE_APPROPRIATE_OFFICIAL_SOURCE"
     },
     {
       "source_index": 796,
@@ -392,9 +389,9 @@
       "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
     }
   ],
-  "official_verified_count": 4,
+  "official_verified_count": 3,
   "ex_final_allowed": false,
-  "remaining_count": 21,
+  "remaining_count": 22,
   "evidence_scope": "MATCH_RESULT_ONLY",
   "secondary_reconciliation_cleared": false
 }
