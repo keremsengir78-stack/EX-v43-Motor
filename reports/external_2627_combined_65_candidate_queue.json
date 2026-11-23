@@ -1,0 +1,1188 @@
+{
+  "schema_version": 1,
+  "scope": "Cross-dataset candidates only, not independent verification",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "external_dataset": "oladeeayo/open-matchday",
+  "candidate_count": 65,
+  "by_league": {
+    "es.1": 31,
+    "it.1": 7,
+    "en.1": 27
+  },
+  "fixtures": [
+    {
+      "index": 780,
+      "league": "es.1",
+      "date": "2026-08-15",
+      "home": "Deportivo Alavés",
+      "away": "Getafe CF",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 781,
+      "league": "es.1",
+      "date": "2026-08-16",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 784,
+      "league": "es.1",
+      "date": "2026-08-19",
+      "home": "Club Atlético de Madrid",
+      "away": "Málaga CF",
+      "reference_score": [
+        2,
+        0
+      ],
+      "other_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 325,
+      "league": "es.1",
+      "date": "2026-08-22",
+      "home": "Athletic Club",
+      "away": "Sevilla FC",
+      "reference_score": [
+        1,
+        3
+      ],
+      "other_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 787,
+      "league": "es.1",
+      "date": "2026-08-22",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        1,
+        2
+      ],
+      "other_score": [
+        1,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 789,
+      "league": "es.1",
+      "date": "2026-08-23",
+      "home": "Club Atlético de Madrid",
+      "away": "Villarreal CF",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 326,
+      "league": "es.1",
+      "date": "2026-08-23",
+      "home": "Elche CF",
+      "away": "FC Barcelona",
+      "reference_score": [
+        0,
+        5
+      ],
+      "other_score": [
+        0,
+        5
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 791,
+      "league": "es.1",
+      "date": "2026-08-24",
+      "home": "CA Osasuna",
+      "away": "Levante UD",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 327,
+      "league": "es.1",
+      "date": "2026-08-27",
+      "home": "FC Barcelona",
+      "away": "Athletic Club",
+      "reference_score": [
+        2,
+        0
+      ],
+      "other_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 796,
+      "league": "es.1",
+      "date": "2026-08-28",
+      "home": "Deportivo Alavés",
+      "away": "Villarreal CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 328,
+      "league": "es.1",
+      "date": "2026-08-29",
+      "home": "Sevilla FC",
+      "away": "Club Atlético de Madrid",
+      "reference_score": [
+        1,
+        3
+      ],
+      "other_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 802,
+      "league": "es.1",
+      "date": "2026-08-30",
+      "home": "Real Madrid CF",
+      "away": "Málaga CF",
+      "reference_score": [
+        4,
+        0
+      ],
+      "other_score": [
+        4,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 803,
+      "league": "es.1",
+      "date": "2026-08-31",
+      "home": "CA Osasuna",
+      "away": "Getafe CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 806,
+      "league": "es.1",
+      "date": "2026-09-05",
+      "home": "Athletic Club",
+      "away": "Club Atlético de Madrid",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 331,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Valencia CF",
+      "away": "FC Barcelona",
+      "reference_score": [
+        0,
+        5
+      ],
+      "other_score": [
+        0,
+        5
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 809,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Deportivo Alavés",
+      "away": "CA Osasuna",
+      "reference_score": [
+        5,
+        2
+      ],
+      "other_score": [
+        5,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 810,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Málaga CF",
+      "away": "Levante UD",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 330,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Sevilla FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 332,
+      "league": "es.1",
+      "date": "2026-09-11",
+      "home": "Sevilla FC",
+      "away": "Valencia CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 814,
+      "league": "es.1",
+      "date": "2026-09-12",
+      "home": "CA Osasuna",
+      "away": "RCD Espanyol de Barcelona",
+      "reference_score": [
+        0,
+        2
+      ],
+      "other_score": [
+        0,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 813,
+      "league": "es.1",
+      "date": "2026-09-12",
+      "home": "Athletic Club",
+      "away": "Elche CF",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 333,
+      "league": "es.1",
+      "date": "2026-09-13",
+      "home": "Levante UD",
+      "away": "FC Barcelona",
+      "reference_score": [
+        2,
+        4
+      ],
+      "other_score": [
+        2,
+        4
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 821,
+      "league": "es.1",
+      "date": "2026-09-15",
+      "home": "Deportivo Alavés",
+      "away": "Valencia CF",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 822,
+      "league": "es.1",
+      "date": "2026-09-15",
+      "home": "Elche CF",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 824,
+      "league": "es.1",
+      "date": "2026-09-16",
+      "home": "Club Atlético de Madrid",
+      "away": "CA Osasuna",
+      "reference_score": [
+        4,
+        0
+      ],
+      "other_score": [
+        4,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 825,
+      "league": "es.1",
+      "date": "2026-09-17",
+      "home": "Málaga CF",
+      "away": "Villarreal CF",
+      "reference_score": [
+        1,
+        3
+      ],
+      "other_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 827,
+      "league": "es.1",
+      "date": "2026-09-18",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Elche CF",
+      "reference_score": [
+        1,
+        3
+      ],
+      "other_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 828,
+      "league": "es.1",
+      "date": "2026-09-19",
+      "home": "Athletic Club",
+      "away": "Deportivo Alavés",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 832,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Getafe CF",
+      "away": "Málaga CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 831,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Club Atlético de Madrid",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 835,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Villarreal CF",
+      "away": "Levante UD",
+      "reference_score": [
+        3,
+        1
+      ],
+      "other_score": [
+        3,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ESP_1_la-liga/results_2627.csv"
+    },
+    {
+      "index": 408,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Frosinone Calcio",
+      "away": "Juventus FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 409,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Torino FC",
+      "away": "AC Milan",
+      "reference_score": [
+        1,
+        2
+      ],
+      "other_score": [
+        1,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 411,
+      "league": "it.1",
+      "date": "2026-08-28",
+      "home": "AC Milan",
+      "away": "Venezia FC",
+      "reference_score": [
+        2,
+        0
+      ],
+      "other_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 1149,
+      "league": "it.1",
+      "date": "2026-08-29",
+      "home": "AC Monza",
+      "away": "Udinese Calcio",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 415,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Frosinone Calcio",
+      "away": "Venezia FC",
+      "reference_score": [
+        3,
+        2
+      ],
+      "other_score": [
+        3,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 416,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Juventus FC",
+      "away": "AC Milan",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "index": 1172,
+      "league": "it.1",
+      "date": "2026-09-19",
+      "home": "Udinese Calcio",
+      "away": "Cagliari Calcio",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ITA_1_serie-a/results_2627.csv"
+    },
+    {
+      "date": "2026-08-21",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Brentford FC",
+      "away": "Tottenham Hotspur FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "other_score": [
+        3,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Ipswich Town FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Manchester City FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Newcastle United FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-28",
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        1,
+        4
+      ],
+      "other_score": [
+        1,
+        4
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-04",
+      "home": "Ipswich Town FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "other_score": [
+        0,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Hull City AFC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Newcastle United FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-06",
+      "home": "Everton FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Chelsea FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "other_score": [
+        2,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Crystal Palace FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Tottenham Hotspur FC",
+      "away": "Everton FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Everton FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Tottenham Hotspur FC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "other_score": [
+        2,
+        3
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Fulham FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "other_score": [
+        1,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Leeds United FC",
+      "away": "Crystal Palace FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "other_score": [
+        0,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Manchester City FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        5,
+        3
+      ],
+      "other_score": [
+        5,
+        3
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Hull City AFC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        0
+      ],
+      "other_score": [
+        2,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Coventry City FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "other_score": [
+        0,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        5,
+        2
+      ],
+      "other_score": [
+        5,
+        2
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Manchester City FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "other_score": [
+        1,
+        0
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Manchester United FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "other_score": [
+        0,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-14",
+      "home": "Leeds United FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        4,
+        1
+      ],
+      "other_score": [
+        4,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Newcastle United FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "other_score": [
+        2,
+        1
+      ],
+      "score_equal": true,
+      "league": "en.1",
+      "provider": "fixturedl",
+      "status": "SCORE_MATCH_CANDIDATE",
+      "source_url": "https://github.com/oladeeayo/open-matchday/blob/master/data/ENG_1_premier-league/results_2627.csv"
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false,
+  "source_lineage_status": "NOT_INDEPENDENTLY_CERTIFIED",
+  "note": "No record promoted to independent verified. English name aliases diagnosed in separate report."
+}
