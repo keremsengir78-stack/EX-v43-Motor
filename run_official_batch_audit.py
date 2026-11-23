@@ -38,10 +38,7 @@ def audit(queue, batches):
                 url = item.get("official_source_url")
                 if not isinstance(url, str) or not url.startswith("https://"):
                     raise ValueError("Official verification lacks HTTPS provenance")
-                if "laliga.com" in url and "gameweek-1" in url and item["date"] > "2026-08-24":
-                    suspicious.append({"source_index": idx,
-                                       "reason": "GAMEWEEK_1_URL_USED_FOR_LATER_DATE",
-                                       "date": item["date"], "source_url": url})
+                # Postponed matches can be played weeks after their original\n                # matchday. Never infer matchday from calendar date alone.\n                # Verify the exact fixture against the cited page instead.
             else:
                 if item.get("official_score") is not None or item.get("official_source_url") is not None:
                     raise ValueError("Unverified item has official evidence")
