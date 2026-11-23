@@ -5,8 +5,8 @@ independent source observations. Missing fields must remain explicit blockers.
 """
 import argparse
 import csv
+import datetime as dt
 import json
-from collections import Counter
 from pathlib import Path
 
 
@@ -14,15 +14,20 @@ def prepare_ingested_records(rows, fixtures):
     if not isinstance(rows, list) or not isinstance(fixtures, list):
         raise ValueError("Expected results and fixtures lists")
     output = []
+    seen_fixture_ids = set()
     for fixture in fixtures:
         if not isinstance(fixture, dict) or not isinstance(fixture.get("fixture_id"), str) or not fixture["fixture_id"].strip():
             raise ValueError("Each fixture needs a nonempty fixture_id")
+        if fixture["fixture_id"] in seen_fixture_ids:
+            raise ValueError("Duplicate fixture_id")
+        seen_fixture_ids.add(fixture["fixture_id"])
         league = fixture.get("league")
         team = fixture.get("team")
         if not isinstance(league, str) or not isinstance(team, str) or not team.strip():
             raise ValueError("Each fixture needs league and team")
         historical = []
         issues = []
+        seen_results = set()
         for row in rows:
             if not isinstance(row, dict):
                 raise ValueError("Result row must be object")
@@ -30,14 +35,28 @@ def prepare_ingested_records(rows, fixtures):
                 continue
             venue = "home" if team == row["home"] else "away"
             try:
-                gf = int(row["home_goals"] if venue == "home" else row["away_goals"])
-                ga = int(row["away_goals"] if venue == "home" else row["home_goals"])
-                if gf < 0 or ga < 0:
-                    raise ValueError("negative score")
+                day = dt.date.fromisoformat(row["date"])
+            except (ValueError, TypeError, KeyError):
+                issues.append("historical:invalid_date")
+                continue
+            key = (league, day.isoformat(), row["home"], row["away"])
+            if key in seen_results:
+                issues.append("historical:duplicate_fixture")
+                continue
+            seen_results.add(key)
+            try:
+                raw_gf = row["home_goals"] if venue == "home" else row["away_goals"]
+                raw_ga = row["away_goals"] if venue == "home" else row["home_goals"]
+                if any(isinstance(v, bool) or not isinstance(v, (str, int)) or
+                       not str(v).isdigit() for v in (raw_gf, raw_ga)):
+                    raise ValueError("invalid score")
+                gf, ga = int(raw_gf), int(raw_ga)
+                if gf > 30 or ga > 30:
+                    raise ValueError("score out of range")
             except (ValueError, TypeError, KeyError):
                 issues.append("historical:invalid_score")
                 continue
-            historical.append({"fixture_key": [league, row.get("date"), row.get("home"), row.get("away")],
+            historical.append({"fixture_key": list(key),
                                "venue": venue, "season": row.get("season"),
                                "goals_for": gf, "goals_against": ga,
                                "kickoff_at": None, "verified": False,
