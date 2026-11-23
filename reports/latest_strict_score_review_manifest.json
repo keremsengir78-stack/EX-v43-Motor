@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "source_total": 1177,
+  "strict_matches": 1177,
+  "other_unmatched": 0,
+  "pending_independent_review": 1177,
+  "batch_size": 100,
+  "batches": [
+    {
+      "batch_id": "strict-review-01",
+      "offset": 0,
+      "exported": 100,
+      "first_fixture": {
+        "league": "en.1",
+        "date": "2025-08-16",
+        "home": "Aston Villa FC",
+        "away": "Newcastle United FC"
+      },
+      "last_fixture": {
+        "league": "en.1",
+        "date": "2026-01-03",
+        "home": "Aston Villa FC",
+        "away": "Nottingham Forest FC"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-02",
+      "offset": 100,
+      "exported": 100,
+      "first_fixture": {
+        "league": "en.1",
+        "date": "2026-01-03",
+        "home": "Brighton & Hove Albion FC",
+        "away": "Burnley FC"
+      },
+      "last_fixture": {
+        "league": "en.1",
+        "date": "2026-08-22",
+        "home": "Brentford FC",
+        "away": "Tottenham Hotspur FC"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-03",
+      "offset": 200,
+      "exported": 100,
+      "first_fixture": {
+        "league": "en.1",
+        "date": "2026-08-22",
+        "home": "Ipswich Town FC",
+        "away": "Sunderland AFC"
+      },
+      "last_fixture": {
+        "league": "es.1",
+        "date": "2026-04-06",
+        "home": "Girona FC",
+        "away": "Villarreal CF"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-04",
+      "offset": 300,
+      "exported": 100,
+      "first_fixture": {
+        "league": "es.1",
+        "date": "2026-04-10",
+        "home": "Real Madrid CF",
+        "away": "Girona FC"
+      },
+      "last_fixture": {
+        "league": "it.1",
+        "date": "2026-04-19",
+        "home": "US Cremonese",
+        "away": "Torino FC"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-05",
+      "offset": 400,
+      "exported": 100,
+      "first_fixture": {
+        "league": "it.1",
+        "date": "2026-04-26",
+        "home": "AC Milan",
+        "away": "Juventus FC"
+      },
+      "last_fixture": {
+        "league": "en.1",
+        "date": "2026-08-30",
+        "home": "Manchester United FC",
+        "away": "Ipswich Town FC"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-06",
+      "offset": 500,
+      "exported": 100,
+      "first_fixture": {
+        "league": "en.1",
+        "date": "2026-09-05",
+        "home": "Brighton & Hove Albion FC",
+        "away": "Leeds United FC"
+      },
+      "last_fixture": {
+        "league": "es.1",
+        "date": "2025-11-23",
+        "home": "Elche CF",
+        "away": "Real Madrid CF"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-07",
+      "offset": 600,
+      "exported": 100,
+      "first_fixture": {
+        "league": "es.1",
+        "date": "2025-11-23",
+        "home": "Getafe CF",
+        "away": "Club Atlético de Madrid"
+      },
+      "last_fixture": {
+        "league": "es.1",
+        "date": "2026-03-08",
+        "home": "Valencia CF",
+        "away": "Deportivo Alavés"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-08",
+      "offset": 700,
+      "exported": 100,
+      "first_fixture": {
+        "league": "es.1",
+        "date": "2026-03-08",
+        "home": "Villarreal CF",
+        "away": "Elche CF"
+      },
+      "last_fixture": {
+        "league": "es.1",
+        "date": "2026-08-29",
+        "home": "Real Sociedad de Fútbol",
+        "away": "RCD Espanyol de Barcelona"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-09",
+      "offset": 800,
+      "exported": 100,
+      "first_fixture": {
+        "league": "es.1",
+        "date": "2026-08-30",
+        "home": "RC Celta de Vigo",
+        "away": "Athletic Club"
+      },
+      "last_fixture": {
+        "league": "it.1",
+        "date": "2025-10-26",
+        "home": "US Sassuolo Calcio",
+        "away": "AS Roma"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-10",
+      "offset": 900,
+      "exported": 100,
+      "first_fixture": {
+        "league": "it.1",
+        "date": "2025-10-28",
+        "home": "Atalanta BC",
+        "away": "AC Milan"
+      },
+      "last_fixture": {
+        "league": "it.1",
+        "date": "2026-01-17",
+        "home": "Udinese Calcio",
+        "away": "FC Internazionale Milano"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-11",
+      "offset": 1000,
+      "exported": 100,
+      "first_fixture": {
+        "league": "it.1",
+        "date": "2026-01-18",
+        "home": "AC Milan",
+        "away": "US Lecce"
+      },
+      "last_fixture": {
+        "league": "it.1",
+        "date": "2026-04-19",
+        "home": "Hellas Verona FC",
+        "away": "AC Milan"
+      },
+      "independent_score_verified": false
+    },
+    {
+      "batch_id": "strict-review-12",
+      "offset": 1100,
+      "exported": 77,
+      "first_fixture": {
+        "league": "it.1",
+        "date": "2026-04-20",
+        "home": "US Lecce",
+        "away": "ACF Fiorentina"
+      },
+      "last_fixture": {
+        "league": "it.1",
+        "date": "2026-09-20",
+        "home": "Parma Calcio 1913",
+        "away": "Genoa CFC"
+      },
+      "independent_score_verified": false
+    }
+  ],
+  "independent_score_verified": false,
+  "ex_final_allowed": false,
+  "note": "Manifest only. Independent source validation not performed."
+}
