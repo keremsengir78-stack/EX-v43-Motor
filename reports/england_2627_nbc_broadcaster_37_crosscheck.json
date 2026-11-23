@@ -6,7 +6,7 @@
   "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
   "checked_on": "2026-11-23",
   "candidate_count": 37,
-  "matching_score_count": 37,
+  "matching_score_count": 0,
   "conflict_count": 0,
   "records": [
     {
@@ -18,15 +18,13 @@
         3,
         0
       ],
-      "independent_broadcaster_score": [
-        3,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 199,
@@ -37,15 +35,13 @@
         3,
         0
       ],
-      "independent_broadcaster_score": [
-        3,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 200,
@@ -56,15 +52,13 @@
         2,
         1
       ],
-      "independent_broadcaster_score": [
-        2,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 201,
@@ -75,15 +69,13 @@
         4,
         0
       ],
-      "independent_broadcaster_score": [
-        4,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 202,
@@ -94,15 +86,13 @@
         2,
         1
       ],
-      "independent_broadcaster_score": [
-        2,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 203,
@@ -113,15 +103,13 @@
         2,
         2
       ],
-      "independent_broadcaster_score": [
-        2,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 204,
@@ -132,15 +120,13 @@
         1,
         4
       ],
-      "independent_broadcaster_score": [
-        1,
-        4
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 205,
@@ -151,15 +137,13 @@
         2,
         2
       ],
-      "independent_broadcaster_score": [
-        2,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 206,
@@ -170,15 +154,13 @@
         4,
         3
       ],
-      "independent_broadcaster_score": [
-        4,
-        3
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 207,
@@ -189,15 +171,13 @@
         1,
         1
       ],
-      "independent_broadcaster_score": [
-        1,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 208,
@@ -208,15 +188,13 @@
         0,
         2
       ],
-      "independent_broadcaster_score": [
-        0,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 209,
@@ -227,15 +205,13 @@
         0,
         0
       ],
-      "independent_broadcaster_score": [
-        0,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 210,
@@ -246,15 +222,13 @@
         2,
         2
       ],
-      "independent_broadcaster_score": [
-        2,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 211,
@@ -265,15 +239,13 @@
         2,
         2
       ],
-      "independent_broadcaster_score": [
-        2,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 212,
@@ -284,15 +256,13 @@
         1,
         2
       ],
-      "independent_broadcaster_score": [
-        1,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 213,
@@ -303,15 +273,13 @@
         2,
         2
       ],
-      "independent_broadcaster_score": [
-        2,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 214,
@@ -322,15 +290,13 @@
         2,
         3
       ],
-      "independent_broadcaster_score": [
-        2,
-        3
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 215,
@@ -341,15 +307,13 @@
         0,
         0
       ],
-      "independent_broadcaster_score": [
-        0,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 216,
@@ -360,15 +324,13 @@
         3,
         0
       ],
-      "independent_broadcaster_score": [
-        3,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 217,
@@ -379,15 +341,13 @@
         1,
         0
       ],
-      "independent_broadcaster_score": [
-        1,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 218,
@@ -398,15 +358,13 @@
         2,
         3
       ],
-      "independent_broadcaster_score": [
-        2,
-        3
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 219,
@@ -417,15 +375,13 @@
         1,
         1
       ],
-      "independent_broadcaster_score": [
-        1,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 220,
@@ -436,15 +392,13 @@
         0,
         0
       ],
-      "independent_broadcaster_score": [
-        0,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 221,
@@ -455,15 +409,13 @@
         5,
         3
       ],
-      "independent_broadcaster_score": [
-        5,
-        3
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 495,
@@ -474,15 +426,13 @@
         2,
         0
       ],
-      "independent_broadcaster_score": [
-        2,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 496,
@@ -493,15 +443,13 @@
         0,
         1
       ],
-      "independent_broadcaster_score": [
-        0,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 497,
@@ -512,15 +460,13 @@
         0,
         1
       ],
-      "independent_broadcaster_score": [
-        0,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 498,
@@ -531,15 +477,13 @@
         0,
         2
       ],
-      "independent_broadcaster_score": [
-        0,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 499,
@@ -550,15 +494,13 @@
         5,
         2
       ],
-      "independent_broadcaster_score": [
-        5,
-        2
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 500,
@@ -569,15 +511,13 @@
         1,
         1
       ],
-      "independent_broadcaster_score": [
-        1,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 501,
@@ -588,15 +528,13 @@
         1,
         0
       ],
-      "independent_broadcaster_score": [
-        1,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 502,
@@ -607,15 +545,13 @@
         0,
         0
       ],
-      "independent_broadcaster_score": [
-        0,
-        0
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 503,
@@ -626,15 +562,13 @@
         0,
         5
       ],
-      "independent_broadcaster_score": [
-        0,
-        5
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 504,
@@ -645,15 +579,13 @@
         0,
         1
       ],
-      "independent_broadcaster_score": [
-        0,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 505,
@@ -664,15 +596,13 @@
         4,
         1
       ],
-      "independent_broadcaster_score": [
-        4,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 506,
@@ -683,15 +613,13 @@
         2,
         1
       ],
-      "independent_broadcaster_score": [
-        2,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     },
     {
       "source_index": 507,
@@ -702,18 +630,18 @@
         0,
         1
       ],
-      "independent_broadcaster_score": [
-        0,
-        1
-      ],
+      "independent_broadcaster_score": null,
       "source_url": "https://www.nbcsports.com/soccer/news/premier-league-schedule-for-2026-27-season-released",
       "source_evidence_scope": "NBC_RESULTS_MATCHWEEKS_1_TO_5",
-      "independent_broadcaster_match": true,
+      "independent_broadcaster_match": false,
       "official_league_score_verified": false,
-      "source_lineage_independence_certified": false
+      "source_lineage_independence_certified": false,
+      "evidence_extraction_status": "PENDING_INDEPENDENT_SCORE_EXTRACTION"
     }
   ],
   "official_verification_batch_files_unchanged": true,
   "ex_final_allowed": false,
-  "note": "Broadcaster results were manually cross-checked against NBC Sports published matchweeks 1-5; not an official Premier League primary-source verification, and does not certify upstream data lineage."
+  "note": "Previous matching scores were copied from candidate records, not independently extracted from broadcaster content. All 37 claims withdrawn pending evidence.",
+  "pending_count": 37,
+  "source_lineage_independence_certified": false
 }
