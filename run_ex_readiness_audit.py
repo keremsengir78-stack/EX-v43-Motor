@@ -26,6 +26,10 @@ def build_report(queue, batches, broadcaster):
     nbc = {r["source_index"]: r for r in broadcaster["records"]}
     if len(nbc) != len(broadcaster["records"]):
         raise ValueError("Duplicate broadcaster evidence")
+    if not set(nbc).issubset(candidates):
+        raise ValueError("Unknown broadcaster fixture")
+    if broadcaster.get("matching_score_count", 0) != sum(bool(r.get("independent_broadcaster_match")) for r in broadcaster["records"]):
+        raise ValueError("Broadcaster match count does not agree with records")
     status = Counter()
     review = []
     for idx, original in sorted(candidates.items()):
@@ -49,8 +53,19 @@ def build_report(queue, batches, broadcaster):
                 status["official_link_claims_needing_content_review"] += 1
                 review.append({"index": idx, "reason": "CONTENT_NOT_MACHINE_VERIFIED"})
         elif idx in nbc:
-            status["broadcaster_claims_pending_independent_content_review"] += 1
-            review.append({"index": idx, "reason": "BROADCASTER_NOT_OFFICIAL"})
+            evidence = nbc[idx]
+            if evidence.get("independent_broadcaster_match"):
+                if evidence.get("independent_broadcaster_score") != item["score"]:
+                    raise ValueError("Broadcaster match flag conflicts with score")
+                if not evidence.get("independent_score_evidence_excerpt") or not evidence.get("independent_score_evidence_locator"):
+                    raise ValueError("Broadcaster match lacks independently extracted evidence")
+                status["broadcaster_claims_pending_content_authentication"] += 1
+                review.append({"index": idx, "reason": "BROADCASTER_CONTENT_AUTHENTICATION_PENDING"})
+            else:
+                if evidence.get("independent_broadcaster_score") is not None:
+                    raise ValueError("Pending broadcaster record retains unsupported score")
+                status["broadcaster_evidence_not_extracted"] += 1
+                review.append({"index": idx, "reason": "BROADCASTER_SCORE_NOT_EXTRACTED"})
         else:
             status["no_claim"] += 1
             review.append({"index": idx, "reason": "NO_EVIDENCE"})
