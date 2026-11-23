@@ -75,9 +75,16 @@ def run_large_batch(payload, chunk_size=500):
         raise ValueError("No matches provided")
     if type(chunk_size) is not int or not 1 <= chunk_size <= 500:
         raise ValueError("chunk_size must be an integer between 1 and 500")
-    keys = [(row.get("fixture_id"), row.get("market"))
-            for row in matches if isinstance(row, dict)]
-    if len(keys) != len(matches) or len(set(keys)) != len(matches):
+    keys = []
+    for row in matches:
+        if not isinstance(row, dict):
+            raise ValueError("Duplicate or malformed match input")
+        fixture_id, market = row.get("fixture_id"), row.get("market")
+        if (not isinstance(fixture_id, str) or not fixture_id.strip() or
+                not isinstance(market, str) or not market.strip()):
+            raise ValueError("Duplicate or malformed match input")
+        keys.append((fixture_id, market))
+    if len(set(keys)) != len(matches):
         raise ValueError("Duplicate or malformed match input")
     batches = [run_batch({"matches": matches[i:i + chunk_size]})
                for i in range(0, len(matches), chunk_size)]
