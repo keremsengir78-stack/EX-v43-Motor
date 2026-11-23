@@ -55,6 +55,20 @@ class IngestionToMatchBridgeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             prepare_ingested_records(self.rows, [self.fixtures[0], self.fixtures[0]])
 
+
+    def test_as_of_excludes_same_day(self):
+        result = prepare_ingested_records(self.rows, self.fixtures, "2026-11-21")
+        self.assertEqual(result["historical_records_staged"], 0)
+        self.assertIn("historical:future_or_same_day_excluded", result["results"][0]["issues"])
+
+    def test_as_of_includes_earlier_match(self):
+        result = prepare_ingested_records(self.rows, self.fixtures, "2026-11-22")
+        self.assertEqual(result["historical_records_staged"], 2)
+
+    def test_as_of_rejects_invalid_date(self):
+        with self.assertRaises(ValueError):
+            prepare_ingested_records(self.rows, self.fixtures, "tomorrow")
+
     def test_invalid_fixture_rejected(self):
         with self.assertRaises(ValueError):
             prepare_ingested_records(self.rows, [{"league": "en.1", "team": "A"}])
