@@ -32,8 +32,13 @@ def audit(queue, batches, broadcaster):
         if idx in broadcast or idx not in candidates:
             raise ValueError("Invalid broadcaster index")
         broadcast.add(idx)
-        if x.get("independent_broadcaster_score") != candidates[idx]["reference_score"]:
-            issues.append({"index": idx, "reason": "BROADCAST_SCORE_CONFLICT"})
+        if x.get("independent_broadcaster_match"):
+            if x.get("independent_broadcaster_score") != candidates[idx]["reference_score"]:
+                issues.append({"index": idx, "reason": "BROADCAST_SCORE_CONFLICT"})
+            if not x.get("independent_score_evidence_excerpt") or not x.get("independent_score_evidence_locator"):
+                raise ValueError("Unsupported broadcaster verification claim")
+        else:
+            issues.append({"index": idx, "reason": "BROADCAST_INDEPENDENT_EVIDENCE_PENDING"})
         if x.get("official_league_score_verified") is not False:
             issues.append({"index": idx, "reason": "BROADCAST_MISLABELED_OFFICIAL"})
     if official & broadcast:
