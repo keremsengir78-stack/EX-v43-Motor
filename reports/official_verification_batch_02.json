@@ -14,10 +14,13 @@
         1,
         3
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+      "official_score": [
+        1,
+        3
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 827,
@@ -44,10 +47,13 @@
         0,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-7",
+      "official_score": [
+        0,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 832,
@@ -59,10 +65,13 @@
         1,
         0
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-7",
+      "official_score": [
+        1,
+        0
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 831,
@@ -74,10 +83,13 @@
         2,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-7",
+      "official_score": [
+        2,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 835,
@@ -89,10 +101,13 @@
         3,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-7",
+      "official_score": [
+        3,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 408,
@@ -104,10 +119,13 @@
         0,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.legaseriea.it/serie-a/news/frosinone-juventus-2026-2027-0-1-cronaca-risultato-gol",
+      "official_score": [
+        0,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 409,
@@ -164,10 +182,13 @@
         3,
         2
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.legaseriea.it/team/frosinone/schedule",
+      "official_score": [
+        3,
+        2
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 416,
@@ -179,10 +200,13 @@
         1,
         1
       ],
-      "official_source_url": null,
-      "official_score": null,
-      "official_verified": false,
-      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+      "official_source_url": "https://www.legaseriea.it/team/juventus/schedule",
+      "official_score": [
+        1,
+        1
+      ],
+      "official_verified": true,
+      "review_status": "OFFICIAL_SCORE_MATCH_SECONDARY_RECONCILIATION_PENDING"
     },
     {
       "source_index": 1172,
@@ -380,6 +404,7 @@
       "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
     }
   ],
-  "official_verified_count": 0,
-  "ex_final_allowed": false
+  "official_verified_count": 8,
+  "ex_final_allowed": false,
+  "remaining_count": 17
 }
