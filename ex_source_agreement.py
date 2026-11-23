@@ -25,6 +25,7 @@ def verify_fixture_sources(observations, cutoff, require_evidence_locator=False)
         issues.append("sources:insufficient")
     source_ids = set()
     provider_groups = set()
+    evidence_urls = set()
     values = []
     for i, row in enumerate(observations):
         if not isinstance(row, dict):
@@ -49,6 +50,10 @@ def verify_fixture_sources(observations, cutoff, require_evidence_locator=False)
                 if (parsed.scheme != "https" or not parsed.hostname or
                         parsed.username or parsed.password or any(ch.isspace() for ch in url)):
                     raise ValueError("invalid evidence locator")
+                normalized_url = parsed._replace(fragment="").geturl()
+                if normalized_url in evidence_urls:
+                    issues.append("source:%d:duplicate_evidence_url" % i)
+                evidence_urls.add(normalized_url)
             except (ValueError, TypeError, AttributeError):
                 issues.append("source:%d:evidence_url_missing_or_invalid" % i)
             try:
