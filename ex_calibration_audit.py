@@ -8,7 +8,7 @@ import math
 import re
 
 MARKETS = ("2.5_UST", "KG_VAR", "MS1", "MS2")
-UTC_TIMESTAMP = re.compile(r"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")
+UTC_TIMESTAMP = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
 
 def canonical_utc(value):
