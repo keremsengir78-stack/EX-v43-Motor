@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": "independent match-result evidence, not EX FINAL authorization",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "verified_count": 1,
+  "remaining_unreviewed": 1176,
+  "records": [
+    {
+      "source_index": 0,
+      "league": "en.1",
+      "season": "2025-26",
+      "date": "2025-08-16",
+      "home": "Aston Villa FC",
+      "away": "Newcastle United FC",
+      "matched_score": [
+        0,
+        0
+      ],
+      "independent_score": [
+        0,
+        0
+      ],
+      "independent_score_verified": true,
+      "review_status": "INDEPENDENT_RESULT_CONFIRMED",
+      "source_1": {
+        "provider": "Premier League",
+        "url": "https://www.premierleague.com/en/match/2561896/aston-villa-vs-newcastle-united/info",
+        "score": [
+          0,
+          0
+        ]
+      },
+      "source_2": {
+        "provider": "Newcastle United FC official",
+        "url": "https://www.newcastleunited.com/en/matches/mens-team/aston-villa-v-newcastle-united-english-premier-league-20250816",
+        "score": [
+          0,
+          0
+        ]
+      },
+      "source_3": {
+        "provider": "Sky Sports",
+        "url": "https://www.skysports.com/football/aston-villa-vs-newcastle/report/531130",
+        "score": [
+          0,
+          0
+        ]
+      },
+      "evidence_scope": "MATCH_RESULT_ONLY"
+    }
+  ],
+  "ex_final_allowed": false,
+  "all_fixtures_independently_verified": false
+}
