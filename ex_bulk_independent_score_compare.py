@@ -19,6 +19,8 @@ def compare(source, independent_rows):
         if not isinstance(row, dict):
             continue
         key = (row.get("date"), row.get("home"), row.get("away"))
+        if any(not isinstance(v, str) or not v.strip() for v in key):
+            continue
         try:
             raw_scores = (row["home_goals"], row["away_goals"])
             if any(type(v) not in (str, int) or not str(v).isdigit() for v in raw_scores):
@@ -63,7 +65,8 @@ def compare(source, independent_rows):
             result["conflicted"].append({"index": index, "reason": "DUPLICATE_INDEPENDENT_SOURCE"})
         elif candidate is None:
             result["unresolved"].append(record["index"])
-        elif candidate[1].strip().lower() == str(record.get("secondary_provider") or "").strip().lower():
+        elif (candidate[1].strip().casefold() == str(record.get("secondary_provider") or "").strip().casefold()
+              or candidate[2] == record.get("secondary_url")):
             result["unresolved"].append(record["index"])
         elif candidate[0] != record["matched_score"]:
             result["conflicted"].append({"index": record["index"], "reason": "SCORE_MISMATCH",
