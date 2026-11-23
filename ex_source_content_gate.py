@@ -6,6 +6,8 @@ two providers are editorially independent. Those require separate audit.
 """
 import hashlib
 import json
+import datetime as dt
+import re
 
 
 FIELDS = ("fixture_id", "home_team", "away_team", "kickoff_at", "home_goals", "away_goals")
@@ -15,6 +17,27 @@ def compare_source_content(observations, expected):
     issues = []
     if not isinstance(expected, dict) or any(k not in expected for k in FIELDS):
         return {"status": "BLOCKED", "issues": ["expected:invalid"], "ex_final_allowed": False}
+    # A matching snapshot must never legitimize impossible fixture metadata.
+    fixture_id = expected.get("fixture_id")
+    home = expected.get("home_team")
+    away = expected.get("away_team")
+    kickoff = expected.get("kickoff_at")
+    goals = (expected.get("home_goals"), expected.get("away_goals"))
+    if (not isinstance(fixture_id, str) or not fixture_id.strip()
+            or not isinstance(home, str) or not home.strip()
+            or not isinstance(away, str) or not away.strip()
+            or home.strip().casefold() == away.strip().casefold()
+            or any(type(g) is not int or g < 0 or g > 30 for g in goals)):
+        return {"status": "BLOCKED", "issues": ["expected:invalid_fixture_facts"],
+                "ex_final_allowed": False}
+    try:
+        if not isinstance(kickoff, str) or not re.fullmatch(
+                r"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z", kickoff):
+            raise ValueError("noncanonical kickoff")
+        dt.datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+    except (ValueError, OverflowError, TypeError):
+        return {"status": "BLOCKED", "issues": ["expected:invalid_kickoff"],
+                "ex_final_allowed": False}
     if not isinstance(observations, list) or len(observations) < 2:
         return {"status": "BLOCKED", "issues": ["sources:insufficient"], "ex_final_allowed": False}
     providers = set()
