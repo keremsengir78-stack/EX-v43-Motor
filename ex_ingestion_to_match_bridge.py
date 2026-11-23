@@ -10,9 +10,16 @@ import json
 from pathlib import Path
 
 
-def prepare_ingested_records(rows, fixtures):
+def prepare_ingested_records(rows, fixtures, as_of=None):
     if not isinstance(rows, list) or not isinstance(fixtures, list):
         raise ValueError("Expected results and fixtures lists")
+    cutoff = None
+    if as_of is not None:
+        if not isinstance(as_of, str):
+            raise ValueError("as_of must be an ISO date")
+        cutoff = dt.date.fromisoformat(as_of)
+        if cutoff.isoformat() != as_of:
+            raise ValueError("as_of must be YYYY-MM-DD")
     output = []
     seen_fixture_ids = set()
     for fixture in fixtures:
@@ -38,6 +45,9 @@ def prepare_ingested_records(rows, fixtures):
                 day = dt.date.fromisoformat(row["date"])
             except (ValueError, TypeError, KeyError):
                 issues.append("historical:invalid_date")
+                continue
+            if cutoff is not None and day >= cutoff:
+                issues.append("historical:future_or_same_day_excluded")
                 continue
             key = (league, day.isoformat(), row["home"], row["away"])
             if key in seen_results:
@@ -81,11 +91,12 @@ def main():
     p.add_argument("--results-csv", required=True, type=Path)
     p.add_argument("--fixtures-json", required=True, type=Path)
     p.add_argument("--output", required=True, type=Path)
+    p.add_argument("--as-of", help="Exclusive YYYY-MM-DD historical cutoff")
     a = p.parse_args()
     with a.results_csv.open(newline="", encoding="utf-8-sig") as stream:
         rows = list(csv.DictReader(stream))
     fixtures = json.loads(a.fixtures_json.read_text(encoding="utf-8"))
-    report = prepare_ingested_records(rows, fixtures)
+    report = prepare_ingested_records(rows, fixtures, a.as_of)
     a.output.parent.mkdir(parents=True, exist_ok=True)
     a.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "results"}, ensure_ascii=False))
