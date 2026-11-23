@@ -106,6 +106,28 @@ class MatchPipelineTests(unittest.TestCase):
                                         features, "2026-02-01T00:00:00Z", sources)
         self.assertIn("fixture:0:team_identity_conflict", result["issues"])
 
+
+    def test_strict_pipeline_blocks_missing_evidence_locator(self):
+        records, features, sources = inputs()
+        result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
+                                        features, "2026-02-01T00:00:00Z", sources,
+                                        require_evidence_locator=True)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("evidence_url_missing_or_invalid" in issue for issue in result["issues"]))
+        self.assertIsNone(result["evidence"])
+
+    def test_strict_pipeline_accepts_locator_metadata_as_structural_evidence(self):
+        records, features, sources = inputs()
+        for observations in sources.values():
+            for observation in observations:
+                observation["evidence_url"] = "https://example.org/results/fixture"
+                observation["retrieved_at"] = "2026-01-21T00:00:00Z"
+        result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
+                                        features, "2026-02-01T00:00:00Z", sources,
+                                        require_evidence_locator=True)
+        self.assertEqual(result["status"], "EVIDENCE_READY_UNCALIBRATED")
+        self.assertFalse(result["ex_final_allowed"])
+
     def test_missing_feature_blocks_after_window_build(self):
         records, features, sources = inputs()
         del features["external_factors"]
