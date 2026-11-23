@@ -41,7 +41,9 @@ if audit.is_file():
             if type(value) is not int or value < 0:
                 raise ValueError("Invalid nonnegative audit counter: "+field)
         blockers=status["baseline_blocking_sources"]
-        if not isinstance(blockers,list):
+        if not isinstance(blockers,list) or any(
+                not isinstance(row,dict) or not isinstance(row.get("reason"),str)
+                for row in blockers):
             raise ValueError("Invalid baseline blockers")
         stale=[{"season":row.get("season"),"league":row.get("league")}
                for row in blockers if row.get("reason")=="stale"]
