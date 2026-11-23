@@ -33,6 +33,28 @@ class IngestionToMatchBridgeTests(unittest.TestCase):
         self.assertIn("historical:invalid_score", result["results"][0]["issues"])
         self.assertEqual(result["historical_records_staged"], 0)
 
+
+    def test_decimal_score_not_truncated(self):
+        self.rows[0]["home_goals"] = "2.5"
+        result = prepare_ingested_records(self.rows, self.fixtures)
+        self.assertEqual(result["historical_records_staged"], 0)
+        self.assertIn("historical:invalid_score", result["results"][0]["issues"])
+
+    def test_duplicate_history_is_not_counted_twice(self):
+        result = prepare_ingested_records(self.rows * 2, self.fixtures)
+        self.assertEqual(result["historical_records_staged"], 2)
+        self.assertIn("historical:duplicate_fixture", result["results"][0]["issues"])
+
+    def test_invalid_date_rejected(self):
+        self.rows[0]["date"] = "not-a-date"
+        result = prepare_ingested_records(self.rows, self.fixtures)
+        self.assertEqual(result["historical_records_staged"], 0)
+        self.assertIn("historical:invalid_date", result["results"][0]["issues"])
+
+    def test_duplicate_fixture_ids_rejected(self):
+        with self.assertRaises(ValueError):
+            prepare_ingested_records(self.rows, [self.fixtures[0], self.fixtures[0]])
+
     def test_invalid_fixture_rejected(self):
         with self.assertRaises(ValueError):
             prepare_ingested_records(self.rows, [{"league": "en.1", "team": "A"}])
