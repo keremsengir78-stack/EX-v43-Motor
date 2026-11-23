@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-23",
+  "scope": "75 candidate 2026-27 score evidence",
+  "batch_counts": [
+    {
+      "batch": 1,
+      "official": 25,
+      "total": 25
+    },
+    {
+      "batch": 2,
+      "official": 13,
+      "total": 25
+    },
+    {
+      "batch": 3,
+      "official": 0,
+      "total": 25
+    }
+  ],
+  "official_primary_source_result_matches": 38,
+  "broadcaster_only_result_matches": 37,
+  "source_independence_certified": false,
+  "upstream_lineage_audit_pending": true,
+  "ex_final_allowed": false,
+  "notes": [
+    "Official result match does not attest original dataset independence.",
+    "NBC Sports broadcaster comparison is not official league primary-source certification.",
+    "EX FINAL remains fail-closed."
+  ]
+}
