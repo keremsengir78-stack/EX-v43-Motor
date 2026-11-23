@@ -120,7 +120,7 @@ class MatchPipelineTests(unittest.TestCase):
         records, features, sources = inputs()
         for observations in sources.values():
             for observation in observations:
-                observation["evidence_url"] = "https://example.org/results/fixture"
+                observation["evidence_url"] = "https://example.org/results/" + observation["source_id"] + "/" + observation["fixture_id"]
                 observation["retrieved_at"] = "2026-01-21T00:00:00Z"
         result = process_match_evidence("KG_VAR", records, "home", "2026", "2025",
                                         features, "2026-02-01T00:00:00Z", sources,
