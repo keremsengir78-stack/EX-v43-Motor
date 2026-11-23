@@ -37,7 +37,7 @@ class OfficialBatchAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit(self.queue, batches)
 
-    def test_gameweek_mismatch_flagged(self):
+    def test_postponed_gameweek_not_rejected_by_date(self):
         batches = copy.deepcopy(self.batches)
         record = batches[0]["records"][0]
         record["date"] = "2026-08-27"
@@ -46,7 +46,7 @@ class OfficialBatchAuditTests(unittest.TestCase):
         record["official_score"] = [1, 0]
         record["official_source_url"] = "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1"
         batches[0]["official_verified_count"] = 1
-        self.assertEqual(len(audit(self.queue, batches)["suspicious_source_scope"]), 1)
+        self.assertEqual(len(audit(self.queue, batches)["suspicious_source_scope"]), 0)
 
 
 if __name__ == "__main__":
