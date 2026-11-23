@@ -48,9 +48,11 @@ def verify_fixture_sources(observations, cutoff, require_evidence_locator=False)
             try:
                 parsed = urlsplit(url)
                 if (parsed.scheme != "https" or not parsed.hostname or
-                        parsed.username or parsed.password or any(ch.isspace() for ch in url)):
+                        parsed.username or parsed.password or parsed.port not in (None, 443) or
+                        parsed.hostname in ("localhost", "127.0.0.1", "::1") or
+                        any(ch.isspace() for ch in url)):
                     raise ValueError("invalid evidence locator")
-                normalized_url = parsed._replace(fragment="").geturl()
+                normalized_url = parsed._replace(fragment="", netloc=parsed.netloc.lower()).geturl()
                 if normalized_url in evidence_urls:
                     issues.append("source:%d:duplicate_evidence_url" % i)
                 evidence_urls.add(normalized_url)
