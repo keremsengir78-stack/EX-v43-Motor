@@ -20,7 +20,10 @@ def compare(source, independent_rows):
             continue
         key = (row.get("date"), row.get("home"), row.get("away"))
         try:
-            score = [int(row["home_goals"]), int(row["away_goals"])]
+            raw_scores = (row["home_goals"], row["away_goals"])
+            if any(type(v) not in (str, int) or not str(v).isdigit() for v in raw_scores):
+                continue
+            score = [int(v) for v in raw_scores]
         except (KeyError, TypeError, ValueError):
             continue
         try:
@@ -30,6 +33,7 @@ def compare(source, independent_rows):
             url = row.get("source_url")
             parsed = urlsplit(url)
             if (parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password
+                    or parsed.fragment or parsed.port not in (None, 443)
                     or any(ch.isspace() for ch in url)):
                 continue
         except (TypeError, ValueError, AttributeError):
@@ -43,13 +47,23 @@ def compare(source, independent_rows):
     result = {"matched": [], "conflicted": [], "unresolved": [],
               "independent_score_verified": False, "ex_final_allowed": False}
     for record in source:
-        key = (record["date"], record["home"], record["away"])
+        if not isinstance(record, dict):
+            result["unresolved"].append(None)
+            continue
+        index = record.get("index")
+        key = (record.get("date"), record.get("home"), record.get("away"))
+        if (any(not isinstance(v, str) or not v.strip() for v in key)
+                or not isinstance(record.get("matched_score"), list)
+                or len(record["matched_score"]) != 2
+                or any(type(v) is not int or v < 0 or v > 30 for v in record["matched_score"])):
+            result["unresolved"].append(index)
+            continue
         candidate = lookup.get(key)
         if key in conflicts:
-            result["conflicted"].append({"index": record["index"], "reason": "DUPLICATE_INDEPENDENT_SOURCE"})
+            result["conflicted"].append({"index": index, "reason": "DUPLICATE_INDEPENDENT_SOURCE"})
         elif candidate is None:
             result["unresolved"].append(record["index"])
-        elif candidate[1].strip().lower() == record.get("secondary_provider", "").strip().lower():
+        elif candidate[1].strip().lower() == str(record.get("secondary_provider") or "").strip().lower():
             result["unresolved"].append(record["index"])
         elif candidate[0] != record["matched_score"]:
             result["conflicted"].append({"index": record["index"], "reason": "SCORE_MISMATCH",
