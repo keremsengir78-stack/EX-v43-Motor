@@ -65,6 +65,21 @@ class BulkCompareTests(unittest.TestCase):
     def test_non_dict_independent_row_does_not_crash(self):
         self.assertEqual(compare(self.fixture, [None, self.row])["counts"]["matched"], 1)
 
+
+    def test_unhashable_independent_identity_is_ignored(self):
+        for bad in ([], {}, ["A"]):
+            with self.subTest(bad=bad):
+                row = dict(self.row, home=bad)
+                result = compare(self.fixture, [row])
+                self.assertEqual(result["counts"]["unresolved"], 1)
+                self.assertEqual(result["counts"]["matched"], 0)
+
+    def test_reused_secondary_url_is_not_independent(self):
+        fixture = dict(self.fixture[0], secondary_url="https://example.org/match")
+        result = compare([fixture], [self.row])
+        self.assertEqual(result["counts"]["unresolved"], 1)
+        self.assertEqual(result["counts"]["matched"], 0)
+
     def test_blank_provider_is_unresolved(self):
         self.assertEqual(compare(self.fixture, [dict(self.row, provider="  ")])["counts"]["unresolved"], 1)
 
