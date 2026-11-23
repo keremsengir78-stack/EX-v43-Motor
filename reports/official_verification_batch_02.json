@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "source_queue": "reports/external_2627_combined_75_candidate_queue.json",
+  "batch": 2,
+  "expected_count": 25,
+  "records": [
+    {
+      "source_index": 825,
+      "league": "es.1",
+      "date": "2026-09-17",
+      "home": "Málaga CF",
+      "away": "Villarreal CF",
+      "score": [
+        1,
+        3
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 827,
+      "league": "es.1",
+      "date": "2026-09-18",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Elche CF",
+      "score": [
+        1,
+        3
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 828,
+      "league": "es.1",
+      "date": "2026-09-19",
+      "home": "Athletic Club",
+      "away": "Deportivo Alavés",
+      "score": [
+        0,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 832,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Getafe CF",
+      "away": "Málaga CF",
+      "score": [
+        1,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 831,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Club Atlético de Madrid",
+      "away": "Real Madrid CF",
+      "score": [
+        2,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 835,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Villarreal CF",
+      "away": "Levante UD",
+      "score": [
+        3,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 408,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Frosinone Calcio",
+      "away": "Juventus FC",
+      "score": [
+        0,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 409,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Torino FC",
+      "away": "AC Milan",
+      "score": [
+        1,
+        2
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 411,
+      "league": "it.1",
+      "date": "2026-08-28",
+      "home": "AC Milan",
+      "away": "Venezia FC",
+      "score": [
+        2,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 1149,
+      "league": "it.1",
+      "date": "2026-08-29",
+      "home": "AC Monza",
+      "away": "Udinese Calcio",
+      "score": [
+        2,
+        3
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 415,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Frosinone Calcio",
+      "away": "Venezia FC",
+      "score": [
+        3,
+        2
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 416,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Juventus FC",
+      "away": "AC Milan",
+      "score": [
+        1,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 1172,
+      "league": "it.1",
+      "date": "2026-09-19",
+      "home": "Udinese Calcio",
+      "away": "Cagliari Calcio",
+      "score": [
+        0,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 198,
+      "league": "en.1",
+      "date": "2026-08-21",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "score": [
+        3,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 199,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Brentford FC",
+      "away": "Tottenham Hotspur FC",
+      "score": [
+        3,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 200,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Ipswich Town FC",
+      "away": "Sunderland AFC",
+      "score": [
+        2,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 201,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Aston Villa FC",
+      "score": [
+        4,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 202,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Manchester City FC",
+      "away": "AFC Bournemouth",
+      "score": [
+        2,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 203,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Newcastle United FC",
+      "away": "Liverpool FC",
+      "score": [
+        2,
+        2
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 204,
+      "league": "en.1",
+      "date": "2026-08-28",
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "score": [
+        1,
+        4
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 205,
+      "league": "en.1",
+      "date": "2026-08-29",
+      "home": "Liverpool FC",
+      "away": "Nottingham Forest FC",
+      "score": [
+        2,
+        2
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 206,
+      "league": "en.1",
+      "date": "2026-08-30",
+      "home": "Chelsea FC",
+      "away": "Brighton & Hove Albion FC",
+      "score": [
+        4,
+        3
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 207,
+      "league": "en.1",
+      "date": "2026-08-30",
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "score": [
+        1,
+        1
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 208,
+      "league": "en.1",
+      "date": "2026-09-04",
+      "home": "Ipswich Town FC",
+      "away": "Liverpool FC",
+      "score": [
+        0,
+        2
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    },
+    {
+      "source_index": 209,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Hull City AFC",
+      "away": "Aston Villa FC",
+      "score": [
+        0,
+        0
+      ],
+      "official_source_url": null,
+      "official_score": null,
+      "official_verified": false,
+      "review_status": "AWAITING_OFFICIAL_SOURCE_MATCH"
+    }
+  ],
+  "official_verified_count": 0,
+  "ex_final_allowed": false
+}
