@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "scope": "Primary-source match-result spot checks for 2026-27",
+  "source_report": "reports/latest_multileague_strict_score_reconcile.json",
+  "checked_count": 4,
+  "verified_match_result_count": 4,
+  "records": [
+    {
+      "source_index": 198,
+      "league": "en.1",
+      "date": "2026-08-21",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "score": [
+        3,
+        0
+      ],
+      "official_provider": "Premier League Fantasy Draft",
+      "official_url": "https://draft.premierleague.com/en/entry/224783/event/1",
+      "official_scope": "GAMEWEEK_RESULT",
+      "official_result_matches_reference": true,
+      "official_match_result_verified": true,
+      "evidence_scope": "MATCH_RESULT_ONLY",
+      "requires_secondary_reconciliation_review": true
+    },
+    {
+      "source_index": 780,
+      "league": "es.1",
+      "date": "2026-08-15",
+      "home": "Deportivo Alavés",
+      "away": "Getafe CF",
+      "score": [
+        3,
+        0
+      ],
+      "official_provider": "LALIGA",
+      "official_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1",
+      "official_scope": "MATCHDAY_1_RESULTS",
+      "official_result_matches_reference": true,
+      "official_match_result_verified": true,
+      "evidence_scope": "MATCH_RESULT_ONLY",
+      "requires_secondary_reconciliation_review": true
+    },
+    {
+      "source_index": 781,
+      "league": "es.1",
+      "date": "2026-08-16",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "score": [
+        3,
+        0
+      ],
+      "official_provider": "LALIGA",
+      "official_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1",
+      "official_scope": "MATCHDAY_1_RESULTS",
+      "official_result_matches_reference": true,
+      "official_match_result_verified": true,
+      "evidence_scope": "MATCH_RESULT_ONLY",
+      "requires_secondary_reconciliation_review": true
+    },
+    {
+      "source_index": 784,
+      "league": "es.1",
+      "date": "2026-08-19",
+      "home": "Club Atlético de Madrid",
+      "away": "Málaga CF",
+      "score": [
+        2,
+        0
+      ],
+      "official_provider": "LALIGA",
+      "official_url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-1",
+      "official_scope": "MATCHDAY_1_RESULTS",
+      "official_result_matches_reference": true,
+      "official_match_result_verified": true,
+      "evidence_scope": "MATCH_RESULT_ONLY",
+      "requires_secondary_reconciliation_review": true
+    }
+  ],
+  "not_checked_from_75": 71,
+  "independent_score_verified_all_75": false,
+  "ex_final_allowed": false,
+  "note": "Official pages checked on 2026-11-23. This does not validate original secondary CSV matching, which retains unresolved review flags for these source indices."
+}
