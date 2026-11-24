@@ -67,3 +67,21 @@ class RetrospectiveTests(unittest.TestCase):
         result = deduplicate_scores(ledger)
         self.assertEqual({"ESPN+OpenLigaDB": 1}, result["by_provider_combination"])
         self.assertFalse(result["provider_overlap_proves_independence"])
+
+    def test_export_assigns_only_same_day_labels_to_ordered_splits(self):
+        import json
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from run_ex_retrospective import write_examples
+
+        start = utc("2026-09-01T12:00:00Z")
+        data = [{"event_id": str(i), "kickoff": start + dt.timedelta(days=i),
+                 "finished": start + dt.timedelta(days=i, hours=2), "labels": {"MS1": 1}}
+                for i in range(8)]
+        data.append({"event_id": "late", "kickoff": start, "finished": start + dt.timedelta(days=2)})
+        with TemporaryDirectory() as root:
+            path = Path(root) / "examples.jsonl"
+            write_examples(path, data)
+            rows = [json.loads(line) for line in path.read_text().splitlines()]
+        self.assertEqual(["train"] * 4 + ["validation"] * 2 + ["test"] * 2 + [None],
+                         [r["venue5_partition"] for r in rows])

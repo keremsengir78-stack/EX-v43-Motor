@@ -40,8 +40,10 @@ jobs:
           run-id: 45469007220
           name: history-score-evidence-1
           path: score
-      - run: python run_ex_retrospective.py --plan plan.json --archive archived --score-ledger score/score-evidence.json --output retrospective.json --require-complete
+      - run: python run_ex_retrospective.py --plan plan.json --archive archived --score-ledger score/score-evidence.json --output retrospective.json --examples-output retrospective-examples.jsonl --require-complete
       - uses: actions/upload-artifact@v4
         with:
           name: ex-retrospective-results
-          path: retrospective.json
+          path: |
+            retrospective.json
+            retrospective-examples.jsonl

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from ex_history_archive import HistoryArchive, atomic_write
 from ex_history_sources import ESPN, match_detail
+from ex_model_challengers import date_partitions
 from ex_retrospective import EVIDENCE_CLASSES, build_examples, evaluate, settled_facts
 
 
@@ -83,11 +84,30 @@ def deduplicate_scores(ledger):
                                "OpenLigaDB": "COMMUNITY_SOURCE_PER_MATCH_LINEAGE_UNCONFIRMED"}}
 
 
+def write_examples(path, examples):
+    eligible = [(row["kickoff"].date(), row["event_id"]) for row in examples if row["finished"]
+                and row["finished"].date() == row["kickoff"].date()]
+    partitions = date_partitions(eligible)
+    labels = ("train", "validation", "test")
+    assignments = {event_id: name for name, partition in zip(labels, partitions or ([], [], []), strict=True)
+                   for _, event_id in partition}
+    lines = []
+    for record in examples:
+        row = dict(record)
+        row["kickoff"] = row["kickoff"].isoformat()
+        row["finished"] = row["finished"].isoformat() if row["finished"] else None
+        row["venue5_partition"] = assignments.get(row["event_id"])
+        row["provenance"] = "RETROSPECTIVE_SETTLED_EVENT_RECONSTRUCTION"
+        lines.append(json.dumps(row, separators=(",", ":")))
+    atomic_write(path, (("\n".join(lines) + "\n") if lines else "").encode())
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--score-ledger", type=Path)
+    parser.add_argument("--examples-output", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--require-complete", action="store_true")
     args = parser.parse_args()
@@ -96,6 +116,8 @@ def main():
     if not facts or args.require_complete and missing:
         raise ValueError(f"Archived match coverage incomplete: {len(facts)} available, {missing} missing")
     examples = build_examples(facts)
+    if args.examples_output:
+        write_examples(args.examples_output, examples)
     report = {"provenance": "RETROSPECTIVE_SETTLED_EVENT_RECONSTRUCTION",
               "evidence_classes": EVIDENCE_CLASSES, "targets": len(plan["pending_events"]),
               "archived": len(facts), "missing": missing, "source_requests": 0,
