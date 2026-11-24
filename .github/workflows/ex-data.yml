@@ -67,6 +67,8 @@ jobs:
               r=json.loads(p.read_text())
               counts=Counter((x["league"],x.get("source_presence_status",x["third_source_status"])) for x in r["unresolved"])
               print("ESPN_UNRESOLVED",json.dumps([{"league":k[0],"reason":k[1],"count":v} for k,v in sorted(counts.items())]))
+              for row in r["unresolved"]:
+                  print("ESPN_REVIEW_ROW",json.dumps({k:row.get(k) for k in ("league","date","home","away","home_goals","away_goals","secondary_shared_team_candidates","secondary_adjacent_day_exact_candidates","secondary_reversed_fixture_count","source_presence_status")},ensure_ascii=True))
           PY
       - name: Publish ESPN pilot audit
         if: always()
