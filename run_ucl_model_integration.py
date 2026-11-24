@@ -14,6 +14,7 @@ from ex_decision import MARKETS, WEIGHTS, assess_market_value, assess_markets
 from ex_engine import baseline_backtest_observations, distribution
 from ex_espn_provider import parse_espn_scoreboard
 from ex_fixture_odds import check_fixture
+from ex_historical_features import HistoricalFeatures
 from ex_model_challengers import compare_calibration
 from ex_ucl_baseline import cross_league_baseline
 from ex_ucl_strength import compare_league_challengers
@@ -236,7 +237,7 @@ def calibrate_domestic(rows, schedules, historical_ucl, config, aliases):
     return {market: compare_calibration(data[market], external[market]) for market in MARKETS}
 
 
-def league_replay(archive, config, uefa, aliases):
+def verified_ucl_history(archive, uefa, aliases):
     historical = json.loads((archive / "report.json").read_text())
     rows = []
     for meta in historical["requests"]:
@@ -245,6 +246,11 @@ def league_replay(archive, config, uefa, aliases):
     checks = verify_historical_scores(uefa, rows, aliases, 5)
     if checks["exact_score_agreements"] != 72 or len(rows) != 72:
         raise ValueError("Historical UEFA–ESPN league sample mismatch")
+    return rows
+
+
+def league_replay(archive, config, uefa, aliases):
+    rows = verified_ucl_history(archive, uefa, aliases)
     leagues, _ = team_index(config["domestic_team_names"])
     lookup = {norm(team): league for team, league in leagues.items()}
     rounds = [[(lookup[aliases[norm(r["home"])]], lookup[aliases[norm(r["away"])]],
@@ -283,6 +289,13 @@ def run(archive, *, experiments=False):
     today = [fixture for fixture in config["fixtures"] if fixture["date"] == CUTOFF]
     results = [replay_fixture(f, observations[f["home"], f["away"]], base[f["home"], f["away"]],
                               raw_dir, news, aliases, verified_fixtures, schedules) for f in today]
+    history = HistoricalFeatures(rows)
+    leagues, _ = team_index(config["domestic_team_names"])
+    for result in results:
+        f = result["fixture"]
+        result["historical_features"] = history.fixture(
+            leagues[f["home"]], leagues[f["away"]], f["home"], f["away"], dt.date.fromisoformat(f["date"]),
+        )
     if len(results) != 9 or any(not row["tur2_recompute_consistent"] for row in results):
         raise ValueError("Incomplete or inconsistent Tur-2 replay for today's fixtures")
     report = {

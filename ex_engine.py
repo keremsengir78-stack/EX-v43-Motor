@@ -3,6 +3,7 @@
 import argparse,csv,datetime as dt,json,math,hashlib,statistics
 from pathlib import Path
 from ex_baseline_calibration import chronological_intercept
+from ex_historical_features import HistoricalFeatures
 W=(.4,.3,.2,.1)
 REQUIRED=('date','league','home','away','home_goals','away_goals')
 def date(s): return dt.date.fromisoformat(s)
@@ -76,6 +77,7 @@ def calculate(rows,fixture,threshold=.70):
     return base
 def audit(rows,fixtures):
     out=[]
+    history=HistoricalFeatures(rows)
     for f in fixtures:
         try: r=calculate(rows,f)
         except Exception as e:r={'fixture':f,'status':'ERROR','decision':'NO_FINAL','error':str(e)}
@@ -84,6 +86,8 @@ def audit(rows,fixtures):
             r2=calculate(rows,f)
             r['recompute_consistent']=r==r2
         except Exception:r['recompute_consistent']=False
+        if r['status']=='BASELINE_ONLY' and r['recompute_consistent']:
+            r['historical_features']=history.fixture(f['league'],f['league'],f['home'],f['away'],date(f['date']))
         out.append(r)
     return out
 def baseline_backtest_observations(rows, min_train=30):
