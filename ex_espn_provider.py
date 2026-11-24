@@ -7,7 +7,7 @@ import math
 
 MAX_SCOREBOARD_BYTES=2_000_000
 
-ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1"}
+ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1","UCL":"uefa.champions"}
 
 def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
     if league not in ESPN_LEAGUES:
