@@ -80,26 +80,49 @@ def audit(rows,fixtures):
         except Exception as e:r={'fixture':f,'status':'ERROR','decision':'NO_FINAL','error':str(e)}
         # deterministic second pass with equality, not independent data-source validation
         try:
-            r2=calculate(rows,f);r['recompute_consistent']=r.get('baseline_over25_pct')==r2.get('baseline_over25_pct') and r['status']==r2['status']
+            r2=calculate(rows,f)
+            r['recompute_consistent']=r==r2
         except Exception:r['recompute_consistent']=False
         out.append(r)
     return out
 def backtest(rows,min_train=30):
     # strict chronological prediction: prior results only, no random leakage
     preds=[]
+    markets = {
+        '2.5_UST': ('over25', lambda h, a: h+a>=3),
+        'KG_VAR': ('btts', lambda h, a: h>0 and a>0),
+        'MS1': ('home_win', lambda h, a: h>a),
+        'MS2': ('away_win', lambda h, a: a>h),
+    }
+    market_predictions = {market: [] for market in markets}
     for r in rows:
         ss=dt.date(r['date'].year if r['date'].month>=7 else r['date'].year-1,7,1)
         f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(dt.date(ss.year-1,7,1))}
         if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
         p=calculate(rows,f)
-        if p['status']=='BASELINE_ONLY':preds.append((r['date'],p['baseline']['over25'],int(r['hg']+r['ag']>=3)))
+        if p['status']=='BASELINE_ONLY':
+            for market, (metric, settled) in markets.items():
+                market_predictions[market].append(
+                    (p['baseline'][metric], int(settled(r['hg'], r['ag'])))
+                )
+            probability, outcome = market_predictions['2.5_UST'][-1]
+            preds.append((r['date'], probability, outcome))
     if not preds:return {'n':0,'status':'INSUFFICIENT_DATA'}
     n=len(preds);brier=sum((p-y)**2 for _,p,y in preds)/n
     bins=[]
     for lo in (0,.1,.2,.3,.4,.5,.6,.7,.8,.9):
         sample=[(p,y) for _,p,y in preds if lo<=p<lo+.1 or (lo==.9 and p==1)]
         if sample:bins.append({'range':f'{lo:.1f}-{lo+.1:.1f}','n':len(sample),'predicted':round(statistics.mean(p for p,y in sample),3),'observed':round(statistics.mean(y for p,y in sample),3)})
-    return {'n':n,'brier':round(brier,5),'accuracy_at_70':round(sum(y for _,p,y in preds if p>=.7)/max(1,sum(p>=.7 for _,p,y in preds)),4),'n_at_70':sum(p>=.7 for _,p,y in preds),'calibration_bins':bins,'status':'BASELINE_BACKTEST_ONLY'}
+    market_audit = {
+        market: {
+            'n': len(values),
+            'brier': round(statistics.mean((p-y)**2 for p,y in values), 5),
+            'mean_prediction': round(statistics.mean(p for p,_ in values), 5),
+            'observed_frequency': round(statistics.mean(y for _,y in values), 5),
+        }
+        for market, values in market_predictions.items()
+    }
+    return {'markets':market_audit,'calibrated':False,'ex_final_allowed':False,'n':n,'brier':round(brier,5),'accuracy_at_70':round(sum(y for _,p,y in preds if p>=.7)/max(1,sum(p>=.7 for _,p,y in preds)),4),'n_at_70':sum(p>=.7 for _,p,y in preds),'calibration_bins':bins,'status':'BASELINE_BACKTEST_ONLY'}
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--results',required=True);ap.add_argument('--fixtures');ap.add_argument('--output',default='report.json');ap.add_argument('--backtest',action='store_true');args=ap.parse_args()
     rows=load(args.results);report={'version':'EX v4.3 research engine 0.2','results_rows':len(rows),'source_sha256':hashlib.sha256(Path(args.results).read_bytes()).hexdigest(),'disclaimer':'No EX FINAL without independently specified EX-G formula, verified conditions, odds and source validation.'}

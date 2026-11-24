@@ -1,11 +1,15 @@
 """Compute provisional UCL research baselines from captured domestic evidence."""
+import argparse
 import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
 
+from ex_auto_control import auto_control
 from ex_cross_verify import norm
-from ex_engine import date
+from ex_decision import assess_markets
+from ex_fixture_odds import check_fixture, check_odds
+from ex_engine import backtest, date
 from ex_espn_provider import parse_espn_scoreboard
 from ex_ucl_baseline import cross_league_baseline
 from run_ucl_archive import full_time
@@ -120,10 +124,52 @@ def calculate_baselines(root, config):
     return rows, coverage, results
 
 
+def audit_research_run(rows, results, leagues, fixture_report):
+    """Exercise production decisions and gates without supplying unaudited features."""
+    records = []
+    market_keys = {"2.5_UST": "over25", "KG_VAR": "btts",
+                   "MS1": "home_win", "MSX": "draw", "MS2": "away_win"}
+    for result in results:
+        fixture = result["fixture"]
+        home, away = fixture["home"], fixture["away"]
+        recomputed = cross_league_baseline(
+            rows, fixture, leagues[home], leagues[away], home, away, "2026-07-01", "2025-07-01",
+        ) if home in leagues and away in leagues else None
+        baseline = result.get("baseline")
+        gate_input = {
+            "fixture": fixture,
+            "status": "BASELINE_ONLY" if baseline else "INCOMPLETE",
+            "recompute_consistent": result == recomputed,
+            "fixture_lock": check_fixture(fixture, CUTOFF),
+            "odds_lock": check_odds(None, fixture["kickoff_at"]),
+            "market_baselines_pct": {key: round(baseline[value] * 100, 2)
+                                     for key, value in market_keys.items()} if baseline else None,
+        }
+        records.append({
+            "fixture": fixture, "decision_evidence": assess_markets({}, as_of=CUTOFF),
+            "tur2_recompute_consistent": gate_input["recompute_consistent"],
+            "fixture_lock": gate_input["fixture_lock"], "odds_lock": gate_input["odds_lock"],
+            "auto_control": auto_control(gate_input), "ex_final_allowed": False,
+        })
+    return {
+        "fixtures": records, "research_fixture_status": fixture_report.get("status"),
+        "calibrated": False, "ex_final_allowed": False,
+    }
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--backtest", action="store_true", help="Run chronological four-market baseline audit")
+    args = parser.parse_args()
     root = Path("ucl_research_output")
     root.mkdir(exist_ok=True)
-    rows, coverage, results = calculate_baselines(root, json.loads(FIXTURE_CONFIG.read_text()))
+    config = json.loads(FIXTURE_CONFIG.read_text())
+    rows, coverage, results = calculate_baselines(root, config)
+    fixture_report_path = root / "fixture_verification.json"
+    fixture_report = json.loads(fixture_report_path.read_text()) if fixture_report_path.exists() else {}
+    leagues, _ = team_index(config["domestic_team_names"])
+    audit = audit_research_run(rows, results, leagues, fixture_report)
+    (root / "engine_gate_audit.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2))
     (root / "archive_baselines.json").write_text(json.dumps(results, ensure_ascii=False, indent=2))
     (root / "domestic_coverage.json").write_text(json.dumps({
         "status": "PROVISIONAL_RESEARCH", "ex_final_allowed": False, "sources": coverage,
@@ -132,6 +178,10 @@ def main():
         "rows": len(rows), "fixtures": len(results),
         "computed": sum(r["status"] == "UNCALIBRATED_CROSS_LEAGUE_BASELINE" for r in results),
     }))
+    if args.backtest:
+        evaluated = backtest(rows)
+        (root / "domestic_baseline_backtest.json").write_text(json.dumps(evaluated, indent=2))
+        print("UCL_DOMESTIC_BACKTEST", json.dumps(evaluated))
     for result in results:
         print("UCL_BASELINE_ROW", json.dumps(result, ensure_ascii=True))
 

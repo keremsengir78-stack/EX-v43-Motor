@@ -203,3 +203,12 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Slovan Bratislava–Real Betis, Sabah–Barcelona, Slavia Praha–Villarreal ve Shakhtar Donetsk–Fenerbahçe için ilk takımın yerel lig örneklemi eksik. ESPN istekleri 400/403 döndürdü. OpenFootball ve denenen Football-Data uzantıları 404 döndürdü. Alternatif kulüp/lig sayfalarına çalışma ortamından yapılan doğrudan istekler 403 ile engellendi.
 - Ligler arası güç düzeltmesi ve kalibrasyon bekliyor. Lig gücü katsayısı uygulanmadığı raporda açıkça işaretli. Ana motorun 75 adaylı denetiminde 75 inceleme açık ve 0 otomatik sertifikasyon var. EX FINAL kilitli.
 - Yerelde 829 unittest, Python derleme, beş depo denetimi ve 26 pipeline/entegrasyon smoke testi çalıştı. Başlangıç commit'i `a2375c7` için GitHub status 11/11 başarılı. Önceki araştırma çalışması `45356418996` başarılı.
+
+## 2026-11-24: PR #2 kaynak tekrar oynatma ve dört pazarlı denetim
+
+- `20f34fa` UEFA 403 durumunda URL ve SHA-256 kontrollü tarihli HTML maç kesitini tekrar işler. Ham yanıt ve kesit hash'leri ayrıdır. Arsenal–Dortmund dahil 18 fikstür ve ilk dört haftanın 72 skoru ESPN karşılaştırmasından geçer. Kaynak modu raporda belirtilir. Bu commit'in GitHub araştırma ve regresyon işleri başarılıdır.
+- UEFA'nın takım bazlı resmi sayfası canlı alternatif olarak eklendi. Bu sayfanın 90 kaydı yerelde maç günü sayfasıyla aynı çıktı. Çelişkili yinelenen maç kimlikleri kabul edilmez.
+- Git commit kimliğine sabitlenmiş OpenFootball Çekya ve Soccerway Ukrayna kaynakları karantina raporuna eklendi. Yerelde Slavia Praha için 9, Shakhtar Donetsk için 13 güncel sezon adayı var. Eksik önceki sezon ve bağımsız eşleşme nedeniyle motor veri setine aktarılmadılar. Dört açık maçla araştırma kapsamı 14/18.
+- Lig gücü deneyi, 54 teyitli maçla rakip ve saha etkisini göz önüne alarak 18 ileri tarihli maçı sınadı. Kare hata 10,98568 ve saha avantajı referansı 10,76166. Düzeltme uygulanmadı.
+- Ana motorun Tur-2 karşılaştırması artık tüm hesap izini denetler. Geriye dönük temel model denetimi dört pazarda Brier ve gerçekleşme sıklığını çıkarır. Yerel çalışmada pazar başına 1.063 maç incelendi. Kalibre EX-G kabulü için bağımsız, işlem zamanında dondurulmuş tahmin kanıtı bekliyor.
+- 18 UCL kaydı üretim karar ağırlıkları, Tur-2 ve Auto-Control üzerinden denetlendi. 18/18 yeniden hesap uyuştu ve 18/18 Auto-Control kilitli kaldı. Doğrulanmış maç koşulları, dış etken, oran, bağımsız yerel lig kanıtı ve kalibrasyon olmadan PUP ve EX FINAL kapalı.

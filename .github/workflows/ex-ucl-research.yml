@@ -6,6 +6,7 @@ on:
     paths: &ucl_paths
       - 'run_ucl_*.py'
       - 'ex_ucl_baseline.py'
+      - 'ex_ucl_strength.py'
       - 'ex_espn_provider.py'
       - 'config/ucl_matchday5_2026_research.json'
       - 'research/ucl/**'
@@ -32,9 +33,10 @@ jobs:
         with:
           name: ucl-archive-baselines
           path: ucl_research_output/
+      - run: python run_ucl_domestic_candidates.py
       - run: python run_ucl_domestic.py
         continue-on-error: true
-      - run: python run_ucl_baselines.py
+      - run: python run_ucl_baselines.py --backtest
       - uses: actions/upload-artifact@v4
         if: always()
         with:

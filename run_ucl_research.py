@@ -13,6 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from ex_espn_provider import fetch_espn_scoreboard
 from ex_cross_verify import norm
 from run_ucl_baselines import FIXTURE_CONFIG
+from ex_ucl_strength import audit_league_margins
 
 DAYS=["2026-09-08","2026-09-09","2026-09-10","2026-10-13","2026-10-14","2026-10-20","2026-10-21","2026-11-03","2026-11-04"]
 def retry_research_request(request, *args, **kwargs):
@@ -38,6 +39,17 @@ def capture_fixture_source(out, label, url):
     }
 
 
+UEFA_BY_TEAM = (
+    "https://www.uefa.com/uefachampionsleague/news/"
+    "02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-and-results-by-team/"
+)
+MATCHDAY_DATES = (
+    {"2026-09-08", "2026-09-09", "2026-09-10"},
+    {"2026-10-13", "2026-10-14"},
+    {"2026-10-20", "2026-10-21"},
+    {"2026-11-03", "2026-11-04"},
+    {"2026-11-24", "2026-11-25"},
+)
 UEFA_SNAPSHOT = Path(__file__).resolve().parent / "research/ucl/uefa-matchdays-1-5"
 
 
@@ -49,6 +61,12 @@ def capture_uefa(out, url):
         if exc.code != 403:
             raise
         live_status = exc.code
+    try:
+        raw, meta = retry_research_request(capture_fixture_source, out, "uefa-by-team", UEFA_BY_TEAM)
+        return raw, {**meta, "mode": "live_by_team", "primary_url": url, "primary_http_status": live_status}
+    except HTTPError as exc:
+        if exc.code != 403:
+            raise
     meta = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
     raw = UEFA_SNAPSHOT.with_suffix(".html").read_bytes()
     if meta["url"] != url or hashlib.sha256(raw).hexdigest() != meta["sha256"]:
@@ -60,6 +78,20 @@ def capture_uefa(out, url):
 
 def uefa_match_entries(raw, matchday):
     html = raw.decode("utf-8")
+    if b"fixtures-and-results-by-team/" in raw and "<pk-accordion-item" in html:
+        anchors = (r'(\d{2}/\d{2}/\d{4})\s*<a href="[^"]*/uefachampionsleague/match/(\d+)--[^"]+"'
+                   r'[^>]*>([^<]+)</a>\s*(?:\((\d{2}:\d{2})\))?')
+        entries = {}
+        for day, match_id, name, clock in re.findall(anchors, html):
+            when = dt.datetime.strptime(day, "%d/%m/%Y")
+            if when.date().isoformat() not in MATCHDAY_DATES[matchday - 1]:
+                continue
+            entry = when, " ".join(unescape(name).split()), clock
+            if match_id in entries and entries[match_id] != entry:
+                raise ValueError(f"Conflicting UEFA team listings for {match_id}")
+            entries[match_id] = entry
+        yield from entries.values()
+        return
     heading = re.search(rf"<h2>\s*Matchday {matchday}\s*</h2>", html)
     if heading is None:
         raise ValueError(f"UEFA matchday {matchday} heading missing")
@@ -193,5 +225,16 @@ def main():
     print("UCL_RESEARCH",json.dumps({"rows":len(rows),"teams":len(counts),"complete":report["coverage_complete"],"score_agreements":score_verification["exact_score_agreements"],"errors":errors}))
     if not report["coverage_complete"]:
         raise SystemExit(1)
+    leagues = {norm(name): league for league, teams in config["domestic_team_names"].items() for name in teams}
+    train, holdout = [], []
+    for row in rows:
+        group = holdout if row["date"] in MATCHDAY_DATES[3] else train
+        group.append((leagues[aliases[norm(row["home"])]], leagues[aliases[norm(row["away"])]],
+                      row["home_goals"] - row["away_goals"]))
+    strength = audit_league_margins(train, holdout)
+    strength["training_matchdays"] = [1, 2, 3]
+    strength["holdout_matchday"] = 4
+    (out / "league_strength.json").write_text(json.dumps(strength, indent=2))
+    print("UCL_LEAGUE_STRENGTH", json.dumps(strength))
 if __name__=="__main__":
     main()
