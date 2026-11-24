@@ -27,6 +27,19 @@ def main():
             return {"season":season,"league":league,"error":str(exc)}
     with ThreadPoolExecutor(max_workers=4) as pool:
         results=list(pool.map(fetch,jobs))
+    # Football-data's extended league archive is a separate provisional source.
+    import csv, io
+    for league,code in {"sk.1":"SVK","cz.1":"CZE","ua.1":"UKR","az.1":"AZE"}.items():
+        url=f"https://www.football-data.co.uk/new/{code}.csv"
+        try:
+            with urllib.request.urlopen(url,timeout=15) as response:
+                raw=response.read(10000001)
+            if len(raw)>10000000: raise ValueError("oversize")
+            (out/f"{league}_alternative.csv").write_bytes(raw)
+            records=list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))))
+            results.append({"league":league,"url":url,"sha256":hashlib.sha256(raw).hexdigest(),"raw_records":len(records),"status":"PROVISIONAL_SCHEMA_REVIEW_REQUIRED"})
+        except (OSError,ValueError,UnicodeError) as exc:
+            results.append({"league":league,"url":url,"error":str(exc)})
     (out/"manifest.json").write_text(json.dumps({"sources":results,"ex_final_allowed":False},indent=2))
     print("ARCHIVE_RESEARCH",json.dumps(results))
 if __name__=="__main__": main()
