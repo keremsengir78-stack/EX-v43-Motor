@@ -70,6 +70,49 @@ def collect_scores(queues, as_of, aliases, archive):
             "ex_final_allowed": False}
 
 
+def link_reviewed_scores(queues, directory, as_of):
+    """Reuse audited records at their existing match-result scope."""
+    from urllib.parse import urlsplit
+
+    def key(row):
+        return row["league"], row["date"], norm(row["home"]), norm(row["away"])
+
+    def https(value):
+        url = urlsplit(value)
+        return url.scheme == "https" and bool(url.hostname) and not url.username and not url.password
+
+    reviewed, independently_confirmed = {}, {}
+    for path in sorted(directory.glob("official_verification_batch_*.json")):
+        for row in json.loads(path.read_text())["records"]:
+            if (row["official_verified"] is True and row["official_score"] == row["score"]
+                    and https(row["official_source_url"])):
+                match_key = key(row)
+                if match_key in reviewed and reviewed[match_key]["score"] != row["score"]:
+                    raise ValueError("Conflicting reviewed official results")
+                reviewed[match_key] = {"score": row["score"], "source": row["official_source_url"],
+                                       "evidence_file": path.as_posix()}
+    path = directory / "independent_score_evidence_0001.json"
+    for row in json.loads(path.read_text())["records"]:
+        sources = [row[field] for field in ("source_1", "source_2", "source_3")]
+        if (row["independent_score_verified"] is True and row["matched_score"] == row["independent_score"]
+                and all(https(item["url"]) and item["score"] == row["independent_score"] for item in sources)
+                and len({urlsplit(item["url"]).hostname for item in sources}) == 3):
+            independently_confirmed[key(row)] = {"score": row["independent_score"], "sources": sources,
+                                                 "evidence_file": path.as_posix()}
+    result = {}
+    for name, queue in queues.items():
+        result[name] = {"official_result_matches": [], "independently_confirmed_result_matches": []}
+        for row in queue:
+            if row["date"] >= as_of:
+                continue
+            for field, evidence in (("official_result_matches", reviewed),
+                                    ("independently_confirmed_result_matches", independently_confirmed)):
+                item = evidence.get(key(row))
+                if item and item["score"] == [row["home_goals"], row["away_goals"]]:
+                    result[name][field].append({**row, **item, "scope": "MATCH_RESULT_ONLY"})
+    return result
+
+
 def alternative_scores(queues, as_of, aliases, archive):
     from ex_history_alternative_scores import OPENLIGA, bundesliga_scores
 
@@ -119,6 +162,9 @@ def main():
         aliases.setdefault(league, {}).update({norm(k): v for k, v in names.items()})
     report = collect_scores(queues, args.as_of, aliases,
                             HistoryArchive(args.cache, args.budget, fetch=paced_download(.75)))
+    report["reviewed_score_matches"] = link_reviewed_scores(queues, Path("reports"), args.as_of)
+    print(json.dumps({"reviewed_score_matches": {key: {field: len(items) for field, items in value.items()}
+                                                     for key, value in report["reviewed_score_matches"].items()}}))
     if args.alternative_bundesliga:
         report["alternative_bundesliga"] = alternative_scores(
             queues, args.as_of, aliases, HistoryArchive(args.cache, 4, fetch=paced_download(.75)),
