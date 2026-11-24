@@ -1,0 +1,68 @@
+name: EX production readiness research
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-production-research.yml
+      - run_ex_ucl_pregame.py
+      - run_ex_prospective_validation.py
+      - tests/test_ex_production_research.py
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  pregame:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422037
+          name: ex-prematch-archive
+          path: prematch
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471421974
+          name: ucl-research-evidence
+          path: history
+      - name: Record research before the first kickoff
+        id: record
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d '2026-11-25 17:45 UTC' +%s)" ]; then
+            echo "Expired prematch window"
+            exit 0
+          fi
+          python run_ex_ucl_pregame.py --manifest prematch/prematch.json --archive prematch/prematch-cache --historical history --day 2026-11-25 --output ucl-pregame-research.json
+      - uses: actions/upload-artifact@v4
+        if: ${{ hashFiles('ucl-pregame-research.json') != '' }}
+        with:
+          name: ex-ucl-pregame-research
+          path: ucl-pregame-research.json
+
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422307
+          name: ex-retrospective-results
+      - run: python run_ex_prospective_validation.py --examples retrospective-examples.jsonl --output frozen-candidates.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-frozen-research-candidates
+          path: frozen-candidates.json
