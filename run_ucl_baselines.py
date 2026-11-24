@@ -4,13 +4,15 @@ from pathlib import Path
 from ex_engine import date
 from ex_ucl_baseline import cross_league_baseline
 from ex_cross_verify import norm
+from run_ucl_archive import full_time
+
 def main():
     root=Path("ucl_research_output")
     rows=[]
     for path in sorted((root/"openfootball").glob("20*.json")):
         league=path.stem.split("_",1)[1]
         for m in json.loads(path.read_text()).get("matches",[]):
-            score=(m.get("score") or {}).get("ft")
+            score=full_time(m)
             if not isinstance(score,list) or len(score)!=2 or not all(type(v) is int and 0<=v<=30 for v in score): continue
             if not m.get("date") or m["date"]>="2026-11-24": continue
             rows.append(dict(date=date(m["date"]),league=league,home=m["team1"],away=m["team2"],hg=score[0],ag=score[1]))

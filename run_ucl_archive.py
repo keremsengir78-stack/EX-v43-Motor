@@ -3,6 +3,10 @@ import json, hashlib, urllib.request
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from ex_espn_provider import ESPN_LEAGUES
+def full_time(match):
+    score=match.get("score")
+    return score.get("ft") if isinstance(score,dict) else score if isinstance(score,list) else None
+
 def main():
     out=Path("ucl_research_output/openfootball")
     out.mkdir(parents=True,exist_ok=True)
@@ -18,7 +22,7 @@ def main():
             matches=data.get("matches",[])
             if not isinstance(matches,list) or not matches: raise ValueError("missing matches")
             (out/f"{season}_{league}.json").write_bytes(raw)
-            return {"season":season,"league":league,"url":url,"sha256":hashlib.sha256(raw).hexdigest(),"completed_before_cutoff":sum(isinstance(m.get("score",{}).get("ft"),list) and m.get("date","9999")<"2026-11-24" for m in matches)}
+            return {"season":season,"league":league,"url":url,"sha256":hashlib.sha256(raw).hexdigest(),"completed_before_cutoff":sum(isinstance(full_time(m),list) and m.get("date","9999")<"2026-11-24" for m in matches)}
         except (OSError,ValueError,TypeError,AttributeError) as exc:
             return {"season":season,"league":league,"error":str(exc)}
     with ThreadPoolExecutor(max_workers=4) as pool:
