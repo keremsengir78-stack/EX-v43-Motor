@@ -1,16 +1,18 @@
 """Point-in-time reconstruction from settled events, with retrospective provenance."""
 
+import math
 from collections import defaultdict
 from datetime import timedelta
 from statistics import mean
 
 from ex_historical_features import market_labels
 from ex_history_archive import utc
-from ex_model_challengers import compare_calibration
+from ex_model_challengers import compare_calibration, date_partitions, fit_offset, sigmoid
+from ex_component_experiment import weekly_interval
 
 
 EVIDENCE_CLASSES = {
-    "retrospective_settled_events": ["score", "venue_form", "played_minutes", "kickoff_rest", "observed_load"],
+    "retrospective_settled_events": ["score", "venue_form", "played_minutes", "rest_since_observed_finish", "observed_load"],
     "requires_prematch_capture": ["lineup_availability", "injuries", "market_quote", "weather_forecast",
                                   "actual_travel_plan", "matchday_pitch_condition"],
 }
@@ -53,9 +55,8 @@ def window(games, values, side, season):
     windows = venue[-5:], venue[-10:], season_rows, previous
     if len(windows[0]) < 5:
         return None, None
-    short = {market: mean(values[game[2]["event_id"]][market] if game[1] == side else
-                          values[game[2]["event_id"]][{"MS1": "MS2", "MS2": "MS1"}.get(market, market)]
-                          for game in windows[0]) for market in values[venue[-1][2]["event_id"]]}
+    short = {market: mean(values[event["event_id"]][market] for _, _, event in windows[0])
+             for market in values[venue[-1][2]["event_id"]]}
     if len(windows[1]) < 10 or not season_rows or not previous:
         return short, None
     weighted = {}
@@ -71,10 +72,17 @@ def workload(games, kickoff):
     recent = [row for row in games if kickoff - row["kickoff"] <= timedelta(days=14)]
     if not recent:
         return None, None
-    rest = min((kickoff - max(row["kickoff"] for row in recent)).total_seconds() / 3600, 336)
+    rest = min((kickoff - max(row["finished"] for row in recent)).total_seconds() / 3600, 336)
     vectors = (rest / 336, len(recent) / 5)
     minutes = [row.get("minutes", {}).get(row["index_team"]) for row in recent]
-    return vectors, (sum(minutes) / 990 / 5,) if all(m is not None for m in minutes) else None
+    if not all(minutes):
+        return vectors, None
+    cumulative = defaultdict(float)
+    for match in minutes:
+        for athlete, played in match.items():
+            cumulative[athlete] += played
+    exposure = sum(sorted(cumulative.values(), reverse=True)[:11]) / (990 * len(recent))
+    return vectors, (*vectors, exposure)
 
 
 def build_examples(events):
@@ -94,19 +102,67 @@ def build_examples(events):
         if type(target["season"]) is not int:
             continue
         sides = []
-        for side, team in target["teams"].items():
+        for side in ("home", "away"):
+            team = target["teams"][side]
             league_history = sorted(competition_history[target["competition"], team], key=lambda row: row[0])
             sides.append((window(league_history, labels, side, target["season"]), workload(all_history[team], kickoff)))
-        ((hs, hw), (hc, hm)), ((aws, aw), (ac, am)) = sides
-        if not hs or not aws:
+        ((home_short, home_weighted), (home_context, home_minutes)), (
+            (away_short, away_weighted), (away_context, away_minutes)
+        ) = sides
+        if not home_short or not away_short:
             continue
         examples.append({
             "event_id": target["event_id"], "kickoff": kickoff, "finished": target["finished"],
-            "labels": labels[target["event_id"]], "short": {m: mean((hs[m], aws[m])) for m in hs},
-            "strength": {m: mean((hw[m], aw[m])) for m in hs} if hw and aw else None,
-            "workload": (*hc, *ac) if hc and ac else None, "minutes": (*hm, *am) if hm and am else None,
+            "labels": labels[target["event_id"]], "short": {m: mean((home_short[m], away_short[m])) for m in home_short},
+            "strength": {m: mean((home_weighted[m], away_weighted[m])) for m in home_short}
+            if home_weighted and away_weighted else None,
+            "workload": (*home_context, *away_context) if home_context and away_context else None,
+            "minutes": (*home_minutes, *away_minutes) if home_minutes and away_minutes else None,
         })
     return examples
+
+
+def compare_increment(rows):
+    partitions = date_partitions(rows)
+    if not partitions or min(map(len, partitions)) < 30 or len({row[2] for row in partitions[0]}) < 2:
+        return {"status": "INSUFFICIENT_SAMPLE"}
+    train, validation, test = partitions
+
+    def predictors(group, context):
+        for _, chance, outcome, features in group:
+            chance = max(1e-6, min(1 - 1e-6, chance))
+            logit = math.log(chance / (1 - chance))
+            yield logit, outcome, (1, logit, *features) if context else (1, logit)
+
+    def errors(group, name):
+        if name == "identity":
+            return [((p - y)**2, -(y * math.log(max(p, 1e-6)) +
+                                   (1 - y) * math.log(max(1 - p, 1e-6)))) for _, p, y, _ in group]
+        errors_by_row = []
+        for logit, actual, xs in predictors(group, name == "context"):
+            p = sigmoid(logit + sum(b * x for b, x in zip(fits[name], xs, strict=True)))
+            errors_by_row.append(((p - actual)**2, -(actual * math.log(max(p, 1e-6)) +
+                                                      (1 - actual) * math.log(max(1 - p, 1e-6)))))
+        return errors_by_row
+
+    fits = {}
+    for method in ("platt", "context"):
+        data = list(predictors(train, method == "context"))
+        coefficients = fit_offset(data, len(data[0][2]))
+        if 1 + coefficients[1] >= 0:
+            fits[method] = coefficients
+    validation_loss = {name: mean(pair[0] for pair in errors(validation, name)) for name in ("identity", *fits)}
+    reference = min((name for name in ("identity", "platt") if name in validation_loss), key=validation_loss.get)
+    selected = min(validation_loss, key=validation_loss.get)
+    old, new = errors(test, reference), errors(test, selected)
+    interval = weekly_interval(test, [r[0] for r in old], [r[0] for r in new])
+    return {"train_n": len(train), "validation_n": len(validation), "test_n": len(test),
+            "validation_start": validation[0][0].isoformat(), "test_start": test[0][0].isoformat(),
+            "reference": reference, "selected": selected, "test_reference_brier": mean(x[0] for x in old),
+            "test_selected_brier": mean(x[0] for x in new), "test_reference_log_loss": mean(x[1] for x in old),
+            "test_selected_log_loss": mean(x[1] for x in new), "weekly_delta_brier_99pct": interval,
+            "increment_supported": selected == "context" and interval is not None and interval[1] < 0,
+            "production_allowed": False}
 
 
 def evaluate(examples):
@@ -125,11 +181,10 @@ def evaluate(examples):
                                         ("conditions_rest_load", "strength", "workload"),
                                         ("conditions_minutes", "strength", "minutes")):
             rows = cohort(baseline, context)
-            report[market][name] = {"retrospective_n": len(rows), **compare_calibration(rows)}
+            experiment = compare_increment(rows) if context else compare_calibration(rows)
+            report[market][name] = {"retrospective_n": len(rows), **experiment}
         weighted = [r for r in examples if r["strength"] and r["finished"]
                     and r["finished"].date() == r["kickoff"].date()]
-        from ex_model_challengers import date_partitions
-        from ex_component_experiment import weekly_interval
         partitions = date_partitions([(r["kickoff"].date(), r) for r in weighted])
         if partitions:
             test = partitions[-1]

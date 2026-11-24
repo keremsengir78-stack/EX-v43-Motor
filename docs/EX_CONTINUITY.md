@@ -272,3 +272,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Özet, hava ve skor önbellekleri aynı bölüm anahtarlarıyla korunarak genişletilmiş profil çalıştırıldı. Sezon tabloları doğrulanabilen ek liglerin katılımcıları planla birleştirildi. ESPN kapsamı bulunmayan ligler için mevcut iki kaynak bağlantılı kulüp listeleri ayrı kısmi kanıt olarak eklendi.
 - EX ve UCL girişleri, takım kimliği ile eşleşen dakika, yük, dinlenme ve saha gözlemlerini aynı zamana duyarlı özellik çıkarıcıdan alır. Dokuz UCL tekrarı ve dört pazarın Tur-2 ve Auto-Control doğrulaması çalıştırıldı. Sonradan edinilen tarihsel arşiv, maç önü kalibrasyon girdisi sayılmaz.
 - Ayrı Bundesliga skor adaptörü, daha geniş hava örneklemi ve kulüp yayınlarına dayanan dört belgelenmiş seyahat gözlemi eklendi. OpenLigaDB ve ESPN içerik eşleşmeleri kaynak bağımsızlığı onayı vermez.
+
+## 2026-11-24 — On birinci çalışma paketi
+
+- Ham 6.820 özet, skor defteri ve plan Actions'ta ağsız olarak tekrar işlendi. Tamamlanmış maçlardan elde edilebilen veriler ve gerçek maç önü yakalama gerektiren veriler ayrı tutuldu. Kronolojik pazar deneyleri ve skor kaynakları arasındaki tekil fikstür kapsamı araştırma çıktısına eklendi.
+- Maç öncesi ESPN yakalama işi, zamanı doğrulanmış ham kayıtları gelecekteki değerlendirmeler için saklıyor. Dört ek ligde resmî oyuncu ve kadro kaynakları dokümante edildi.

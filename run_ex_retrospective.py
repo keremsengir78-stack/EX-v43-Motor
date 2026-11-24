@@ -31,11 +31,13 @@ def load_facts(plan, root):
             totals = {}
             if not detail["roster_identity_conflicts"]:
                 for team in event["teams"].values():
-                    minutes = [r["provider_minutes"] if r["provider_minutes"] is not None
-                               else r["nominal_regulation_minutes"] for r in detail["player_rows"]
-                               if r["team_id"] == team]
-                    if minutes and all(value is not None for value in minutes) and sum(minutes) == 990:
-                        totals[team] = 990
+                    minutes = {
+                        r["athlete_id"]: (r["provider_minutes"] if r["provider_minutes"] is not None
+                                          else r["nominal_regulation_minutes"])
+                        for r in detail["player_rows"] if r["team_id"] == team
+                    }
+                    if minutes and all(value is not None for value in minutes.values()) and sum(minutes.values()) == 990:
+                        totals[team] = minutes
             return {**fact, "minutes": totals, "source_sha256": meta["sha256"]}
         parsed, _ = archive.get(url, parse)
         facts.append(parsed)
@@ -57,10 +59,23 @@ def deduplicate_scores(ledger):
                 record["providers"].add(provider)
                 record["scores"].add(score)
                 record["queues"].add(queue)
+    reviewed_keys = {}
+    for group in ledger.get("reviewed_score_matches", {}).values():
+        for kind, rows in group.items():
+            for row in rows:
+                key = tuple(row[k] for k in ("league", "date", "home", "away"))
+                reviewed = reviewed_keys.setdefault(key, {"kinds": set(), "scores": set()})
+                reviewed["kinds"].add(kind)
+                reviewed["scores"].add((row["home_goals"], row["away_goals"]))
     summary = Counter(tuple(sorted(record["providers"])) for record in sources.values())
+    disputed = sum(len((sources.get(key) or {}).get("scores", set())
+                       | (reviewed_keys.get(key) or {}).get("scores", set())) > 1
+                   for key in sources.keys() | reviewed_keys.keys())
     return {"unique_provider_matches": len(sources),
             "by_provider_combination": {"+".join(key): n for key, n in sorted(summary.items())},
-            "conflicting_target_scores": sum(len(record["scores"]) > 1 for record in sources.values()),
+            "unique_fixtures_including_reviewed": len(sources.keys() | reviewed_keys.keys()),
+            "reviewed_fixtures_with_provider_match": len(sources.keys() & reviewed_keys.keys()),
+            "conflicting_target_scores": disputed,
             "provider_overlap_proves_independence": False,
             "reviewed_evidence": {k: {name: len(rows) for name, rows in v.items()}
                                   for k, v in ledger.get("reviewed_score_matches", {}).items()},

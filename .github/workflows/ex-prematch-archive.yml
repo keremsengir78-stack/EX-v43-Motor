@@ -1,0 +1,52 @@
+name: EX timestamped prematch capture
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-prematch-archive.yml
+      - run_ex_prematch_archive.py
+  workflow_dispatch:
+    inputs:
+      league:
+        description: EX league code
+        default: UCL
+        type: string
+      day:
+        description: UTC date in YYYY-MM-DD format; default next UTC day
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache/restore@v4
+        with:
+          path: prematch-cache
+          key: ex-prematch-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ex-prematch-v1-${{ github.ref }}-
+      - name: Archive eligible fixtures
+        env:
+          LEAGUE: ${{ inputs.league || 'UCL' }}
+          MATCH_DAY: ${{ inputs.day }}
+        run: |
+          python run_ex_prematch_archive.py --league "$LEAGUE" --day "${MATCH_DAY:-$(date -u -d tomorrow +%F)}" --cache prematch-cache --output prematch.json
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: prematch-cache
+          key: ex-prematch-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prematch-archive
+          path: |
+            prematch.json
+            prematch-cache/

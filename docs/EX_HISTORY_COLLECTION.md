@@ -60,3 +60,18 @@ PR çalışması `expanded` profiliyle başlar. ESPN sezon tablosu aynı müsaba
 Ana motor `--history-plan`, `--history-parts` ve `--history-at` parametreleriyle geçmiş sağlayıcı arşivi kabul eder. Fikstür CSV'sinde `home_espn_id` ve `away_espn_id` alanları araştırma girdisini ilgili taraflarla eşleştirir. UCL arşiv tekrarı ilk iki parametreyle, doğrulanmış maç önü ESPN takım kimliklerini ve sabit tekrar kesimini kullanır. Her iki girişte dakika, 14 günlük yük, son başlama zamanı aralığı ve son saha araştırma alanlarıdır. Kapsam işi bu gözlemlerin tarihsel hedef maçların başlama anından önce gerçekten yakalanıp yakalanmadığını sayar.
 
 Konum defteri 10 saha içerir. Hava toplama bütçesi 80 istek olup sahalar arasında dönüşümlüdür. Kulüp yayınlarıyla belgelenmiş seyahat ve çim bakımı kayıtları geçmişe dönük ayrı gözlemlerdir. Zamanında arşivlenmiş hava tahmini, fiilî rota, maç gününe ait zemin ölçümü veya doğrulanmış bileşen puanı olarak kullanılmaz.
+
+## Paket 11 — Tamamlanmış maçlardan tarihsel yeniden oluşturma
+
+`run_ex_retrospective.py`, önceki Actions çalışmasının planını, sekiz ham özet arşivini ve skor defterini ağ sorgusu yapmadan okur. Kaynak URL'si, SHA-256, boyut, takım kimliği ve başlama zamanı doğrulanır. Düzenli süre sonu duvar saati geçmiş maçın bitişini belirler. Bu saat yoksa doğrulanmış tamamlandı görüntüsünün yakalanma zamanı ihtiyatlı üst sınırdır. Yalnızca bitişi hedef başlama anından kesin önce kanıtlanan maçlar açıklayıcı özelliklere girer. Hedef skorları kronolojik bölümde yalnız etiket olarak kullanılır. Hedefle aynı anda biten ve daha sonraki sonuçlar dışarıda kalır. Eğitim, doğrulama ve test ayrımı gün bloklarına yapılır ve gecikmeli etiketler önceki bir bölüme aktarılmaz.
+
+Araştırma, beş saha maçı referansını ve %40/%30/%20/%10 sabit takım gücü penceresini karşılaştırır. Koşul adayları, gözlenen 14 günlük maç yükü, doğrulanmış bitişten dinlenme aralığı ve en çok süre alan 11 oyuncunun dakika payını içerir. Dakika adayı her geçmiş takım kaydında 990 nominal takım-dakika denetimini gerektirir. Dört pazarda kronolojik doğrulama yöntemi seçer, son blokta Brier ve uygun yerde log loss ile haftalık eşleştirilmiş güven aralığı hesaplanır. Etiketler `RETROSPECTIVE_SETTLED_EVENT_RECONSTRUCTION` ile işaretlenir. Maç önü kadro, eksikler, fiyat, hava tahmini, yolculuk planı ve maç günü zemin durumu için zamanında alınmış ayrı kaynak gerekir. %50/%30/%20 karar ağırlıkları ve üretim kilitleri korunur.
+
+`run_ex_prematch_archive.py`, UTC 48 saatlik pencere içindeki fikstürlerin ESPN skor tablosunu ve maç başı özetini ham olarak alır. Her yakalama, başlama anı ve maç önü durumu doğrulanarak SHA-256 ile saklanır. Ham kadro veya fiyat alanının görünmesi tek başına doğrulanmış kadro veya kullanılabilir pazar fiyatı sayılmaz. Actions işi seçilen lig ve gün için elle tetiklenebilir, eski yakalamalar saklanır.
+
+### Dört ek lig için oyuncu süreli kaynak incelemesi
+
+- Slovakya'nın Niké liga maç sayfası kadro ve istatistik alanlarını yayımlıyor. Oyuncu süreleri, kadro ve değişiklik kapsamı ayrı doğrulanmalı. [Maç kaydı](https://www.nikeliga.sk/zapas/2839-slo-mic/statistiky)
+- Çekya Chance Liga sayfasında kadrolar ve dakika belirtilen oyuncu değişiklikleri var. İhraç, uzatma ve eksik olaylar ayrı ele alınmalı. [Maç kaydı](https://www.chanceliga.cz/zapas/statistiky/8430-fk-jablonec-sk-slavia-praha)
+- Ukrayna UPL maç raporu kadro ve hakem protokolü yayımlıyor. Üst lig, UPL-2 ve U19 raporları müsabaka kimliğiyle ayrılmalı. [Maç kaydı](https://upl.ua/en/report/view/15927/report)
+- Azerbaycan PFL protokolü kadrolar ve yedekleri veriyor. Tam oyuncu-dakika kapsamı bu örnekten doğrulanmadı. [Maç kaydı](https://www.pfl.az/t%C9%99qvim/6775)
