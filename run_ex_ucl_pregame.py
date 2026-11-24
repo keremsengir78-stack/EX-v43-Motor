@@ -16,12 +16,12 @@ from ex_pregame_weather import forecast
 from ex_history_sources import ESPN, teams
 from run_ex_prematch_archive import summary
 from run_ucl_baselines import FIXTURE_CONFIG, calculate_baselines, verified_bytes
-from run_ucl_matchday_inputs import market_quotes, observed_load, parse_team_news
+from run_ucl_matchday_inputs import TEAM_NEWS, market_quotes, observed_load, parse_team_news
 from run_ucl_model_integration import MARKET_FIELDS, score_grid_marginals
 from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
 
 
-def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None):
+def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None, uefa_archive=None):
     now = clock()
     config = json.loads(FIXTURE_CONFIG.read_text())
     meta = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
@@ -36,6 +36,11 @@ def record_predictions(manifest, archive, historical, day, clock, provider_histo
         if candidate and Path(candidate["file"]).name == candidate["file"] and utc(candidate["retrieved_at"]) < now:
             news = parse_team_news(verified_bytes(news_path.parent / candidate["file"], candidate["sha256"]))
             news_source = candidate
+    if not news and uefa_archive:
+        cached = uefa_archive.prior_capture(TEAM_NEWS, now)
+        if cached:
+            news = parse_team_news(cached[0])
+            news_source = cached[2]
     board_source = manifest["board"]
     board_raw, board_at = archive._load(board_source, board_source["url"])
     board = {event["id"]: event for event in json.loads(board_raw)["events"]}
@@ -49,13 +54,14 @@ def record_predictions(manifest, archive, historical, day, clock, provider_histo
     weather, weather_errors = {}, []
     if weather_archive:
         venues = json.loads(Path("config/ex_history_venues.json").read_text())
+        venues.update(json.loads(Path("config/ex_pregame_venues.json").read_text()))
         for entry in manifest["records"]:
             match, = board[entry["event_id"]]["competitions"]
             point = coordinates(match.get("venue"), venues)
             if point and now < utc(entry["kickoff_at"]):
                 try:
-                    weather[entry["event_id"]] = forecast(weather_archive, point, entry["kickoff_at"],
-                                                            lambda: clock().isoformat())
+                    observation = forecast(weather_archive, point, entry["kickoff_at"], lambda: clock().isoformat())
+                    weather[entry["event_id"]] = {**observation, "venue_source": venues[match["venue"]["id"]]["source"]}
                 except (OSError, ValueError, TypeError, KeyError, IndexError, AttributeError) as exc:
                     weather_errors.append({"event_id": entry["event_id"], **source_error("forecast", None, exc)})
     now = clock()
@@ -132,6 +138,7 @@ def main():
     parser.add_argument("--history-plan", type=Path)
     parser.add_argument("--history-parts", type=Path)
     parser.add_argument("--weather-cache", type=Path)
+    parser.add_argument("--uefa-cache", type=Path)
     parser.add_argument("--day", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -143,8 +150,9 @@ def main():
         provider_history = load_provider_history(args.history_plan, args.history_parts)
     weather_archive = (HistoryArchive(args.weather_cache, 25, fetch=paced_download(.75))
                        if args.weather_cache else None)
+    uefa_archive = HistoryArchive(args.uefa_cache, 0) if args.uefa_cache else None
     report = record_predictions(json.loads(args.manifest.read_text()), HistoryArchive(args.archive, 0),
-                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc), provider_history, weather_archive)
+                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc), provider_history, weather_archive, uefa_archive)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({"analysis_at": report["analysis_at"], "fixtures": len(report["fixtures"]),
                       "markets": sum(len(row["markets"]) for row in report["fixtures"]),

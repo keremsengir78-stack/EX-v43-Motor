@@ -60,3 +60,15 @@ class ProductionResearchTests(unittest.TestCase):
             self.assertEqual("PREMATCH_NUMERICAL_FORECAST", observation["kind"])
             with self.assertRaises(ValueError):
                 forecast(archive, (51.48, -.19), kickoff, lambda: kickoff)
+
+    def test_official_review_does_not_certify_upstream_lineage(self):
+        from run_ex_official_score_review import reconcile
+
+        official = json.loads(Path("research/ucl/dfl-score-review.json").read_text())
+        date, home, away, hg, ag = official["fixtures"][0]
+        staged = [{"date": date, "home": home, "away": away, "home_goals": hg, "away_goals": ag,
+                   "league": "de.1", "season": "2026-27"}]
+        ledger = {"queues": {"newer": {"provisional_matches": staged}}}
+        output = reconcile(official, staged, ledger)
+        self.assertEqual(1, output["matches"]["ESPN"])
+        self.assertFalse(output["provider_lineage_certified"])

@@ -81,6 +81,11 @@ def join_holdout(forecasts, outcomes):
 
 
 def evaluate(model, rows):
+    coefficients = model["coefficients"]
+    if set(coefficients) != set(MARKETS) or any(
+            len(pair) != 2 or any(type(value) not in (float, int) or not math.isfinite(value) for value in pair)
+            or pair[1] < 0 for pair in coefficients.values()):
+        raise ValueError("Only the frozen KG VAR and 2.5 ÜST monotonic candidates are admissible")
     seen = set(model["original_ids"])
     boundary = max(utc(model["original_last_kickoff"]), utc(model["frozen_at"]))
     for row in rows:
