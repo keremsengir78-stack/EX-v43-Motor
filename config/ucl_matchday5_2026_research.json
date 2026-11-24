@@ -132,5 +132,124 @@
       "away": "Manchester United",
       "league": "UCL"
     }
-  ]
+  ],
+  "domestic_team_names": {
+    "no.1": {
+      "Bodø/Glimt": [
+        "Bodo/Glimt"
+      ],
+      "Viking": [
+        "Viking FK"
+      ]
+    },
+    "at.1": {
+      "LASK": [
+        "LASK Linz"
+      ]
+    },
+    "tr.1": {
+      "Galatasaray": [],
+      "Fenerbahçe": []
+    },
+    "en.1": {
+      "Arsenal": [],
+      "Aston Villa": [],
+      "Manchester City": [],
+      "Liverpool": [],
+      "Manchester United": []
+    },
+    "de.1": {
+      "Borussia Dortmund": [],
+      "Leipzig": [
+        "RB Leipzig"
+      ],
+      "Stuttgart": [
+        "VfB Stuttgart"
+      ],
+      "Bayern München": [
+        "Bayern Munich"
+      ]
+    },
+    "it.1": {
+      "Como": [
+        "Como 1907"
+      ],
+      "Napoli": [
+        "SSC Napoli"
+      ],
+      "Inter": [
+        "Internazionale",
+        "FC Internazionale Milano"
+      ],
+      "Roma": [
+        "AS Roma"
+      ]
+    },
+    "gr.1": {
+      "AEK Athens": [
+        "AEK Athen"
+      ]
+    },
+    "nl.1": {
+      "Feyenoord": [
+        "Feyenoord Rotterdam"
+      ],
+      "PSV Eindhoven": [
+        "PSV"
+      ]
+    },
+    "pt.1": {
+      "Porto": [],
+      "Sporting CP": [
+        "Sporting Clube de Portugal"
+      ]
+    },
+    "es.1": {
+      "Real Madrid": [
+        "Real Madrid CF"
+      ],
+      "Real Betis": [
+        "Real Betis Balompié"
+      ],
+      "Barcelona": [],
+      "Villarreal": [
+        "Villarreal CF"
+      ],
+      "Atlético de Madrid": [
+        "Atlético Madrid",
+        "Club Atlético de Madrid"
+      ]
+    },
+    "fr.1": {
+      "Lens": [
+        "Racing Club de Lens",
+        "RC Lens"
+      ],
+      "Lille": [
+        "Lille OSC"
+      ],
+      "Paris Saint-Germain": []
+    },
+    "sk.1": {
+      "Slovan Bratislava": []
+    },
+    "az.1": {
+      "Sabah": [
+        "Sabah FK"
+      ]
+    },
+    "cz.1": {
+      "Slavia Praha": [
+        "Slavia Prague"
+      ]
+    },
+    "ua.1": {
+      "Shakhtar Donetsk": []
+    },
+    "be.1": {
+      "Club Brugge": [
+        "Club Brugge KV"
+      ]
+    }
+  }
 }

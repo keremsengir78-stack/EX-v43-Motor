@@ -194,3 +194,12 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - GitHub Actions CI 4/4 geçmiş olsa da en son okunan pipeline status `d9b5353...` çalışmasına aitti ve aday özet/benzersiz aday raporları henüz depoda yoktu. CI sonucu ile gerçek kaynak doğrulama ayrı tutuluyor.
 - `722078d1fdc6956c37766d92eb2019ab132fe3f1` workflow güncellemesi, kaynak aday/özet/benzersiz aday çıktıları yoksa açık hata verir; yayımlanan küçük özet ve benzersiz aday raporlarını son fail-closed aşamasında zorunlu kılar.
 - 1177 açık kayıt, bağımsız skor onayı 0. Yeni workflow çalışmasının sonucu henüz teyit edilmedi.
+
+## 2026-11-24: UCL 5. hafta araştırma doğrulaması
+
+- Başlangıç dalı `df9767a3b31547e99491cbde4845b60312961521`. Önceki kod, aynı yerel ESPN/OpenFootball ham verileriyle 18 maçta 7 başlangıç hesabı üretti. Yeni kod 5.004 benzersiz yerel maç satırıyla 14/18 kalibre edilmemiş araştırma hesabı üretti. Sadece OpenFootball kullanılan karşılaştırmada kapsama 1/18'den 9/18'e çıktı.
+- UEFA ve ESPN 18/18 fikstürün ev/deplasman ve UTC başlama saatinde örtüştü. İlk dört haftadaki 72/72 skor tarih ve saha yönüyle eşleşti. Ham dosyalar ve SHA-256 kayıtları araştırma çıktısında tutulur.
+- Yerel lig karşılaştırmasında 1.179 tam skor eşleşmesi bulundu. Portekiz'de 16 Mayıs 2026 Moreirense–AVS skor kaydı iki kaynakta farklı olduğu için örneklemden çıkarıldı. Diğer tek kaynaklı satırlar araştırma verisi olarak kaldı.
+- Slovan Bratislava–Real Betis, Sabah–Barcelona, Slavia Praha–Villarreal ve Shakhtar Donetsk–Fenerbahçe için ilk takımın yerel lig örneklemi eksik. ESPN istekleri 400/403 döndürdü. OpenFootball ve denenen Football-Data uzantıları 404 döndürdü. Alternatif kulüp/lig sayfalarına çalışma ortamından yapılan doğrudan istekler 403 ile engellendi.
+- Ligler arası güç düzeltmesi ve kalibrasyon bekliyor. Lig gücü katsayısı uygulanmadığı raporda açıkça işaretli. Ana motorun 75 adaylı denetiminde 75 inceleme açık ve 0 otomatik sertifikasyon var. EX FINAL kilitli.
+- Yerelde 829 unittest, Python derleme, beş depo denetimi ve 26 pipeline/entegrasyon smoke testi çalıştı. Başlangıç commit'i `a2375c7` için GitHub status 11/11 başarılı. Önceki araştırma çalışması `45356418996` başarılı.

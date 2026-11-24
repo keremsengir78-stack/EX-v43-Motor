@@ -1,11 +1,9 @@
 """Capture domestic season scoreboards separately from UCL research."""
 import datetime as dt
-import hashlib
 import json
-import urllib.request
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-from ex_espn_provider import ESPN_LEAGUES, parse_espn_scoreboard, fetch_espn_scoreboard
+from ex_espn_provider import ESPN_LEAGUES, fetch_espn_scoreboard
 
 CUTOFF="2026-11-24"
 def main():
@@ -13,20 +11,17 @@ def main():
     out.mkdir(parents=True,exist_ok=True)
     start_day=dt.date(2025,1,1)
     cutoff=dt.date.fromisoformat(CUTOFF)
-    windows=[]
-    while start_day<cutoff:
-        end_day=min(start_day,cutoff-dt.timedelta(days=1))
-        windows.append((start_day.strftime("%Y%m%d"),end_day.strftime("%Y%m%d")))
-        start_day=end_day+dt.timedelta(days=1)
-    jobs=[(league,start,end) for league in ESPN_LEAGUES if league!="UCL" for start,end in windows if league=="no.1" or start>="20250701"]
+    days = [(start_day + dt.timedelta(days=offset)).isoformat()
+            for offset in range((cutoff - start_day).days)]
+    jobs = [(league, day) for league in ESPN_LEAGUES if league != "UCL"
+            for day in days if league == "no.1" or day >= "2025-07-01"]
     def fetch(job):
-        league,start,end=job
+        league,day=job
         try:
-            day=dt.datetime.strptime(start,"%Y%m%d").date().isoformat()
             rows,meta=fetch_espn_scoreboard(league,day,CUTOFF,evidence_dir=out)
-            return {"league":league,"start":start,"end":end,**meta,"rows":rows,"potentially_truncated":False}
+            return {"league":league,**meta,"rows":rows}
         except (OSError,ValueError,KeyError) as exc:
-            return {"league":league,"start":start,"end":end,"error":str(exc),"rows":[]}
+            return {"league":league,"date":day,"error":str(exc),"rows":[]}
     with ThreadPoolExecutor(max_workers=8) as pool:
         results=list(pool.map(fetch,jobs))
     (out/"report.json").write_text(json.dumps({"sources":results,"ex_final_allowed":False},ensure_ascii=False),encoding="utf-8")
