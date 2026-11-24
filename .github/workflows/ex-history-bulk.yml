@@ -46,7 +46,7 @@ jobs:
             ex-history-v1-${{ github.ref }}-
       - name: Collect deduplicated plan
         env:
-          PROFILE: ${{ inputs.profile || 'all' }}
+          PROFILE: ${{ inputs.profile || 'expanded' }}
         run: |
           python run_ex_history_collection.py --config config/ex_history_bulk.json --profile "$PROFILE" --plan-only --cache ex_history_cache --output plan.json --budget 500 --request-interval 0.5
       - uses: actions/cache/save@v4
@@ -138,9 +138,8 @@ jobs:
             weather_cache/
 
   score-evidence:
-    needs: coverage
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -154,7 +153,7 @@ jobs:
       - name: Build baseline queues and collect score evidence
         run: |
           python ex_one_command.py --as-of 2026-11-24 --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir score_input
-          python run_ex_history_scores.py --data score_input --as-of 2026-11-24 --aliases config/premier_reviewed_aliases.json --cache score_cache --output score-evidence.json
+          python run_ex_history_scores.py --data score_input --as-of 2026-11-24 --aliases config/premier_reviewed_aliases.json --cache score_cache --budget 450 --output score-evidence.json
       - uses: actions/cache/save@v4
         if: always()
         with:

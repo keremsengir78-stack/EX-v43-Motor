@@ -180,12 +180,18 @@ def main():
     config = json.loads(args.config.read_text())
     if args.profile in {"all", "expanded"}:
         config["teams"].extend(config.get("main_teams", []))
+    roster_evidence, roster_errors = [], []
     if args.profile == "expanded":
         from ex_espn_provider import ESPN_LEAGUES
-        for league, entry in json.loads(args.expansion.read_text())["leagues"].items():
+        from ex_history_rosters import expand_rosters
+        leagues = json.loads(args.expansion.read_text())["leagues"]
+        for league, entry in leagues.items():
             if ESPN_LEAGUES.get(league) != entry["espn_competition"]:
                 raise ValueError(f"Unknown expansion competition mapping: {league}")
             config["teams"].extend(entry["teams"])
+        roster_evidence, roster_errors = expand_rosters(leagues, sorted({r["season"] for r in config["teams"]}), archive)
+        config["teams"].extend({"espn_team_id": team, "season": record["season"]}
+                               for record in roster_evidence for team in record.get("missing_seed_ids", []))
     if args.import_uefa_directory:
         meta = json.loads((args.import_uefa_directory / "report.json").read_text())["uefa_preview_source"]
         if Path(meta["file"]).name != meta["file"]:
@@ -193,6 +199,11 @@ def main():
         archive.import_capture(meta["url"], (args.import_uefa_directory / meta["file"]).read_bytes(),
                                utc(meta["retrieved_at"]), meta["sha256"])
     report = collect(config, archive, plan_only=args.plan_only)
+    if args.profile == "expanded":
+        report["expansion_rosters"] = roster_evidence
+        report["errors"].extend(roster_errors)
+        report["coverage"]["standings_rosters_observed"] = sum("source" in r for r in roster_evidence)
+        report["coverage"]["standings_rosters_targeted"] = len(roster_evidence)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({key: report[key] for key in ("status", "coverage", "requests", "cache_hits", "deferred", "errors")}))
     if not report["calendars"]:

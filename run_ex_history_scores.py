@@ -78,6 +78,7 @@ def main():
     parser.add_argument("--aliases", type=Path, required=True)
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--budget", type=int, default=100, choices=range(1, 501), metavar="1..500")
     args = parser.parse_args()
     audit = json.loads((args.data / "audit.json").read_text())
     queues = {"historical": history_queue(audit, load(args.data / "results.csv")),
@@ -85,7 +86,7 @@ def main():
     aliases = {league: {norm(k): value for k, value in names.items()}
                for league, names in json.loads(args.aliases.read_text()).items()}
     report = collect_scores(queues, args.as_of, aliases,
-                            HistoryArchive(args.cache, 100, fetch=paced_download(.75)))
+                            HistoryArchive(args.cache, args.budget, fetch=paced_download(.75)))
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{k: report[k] for k in ("date_requests", "requests", "cache_hits", "deferred_dates",
                                                "source_failure_counts")},
