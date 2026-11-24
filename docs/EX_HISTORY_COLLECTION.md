@@ -22,3 +22,23 @@ Mevcut UCL maç önü çalışmasından alınan UEFA HTML kaydı `--import-uefa-
 - Arşiv, maç öncesi yakalamaları maç başladıktan sonraki sonuç ve kadro verilerinden ayırır. Bağımsız sonuç doğrulaması ve yeterli zaman damgalı özellik kapsamı sağlanmadan %50/%30/%20 doğrulaması hazır sayılmaz. Toplayıcı kalibrasyon veya EX FINAL yetkisi vermez.
 
 `config/ex_history_pilot.json` pilot sınırıdır. Diğer ligler veya sezonlar için ESPN takım kimliği, sezon ve tarih aralığı değiştirilir. Actions işinde rapor ve ham önbellek ayrı bir kanıt paketi olarak yayımlanır. Aynı ref üzerindeki sonraki çalıştırma en son kaydedilen önbelleği geri yükler.
+
+## Toplu kapsam ve devam ettirme
+
+`config/ex_history_bulk.json` iki ESPN sezon anahtarında (2025 ve 2026) 36 UCL takımını ve ana EX kapsamındaki İngiltere, Almanya, İspanya, İtalya ve Fransa birinci liglerini tanımlar. Sağlayıcı yanıtlarında bulunan kupa, Avrupa ve diğer müsabaka kayıtları da plana girer. Plan, tamamlanmış karşılaşmaları ESPN maç kimliğine göre tekilleştirir.
+
+```sh
+python run_ex_history_collection.py --config config/ex_history_bulk.json --profile all \
+  --cache ex_history_cache --plan-only --output plan.json --budget 250 --request-interval 0.5
+mkdir -p parts
+python run_ex_history_collection.py --plan plan.json --cache ex_history_cache \
+  --output parts/part-0.json --shard 0 --shards 1 --budget 40 --request-interval 0.5
+python run_ex_history_merge.py --plan plan.json --parts parts --cache weather_cache \
+  --venues config/ex_history_venues.json --output history-coverage.json
+```
+
+Actions sekmesindeki **EX bulk history** sekiz sabit bölümü en fazla iki eşzamanlı iş ile yürütür. Her bölüm her çalıştırmada en çok 40 yeni özet isteği yapar ve aynı ref üzerindeki önceki bölüm önbelleğinden devam eder. Aynı çalıştırmayı yeniden başlatırken tüm işleri yeniden çalıştırın. Plan, bölüm raporları, kapsam ve SHA-256 adresli ham kaynaklar ayrı Actions çıktılarıdır. Kapsam raporunda kalan maçlar ayrıca sayılır. Takvim önbelleği yedi gün sonra güncellenebilir.
+
+Open-Meteo geçmiş hava arşivi, doğrulanmış saha konumları için sonradan üretilen yeniden analiz kaydını ayrı tutar. Ardışık bilinen sahaların büyük daire mesafesi ölçülebilir bir coğrafi vekildir. Gerçek seyahat rotası, zemin durumu veya maç öncesi hava tahmini olarak kullanılmaz. Saha kayıtları kimlik, ad ve koordinat kaynağı gerektirir. Ortak özellik çıkarıcı, analiz zamanından önce yakalanan maçları ve kadro sürelerini hesaba katar.
+
+Yerel çalışmanın ölçümleri `reports/ex_history_bulk_2026_11_24.json` dosyasındadır. Open-Meteo erişimi dört istekte HTTP 403 ile sonuçlandı. %50/%30/%20 modelinin bağımsız sınaması için zamanında yakalanmış dış etkenler, tam fikstür kapsamı ve bağımsız maç sonucu kökeni hâlâ gereklidir.

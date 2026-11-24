@@ -254,3 +254,10 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Arsenal ve Dortmund pilotu 44 farklı takvim maçı gösterdi. Seçilen tarih aralığında beş müsabakadan 14 maçın özeti ve 579 oyuncu satırı alındı. 539 satırda nominal normal süre çıkarıldı. ESPN doğrudan dakika vermedi. 14 özet saha verisi sağladı. Hava ve seyahat kanıtı bulunmadı.
 - Bütçe duraklaması 8 istek, devam 9 yeni istek ve 8 önbellek okuması, tamamlanmış tekrar 0 istek ve 17 önbellek okuması ile doğrulandı. Son kayıtlar önceki model araştırmalarını değiştirmez. Bağımsız maç önü ve sonuç kapsamı henüz %50/%30/%20 model doğrulaması için yetersiz.
 - Çalıştırma bilgileri `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_collection_pilot_2026_11_24.json` içinde.
+
+## 2026-11-24 — Toplu tarihsel veri çalışması
+
+- 36 UCL takımı için 72/72 takım-sezon takvimi alındı. Beş ana EX ligiyle birlikte 222/222 takım-sezon yanıtı ve tekil 4.177 tamamlanmış maç gözlendi. Aynı planın tekrarında 223 önbellek kaydı kullanıldı ve yeni ağ isteği yapılmadı.
+- Yerel sekiz bölümlü toplamada 462 özet doğrulandı ve 3.715 özet sonraki bütçeye kaldı. Özetlerin 208'i 2025, 254'ü 2026 sağlayıcı sezonuna ait. Nominal süre aritmetiğine uygun 819 takım toplamının tamamı 990 dakika verdi.
+- Ortak özellik çıkarıcı, kaynağın analiz kesiminden önce gözlendiğini kontrol ederek fikstür aralıklarını, 14 günlük görünür maç yükünü ve oyuncu sürelerini çıkarır. Open-Meteo 403 döndürdü. Kayıtlı sahalarda bir coğrafi mesafe hesaplanabildi. Bağımsız model kalibrasyonu için kanıt yetersiz.
+- Toplu çalıştırma `.github/workflows/ex-history-bulk.yml`, yöntem ve devam talimatları `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_bulk_2026_11_24.json` içindedir.

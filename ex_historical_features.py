@@ -50,3 +50,37 @@ class HistoricalFeatures:
             "external_factors_score": None, "scope": "DOMESTIC_RESULT_OBSERVATIONS",
             "cutoff_date_exclusive": cutoff.isoformat(), "verified_component_scores": False,
         }
+
+
+def provider_context(calendar, details, as_of):
+    """Expose only evidence already captured before this UTC analysis instant."""
+    from ex_history_archive import utc
+
+    cutoff = utc(as_of)
+    if utc(calendar["source"]["retrieved_at"]) >= cutoff:
+        return {"status": "SCHEDULE_UNAVAILABLE_AT_CUTOFF"}
+    club = calendar["team_id"]
+    games = sorted((fixture for fixture in calendar["fixtures"] if fixture["completed"]
+                    and utc(fixture["kickoff_at"]) < cutoff), key=lambda fixture: fixture["kickoff_at"])
+    last = utc(games[-1]["kickoff_at"]) if games else None
+    recent = [fixture for fixture in games if cutoff - utc(fixture["kickoff_at"]) <= timedelta(days=14)]
+    observed_minutes, nominal_minutes = {}, {}
+    for game in recent:
+        detail = details.get(game["event_id"])
+        if (not detail or not detail["completed"] or detail["teams"] != game["teams"]
+                or utc(detail["kickoff_at"]) != utc(game["kickoff_at"])
+                or not utc(game["kickoff_at"]) <= utc(detail["source"]["retrieved_at"]) < cutoff):
+            continue
+        for player in detail["player_rows"]:
+            if player["team_id"] != club:
+                continue
+            athlete = player["athlete_id"]
+            for field, aggregation in (("provider_minutes", observed_minutes),
+                                       ("nominal_regulation_minutes", nominal_minutes)):
+                value = player[field]
+                if value is not None:
+                    aggregation[athlete] = aggregation.get(athlete, 0) + value
+    return {"status": "OBSERVED_PROVIDER_COVERAGE", "observed_matches_14d": len(recent),
+            "hours_since_last_observed_kickoff": (cutoff - last).total_seconds() / 3600 if last else None,
+            "provider_minutes_14d": observed_minutes, "nominal_minutes_14d": nominal_minutes,
+            "complete_schedule_certified": False, "verified_component_scores": False}

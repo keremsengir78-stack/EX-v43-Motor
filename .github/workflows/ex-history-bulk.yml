@@ -1,0 +1,136 @@
+name: EX bulk history
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        type: choice
+        description: Calendar scope
+        default: all
+        options: [ucl, all]
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-history-bulk.yml
+      - config/ex_history_bulk.json
+      - config/ex_history_venues.json
+      - ex_history_*.py
+      - run_ex_history_collection.py
+      - run_ex_history_merge.py
+      - tests/test_history_bulk.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ex-history-bulk-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  calendars:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache/restore@v4
+        with:
+          path: ex_history_cache
+          key: ex-bulk-calendar-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ex-bulk-calendar-v1-${{ github.ref }}-
+            ex-history-v1-${{ github.ref }}-
+      - name: Collect deduplicated plan
+        env:
+          PROFILE: ${{ inputs.profile || 'all' }}
+        run: |
+          python run_ex_history_collection.py --config config/ex_history_bulk.json --profile "$PROFILE" --plan-only --cache ex_history_cache --output plan.json --budget 250 --request-interval 0.5
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ex_history_cache
+          key: ex-bulk-calendar-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-calendar-evidence-${{ github.run_attempt }}
+          path: ex_history_cache/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-plan-${{ github.run_attempt }}
+          path: plan.json
+
+  summaries:
+    needs: calendars
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: history-plan-${{ github.run_attempt }}
+      - uses: actions/cache/restore@v4
+        with:
+          path: ex_history_cache
+          key: ex-bulk-shard-v1-${{ github.ref }}-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ex-bulk-shard-v1-${{ github.ref }}-${{ matrix.shard }}-
+            ex-history-v1-${{ github.ref }}-
+      - run: python run_ex_history_collection.py --plan plan.json --cache ex_history_cache --output "part-${{ matrix.shard }}.json" --shard "${{ matrix.shard }}" --shards 8 --budget 40 --request-interval 0.5
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ex_history_cache
+          key: ex-bulk-shard-v1-${{ github.ref }}-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-part-${{ github.run_attempt }}-${{ matrix.shard }}
+          path: part-*.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-summary-evidence-${{ github.run_attempt }}-${{ matrix.shard }}
+          path: ex_history_cache/
+
+  coverage:
+    needs: summaries
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: history-plan-${{ github.run_attempt }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: history-part-${{ github.run_attempt }}-*
+          path: parts
+          merge-multiple: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: weather_cache
+          key: ex-bulk-weather-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ex-bulk-weather-v1-${{ github.ref }}-
+      - run: python run_ex_history_merge.py --plan plan.json --parts parts --cache weather_cache --venues config/ex_history_venues.json --output history-coverage.json
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: weather_cache
+          key: ex-bulk-weather-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-coverage-${{ github.run_attempt }}
+          path: |
+            history-coverage.json
+            weather_cache/

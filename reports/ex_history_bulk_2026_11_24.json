@@ -1,0 +1,397 @@
+{
+  "as_of": "2026-11-24T17:26:02.949845+00:00",
+  "calendar_coverage": {
+    "schedule_seeds": 222,
+    "schedule_responses": 222,
+    "unique_schedule_events": 4177,
+    "eligible_completed_events": 4177,
+    "summaries": 0,
+    "player_rows": 0,
+    "provider_minutes": 0,
+    "nominal_regulation_minutes": 0,
+    "prematch_uefa_previews": 1
+  },
+  "competition_coverage": {
+    "aut.1": {
+      "planned": 45,
+      "summaries": 7,
+      "completed_summaries": 7,
+      "venue_observations": 7,
+      "player_rows": 279,
+      "provider_minutes": 0,
+      "nominal_minutes": 278,
+      "summary_fraction": 0.15555555555555556
+    },
+    "bel.1": {
+      "planned": 52,
+      "summaries": 7,
+      "completed_summaries": 7,
+      "venue_observations": 7,
+      "player_rows": 280,
+      "provider_minutes": 0,
+      "nominal_minutes": 279,
+      "summary_fraction": 0.1346153846153846
+    },
+    "club.friendly": {
+      "planned": 311,
+      "summaries": 5,
+      "completed_summaries": 5,
+      "venue_observations": 2,
+      "summary_fraction": 0.01607717041800643
+    },
+    "eng.1": {
+      "planned": 490,
+      "summaries": 69,
+      "completed_summaries": 69,
+      "venue_observations": 69,
+      "player_rows": 2759,
+      "provider_minutes": 0,
+      "nominal_minutes": 2748,
+      "summary_fraction": 0.14081632653061224
+    },
+    "eng.charity": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "eng.fa": {
+      "planned": 43,
+      "summaries": 1,
+      "completed_summaries": 1,
+      "venue_observations": 1,
+      "player_rows": 40,
+      "provider_minutes": 0,
+      "nominal_minutes": 40,
+      "summary_fraction": 0.023255813953488372
+    },
+    "eng.league_cup": {
+      "planned": 68,
+      "summaries": 5,
+      "completed_summaries": 5,
+      "venue_observations": 5,
+      "player_rows": 200,
+      "provider_minutes": 0,
+      "nominal_minutes": 80,
+      "summary_fraction": 0.07352941176470588
+    },
+    "esp.1": {
+      "planned": 509,
+      "summaries": 76,
+      "completed_summaries": 76,
+      "venue_observations": 76,
+      "player_rows": 3451,
+      "provider_minutes": 0,
+      "nominal_minutes": 3434,
+      "summary_fraction": 0.14931237721021612
+    },
+    "esp.copa_del_rey": {
+      "planned": 80,
+      "summaries": 12,
+      "completed_summaries": 12,
+      "venue_observations": 12,
+      "player_rows": 524,
+      "provider_minutes": 0,
+      "nominal_minutes": 432,
+      "summary_fraction": 0.15
+    },
+    "esp.joan_gamper": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "esp.super_cup": {
+      "planned": 3,
+      "summary_fraction": 0.0
+    },
+    "fifa.cwc": {
+      "planned": 41,
+      "summary_fraction": 0.0
+    },
+    "fifa.intercontinental_cup": {
+      "planned": 1,
+      "summary_fraction": 0.0
+    },
+    "fra.1": {
+      "planned": 404,
+      "summaries": 54,
+      "completed_summaries": 54,
+      "venue_observations": 54,
+      "player_rows": 2156,
+      "provider_minutes": 0,
+      "nominal_minutes": 2151,
+      "summary_fraction": 0.13366336633663367
+    },
+    "fra.1.promotion.relegation": {
+      "planned": 2,
+      "summaries": 2,
+      "completed_summaries": 2,
+      "venue_observations": 2,
+      "player_rows": 81,
+      "provider_minutes": 0,
+      "nominal_minutes": 81,
+      "summary_fraction": 1.0
+    },
+    "fra.coupe_de_france": {
+      "planned": 42,
+      "summaries": 1,
+      "completed_summaries": 1,
+      "venue_observations": 1,
+      "player_rows": 40,
+      "provider_minutes": 0,
+      "nominal_minutes": 40,
+      "summary_fraction": 0.023809523809523808
+    },
+    "fra.super_cup": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "friendly.emirates_cup": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "ger.1": {
+      "planned": 396,
+      "summaries": 49,
+      "completed_summaries": 49,
+      "venue_observations": 49,
+      "player_rows": 1956,
+      "provider_minutes": 0,
+      "nominal_minutes": 1948,
+      "summary_fraction": 0.12373737373737374
+    },
+    "ger.dfb_pokal": {
+      "planned": 76,
+      "summaries": 8,
+      "completed_summaries": 8,
+      "venue_observations": 8,
+      "player_rows": 320,
+      "provider_minutes": 0,
+      "nominal_minutes": 279,
+      "summary_fraction": 0.10526315789473684
+    },
+    "ger.playoff.relegation": {
+      "planned": 2,
+      "summaries": 2,
+      "completed_summaries": 2,
+      "venue_observations": 2,
+      "player_rows": 80,
+      "provider_minutes": 0,
+      "nominal_minutes": 39,
+      "summary_fraction": 1.0
+    },
+    "ger.super_cup": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "gre.1": {
+      "planned": 42,
+      "summaries": 6,
+      "completed_summaries": 6,
+      "venue_observations": 6,
+      "player_rows": 275,
+      "provider_minutes": 0,
+      "nominal_minutes": 273,
+      "summary_fraction": 0.14285714285714285
+    },
+    "ita.1": {
+      "planned": 500,
+      "summaries": 75,
+      "completed_summaries": 75,
+      "venue_observations": 75,
+      "player_rows": 3560,
+      "provider_minutes": 0,
+      "nominal_minutes": 3543,
+      "summary_fraction": 0.15
+    },
+    "ita.coppa_italia": {
+      "planned": 56,
+      "summaries": 1,
+      "completed_summaries": 1,
+      "venue_observations": 1,
+      "player_rows": 52,
+      "provider_minutes": 0,
+      "nominal_minutes": 52,
+      "summary_fraction": 0.017857142857142856
+    },
+    "ita.super_cup": {
+      "planned": 3,
+      "summary_fraction": 0.0
+    },
+    "jpn.world_challenge": {
+      "planned": 1,
+      "summary_fraction": 0.0
+    },
+    "ned.1": {
+      "planned": 91,
+      "summaries": 12,
+      "completed_summaries": 12,
+      "venue_observations": 12,
+      "player_rows": 534,
+      "provider_minutes": 0,
+      "nominal_minutes": 533,
+      "summary_fraction": 0.13186813186813187
+    },
+    "ned.cup": {
+      "planned": 5,
+      "summary_fraction": 0.0
+    },
+    "ned.supercup": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    },
+    "nor.1": {
+      "planned": 110,
+      "summaries": 5,
+      "completed_summaries": 5,
+      "venue_observations": 5,
+      "player_rows": 200,
+      "provider_minutes": 0,
+      "nominal_minutes": 200,
+      "summary_fraction": 0.045454545454545456
+    },
+    "por.1": {
+      "planned": 88,
+      "summaries": 10,
+      "completed_summaries": 10,
+      "venue_observations": 10,
+      "player_rows": 424,
+      "provider_minutes": 0,
+      "nominal_minutes": 421,
+      "summary_fraction": 0.11363636363636363
+    },
+    "por.taca.portugal": {
+      "planned": 13,
+      "summaries": 3,
+      "completed_summaries": 3,
+      "venue_observations": 3,
+      "player_rows": 40,
+      "provider_minutes": 0,
+      "nominal_minutes": 0,
+      "summary_fraction": 0.23076923076923078
+    },
+    "tur.1": {
+      "planned": 89,
+      "summaries": 11,
+      "completed_summaries": 11,
+      "venue_observations": 11,
+      "player_rows": 462,
+      "provider_minutes": 0,
+      "nominal_minutes": 462,
+      "summary_fraction": 0.12359550561797752
+    },
+    "uefa.champions": {
+      "planned": 252,
+      "summaries": 23,
+      "completed_summaries": 23,
+      "venue_observations": 23,
+      "player_rows": 1019,
+      "provider_minutes": 0,
+      "nominal_minutes": 969,
+      "summary_fraction": 0.09126984126984126
+    },
+    "uefa.champions_qual": {
+      "planned": 48,
+      "summary_fraction": 0.0
+    },
+    "uefa.europa": {
+      "planned": 167,
+      "summaries": 11,
+      "completed_summaries": 11,
+      "venue_observations": 11,
+      "player_rows": 487,
+      "provider_minutes": 0,
+      "nominal_minutes": 482,
+      "summary_fraction": 0.0658682634730539
+    },
+    "uefa.europa.conf": {
+      "planned": 87,
+      "summaries": 7,
+      "completed_summaries": 7,
+      "venue_observations": 7,
+      "player_rows": 306,
+      "provider_minutes": 0,
+      "nominal_minutes": 306,
+      "summary_fraction": 0.08045977011494253
+    },
+    "uefa.europa.conf_qual": {
+      "planned": 36,
+      "summary_fraction": 0.0
+    },
+    "uefa.europa_qual": {
+      "planned": 10,
+      "summary_fraction": 0.0
+    },
+    "uefa.super_cup": {
+      "planned": 2,
+      "summary_fraction": 0.0
+    }
+  },
+  "completed_summaries": 462,
+  "summary_fraction": 0.11060569786928418,
+  "requested_summaries": 208,
+  "summary_cache_hits": 254,
+  "deferred_summaries": 3715,
+  "minute_arithmetic": {
+    "complete_nominal_team_totals": 819,
+    "balanced_990": 819
+  },
+  "model_validation": {
+    "status": "BLOCKED",
+    "missing": [
+      "certified all-competition coverage",
+      "complete timestamped context and external effects",
+      "independent prematch feature and settled score provenance"
+    ]
+  },
+  "calibration_certified": false,
+  "ex_final_allowed": false,
+  "ucl_calendar_coverage": {
+    "schedule_seeds": 72,
+    "schedule_responses": 72,
+    "unique_schedule_events": 2156,
+    "eligible_completed_events": 2156,
+    "summaries": 0,
+    "player_rows": 0,
+    "provider_minutes": 0,
+    "nominal_regulation_minutes": 0,
+    "prematch_uefa_previews": 1
+  },
+  "calendar_replay": {
+    "requests": 0,
+    "cache_hits": 223
+  },
+  "planned_by_source_season": {
+    "2026": 1184,
+    "2025": 2993
+  },
+  "summaries_by_source_season": {
+    "2026": 254,
+    "2025": 208
+  },
+  "observed_team_contexts": 222,
+  "successful_weather_observations": 0,
+  "weather_errors": [
+    {
+      "event_id": "401878760",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "event_id": "401862896",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "event_id": "401878768",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "event_id": "401878762",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
+  "venue_geodesic_transitions": 1,
+  "summary_source_errors": 0,
+  "summary_totals": {
+    "player_rows": 19525,
+    "provider_minutes": 0,
+    "nominal_minutes": 19070,
+    "venue_observations": 459
+  }
+}

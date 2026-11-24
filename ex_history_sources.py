@@ -49,6 +49,7 @@ def schedule(raw, team_id, season):
         events[event_id] = {
             "event_id": event_id, "kickoff_at": kickoff.isoformat(),
             "competition": league_slug(event["league"]["slug"]), "teams": sides,
+            "source_season": event.get("season", {}).get("year"),
             "completed": state.get("completed") is True and state.get("state") == "post",
         }
     return events
@@ -132,7 +133,7 @@ def match_detail(raw, captured, event):
                 conflicted_teams.append(team)
                 for player in player_rows:
                     player["nominal_regulation_minutes"] = None
-    return {"event_id": event["event_id"], "capture_phase": phase, "completed": completed,
+    return {"event_id": event["event_id"], "kickoff_at": event["kickoff_at"], "teams": event["teams"], "capture_phase": phase, "completed": completed,
             "venue": venue, "neutral_site": competition.get("neutralSite"), "player_rows": roster,
             "reported_weather": game_info.get("weather"), "travel": None,
             "nominal_minutes_conflict_teams": sorted(conflicted_teams)}

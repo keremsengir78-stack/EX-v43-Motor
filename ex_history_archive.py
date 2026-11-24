@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 
-HOSTS = {"site.api.espn.com", "www.uefa.com"}
+HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com"}
 MAX_BYTES = 5_000_000
 
 
@@ -144,3 +144,18 @@ class HistoryArchive:
         value = parse(raw, captured)
         failure.unlink(missing_ok=True)
         return value, self._record(url, raw, captured)
+
+
+def paced_download(interval):
+    """Limit start-to-start source request rate for a single worker."""
+    import time
+
+    next_request = 0.0
+
+    def fetch(url):
+        nonlocal next_request
+        time.sleep(max(0, next_request - time.monotonic()))
+        next_request = time.monotonic() + interval
+        return download(url)
+
+    return fetch
