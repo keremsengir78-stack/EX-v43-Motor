@@ -42,6 +42,17 @@ def captured_rows(root):
                         and match.get("date") and match["date"] < CUTOFF):
                     yield "openfootball", league, match["date"], match["team1"], match["team2"], *score
 
+    shakhtar = Path(__file__).resolve().parent / "research/ucl/shakhtar-domestic.json"
+    if shakhtar.exists():
+        source = json.loads(shakhtar.read_text())
+        for match in source["fixtures"]:
+            if len({entry["url"] for entry in match["sources"]}) < 2:
+                raise ValueError("Shakhtar result missing second source")
+            score = match["score"]
+            if len(score) != 2 or any(type(goal) is not int or not 0 <= goal <= 30 for goal in score):
+                raise ValueError("Invalid Shakhtar score")
+            yield "curated_club_results", source["league"], match["date"], match["home"], match["away"], *score
+
     domestic = root / "domestic"
     if (domestic / "report.json").exists():
         for source in json.loads((domestic / "report.json").read_text())["sources"]:
@@ -91,9 +102,12 @@ def select_rows(records, aliases):
         # Keep seasons internally consistent. A partial daily capture cannot
         # displace a better-covered archive or duplicate its venue samples.
         primary = max(providers, key=lambda name: (len(providers[name]), name == "ESPN"))
-        archive, espn = providers.get("openfootball", {}), providers.get("ESPN", {})
-        common = archive.keys() & espn.keys()
-        conflicts = sorted(key for key in common if archive[key] != espn[key])
+        observed_scores = defaultdict(list)
+        for source_rows in providers.values():
+            for key, row in source_rows.items():
+                observed_scores[key].append((row["hg"], row["ag"]))
+        common = {key for key, scores in observed_scores.items() if len(scores) >= 2}
+        conflicts = sorted(key for key in common if len(set(observed_scores[key])) > 1)
         selected.extend(row for key, row in providers[primary].items() if key not in conflicts)
         coverage.append({
             "league": league, "season_start_year": year, "provider": primary,
@@ -102,7 +116,7 @@ def select_rows(records, aliases):
             "excluded_score_conflicts": [
                 {"date": day.isoformat(), "home": home, "away": away,
                  "scores": {name: [rows[day, home, away]["hg"], rows[day, home, away]["ag"]]
-                            for name, rows in providers.items()}}
+                            for name, rows in providers.items() if (day, home, away) in rows}}
                 for day, home, away in conflicts
             ],
         })

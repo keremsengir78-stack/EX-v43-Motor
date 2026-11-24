@@ -2,6 +2,7 @@
 """EX v4.3 auditable offline goals model. Standard library only."""
 import argparse,csv,datetime as dt,json,math,hashlib,statistics
 from pathlib import Path
+from ex_baseline_calibration import chronological_intercept
 W=(.4,.3,.2,.1)
 REQUIRED=('date','league','home','away','home_goals','away_goals')
 def date(s): return dt.date.fromisoformat(s)
@@ -103,10 +104,9 @@ def backtest(rows,min_train=30):
         if p['status']=='BASELINE_ONLY':
             for market, (metric, settled) in markets.items():
                 market_predictions[market].append(
-                    (p['baseline'][metric], int(settled(r['hg'], r['ag'])))
+                    (r['date'], p['baseline'][metric], int(settled(r['hg'], r['ag'])))
                 )
-            probability, outcome = market_predictions['2.5_UST'][-1]
-            preds.append((r['date'], probability, outcome))
+            preds.append(market_predictions['2.5_UST'][-1])
     if not preds:return {'n':0,'status':'INSUFFICIENT_DATA'}
     n=len(preds);brier=sum((p-y)**2 for _,p,y in preds)/n
     bins=[]
@@ -116,9 +116,10 @@ def backtest(rows,min_train=30):
     market_audit = {
         market: {
             'n': len(values),
-            'brier': round(statistics.mean((p-y)**2 for p,y in values), 5),
-            'mean_prediction': round(statistics.mean(p for p,_ in values), 5),
-            'observed_frequency': round(statistics.mean(y for _,y in values), 5),
+            'brier': round(statistics.mean((p-y)**2 for _,p,y in values), 5),
+            'mean_prediction': round(statistics.mean(p for _,p,_ in values), 5),
+            'observed_frequency': round(statistics.mean(y for _,_,y in values), 5),
+            'chronological_calibration': chronological_intercept(values),
         }
         for market, values in market_predictions.items()
     }

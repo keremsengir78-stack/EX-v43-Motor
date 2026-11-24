@@ -48,6 +48,20 @@ def audit_league_margins(train, holdout):
     null_mse = mean((margin - null_intercept) ** 2 for _, _, margin in comparable)
     model_mse = mean((margin - intercept - ratings[home] + ratings[away]) ** 2
                      for home, away, margin in comparable)
+    # A conservative alternative pools each league's signed goal residual
+    # without simultaneously solving opponent effects.
+    margins = defaultdict(list)
+    for home, away, margin in train:
+        if home != away:
+            margins[home].append(margin - null_intercept)
+            margins[away].append(null_intercept - margin)
+    pooled = {league: sum(values) / (len(values) + 12) for league, values in margins.items()}
+    pooled_mse = mean((margin - null_intercept - pooled[home] + pooled[away]) ** 2
+                      for home, away, margin in comparable)
+    result["pooled_residual_challenger"] = {
+        "model_mse": pooled_mse, "better_than_reference": pooled_mse < null_mse,
+        "method": "signed league residuals shrunk by twelve zero-margin observations",
+    }
     result.update(null_mse=null_mse, model_mse=model_mse, training_cross_league_appearances=dict(counts))
     if model_mse >= null_mse:
         result["status"] = "BLOCKED_NO_HOLDOUT_IMPROVEMENT"
