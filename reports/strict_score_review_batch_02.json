@@ -1686,7 +1686,7 @@
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
-      "secondary_sha256": "d5da6601831a3c4e78a443d17771acf9cc264ada527a56f40832c23588bfffa5",
+      "secondary_sha256": "21d2b96792bd0bc8a324123ae68eaf60b981c5a016c538d086e8d8a5cbedd95a",
       "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
       "independent_score_verified": false
     },
@@ -1703,7 +1703,7 @@
       ],
       "secondary_provider": "football-data.co.uk",
       "secondary_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
-      "secondary_sha256": "d5da6601831a3c4e78a443d17771acf9cc264ada527a56f40832c23588bfffa5",
+      "secondary_sha256": "21d2b96792bd0bc8a324123ae68eaf60b981c5a016c538d086e8d8a5cbedd95a",
       "review_status": "REQUIRES_INDEPENDENT_SCORE_EVIDENCE",
       "independent_score_verified": false
     }
