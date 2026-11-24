@@ -8,6 +8,8 @@ on:
       - run_ex_prospective_pipeline.py
       - run_ex_source_audit.py
       - run_ex_official_minutes_batch.py
+      - run_ex_power_design.py
+      - ex_pup_gate.py
       - ex_prospective_power.py
       - tests/test_ex_prospective_operations.py
   workflow_dispatch:
@@ -19,9 +21,12 @@ on:
       day:
         type: string
         description: UTC fixture date for capture
-      forecast_artifact_id:
+      forecast_artifact_ids:
         type: string
-        description: Artifact ID for settlement
+        description: Comma separated forecast artifact IDs for settlement
+      history_run_id:
+        type: string
+        description: Optional bulk history run ID for fresh capture history
       design_run_id:
         type: string
         description: Optional run with preregistered ex-power-design artifact
@@ -64,6 +69,47 @@ jobs:
             source-audit.json
             minutes.json
 
+
+  archived-preflight:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531617
+          name: ex-prematch-archive
+          path: previous
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-summary-evidence-1-*
+          path: history
+      - name: Exercise the prospective feature generator with archived sources
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("previous/prematch.json").read_text())
+          Path("capture.json").write_text(json.dumps({"day": "2026-11-25", "reports": {"UCL": report}}))
+          PY
+          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache previous/prematch-cache --output-dir forecasts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-forecasts
+          path: forecasts/
+
   capture:
     if: inputs.mode == 'capture'
     runs-on: ubuntu-latest
@@ -76,12 +122,12 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
-          run-id: 45469007220
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
           name: history-plan-1
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
-          run-id: 45469007220
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
           pattern: history-summary-evidence-1-*
           path: history
       - env:
@@ -106,25 +152,20 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Verify the forecast artifact receipt
-        id: receipt
+      - name: Download forecast packs and verify exact artifact receipts
         env:
           GH_TOKEN: ${{ github.token }}
-          ARTIFACT: ${{ inputs.forecast_artifact_id }}
+          ARTIFACTS: ${{ inputs.forecast_artifact_ids }}
         run: |
-          [[ "$ARTIFACT" =~ ^[0-9]+$ ]]
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT" > receipt.json
-          test "$(jq -r .name receipt.json)" = ex-prospective-forecasts
-          printf 'run_id=%s\n' "$(jq -r .workflow_run.id receipt.json)" >> "$GITHUB_OUTPUT"
-          printf 'sealed=%s\n' "$(jq -r .created_at receipt.json)" >> "$GITHUB_OUTPUT"
-      - name: Read the exact forecast artifact
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ARTIFACT: ${{ inputs.forecast_artifact_id }}
-        run: |
-          [[ "$ARTIFACT" =~ ^[0-9]+$ ]]
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT/zip" > forecasts.zip
-          unzip -q forecasts.zip -d input
+          [[ "$ARTIFACTS" =~ ^[0-9]+(,[0-9]+)*$ ]]
+          IFS=, read -r -a ids <<< "$ARTIFACTS"
+          for id in "${ids[@]}"; do
+            mkdir -p "packs/$id"
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > "packs/$id/receipt.json"
+            test "$(jq -r .name "packs/$id/receipt.json")" = ex-prospective-forecasts
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > forecasts.zip
+            unzip -q forecasts.zip -d "packs/$id"
+          done
       - uses: actions/download-artifact@v4
         if: inputs.design_run_id != ''
         with:
@@ -150,13 +191,11 @@ jobs:
           path: settlement-cache
           key: ex-settlement-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: ex-settlement-${{ github.ref }}-
-      - env:
-          SEALED: ${{ steps.receipt.outputs.sealed }}
-        run: |
+      - run: |
           official=()
           if [ -f reviewed/official.json ]; then official+=(--official reviewed/official.json); fi
           if [ -f design/design.json ]; then official+=(--design design/design.json); fi
-          python run_ex_prospective_pipeline.py --forecast-ledger input/forecasts/forecasts.jsonl --sealed-at "$SEALED" --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
+          python run_ex_prospective_pipeline.py --packs packs --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
       - uses: actions/cache/save@v4
         if: always()
         with:

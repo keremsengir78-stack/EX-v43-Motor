@@ -72,3 +72,44 @@ class ProspectiveOperationsTests(unittest.TestCase):
                              (outcomes, provisional, pending))
             with self.assertRaises(ValueError):
                 settle([row], archive, utc(row["kickoff"]), [])
+
+    def test_combining_weeks_keeps_earliest_sealed_forecast(self):
+        from run_ex_prospective_pipeline import combine_forecasts
+        row = {"event_id": "17", "kickoff": "2026-11-25T19:00:00Z", "league": "de.1",
+               "teams": {"home": "1", "away": "2"}, "forecast_at": "2026-11-25T18:00:00Z"}
+        later = {**row, "forecast_at": "2026-11-25T18:20:00Z"}
+        result = combine_forecasts([(utc("2026-11-25T18:25:00Z"), [later]),
+                                    (utc("2026-11-25T18:10:00Z"), [row])])
+        self.assertEqual([row["forecast_at"]], [item["forecast_at"] for item in result])
+
+    def test_czech_report_tokens_parse_starters_and_changes(self):
+        from run_ex_official_minutes_batch import parse_parenthetical_lineup
+
+        starters, changes = parse_parenthetical_lineup("A (46. K) - B, C (71. L)")
+        self.assertEqual(["A", "B", "C"], starters)
+        self.assertEqual([(46, "A", "K"), (71, "C", "L")], changes)
+        with self.assertRaises(ValueError):
+            parse_parenthetical_lineup("A (unknown)")
+
+    def test_settlement_separates_one_source_from_official_result(self):
+        import json
+        kickoff = "2026-11-25T19:00:00Z"
+        row = {"event_id": "17", "kickoff": kickoff, "league": "de.1", "season": 2026,
+               "teams": {"home": "1", "away": "2"}, "names": {"home": "A", "away": "B"},
+               "forecast_at": "2026-11-25T18:00:00Z", "kind": "PROSPECTIVE_VENUE5_RESEARCH"}
+        match = {"id": "17", "date": kickoff, "status": {"type": {"name": "STATUS_FULL_TIME",
+                 "state": "post", "completed": True}}, "competitors": [
+            {"homeAway": side, "team": {"id": club}, "score": score}
+            for (side, club), score in zip(row["teams"].items(), [2, 1], strict=True)]}
+        raw = json.dumps({"header": {"id": "17", "competitions": [match]}}).encode()
+        review = {"league": "de.1", "date": "2026-11-25", "home": "A", "away": "B", "score": [2, 1],
+                  "source": "https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/1",
+                  "verified_at": "2026-11-25T22:00:00Z", "scope": "REVIEWED_OFFICIAL_RESULT"}
+        seal = utc("2026-11-25T18:01:00Z")
+        with TemporaryDirectory() as root:
+            archive = HistoryArchive(root, 1, fetch=lambda url: raw, clock=lambda: utc("2026-11-25T22:00:00Z"))
+            self.assertEqual(1, len(settle([row], archive, seal, [])[1]))
+            verified, _, _ = settle([row], archive, seal, [review])
+            self.assertEqual(1, len(verified))
+            self.assertEqual(1, verified[0]["labels"]["KG_VAR"])
+            self.assertEqual(1, archive.requests)

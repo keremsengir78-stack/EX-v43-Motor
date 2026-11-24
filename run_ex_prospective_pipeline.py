@@ -82,9 +82,30 @@ OFFICIAL_RESULT_HOSTS = {
     "de.1": {"www.bundesliga.com", "www.dfb.de"}, "de.2": {"www.bundesliga.com", "www.dfb.de"},
     "en.1": {"www.premierleague.com"}, "en.2": {"www.efl.com"},
     "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com"},
-    "UCL": {"www.uefa.com"}, "cz.1": {"www.chanceliga.cz"}, "sk.1": {"www.nikeliga.sk"},
+    "nl.1": {"eredivisie.nl", "www.eredivisie.nl"}, "pt.1": {"www.ligaportugal.pt", "ligaportugal.pt"},
+    "be.1": {"www.proleague.be", "proleague.be"}, "tr.1": {"www.tff.org", "tff.org"},
+    "no.1": {"www.eliteserien.no", "eliteserien.no"}, "at.1": {"www.bundesliga.at", "bundesliga.at"},
+    "gr.1": {"www.slgr.gr", "slgr.gr"}, "UCL": {"www.uefa.com"}, "cz.1": {"www.chanceliga.cz"}, "sk.1": {"www.nikeliga.sk"},
     "ua.1": {"upl.ua", "www.upl.ua"}, "az.1": {"pfl.az", "www.pfl.az"},
 }
+
+
+def combine_forecasts(packs):
+    chosen = {}
+    for sealed_at, rows in sorted(packs, key=lambda pack: pack[0]):
+        for source in rows:
+            row = {**source, "sealed_at": sealed_at.isoformat()}
+            event = row["event_id"]
+            if not utc(row["forecast_at"]) <= sealed_at < utc(row["kickoff"]):
+                raise ValueError("Forecast artifact was not sealed before kickoff")
+            older = chosen.get(event)
+            if older and (older["league"], older["teams"], utc(older["kickoff"])) != (
+                    row["league"], row["teams"], utc(row["kickoff"])):
+                raise ValueError("Fixture identity changed across forecast artifacts")
+            if older and older["sealed_at"] == row["sealed_at"] and older != row:
+                raise ValueError("Conflicting forecasts sealed at the same instant")
+            chosen.setdefault(event, row)
+    return list(chosen.values())
 
 
 def settle(forecasts, archive, sealed_at, official):
@@ -97,7 +118,8 @@ def settle(forecasts, archive, sealed_at, official):
     corroborated, provisional, pending = [], [], []
     for row in forecasts:
         event_id, kickoff = row["event_id"], utc(row["kickoff"])
-        if row["kind"] != "PROSPECTIVE_VENUE5_RESEARCH" or not utc(row["forecast_at"]) <= sealed_at < kickoff:
+        sealed = sealed_at if sealed_at is not None else utc(row["sealed_at"])
+        if row["kind"] != "PROSPECTIVE_VENUE5_RESEARCH" or not utc(row["forecast_at"]) <= sealed < kickoff:
             raise ValueError("Forecast artifact was not sealed before kickoff")
         if archive.clock() < kickoff + dt.timedelta(minutes=90):
             pending.append({"event_id": event_id, "reason": "AWAITING_FULL_TIME"})
@@ -164,6 +186,7 @@ def main():
     parser.add_argument("--history", type=Path)
     parser.add_argument("--forecast-ledger", type=Path)
     parser.add_argument("--sealed-at")
+    parser.add_argument("--packs", type=Path, help="Directory containing individually verified GitHub artifact receipts")
     parser.add_argument("--official", type=Path)
     parser.add_argument("--frozen-model", type=Path)
     parser.add_argument("--design", type=Path)
@@ -185,14 +208,26 @@ def main():
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
         report = {"forecasts": len(forecasts), "skipped": skipped}
     else:
-        if not args.forecast_ledger or not args.sealed_at:
-            parser.error("Settlement mode requires a forecast ledger and artifact creation time")
-        raw = args.forecast_ledger.read_bytes()
-        forecasts = read_rows(raw) if raw.strip() else []
+        if args.packs:
+            if args.forecast_ledger or args.sealed_at:
+                parser.error("Use packs or a single forecast ledger")
+            packs = []
+            for receipt in sorted(args.packs.glob("*/receipt.json")):
+                stamp = utc(json.loads(receipt.read_text())["created_at"])
+                raw = (receipt.parent / "forecasts/forecasts.jsonl").read_bytes()
+                packs.append((stamp, read_rows(raw) if raw.strip() else []))
+            if not packs:
+                raise ValueError("No forecast artifact receipts")
+            forecasts, sealed = combine_forecasts(packs), None
+        else:
+            if not args.forecast_ledger or not args.sealed_at:
+                parser.error("Settlement mode requires a forecast ledger and artifact creation time")
+            raw = args.forecast_ledger.read_bytes()
+            forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         official = json.loads(args.official.read_text()) if args.official else []
         corroborated, provisional, pending = settle(
             forecasts, HistoryArchive(args.cache, len(forecasts), fetch=paced_download(.75)),
-            utc(args.sealed_at), official,
+            sealed, official,
         )
         atomic_write(args.output_dir / "outcomes.jsonl", jsonl(corroborated))
         atomic_write(args.output_dir / "provisional-outcomes.jsonl", jsonl(provisional))
