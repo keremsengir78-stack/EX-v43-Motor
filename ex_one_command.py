@@ -70,7 +70,7 @@ def main():
   def fetch_date(pair):
    league,day=pair
    try:
-    found,metadata=fetch_espn_scoreboard(league,day,a.as_of)
+    found,metadata=fetch_espn_scoreboard(league,day,a.as_of,evidence_dir=out/'espn_raw_evidence')
     return found,metadata,None
    except (OSError,ValueError,KeyError) as exc:
     return [],None,{'league':league,'date':day,'error':str(exc)}

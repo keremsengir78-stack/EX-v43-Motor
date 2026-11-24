@@ -76,7 +76,7 @@ def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
             continue
     return out
 
-def fetch_espn_scoreboard(league,day,as_of,timeout=15):
+def fetch_espn_scoreboard(league,day,as_of,timeout=15,evidence_dir=None):
     if league not in ESPN_LEAGUES:
         raise ValueError("unsupported ESPN league")
     if isinstance(timeout,bool) or not isinstance(timeout,(int,float)) or not math.isfinite(timeout) or not 0<timeout<=60:
@@ -91,4 +91,11 @@ def fetch_espn_scoreboard(league,day,as_of,timeout=15):
         raw=response.read(MAX_SCOREBOARD_BYTES+1)
     if len(raw)>MAX_SCOREBOARD_BYTES:
         raise ValueError("ESPN scoreboard response exceeds size limit")
-    return parse_espn_scoreboard(json.loads(raw),league,as_of,requested_day=day),{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
+    parsed=parse_espn_scoreboard(json.loads(raw),league,as_of,requested_day=day)
+    if evidence_dir is not None:
+        from pathlib import Path
+        root=Path(evidence_dir)
+        root.mkdir(parents=True,exist_ok=True)
+        digest=hashlib.sha256(raw).hexdigest()
+        (root/(digest+".json")).write_bytes(raw)
+    return parsed,{"provider":"ESPN","url":url,"retrieved_at":dt.datetime.now(dt.timezone.utc).isoformat(),"date":day,"sha256":hashlib.sha256(raw).hexdigest(),"raw_bytes":len(raw)}
