@@ -16,7 +16,19 @@ def main():
             if not isinstance(score,list) or len(score)!=2 or not all(type(v) is int and 0<=v<=30 for v in score): continue
             if not m.get("date") or m["date"]>="2026-11-24": continue
             rows.append(dict(date=date(m["date"]),league=league,home=m["team1"],away=m["team2"],hg=score[0],ag=score[1]))
-    rows.sort(key=lambda r:r["date"])
+    domestic=root/"domestic"/"report.json"
+    if domestic.exists():
+        # Prefer one consistent provider per league; do not double count archives.
+        sources=json.loads(domestic.read_text())["sources"]
+        espn=[dict(date=date(m["date"]),league=m["league"],home=m["home"],away=m["away"],hg=m["home_goals"],ag=m["away_goals"]) for source in sources for m in source["rows"]]
+        covered={r["league"] for r in espn}
+        rows=[r for r in rows if r["league"] not in covered]+espn
+    unique={}
+    for r in rows:
+        key=(r["league"],r["date"],r["home"],r["away"])
+        if key in unique and unique[key]!=r: raise ValueError("conflicting score")
+        unique[key]=r
+    rows=sorted(unique.values(),key=lambda r:r["date"])
     names={}
     for r in rows:
         for team in (r["home"],r["away"]):
@@ -29,9 +41,6 @@ def main():
             results.append({"fixture":f,"status":"BLOCKED_TEAM_MAPPING","home_candidates":sorted(home),"away_candidates":sorted(away),"ex_final_allowed":False})
             continue
         hl,hn=next(iter(home));al,an=next(iter(away))
-        if hl=="no.1" or al=="no.1":
-            results.append({"fixture":f,"status":"BLOCKED_CALENDAR_SEASON_MAPPING","ex_final_allowed":False})
-            continue
         results.append(cross_league_baseline(rows,f,hl,al,hn,an,"2026-07-01","2025-07-01"))
     (root/"archive_baselines.json").write_text(json.dumps(results,ensure_ascii=False,indent=2))
     print("UCL_BASELINE_COUNTS",json.dumps({"rows":len(rows),"fixtures":len(results),"computed":sum(r["status"]=="UNCALIBRATED_CROSS_LEAGUE_BASELINE" for r in results)}))
