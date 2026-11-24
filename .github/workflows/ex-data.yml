@@ -54,6 +54,20 @@ jobs:
                     'request coverage:',str(r.get('successful_requests',0))+'/'+str(r.get('requested_dates',0)),
                     'provisional coverage:',r.get('provisional_coverage',0),'EX FINAL:',a.get('ex_final_allowed',False))
           PY
+      - name: Print unresolved ESPN diagnostics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          p=Path("ex_espn_pilot/third_source_reconciliation.json")
+          if p.is_file():
+              r=json.loads(p.read_text())
+              counts=Counter((x["league"],x.get("source_presence_status",x["third_source_status"])) for x in r["unresolved"])
+              print("ESPN_UNRESOLVED",json.dumps([{"league":k[0],"reason":k[1],"count":v} for k,v in sorted(counts.items())]))
+          PY
       - name: Publish ESPN pilot audit
         if: always()
         uses: actions/upload-artifact@v4

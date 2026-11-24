@@ -184,7 +184,8 @@ def reconcile_staged_with_third(staged, third, as_of, alias=None):
         seen_staged.add(key)
         matches=third_index.get(key,[])
         if len(matches)!=1:
-            unresolved.append({**row,"third_source_status":"MISSING" if not matches else "AMBIGUOUS"})
+            unresolved.append({**row,"third_source_status":"MISSING" if not matches else "AMBIGUOUS",
+                               **secondary_presence_diagnostic(row, third, as_of, alias)})
             continue
         other=matches[0]
         if (row["home_goals"],row["away_goals"])==(other["home_goals"],other["away_goals"]):
