@@ -12,7 +12,7 @@ permissions:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,12 +30,12 @@ jobs:
         shell: bash
         run: |
           python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --outdir ex_premier_pilot
-      - name: ESPN third-source live pilot
+      - name: ESPN five-league third-source live pilot
         if: always()
         continue-on-error: true
         shell: bash
         run: |
-          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 --secondary-aliases config/premier_reviewed_aliases.json --espn-third-source --outdir ex_espn_pilot
+          python ex_one_command.py --as-of "$(date -u +%F)" --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --secondary-aliases config/premier_reviewed_aliases.json --espn-third-source --outdir ex_espn_pilot
       - name: Print ESPN corroboration metrics
         if: always()
         shell: bash
