@@ -27,6 +27,10 @@ class MatchdayInputDataTests(unittest.TestCase):
         self.assertEqual(expected, found)
         self.assertTrue(all(not row["ex_final_allowed"] for row in results))
 
+    def test_missing_or_malformed_price_sections_yield_no_quote(self):
+        for odds in (None, {}, [None, {"provider": None, "moneyline": {"home": None}, "total": []}]):
+            self.assertEqual([], market_quotes(odds, {}, "2026-11-24T17:45:00Z"))
+
     def test_exact_total_and_prematch_cutoff(self):
         quote = {
             "provider": {"name": "Book"},

@@ -6,9 +6,55 @@ A percentage must not be labelled EX FINAL without external calibration.
 import math
 import datetime as dt
 import re
+from ex_fixture_odds import check_odds
 
 WEIGHTS={"team_strength":0.50,"match_conditions":0.30,"external_factors":0.20}
 MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
+# Approved mappings operate solely on the weighted, market-specific evidence score.
+# Registration requires a reviewed code change. Request data cannot install a mapping.
+_APPROVED_CALIBRATORS = {}
+
+
+def ex_g_from_evidence(market, weighted):
+    """Apply an approved market calibration independently of bookmaker inputs."""
+    issues = list(weighted["issues"])
+    calibrate = _APPROVED_CALIBRATORS.get(market)
+    if calibrate is None:
+        issues.append("calibration:uncertified")
+    probability = None
+    if not issues and weighted["status"] == "EVIDENCE_COMPLETE_UNCALIBRATED":
+        value = calibrate(weighted["weighted_score"])
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 1:
+            issues.append("calibration:invalid_probability")
+        else:
+            probability = value
+    return {
+        "status": "EX_G_AVAILABLE" if probability is not None else "BLOCKED",
+        "market": market, "probability": probability, "issues": issues,
+    }
+
+
+def assess_market_value(market, ex_g, quote, as_of):
+    """Apply the market price gate and compute a probability difference when available."""
+    if isinstance(quote, dict) and quote.get("market") != market:
+        odds = {"status": "BLOCKED", "issues": ["odds:market_mismatch"],
+                "decision": "NO_FINAL", "ex_final_allowed": False}
+    else:
+        odds = check_odds(quote, as_of)
+    implied = 1 / quote["decimal_odds"] if odds["status"] == "VERIFIED_INPUT" else None
+    probability = (ex_g["probability"]
+                   if ex_g["status"] == "EX_G_AVAILABLE" and ex_g["market"] == market else None)
+    if isinstance(probability, bool) or not isinstance(probability, (int, float)) or not 0 <= probability <= 1:
+        probability = None
+    issues = []
+    if probability is None:
+        issues.append("certified_ex_g_probability")
+    if implied is None:
+        issues.append("verified_market_quote")
+    return {
+        "odds_lock": odds, "bookmaker_implied_probability": implied, "ex_d_required_inputs": issues,
+        "ex_d": probability - implied if not issues else None,
+    }
 
 def weighted_evidence(features, as_of=None):
     """Each feature: {'score': float [0,1], 'verified': bool, 'source': str,
@@ -69,6 +115,9 @@ def assess_markets(evidence_by_market, as_of=None):
     if not isinstance(evidence_by_market,dict):
         evidence_by_market={}
     result={m:weighted_evidence(evidence_by_market.get(m,{}),as_of=as_of) for m in MARKETS}
+    for market, record in result.items():
+        record["ex_g"] = ex_g_from_evidence(market, record)
+        record["calibrated_probability"] = record["ex_g"]["probability"]
     return {"markets":result,"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
             "pup_allowed":False,"ex_final_allowed":False,
             "reason":"PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"}

@@ -10,10 +10,10 @@ from pathlib import Path
 
 from ex_auto_control import auto_control, snapshot
 from ex_cross_verify import norm
-from ex_decision import MARKETS, WEIGHTS, assess_markets
+from ex_decision import MARKETS, WEIGHTS, assess_market_value, assess_markets
 from ex_engine import baseline_backtest_observations, distribution
 from ex_espn_provider import parse_espn_scoreboard
-from ex_fixture_odds import check_fixture, check_odds
+from ex_fixture_odds import check_fixture
 from ex_model_challengers import compare_calibration
 from ex_ucl_baseline import cross_league_baseline
 from ex_ucl_strength import compare_league_challengers
@@ -25,11 +25,8 @@ from run_ucl_research import MATCHDAY_DATES, UEFA_SNAPSHOT, espn_fixtures, uefa_
 RUN_AS_OF = "2026-11-24T10:24:34Z"
 MARKET_FIELDS = {"2.5_UST": "over25", "KG_VAR": "btts", "MS1": "home_win", "MS2": "away_win", "MSX": "draw"}
 BLOCKERS = {
-    "team_strength": "Fit and validate a cross-league team-strength scale for each market.",
-    "fatigue": "Reconstruct complete all-competition match logs and player minutes before each kickoff.",
-    "rotation": "Join confirmed current and previous starting XIs by player ID.",
-    "player_importance": "Join reported absences to historical player minutes and validate a market effect.",
-    "context_model": "Fit market-specific context effects on archived prematch snapshots and later outcomes.",
+    "team_strength": "Validate the team-strength score for each market in the intended competition.",
+    "match_conditions": "Validate a market-specific score from prematch workload and reported material absences, with player minutes where needed. Use verified lineup-independent evidence when a starting XI is unavailable.",
     "external_factors": "Obtain archived travel and venue-effect observations and validate their market effects.",
     "calibration": "Validate frozen weighted-market forecasts on independent chronological outcomes.",
     "source_independence": "Verify independent providers and complete the ingestion/source controls.",
@@ -68,6 +65,8 @@ def context_measurements(load, preview, kickoff, captured_at):
         "max_hours_since_latest_match": round(min(hours), 2) if hours else None,
         "reported_out_count": reported_count(preview["out"]),
         "reported_doubtful_count": reported_count(preview["doubtful"]),
+        "reported_out": preview["out"],
+        "reported_doubtful": preview["doubtful"],
         "predicted_lineup_slots": len(players),
         "confirmed_rotation_changes": None,
         "absence_weighted_by_prior_minutes": None,
@@ -134,9 +133,11 @@ def replay_fixture(fixture, prematch, baseline, raw_dir, news, aliases, uefa_key
             (day - played).days <= 14 for played in prior
         )
     quotes = market_quotes(board_competition.get("odds", []), board_meta, fixture["kickoff_at"])
-    booked = defaultdict(list)
+    booked, recorded = defaultdict(list), defaultdict(list)
     for quote in quotes:
         booked[quote["market"]].append(quote)
+    for quote in prematch.get("market_quotes") or []:
+        recorded[quote["market"]].append(quote)
     archived = baseline["baseline"]
     scores = distribution(archived["lambda_home"], archived["lambda_away"])
     if not math.isclose(sum(scores[k] for k in ("home_win", "draw", "away_win")), 1, abs_tol=1e-9):
@@ -144,29 +145,41 @@ def replay_fixture(fixture, prematch, baseline, raw_dir, news, aliases, uefa_key
     independent_grid = score_grid_marginals(scores["lambda_home"], scores["lambda_away"])
     max_delta = max(abs(scores[market] - value) for market, value in independent_grid.items())
     consistent = (max_delta < 1e-9 and snapshot(scores) == snapshot(archived)
-                  and quotes == prematch["market_quotes"]
                   and {side: actual_load[team] for side, team in ids.items()} == prematch["observed_match_load"])
     fixture_lock = check_fixture({
         **fixture, "fixture_source": board_meta["url"], "fixture_checked_at": board_meta["retrieved_at"],
     }, RUN_AS_OF) if matchup in uefa_keys else {"status": "BLOCKED"}
-    # Recorded measurements have no vetted conversion into EX-G input scores.
+    # The underlying observations are available, but lack validated score mappings.
     weighted = assess_markets({}, as_of=RUN_AS_OF)
+    venue = board_competition.get("venue")
+    neutral_site = competition.get("neutralSite")
+    context_inputs = {
+        "match_conditions": {"status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+                             "measurements": ["observed_workload", "reported_absences"],
+                             "confirmed_lineup_required": False},
+        "external_factors": {"status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+                             "venue": venue, "neutral_site": neutral_site},
+    }
     markets = {}
     for market in MARKETS:
         offers = booked[market]
-        quote = offers[0] if len(offers) == 1 else None
-        odds_lock = check_odds(quote, RUN_AS_OF)
-        blocked = list(BLOCKERS)
-        valid_quote = odds_lock["status"] == "VERIFIED_INPUT"
-        if not valid_quote:
-            blocked.append("verified_market_quote")
+        quote_consistent = offers == recorded[market]
+        quote = offers[0] if quote_consistent and len(offers) == 1 else None
+        evidence = weighted["markets"][market]
+        ex_g = evidence["ex_g"]
+        value = assess_market_value(market, ex_g, quote, RUN_AS_OF)
+        if not quote_consistent:
+            value["odds_lock"]["issues"] = ["odds:replay_mismatch"]
+        p = scores[MARKET_FIELDS[market]]
         markets[market] = {
-            "team_strength_research_probability": scores[MARKET_FIELDS[market]],
-            "research_weighted_team_strength_contribution": WEIGHTS["team_strength"] * scores[MARKET_FIELDS[market]],
-            "weighted_evidence": weighted["markets"][market],
-            "bookmaker_implied_probability": 1 / quote["decimal_odds"] if valid_quote else None,
-            "odds_lock": odds_lock, "ex_g": None, "ex_d": None, "blockers": blocked,
-            "ex_d_required_inputs": ["certified_ex_g_probability"] + ([] if valid_quote else ["verified_market_quote"]),
+            "baseline": {"status": "AVAILABLE", "probability": archived[MARKET_FIELDS[market]]},
+            "research_probability": {"status": "UNCALIBRATED", "probability": p},
+            "team_strength_research_probability": p,
+            "research_weighted_team_strength_contribution": WEIGHTS["team_strength"] * p,
+            "weighted_evidence": evidence,
+            "ex_g_status": ex_g["status"], "ex_g_issues": ex_g["issues"],
+            "ex_g": ex_g["probability"], "quote_replay_consistent": quote_consistent,
+            **value,
         }
     percent = {m: round(100 * scores[k], 2) for m, k in MARKET_FIELDS.items()}
     gate_input = {
@@ -174,13 +187,15 @@ def replay_fixture(fixture, prematch, baseline, raw_dir, news, aliases, uefa_key
         "fixture_lock": fixture_lock, "market_baselines_pct": percent,
     }
     for record in markets.values():
-        record["auto_control"] = auto_control({**gate_input, "odds_lock": record["odds_lock"]})
+        control = auto_control({**gate_input, "odds_lock": record["odds_lock"]})
+        record["auto_control"] = control
+        record["final"] = {"status": "NO_FINAL", "issues": control["issues"], "ex_final_allowed": False}
     return {
         "fixture": fixture, "decision": "NO_FINAL", "fixture_lock": fixture_lock,
         "scoreboard_source": board_meta, "summary_source": summary_meta,
         "uefa_match_id": preview["uefa_match_id"],
-        "measurements": measurements, "venue": board_competition.get("venue"),
-        "neutral_site": competition.get("neutralSite"), "score_distribution": scores,
+        "measurements": measurements, "context_inputs": context_inputs, "venue": venue,
+        "neutral_site": neutral_site, "score_distribution": scores,
         "markets": markets, "tur2_recompute_consistent": consistent,
         "tur2_score_grid_max_absolute_delta": max_delta,
         "pup_allowed": False, "ex_final_allowed": False,
@@ -240,7 +255,7 @@ def league_replay(archive, config, uefa, aliases):
     return rows, compare_league_challengers(rounds[0] + rounds[1], rounds[2], rounds[3])
 
 
-def run(archive):
+def run(archive, *, experiments=False):
     config = json.loads(FIXTURE_CONFIG.read_text())
     prematch = json.loads(Path("reports/ucl_matchday5_prematch_2026_11_24.json").read_text())
     baselines = json.loads((archive / "archive_baselines.json").read_text())
@@ -270,20 +285,23 @@ def run(archive):
                               raw_dir, news, aliases, verified_fixtures, schedules) for f in today]
     if len(results) != 9 or any(not row["tur2_recompute_consistent"] for row in results):
         raise ValueError("Incomplete or inconsistent Tur-2 replay for today's fixtures")
-    historical_ucl, leagues_report = league_replay(archive, config, uefa, aliases)
-    return {
+    report = {
         "as_of": RUN_AS_OF, "fixtures": results, "uefa_preview_source": news_meta,
         "blocker_resolutions": {**BLOCKERS, "verified_market_quote": "Capture a bookmaker quote for the exact market before kickoff."},
-        "historical_calibration": calibrate_domestic(rows, schedules, historical_ucl, config, aliases),
-        "ucl_league_challengers": leagues_report,
-        "calibration_scope": "Retrospective domestic forecasts; workload proxies are domestic-only, date-granular.",
         "pup_allowed": False, "ex_final_allowed": False,
     }
+    if experiments:
+        historical_ucl, leagues_report = league_replay(archive, config, uefa, aliases)
+        report["historical_calibration"] = calibrate_domestic(rows, schedules, historical_ucl, config, aliases)
+        report["ucl_league_challengers"] = leagues_report
+        report["calibration_scope"] = "Retrospective domestic forecasts; workload proxies are domestic-only, date-granular."
+    return report
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--archive", type=Path, default=Path("ucl_research_output"))
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--experiments", action="store_true", help="Rerun historical experiments explicitly")
     args = parser.parse_args()
-    args.output.write_text(json.dumps(run(args.archive), ensure_ascii=False, indent=2) + "\n")
+    args.output.write_text(json.dumps(run(args.archive, experiments=args.experiments), ensure_ascii=False, indent=2) + "\n")

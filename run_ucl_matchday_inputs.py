@@ -57,13 +57,17 @@ def parse_team_news(raw):
 
 
 def market_quotes(odds, metadata, kickoff):
+    def object_at(node, *keys):
+        for key in keys:
+            node = node.get(key) if isinstance(node, dict) else None
+        return node if isinstance(node, dict) else {}
+
     offers = []
-    for quote in odds:
-        provider = quote.get("provider", {}).get("name")
-        moneyline = quote.get("moneyline", {})
-        home = moneyline.get("home", {}).get("close", {})
-        away = moneyline.get("away", {}).get("close", {})
-        over = quote.get("total", {}).get("over", {}).get("close", {})
+    for quote in odds if isinstance(odds, list) else ():
+        provider = object_at(quote, "provider").get("name")
+        home = object_at(quote, "moneyline", "home", "close")
+        away = object_at(quote, "moneyline", "away", "close")
+        over = object_at(quote, "total", "over", "close")
         selections = {"MS1": home, "MS2": away}
         if over.get("line") == "o2.5":
             selections["2.5_UST"] = over

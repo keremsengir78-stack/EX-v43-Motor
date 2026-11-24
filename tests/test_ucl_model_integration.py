@@ -44,13 +44,18 @@ class ModelIntegrationTests(unittest.TestCase):
         self.assertFalse(updated["production_allowed"])
 
     def test_frozen_real_replay_keeps_odds_separate_from_ex_g(self):
-        report = json.loads(Path("reports/ucl_matchday5_model_integration_2026_11_24.json").read_text())
+        report = json.loads(Path("reports/ucl_matchday5_decision_stages_2026_11_24.json").read_text())
         self.assertEqual(9, len(report["fixtures"]))
         self.assertFalse(report["pup_allowed"])
         for match in report["fixtures"]:
             self.assertTrue(match["tur2_recompute_consistent"])
             self.assertEqual("NO_FINAL", match["decision"])
+            self.assertFalse(match["context_inputs"]["match_conditions"]["confirmed_lineup_required"])
             for market in match["markets"].values():
+                self.assertEqual("AVAILABLE", market["baseline"]["status"])
+                self.assertEqual("UNCALIBRATED", market["research_probability"]["status"])
+                self.assertNotIn("verified_market_quote", market["ex_g_issues"])
+                self.assertEqual("NO_FINAL", market["final"]["status"])
                 self.assertIsNone(market["ex_g"])
                 self.assertIsNone(market["ex_d"])
                 self.assertFalse(market["auto_control"]["ex_final_allowed"])
