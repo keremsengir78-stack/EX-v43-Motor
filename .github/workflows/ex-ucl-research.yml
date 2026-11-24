@@ -1,0 +1,21 @@
+name: EX UCL research ingestion
+on:
+  workflow_dispatch:
+  push:
+    branches: [ex-v43-development]
+    paths: ['run_ucl_research.py', 'ex_espn_provider.py', '.github/workflows/ex-ucl-research.yml']
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python run_ucl_research.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ucl-research-evidence
+          path: ucl_research_output/
