@@ -221,6 +221,9 @@ jobs:
             exit 1
           fi
           python ex_publish_review_evidence.py
+          python ex_sync_strict_review_exports.py
+          python run_strict_review_export_audit.py
+          git add reports/strict_score_review_batch_*.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports/latest_pipeline_status.json
