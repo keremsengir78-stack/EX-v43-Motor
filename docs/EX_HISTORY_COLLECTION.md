@@ -42,3 +42,13 @@ Actions sekmesindeki **EX bulk history** sekiz sabit bölümü en fazla iki eşz
 Open-Meteo geçmiş hava arşivi, doğrulanmış saha konumları için sonradan üretilen yeniden analiz kaydını ayrı tutar. Ardışık bilinen sahaların büyük daire mesafesi ölçülebilir bir coğrafi vekildir. Gerçek seyahat rotası, zemin durumu veya maç öncesi hava tahmini olarak kullanılmaz. Saha kayıtları kimlik, ad ve koordinat kaynağı gerektirir. Ortak özellik çıkarıcı, analiz zamanından önce yakalanan maçları ve kadro sürelerini hesaba katar.
 
 Yerel çalışmanın ölçümleri `reports/ex_history_bulk_2026_11_24.json` dosyasındadır. Open-Meteo erişimi dört istekte HTTP 403 ile sonuçlandı. %50/%30/%20 modelinin bağımsız sınaması için zamanında yakalanmış dış etkenler, tam fikstür kapsamı ve bağımsız maç sonucu kökeni hâlâ gereklidir.
+
+## Devam toplaması ve skor kanıtı
+
+Mevcut sekiz bölüm ve önbellek anahtarları korunur. Bölüm başına yeni özet bütçesi 100 istektir. Başarılı tamamlanmış özetler ağ isteği yapmadan okunur ve en fazla iki bölüm aynı anda çalışır. Hatalar erişim engeli, hız sınırı, bulunamayan kaynak, sunucu/bağlantı hatası ve geçersiz içerik olarak raporlanır. HTTP 429 için saniye biçimindeki Retry-After uygulanır.
+
+Open-Meteo sonuç veremediğinde NASA POWER saatlik UTC yeniden analiz kaynağı denenir. Kaynak ve grid mesafesi çıktıda saklanır. Coğrafi saha mesafeleri `venue_geodesic_transitions` içinde, belgelenmiş seyahat gözlemleri `verified_travel_observations` alanında yer alır.
+
+`expanded` profili diğer 11 kayıtlı EX ligi için `config/ex_history_expansion.json` içindeki kaynakta görülen kulüp kimliklerini kullanır. Bu başlangıç listesi tam lig kadrosu veya tam sezon kapsamı garantisi vermez. Varsayılan `all` profili mevcut 4.177 maçlık planın ilerleyişini sürdürür.
+
+Skor kanıtı işi, ana motor denetiminden tarihsel eşleşmeyen maçları ve daha yeni tek kaynaklı sonuçları alır. Her lig ve gün için bir ESPN skor tablosu kullanır ve SHA-256 kaynak kaydı üretir. Aynı skorlar bağımsızlık incelemesi bekleyen aday, farklı skorlar çelişki olarak çıkar. Veri bu aşamada motor geçmişine aktarılmaz.

@@ -6,11 +6,12 @@ import json
 import os
 import tempfile
 import urllib.request
+from urllib.error import HTTPError, URLError
 from pathlib import Path
 from urllib.parse import urlsplit
 
 
-HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com"}
+HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com", "power.larc.nasa.gov"}
 MAX_BYTES = 5_000_000
 
 
@@ -132,18 +133,54 @@ class HistoryArchive:
         if failure.exists():
             checkpoint = json.loads(failure.read_text())
             if utc(checkpoint["retry_after"]) > self.clock():
-                raise ValueError(f"Source retry deferred: {checkpoint['error']}")
+                raise RetryDeferred(checkpoint)
         self.requests += 1
         try:
             raw = self.fetch(url)
-        except OSError as exc:
-            checkpoint = {"error": str(exc), "retry_after": (self.clock() + dt.timedelta(hours=1)).isoformat()}
+            captured = self.clock()
+            value = parse(raw, captured)
+        except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+            category = failure_class(exc)
+            delay = dt.timedelta(hours=24 if category in {"ACCESS_DENIED", "NOT_AVAILABLE"} else 1)
+            if isinstance(exc, HTTPError) and category == "RATE_LIMIT":
+                retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
+                if retry_after.isdecimal():
+                    delay = max(delay, dt.timedelta(seconds=int(retry_after)))
+            checkpoint = {"error": str(exc), "category": category,
+                          "retry_after": (self.clock() + delay).isoformat()}
             atomic_write(failure, json.dumps(checkpoint).encode())
             raise
-        captured = self.clock()
-        value = parse(raw, captured)
         failure.unlink(missing_ok=True)
         return value, self._record(url, raw, captured)
+
+
+class RetryDeferred(ValueError):
+    def __init__(self, checkpoint):
+        super().__init__(f"Source retry deferred: {checkpoint['error']}")
+        self.checkpoint = checkpoint
+
+
+def failure_class(exc):
+    if isinstance(exc, RetryDeferred):
+        return exc.checkpoint.get("category", "RETRY_DEFERRED")
+    if isinstance(exc, HTTPError):
+        if exc.code in (401, 403):
+            return "ACCESS_DENIED"
+        if exc.code == 429:
+            return "RATE_LIMIT"
+        if exc.code in (404, 410):
+            return "NOT_AVAILABLE"
+        return "UPSTREAM_HTTP" if exc.code >= 500 else "REQUEST_REJECTED"
+    if isinstance(exc, URLError) and "403" in str(exc.reason):
+        return "ACCESS_DENIED"
+    if isinstance(exc, OSError):
+        return "TRANSPORT"
+    return "INVALID_SOURCE_CONTENT"
+
+
+def source_error(stage, url, exc):
+    return {"stage": stage, "url": url, "category": failure_class(exc),
+            "retry_deferred": isinstance(exc, RetryDeferred), "error": str(exc)}
 
 
 def paced_download(interval):

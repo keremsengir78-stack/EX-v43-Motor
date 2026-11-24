@@ -7,7 +7,7 @@ on:
         type: choice
         description: Calendar scope
         default: all
-        options: [ucl, all]
+        options: [ucl, all, expanded]
   pull_request:
     branches: [ex-v43-development]
     paths:
@@ -17,6 +17,8 @@ on:
       - ex_history_*.py
       - run_ex_history_collection.py
       - run_ex_history_merge.py
+      - run_ex_history_scores.py
+      - config/ex_history_expansion.json
       - tests/test_history_bulk.py
 
 permissions:
@@ -46,7 +48,7 @@ jobs:
         env:
           PROFILE: ${{ inputs.profile || 'all' }}
         run: |
-          python run_ex_history_collection.py --config config/ex_history_bulk.json --profile "$PROFILE" --plan-only --cache ex_history_cache --output plan.json --budget 250 --request-interval 0.5
+          python run_ex_history_collection.py --config config/ex_history_bulk.json --profile "$PROFILE" --plan-only --cache ex_history_cache --output plan.json --budget 500 --request-interval 0.5
       - uses: actions/cache/save@v4
         if: always()
         with:
@@ -85,7 +87,7 @@ jobs:
           restore-keys: |
             ex-bulk-shard-v1-${{ github.ref }}-${{ matrix.shard }}-
             ex-history-v1-${{ github.ref }}-
-      - run: python run_ex_history_collection.py --plan plan.json --cache ex_history_cache --output "part-${{ matrix.shard }}.json" --shard "${{ matrix.shard }}" --shards 8 --budget 40 --request-interval 0.5
+      - run: python run_ex_history_collection.py --plan plan.json --cache ex_history_cache --output "part-${{ matrix.shard }}.json" --shard "${{ matrix.shard }}" --shards 8 --budget 100 --request-interval 0.5
       - uses: actions/cache/save@v4
         if: always()
         with:
@@ -134,3 +136,35 @@ jobs:
           path: |
             history-coverage.json
             weather_cache/
+
+  score-evidence:
+    needs: coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache/restore@v4
+        with:
+          path: score_cache
+          key: ex-bulk-score-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ex-bulk-score-v1-${{ github.ref }}-
+      - name: Build baseline queues and collect score evidence
+        run: |
+          python ex_one_command.py --as-of 2026-11-24 --seasons 2025-26 2026-27 --leagues en.1 de.1 es.1 it.1 fr.1 --outdir score_input
+          python run_ex_history_scores.py --data score_input --as-of 2026-11-24 --aliases config/premier_reviewed_aliases.json --cache score_cache --output score-evidence.json
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: score_cache
+          key: ex-bulk-score-v1-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: history-score-evidence-${{ github.run_attempt }}
+          path: |
+            score_input/
+            score_cache/
+            score-evidence.json

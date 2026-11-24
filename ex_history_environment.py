@@ -57,3 +57,40 @@ def weather_at(archive, point, kickoff_at):
         raise ValueError("Missing or invalid hourly weather observation")
     return {"kind": "RETROSPECTIVE_REANALYSIS", "hour_utc": hour + "Z",
             "values": values, "grid": result["grid"], "units": result["units"], "source": meta}
+
+
+def nasa_power_at(archive, point, kickoff_at):
+    """NASA POWER hourly reanalysis on its regional model grid."""
+    kickoff = utc(kickoff_at)
+    day = kickoff.strftime("%Y%m%d")
+    hour = kickoff.strftime("%Y%m%d%H")
+    parameters = {"temperature_2m": ("T2M", "C"), "precipitation": ("PRECTOTCORR", "mm/hour"),
+                  "wind_speed_10m": ("WS10M", "m/s")}
+    query = urlencode({"latitude": point[0], "longitude": point[1], "start": day, "end": day,
+                       "parameters": ",".join(code for code, _ in parameters.values()),
+                       "community": "RE", "time-standard": "UTC", "format": "JSON"})
+
+    def parse(raw, _):
+        payload = json.loads(raw)
+        lon, lat, *_ = payload["geometry"]["coordinates"]
+        grid = lat, lon
+        header = payload["header"]
+        if header["time_standard"] != "UTC" or separation_km(point, grid) > 100:
+            raise ValueError("NASA POWER grid or time zone mismatch")
+        values = {}
+        for name, (code, units) in parameters.items():
+            if payload["parameters"][code]["units"] != units:
+                raise ValueError(f"NASA POWER unexpected units for {code}")
+            value = payload["properties"]["parameter"][code][hour]
+            if type(value) not in (float, int) or not math.isfinite(value) or value == header["fill_value"]:
+                raise ValueError(f"NASA POWER missing observation for {code}")
+            if name != "temperature_2m" and value < 0:
+                raise ValueError(f"NASA POWER invalid observation for {code}")
+            values[name] = round(value * 3.6, 4) if name == "wind_speed_10m" else value
+        return grid, values
+
+    (grid, values), meta = archive.get("https://power.larc.nasa.gov/api/temporal/hourly/point?" + query, parse)
+    return {"kind": "RETROSPECTIVE_REANALYSIS", "provider": "NASA POWER", "grid": grid,
+            "grid_distance_km": separation_km(point, grid), "hour_utc": kickoff.strftime("%Y-%m-%dT%H:00Z"),
+            "values": values, "units": {"temperature_2m": "°C", "precipitation": "mm/hour",
+                                      "wind_speed_10m": "km/h"}, "source": meta}

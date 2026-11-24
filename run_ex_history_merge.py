@@ -7,8 +7,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from ex_historical_features import provider_context
-from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, utc
-from ex_history_environment import coordinates, separation_km, weather_at
+from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, failure_class, paced_download, utc
+from ex_history_environment import coordinates, nasa_power_at, separation_km, weather_at
 
 
 def assemble(plan, parts):
@@ -54,12 +54,16 @@ def summarize(plan, parts, archive, venues):
         point = coordinates(detail["venue"], venues)
         if point is None or now - utc(detail["kickoff_at"]) < dt.timedelta(days=7):
             continue
-        try:
-            weather[event] = weather_at(archive, point, detail["kickoff_at"])
-        except BudgetExhausted:
-            break
-        except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
-            weather_errors.append({"event_id": event, "error": str(exc)})
+        for provider, fetch in (("Open-Meteo", weather_at), ("NASA POWER", nasa_power_at)):
+            try:
+                weather[event] = {"provider": provider, **fetch(archive, point, detail["kickoff_at"])}
+            except BudgetExhausted:
+                break
+            except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+                weather_errors.append({"event_id": event, "provider": provider,
+                                       "category": failure_class(exc), "error": str(exc)})
+            else:
+                break
     travel = []
     contexts = []
     for calendar in plan["calendars"]:
@@ -88,6 +92,7 @@ def summarize(plan, parts, archive, venues):
             if values and all(value is not None for value in values):
                 complete += 1
                 balanced += int(sum(values) == 990)
+    errors = plan["errors"] + [error for part in parts for error in part["errors"]]
     placeholder = sum(not detail["completed"] for detail in details.values())
     return {
         "as_of": now.isoformat(), "calendar_coverage": plan["coverage"],
@@ -96,9 +101,11 @@ def summarize(plan, parts, archive, venues):
         "requested_summaries": sum(part["requests"] for part in parts),
         "summary_cache_hits": sum(part["cache_hits"] for part in parts),
         "deferred_summaries": sum(part["deferred"] for part in parts),
-        "errors": plan["errors"] + [error for part in parts for error in part["errors"]],
+        "errors": errors,
+        "source_failure_counts": dict(Counter(error.get("category", "LEGACY_UNCLASSIFIED")
+                                     for error in errors)),
         "weather": weather, "weather_errors": weather_errors,
-        "venue_geodesic_transitions": travel, "observed_team_contexts": contexts,
+        "venue_geodesic_transitions": travel, "verified_travel_observations": [], "observed_team_contexts": contexts,
         "minute_arithmetic": {"complete_nominal_team_totals": complete, "balanced_990": balanced},
         "model_validation": plan["model_validation"], "calibration_certified": False, "ex_final_allowed": False,
     }
@@ -117,9 +124,12 @@ def main():
     result = summarize(plan, parts, HistoryArchive(args.cache, 4, fetch=paced_download(.5)),
                        json.loads(args.venues.read_text()))
     atomic_write(args.output, (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode())
-    print(json.dumps({key: result[key] for key in ("calendar_coverage", "completed_summaries", "summary_fraction",
+    print(json.dumps({**{key: result[key] for key in ("calendar_coverage", "completed_summaries", "summary_fraction",
                                                      "requested_summaries", "summary_cache_hits", "deferred_summaries",
-                                                     "minute_arithmetic")}))
+                                                     "minute_arithmetic", "source_failure_counts")},
+                      "weather_observations": len(result["weather"]),
+                      "weather_failure_counts": dict(Counter(f"{e['provider']}:{e['category']}"
+                                                             for e in result["weather_errors"]))}))
 
 
 if __name__ == "__main__":

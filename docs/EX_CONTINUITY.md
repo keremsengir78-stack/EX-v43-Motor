@@ -261,3 +261,8 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Yerel sekiz bölümlü toplamada 462 özet doğrulandı ve 3.715 özet sonraki bütçeye kaldı. Özetlerin 208'i 2025, 254'ü 2026 sağlayıcı sezonuna ait. Nominal süre aritmetiğine uygun 819 takım toplamının tamamı 990 dakika verdi.
 - Ortak özellik çıkarıcı, kaynağın analiz kesiminden önce gözlendiğini kontrol ederek fikstür aralıklarını, 14 günlük görünür maç yükünü ve oyuncu sürelerini çıkarır. Open-Meteo 403 döndürdü. Kayıtlı sahalarda bir coğrafi mesafe hesaplanabildi. Bağımsız model kalibrasyonu için kanıt yetersiz.
 - Toplu çalıştırma `.github/workflows/ex-history-bulk.yml`, yöntem ve devam talimatları `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_bulk_2026_11_24.json` içindedir.
+
+## 2026-11-24 — Toplu tarihsel toplamayı sürdürme
+
+- Korunan önbellekten ilk devam turunda 654 eski ve 320 yeni özet doğrulandı. Toplam 974/4.177, kalan 3.203. Nominal süreye uygun 1.723 takım toplamının tamamı 990 dakikaydı.
+- Sekiz bölümde en çok iki eşzamanlı işi koruyarak bölüm başına bütçe 100'e çıkarıldı. Kaynak hataları ve bekleme kayıtları sınıflandırılıyor. NASA POWER hava alternatifi, diğer 11 lig için genişleme yapılandırması ve ana motorun iki skor kuyruğu için günlük kanıt toplayıcısı eklendi.

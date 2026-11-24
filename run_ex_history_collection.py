@@ -8,8 +8,8 @@ from itertools import zip_longest
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, utc
-from ex_history_sources import ESPN, identifier, match_detail, schedule, uefa_news
+from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, source_error, utc
+from ex_history_sources import ESPN, identifier, league_slug, match_detail, schedule, uefa_news
 
 
 def collect_details(events, archive, shard=0, shards=1):
@@ -21,14 +21,16 @@ def collect_details(events, archive, shard=0, shards=1):
         by_season[str(event.get("source_season"))].append(event)
     ordered = (event for group in zip_longest(*by_season.values()) for event in group if event is not None)
     for event in ordered:
-        url = f"{ESPN}/{event['competition']}/summary?event={event['event_id']}"
+        competition = league_slug(event["competition"])
+        event_id = identifier(event["event_id"])
+        url = f"{ESPN}/{competition}/summary?event={event_id}"
         try:
             value, meta = archive.get(url, lambda raw, captured: match_detail(raw, captured, event),
                                       reusable=lambda item: item["completed"])
         except BudgetExhausted:
             deferred += 1
         except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
-            errors.append({"stage": "summary", "url": url, "error": str(exc)})
+            errors.append(source_error("summary", url, exc))
         else:
             details.append({**value, "source": meta})
     return {"shard": shard, "shards": shards, "assigned": len(assigned), "match_details": details,
@@ -52,7 +54,7 @@ def collect(config, archive, *, plan_only=False):
         except BudgetExhausted:
             deferred[stage] += 1
         except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
-            errors.append({"stage": stage, "url": url, "error": str(exc)})
+            errors.append(source_error(stage, url, exc))
         return None
 
     # Request each team/season only once. A shared fixture has a single detail per provider ID.
@@ -104,7 +106,7 @@ def collect(config, archive, *, plan_only=False):
                         previews.append({**value, "source": meta})
                     continue
             except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
-                errors.append({"stage": "uefa_archive", "url": url, "error": str(exc)})
+                errors.append(source_error("uefa_archive", url, exc))
                 continue
             parsed = read("uefa", url, lambda raw, captured: uefa_news(raw, captured, [target]),
                           max_age=dt.timedelta(hours=6))
@@ -149,7 +151,8 @@ def main():
     parser.add_argument("--config", type=Path)
     parser.add_argument("--plan", type=Path, help="Process a previously collected plan")
     parser.add_argument("--plan-only", action="store_true")
-    parser.add_argument("--profile", choices=("ucl", "all"), default="ucl")
+    parser.add_argument("--profile", choices=("ucl", "all", "expanded"), default="ucl")
+    parser.add_argument("--expansion", type=Path, default=Path("config/ex_history_expansion.json"))
     parser.add_argument("--shard", type=int, default=0)
     parser.add_argument("--shards", type=int, default=1)
     parser.add_argument("--request-interval", type=float, default=.25)
@@ -174,8 +177,14 @@ def main():
         print(json.dumps({key: value for key, value in report.items() if key != "match_details"}))
         return
     config = json.loads(args.config.read_text())
-    if args.profile == "all":
+    if args.profile in {"all", "expanded"}:
         config["teams"].extend(config.get("main_teams", []))
+    if args.profile == "expanded":
+        from ex_espn_provider import ESPN_LEAGUES
+        for league, entry in json.loads(args.expansion.read_text())["leagues"].items():
+            if ESPN_LEAGUES.get(league) != entry["espn_competition"]:
+                raise ValueError(f"Unknown expansion competition mapping: {league}")
+            config["teams"].extend(entry["teams"])
     if args.import_uefa_directory:
         meta = json.loads((args.import_uefa_directory / "report.json").read_text())["uefa_preview_source"]
         if Path(meta["file"]).name != meta["file"]:
