@@ -247,3 +247,10 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - Dört pazar için saha gerçekleşme sıklıkları, son 5–10 maç gol farkı değişimi, dinlenme ve yerel fikstür yükü ayrı adaylar olarak sınandı. Birleşik aday da denendi. Karşılaştırma, aynı 979 maçta 173 eğitim, 271 doğrulama, 535 kronolojik test ve 54 UCL aktarım maçıyla yapıldı. Referans kimlik ve Platt arasından doğrulama döneminde seçildi.
 - MS1 saha sıklığı hem yerel Brier (0,22009 → 0,21979) hem UCL Brier (0,29264 → 0,29159) değerini sayısal olarak düşürdü. Yerel %99 haftalık blok aralığı sıfırı içeriyor. 2.5 ÜST yük adayı iki testte kötüleşti, MS2 form adayı UCL'de kötüleşti ve KG VAR mevcut referansta kaldı.
 - Arşivde seyahat, hava, saha değişikliği, zaman damgalı oyuncu durumu ve tüm müsabaka takvimi için yeterli tarihsel kanıt yok. Adayların hiçbiri üretimde doğrulanmış puan ya da kalibrasyon olarak kaydedilmedi. EX FINAL ve PUP sınırları korundu. Ayrıntılı rapor `reports/ex_component_experiment_2026_11_24.json`.
+
+## 2026-11-24: Tarihsel kaynak toplama altyapısı
+
+- Python ve GitHub Actions, birden çok takım/sezonun ESPN takvimini ve maç özetlerini bütçeli olarak toplar. UEFA maç önü eksik kaydı SHA-256 doğrulamalı eski yakalamadan tekrar oynatılabilir. Arşiv, geçmiş ve yeni yakalamaları ayrı tutar.
+- Arsenal ve Dortmund pilotu 44 farklı takvim maçı gösterdi. Seçilen tarih aralığında beş müsabakadan 14 maçın özeti ve 579 oyuncu satırı alındı. 539 satırda nominal normal süre çıkarıldı. ESPN doğrudan dakika vermedi. 14 özet saha verisi sağladı. Hava ve seyahat kanıtı bulunmadı.
+- Bütçe duraklaması 8 istek, devam 9 yeni istek ve 8 önbellek okuması, tamamlanmış tekrar 0 istek ve 17 önbellek okuması ile doğrulandı. Son kayıtlar önceki model araştırmalarını değiştirmez. Bağımsız maç önü ve sonuç kapsamı henüz %50/%30/%20 model doğrulaması için yetersiz.
+- Çalıştırma bilgileri `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_collection_pilot_2026_11_24.json` içinde.

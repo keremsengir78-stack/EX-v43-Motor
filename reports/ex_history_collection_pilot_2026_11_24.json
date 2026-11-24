@@ -1,0 +1,162 @@
+{
+  "config": "config/ex_history_pilot.json",
+  "measurements": [
+    {
+      "phase": "initial_budget",
+      "status": "PARTIAL_BUDGET",
+      "requests": 8,
+      "cache_hits": 0,
+      "deferred": {
+        "summary": 9
+      },
+      "coverage": {
+        "schedule_seeds": 2,
+        "schedule_responses": 2,
+        "unique_schedule_events": 44,
+        "summaries": 5,
+        "player_rows": 206,
+        "provider_minutes": 0,
+        "nominal_regulation_minutes": 206,
+        "prematch_uefa_previews": 1
+      }
+    },
+    {
+      "phase": "resume",
+      "status": "COLLECTION_COMPLETE",
+      "requests": 9,
+      "cache_hits": 8,
+      "deferred": {},
+      "coverage": {
+        "schedule_seeds": 2,
+        "schedule_responses": 2,
+        "unique_schedule_events": 44,
+        "summaries": 14,
+        "player_rows": 579,
+        "provider_minutes": 0,
+        "nominal_regulation_minutes": 539,
+        "prematch_uefa_previews": 1
+      }
+    },
+    {
+      "phase": "cache_replay",
+      "status": "COLLECTION_COMPLETE",
+      "requests": 0,
+      "cache_hits": 17,
+      "deferred": {},
+      "coverage": {
+        "schedule_seeds": 2,
+        "schedule_responses": 2,
+        "unique_schedule_events": 44,
+        "summaries": 14,
+        "player_rows": 579,
+        "provider_minutes": 0,
+        "nominal_regulation_minutes": 539,
+        "prematch_uefa_previews": 1
+      }
+    }
+  ],
+  "events_by_competition": {
+    "uefa.champions": 4,
+    "ger.1": 4,
+    "ger.dfb_pokal": 1,
+    "eng.1": 4,
+    "eng.league_cup": 1
+  },
+  "model_validation": {
+    "status": "BLOCKED",
+    "missing": [
+      "certified all-competition coverage",
+      "complete timestamped context and external effects",
+      "independent prematch feature and settled score provenance"
+    ]
+  },
+  "ex_final_allowed": false,
+  "matches_with_venue": 14,
+  "matches_with_weather": 0,
+  "match_source_hashes": {
+    "401879232": {
+      "retrieved_at": "2026-11-24T11:42:16.624422+00:00",
+      "sha256": "e16aa1d2693a1039dfa4de6b4ddd73d21dd0c77e8e5083ad7d12d0e704627558",
+      "size": 434679,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879232"
+    },
+    "401884731": {
+      "retrieved_at": "2026-11-24T11:42:16.824598+00:00",
+      "sha256": "130a4bb3407a04b608e6d37fb208a2b02760116121798de54455de37ef74d30a",
+      "size": 396696,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884731"
+    },
+    "401878760": {
+      "retrieved_at": "2026-11-24T11:42:17.228905+00:00",
+      "sha256": "bcf257522db0bceb18257e00fc6f714d8d69313c0cdb658d34a648c7f533f064",
+      "size": 424580,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878760"
+    },
+    "401884745": {
+      "retrieved_at": "2026-11-24T11:42:17.573603+00:00",
+      "sha256": "64ef34a6f8dd62985ae3ab920df1559d63d2f6522e4f622fdf5163ceb6794627",
+      "size": 401037,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884745"
+    },
+    "401915381": {
+      "retrieved_at": "2026-11-24T11:42:17.764885+00:00",
+      "sha256": "9236636316d1416c14de7dd1dc743ea6fbf0397ea9c62bcb413054380d17e119",
+      "size": 470266,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915381"
+    },
+    "401915304": {
+      "retrieved_at": "2026-11-24T11:43:34.347274+00:00",
+      "sha256": "3b9326683db4b8a85d360ff6b3d70f13c5f3f7aa70b48543091f3432ed82b597",
+      "size": 445630,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915304"
+    },
+    "401879246": {
+      "retrieved_at": "2026-11-24T11:43:34.534065+00:00",
+      "sha256": "0824ece8335492c8646275568753d26e769b7c75f3e4142600f385fdeecd976a",
+      "size": 434057,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879246"
+    },
+    "401884754": {
+      "retrieved_at": "2026-11-24T11:43:34.804095+00:00",
+      "sha256": "7ceb37e4c5ceedd56ba4f2e3e7472781ddd5417acee58ea57e3e65d143eb090c",
+      "size": 420004,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884754"
+    },
+    "401921835": {
+      "retrieved_at": "2026-11-24T11:43:35.050188+00:00",
+      "sha256": "564f95ce4701534d8707722f56855d7a7ab7d516e134cf0690341c8118930769",
+      "size": 349408,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/summary?event=401921835"
+    },
+    "401917030": {
+      "retrieved_at": "2026-11-24T11:43:35.248674+00:00",
+      "sha256": "c02252379d0c6c779b3b156144e24ed72e8c112f9f01de6301e54b6f35008a85",
+      "size": 265123,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.dfb_pokal/summary?event=401917030"
+    },
+    "401884763": {
+      "retrieved_at": "2026-11-24T11:43:35.589763+00:00",
+      "sha256": "eb8741c0f37cd8a21f92c68a99d2685b5f55ca463a563c6ccaae862e60aa3fce",
+      "size": 389807,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884763"
+    },
+    "401878768": {
+      "retrieved_at": "2026-11-24T11:43:35.815887+00:00",
+      "sha256": "e947258980f711f836f2333b3c35e5ff6d02941d258edb67ce9ebb43c0f3de52",
+      "size": 421629,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878768"
+    },
+    "401915312": {
+      "retrieved_at": "2026-11-24T11:43:36.020976+00:00",
+      "sha256": "3810ae54a8fc01db4845be93779aef0be7efcf77f746190638959e285c334dd0",
+      "size": 454794,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915312"
+    },
+    "401915404": {
+      "retrieved_at": "2026-11-24T11:43:36.285900+00:00",
+      "sha256": "75990e522349219c72debef60e3f8c0367c7dbb69072f40357ac36268417aa0b",
+      "size": 442844,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915404"
+    }
+  }
+}
