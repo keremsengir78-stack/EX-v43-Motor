@@ -12,12 +12,16 @@ from run_ex_prospective_validation import evaluate, join_holdout
 
 class ProductionResearchTests(unittest.TestCase):
     def test_official_match_timeline_reconciles_both_team_totals(self):
-        fixture = json.loads(Path("research/ucl/domestic-minutes-pilot.json").read_text())
-        for team in fixture["teams"].values():
-            result = minutes_from_timeline(team["starters"], team["substitutions"])
-            self.assertEqual(990, sum(result.values()))
-            self.assertEqual(16, len(result))
-        self.assertEqual(8, minutes_from_timeline(**fixture["teams"]["home"])["Alaa Ghram"])
+        fixtures = [json.loads(path.read_text()) for path in (
+            Path("research/ucl/domestic-minutes-pilot.json"),
+            Path("research/ucl/domestic-minutes-czech-pilot.json"),
+        )]
+        for fixture in fixtures:
+            for team in fixture["teams"].values():
+                result = minutes_from_timeline(team["starters"], team["substitutions"])
+                self.assertEqual(990, sum(result.values()))
+                self.assertEqual(16, len(result))
+        self.assertEqual(8, minutes_from_timeline(**fixtures[0]["teams"]["home"])["Alaa Ghram"])
 
     def test_invalid_substitution_is_rejected(self):
         with self.assertRaises(ValueError):
