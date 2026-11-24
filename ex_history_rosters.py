@@ -1,6 +1,7 @@
 """Season participant evidence from explicit ESPN standings responses."""
 
 import json
+from urllib.parse import urlsplit
 
 from ex_history_archive import BudgetExhausted, source_error
 from ex_history_sources import identifier, league_slug
@@ -26,8 +27,19 @@ def expand_rosters(leagues, seasons, archive):
             url = f"https://site.api.espn.com/apis/v2/sports/soccer/{competition}/standings?season={season}"
             observed = {item["espn_team_id"] for item in config["teams"] if item["season"] == season}
             if not expected_uid:
-                roster.append({"league": league, "season": season, "status": "NO_VALIDATED_STANDINGS_ADAPTER",
-                               "observed_seed_count": len(observed)})
+                reviewed = config.get("reviewed_standings", {}).get(str(season))
+                record = {"league": league, "season": season, "status": "NO_VALIDATED_STANDINGS_ADAPTER",
+                          "observed_seed_count": len(observed)}
+                if reviewed:
+                    names = reviewed["teams"]
+                    url = urlsplit(reviewed["source"])
+                    if (url.scheme != "https" or not url.hostname or len(names) != len(set(names))
+                            or len(names) < 8 or any(not name.strip() for name in names)):
+                        raise ValueError("Invalid reviewed standings catalog")
+                    record.update(status="REVIEWED_EXTERNAL_STANDINGS", participant_count=len(names),
+                                  participant_names=names, source={"url": reviewed["source"],
+                                  "reviewed_on": reviewed["reviewed_on"]}, summary_coverage_certified=False)
+                roster.append(record)
                 continue
             try:
                 teams, source = archive.get(

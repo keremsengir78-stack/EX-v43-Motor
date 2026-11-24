@@ -205,7 +205,10 @@ def main():
             Path("research/ucl"), leagues,
         )
         report["errors"].extend(roster_errors)
-        report["coverage"]["standings_rosters_observed"] = sum("source" in r for r in roster_evidence)
+        report["coverage"]["standings_rosters_observed"] = sum(r["status"] == "PROVIDER_STANDINGS_OBSERVED" for r in roster_evidence)
+        report["coverage"]["external_standings_rosters_reviewed"] = sum(
+            r["status"] == "REVIEWED_EXTERNAL_STANDINGS" for r in roster_evidence
+        )
         report["coverage"]["standings_rosters_targeted"] = len(roster_evidence)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({key: report[key] for key in ("status", "coverage", "requests", "cache_hits", "deferred", "errors")}))

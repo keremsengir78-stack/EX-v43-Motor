@@ -923,7 +923,45 @@
           "espn_team_id": "521",
           "season": 2026
         }
-      ]
+      ],
+      "reviewed_standings": {
+        "2025": {
+          "source": "https://www.rsssf.org/tabless/slow2026.html",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "ŠK Slovan Bratislava",
+            "FK DAC 1904 Dunajská Streda",
+            "MŠK Žilina",
+            "FC Spartak Trnava",
+            "FK Železiarne Podbrezová",
+            "MFK Zemplín Michalovce",
+            "MFK Ružomberok",
+            "AS Trenčín",
+            "FC Košice",
+            "KFC Komárno",
+            "FC Tatran Prešov",
+            "MFK Skalica"
+          ]
+        },
+        "2026": {
+          "source": "https://sportnet.sme.sk/futbalnet/z/ulk.futbalnet.sk/s/nike-liga/tabulky/",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "FK DAC 1904 Dunajská Streda",
+            "ŠK Slovan Bratislava",
+            "MŠK Žilina",
+            "FC Spartak Trnava",
+            "FK Železiarne Podbrezová",
+            "FC Košice",
+            "MFK Zemplín Michalovce",
+            "MFK Dukla Banská Bystrica",
+            "KFC Komárno",
+            "MFK Ružomberok",
+            "AS Trenčín",
+            "MFK Skalica"
+          ]
+        }
+      }
     },
     "cz.1": {
       "espn_competition": "cze.1",
@@ -936,7 +974,53 @@
           "espn_team_id": "494",
           "season": 2026
         }
-      ]
+      ],
+      "reviewed_standings": {
+        "2025": {
+          "source": "https://www.rsssf.org/tablest/tsje2026.html",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "SK Slavia Praha",
+            "AC Sparta Praha",
+            "FC Viktoria Plzeň",
+            "FK Jablonec",
+            "FC Hradec Králové",
+            "FC Slovan Liberec",
+            "SK Sigma Olomouc",
+            "FK Pardubice",
+            "MFK Karviná",
+            "Bohemians Praha 1905",
+            "FK Mladá Boleslav",
+            "FC Zlín",
+            "FK Teplice",
+            "FK Dukla Praha",
+            "1. FC Slovácko",
+            "FC Baník Ostrava"
+          ]
+        },
+        "2026": {
+          "source": "https://www.chanceliga.cz/tabulka/2027/aktualni",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "SK Slavia Praha",
+            "FC Slovan Liberec",
+            "FK Mladá Boleslav",
+            "AC Sparta Praha",
+            "FK Teplice",
+            "SK Sigma Olomouc",
+            "FC Viktoria Plzeň",
+            "FK Jablonec",
+            "FC Zbrojovka Brno",
+            "Bohemians Praha 1905",
+            "FK Pardubice",
+            "FC Hradec Králové",
+            "FC Baník Ostrava",
+            "SK Artis Brno",
+            "1. FC Slovácko",
+            "FC Zlín"
+          ]
+        }
+      }
     },
     "ua.1": {
       "espn_competition": "ukr.1",
@@ -949,7 +1033,53 @@
           "espn_team_id": "493",
           "season": 2026
         }
-      ]
+      ],
+      "reviewed_standings": {
+        "2025": {
+          "source": "https://www.rsssf.org/tableso/oekr2026.html",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "Shakhtar Donetsk",
+            "LNZ Cherkasy",
+            "Polissya Zhytomyr",
+            "Dynamo Kyiv",
+            "Metalist 1925 Kharkiv",
+            "Kolos Kovalivka",
+            "Kryvbas Kryvyi Rih",
+            "Zorya Luhansk",
+            "Karpaty Lviv",
+            "Epicentr",
+            "Veres Rivne",
+            "Obolon Kyiv",
+            "Kudrivka",
+            "Rukh Lviv",
+            "Oleksandriya",
+            "Poltava"
+          ]
+        },
+        "2026": {
+          "source": "https://upl.ua/en",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "Shakhtar",
+            "Polissya",
+            "Dynamo",
+            "Karpaty",
+            "Kharkiv",
+            "LNZ",
+            "Zorya",
+            "Bukovyna",
+            "Kolos",
+            "Epicentr",
+            "Livyi Bereh",
+            "Chornomorets",
+            "Veres",
+            "Obolon",
+            "Kudrivka",
+            "Kryvbas"
+          ]
+        }
+      }
     },
     "az.1": {
       "espn_competition": "aze.1",
@@ -962,7 +1092,45 @@
           "espn_team_id": "21922",
           "season": 2026
         }
-      ]
+      ],
+      "reviewed_standings": {
+        "2025": {
+          "source": "https://www.rsssf.org/tablesa/azer2026.html",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "Sabah",
+            "Qarabağ",
+            "Turan Tovuz",
+            "Neftçi",
+            "Zirä",
+            "Araz Naxçıvan",
+            "Sumqayıt",
+            "Şamaxı",
+            "İmişli",
+            "Käpäz",
+            "Qäbälä",
+            "Karvan"
+          ]
+        },
+        "2026": {
+          "source": "https://www.rsssf.org/tablesa/azer2027.html",
+          "reviewed_on": "2026-11-24",
+          "teams": [
+            "Neftçi",
+            "Sabah",
+            "Turan Tovuz",
+            "Qarabağ",
+            "Zirä",
+            "Käpäz",
+            "Şamaxı",
+            "İmişli",
+            "Sumqayıt",
+            "Qäbälä",
+            "Şäfa",
+            "Araz Naxçıvan"
+          ]
+        }
+      }
     }
   }
 }
