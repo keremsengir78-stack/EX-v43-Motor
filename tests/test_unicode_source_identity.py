@@ -43,5 +43,22 @@ class UnicodeIdentitySafetyTests(unittest.TestCase):
         self.assertFalse(result["editorial_independence_attested"])
 
 
+    def test_invalid_utf8_snapshot_is_blocked(self):
+        row = observation("A")
+        row["captured_content"] = "\ud800"
+        result = compare_source_content([row, observation("B")], FACTS)
+        self.assertIn("source:0:content_invalid_unicode", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+    def test_deeply_nested_snapshot_is_blocked(self):
+        row = observation("A")
+        snapshot = "[" * 10000 + "0" + "]" * 10000
+        row["captured_content"] = snapshot
+        row["content_sha256"] = hashlib.sha256(snapshot.encode("utf-8")).hexdigest()
+        result = compare_source_content([row, observation("B")], FACTS)
+        self.assertIn("source:0:content_not_structured", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])
+
+
 if __name__ == "__main__":
     unittest.main()
