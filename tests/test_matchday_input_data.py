@@ -1,11 +1,28 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from datetime import date, timedelta
 
 from ex_baseline_calibration import chronological_intercept
+from run_ucl_baselines import calculate_baselines, FIXTURE_CONFIG
 from run_ucl_matchday_inputs import market_quotes
 
 
 class MatchdayInputDataTests(unittest.TestCase):
+    def test_curated_home_samples_cover_all_four_missing_clubs(self):
+        config = json.loads(FIXTURE_CONFIG.read_text())
+        expected = {
+            "Slovan Bratislava": [5, 10, 15, 16], "Sabah": [5, 10, 11, 17],
+            "Slavia Praha": [5, 10, 15, 17], "Shakhtar Donetsk": [5, 10, 13, 15],
+        }
+        with tempfile.TemporaryDirectory() as empty:
+            _, _, results = calculate_baselines(Path(empty), config)
+        found = {row["fixture"]["home"]: row["samples"]["home"]["counts"] for row in results
+                 if row["fixture"]["home"] in expected}
+        self.assertEqual(expected, found)
+        self.assertTrue(all(not row["ex_final_allowed"] for row in results))
+
     def test_exact_total_and_prematch_cutoff(self):
         quote = {
             "provider": {"name": "Book"},

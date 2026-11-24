@@ -42,15 +42,17 @@ def captured_rows(root):
                         and match.get("date") and match["date"] < CUTOFF):
                     yield "openfootball", league, match["date"], match["team1"], match["team2"], *score
 
-    shakhtar = Path(__file__).resolve().parent / "research/ucl/shakhtar-domestic.json"
-    if shakhtar.exists():
-        source = json.loads(shakhtar.read_text())
+    evidence_dir = Path(__file__).resolve().parent / "research/ucl"
+    for filename in (
+        "shakhtar-domestic.json", "slovan-domestic.json", "sabah-domestic.json", "slavia-domestic.json",
+    ):
+        source = json.loads((evidence_dir / filename).read_text())
         for match in source["fixtures"]:
             if len({entry["url"] for entry in match["sources"]}) < 2:
-                raise ValueError("Shakhtar result missing second source")
+                raise ValueError(f"{filename}: result missing second source")
             score = match["score"]
             if len(score) != 2 or any(type(goal) is not int or not 0 <= goal <= 30 for goal in score):
-                raise ValueError("Invalid Shakhtar score")
+                raise ValueError(f"{filename}: invalid result score")
             yield "curated_club_results", source["league"], match["date"], match["home"], match["away"], *score
 
     domestic = root / "domestic"

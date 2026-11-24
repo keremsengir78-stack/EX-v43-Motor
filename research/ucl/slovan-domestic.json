@@ -1,0 +1,629 @@
+{
+  "league": "sk.1",
+  "club": "Slovan Bratislava",
+  "scope": "15 current-season league matches and 16 previous-season home league matches. Dates follow the home league or the domestic fixture list. BeSoccer dates sometimes differ by one day. Second-source checks use the season, competition, home/away pair and score.",
+  "captured_on": "2026-11-24",
+  "fixtures": [
+    {
+      "date": "2025-08-02",
+      "home": "Slovan Bratislava",
+      "away": "Podbrezová",
+      "score": [
+        4,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-08-02"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-08-03, league round 2, Slovan Bratislava – Podbrezová",
+          "listed_date": "2025-08-03"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-16",
+      "home": "Slovan Bratislava",
+      "away": "MFK Skalica",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-08-16"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-08-17, league round 4, Slovan Bratislava – MFK Skalica",
+          "listed_date": "2025-08-17"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "home": "Slovan Bratislava",
+      "away": "FC Košice",
+      "score": [
+        3,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-08-31"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-09-01, league round 6, Slovan Bratislava – FK Košice",
+          "listed_date": "2025-09-01"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-20",
+      "home": "Slovan Bratislava",
+      "away": "DAC Dunajská Streda",
+      "score": [
+        3,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-09-20"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-09-21, league round 8, Slovan Bratislava – DAC",
+          "listed_date": "2025-09-21"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "home": "Slovan Bratislava",
+      "away": "Tatran Prešov",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-10-26"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-10-27, league round 12, Slovan Bratislava – Tatran Prešov",
+          "listed_date": "2025-10-27"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "home": "Slovan Bratislava",
+      "away": "KFC Komárno",
+      "score": [
+        3,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-11-09"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-11-09, league round 14, Slovan Bratislava – KFC Komárno",
+          "listed_date": "2025-11-09"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "home": "Slovan Bratislava",
+      "away": "Zemplín Michalovce",
+      "score": [
+        3,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-11-30"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-11-30, league round 16, Slovan Bratislava – Zemplin Michalovce",
+          "listed_date": "2025-11-30"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-03",
+      "home": "Slovan Bratislava",
+      "away": "MFK Ružomberok",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-12-03"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-12-04, league round 10, Slovan Bratislava – Ruzomberok",
+          "listed_date": "2025-12-04"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-14",
+      "home": "Slovan Bratislava",
+      "away": "MŠK Žilina",
+      "score": [
+        3,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2025-12-14"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2025-12-15, league round 18, Slovan Bratislava – Žilina",
+          "listed_date": "2025-12-15"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-14",
+      "home": "Slovan Bratislava",
+      "away": "AS Trenčín",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-02-14"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-02-14, league round 20, Slovan Bratislava – Trenčín",
+          "listed_date": "2026-02-14"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-28",
+      "home": "Slovan Bratislava",
+      "away": "Spartak Trnava",
+      "score": [
+        4,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-02-28"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-02-28, league round 22, Slovan Bratislava – Spartak Trnava",
+          "listed_date": "2026-02-28"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "home": "Slovan Bratislava",
+      "away": "MŠK Žilina",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-03-15"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-03-16, league round 2, Slovan Bratislava – Žilina",
+          "listed_date": "2026-03-16"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-22",
+      "home": "Slovan Bratislava",
+      "away": "Podbrezová",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-03-22"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-03-23, league round 3, Slovan Bratislava – Podbrezová",
+          "listed_date": "2026-03-23"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "home": "Slovan Bratislava",
+      "away": "Spartak Trnava",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-04-11"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-04-12, league round 5, Slovan Bratislava – Spartak Trnava",
+          "listed_date": "2026-04-12"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "home": "Slovan Bratislava",
+      "away": "DAC Dunajská Streda",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-05-02"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-05-03, league round 8, Slovan Bratislava – DAC",
+          "listed_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-16",
+      "home": "Slovan Bratislava",
+      "away": "Zemplín Michalovce",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.eurofotbal.cz/kluby/slovensko/slovan-bratislava/zapasy/nike-liga-2025-2026/?cID=85&sID=310",
+          "locator": "2026-05-16"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-05-17, league round 10, Slovan Bratislava – Zemplin Michalovce",
+          "listed_date": "2026-05-17"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "home": "Banská Bystrica",
+      "away": "Slovan Bratislava",
+      "score": [
+        0,
+        4
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-07-26"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-07-27, league round 1, MFK Dukla – Slovan Bratislava",
+          "listed_date": "2026-07-27"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "home": "Slovan Bratislava",
+      "away": "Podbrezová",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-08-01"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-08-02, league round 2, Slovan Bratislava – Podbrezová",
+          "listed_date": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "home": "Slovan Bratislava",
+      "away": "MFK Ružomberok",
+      "score": [
+        5,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-08-15"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-08-16, league round 4, Slovan Bratislava – Ruzomberok",
+          "listed_date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "home": "FC Košice",
+      "away": "Slovan Bratislava",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-08-22"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-08-23, league round 5, FK Košice – Slovan Bratislava",
+          "listed_date": "2026-08-23"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Slovan Bratislava",
+      "away": "Zemplín Michalovce",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-08-30"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-08-31, league round 6, Slovan Bratislava – Zemplin Michalovce",
+          "listed_date": "2026-08-31"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "home": "DAC Dunajská Streda",
+      "away": "Slovan Bratislava",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-09-05"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-09-06, league round 7, DAC – Slovan Bratislava",
+          "listed_date": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Slovan Bratislava",
+      "away": "MŠK Žilina",
+      "score": [
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-09-13"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-09-14, league round 8, Slovan Bratislava – Žilina",
+          "listed_date": "2026-09-14"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-19",
+      "home": "KFC Komárno",
+      "away": "Slovan Bratislava",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-09-19"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-09-20, league round 9, KFC Komárno – Slovan Bratislava",
+          "listed_date": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "home": "MFK Skalica",
+      "away": "Slovan Bratislava",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-10-10"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-10-10, league round 10, MFK Skalica – Slovan Bratislava",
+          "listed_date": "2026-10-10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "home": "Spartak Trnava",
+      "away": "Slovan Bratislava",
+      "score": [
+        0,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-10-17"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-10-18, league round 11, Spartak Trnava – Slovan Bratislava",
+          "listed_date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Slovan Bratislava",
+      "away": "Banská Bystrica",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-10-24"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-10-24, league round 12, Slovan Bratislava – MFK Dukla",
+          "listed_date": "2026-10-24"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "home": "AS Trenčín",
+      "away": "Slovan Bratislava",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-10-28"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-10-29, league round 3, Trenčín – Slovan Bratislava",
+          "listed_date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Podbrezová",
+      "away": "Slovan Bratislava",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-10-31"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-11-01, league round 13, Podbrezová – Slovan Bratislava",
+          "listed_date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Slovan Bratislava",
+      "away": "AS Trenčín",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-11-07"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-11-07, league round 14, Slovan Bratislava – Trenčín",
+          "listed_date": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "home": "MFK Ružomberok",
+      "away": "Slovan Bratislava",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.skslovan.com/vysledky/index.php?liga=FL-",
+          "locator": "2026-11-21"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slovan-bratislava/2026",
+          "locator": "listed 2026-11-21, league round 15, Ruzomberok – Slovan Bratislava",
+          "listed_date": "2026-11-21"
+        }
+      ]
+    }
+  ],
+  "ex_final_allowed": false
+}

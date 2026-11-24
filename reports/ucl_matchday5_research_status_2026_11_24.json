@@ -1,0 +1,783 @@
+{
+  "computed": 18,
+  "calibrated": false,
+  "ex_final_allowed": false,
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Bodø/Glimt",
+        "away": "LASK",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          27,
+          15
+        ],
+        "away": [
+          5,
+          10,
+          13,
+          16
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.764476,
+        "KG_VAR": 0.749287,
+        "MS1": 0.418408,
+        "MS2": 0.375365
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Galatasaray",
+        "away": "Aston Villa",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          12,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          11,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.67122,
+        "KG_VAR": 0.647888,
+        "MS1": 0.557105,
+        "MS2": 0.235403
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Arsenal",
+        "away": "Borussia Dortmund",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          10,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.408253,
+        "KG_VAR": 0.460586,
+        "MS1": 0.448396,
+        "MS2": 0.274755
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Como",
+        "away": "AEK Athens",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          12,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          10,
+          16
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.376872,
+        "KG_VAR": 0.436153,
+        "MS1": 0.43701,
+        "MS2": 0.276474
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Feyenoord",
+        "away": "Porto",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          13,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          11,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.646914,
+        "KG_VAR": 0.654576,
+        "MS1": 0.332808,
+        "MS2": 0.440049
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Manchester City",
+        "away": "Napoli",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          12,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.571342,
+        "KG_VAR": 0.593161,
+        "MS1": 0.452078,
+        "MS2": 0.307366
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Leipzig",
+        "away": "Lens",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          10,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          11,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.732947,
+        "KG_VAR": 0.630271,
+        "MS1": 0.703073,
+        "MS2": 0.136445
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Real Madrid",
+        "away": "PSV Eindhoven",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          13,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          13,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.767395,
+        "KG_VAR": 0.750054,
+        "MS1": 0.444566,
+        "MS2": 0.35081
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [
+        "MS1"
+      ],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Slovan Bratislava",
+        "away": "Real Betis",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          15,
+          16
+        ],
+        "away": [
+          5,
+          10,
+          13,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.600155,
+        "KG_VAR": 0.617411,
+        "MS1": 0.442586,
+        "MS2": 0.32162
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Sabah",
+        "away": "Barcelona",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          13,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.724324,
+        "KG_VAR": 0.713884,
+        "MS1": 0.330077,
+        "MS2": 0.458273
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [
+        "MS2"
+      ],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Slavia Praha",
+        "away": "Villarreal",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          15,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          13,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.568768,
+        "KG_VAR": 0.545715,
+        "MS1": 0.593542,
+        "MS2": 0.190269
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Atlético de Madrid",
+        "away": "Viking",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          13,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          27,
+          15
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.599204,
+        "KG_VAR": 0.6165,
+        "MS1": 0.443781,
+        "MS2": 0.320336
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [
+        "MS1"
+      ],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Club Brugge",
+        "away": "Liverpool",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          12,
+          20
+        ],
+        "away": [
+          5,
+          10,
+          11,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.617524,
+        "KG_VAR": 0.615232,
+        "MS1": 0.51937,
+        "MS2": 0.257338
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Inter",
+        "away": "Stuttgart",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          12,
+          19
+        ],
+        "away": [
+          5,
+          10,
+          10,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.703344,
+        "KG_VAR": 0.676063,
+        "MS1": 0.553689,
+        "MS2": 0.24343
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Shakhtar Donetsk",
+        "away": "Fenerbahçe",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          13,
+          15
+        ],
+        "away": [
+          5,
+          10,
+          12,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.467637,
+        "KG_VAR": 0.51542,
+        "MS1": 0.320322,
+        "MS2": 0.414022
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Lille",
+        "away": "Bayern München",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          10,
+          17
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.468798,
+        "KG_VAR": 0.508236,
+        "MS1": 0.277209,
+        "MS2": 0.462029
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Paris Saint-Germain",
+        "away": "Roma",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          12,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.648068,
+        "KG_VAR": 0.654383,
+        "MS1": 0.324607,
+        "MS2": 0.449126
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Sporting CP",
+        "away": "Manchester United",
+        "league": "UCL"
+      },
+      "research_status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "sample_counts": {
+        "home": [
+          5,
+          10,
+          11,
+          17
+        ],
+        "away": [
+          5,
+          10,
+          11,
+          19
+        ]
+      },
+      "initial_markets": {
+        "2.5_UST": 0.574401,
+        "KG_VAR": 0.552047,
+        "MS1": 0.590491,
+        "MS2": 0.193491
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "passes": [],
+      "missing_ex_g_inputs": [
+        "calibrated_team_strength",
+        "verified_match_conditions_score",
+        "verified_external_factors_score"
+      ],
+      "ex_g": null,
+      "ex_d": null,
+      "decision": "NO_FINAL"
+    }
+  ]
+}
