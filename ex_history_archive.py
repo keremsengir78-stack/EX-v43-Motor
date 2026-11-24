@@ -118,7 +118,7 @@ class HistoryArchive:
             raise ValueError("Invalid imported snapshot time, size or hash")
         return self._record(url, raw, captured)
 
-    def get(self, url, parse, *, max_age=None, reusable=lambda value: True):
+    def get(self, url, parse, *, max_age=None, reusable=lambda value: True, content_schema=None):
         checked_url(url)
         pointer = self.root / "index" / (self.digest(url.encode()) + ".json")
         if pointer.exists():
@@ -135,7 +135,13 @@ class HistoryArchive:
         for checkpoint_path in (host_pause, failure):
             if checkpoint_path.exists():
                 checkpoint = json.loads(checkpoint_path.read_text())
-                if utc(checkpoint["retry_after"]) > self.clock():
+                content_updated = (
+                    checkpoint_path == failure
+                    and checkpoint.get("category") == "INVALID_SOURCE_CONTENT"
+                    and content_schema is not None
+                    and checkpoint.get("content_schema") != content_schema
+                )
+                if not content_updated and utc(checkpoint["retry_after"]) > self.clock():
                     raise RetryDeferred(checkpoint)
         self.requests += 1
         try:
@@ -147,7 +153,8 @@ class HistoryArchive:
             delay = dt.timedelta(hours=24 if category in {"ACCESS_DENIED", "NOT_AVAILABLE"} else 1)
             now = self.clock()
             retry_at = retry_after(exc, now, delay)
-            checkpoint = {"error": str(exc), "category": category, "retry_after": retry_at.isoformat()}
+            checkpoint = {"error": str(exc), "category": category, "retry_after": retry_at.isoformat(),
+                          "content_schema": content_schema}
             encoded = json.dumps(checkpoint).encode()
             atomic_write(failure, encoded)
             if category == "RATE_LIMIT":

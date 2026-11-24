@@ -26,7 +26,8 @@ def collect_details(events, archive, shard=0, shards=1):
         url = f"{ESPN}/{competition}/summary?event={event_id}"
         try:
             value, meta = archive.get(url, lambda raw, captured: match_detail(raw, captured, event),
-                                      reusable=lambda item: item["completed"])
+                                      reusable=lambda item: item["completed"],
+                                      content_schema="espn-summary-roster-v2")
         except BudgetExhausted:
             deferred += 1
         except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:

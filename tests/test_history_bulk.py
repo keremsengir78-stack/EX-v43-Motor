@@ -121,3 +121,22 @@ class HistorySourceFallbackTests(unittest.TestCase):
                 archive.get("https://site.api.espn.com/two", lambda raw, _: raw)
             self.assertEqual("2026-11-24T03:00:00+00:00", caught.exception.checkpoint["retry_after"])
             self.assertEqual(1, archive.requests)
+
+    def test_content_schema_update_retries_only_content_failure(self):
+        from tempfile import TemporaryDirectory
+        from ex_history_archive import HistoryArchive, RetryDeferred
+
+        url = "https://site.api.espn.com/changed"
+
+        def reject(raw, captured):
+            raise ValueError("old parser rejected fixture")
+
+        with TemporaryDirectory() as root:
+            archive = HistoryArchive(root, 3, fetch=lambda url: b"payload")
+            with self.assertRaisesRegex(ValueError, "old parser"):
+                archive.get(url, reject, content_schema="v1")
+            with self.assertRaises(RetryDeferred):
+                archive.get(url, reject, content_schema="v1")
+            result, _ = archive.get(url, lambda raw, _: raw, content_schema="v2")
+            self.assertEqual(b"payload", result)
+            self.assertEqual(2, archive.requests)

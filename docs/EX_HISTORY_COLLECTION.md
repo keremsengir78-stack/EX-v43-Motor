@@ -45,7 +45,7 @@ Yerel çalışmanın ölçümleri `reports/ex_history_bulk_2026_11_24.json` dosy
 
 ## Devam toplaması ve skor kanıtı
 
-Mevcut sekiz bölüm ve önbellek anahtarları korunur. Bölüm başına yeni özet bütçesi 170 istektir. Başarılı tamamlanmış özetler ağ isteği yapmadan okunur ve en fazla iki bölüm aynı anda çalışır. Hatalar erişim engeli, hız sınırı, bulunamayan kaynak, sunucu/bağlantı hatası ve geçersiz içerik olarak raporlanır. HTTP 429 sonrasında ilgili iş aynı sunucuya yeni istekleri geçici olarak durdurur. Saniye ve HTTP tarihi biçimindeki Retry-After işlenir.
+Mevcut sekiz bölüm ve önbellek anahtarları korunur. Bölüm başına yeni özet bütçesi 170 istektir. Başarılı tamamlanmış özetler ağ isteği yapmadan okunur ve en fazla iki bölüm aynı anda çalışır. Hatalar erişim engeli, hız sınırı, bulunamayan kaynak, sunucu/bağlantı hatası ve geçersiz içerik olarak raporlanır. HTTP 429 sonrasında ilgili iş aynı sunucuya yeni istekleri geçici olarak durdurur. Saniye ve HTTP tarihi biçimindeki Retry-After işlenir. İçerik ayrıştırıcısının sürümü değiştiğinde yalnızca eski geçersiz içerik kaydı yeniden denenebilir.
 
 Open-Meteo sonuç veremediğinde NASA POWER saatlik UTC yeniden analiz kaynağı denenir. Kaynak ve grid mesafesi çıktıda saklanır. Coğrafi saha mesafeleri `venue_geodesic_transitions` içinde, belgelenmiş seyahat gözlemleri `verified_travel_observations` alanında yer alır.
 
