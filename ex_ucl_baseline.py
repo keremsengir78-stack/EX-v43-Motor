@@ -1,0 +1,15 @@
+"""Cross-league research baseline; not calibrated EX-G."""
+from ex_engine import weighted_form, distribution, date
+
+def cross_league_baseline(rows,fixture,home_league,away_league,home_name,away_name,season_start,previous_start):
+    cutoff=date("2026-11-24")
+    ss,ps=date(season_start),date(previous_start)
+    home,ha=weighted_form(rows,home_name,"home",cutoff,home_league,ss,ps)
+    away,aa=weighted_form(rows,away_name,"away",cutoff,away_league,ss,ps)
+    result={"fixture":fixture,"samples":{"home":ha,"away":aa},"ex_final_allowed":False,"status":"BLOCKED"}
+    if home is None or away is None or any(x["counts"][0]!=5 or x["counts"][1]!=10 for x in (ha,aa)):
+        return result
+    lh=max(.05,min(5,(home[0]+away[1])/2))
+    la=max(.05,min(5,(away[0]+home[1])/2))
+    result.update(status="UNCALIBRATED_CROSS_LEAGUE_BASELINE",baseline=distribution(lh,la))
+    return result
