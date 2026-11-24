@@ -74,7 +74,11 @@ def compare_source_content(observations, expected):
         if not isinstance(snapshot, str) or not snapshot.strip():
             issues.append("source:%d:content_missing" % i)
             continue
-        digest = hashlib.sha256(snapshot.encode("utf-8")).hexdigest()
+        try:
+            digest = hashlib.sha256(snapshot.encode("utf-8")).hexdigest()
+        except UnicodeEncodeError:
+            issues.append("source:%d:content_invalid_unicode" % i)
+            continue
         if row.get("content_sha256") != digest:
             issues.append("source:%d:content_digest_mismatch" % i)
         if digest in digests:
@@ -85,7 +89,7 @@ def compare_source_content(observations, expected):
         try:
             parsed = json.loads(snapshot, object_pairs_hook=_reject_duplicate_keys,
                                 parse_constant=_reject_nonfinite)
-        except (ValueError, TypeError):
+        except (ValueError, TypeError, RecursionError):
             issues.append("source:%d:content_not_structured" % i)
             continue
         if not isinstance(parsed, dict) or any(
