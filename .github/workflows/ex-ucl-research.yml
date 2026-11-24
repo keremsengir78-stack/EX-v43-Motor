@@ -8,6 +8,8 @@ on:
       - 'ex_ucl_baseline.py'
       - 'ex_espn_provider.py'
       - 'config/ucl_matchday5_2026_research.json'
+      - 'research/ucl/**'
+      - 'tests/test_ucl_research.py'
       - '.github/workflows/ex-ucl-research.yml'
   pull_request:
     branches: [ex-v43-development]

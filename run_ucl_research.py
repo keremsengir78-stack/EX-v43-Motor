@@ -38,6 +38,26 @@ def capture_fixture_source(out, label, url):
     }
 
 
+UEFA_SNAPSHOT = Path(__file__).resolve().parent / "research/ucl/uefa-matchdays-1-5"
+
+
+def capture_uefa(out, url):
+    try:
+        raw, meta = retry_research_request(capture_fixture_source, out, "uefa-fixtures", url)
+        return raw, {**meta, "mode": "live"}
+    except HTTPError as exc:
+        if exc.code != 403:
+            raise
+        live_status = exc.code
+    meta = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
+    raw = UEFA_SNAPSHOT.with_suffix(".html").read_bytes()
+    if meta["url"] != url or hashlib.sha256(raw).hexdigest() != meta["sha256"]:
+        raise ValueError("UEFA snapshot URL or SHA-256 mismatch")
+    filename = "uefa-fixtures-replay.raw"
+    (out / filename).write_bytes(raw)
+    return raw, {**meta, "file": filename, "mode": "archived_excerpt", "live_http_status": live_status}
+
+
 def uefa_match_entries(raw, matchday):
     html = raw.decode("utf-8")
     heading = re.search(rf"<h2>\s*Matchday {matchday}\s*</h2>", html)
@@ -118,7 +138,7 @@ def verify_fixtures(out, config):
         for f in config["fixtures"]
     ]
     sources = []
-    raw, meta = retry_research_request(capture_fixture_source, out, "uefa-fixtures", config["source"])
+    raw, meta = capture_uefa(out, config["source"])
     sources.append(meta)
     uefa_raw = raw
     uefa = uefa_fixtures(raw, config["matchday"])

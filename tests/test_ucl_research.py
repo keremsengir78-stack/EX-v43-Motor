@@ -2,9 +2,11 @@ import tempfile
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import patch
+from urllib.error import HTTPError
 
 from run_ucl_baselines import select_rows, team_index, verified_bytes
-from run_ucl_research import uefa_fixtures, verify_historical_scores
+from run_ucl_research import capture_uefa, UEFA_SNAPSHOT, uefa_fixtures, verify_historical_scores
 
 
 class UclResearchTests(unittest.TestCase):
@@ -44,6 +46,21 @@ class UclResearchTests(unittest.TestCase):
             path.write_bytes(b"modified")
             with self.assertRaisesRegex(ValueError, "Source hash mismatch"):
                 verified_bytes(path, "0" * 64)
+
+    def test_uefa_403_replays_pinned_fixture_and_history_excerpt(self):
+        import json
+        url = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())["url"]
+        forbidden = HTTPError(url, 403, "Forbidden", None, None)
+        with tempfile.TemporaryDirectory() as folder, patch(
+            "run_ucl_research.retry_research_request", side_effect=forbidden
+        ):
+            raw, meta = capture_uefa(Path(folder), url)
+            self.assertEqual("archived_excerpt", meta["mode"])
+            self.assertEqual(403, meta["live_http_status"])
+            self.assertEqual(18, len(uefa_fixtures(raw, 5)))
+            self.assertEqual(72, verify_historical_scores(raw, [], {}, 5)["uefa_rows"])
+            with self.assertRaisesRegex(ValueError, "URL or SHA-256 mismatch"):
+                capture_uefa(Path(folder), url + "?unrecognized")
 
     def test_uefa_clock_and_historical_score_are_checked(self):
         raw = (
