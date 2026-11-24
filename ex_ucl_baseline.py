@@ -1,8 +1,8 @@
 """Cross-league research baseline; not calibrated EX-G."""
 from ex_engine import weighted_form, distribution, date
 
-def cross_league_baseline(rows,fixture,home_league,away_league,home_name,away_name,season_start,previous_start):
-    cutoff=date("2026-11-24")
+def cross_league_baseline(rows,fixture,home_league,away_league,home_name,away_name,season_start,previous_start, *, cutoff_date="2026-11-24"):
+    cutoff=date(cutoff_date)
     ss,ps=date(season_start),date(previous_start)
     def bounds(league):
         return (date("2026-01-01"),date("2025-01-01")) if league=="no.1" else (ss,ps)

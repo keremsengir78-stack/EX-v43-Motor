@@ -86,6 +86,17 @@ def audit(rows,fixtures):
         except Exception:r['recompute_consistent']=False
         out.append(r)
     return out
+def baseline_backtest_observations(rows, min_train=30):
+    """Yield retrospective predictions from fixtures strictly earlier by date."""
+    for r in rows:
+        ss=dt.date(r['date'].year if r['date'].month>=7 else r['date'].year-1,7,1)
+        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(dt.date(ss.year-1,7,1))}
+        if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
+        p=calculate(rows,f)
+        if p['status']=='BASELINE_ONLY':
+            yield r,p['baseline']
+
+
 def backtest(rows,min_train=30):
     # strict chronological prediction: prior results only, no random leakage
     preds=[]
@@ -96,17 +107,12 @@ def backtest(rows,min_train=30):
         'MS2': ('away_win', lambda h, a: a>h),
     }
     market_predictions = {market: [] for market in markets}
-    for r in rows:
-        ss=dt.date(r['date'].year if r['date'].month>=7 else r['date'].year-1,7,1)
-        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(dt.date(ss.year-1,7,1))}
-        if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
-        p=calculate(rows,f)
-        if p['status']=='BASELINE_ONLY':
-            for market, (metric, settled) in markets.items():
-                market_predictions[market].append(
-                    (r['date'], p['baseline'][metric], int(settled(r['hg'], r['ag'])))
-                )
-            preds.append(market_predictions['2.5_UST'][-1])
+    for r, baseline in baseline_backtest_observations(rows, min_train):
+        for market, (metric, settled) in markets.items():
+            market_predictions[market].append(
+                (r['date'], baseline[metric], int(settled(r['hg'], r['ag'])))
+            )
+        preds.append(market_predictions['2.5_UST'][-1])
     if not preds:return {'n':0,'status':'INSUFFICIENT_DATA'}
     n=len(preds);brier=sum((p-y)**2 for _,p,y in preds)/n
     bins=[]
