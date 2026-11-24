@@ -1,0 +1,47 @@
+name: EX retrospective archive replay
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-retrospective.yml
+      - ex_retrospective.py
+      - run_ex_retrospective.py
+      - tests/test_ex_retrospective.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-summary-evidence-1-*
+          path: archived
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: score
+      - run: python run_ex_retrospective.py --plan plan.json --archive archived --score-ledger score/score-evidence.json --output retrospective.json --require-complete
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-retrospective-results
+          path: retrospective.json
