@@ -9,7 +9,7 @@ from itertools import zip_longest
 
 from ex_historical_features import ProviderHistory, provider_context
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, failure_class, paced_download, utc
-from ex_history_environment import coordinates, nasa_power_at, separation_km, weather_at
+from ex_history_environment import coordinates, nasa_power_at, reviewed_environment, separation_km, weather_at
 
 
 def assemble(plan, parts):
@@ -134,13 +134,19 @@ def main():
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     parts = [json.loads(path.read_text()) for path in sorted(args.parts.rglob("*.json"))]
-    result = summarize(plan, parts, HistoryArchive(args.cache, 80, fetch=paced_download(.5)),
-                       json.loads(args.venues.read_text()))
+    venues = json.loads(args.venues.read_text())
+    result = summarize(plan, parts, HistoryArchive(args.cache, 80, fetch=paced_download(.5)), venues)
+    observations = Path("config/ex_history_environment_evidence.json")
+    if observations.is_file():
+        travel, grounds = reviewed_environment(plan, venues, json.loads(observations.read_text()))
+        result["verified_travel_observations"] = travel
+        result["reviewed_ground_observations"] = grounds
     atomic_write(args.output, (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{key: result[key] for key in ("calendar_coverage", "completed_summaries", "summary_fraction",
                                                      "requested_summaries", "summary_cache_hits", "deferred_summaries",
                                                      "minute_arithmetic", "source_failure_counts", "pregame_evidence_coverage")},
                       "weather_observations": len(result["weather"]),
+                      "documented_travel_observations": len(result["verified_travel_observations"]),
                       "weather_observations_by_provider": dict(Counter(
                           item["provider"] for item in result["weather"].values())),
                       "roster_identity_conflict_summaries": sum(

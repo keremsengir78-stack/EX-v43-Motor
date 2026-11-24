@@ -183,7 +183,7 @@ def main():
     roster_evidence, roster_errors = [], []
     if args.profile == "expanded":
         from ex_espn_provider import ESPN_LEAGUES
-        from ex_history_rosters import expand_rosters
+        from ex_history_rosters import expand_rosters, observed_alternative_participants
         leagues = json.loads(args.expansion.read_text())["leagues"]
         for league, entry in leagues.items():
             if ESPN_LEAGUES.get(league) != entry["espn_competition"]:
@@ -201,6 +201,9 @@ def main():
     report = collect(config, archive, plan_only=args.plan_only)
     if args.profile == "expanded":
         report["expansion_rosters"] = roster_evidence
+        report["alternative_participant_evidence"] = observed_alternative_participants(
+            Path("research/ucl"), leagues,
+        )
         report["errors"].extend(roster_errors)
         report["coverage"]["standings_rosters_observed"] = sum("source" in r for r in roster_evidence)
         report["coverage"]["standings_rosters_targeted"] = len(roster_evidence)

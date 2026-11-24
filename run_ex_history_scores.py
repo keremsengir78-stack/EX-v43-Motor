@@ -45,7 +45,6 @@ def collect_scores(queues, as_of, aliases, archive):
         try:
             rows, metadata = archive.get(
                 url, lambda raw, _: league_scoreboard(raw, league, day, as_of),
-                reusable=bool,
             )
         except BudgetExhausted:
             deferred += 1
@@ -132,6 +131,8 @@ def main():
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{k: report[k] for k in ("date_requests", "requests", "cache_hits", "deferred_dates",
                                                "source_failure_counts")},
+                      "failed_scoreboard_requests": [{field: e[field] for field in ("url", "category", "retry_deferred")}
+                                                     for e in report["errors"]],
                       "queues": {k: {field: len(v) if isinstance(v, list) else v for field, v in queue.items()}
                                  for k, queue in report["queues"].items()}}))
 

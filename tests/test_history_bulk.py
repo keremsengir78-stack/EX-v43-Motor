@@ -183,3 +183,20 @@ class HistorySourceFallbackTests(unittest.TestCase):
         self.assertEqual((2, 1), (rows[0]["home_goals"], rows[0]["away_goals"]))
         with self.assertRaises(ValueError):
             bundesliga_scores(json.dumps([game]), 2026, "2026-11-24")
+
+    def test_old_transport_pause_updates_without_changing_rate_limit(self):
+        import datetime as dt
+        import json
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from ex_history_archive import HistoryArchive
+
+        now = dt.datetime(2026, 11, 24, 2, tzinfo=dt.timezone.utc)
+        url = "https://site.api.espn.com/scoreboard"
+        with TemporaryDirectory() as root:
+            archive = HistoryArchive(root, 1, fetch=lambda _: b"ok", clock=lambda: now)
+            path = Path(root) / "failures" / (archive.digest(url.encode()) + ".json")
+            path.parent.mkdir()
+            path.write_text(json.dumps({"category": "TRANSPORT", "error": "network reset",
+                                        "retry_after": "2026-11-24T02:30:00Z"}))
+            self.assertEqual(b"ok", archive.get(url, lambda raw, _: raw)[0])

@@ -52,3 +52,11 @@ Open-Meteo sonuç veremediğinde NASA POWER saatlik UTC yeniden analiz kaynağı
 `expanded` profili diğer 11 kayıtlı EX ligi için `config/ex_history_expansion.json` içindeki kaynakta görülen kulüp kimliklerini kullanır. Bu başlangıç listesi tam lig kadrosu veya tam sezon kapsamı garantisi vermez. Varsayılan `all` profili mevcut 4.177 maçlık planın ilerleyişini sürdürür.
 
 Skor kanıtı işi, ana motor denetiminden tarihsel eşleşmeyen maçları ve daha yeni tek kaynaklı sonuçları alır. Her lig ve gün için bir ESPN skor tablosu kullanır ve SHA-256 kaynak kaydı üretir. Aynı skorlar bağımsızlık incelemesi bekleyen aday, farklı skorlar çelişki olarak çıkar. Veri bu aşamada motor geçmişine aktarılmaz.
+
+## Paket 10 — Lig kapsamı ve karar girdileri
+
+PR çalışması `expanded` profiliyle başlar. ESPN sezon tablosu aynı müsabaka kimliği ve yıl ile doğrulanan kulüpler planla birleştirilir. Desteksiz dört müsabakada UCL'nin iki kaynak bağlantılı kulüp kayıtları kısmi kanıt olarak ayrı listelenir. Toplu özet işinde bölüm başına en fazla 290 yeni istek ve iki eşzamanlı bölüm uygulanır. Skor işi ayrı önbellekte lig-gün başına tek yanıtı arşivler. Geçici aktarım hataları 5 dakika sonrasında yeniden denenir. OpenLigaDB Bundesliga gözlemleri ayrı kaynak defterine yazılır.
+
+Ana motor `--history-plan`, `--history-parts` ve `--history-at` parametreleriyle geçmiş sağlayıcı arşivi kabul eder. Fikstür CSV'sinde `home_espn_id` ve `away_espn_id` alanları araştırma girdisini ilgili taraflarla eşleştirir. UCL arşiv tekrarı ilk iki parametreyle, doğrulanmış maç önü ESPN takım kimliklerini ve sabit tekrar kesimini kullanır. Her iki girişte dakika, 14 günlük yük, son başlama zamanı aralığı ve son saha araştırma alanlarıdır. Kapsam işi bu gözlemlerin tarihsel hedef maçların başlama anından önce gerçekten yakalanıp yakalanmadığını sayar.
+
+Konum defteri 10 saha içerir. Hava toplama bütçesi 80 istek olup sahalar arasında dönüşümlüdür. Kulüp yayınlarıyla belgelenmiş seyahat ve çim bakımı kayıtları geçmişe dönük ayrı gözlemlerdir. Zamanında arşivlenmiş hava tahmini, fiilî rota, maç gününe ait zemin ölçümü veya doğrulanmış bileşen puanı olarak kullanılmaz.

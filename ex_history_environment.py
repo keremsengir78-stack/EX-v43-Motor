@@ -94,3 +94,36 @@ def nasa_power_at(archive, point, kickoff_at):
             "grid_distance_km": separation_km(point, grid), "hour_utc": kickoff.strftime("%Y-%m-%dT%H:00Z"),
             "values": values, "units": {"temperature_2m": "°C", "precipitation": "mm/hour",
                                       "wind_speed_10m": "km/h"}, "source": meta}
+
+
+def reviewed_environment(plan, registry, evidence):
+    """Link reviewed club publications to archive identities for retrospective research."""
+    from datetime import date
+    from urllib.parse import urlsplit
+
+    club_domains = {"364": "www.liverpoolfc.com", "86": "www.realmadrid.com"}
+    events = {row["event_id"]: row for row in plan["pending_events"]}
+
+    def owned_url(row, host):
+        parsed = urlsplit(row["source"])
+        return parsed.scheme == "https" and parsed.netloc == host and bool(parsed.path)
+
+    travel = []
+    for row in evidence["travel"]:
+        fixture = events.get(row["event_id"])
+        if fixture is None:
+            continue
+        kickoff = utc(fixture["kickoff_at"]).date()
+        published = date.fromisoformat(row["published_date"])
+        if (fixture["competition"] != "uefa.champions" or fixture["teams"]["away"] != row["team_id"]
+                or date.fromisoformat(row["kickoff_date"]) != kickoff or published >= kickoff
+                or not owned_url(row, club_domains[row["team_id"]])):
+            raise ValueError("Reviewed travel fixture or publication mismatch")
+        travel.append({**row, "availability": "RETROSPECTIVE_SOURCE_REVIEW"})
+    grounds = []
+    for row in evidence["grounds"]:
+        if (registry[row["venue_id"]]["name"] != row["venue_name"]
+                or not owned_url(row, "www.arsenal.com")):
+            raise ValueError("Reviewed pitch venue or publication mismatch")
+        grounds.append({**row, "availability": "RETROSPECTIVE_SOURCE_REVIEW"})
+    return travel, grounds

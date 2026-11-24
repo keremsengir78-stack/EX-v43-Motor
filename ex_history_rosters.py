@@ -47,3 +47,31 @@ def expand_rosters(leagues, seasons, archive):
                                "additional_seed_ids": sorted(observed - set(teams), key=int),
                                "team_ids": teams, "source": source})
     return roster, errors
+
+
+def observed_alternative_participants(root, leagues):
+    """Summarize the existing dual-source domestic coverage by club and season."""
+    from collections import defaultdict
+    from datetime import date
+
+    reports = []
+    for path in sorted(root.glob("*-domestic.json")):
+        dataset = json.loads(path.read_text())
+        league, club = dataset["league"], dataset["club"]
+        if league not in leagues:
+            raise ValueError("Unexpected alternate domestic league")
+        by_season = defaultdict(list)
+        for row in dataset["fixtures"]:
+            day = date.fromisoformat(row["date"])
+            domains = {item["url"].split("/")[2].removeprefix("www.") for item in row["sources"]
+                       if item["url"].startswith("https://")}
+            if club not in (row["home"], row["away"]) or len(domains) < 2:
+                raise ValueError("Alternate participant evidence lacks two linked sources")
+            by_season[day.year if day.month >= 7 else day.year - 1].append(row)
+        for season, rows in sorted(by_season.items()):
+            participants = sorted({row[side] for row in rows for side in ("home", "away")})
+            reports.append({"league": league, "season": season, "status": "PARTIAL_CLUB_FIXTURES",
+                            "club": club, "fixtures_observed": len(rows),
+                            "observed_participants": participants, "evidence_file": path.as_posix(),
+                            "roster_complete": False})
+    return reports

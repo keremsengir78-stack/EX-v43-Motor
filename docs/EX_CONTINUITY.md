@@ -266,3 +266,9 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 
 - Korunan önbellekten ilk devam turunda 654 eski ve 320 yeni özet doğrulandı. Toplam 974/4.177, kalan 3.203. Nominal süreye uygun 1.723 takım toplamının tamamı 990 dakikaydı.
 - Sekiz bölümde en çok iki eşzamanlı işi koruyarak bölüm başına bütçe 100'e çıkarıldı. Kaynak hataları ve bekleme kayıtları sınıflandırılıyor. NASA POWER hava alternatifi, diğer 11 lig için genişleme yapılandırması ve ana motorun iki skor kuyruğu için günlük kanıt toplayıcısı eklendi.
+
+## 2026-11-24 — Onuncu çalışma paketi
+
+- Özet, hava ve skor önbellekleri aynı bölüm anahtarlarıyla korunarak genişletilmiş profil çalıştırıldı. Sezon tabloları doğrulanabilen ek liglerin katılımcıları planla birleştirildi. ESPN kapsamı bulunmayan ligler için mevcut iki kaynak bağlantılı kulüp listeleri ayrı kısmi kanıt olarak eklendi.
+- EX ve UCL girişleri, takım kimliği ile eşleşen dakika, yük, dinlenme ve saha gözlemlerini aynı zamana duyarlı özellik çıkarıcıdan alır. Dokuz UCL tekrarı ve dört pazarın Tur-2 ve Auto-Control doğrulaması çalıştırıldı. Sonradan edinilen tarihsel arşiv, maç önü kalibrasyon girdisi sayılmaz.
+- Ayrı Bundesliga skor adaptörü, daha geniş hava örneklemi ve kulüp yayınlarına dayanan dört belgelenmiş seyahat gözlemi eklendi. OpenLigaDB ve ESPN içerik eşleşmeleri kaynak bağımsızlığı onayı vermez.

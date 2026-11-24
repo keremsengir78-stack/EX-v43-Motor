@@ -141,7 +141,11 @@ class HistoryArchive:
                     and content_schema is not None
                     and checkpoint.get("content_schema") != content_schema
                 )
-                if not content_updated and utc(checkpoint["retry_after"]) > self.clock():
+                retry_at = utc(checkpoint["retry_after"])
+                if checkpoint.get("category") == "TRANSPORT" and "failed_at" not in checkpoint:
+                    # Old archives used a fixed one-hour transport delay.
+                    retry_at -= dt.timedelta(minutes=55)
+                if not content_updated and retry_at > self.clock():
                     raise RetryDeferred(checkpoint)
         self.requests += 1
         try:
@@ -150,11 +154,12 @@ class HistoryArchive:
             value = parse(raw, captured)
         except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
             category = failure_class(exc)
-            delay = dt.timedelta(hours=24 if category in {"ACCESS_DENIED", "NOT_AVAILABLE"} else 1)
+            delay = (dt.timedelta(minutes=5) if category == "TRANSPORT"
+                     else dt.timedelta(hours=24 if category in {"ACCESS_DENIED", "NOT_AVAILABLE"} else 1))
             now = self.clock()
             retry_at = retry_after(exc, now, delay)
             checkpoint = {"error": str(exc), "category": category, "retry_after": retry_at.isoformat(),
-                          "content_schema": content_schema}
+                          "content_schema": content_schema, "failed_at": now.isoformat()}
             encoded = json.dumps(checkpoint).encode()
             atomic_write(failure, encoded)
             if category == "RATE_LIMIT":
