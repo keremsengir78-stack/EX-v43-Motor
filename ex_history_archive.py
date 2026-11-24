@@ -7,6 +7,7 @@ import os
 import tempfile
 import urllib.request
 from urllib.error import HTTPError, URLError
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -130,10 +131,12 @@ class HistoryArchive:
         if self.requests >= self.budget:
             raise BudgetExhausted()
         failure = self.root / "failures" / pointer.name
-        if failure.exists():
-            checkpoint = json.loads(failure.read_text())
-            if utc(checkpoint["retry_after"]) > self.clock():
-                raise RetryDeferred(checkpoint)
+        host_pause = self.root / "rate_limits" / urlsplit(url).hostname
+        for checkpoint_path in (host_pause, failure):
+            if checkpoint_path.exists():
+                checkpoint = json.loads(checkpoint_path.read_text())
+                if utc(checkpoint["retry_after"]) > self.clock():
+                    raise RetryDeferred(checkpoint)
         self.requests += 1
         try:
             raw = self.fetch(url)
@@ -142,16 +145,31 @@ class HistoryArchive:
         except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
             category = failure_class(exc)
             delay = dt.timedelta(hours=24 if category in {"ACCESS_DENIED", "NOT_AVAILABLE"} else 1)
-            if isinstance(exc, HTTPError) and category == "RATE_LIMIT":
-                retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
-                if retry_after.isdecimal():
-                    delay = max(delay, dt.timedelta(seconds=int(retry_after)))
-            checkpoint = {"error": str(exc), "category": category,
-                          "retry_after": (self.clock() + delay).isoformat()}
-            atomic_write(failure, json.dumps(checkpoint).encode())
+            now = self.clock()
+            retry_at = retry_after(exc, now, delay)
+            checkpoint = {"error": str(exc), "category": category, "retry_after": retry_at.isoformat()}
+            encoded = json.dumps(checkpoint).encode()
+            atomic_write(failure, encoded)
+            if category == "RATE_LIMIT":
+                atomic_write(host_pause, encoded)
             raise
         failure.unlink(missing_ok=True)
         return value, self._record(url, raw, captured)
+
+
+def retry_after(exc, now, delay):
+    default = now + delay
+    if not isinstance(exc, HTTPError) or exc.code not in (429, 503) or not exc.headers:
+        return default
+    value = exc.headers.get("Retry-After", "").strip()
+    try:
+        if value.isdecimal():
+            requested = now + dt.timedelta(seconds=int(value))
+        else:
+            requested = parsedate_to_datetime(value)
+        return max(default, requested)
+    except (OverflowError, TypeError, ValueError):
+        return default
 
 
 class RetryDeferred(ValueError):

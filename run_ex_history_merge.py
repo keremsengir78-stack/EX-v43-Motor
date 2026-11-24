@@ -50,7 +50,7 @@ def summarize(plan, parts, archive, venues):
     details, coverage = assemble(plan, parts)
     now = archive.clock()
     weather, weather_errors = {}, []
-    for event, detail in details.items():
+    for event, detail in sorted(details.items(), key=lambda item: utc(item[1]["kickoff_at"])):
         point = coordinates(detail["venue"], venues)
         if point is None or now - utc(detail["kickoff_at"]) < dt.timedelta(days=7):
             continue
@@ -121,7 +121,7 @@ def main():
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     parts = [json.loads(path.read_text()) for path in sorted(args.parts.rglob("*.json"))]
-    result = summarize(plan, parts, HistoryArchive(args.cache, 4, fetch=paced_download(.5)),
+    result = summarize(plan, parts, HistoryArchive(args.cache, 12, fetch=paced_download(.5)),
                        json.loads(args.venues.read_text()))
     atomic_write(args.output, (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{key: result[key] for key in ("calendar_coverage", "completed_summaries", "summary_fraction",

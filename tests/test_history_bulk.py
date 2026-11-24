@@ -100,3 +100,24 @@ class HistorySourceFallbackTests(unittest.TestCase):
         self.assertEqual(1, len(result["queues"]["historical"]["provisional_matches"]))
         self.assertEqual(1, len(result["queues"]["newer"]["conflicts"]))
         self.assertFalse(result["ex_final_allowed"])
+
+    def test_rate_limit_pauses_other_uncached_urls_on_same_host(self):
+        import datetime as dt
+        from tempfile import TemporaryDirectory
+        from urllib.error import HTTPError
+        from ex_history_archive import HistoryArchive, RetryDeferred
+
+        now = dt.datetime(2026, 11, 24, tzinfo=dt.timezone.utc)
+
+        def limited(url):
+            raise HTTPError(url, 429, "Too Many Requests",
+                            {"Retry-After": "Tue, 24 Nov 2026 03:00:00 GMT"}, None)
+
+        with TemporaryDirectory() as root:
+            archive = HistoryArchive(root, 4, fetch=limited, clock=lambda: now)
+            with self.assertRaises(HTTPError):
+                archive.get("https://site.api.espn.com/one", lambda raw, _: raw)
+            with self.assertRaises(RetryDeferred) as caught:
+                archive.get("https://site.api.espn.com/two", lambda raw, _: raw)
+            self.assertEqual("2026-11-24T03:00:00+00:00", caught.exception.checkpoint["retry_after"])
+            self.assertEqual(1, archive.requests)
