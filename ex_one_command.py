@@ -66,13 +66,22 @@ def main():
  if a.espn_third_source:
   third=[]; source_metadata=[]; errors=[]
   dates=sorted({(r['league'],r['date']) for r in secondary_only_staged})
-  for league,day in dates:
+  from concurrent.futures import ThreadPoolExecutor
+  def fetch_date(pair):
+   league,day=pair
    try:
     found,metadata=fetch_espn_scoreboard(league,day,a.as_of)
-    third.extend(found)
-    source_metadata.append(metadata)
+    return found,metadata,None
    except (OSError,ValueError,KeyError) as exc:
-    errors.append({'league':league,'date':day,'error':str(exc)})
+    return [],None,{'league':league,'date':day,'error':str(exc)}
+  # map preserves sorted request order; cap simultaneous provider requests.
+  with ThreadPoolExecutor(max_workers=4) as pool:
+   for found,metadata,error in pool.map(fetch_date,dates):
+    third.extend(found)
+    if metadata is not None:
+     source_metadata.append(metadata)
+    if error is not None:
+     errors.append(error)
   if third:
    clean=validate_third_results(third,a.as_of)
    reconciliation=reconcile_staged_with_third(secondary_only_staged,clean,a.as_of,reviewed_aliases)
