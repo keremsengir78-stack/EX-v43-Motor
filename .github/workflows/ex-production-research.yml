@@ -34,6 +34,24 @@ jobs:
           run-id: 45471421974
           name: ucl-research-evidence
           path: history
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+          path: provider-history
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-part-1-*
+          path: provider-history/parts
+          merge-multiple: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: forecast-cache
+          key: ex-ucl-forecast-v1-${{ github.ref }}-${{ github.run_id }}
+          restore-keys: ex-ucl-forecast-v1-${{ github.ref }}-
       - name: Record research before the first kickoff
         id: record
         run: |
@@ -41,12 +59,19 @@ jobs:
             echo "Expired prematch window"
             exit 0
           fi
-          python run_ex_ucl_pregame.py --manifest prematch/prematch.json --archive prematch/prematch-cache --historical history --day 2026-11-25 --output ucl-pregame-research.json
+          python run_ex_ucl_pregame.py --manifest prematch/prematch.json --archive prematch/prematch-cache --historical history --history-plan provider-history/plan.json --history-parts provider-history/parts --weather-cache forecast-cache --day 2026-11-25 --output ucl-pregame-research.json
+      - uses: actions/cache/save@v4
+        if: ${{ hashFiles('forecast-cache/index/*.json') != '' }}
+        with:
+          path: forecast-cache
+          key: ex-ucl-forecast-v1-${{ github.ref }}-${{ github.run_id }}
       - uses: actions/upload-artifact@v4
         if: ${{ hashFiles('ucl-pregame-research.json') != '' }}
         with:
           name: ex-ucl-pregame-research
-          path: ucl-pregame-research.json
+          path: |
+            ucl-pregame-research.json
+            forecast-cache/
 
   freeze:
     runs-on: ubuntu-latest

@@ -10,14 +10,18 @@ from ex_cross_verify import norm
 from ex_decision import MARKETS, assess_market_value, assess_markets
 from ex_engine import distribution
 from ex_fixture_odds import check_fixture
-from ex_history_archive import HistoryArchive, atomic_write, utc
+from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
+from ex_history_environment import coordinates
+from ex_pregame_weather import forecast
+from ex_history_sources import ESPN, teams
+from run_ex_prematch_archive import summary
 from run_ucl_baselines import FIXTURE_CONFIG, calculate_baselines, verified_bytes
 from run_ucl_matchday_inputs import market_quotes, observed_load, parse_team_news
 from run_ucl_model_integration import MARKET_FIELDS, score_grid_marginals
 from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
 
 
-def record_predictions(manifest, archive, historical, day, clock):
+def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None):
     now = clock()
     config = json.loads(FIXTURE_CONFIG.read_text())
     meta = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
@@ -40,6 +44,21 @@ def record_predictions(manifest, archive, historical, day, clock):
     _, _, baselines = calculate_baselines(historical, config)
     fixtures = { (utc(row["fixture"]["kickoff_at"]), norm(row["fixture"]["home"]), norm(row["fixture"]["away"])): row
                  for row in baselines if row["fixture"]["date"] == day }
+    aliases = {norm(alias): norm(team) for league in config["domestic_team_names"].values()
+               for team, variants in league.items() for alias in (team, *variants)}
+    weather, weather_errors = {}, []
+    if weather_archive:
+        venues = json.loads(Path("config/ex_history_venues.json").read_text())
+        for entry in manifest["records"]:
+            match, = board[entry["event_id"]]["competitions"]
+            point = coordinates(match.get("venue"), venues)
+            if point and now < utc(entry["kickoff_at"]):
+                try:
+                    weather[entry["event_id"]] = forecast(weather_archive, point, entry["kickoff_at"],
+                                                            lambda: clock().isoformat())
+                except (OSError, ValueError, TypeError, KeyError, IndexError, AttributeError) as exc:
+                    weather_errors.append({"event_id": entry["event_id"], **source_error("forecast", None, exc)})
+    now = clock()
     decisions = assess_markets({}, as_of=now.isoformat())
     results = []
     for entry in manifest["records"]:
@@ -47,8 +66,6 @@ def record_predictions(manifest, archive, historical, day, clock):
         match, = event["competitions"]
         kickoff = utc(entry["kickoff_at"])
         names = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
-        from ex_history_sources import ESPN, teams
-        from run_ex_prematch_archive import summary
         if (board_source["url"] != f"{ESPN}/uefa.champions/scoreboard?dates={kickoff:%Y%m%d}"
                 or entry["source"]["url"] != f"{ESPN}/uefa.champions/summary?event={entry['event_id']}"
                 or utc(match["date"]) != kickoff or match["id"] != entry["event_id"]
@@ -58,8 +75,6 @@ def record_predictions(manifest, archive, historical, day, clock):
         observed = summary(raw, captured, entry["event_id"], kickoff, entry["teams"])
         if not max(board_at, captured) < now < kickoff:
             raise ValueError("Research snapshot outside pregame window")
-        aliases = {norm(alias): norm(team) for league in config["domestic_team_names"].values()
-                   for team, variants in league.items() for alias in (team, *variants)}
         key = kickoff, aliases[norm(names["home"])], aliases[norm(names["away"])]
         if key not in official:
             raise ValueError("UEFA fixture corroboration missing")
@@ -86,9 +101,16 @@ def record_predictions(manifest, archive, historical, day, clock):
             markets[market] = {"research_probability": scores[MARKET_FIELDS[market]],
                                "evidence": evidence, **value, "auto_control": control}
         preview = news.get(key[1:])
+        archived_load = provider_history.fixture(entry["teams"], entry["kickoff_at"], now.isoformat()) if provider_history else None
         results.append({"fixture": fixture, "teams": entry["teams"], "sources": [board_source, entry["source"]],
                         "venue": match.get("venue"), "neutral_site": match.get("neutralSite"),
-                        "team_news": preview, "summary_fields": observed,
+                        "weather_forecast": weather.get(entry["event_id"]),
+                        "team_news": preview, "summary_fields": observed, "provider_history": archived_load,
+                        "component_status": {
+                            "team_strength": "RESEARCH_BASELINE_ONLY",
+                            "match_conditions": "OBSERVED_WORKLOAD_AND_AVAILABILITY_SCORE_UNVALIDATED",
+                            "external_factors": "VENUE_OBSERVED_MATCHDAY_EFFECTS_UNVERIFIED",
+                        },
                         "observed_load": observed_load(json.loads(raw), set(entry["teams"].values()), captured, kickoff),
                         "tur2_consistent": consistent, "score_distribution": scores, "markets": markets,
                         "pup_allowed": decisions["pup_allowed"], "ex_final_allowed": False})
@@ -98,6 +120,7 @@ def record_predictions(manifest, archive, historical, day, clock):
         raise ValueError("Research calculation finished after kickoff")
     return {"analysis_at": now.isoformat(), "kind": "UNCALIBRATED_PREMATCH_RESEARCH",
             "uefa_fixture_source": meta, "uefa_news_source": news_source, "fixtures": results,
+            "weather_errors": weather_errors,
             "pup_allowed": False, "ex_final_allowed": False}
 
 
@@ -106,14 +129,33 @@ def main():
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--historical", type=Path, required=True)
+    parser.add_argument("--history-plan", type=Path)
+    parser.add_argument("--history-parts", type=Path)
+    parser.add_argument("--weather-cache", type=Path)
     parser.add_argument("--day", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if bool(args.history_plan) != bool(args.history_parts):
+        parser.error("Provide both history plan and parts")
+    provider_history = None
+    if args.history_plan:
+        from run_ex_history_merge import load_provider_history
+        provider_history = load_provider_history(args.history_plan, args.history_parts)
+    weather_archive = (HistoryArchive(args.weather_cache, 25, fetch=paced_download(.75))
+                       if args.weather_cache else None)
     report = record_predictions(json.loads(args.manifest.read_text()), HistoryArchive(args.archive, 0),
-                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc))
+                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc), provider_history, weather_archive)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({"analysis_at": report["analysis_at"], "fixtures": len(report["fixtures"]),
                       "markets": sum(len(row["markets"]) for row in report["fixtures"]),
+                      "news": sum(bool(row["team_news"]) for row in report["fixtures"]),
+                      "weather": sum(bool(row["weather_forecast"]) for row in report["fixtures"]),
+                      "weather_errors": report["weather_errors"],
+                      "verified_quotes": sum(m["odds_lock"]["status"] == "VERIFIED_INPUT"
+                                             for row in report["fixtures"] for m in row["markets"].values()),
+                      "sides_with_minutes": sum(bool(side.get("nominal_minutes_14d") or side.get("provider_minutes_14d"))
+                                                for row in report["fixtures"]
+                                                for side in (row["provider_history"] or {}).get("sides", {}).values()),
                       "ex_final_allowed": False}))
 
 

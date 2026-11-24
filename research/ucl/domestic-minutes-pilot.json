@@ -1,0 +1,20 @@
+{
+  "league": "ua.1",
+  "official_match_id": "15927",
+  "match_date": "2026-09-14",
+  "home": "Shakhtar Donetsk",
+  "away": "Chornomorets Odesa",
+  "score": [2, 0],
+  "source": "https://upl.ua/en/report/view/15927/report",
+  "scope": "Reviewed official referee report. Nominal regulation minutes derived from published substitutions.",
+  "teams": {
+    "home": {
+      "starters": ["Dmytro Riznyk", "Dmytro Kryskiv", "Newertton", "Pedro Henrique", "Alaa Ghram", "Oleksandr Karavaiev", "Mykola Matviienko", "G. Carvalho", "Oleh Ocheretko", "Lucas", "L. Meirelles"],
+      "substitutions": [[8, "Alaa Ghram", "Valerii Bondar"], [46, "Oleh Ocheretko", "Viktor Tsukanov"], [70, "Dmytro Kryskiv", "Yehor Nazaryna"], [70, "G. Carvalho", "Isaque"], [84, "L. Meirelles", "L. Traore"]]
+    },
+    "away": {
+      "starters": ["Chijioke Kingsley Aniagboso", "Vasyl Kurko", "Kiril Popov", "Vitalii Farasieienko", "Hiorhi Robakidze", "M. Kohut", "Oleksii Husiev", "Moses Jarju", "Oleh Pushkarov", "Muhammed Jobe", "Kristian Mba"],
+      "substitutions": [[46, "Kiril Popov", "Danyil Alefirenko"], [46, "Hiorhi Robakidze", "Dmytro Klots"], [46, "M. Kohut", "Serhii Korniichuk"], [57, "Vitalii Farasieienko", "Artur Avahimian"], [75, "Kristian Mba", "Yoka"]]
+    }
+  }
+}

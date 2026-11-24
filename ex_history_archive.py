@@ -13,7 +13,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 
-HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com", "power.larc.nasa.gov", "api.openligadb.de"}
+HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com", "api.open-meteo.com", "power.larc.nasa.gov", "api.openligadb.de"}
 MAX_BYTES = 5_000_000
 
 

@@ -60,6 +60,26 @@ def freeze(raw, frozen_at):
             "coefficients": coefficients, "production_allowed": False}
 
 
+def join_holdout(forecasts, outcomes):
+    by_id = {row["event_id"]: row for row in outcomes}
+    if len(by_id) != len(outcomes):
+        raise ValueError("Duplicate outcomes")
+    result = []
+    for row in forecasts:
+        if "labels" in row or "finished" in row:
+            raise ValueError("Forecast ledger contains outcome information")
+        actual = by_id.get(row["event_id"])
+        if actual is None:
+            continue
+        if (utc(row["kickoff"]) != utc(actual["kickoff"]) or row["teams"] != actual["teams"]
+                or utc(actual["settled_at"]) < utc(actual["finished"])):
+            raise ValueError("Outcome fixture identity or capture mismatch")
+        result.append({**row, "finished": actual["finished"], "labels": actual["labels"]})
+    if not result:
+        raise ValueError("No overlapping settled holdout outcomes")
+    return result
+
+
 def evaluate(model, rows):
     seen = set(model["original_ids"])
     boundary = max(utc(model["original_last_kickoff"]), utc(model["frozen_at"]))
@@ -109,17 +129,19 @@ def main():
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--examples", type=Path)
     mode.add_argument("--frozen-model", type=Path)
-    parser.add_argument("--holdout", type=Path)
+    parser.add_argument("--forecasts", type=Path)
+    parser.add_argument("--outcomes", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.frozen_model:
-        if not args.holdout:
-            parser.error("--holdout is required with --frozen-model")
-        result = evaluate(json.loads(args.frozen_model.read_text()), read_rows(args.holdout.read_bytes()))
+        if not args.forecasts or not args.outcomes:
+            parser.error("--forecasts and --outcomes are required with --frozen-model")
+        result = evaluate(json.loads(args.frozen_model.read_text()),
+                          join_holdout(read_rows(args.forecasts.read_bytes()), read_rows(args.outcomes.read_bytes())))
         artifact = result
     else:
-        if args.holdout:
-            parser.error("--holdout is only for frozen evaluation")
+        if args.forecasts or args.outcomes:
+            parser.error("Forecasts and outcomes are only for frozen evaluation")
         artifact = freeze(args.examples.read_bytes(), dt.datetime.now(dt.timezone.utc))
         result = {"training_n": artifact["training_n"], "test_n": 0, "frozen_at": artifact["frozen_at"],
                   "holdout_status": "NO_LATER_SETTLED_AND_ARCHIVED_COHORT"}
