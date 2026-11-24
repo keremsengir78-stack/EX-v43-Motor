@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from ex_espn_provider import ESPN_LEAGUES
-from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
+from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 
 
@@ -57,30 +57,45 @@ def collect(archive, league, day, limit):
         try:
             values, evidence = archive.get(url, lambda raw, stamp: summary(raw, stamp, event_id, kickoff, sides),
                                            max_age=ttl)
-        except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+        except (BudgetExhausted, OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
             errors.append(source_error("prematch", url, exc))
         else:
             records.append({"event_id": event_id, "kickoff_at": kickoff.isoformat(), "teams": sides,
                             "observed_fields": values, "source": evidence})
-    return {"kind": "PREMATCH_CAPTURE", "board": source, "records": records, "errors": errors,
+    return {"kind": "PREMATCH_CAPTURE", "league": league, "board": source, "records": records, "errors": errors,
             "eligible": len(upcoming), "requests": archive.requests, "ex_final_allowed": False}
+
+
+def collect_registered(archive, day, limit):
+    reports, errors = {}, []
+    for league in ESPN_LEAGUES:
+        try:
+            reports[league] = collect(archive, league, day, limit)
+        except (BudgetExhausted, OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            errors.append({"league": league, **source_error("board", None, exc)})
+    return {"kind": "REGISTERED_LEAGUE_CAPTURE", "day": day.isoformat(), "reports": reports,
+            "errors": errors, "registered_leagues": list(ESPN_LEAGUES), "requests": archive.requests,
+            "ex_final_allowed": False}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--league", choices=ESPN_LEAGUES, required=True)
+    parser.add_argument("--league", choices=(*ESPN_LEAGUES, "all"), required=True)
     parser.add_argument("--day", type=dt.date.fromisoformat, required=True)
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--limit", type=int, choices=range(1, 26), default=18)
     args = parser.parse_args()
-    archive = HistoryArchive(args.cache, args.limit + 1, fetch=paced_download(.75))
+    archive = HistoryArchive(args.cache, (args.limit + 1) * (len(ESPN_LEAGUES) if args.league == "all" else 1), fetch=paced_download(.75))
     if not archive.clock().date() <= args.day <= archive.clock().date() + dt.timedelta(days=2):
         parser.error("Choose an upcoming UTC date within two days")
-    report = collect(archive, args.league, args.day, args.limit)
+    report = (collect_registered(archive, args.day, args.limit) if args.league == "all"
+              else collect(archive, args.league, args.day, args.limit))
     atomic_write(args.output, (json.dumps(report, indent=2) + "\n").encode())
-    print(json.dumps({"eligible": report["eligible"], "captured": len(report["records"]),
-                      "errors": report["errors"], "requests": report["requests"]}))
+    groups = report.get("reports", {args.league: report})
+    print(json.dumps({"eligible": sum(r["eligible"] for r in groups.values()),
+                      "captured": sum(len(r["records"]) for r in groups.values()),
+                      "leagues_responded": len(groups), "errors": report["errors"], "requests": report["requests"]}))
 
 
 if __name__ == "__main__":

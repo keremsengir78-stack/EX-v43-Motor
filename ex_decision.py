@@ -7,6 +7,7 @@ import math
 import datetime as dt
 import re
 from ex_fixture_odds import check_odds
+from ex_pup_gate import gate_pup
 
 WEIGHTS={"team_strength":0.50,"match_conditions":0.30,"external_factors":0.20}
 MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
@@ -118,6 +119,6 @@ def assess_markets(evidence_by_market, as_of=None):
     for market, record in result.items():
         record["ex_g"] = ex_g_from_evidence(market, record)
         record["calibrated_probability"] = record["ex_g"]["probability"]
-    return {"markets":result,"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
+    return {"markets":result,"pup":gate_pup(result, MARKETS),"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
             "pup_allowed":False,"ex_final_allowed":False,
             "reason":"PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"}

@@ -7,10 +7,12 @@ import json
 import math
 from pathlib import Path
 from statistics import mean
+from collections import defaultdict
 
 from ex_component_experiment import weekly_interval
 from ex_history_archive import atomic_write, utc
 from ex_model_challengers import fit_offset, sigmoid
+from ex_prospective_power import verdict
 
 
 MARKETS = ("KG_VAR", "2.5_UST")
@@ -80,7 +82,7 @@ def join_holdout(forecasts, outcomes):
     return result
 
 
-def evaluate(model, rows):
+def evaluate(model, rows, design=None, *, evaluation_at=None):
     coefficients = model["coefficients"]
     if set(coefficients) != set(MARKETS) or any(
             len(pair) != 2 or any(type(value) not in (float, int) or not math.isfinite(value) for value in pair)
@@ -94,6 +96,14 @@ def evaluate(model, rows):
                 or not boundary <= utc(row["forecast_at"]) < kickoff < utc(row["finished"])):
             raise ValueError("Holdout overlaps the original cohort or forecast is out of time")
         seen.add(row["event_id"])
+    if design:
+        if design["comparisons"] < 10:
+            raise ValueError("Design must account for two Platt, four strength and four component comparisons")
+        start, end = utc(design["holdout_start"]), utc(design["holdout_end"])
+        if not utc(design["registered_at"]) <= start < end:
+            raise ValueError("Invalid preregistered test window")
+        if any(not start <= utc(row["forecast_at"]) < utc(row["kickoff"]) < end for row in rows):
+            raise ValueError("Holdout lies outside the preregistered evaluation window")
     results = {}
     for market in (*MARKETS, "MS1", "MS2"):
         observations, reference, selected, strength_reference, strength_candidate = [], [], [], [], []
@@ -116,10 +126,19 @@ def evaluate(model, rows):
                 strength_candidate.append((stronger - actual)**2)
         def metrics(dates, original, candidate):
             interval = weekly_interval(dates, original, candidate) if original else None
+            weeks = defaultdict(list)
+            for day, baseline, revised in zip(dates, original, candidate, strict=True):
+                weeks[day[0].isocalendar()[:2]].append(revised - baseline)
+            if not design:
+                statistic = {"status": "NO_PREREGISTERED_POWER_DESIGN", "research_supported": False}
+            elif evaluation_at is None or evaluation_at < end:
+                statistic = {"status": "AWAITING_FIXED_HOLDOUT_END", "research_supported": False}
+            else:
+                statistic = verdict([mean(values) for values in weeks.values()], design)
             return {"n": len(original), "reference_brier": mean(original) if original else None,
                     "candidate_brier": mean(candidate) if candidate else None,
-                    "weekly_delta_brier_99pct": interval,
-                    "supported": len(original) >= 100 and interval is not None and interval[1] < 0}
+                    "weekly_delta_brier_99pct": interval, "design_verdict": statistic,
+                    "supported": statistic["research_supported"]}
         results[market] = {
             "calibration": metrics(observations, reference, selected) if market in MARKETS else "REFERENCE_ONLY",
             "fixed_strength": metrics([item[0] for item in strength_reference],
@@ -136,13 +155,16 @@ def main():
     mode.add_argument("--frozen-model", type=Path)
     parser.add_argument("--forecasts", type=Path)
     parser.add_argument("--outcomes", type=Path)
+    parser.add_argument("--design", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.frozen_model:
         if not args.forecasts or not args.outcomes:
             parser.error("--forecasts and --outcomes are required with --frozen-model")
         result = evaluate(json.loads(args.frozen_model.read_text()),
-                          join_holdout(read_rows(args.forecasts.read_bytes()), read_rows(args.outcomes.read_bytes())))
+                          join_holdout(read_rows(args.forecasts.read_bytes()), read_rows(args.outcomes.read_bytes())),
+                          json.loads(args.design.read_text()) if args.design else None,
+                          evaluation_at=dt.datetime.now(dt.timezone.utc))
         artifact = result
     else:
         if args.forecasts or args.outcomes:

@@ -1,0 +1,168 @@
+name: EX prospective operations
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-prospective-operations.yml
+      - run_ex_prospective_pipeline.py
+      - run_ex_source_audit.py
+      - run_ex_official_minutes_batch.py
+      - ex_prospective_power.py
+      - tests/test_ex_prospective_operations.py
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [audit, capture, settle]
+        required: true
+      day:
+        type: string
+        description: UTC fixture date for capture
+      forecast_artifact_id:
+        type: string
+        description: Artifact ID for settlement
+      design_run_id:
+        type: string
+        description: Optional run with preregistered ex-power-design artifact
+      official_run_id:
+        type: string
+        description: Optional run containing separately reviewed official-outcomes artifact
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    if: github.event_name == 'pull_request' || inputs.mode == 'audit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531307
+          name: ex-dfl-score-review
+          path: official
+      - run: |
+          python run_ex_source_audit.py --ledger scores/score-evidence.json --dfl official/dfl-scores.json --output source-audit.json
+          python run_ex_official_minutes_batch.py --input research/ucl/domestic-minutes*-pilot.json --output minutes.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-technical-audit
+          path: |
+            source-audit.json
+            minutes.json
+
+  capture:
+    if: inputs.mode == 'capture'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-summary-evidence-1-*
+          path: history
+      - env:
+          DAY: ${{ inputs.day }}
+        run: |
+          python run_ex_prematch_archive.py --league all --day "$DAY" --cache pregame-cache --output capture.json
+          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache pregame-cache --output-dir forecasts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-forecasts
+          path: |
+            forecasts/
+            capture.json
+            pregame-cache/
+
+  settle:
+    if: inputs.mode == 'settle'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify the forecast artifact receipt
+        id: receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT: ${{ inputs.forecast_artifact_id }}
+        run: |
+          [[ "$ARTIFACT" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT" > receipt.json
+          test "$(jq -r .name receipt.json)" = ex-prospective-forecasts
+          printf 'run_id=%s\n' "$(jq -r .workflow_run.id receipt.json)" >> "$GITHUB_OUTPUT"
+          printf 'sealed=%s\n' "$(jq -r .created_at receipt.json)" >> "$GITHUB_OUTPUT"
+      - name: Read the exact forecast artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT: ${{ inputs.forecast_artifact_id }}
+        run: |
+          [[ "$ARTIFACT" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT/zip" > forecasts.zip
+          unzip -q forecasts.zip -d input
+      - uses: actions/download-artifact@v4
+        if: inputs.design_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.design_run_id }}
+          name: ex-power-design
+          path: design
+      - uses: actions/download-artifact@v4
+        if: inputs.official_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.official_run_id }}
+          name: official-outcomes
+          path: reviewed
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531307
+          name: ex-frozen-research-candidates
+          path: model
+      - uses: actions/cache/restore@v4
+        with:
+          path: settlement-cache
+          key: ex-settlement-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ex-settlement-${{ github.ref }}-
+      - env:
+          SEALED: ${{ steps.receipt.outputs.sealed }}
+        run: |
+          official=()
+          if [ -f reviewed/official.json ]; then official+=(--official reviewed/official.json); fi
+          if [ -f design/design.json ]; then official+=(--design design/design.json); fi
+          python run_ex_prospective_pipeline.py --forecast-ledger input/forecasts/forecasts.jsonl --sealed-at "$SEALED" --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: settlement-cache
+          key: ex-settlement-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-settlement
+          path: settlement/
