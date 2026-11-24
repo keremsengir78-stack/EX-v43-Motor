@@ -2,6 +2,7 @@
 
 import datetime as dt
 import hashlib
+from http.client import IncompleteRead
 import json
 import os
 import tempfile
@@ -40,7 +41,10 @@ def download(url):
     client = urllib.request.build_opener(RestrictedRedirect)
     request = urllib.request.Request(url, headers={"User-Agent": "EX-history-collector/1.0"})
     with client.open(request, timeout=15) as response:
-        raw = response.read(MAX_BYTES + 1)
+        try:
+            raw = response.read(MAX_BYTES + 1)
+        except IncompleteRead as exc:
+            raise OSError("Incomplete HTTP response body") from exc
     if len(raw) > MAX_BYTES:
         raise ValueError("Evidence exceeds maximum size")
     return raw

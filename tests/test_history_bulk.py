@@ -200,3 +200,16 @@ class HistorySourceFallbackTests(unittest.TestCase):
             path.write_text(json.dumps({"category": "TRANSPORT", "error": "network reset",
                                         "retry_after": "2026-11-24T02:30:00Z"}))
             self.assertEqual(b"ok", archive.get(url, lambda raw, _: raw)[0])
+
+    def test_truncated_http_body_is_retryable_transport_error(self):
+        from http.client import IncompleteRead
+        from unittest.mock import MagicMock, patch
+        from ex_history_archive import download, failure_class
+
+        response = MagicMock()
+        response.__enter__.return_value.read.side_effect = IncompleteRead(b"truncated")
+        with patch("ex_history_archive.urllib.request.build_opener") as opener:
+            opener.return_value.open.return_value = response
+            with self.assertRaisesRegex(OSError, "Incomplete HTTP") as caught:
+                download("https://site.api.espn.com/soccer")
+        self.assertEqual("TRANSPORT", failure_class(caught.exception))
