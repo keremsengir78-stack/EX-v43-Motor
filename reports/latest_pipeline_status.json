@@ -10,8 +10,8 @@
   "summary_exists": true,
   "germany_csv_exists": true,
   "ex_final_allowed": false,
-  "commit": "011ccc9c8b47f4826f431719d82fd78c3f069de2",
-  "run_id": "45285019306",
+  "commit": "3c1c4341c958772c47c8fae27203c7b4f2e93eb1",
+  "run_id": "45301780014",
   "audit_status": "BLOCKED",
   "source_errors": [],
   "baseline_blocking_sources": [
@@ -46,13 +46,13 @@
     },
     {
       "reason": "secondary_newer_results_not_independently_verified",
-      "count": 295,
+      "count": 298,
       "staging_file": "secondary_only_unverified.json"
     }
   ],
   "baseline_secondary_unverified": 1845,
   "baseline_secondary_conflicts": 0,
-  "baseline_newer_unverified_results": 295,
+  "baseline_newer_unverified_results": 298,
   "baseline_unmatched_by_season": {
     "2025-26/en.1": 270,
     "2025-26/de.1": 304,
@@ -88,7 +88,7 @@
       "league": "fr.1"
     }
   ],
-  "baseline_unverified_results_pending": 295,
+  "baseline_unverified_results_pending": 298,
   "baseline_source_gate_ready": false,
   "shadow_comparison_exists": true,
   "unmatched_total": 1845,
