@@ -407,8 +407,12 @@ class TestEXMotor(unittest.TestCase):
         self.assertEqual(len(rows),1)
         self.assertEqual(rows[0]["home_goals"],2)
         self.assertEqual(rows[0]["away_goals"],1)
+        for league in ("tr.1","UCL","az.1"):
+            supported=parse_espn_scoreboard(data,league,"2026-11-21")
+            self.assertEqual(len(supported),1)
+            self.assertEqual(supported[0]["league"],league)
         with self.assertRaises(ValueError):
-            parse_espn_scoreboard(data,"tr.1","2026-11-21")
+            parse_espn_scoreboard(data,"unsupported.1","2026-11-21")
         with self.assertRaises(ValueError):
             parse_espn_scoreboard({"events":None},"en.1","2026-11-21")
 
