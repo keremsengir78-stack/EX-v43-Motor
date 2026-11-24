@@ -32,10 +32,6 @@
         "MS1": 0.418408,
         "MS2": 0.375365
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -44,7 +40,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -75,10 +79,6 @@
         "MS1": 0.557105,
         "MS2": 0.235403
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -87,7 +87,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -118,9 +126,6 @@
         "MS1": 0.448396,
         "MS2": 0.274755
       },
-      "missing_market_quotes": [
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -129,7 +134,14 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -160,10 +172,6 @@
         "MS1": 0.43701,
         "MS2": 0.276474
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -172,7 +180,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -203,9 +219,6 @@
         "MS1": 0.332808,
         "MS2": 0.440049
       },
-      "missing_market_quotes": [
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -214,7 +227,14 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -245,10 +265,6 @@
         "MS1": 0.452078,
         "MS2": 0.307366
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -257,7 +273,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -288,10 +312,6 @@
         "MS1": 0.703073,
         "MS2": 0.136445
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -300,7 +320,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -331,10 +359,6 @@
         "MS1": 0.444566,
         "MS2": 0.35081
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [
         "MS1"
       ],
@@ -345,7 +369,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -376,10 +408,6 @@
         "MS1": 0.442586,
         "MS2": 0.32162
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -388,7 +416,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -419,10 +455,6 @@
         "MS1": 0.330077,
         "MS2": 0.458273
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [
         "MS2"
       ],
@@ -433,7 +465,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -464,10 +504,6 @@
         "MS1": 0.593542,
         "MS2": 0.190269
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -476,7 +512,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -507,10 +551,6 @@
         "MS1": 0.443781,
         "MS2": 0.320336
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [
         "MS1"
       ],
@@ -521,7 +561,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -552,10 +600,6 @@
         "MS1": 0.51937,
         "MS2": 0.257338
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -564,7 +608,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -595,10 +647,6 @@
         "MS1": 0.553689,
         "MS2": 0.24343
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -607,7 +655,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -638,9 +694,6 @@
         "MS1": 0.320322,
         "MS2": 0.414022
       },
-      "missing_market_quotes": [
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -649,7 +702,14 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -680,9 +740,6 @@
         "MS1": 0.277209,
         "MS2": 0.462029
       },
-      "missing_market_quotes": [
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -691,7 +748,14 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -722,10 +786,6 @@
         "MS1": 0.324607,
         "MS2": 0.449126
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -734,7 +794,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     },
     {
       "fixture": {
@@ -765,10 +833,6 @@
         "MS1": 0.590491,
         "MS2": 0.193491
       },
-      "missing_market_quotes": [
-        "2.5_UST",
-        "KG_VAR"
-      ],
       "passes": [],
       "missing_ex_g_inputs": [
         "calibrated_team_strength",
@@ -777,7 +841,15 @@
       ],
       "ex_g": null,
       "ex_d": null,
-      "decision": "NO_FINAL"
+      "decision": "NO_FINAL",
+      "missing_draftkings_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ],
+      "market_comparator_quotes_available": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
     }
   ]
 }
