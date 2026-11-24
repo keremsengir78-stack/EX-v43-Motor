@@ -11,14 +11,14 @@ CUTOFF="2026-11-24"
 def main():
     out=Path("ucl_research_output/domestic")
     out.mkdir(parents=True,exist_ok=True)
-    start_day=dt.date(2025,7,1)
+    start_day=dt.date(2025,1,1)
     cutoff=dt.date.fromisoformat(CUTOFF)
     windows=[]
     while start_day<cutoff:
         end_day=min(start_day,cutoff-dt.timedelta(days=1))
         windows.append((start_day.strftime("%Y%m%d"),end_day.strftime("%Y%m%d")))
         start_day=end_day+dt.timedelta(days=1)
-    jobs=[(league,start,end) for league in ESPN_LEAGUES if league!="UCL" for start,end in windows]
+    jobs=[(league,start,end) for league in ESPN_LEAGUES if league!="UCL" for start,end in windows if league=="no.1" or start>="20250701"]
     def fetch(job):
         league,start,end=job
         try:
