@@ -70,3 +70,21 @@ class HistoryCollectionTests(unittest.TestCase):
                   "kickoff_at": "2026-11-24T20:00:00Z"}
         self.assertTrue(uefa_news(raw, utc("2026-11-24T19:00:00Z"), [target])[0]["prematch_eligible"])
         self.assertIsNone(uefa_news(raw, utc(target["kickoff_at"]), [target])[0]["reported_availability"])
+
+    def test_duplicate_athlete_is_excluded_without_losing_fixture(self):
+        stamp = "2026-11-20T12:00:00Z"
+        game = {"id": "1", "date": stamp, "competitors": [
+            {"homeAway": "home", "team": {"id": "4"}}, {"homeAway": "away", "team": {"id": "7"}},
+        ], "status": {"type": {"state": "post", "completed": True}}}
+        duplicate = {"athlete": {"id": "13"}}
+        valid = {"athlete": {"id": "14"}, "stats": [{"name": "minutesPlayed", "value": 90}]}
+        summary = {"header": {"id": "1", "competitions": [game]}, "rosters": [
+            {"team": {"id": "4"}, "homeAway": "home", "roster": [duplicate, valid]},
+            {"team": {"id": "7"}, "homeAway": "away", "roster": [duplicate]},
+        ]}
+        event = {"event_id": "1", "kickoff_at": stamp, "teams": {"home": "4", "away": "7"}}
+        result = match_detail(json.dumps(summary).encode(), utc(stamp), event)
+        self.assertTrue(result["completed"])
+        self.assertEqual(["13"], result["roster_identity_conflicts"])
+        self.assertEqual(["14"], [row["athlete_id"] for row in result["player_rows"]])
+        self.assertEqual(90, result["player_rows"][0]["provider_minutes"])

@@ -37,7 +37,7 @@ python run_ex_history_merge.py --plan plan.json --parts parts --cache weather_ca
   --venues config/ex_history_venues.json --output history-coverage.json
 ```
 
-Actions sekmesindeki **EX bulk history** sekiz sabit bölümü en fazla iki eşzamanlı iş ile yürütür. Her bölüm her çalıştırmada en çok 100 yeni özet isteği yapar ve aynı ref üzerindeki önceki bölüm önbelleğinden devam eder. Aynı çalıştırmayı yeniden başlatırken tüm işleri yeniden çalıştırın. Plan, bölüm raporları, kapsam ve SHA-256 adresli ham kaynaklar ayrı Actions çıktılarıdır. Kapsam raporunda kalan maçlar ayrıca sayılır. Takvim önbelleği yedi gün sonra güncellenebilir.
+Actions sekmesindeki **EX bulk history** sekiz sabit bölümü en fazla iki eşzamanlı iş ile yürütür. Her bölüm her çalıştırmada en çok 170 yeni özet isteği yapar ve aynı ref üzerindeki önceki bölüm önbelleğinden devam eder. Aynı çalıştırmayı yeniden başlatırken tüm işleri yeniden çalıştırın. Plan, bölüm raporları, kapsam ve SHA-256 adresli ham kaynaklar ayrı Actions çıktılarıdır. Kapsam raporunda kalan maçlar ayrıca sayılır. Takvim önbelleği yedi gün sonra güncellenebilir.
 
 Open-Meteo geçmiş hava arşivi, doğrulanmış saha konumları için sonradan üretilen yeniden analiz kaydını ayrı tutar. Ardışık bilinen sahaların büyük daire mesafesi ölçülebilir bir coğrafi vekildir. Gerçek seyahat rotası, zemin durumu veya maç öncesi hava tahmini olarak kullanılmaz. Saha kayıtları kimlik, ad ve koordinat kaynağı gerektirir. Ortak özellik çıkarıcı, analiz zamanından önce yakalanan maçları ve kadro sürelerini hesaba katar.
 
@@ -45,7 +45,7 @@ Yerel çalışmanın ölçümleri `reports/ex_history_bulk_2026_11_24.json` dosy
 
 ## Devam toplaması ve skor kanıtı
 
-Mevcut sekiz bölüm ve önbellek anahtarları korunur. Bölüm başına yeni özet bütçesi 100 istektir. Başarılı tamamlanmış özetler ağ isteği yapmadan okunur ve en fazla iki bölüm aynı anda çalışır. Hatalar erişim engeli, hız sınırı, bulunamayan kaynak, sunucu/bağlantı hatası ve geçersiz içerik olarak raporlanır. HTTP 429 sonrasında ilgili iş aynı sunucuya yeni istekleri geçici olarak durdurur. Saniye ve HTTP tarihi biçimindeki Retry-After işlenir.
+Mevcut sekiz bölüm ve önbellek anahtarları korunur. Bölüm başına yeni özet bütçesi 170 istektir. Başarılı tamamlanmış özetler ağ isteği yapmadan okunur ve en fazla iki bölüm aynı anda çalışır. Hatalar erişim engeli, hız sınırı, bulunamayan kaynak, sunucu/bağlantı hatası ve geçersiz içerik olarak raporlanır. HTTP 429 sonrasında ilgili iş aynı sunucuya yeni istekleri geçici olarak durdurur. Saniye ve HTTP tarihi biçimindeki Retry-After işlenir.
 
 Open-Meteo sonuç veremediğinde NASA POWER saatlik UTC yeniden analiz kaynağı denenir. Kaynak ve grid mesafesi çıktıda saklanır. Coğrafi saha mesafeleri `venue_geodesic_transitions` içinde, belgelenmiş seyahat gözlemleri `verified_travel_observations` alanında yer alır.
 

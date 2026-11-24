@@ -87,7 +87,7 @@ jobs:
           restore-keys: |
             ex-bulk-shard-v1-${{ github.ref }}-${{ matrix.shard }}-
             ex-history-v1-${{ github.ref }}-
-      - run: python run_ex_history_collection.py --plan plan.json --cache ex_history_cache --output "part-${{ matrix.shard }}.json" --shard "${{ matrix.shard }}" --shards 8 --budget 100 --request-interval 0.5
+      - run: python run_ex_history_collection.py --plan plan.json --cache ex_history_cache --output "part-${{ matrix.shard }}.json" --shard "${{ matrix.shard }}" --shards 8 --budget 170 --request-interval 0.5
       - uses: actions/cache/save@v4
         if: always()
         with:

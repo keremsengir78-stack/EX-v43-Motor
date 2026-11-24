@@ -3,6 +3,7 @@
 import datetime as dt
 import json
 import re
+from collections import Counter
 
 from ex_history_archive import utc
 from ex_uefa_provider import parse_team_news
@@ -105,7 +106,7 @@ def match_detail(raw, captured, event):
     if completed and phase == "PREMATCH_CAPTURE":
         raise ValueError("Completed summary captured before fixture kickoff")
     roster = []
-    roster_teams, players = set(), set()
+    roster_teams = set()
     if completed and phase == "AFTER_KICKOFF":
         for block in payload.get("rosters", []):
             team = identifier(block["team"]["id"])
@@ -114,15 +115,15 @@ def match_detail(raw, captured, event):
             roster_teams.add(team)
             for player in block.get("roster", []):
                 athlete = identifier(player["athlete"]["id"])
-                if athlete in players:
-                    raise ValueError("Duplicate athlete in the fixture")
-                players.add(athlete)
                 exact = explicit_minutes(player)
                 derived = (regulation_minutes(player) if exact is None
                            and state.get("name") == "STATUS_FULL_TIME" else None)
                 roster.append({"team_id": team, "athlete_id": athlete,
                                "starter": player.get("starter"), "provider_minutes": exact,
                                "nominal_regulation_minutes": derived})
+    player_counts = Counter(player["athlete_id"] for player in roster)
+    identity_conflicts = sorted(athlete for athlete, count in player_counts.items() if count > 1)
+    roster = [player for player in roster if player_counts[player["athlete_id"]] == 1]
     conflicted_teams = []
     for team in roster_teams:
         player_rows = [player for player in roster if player["team_id"] == team]
@@ -136,7 +137,8 @@ def match_detail(raw, captured, event):
     return {"event_id": event["event_id"], "kickoff_at": event["kickoff_at"], "teams": event["teams"], "capture_phase": phase, "completed": completed,
             "venue": venue, "neutral_site": competition.get("neutralSite"), "player_rows": roster,
             "reported_weather": game_info.get("weather"), "travel": None,
-            "nominal_minutes_conflict_teams": sorted(conflicted_teams)}
+            "nominal_minutes_conflict_teams": sorted(conflicted_teams),
+            "roster_identity_conflicts": identity_conflicts}
 
 
 def uefa_news(raw, captured, targets):

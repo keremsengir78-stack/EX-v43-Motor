@@ -38,6 +38,7 @@ def assemble(plan, parts):
             count["summaries"] += 1
             count["completed_summaries"] += int(detail["completed"])
             count["venue_observations"] += int(bool(detail["venue"]))
+        count["summaries_with_roster_identity_conflicts"] += int(bool(detail.get("roster_identity_conflicts")))
             for row in detail["player_rows"]:
                 count["player_rows"] += 1
                 count["provider_minutes"] += int(row["provider_minutes"] is not None)
@@ -128,6 +129,11 @@ def main():
                                                      "requested_summaries", "summary_cache_hits", "deferred_summaries",
                                                      "minute_arithmetic", "source_failure_counts")},
                       "weather_observations": len(result["weather"]),
+                      "weather_observations_by_provider": dict(Counter(
+                          item["provider"] for item in result["weather"].values())),
+                      "roster_identity_conflict_summaries": sum(
+                          league.get("summaries_with_roster_identity_conflicts", 0)
+                          for league in result["competition_coverage"].values()),
                       "weather_failure_counts": dict(Counter(f"{e['provider']}:{e['category']}"
                                                              for e in result["weather_errors"]))}))
 
