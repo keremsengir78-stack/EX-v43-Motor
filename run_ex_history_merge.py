@@ -38,7 +38,7 @@ def assemble(plan, parts):
             count["summaries"] += 1
             count["completed_summaries"] += int(detail["completed"])
             count["venue_observations"] += int(bool(detail["venue"]))
-        count["summaries_with_roster_identity_conflicts"] += int(bool(detail.get("roster_identity_conflicts")))
+            count["summaries_with_roster_identity_conflicts"] += int(bool(detail.get("roster_identity_conflicts")))
             for row in detail["player_rows"]:
                 count["player_rows"] += 1
                 count["provider_minutes"] += int(row["provider_minutes"] is not None)
