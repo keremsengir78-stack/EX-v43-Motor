@@ -7,7 +7,7 @@ from pathlib import Path
 
 from ex_auto_control import auto_control, snapshot
 from ex_cross_verify import norm
-from ex_decision import MARKETS, assess_market_value, assess_markets
+from ex_decision import MARKETS, WEIGHTS, assess_market_value, assess_markets
 from ex_engine import distribution
 from ex_fixture_odds import check_fixture
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
@@ -19,6 +19,16 @@ from run_ucl_baselines import FIXTURE_CONFIG, calculate_baselines, verified_byte
 from run_ucl_matchday_inputs import TEAM_NEWS, market_quotes, observed_load, parse_team_news
 from run_ucl_model_integration import MARKET_FIELDS, score_grid_marginals
 from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
+
+
+def conditional_context_range(team_strength_reference):
+    """Bound the hypothetical weighted score when context effects are unknown."""
+    anchor = WEIGHTS["team_strength"] * team_strength_reference
+    span = WEIGHTS["match_conditions"] + WEIGHTS["external_factors"]
+    return {"status": "CONDITIONAL_RESEARCH_RANGE", "team_strength_anchor": team_strength_reference,
+            "lower_weighted_score": anchor, "upper_weighted_score": anchor + span,
+            "unknown_components": ["match_conditions", "external_factors"],
+            "ex_final_allowed": False}
 
 
 def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None, uefa_archive=None):
@@ -104,8 +114,10 @@ def record_predictions(manifest, archive, historical, day, clock, provider_histo
             control = auto_control({"fixture": fixture, "status": "BASELINE_ONLY", "fixture_lock": lock,
                                     "odds_lock": value["odds_lock"], "recompute_consistent": consistent,
                                     "market_baselines_pct": percentages})
-            markets[market] = {"research_probability": scores[MARKET_FIELDS[market]],
-                               "evidence": evidence, **value, "auto_control": control}
+            probability = scores[MARKET_FIELDS[market]]
+            markets[market] = {"research_probability": probability, "evidence": evidence,
+                               "context_sensitivity": conditional_context_range(probability),
+                               **value, "auto_control": control}
         preview = news.get(key[1:])
         archived_load = provider_history.fixture(entry["teams"], entry["kickoff_at"], now.isoformat()) if provider_history else None
         results.append({"fixture": fixture, "teams": entry["teams"], "sources": [board_source, entry["source"]],

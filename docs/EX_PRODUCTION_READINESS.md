@@ -10,7 +10,7 @@
 | %20 dış etkenler | Dokuz saha konumu, tarafsız saha ve maç önü hava | Tahmin saat, konum ve yakalama zamanı denetleniyor | Doğrulanabilir yolculuk ve maç günü saha belgeleri, hava tahmini boyunca sonuç eşleşmesi, pazar etkisi |
 | Skor kaynakları | 1.078 tekil, 99 iki sağlayıcılı, 38 önceki resmî sonuç, 1 çok kaynaklı kayıt, 9 yeni DFL çapraz eşleşmesi | Mutabakat, yeni DFL kontrolleri ve kaynak katmanları ayrılıyor | ESPN maç verisinin aday başına kökeni ve resmî kaynak denetimi |
 | Dört ligde dakikalar | Ukrayna örneğinde 32 nominal oyuncu süresi | Resmî başlangıç kadrosu ve değişikliklerden 990 takım-dakika hesabı | Slovakya, Çekya ve Azerbaycan için güvenilir ayrıştırma ve zaman çizelgesi, Ukrayna pilotunun genişletilmesi |
-| EX-G, EX-D, Tur-2, Auto-Control ve PUP | Dokuz maç ve 36 pazar yeniden hesaplanıyor | Ortak karar katmanları ve gerçek zaman kesimi kullanılıyor | Kalibre EX-G, doğrulanmış bağımsız bileşenler ve onaylı PUP kanıtı |
+| EX-G, EX-D, Tur-2, Auto-Control ve PUP | Dokuz maç ve 36 pazar yeniden hesaplanıyor | Ortak karar katmanları ve gerçek zaman kesimi kullanılıyor. PUP yürütücüsü yerine engel denetimi var | Kalibre EX-G, doğrulanmış bağımsız bileşenler ve onaylı protokolün yürütme testi |
 | EX FINAL | Yayına hazır karar 0 | Teknik denetim ve güvenli kilit mevcut | Yukarıdaki zorunlu kanıtlar ve kullanıcı onaylı koşullar |
 
 Dondurulmuş Platt, önceki beş maçlık saha referansına özeldir. 25 Kasım araştırma kaydındaki Poisson olasılıklarına uygulanmaz. Gelecekteki değerlendirme, maç önü tahmin ve sonradan alınan sonuç için ayrı JSONL defterleriyle çalışır. Araştırma eşiği uygulama yetkisi vermez.
@@ -18,3 +18,5 @@ Dondurulmuş Platt, önceki beş maçlık saha referansına özeldir. 25 Kasım 
 Ukrayna pilotu, 14 Eylül 2026 Shakhtar–Chornomorets maçının resmî hakem raporunu kullanıyor. Oyuncu süreleri normal sürenin nominal dakikalarıdır. [Resmî rapor](https://upl.ua/en/report/view/15927/report)
 
 Bundesliga 2026/27 10. hafta, iki kaynaklı defterdeki adayları ve Football-Data sırasındaki yeni sonuçları resmî yayına karşı ayrı karşılaştırır. Bu kontrol giriş sağlayıcılarının maç bazlı kaynak zincirini onaylamaz. [DFL maç günü](https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/10)
+
+Maç koşulları ve dış etkenler için koşullu aralık, takım gücü araştırma referansı sabitken olası toplam ağırlıklı puanın alt ve üst sınırını verir. İki eksik bileşene değer atanmaz. Bu aralık sayısal kapsamı gösterir, kalibre olasılık veya EX-G girdisi olarak kullanılmaz.

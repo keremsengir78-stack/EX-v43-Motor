@@ -72,3 +72,12 @@ class ProductionResearchTests(unittest.TestCase):
         output = reconcile(official, staged, ledger)
         self.assertEqual(1, output["matches"]["ESPN"])
         self.assertFalse(output["provider_lineage_certified"])
+
+    def test_context_sensitivity_preserves_unknown_weight_and_lock(self):
+        from run_ex_ucl_pregame import conditional_context_range
+
+        interval = conditional_context_range(.6)
+        self.assertAlmostEqual(.3, interval["lower_weighted_score"])
+        self.assertAlmostEqual(.8, interval["upper_weighted_score"])
+        self.assertEqual(["match_conditions", "external_factors"], interval["unknown_components"])
+        self.assertFalse(interval["ex_final_allowed"])
