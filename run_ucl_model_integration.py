@@ -194,7 +194,7 @@ def replay_fixture(fixture, prematch, baseline, raw_dir, news, aliases, uefa_key
     return {
         "fixture": fixture, "decision": "NO_FINAL", "fixture_lock": fixture_lock,
         "scoreboard_source": board_meta, "summary_source": summary_meta,
-        "uefa_match_id": preview["uefa_match_id"],
+        "uefa_match_id": preview["uefa_match_id"], "provider_team_ids": ids,
         "measurements": measurements, "context_inputs": context_inputs, "venue": venue,
         "neutral_site": neutral_site, "score_distribution": scores,
         "markets": markets, "tur2_recompute_consistent": consistent,
@@ -261,7 +261,7 @@ def league_replay(archive, config, uefa, aliases):
     return rows, compare_league_challengers(rounds[0] + rounds[1], rounds[2], rounds[3])
 
 
-def run(archive, *, experiments=False):
+def run(archive, *, experiments=False, provider_history=None):
     config = json.loads(FIXTURE_CONFIG.read_text())
     prematch = json.loads(Path("reports/ucl_matchday5_prematch_2026_11_24.json").read_text())
     baselines = json.loads((archive / "archive_baselines.json").read_text())
@@ -296,6 +296,10 @@ def run(archive, *, experiments=False):
         result["historical_features"] = history.fixture(
             leagues[f["home"]], leagues[f["away"]], f["home"], f["away"], dt.date.fromisoformat(f["date"]),
         )
+        if provider_history is not None:
+            result["provider_history"] = provider_history.fixture(
+                result["provider_team_ids"], f["kickoff_at"], RUN_AS_OF,
+            )
     if len(results) != 9 or any(not row["tur2_recompute_consistent"] for row in results):
         raise ValueError("Incomplete or inconsistent Tur-2 replay for today's fixtures")
     report = {
@@ -316,5 +320,13 @@ if __name__ == "__main__":
     parser.add_argument("--archive", type=Path, default=Path("ucl_research_output"))
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--experiments", action="store_true", help="Rerun historical experiments explicitly")
+    parser.add_argument("--history-plan", type=Path)
+    parser.add_argument("--history-parts", type=Path)
     args = parser.parse_args()
-    args.output.write_text(json.dumps(run(args.archive, experiments=args.experiments), ensure_ascii=False, indent=2) + "\n")
+    if bool(args.history_plan) != bool(args.history_parts):
+        parser.error("Provide both --history-plan and --history-parts")
+    provider_history = None
+    if args.history_plan:
+        from run_ex_history_merge import load_provider_history
+        provider_history = load_provider_history(args.history_plan, args.history_parts)
+    args.output.write_text(json.dumps(run(args.archive, experiments=args.experiments, provider_history=provider_history), ensure_ascii=False, indent=2) + "\n")

@@ -140,3 +140,46 @@ class HistorySourceFallbackTests(unittest.TestCase):
             result, _ = archive.get(url, lambda raw, _: raw, content_schema="v2")
             self.assertEqual(b"payload", result)
             self.assertEqual(2, archive.requests)
+
+    def test_fixture_context_keeps_minutes_and_venue_on_correct_side(self):
+        from ex_historical_features import ProviderHistory
+
+        game = {"event_id": "2", "kickoff_at": "2026-11-20T15:00:00Z",
+                "teams": {"home": "4", "away": "9"}, "completed": True}
+        source = {"retrieved_at": "2026-11-21T12:00:00Z"}
+        detail = {**game, "source": source, "venue": {"id": "20"}, "player_rows": [
+            {"team_id": "4", "athlete_id": "8", "provider_minutes": 73, "nominal_regulation_minutes": None}]}
+        archive = ProviderHistory(
+            [{"team_id": team, "source": source, "fixtures": [game]} for team in ("4", "9")], {"2": detail},
+        )
+        result = archive.fixture(game["teams"], "2026-11-26T17:00:00Z", "2026-11-25T12:00:00Z")
+        self.assertEqual({"8": 73}, result["sides"]["home"]["provider_minutes_14d"])
+        self.assertEqual({}, result["sides"]["away"]["provider_minutes_14d"])
+        self.assertEqual("2", result["sides"]["home"]["last_observed_venue"]["event_id"])
+        self.assertFalse(result["ex_final_allowed"])
+        self.assertEqual(0, archive.pregame_coverage([game])["two_calendars"])
+
+    def test_standings_match_competition_season_and_deduplicate_groups(self):
+        import json
+        from ex_history_rosters import standing_teams
+
+        rows = [{"team": {"id": str(i)}} for i in range(10, 18)]
+        payload = {"season": {"year": 2025}, "uid": "s:600~l:725",
+                   "children": [{"standings": {"entries": rows}}, {"standings": {"entries": rows[:2]}}]}
+        data = json.dumps(payload)
+        self.assertEqual(8, len(standing_teams(data, "s:600~l:725", 2025)))
+        with self.assertRaises(ValueError):
+            standing_teams(data, "s:600~l:3901", 2025)
+
+    def test_alternative_archive_prefers_regulation_final_score(self):
+        import json
+        from ex_history_alternative_scores import bundesliga_scores
+
+        game = {"leagueShortcut": "bl1", "leagueSeason": 2025, "matchDateTime": "2025-11-06T14:00:00",
+                "matchIsFinished": True, "team1": {"teamName": "Alpha"}, "team2": {"teamName": "Beta"},
+                "matchResults": [{"resultTypeID": 1, "pointsTeam1": 0, "pointsTeam2": 1},
+                                 {"resultTypeID": 2, "pointsTeam1": 2, "pointsTeam2": 1}]}
+        rows = bundesliga_scores(json.dumps([game]), 2025, "2026-11-24")
+        self.assertEqual((2, 1), (rows[0]["home_goals"], rows[0]["away_goals"]))
+        with self.assertRaises(ValueError):
+            bundesliga_scores(json.dumps([game]), 2026, "2026-11-24")

@@ -71,6 +71,35 @@ def collect_scores(queues, as_of, aliases, archive):
             "ex_final_allowed": False}
 
 
+def alternative_scores(queues, as_of, aliases, archive):
+    from ex_history_alternative_scores import OPENLIGA, bundesliga_scores
+
+    snapshots, errors = {}, []
+    scores = []
+    seasons = sorted({int(row["season"].split("-")[0]) for rows in queues.values() for row in rows
+                      if row["league"] == "de.1"})
+    for year in seasons:
+        url = f"{OPENLIGA}/{year}"
+        try:
+            rows, meta = archive.get(url, lambda raw, _: bundesliga_scores(raw, year, as_of),
+                                     content_schema="openligadb-season-v1")
+        except BudgetExhausted:
+            raise ValueError("Alternative score budget smaller than requested Bundesliga seasons")
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            errors.append(source_error("alternative_score", url, exc))
+        else:
+            scores.extend(rows)
+            snapshots[year] = meta
+    reports = {}
+    for name, queue in queues.items():
+        local = [row for row in queue if row["league"] == "de.1"]
+        result = reconcile_staged_with_third(local, scores, as_of, aliases)
+        reports[name] = {key: [{**row, "source": snapshots[int(row["season"].split("-")[0])]}
+                               for row in result[key]] for key in ("verified", "conflicts")}
+    return {"provider": "OpenLigaDB", "source_references": list(snapshots.values()), "errors": errors,
+            "queues": reports, "independence_certified": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, required=True)
@@ -79,14 +108,27 @@ def main():
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--budget", type=int, default=100, choices=range(1, 501), metavar="1..500")
+    parser.add_argument("--alternative-bundesliga", action="store_true")
     args = parser.parse_args()
     audit = json.loads((args.data / "audit.json").read_text())
     queues = {"historical": history_queue(audit, load(args.data / "results.csv")),
               "newer": json.loads((args.data / "secondary_only_unverified.json").read_text())}
     aliases = {league: {norm(k): value for k, value in names.items()}
                for league, names in json.loads(args.aliases.read_text()).items()}
+    from run_candidate_espn_reconciliation import ALIASES
+    for league, names in ALIASES.items():
+        aliases.setdefault(league, {}).update({norm(k): v for k, v in names.items()})
     report = collect_scores(queues, args.as_of, aliases,
                             HistoryArchive(args.cache, args.budget, fetch=paced_download(.75)))
+    if args.alternative_bundesliga:
+        report["alternative_bundesliga"] = alternative_scores(
+            queues, args.as_of, aliases, HistoryArchive(args.cache, 4, fetch=paced_download(.75)),
+        )
+        alternative = report["alternative_bundesliga"]
+        print(json.dumps({"alternative_bundesliga": {"sources": len(alternative["source_references"]),
+                          "errors": alternative["errors"], "queues": {
+                              key: {field: len(items) for field, items in value.items()}
+                              for key, value in alternative["queues"].items()}}}))
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{k: report[k] for k in ("date_requests", "requests", "cache_hits", "deferred_dates",
                                                "source_failure_counts")},

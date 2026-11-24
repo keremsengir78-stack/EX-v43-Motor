@@ -35,6 +35,9 @@ def main():
  p.add_argument('--third-source-provider',help='Name of independently identified third data provider')
  p.add_argument('--third-source-reference',help='Verifiable URL or reference for third-provider provenance')
  p.add_argument('--evidence',help='Verified market evidence JSON; remains uncalibrated')
+ p.add_argument('--history-plan',type=Path)
+ p.add_argument('--history-parts',type=Path)
+ p.add_argument('--history-at',help='Explicit UTC research cutoff for provider observations')
  p.add_argument('--odds',help='JSON list of timestamped odds snapshots matching fixtures by order')
  a=p.parse_args(); out=Path(a.outdir);out.mkdir(parents=True,exist_ok=True)
  ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days)
@@ -148,6 +151,15 @@ def main():
    if fixture['date'] < a.as_of: raise ValueError('Historical fixture supplied: cannot present retrospective prediction as pre-match')
   result['matches']=audit(rows,fixtures)
   odds=[]
+  history=None
+  if any((a.history_plan,a.history_parts,a.history_at)):
+   if not all((a.history_plan,a.history_parts,a.history_at)):
+    raise ValueError('Provide history plan, parts and UTC cutoff together')
+   from run_ex_history_merge import load_provider_history
+   from ex_history_archive import utc
+   if utc(a.history_at).date().isoformat()!=a.as_of:
+    raise ValueError('Provider history cutoff must be on the analysis day')
+   history=load_provider_history(a.history_plan,a.history_parts)
   if a.odds:
    odds=json.loads(Path(a.odds).read_text(encoding='utf-8'))
    if not isinstance(odds,list) or len(odds)!=len(fixtures):
@@ -155,6 +167,9 @@ def main():
   for i,match in enumerate(result['matches']):
    match['fixture_lock']=check_fixture(fixtures[i],a.as_of)
    kickoff=fixtures[i].get('kickoff_at','')
+   if history is not None and kickoff and all(fixtures[i].get(key) for key in ('home_espn_id','away_espn_id')):
+    match['provider_history']=history.fixture(
+       {side:fixtures[i][f'{side}_espn_id'] for side in ('home','away')},kickoff,a.history_at)
    match['odds_lock']=check_odds(odds[i] if odds else None,kickoff) if kickoff else {'status':'BLOCKED','issues':['kickoff_at:missing'],'decision':'NO_FINAL','ex_final_allowed':False}
    match['decision']='NO_FINAL'
    match['auto_control']=auto_control(match,ing)

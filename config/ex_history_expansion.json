@@ -149,7 +149,8 @@
           "espn_team_id": "132335",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:3946"
     },
     "nl.1": {
       "espn_competition": "ned.1",
@@ -298,7 +299,8 @@
           "espn_team_id": "3736",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:725"
     },
     "pt.1": {
       "espn_competition": "por.1",
@@ -443,7 +445,8 @@
           "espn_team_id": "21613",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:715"
     },
     "be.1": {
       "espn_competition": "bel.1",
@@ -564,7 +567,8 @@
           "espn_team_id": "131235",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:3901"
     },
     "no.1": {
       "espn_competition": "nor.1",
@@ -697,7 +701,8 @@
           "espn_team_id": "22165",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:3960"
     },
     "at.1": {
       "espn_competition": "aut.1",
@@ -798,7 +803,8 @@
           "espn_team_id": "21846",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:3907"
     },
     "gr.1": {
       "espn_competition": "gre.1",
@@ -903,7 +909,8 @@
           "espn_team_id": "132429",
           "season": 2026
         }
-      ]
+      ],
+      "standings_uid": "s:600~l:3955"
     },
     "sk.1": {
       "espn_competition": "svk.1",

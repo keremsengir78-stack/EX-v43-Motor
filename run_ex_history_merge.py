@@ -5,8 +5,9 @@ import datetime as dt
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from itertools import zip_longest
 
-from ex_historical_features import provider_context
+from ex_historical_features import ProviderHistory, provider_context
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, failure_class, paced_download, utc
 from ex_history_environment import coordinates, nasa_power_at, separation_km, weather_at
 
@@ -47,14 +48,24 @@ def assemble(plan, parts):
                    for league, counts in sorted(coverage.items())}
 
 
+def load_provider_history(plan_path, parts_path):
+    plan = json.loads(plan_path.read_text())
+    parts = [json.loads(path.read_text()) for path in sorted(parts_path.rglob("part-*.json"))]
+    details, _ = assemble(plan, parts)
+    return ProviderHistory(plan["calendars"], details)
+
+
 def summarize(plan, parts, archive, venues):
     details, coverage = assemble(plan, parts)
     now = archive.clock()
     weather, weather_errors = {}, []
+    weather_queue = defaultdict(list)
     for event, detail in sorted(details.items(), key=lambda item: utc(item[1]["kickoff_at"])):
         point = coordinates(detail["venue"], venues)
-        if point is None or now - utc(detail["kickoff_at"]) < dt.timedelta(days=7):
-            continue
+        if point is not None and now - utc(detail["kickoff_at"]) >= dt.timedelta(days=7):
+            weather_queue[detail["venue"]["id"]].append((event, detail, point))
+    candidates = (item for group in zip_longest(*weather_queue.values()) for item in group if item is not None)
+    for event, detail, point in candidates:
         for provider, fetch in (("Open-Meteo", weather_at), ("NASA POWER", nasa_power_at)):
             try:
                 weather[event] = {"provider": provider, **fetch(archive, point, detail["kickoff_at"])}
@@ -95,8 +106,9 @@ def summarize(plan, parts, archive, venues):
                 balanced += int(sum(values) == 990)
     errors = plan["errors"] + [error for part in parts for error in part["errors"]]
     placeholder = sum(not detail["completed"] for detail in details.values())
+    pregames = ProviderHistory(plan["calendars"], details).pregame_coverage(plan["pending_events"])
     return {
-        "as_of": now.isoformat(), "calendar_coverage": plan["coverage"],
+        "pregame_evidence_coverage": pregames, "as_of": now.isoformat(), "calendar_coverage": plan["coverage"],
         "competition_coverage": coverage, "completed_summaries": len(details) - placeholder,
         "summary_fraction": (len(details) - placeholder) / len(plan["pending_events"]) if plan["pending_events"] else 0,
         "requested_summaries": sum(part["requests"] for part in parts),
@@ -122,12 +134,12 @@ def main():
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     parts = [json.loads(path.read_text()) for path in sorted(args.parts.rglob("*.json"))]
-    result = summarize(plan, parts, HistoryArchive(args.cache, 12, fetch=paced_download(.5)),
+    result = summarize(plan, parts, HistoryArchive(args.cache, 80, fetch=paced_download(.5)),
                        json.loads(args.venues.read_text()))
     atomic_write(args.output, (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({**{key: result[key] for key in ("calendar_coverage", "completed_summaries", "summary_fraction",
                                                      "requested_summaries", "summary_cache_hits", "deferred_summaries",
-                                                     "minute_arithmetic", "source_failure_counts")},
+                                                     "minute_arithmetic", "source_failure_counts", "pregame_evidence_coverage")},
                       "weather_observations": len(result["weather"]),
                       "weather_observations_by_provider": dict(Counter(
                           item["provider"] for item in result["weather"].values())),

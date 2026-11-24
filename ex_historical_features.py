@@ -6,6 +6,7 @@ from datetime import timedelta
 from statistics import mean
 
 from ex_decision import MARKETS
+from ex_history_archive import utc
 
 
 def market_labels(home, away):
@@ -54,23 +55,28 @@ class HistoricalFeatures:
 
 def provider_context(calendar, details, as_of):
     """Expose only evidence already captured before this UTC analysis instant."""
-    from ex_history_archive import utc
-
     cutoff = utc(as_of)
     if utc(calendar["source"]["retrieved_at"]) >= cutoff:
         return {"status": "SCHEDULE_UNAVAILABLE_AT_CUTOFF"}
     club = calendar["team_id"]
+    venue, matched = None, 0
     games = sorted((fixture for fixture in calendar["fixtures"] if fixture["completed"]
                     and utc(fixture["kickoff_at"]) < cutoff), key=lambda fixture: fixture["kickoff_at"])
     last = utc(games[-1]["kickoff_at"]) if games else None
     recent = [fixture for fixture in games if cutoff - utc(fixture["kickoff_at"]) <= timedelta(days=14)]
     observed_minutes, nominal_minutes = {}, {}
-    for game in recent:
+    selected = recent or games[-1:]
+    for game in selected:
         detail = details.get(game["event_id"])
         if (not detail or not detail["completed"] or detail["teams"] != game["teams"]
                 or utc(detail["kickoff_at"]) != utc(game["kickoff_at"])
                 or not utc(game["kickoff_at"]) <= utc(detail["source"]["retrieved_at"]) < cutoff):
             continue
+        if game is games[-1] and detail.get("venue"):
+            venue = {"venue": detail["venue"], "event_id": game["event_id"], "source": detail["source"]}
+        if not recent:
+            continue
+        matched += 1
         for player in detail["player_rows"]:
             if player["team_id"] != club:
                 continue
@@ -83,4 +89,60 @@ def provider_context(calendar, details, as_of):
     return {"status": "OBSERVED_PROVIDER_COVERAGE", "observed_matches_14d": len(recent),
             "hours_since_last_observed_kickoff": (cutoff - last).total_seconds() / 3600 if last else None,
             "provider_minutes_14d": observed_minutes, "nominal_minutes_14d": nominal_minutes,
+            "matched_summaries_14d": matched, "last_observed_venue": venue,
             "complete_schedule_certified": False, "verified_component_scores": False}
+
+
+class ProviderHistory:
+    """Read-only research context for an explicit fixture, at a declared instant."""
+
+    def __init__(self, calendars, details):
+        self.calendars = defaultdict(list)
+        for calendar in calendars:
+            self.calendars[calendar["team_id"]].append(calendar)
+        self.details = details
+
+    def fixture(self, teams, kickoff_at, as_of):
+        kickoff, cutoff = utc(kickoff_at), utc(as_of)
+        if cutoff >= kickoff or set(teams) != {"home", "away"} or teams["home"] == teams["away"]:
+            raise ValueError("Invalid fixture teams or prematch cutoff")
+        result = {}
+        for side, team in teams.items():
+            fixtures = {}
+            observed = []
+            for calendar in self.calendars.get(team, []):
+                captured = utc(calendar["source"]["retrieved_at"])
+                if captured < cutoff:
+                    observed.append(captured)
+                    for game in calendar["fixtures"]:
+                        if team not in game["teams"].values():
+                            raise ValueError("Foreign fixture in team calendar")
+                        event_id = game["event_id"]
+                        if event_id in fixtures and any(
+                            fixtures[event_id][key] != game[key] for key in ("teams", "kickoff_at")
+                        ):
+                            raise ValueError("Conflicting team calendar identity")
+                        if event_id not in fixtures or game["completed"]:
+                            fixtures[event_id] = game
+            if observed:
+                result[side] = provider_context(
+                    {"team_id": team, "source": {"retrieved_at": max(observed).isoformat()},
+                     "fixtures": list(fixtures.values())}, self.details, as_of,
+                )
+            else:
+                result[side] = {"status": "SCHEDULE_UNAVAILABLE_AT_CUTOFF"}
+        return {"sides": result, "as_of": as_of, "scope": "TIMESTAMPED_PROVIDER_OBSERVATIONS",
+                "verified_component_scores": False, "ex_final_allowed": False}
+
+    def pregame_coverage(self, events):
+        counts = {"targets": 0, "two_calendars": 0, "two_load_histories": 0,
+                  "two_minute_histories": 0, "two_venue_histories": 0}
+        for event in events:
+            as_of = (utc(event["kickoff_at"]) - timedelta(microseconds=1)).isoformat()
+            sides = self.fixture(event["teams"], event["kickoff_at"], as_of)["sides"].values()
+            counts["targets"] += 1
+            counts["two_calendars"] += all(side["status"] == "OBSERVED_PROVIDER_COVERAGE" for side in sides)
+            counts["two_load_histories"] += all(side.get("matched_summaries_14d") for side in sides)
+            counts["two_minute_histories"] += all(side.get("provider_minutes_14d") or side.get("nominal_minutes_14d") for side in sides)
+            counts["two_venue_histories"] += all(side.get("last_observed_venue") for side in sides)
+        return counts
