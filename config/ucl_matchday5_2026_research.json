@@ -1,0 +1,136 @@
+{
+  "competition": "UEFA Champions League",
+  "season": "2026-27",
+  "matchday": 5,
+  "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+  "status": "RESEARCH_FIXTURE_MANIFEST",
+  "ex_final_allowed": false,
+  "fixtures": [
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T17:45:00Z",
+      "home": "Bodø/Glimt",
+      "away": "LASK",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T17:45:00Z",
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Arsenal",
+      "away": "Borussia Dortmund",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Como",
+      "away": "AEK Athens",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Feyenoord",
+      "away": "Porto",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Manchester City",
+      "away": "Napoli",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Leipzig",
+      "away": "Lens",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Real Madrid",
+      "away": "PSV Eindhoven",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-24",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "home": "Slovan Bratislava",
+      "away": "Real Betis",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T17:45:00Z",
+      "home": "Sabah",
+      "away": "Barcelona",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T17:45:00Z",
+      "home": "Slavia Praha",
+      "away": "Villarreal",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Atlético de Madrid",
+      "away": "Viking",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Inter",
+      "away": "Stuttgart",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahçe",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Lille",
+      "away": "Bayern München",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Paris Saint-Germain",
+      "away": "Roma",
+      "league": "UCL"
+    },
+    {
+      "date": "2026-11-25",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "home": "Sporting CP",
+      "away": "Manchester United",
+      "league": "UCL"
+    }
+  ]
+}
