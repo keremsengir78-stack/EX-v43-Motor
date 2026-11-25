@@ -84,7 +84,8 @@ def window(games, values, side, season):
 
 
 def workload(games, kickoff):
-    recent = [row for row in games if row["finished"] is not None and
+    recent = [row for row in games if row.get("evidence_scope") != "ESPN_SCOREBOARD_RESEARCH"
+              and row["finished"] is not None and
               row["finished"] < kickoff and timedelta() < kickoff - row["kickoff"] <= timedelta(days=14)]
     if not recent:
         return None, None

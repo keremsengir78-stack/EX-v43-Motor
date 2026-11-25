@@ -50,6 +50,8 @@ class RetrospectiveTests(unittest.TestCase):
         self.assertEqual(.5, workload([match, rotated], cutoff)[1][-1])
         unfinished = {**rotated, "finished": cutoff}
         self.assertEqual(workload([match], cutoff), workload([match, unfinished], cutoff))
+        score_only = {**rotated, "evidence_scope": "ESPN_SCOREBOARD_RESEARCH"}
+        self.assertEqual(workload([match], cutoff), workload([match, score_only], cutoff))
 
     def test_prematch_summary_rejects_actual_kickoff(self):
         import json
