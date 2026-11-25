@@ -132,3 +132,25 @@ class ProspectiveOperationsTests(unittest.TestCase):
                 read_forecast_pack(receipt)
             flat.unlink()
             self.assertEqual("17", read_forecast_pack(receipt)[1][0]["event_id"])
+
+
+    def test_fixed_components_score_only_complete_prematch_evidence(self):
+        from run_ex_prospective_validation import evaluate
+
+        evidence = {name: {"score": score, "verified": True, "source": "verified archive",
+                           "timestamp": "2026-11-24T20:00:00Z"}
+                    for name, score in (("team_strength", .6), ("match_conditions", .8),
+                                        ("external_factors", .1))}
+        frozen = dict(frozen_at="2026-11-24T12:00:00Z",
+                      original_last_kickoff="2026-11-23T19:00:00Z", original_ids=[],
+                      coefficients={"KG_VAR": [0, 1], "2.5_UST": [0, 1]})
+        row = dict(event_id="1", forecast_at="2026-11-25T17:00:00Z", kickoff="2026-11-25T18:00:00Z",
+                   finished="2026-11-25T20:00:00Z", labels=dict.fromkeys(MARKETS, 1),
+                   short=dict.fromkeys(MARKETS, .5), components={"KG_VAR": evidence})
+        result = evaluate(frozen, [row])["markets"]
+        candidate = result["KG_VAR"]["fixed_components_research"]
+        self.assertAlmostEqual((.56 - 1) ** 2, candidate["candidate_brier"])
+        self.assertFalse(candidate["supported"])
+        self.assertEqual(0, result["2.5_UST"]["fixed_components_research"]["n"])
+        evidence["external_factors"]["timestamp"] = row["kickoff"]
+        self.assertEqual(0, evaluate(frozen, [row])["markets"]["KG_VAR"]["fixed_components_research"]["n"])

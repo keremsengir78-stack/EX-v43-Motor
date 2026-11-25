@@ -111,9 +111,17 @@ jobs:
           import re
           from pathlib import Path
           text = Path("round.html").read_text()
-          for q in ("__NEXT_DATA__", "06.09.2026", "Valencia CF", "2026-09-06", "homeScore"):
-              print(q, len(list(re.finditer(re.escape(q),text))))
-              i = text.find(q)
-              if i >= 0:
-                  print(text[max(i-400,0):i+1000])
+          import json
+          data = json.loads(re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>',text,re.S)[1])
+          props = data["props"]["pageProps"]
+          print(list(props))
+          for k, v in props.items():
+              if isinstance(v, list) and v and isinstance(v[0],dict):
+                  print(k, len(v), json.dumps(v[0])[:2200])
+              if isinstance(v, dict):
+                  print(k, list(v))
+          for row in re.findall(r'<tr\b[^>]*>(.*?)</tr>',text,re.S)[:3]:
+              cells = re.findall(r'<td\b([^>]*)>(.*?)</td>',row,re.S)
+              print([(re.findall(r'data-type="([^"]+)"', tags), re.sub(r'<[^>]*>', ' ', value).strip()[:200])
+                     for tags, value in cells])
           PY
