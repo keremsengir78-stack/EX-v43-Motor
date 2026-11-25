@@ -54,27 +54,40 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
             if row.get("evidence_scope") != "ESPN_SCOREBOARD_RESEARCH":
                 by_team.setdefault(club, []).append(row)
     rows, skipped = [], []
-    belgian = archived_belgian_links(manifest, cache, now)
+    try:
+        belgian = archived_belgian_links(manifest, cache, now)
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+        belgian = {}
+        skipped.append(source_error("optional_belgian_calendar", BELGIUM_CALENDAR, exc))
     for league, report in manifest["reports"].items():
         competition = ESPN_LEAGUES[league]
-        board_source = report["board"]
-        board_raw, board_at = cache._load(board_source, board_source["url"])
-        if board_source["url"] != f"{ESPN}/{competition}/scoreboard?dates={manifest['day'].replace('-', '')}":
-            raise ValueError("Board URL does not match registered competition and day")
-        events = {event["id"]: event for event in json.loads(board_raw)["events"]}
+        board_url = f"{ESPN}/{competition}/scoreboard?dates={manifest['day'].replace('-', '')}"
+        try:
+            board_source = report["board"]
+            board_raw, board_at = cache._load(board_source, board_url)
+            events = {event["id"]: event for event in json.loads(board_raw)["events"]}
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            skipped.append({"league": league, **source_error("research_board", board_url, exc)})
+            continue
         for fixture in report["records"]:
             event_id = fixture["event_id"]
-            event = events[event_id]
-            kickoff = utc(fixture["kickoff_at"])
-            (match,) = event["competitions"]
-            if (match["id"] != event_id or utc(match["date"]) != kickoff
-                    or teams(match) != fixture["teams"] or event["status"]["type"]["state"] != "pre"):
-                raise ValueError("Board does not corroborate fixture")
-            source = fixture["source"]
-            if source["url"] != f"{ESPN}/{competition}/summary?event={event_id}":
-                raise ValueError("Summary URL does not match fixture")
-            raw, captured = cache._load(source, source["url"])
-            observed = summary(raw, captured, event_id, kickoff, fixture["teams"])
+            summary_url = f"{ESPN}/{competition}/summary?event={event_id}"
+            try:
+                event = events[event_id]
+                kickoff = utc(fixture["kickoff_at"])
+                (match,) = event["competitions"]
+                if (match["id"] != event_id or utc(match["date"]) != kickoff
+                        or teams(match) != fixture["teams"] or event["status"]["type"]["state"] != "pre"):
+                    raise ValueError("Board does not corroborate fixture")
+                source = fixture["source"]
+                if source["url"] != f"{ESPN}/{competition}/summary?event={event_id}":
+                    raise ValueError("Summary URL does not match fixture")
+                raw, captured = cache._load(source, source["url"])
+                observed = summary(raw, captured, event_id, kickoff, fixture["teams"])
+            except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+                skipped.append({"event_id": event_id, "league": league,
+                                **source_error("research_fixture", summary_url, exc)})
+                continue
             season, season_basis = observed_season(competition, kickoff, event.get("season", {}).get("year"))
             if not max(captured, board_at) < now < kickoff or type(season) is not int:
                 skipped.append({"event_id": event_id, "reason": "TIME_OR_SEASON_UNAVAILABLE"})
@@ -633,9 +646,14 @@ def main():
             atomic_write(args.output_dir / "component-research-audit.json",
                          (json.dumps(model, indent=2) + "\n").encode())
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather)
+        publication_check = archive.clock()
+        elapsed = {row["fixture"]["event_id"] for row in daily
+                   if publication_check >= utc(row["fixture"]["kickoff_at"])}
+        if elapsed:
+            skipped.extend({"event_id": event, "reason": "PUBLICATION_AFTER_KICKOFF"} for event in sorted(elapsed))
+            daily = [row for row in daily if row["fixture"]["event_id"] not in elapsed]
+            forecasts = [row for row in forecasts if row["event_id"] not in elapsed]
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
-        if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):
-            raise ValueError("Forecast execution finished past kickoff")
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
         context, issues = alternate_context(manifest, args.cache)
         atomic_write(args.output_dir / "official-fixture-context.json",

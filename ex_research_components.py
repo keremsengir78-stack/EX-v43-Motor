@@ -82,6 +82,32 @@ def metrics(rows, predictions):
     return {"brier": mean(losses), "ece_10_equal_width": error}, losses
 
 
+
+def workload_challenge(train, validation, test):
+    """Test whether workload adds information to already available strength."""
+    def log_odds(row):
+        p = min(1 - 1e-6, max(1e-6, row["reference"]))
+        return math.log(p / (1 - p))
+
+    def features(row):
+        return (1., *row["features"])
+
+    intercept, = fit_offset([(log_odds(row), row["label"], (1.,)) for row in train], 1)
+    coefficient = fit_offset([(log_odds(row), row["label"], features(row)) for row in train], 5)
+
+    def evaluate(block):
+        predictions = [sigmoid(log_odds(row) + sum(b * v for b, v in
+                       zip(coefficient, features(row), strict=True))) for row in block]
+        reference, old = metrics(block, [row["reference"] for row in block])
+        candidate, new = metrics(block, predictions)
+        calibrated, control = metrics(block, [sigmoid(log_odds(row) + intercept) for row in block])
+        dates = [(row["date"],) for row in block]
+        return {"reference": reference, "candidate": candidate, "calibration_only": calibrated,
+                "weekly_delta_vs_calibration_99pct": weekly_interval(dates, control, new),
+                "weekly_delta_brier_99pct": weekly_interval(dates, old, new)}
+
+    return {"validation": evaluate(validation), "test": evaluate(test), "production_allowed": False}
+
 def audit(facts, *, as_of=None, external_observations=None):
     by_competition = {record[1]: league for league, record in APPROVED_LEAGUES.items()}
     approved = [row for row in facts if row["competition"] in by_competition
@@ -147,6 +173,9 @@ def audit(facts, *, as_of=None, external_observations=None):
                         "weekly_delta_brier_99pct": weekly_interval([(r["date"],) for r in block], old, new)}
 
             series["markets"][market] = {**evaluate(test), "validation": evaluate(validation)}
+            if component == "match_conditions":
+                series["markets"][market]["strength_with_workload_offset"] = workload_challenge(
+                    train, validation, test)
     coverage = Counter(by_competition[row["competition"]] for row in approved)
     return {"archive_matches": len(facts), "approved_matches": len(approved), "examples": len(examples),
             "by_league": {league: coverage[league] for league in APPROVED_LEAGUES},

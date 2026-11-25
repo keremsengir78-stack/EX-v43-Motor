@@ -48,6 +48,8 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                         else row["finished"] <= row["captured_at"] < as_of)]
         current = {row["competition"] for row in history
                    if row["kickoff"].date() >= season_bounds(catalog[row["competition"]], cutoff)[0]}
+        if fixture["league"] != "UCL":
+            current.intersection_update({APPROVED_LEAGUES[fixture["league"]][1]})
         if len(current) != 1:
             return None
         competition, = current
@@ -58,7 +60,7 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                      "hg": row["score"][0], "ag": row["score"][1]} for row in history
                     if row["competition"] == competition)
     unique = {(r["league"], r["date"], r["home"], r["away"]): r for r in rows}
-    first, prior = season_bounds("UCL", cutoff)
+    first, prior = season_bounds(fixture["league"], cutoff)
     return sorted(unique.values(), key=lambda row: row["date"]), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
 
 
@@ -117,13 +119,15 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
-    if fixture["league"] == "UCL" and by_team:
+    if fixture["league"] in APPROVED_LEAGUES and by_team:
         inputs = rolling_domestic(fixture, by_team, as_of)
         if inputs:
             kwargs = {"cutoff_date": as_of.date().isoformat()}
             baseline = cross_league_baseline(*inputs, **kwargs)
             recomputed = baseline == cross_league_baseline(*inputs, **kwargs)
             baseline["history_scope"] = "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+            if fixture["league"] != "UCL" and baseline.get("baseline"):
+                baseline["status"] = "UNCALIBRATED_SAME_LEAGUE_BASELINE"
     if fixture["league"] == "UCL" and snapshot and not (baseline or {}).get("baseline"):
         rows, _, names, leagues, fixtures = snapshot
         home, away = (names.get(norm(fixture[side])) for side in ("home", "away"))
