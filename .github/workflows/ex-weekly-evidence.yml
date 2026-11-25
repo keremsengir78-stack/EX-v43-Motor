@@ -1,5 +1,8 @@
 name: EX weekly research evidence
 on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths: [.github/workflows/ex-weekly-evidence.yml, run_ex_weekly_capacity.py]
   workflow_dispatch:
     inputs:
       week_start:
@@ -22,7 +25,7 @@ jobs:
         with:
           python-version: '3.11'
       - env:
-          WEEK_START: ${{ inputs.week_start }}
+          WEEK_START: ${{ inputs.week_start || '2026-11-23' }}
         run: python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly
       - uses: actions/upload-artifact@v4
         with:

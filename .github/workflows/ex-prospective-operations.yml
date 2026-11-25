@@ -25,7 +25,7 @@ on:
         description: UTC fixture date for capture
       forecast_artifact_ids:
         type: string
-        description: Comma separated forecast artifact IDs for settlement
+        description: Optional forecast artifact IDs alongside durable archive records
       history_run_id:
         type: string
         description: Optional bulk history run ID for fresh capture history
@@ -195,9 +195,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           ARTIFACTS: ${{ inputs.forecast_artifact_ids }}
         run: |
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+          fi
+          if [ -z "$ARTIFACTS" ]; then
+            exit 0
+          fi
           [[ "$ARTIFACTS" =~ ^[0-9]+(,[0-9]+)*$ ]]
           IFS=, read -r -a ids <<< "$ARTIFACTS"
           for id in "${ids[@]}"; do
+            if [ -f "packs/$id/receipt.json" ]; then continue; fi
             mkdir -p "packs/$id"
             gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > "packs/$id/receipt.json"
             test "$(jq -r .name "packs/$id/receipt.json")" = ex-prospective-forecasts
@@ -242,4 +252,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ex-prospective-settlement
-          path: settlement/
+          path: |
+            settlement/
+            settlement-cache/raw/
