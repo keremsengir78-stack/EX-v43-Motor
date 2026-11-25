@@ -26,3 +26,13 @@ Brier kaybı farkı aynı maçta aday eksi referans olarak hesaplanır. Maç far
 Eerste Divisie ve Eliteserien alımı ESPN'nin yayımladığı sezon takviminden günlük ham kopyaları arşivler. Varsayılan sezon sınırı yaz liglerinde 1 Temmuz, Eliteserien'de 1 Ocak. Sonuç hesapları hedef tarihin öncesiyle sınırlı. UEFA için yalnız normal sürede tamamlanan maçlar ortak tarihsel gol veri setine girer. Gün bütçesi sınırlanan veya kaynak eksiği bulunan alım, kapsamı kısmi olarak işaretler. Canlı ve tarihsel kanıt akışlarında EX FINAL güvenlik kuralları geçerlidir.
 
 Dünya liglerine genişlemede güvenilir sezon başlangıcı, müsabaka aşaması ve kaynak takım kimlikleri tanımlanmalı. Toplu dakikalar `EX league minutes collection` iş akışındaki manuel aralıklarla toplanır. Ham raporlar ve PDF'ler önceki Actions arşivinden özeti doğrulanarak kullanılabilir.
+
+## Üretim kapsamı ve kalibrasyon kanıtı
+
+`EX production evidence coverage` iş akışı 13 onaylı müsabakayı mevcut ham arşiv planı, tarihsel özellik satırları ve tarihli maç önü yakalamaları üzerinden ölçer. Takvim yanıtı, arşivlenmiş maç, kadro verisi ve oran verisi ayrı sayılır. Ham oran verisinin bulunması, ilgili dört pazarda doğrulanmış oran bulunduğu anlamına gelmez.
+
+Geriye dönük hesaplar yalnız hedef maçın başlangıcından önce bitişi doğrulanabilen maçları kullanır. Son düdük bulunmadığında bitmiş durumun arşivlendiği zaman kullanılır. Dinlenme, saha formu, yük ve oyuncu süreleri bu geçmiş olaylardan türetilebilir. İlk 11 durumu, sakatlık bilgisi, maç öncesinde gözlenen oran, hava tahmini, gerçek seyahat ve saha durumu kendi zaman damgalı kaynaklarını gerektirir.
+
+Planlama senaryosu, takım gücü araştırma adayının 13 arşiv haftasındaki eşleştirilmiş Brier farklarını kullanır. `0,01` hedef fark, aile hata oranı `%5`, 10 karşılaştırma ve `%80` güç varsayımıyla yaklaşık 29–53 hafta gerekir. Haftada 25 uygun maç varsayımı 725–1.325 yeni maça karşılık gelir. Bu güç hesabı sıfıra karşı iyileşme tespiti için normal yaklaşımdır. Uygulanan kabul kararı, sabit test penceresi bittikten sonra yeterli hafta, sıfırın altında tek yönlü üst sınır ve en az hedef kadar ortalama iyileşmeyi birlikte gerektirir. Tam %50/%30/%20 modelinin örneklem büyüklüğü için maç önü bileşenleri ve bağımsız sonuçları içeren ileriye dönük pilot varyansı gerekir.
+
+Eerste Divisie karşılaştırması resmî KNVB yayınını ve Voetbal International maç arşivini ayrı kaynak olarak saklar. Lig, tarih ve saha yönü birlikte eşleşir. Resmî sonuç teyidi ile veri sağlayıcısının üst kaynak bağımsızlığı ayrı statülerdir.
