@@ -26,6 +26,7 @@ def score_scenarios(home, away):
     away_only = one_sided(away, home)
     return {
         "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {key: model[key] for key in ("home_win", "draw", "away_win")},
         "exact_scores": {f"{h}-{a}": poisson(h, home) * poisson(a, away)
                          for h, a in ((1, 1), (2, 0), (0, 2), (3, 0), (0, 3), (2, 1), (1, 2), (2, 2))},
         "home_only_three_plus": home_only, "away_only_three_plus": away_only,
@@ -81,6 +82,13 @@ def execute_pup(markets, expected, odds_results, score_model, *, requested=False
         else:
             state["status"] = "REVIEW_REQUIRED"
             state["issues"].append("pup:no_approved_ordering_for_multiple_eligible_markets")
+            results = scenarios["result_probabilities"]
+            market_context = {
+                "2.5_UST": {"only_this_market": scenarios["over25_only"], "both": scenarios["both"]},
+                "KG_VAR": {"only_this_market": scenarios["btts_only"], "both": scenarios["both"]},
+                "MS1": {"home_win": results["home_win"], "draw": results["draw"]},
+                "MS2": {"away_win": results["away_win"], "draw": results["draw"]},
+            }
             state["user_review"] = {
                 "required": True,
                 "options": {
@@ -89,10 +97,7 @@ def execute_pup(markets, expected, odds_results, score_model, *, requested=False
                         "ex_g": markets[market]["ex_g"]["probability"],
                         "bookmaker_implied_probability": odds_results[market]["bookmaker_implied_probability"],
                         "ex_d": odds_results[market].get("ex_d"),
-                        "score_context": {
-                            "2.5_UST": {"only_this_market": scenarios["over25_only"], "both": scenarios["both"]},
-                            "KG_VAR": {"only_this_market": scenarios["btts_only"], "both": scenarios["both"]},
-                        }.get(market),
+                        "score_context": market_context.get(market),
                     } for market in eligible
                 },
             }

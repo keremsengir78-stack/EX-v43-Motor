@@ -246,3 +246,28 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertIsNone(row["espn_adapter"])
         self.assertEqual([], row["history_seed_seasons"])
         self.assertFalse(result["ex_final_allowed"])
+
+    def test_alternate_fixture_binds_only_the_exact_archived_espn_sides(self):
+        from run_ex_prospective_pipeline import bind_espn_context
+
+        day = utc("2026-11-27T00:00:00Z").date()
+        clock = utc("2026-11-27T12:00:00Z")
+        kickoff = "2026-11-27T19:00:00Z"
+        state = {"type": {"state": "pre"}}
+        names = {"home": "Sabah", "away": "Zirə"}
+        competition = {"id": "6807", "date": kickoff, "status": state,
+                       "competitors": [{"homeAway": side, "team": {"id": str(i), "displayName": name}}
+                                       for i, (side, name) in enumerate(names.items(), 1)]}
+        board = {"leagues": [{"slug": "aze.1"}], "events": [
+            {"id": "6807", "date": kickoff, "status": state, "competitions": [competition]}]}
+        detail = {"header": {"id": "6807", "competitions": [competition]}, "rosters": [{"id": "1"}]}
+        spec = {"competition_verified": True, "kickoff_at": kickoff, "names": names}
+        reports = {"az.1": {"board": {}, "records": [{"event_id": "6807", "source": {}}]}}
+        reversed_fixture = {**spec, "names": {"home": names["away"], "away": names["home"]}}
+        with TemporaryDirectory() as root, patch.object(HistoryArchive, "_load", side_effect=[
+                (json.dumps(board).encode(), clock), (json.dumps(detail).encode(), clock)]):
+            bind_espn_context({"az.1": [spec, reversed_fixture]}, reports, root, day)
+        self.assertEqual("6807", spec["espn_event_id"])
+        self.assertEqual("PREGAME_ROSTER_PAYLOAD", spec["lineup_evidence"]["scope"])
+        self.assertIsNone(spec["odds_evidence"])
+        self.assertNotIn("espn_event_id", reversed_fixture)
