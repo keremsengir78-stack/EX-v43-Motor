@@ -127,6 +127,7 @@ def assess_markets(evidence_by_market, as_of=None):
 def assess_pup(evidence_by_market, quotes, score_model, as_of, *, requested=False):
     """Explicit PUP entry point; prices never participate in the EX-G pass."""
     decision = assess_markets(evidence_by_market, as_of)
+    quotes = quotes if isinstance(quotes, dict) else {}
     values = {market: assess_market_value(market, decision["markets"][market]["ex_g"],
                                           quotes.get(market), as_of) for market in MARKETS}
     return {"markets": decision["markets"], "values": values,

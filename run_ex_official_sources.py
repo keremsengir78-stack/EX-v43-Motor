@@ -7,16 +7,16 @@ from html import unescape
 import json
 from pathlib import Path
 import re
+import time
 from urllib.error import URLError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from ex_history_archive import MAX_BYTES, atomic_write
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
-import time
 
 
-ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com"})
+ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az"})
 
 
 def checked(url):
@@ -82,6 +82,34 @@ def extract_czech_report(html, fixture, labels):
         line = " ".join(lines[0].split(". Trenér:", 1)[0].split())
         teams[side] = {"lineup_text": line}
     return normalize([{**fixture, "teams": teams}])
+
+
+ALTERNATE_CALENDARS = {
+    "sk.1": ("https://www.nikeliga.sk/zapasy", r'href="/zapas/'),
+    "ua.1": ("https://upl.ua/en/tournaments/games", r'href="/en/report/view/'),
+    "az.1": ("https://sabahfc.az/?team_type=3", r"Sabah\s+vs|vs\s+Sabah"),
+}
+
+
+def archive_alternate_calendars(leagues, root):
+    """Store alternative context without assigning an ESPN identity or a prediction."""
+    sources = {league.replace(".", "-"): ALTERNATE_CALENDARS[league][0]
+               for league in leagues if league in ALTERNATE_CALENDARS}
+    if not sources:
+        return {}
+    manifests = capture(sources, root)
+    results = {}
+    for label, entry in manifests.items():
+        league = label.replace("-", ".")
+        status = "UNAVAILABLE"
+        if "sha256" in entry:
+            html = read_evidence(root, entry)
+            if re.search(ALTERNATE_CALENDARS[league][1], html, re.IGNORECASE):
+                status = "CLUB_CALENDAR_ARCHIVED" if league == "az.1" else "LEAGUE_CALENDAR_ARCHIVED"
+            else:
+                status = "FIXTURE_MARKUP_UNRECOGNIZED"
+        results[league] = {"status": status, **entry}
+    return results
 
 
 def main():

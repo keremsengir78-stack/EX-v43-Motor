@@ -8,6 +8,7 @@ from pathlib import Path
 from ex_espn_provider import ESPN_LEAGUES
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
+from run_ex_official_sources import archive_alternate_calendars
 
 
 def prematch_fixtures(raw, captured, day, competition, horizon):
@@ -91,11 +92,17 @@ def main():
         parser.error("Choose an upcoming UTC date within two days")
     report = (collect_registered(archive, args.day, args.limit) if args.league == "all"
               else collect(archive, args.league, args.day, args.limit))
+    if args.league == "all":
+        rejected = [row["league"] for row in report["errors"] if row["category"] == "REQUEST_REJECTED"]
+        report["alternate_calendar_evidence"] = archive_alternate_calendars(
+            rejected, args.cache / "alternate-calendars")
     atomic_write(args.output, (json.dumps(report, indent=2) + "\n").encode())
     groups = report.get("reports", {args.league: report})
     print(json.dumps({"eligible": sum(r["eligible"] for r in groups.values()),
                       "captured": sum(len(r["records"]) for r in groups.values()),
-                      "leagues_responded": len(groups), "errors": report["errors"], "requests": report["requests"]}))
+                      "leagues_responded": len(groups), "errors": report["errors"], "requests": report["requests"],
+                      "alternate_calendars": {league: row["status"] for league, row in
+                                              report.get("alternate_calendar_evidence", {}).items()}}))
 
 
 if __name__ == "__main__":
