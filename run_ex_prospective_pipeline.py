@@ -12,7 +12,7 @@ from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
 from ex_historical_features import market_labels
-from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
+from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, match_detail, teams, validated_team_minutes
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
@@ -43,7 +43,7 @@ def portable_facts(path):
     return rows
 
 
-def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
+def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
@@ -91,6 +91,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
             home, away = teams_features
             players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
             short = {m: mean((home[0][m], away[0][m])) for m in MARKETS} if home[0] and away[0] else None
+            strength = ({m: mean((home[1][m], away[1][m])) for m in MARKETS}
+                        if home[1] and away[1] else None)
             if daily is not None:
                 # Rebuild the venue windows from source rows when auditing this path.
                 replay = []
@@ -131,7 +133,9 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                 quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
-                                            board_evidence=board_source))
+                                            board_evidence=board_source, component_model=component_model,
+                                            strength=strength, workload=(*home[2], *away[2]) if home[2] and away[2] else None,
+                                            weather=(weather or {}).get(event_id)))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -141,8 +145,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                          "league": league, "season": season, "season_basis": season_basis, "teams": fixture["teams"], "names": players,
                          **({"official_match_url": belgian_match_hint(belgian, kickoff, players)} if league == "be.1" else {}),
                          "short": short,
-                         "strength": {m: mean((home[1][m], away[1][m])) for m in MARKETS}
-                         if home[1] and away[1] else None,
+                         "strength": strength,
                          "observed_context": {"home": home[2], "away": away[2],
                                               "home_minutes": home[3], "away_minutes": away[3]},
                          "source": source, "kind": "PROSPECTIVE_VENUE5_RESEARCH"})
@@ -496,6 +499,7 @@ def main():
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--capture", type=Path)
     parser.add_argument("--daily-capture")
+    parser.add_argument("--component-research", action="store_true")
     parser.add_argument("--prior-pregame", type=Path)
     parser.add_argument("--domestic-packs", type=Path)
     parser.add_argument("--plan", type=Path)
@@ -550,7 +554,37 @@ def main():
             atomic_write(args.export_facts, jsonl(payload))
         manifest = json.loads(args.capture.read_text())
         archive = HistoryArchive(args.cache, 0)
-        # Establish the feature cutoff after archive integrity verification.
+        model, weather, weather_errors = None, {}, {}
+        if args.component_research:
+            from ex_research_components import audit
+            from ex_history_environment import coordinates
+            from ex_pregame_weather import forecast
+
+            model = audit(facts)
+            atomic_write(args.output_dir / "component-research-audit.json",
+                         (json.dumps(model, indent=2) + "\n").encode())
+            registry = json.loads(Path("config/ex_history_venues.json").read_text())
+            registry.update(json.loads(Path("config/ex_pregame_venues.json").read_text()))
+            weather_archive = HistoryArchive(args.cache, 25, fetch=paced_download(.75))
+            for league, report in manifest["reports"].items():
+                for record in report["records"]:
+                    event = record["event_id"]
+                    try:
+                        url = f"{ESPN}/{ESPN_LEAGUES[league]}/summary?event={event}"
+                        raw, stamp = archive._load(record["source"], url)
+                        kickoff = utc(record["kickoff_at"])
+                        summary(raw, stamp, event, kickoff, record["teams"])
+                        venue = (json.loads(raw).get("gameInfo") or {}).get("venue")
+                        point = coordinates(venue, registry)
+                        if point is None:
+                            weather_errors[event] = {"category": "VENUE_COORDINATES_UNVERIFIED"}
+                            continue
+                        item = forecast(weather_archive, point, kickoff.isoformat(),
+                                        lambda: archive.clock().isoformat())
+                        weather[event] = {**item, "venue_source": registry[str(venue["id"])]["source"]}
+                    except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
+                        weather_errors[event] = source_error("research_weather", None, exc)
+        # Establish the cutoff after all source acquisition and integrity verification.
         cutoff = archive.clock()
         reused = 0
         history_conflicts = set()
@@ -575,7 +609,7 @@ def main():
                 elif prior is None:
                     rolling.append(row)
             facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
-        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic)
+        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather)
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):
             raise ValueError("Forecast execution finished past kickoff")
@@ -591,6 +625,7 @@ def main():
                   "daily_research_covered": sum(row["venue5_research"] is not None or
                                                 bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "historical_events_quarantined": sorted(history_conflicts),
+                  "weather_sources_observed": len(weather), "weather_errors": weather_errors,
                   "capture_source_errors": manifest.get("errors", []),
                   "capture_cache_hits": manifest.get("cache_hits", 0),
                   "capture_network_requests": manifest.get("requests"),

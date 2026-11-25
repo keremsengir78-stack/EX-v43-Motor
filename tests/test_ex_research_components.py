@@ -1,0 +1,42 @@
+import unittest
+
+from ex_decision import MARKETS
+from ex_history_archive import utc
+from ex_research_components import metrics, score_components, weather_vector
+
+
+class ResearchComponentTests(unittest.TestCase):
+    def test_research_scores_use_fixed_weights_without_opening_production(self):
+        as_of = utc("2026-11-25T13:00:00Z")
+        model = {
+            "components": {key: {"latest_training_finish": "2026-11-24T23:00:00Z"}
+                           for key in ("match_conditions", "external_factors")},
+            "coefficients": {
+                "match_conditions": {market: [0, 0, 0, 0, 0] for market in MARKETS},
+                "external_factors": {market: [0, 0, 0, 0] for market in MARKETS},
+            },
+        }
+        strength = dict.fromkeys(MARKETS, .8)
+        scores, decisions = score_components(strength, (0, 0, 0, 0), (0, 0, 0), model, as_of)
+        self.assertAlmostEqual(.65, scores["MS1"]["weighted_research_score"])
+        self.assertIsNone(decisions["markets"]["MS1"]["ex_g"]["probability"])
+        self.assertFalse(decisions["ex_final_allowed"])
+        scores, _ = score_components(strength, (0, 0, 0, 0), None, model, as_of)
+        self.assertIsNone(scores["MS1"]["weighted_research_score"])
+        scores, _ = score_components(strength, (0, 0, 0, 0), None, model,
+                                     utc("2026-11-24T22:00:00Z"))
+        self.assertIsNone(scores["MS1"]["components"]["match_conditions"]["score"])
+
+    def test_weather_requires_expected_hour_and_prematch_timestamp(self):
+        item = {"kind": "PREMATCH_NUMERICAL_FORECAST", "forecast_hour_utc": "2026-11-25T20:00:00Z",
+                "source": {"retrieved_at": "2026-11-25T13:00:00Z"},
+                "values": {"temperature_2m": 15, "precipitation_probability": 25, "wind_speed_10m": 10}}
+        self.assertEqual((.5, .25, .2), weather_vector(item, "2026-11-25T20:30:00Z",
+                                                     utc("2026-11-25T13:01:00Z")))
+        self.assertIsNone(weather_vector(item, "2026-11-25T20:30:00Z", utc("2026-11-25T13:00:00Z")))
+        self.assertIsNone(weather_vector(item, "2026-11-25T21:30:00Z", utc("2026-11-25T13:01:00Z")))
+
+    def test_metrics_keep_brier_and_calibration_separate(self):
+        report, _ = metrics([{"label": 1}, {"label": 0}], [.5, .5])
+        self.assertEqual(.25, report["brier"])
+        self.assertEqual(0., report["ece_10_equal_width"])

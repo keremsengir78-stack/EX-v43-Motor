@@ -5,6 +5,7 @@ on:
     branches: [ex-v43-development]
     paths:
       - .github/workflows/ex-prospective-operations.yml
+      - ex_research_components.py
       - run_ex_official_queue_join.py
       - run_ex_missed_prematch_audit.py
       - ex_daily_research.py
@@ -230,7 +231,7 @@ jobs:
           fi
           python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}" \
             "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
-            --domestic-packs domestic --weekly-scoreboards weekly-boards --prior-pregame prior-pregame --output-dir forecasts
+            --domestic-packs domestic --weekly-scoreboards weekly-boards --prior-pregame prior-pregame --component-research --output-dir forecasts
       - uses: actions/upload-artifact@v4
         if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
         with:
