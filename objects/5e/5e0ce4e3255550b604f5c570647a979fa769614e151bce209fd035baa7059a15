@@ -1,0 +1,3898 @@
+[
+  {
+    "fixture": {
+      "event_id": "401915378",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T17:45:00+00:00",
+      "home": "Sabah FK",
+      "away": "Barcelona",
+      "team_ids": {
+        "home": "21922",
+        "away": "83"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915378",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T17:45:00+00:00",
+        "home": "Sabah FK",
+        "away": "Barcelona",
+        "team_ids": {
+          "home": "21922",
+          "away": "83"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            11,
+            17
+          ],
+          "rates": [
+            [
+              2.4,
+              0.6
+            ],
+            [
+              2.0,
+              0.9
+            ],
+            [
+              2.4545454545454546,
+              0.6363636363636364
+            ],
+            [
+              2.0588235294117645,
+              0.7058823529411765
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.2567914438502674,
+            0.7078609625668449
+          ],
+          "match_dates": [
+            [
+              "2026-08-15",
+              "2026-09-05",
+              "2026-09-19",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-03-19",
+              "2026-04-11",
+              "2026-04-27",
+              "2026-05-08",
+              "2026-05-17",
+              "2026-08-15",
+              "2026-09-05",
+              "2026-09-19",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-15",
+              "2026-08-31",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-19",
+              "2026-10-09",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-20"
+            ],
+            [
+              "2025-08-31",
+              "2025-09-20",
+              "2025-09-28",
+              "2025-10-19",
+              "2025-11-03",
+              "2025-11-23",
+              "2025-12-08",
+              "2025-12-18",
+              "2026-01-25",
+              "2026-02-08",
+              "2026-02-22",
+              "2026-03-10",
+              "2026-03-19",
+              "2026-04-11",
+              "2026-04-27",
+              "2026-05-08",
+              "2026-05-17"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            13,
+            19
+          ],
+          "rates": [
+            [
+              3.8,
+              1.2
+            ],
+            [
+              2.9,
+              1.1
+            ],
+            [
+              3.923076923076923,
+              1.1538461538461537
+            ],
+            [
+              2.0,
+              1.368421052631579
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            3.374615384615385,
+            1.1776113360323888
+          ],
+          "match_dates": [
+            [
+              "2026-09-06",
+              "2026-09-13",
+              "2026-09-19",
+              "2026-10-17",
+              "2026-11-08"
+            ],
+            [
+              "2026-04-25",
+              "2026-05-02",
+              "2026-05-13",
+              "2026-05-23",
+              "2026-08-23",
+              "2026-09-06",
+              "2026-09-13",
+              "2026-09-19",
+              "2026-10-17",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-23",
+              "2026-08-27",
+              "2026-08-31",
+              "2026-09-06",
+              "2026-09-13",
+              "2026-09-16",
+              "2026-09-19",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-16",
+              "2025-08-23",
+              "2025-08-31",
+              "2025-09-25",
+              "2025-10-05",
+              "2025-10-26",
+              "2025-11-09",
+              "2025-12-06",
+              "2025-12-21",
+              "2026-01-03",
+              "2026-01-18",
+              "2026-01-31",
+              "2026-02-16",
+              "2026-03-07",
+              "2026-04-04",
+              "2026-04-25",
+              "2026-05-02",
+              "2026-05-13",
+              "2026-05-23"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "az.1",
+        "away": "es.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.72432436876954,
+        "btts": 0.7138843030101191,
+        "home_win": 0.3300772259384193,
+        "draw": 0.2116494200097658,
+        "away_win": 0.45827335405181485,
+        "probability_mass": 0.9999999999999993,
+        "top_scores": [
+          [
+            "1-2",
+            0.08342746275874073
+          ],
+          [
+            "1-1",
+            0.08174201701506323
+          ],
+          [
+            "2-2",
+            0.07163087750429399
+          ],
+          [
+            "2-1",
+            0.07018375261743713
+          ],
+          [
+            "1-3",
+            0.05676510723633089
+          ],
+          [
+            "2-3",
+            0.04873856052319797
+          ],
+          [
+            "0-2",
+            0.04858338879028698
+          ],
+          [
+            "0-1",
+            0.047601881464733806
+          ]
+        ],
+        "lambda_home": 1.717201389941328,
+        "lambda_away": 2.0412381735911147,
+        "p_11": 0.08174201701506323,
+        "p_20": 0.0343829316566053,
+        "p_30": 0.019680806010326773
+      },
+      "history_scope": "VERIFIED_MATCHDAY5_DOMESTIC_SNAPSHOT"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "4c83c8d28fa2665662e6efe3abb4bc637ac38ec6dd702d53ef299e2968263e00",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915293",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T17:45:00+00:00",
+      "home": "Slavia Prague",
+      "away": "Villarreal",
+      "team_ids": {
+        "home": "494",
+        "away": "102"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": {
+      "2.5_UST": 0.8,
+      "KG_VAR": 0.5,
+      "MS1": 0.5,
+      "MS2": 0.4
+    },
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915293",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T17:45:00+00:00",
+        "home": "Slavia Prague",
+        "away": "Villarreal",
+        "team_ids": {
+          "home": "494",
+          "away": "102"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            15,
+            17
+          ],
+          "rates": [
+            [
+              2.2,
+              0.6
+            ],
+            [
+              2.8,
+              0.8
+            ],
+            [
+              2.533333333333333,
+              0.5333333333333333
+            ],
+            [
+              2.5294117647058822,
+              0.6470588235294118
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.4796078431372552,
+            0.6513725490196078
+          ],
+          "match_dates": [
+            [
+              "2026-09-05",
+              "2026-09-20",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-11-08"
+            ],
+            [
+              "2026-05-13",
+              "2026-05-24",
+              "2026-07-26",
+              "2026-08-09",
+              "2026-08-22",
+              "2026-09-05",
+              "2026-09-20",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-11-08"
+            ],
+            [
+              "2026-07-26",
+              "2026-08-01",
+              "2026-08-09",
+              "2026-08-16",
+              "2026-08-22",
+              "2026-08-30",
+              "2026-09-05",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-09",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2025-07-20",
+              "2025-08-09",
+              "2025-08-23",
+              "2025-09-13",
+              "2025-09-26",
+              "2025-10-18",
+              "2025-11-01",
+              "2025-11-22",
+              "2025-11-29",
+              "2025-12-13",
+              "2026-02-07",
+              "2026-02-21",
+              "2026-03-08",
+              "2026-04-12",
+              "2026-04-25",
+              "2026-05-13",
+              "2026-05-24"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            13,
+            19
+          ],
+          "rates": [
+            [
+              1.4,
+              1.4
+            ],
+            [
+              1.3,
+              1.5
+            ],
+            [
+              1.4615384615384615,
+              1.3846153846153846
+            ],
+            [
+              1.263157894736842,
+              1.4210526315789473
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.3686234817813765,
+            1.4290283400809713
+          ],
+          "match_dates": [
+            [
+              "2026-08-28",
+              "2026-09-17",
+              "2026-10-10",
+              "2026-10-24",
+              "2026-11-22"
+            ],
+            [
+              "2026-04-23",
+              "2026-05-10",
+              "2026-05-17",
+              "2026-08-16",
+              "2026-08-23",
+              "2026-08-28",
+              "2026-09-17",
+              "2026-10-10",
+              "2026-10-24",
+              "2026-11-22"
+            ],
+            [
+              "2026-08-16",
+              "2026-08-23",
+              "2026-08-28",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-17",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-31",
+              "2025-09-13",
+              "2025-09-23",
+              "2025-10-04",
+              "2025-10-25",
+              "2025-11-08",
+              "2025-11-30",
+              "2026-01-03",
+              "2026-01-17",
+              "2026-01-31",
+              "2026-02-14",
+              "2026-02-18",
+              "2026-02-28",
+              "2026-03-13",
+              "2026-04-06",
+              "2026-04-12",
+              "2026-04-23",
+              "2026-05-10",
+              "2026-05-17"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "cz.1",
+        "away": "es.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.5687678816750041,
+        "btts": 0.5457149971281775,
+        "home_win": 0.593542109272152,
+        "draw": 0.21618927378281966,
+        "away_win": 0.190268616945028,
+        "probability_mass": 0.9999999999999993,
+        "top_scores": [
+          [
+            "1-1",
+            0.10184263911293108
+          ],
+          [
+            "1-0",
+            0.10083449428615723
+          ],
+          [
+            "2-1",
+            0.09951645605780955
+          ],
+          [
+            "2-0",
+            0.09853133822084642
+          ],
+          [
+            "3-1",
+            0.06482893682886687
+          ],
+          [
+            "3-0",
+            0.0641871922918189
+          ],
+          [
+            "0-1",
+            0.052111598183629156
+          ],
+          [
+            "0-0",
+            0.05159574314902536
+          ]
+        ],
+        "lambda_home": 1.9543180916091134,
+        "lambda_away": 1.0099980154004922,
+        "p_11": 0.10184263911293108,
+        "p_20": 0.09853133822084642,
+        "p_30": 0.0641871922918189
+      },
+      "history_scope": "VERIFIED_MATCHDAY5_DOMESTIC_SNAPSHOT"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "5703e4d7ca326481effea42180176f26bda88c1f03993ff03cc7e0baf011a989",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": "VENUE5_ONLY",
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915291",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Atl\u00e9tico Madrid",
+      "away": "Viking FK",
+      "team_ids": {
+        "home": "1068",
+        "away": "510"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915291",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Atl\u00e9tico Madrid",
+        "away": "Viking FK",
+        "team_ids": {
+          "home": "1068",
+          "away": "510"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            13,
+            19
+          ],
+          "rates": [
+            [
+              2.0,
+              1.0
+            ],
+            [
+              1.7,
+              1.0
+            ],
+            [
+              2.0,
+              0.7692307692307693
+            ],
+            [
+              2.0526315789473686,
+              0.8947368421052632
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.9152631578947368,
+            0.9433198380566801
+          ],
+          "match_dates": [
+            [
+              "2026-08-23",
+              "2026-09-16",
+              "2026-09-20",
+              "2026-10-24",
+              "2026-11-08"
+            ],
+            [
+              "2026-04-04",
+              "2026-04-25",
+              "2026-05-09",
+              "2026-05-17",
+              "2026-08-19",
+              "2026-08-23",
+              "2026-09-16",
+              "2026-09-20",
+              "2026-10-24",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-19",
+              "2026-08-23",
+              "2026-08-29",
+              "2026-09-05",
+              "2026-09-13",
+              "2026-09-16",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-23",
+              "2025-09-13",
+              "2025-09-24",
+              "2025-09-27",
+              "2025-10-18",
+              "2025-11-01",
+              "2025-11-08",
+              "2025-11-29",
+              "2025-12-13",
+              "2026-01-18",
+              "2026-01-25",
+              "2026-02-08",
+              "2026-02-21",
+              "2026-03-07",
+              "2026-03-14",
+              "2026-04-04",
+              "2026-04-25",
+              "2026-05-09",
+              "2026-05-17"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            27,
+            15
+          ],
+          "rates": [
+            [
+              1.6,
+              1.8
+            ],
+            [
+              1.6,
+              1.3
+            ],
+            [
+              2.6296296296296298,
+              1.1111111111111112
+            ],
+            [
+              2.2666666666666666,
+              1.4
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.8725925925925928,
+            1.4722222222222223
+          ],
+          "match_dates": [
+            [
+              "2026-08-14",
+              "2026-09-04",
+              "2026-10-09",
+              "2026-10-30",
+              "2026-11-21"
+            ],
+            [
+              "2026-05-24",
+              "2026-07-12",
+              "2026-07-22",
+              "2026-07-26",
+              "2026-08-01",
+              "2026-08-14",
+              "2026-09-04",
+              "2026-10-09",
+              "2026-10-30",
+              "2026-11-21"
+            ],
+            [
+              "2026-03-14",
+              "2026-03-21",
+              "2026-04-06",
+              "2026-04-11",
+              "2026-04-18",
+              "2026-04-25",
+              "2026-05-01",
+              "2026-05-10",
+              "2026-05-16",
+              "2026-05-24",
+              "2026-07-12",
+              "2026-07-18",
+              "2026-07-22",
+              "2026-07-26",
+              "2026-08-01",
+              "2026-08-08",
+              "2026-08-14",
+              "2026-08-30",
+              "2026-09-04",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-09",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2025-03-30",
+              "2025-04-21",
+              "2025-05-11",
+              "2025-05-25",
+              "2025-05-28",
+              "2025-06-01",
+              "2025-06-28",
+              "2025-07-13",
+              "2025-07-27",
+              "2025-08-10",
+              "2025-09-14",
+              "2025-09-27",
+              "2025-10-19",
+              "2025-11-02",
+              "2025-11-23"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "es.1",
+        "away": "no.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.5992044892923155,
+        "btts": 0.6164997479909531,
+        "home_win": 0.44378142845073715,
+        "draw": 0.23588278536735388,
+        "away_win": 0.32033578618190905,
+        "probability_mass": 0.9999999999999996,
+        "top_scores": [
+          [
+            "1-1",
+            0.1072471756917263
+          ],
+          [
+            "2-1",
+            0.09082455992863944
+          ],
+          [
+            "1-0",
+            0.07617223783269285
+          ],
+          [
+            "1-2",
+            0.07549966379558964
+          ],
+          [
+            "2-0",
+            0.06450808550725974
+          ],
+          [
+            "2-2",
+            0.0639385018278264
+          ],
+          [
+            "0-1",
+            0.06331963899901667
+          ],
+          [
+            "3-1",
+            0.05127781148563711
+          ]
+        ],
+        "lambda_home": 1.6937426900584795,
+        "lambda_away": 1.4079562153246363,
+        "p_11": 0.1072471756917263,
+        "p_20": 0.06450808550725974,
+        "p_30": 0.03642003275919617
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "1ea9c4b693e49af393ed5da892342ff4dfddbb8221c24a5d9d82cab33a732bc1",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915292",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "team_ids": {
+        "home": "570",
+        "away": "364"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": {
+      "2.5_UST": 0.8,
+      "KG_VAR": 0.4,
+      "MS1": 0.5,
+      "MS2": 0.4
+    },
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915292",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Club Brugge",
+        "away": "Liverpool",
+        "team_ids": {
+          "home": "570",
+          "away": "364"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            12,
+            20
+          ],
+          "rates": [
+            [
+              2.2,
+              0.8
+            ],
+            [
+              3.2,
+              0.5
+            ],
+            [
+              2.6666666666666665,
+              0.8333333333333334
+            ],
+            [
+              2.8,
+              1.1
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.6533333333333333,
+            0.7466666666666667
+          ],
+          "match_dates": [
+            [
+              "2026-08-23",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-04-22",
+              "2026-05-09",
+              "2026-05-17",
+              "2026-05-24",
+              "2026-08-07",
+              "2026-08-23",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-07",
+              "2026-08-15",
+              "2026-08-23",
+              "2026-08-30",
+              "2026-09-04",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-25",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2025-07-27",
+              "2025-08-09",
+              "2025-09-21",
+              "2025-09-24",
+              "2025-10-05",
+              "2025-11-01",
+              "2025-11-22",
+              "2025-11-30",
+              "2025-12-21",
+              "2026-01-16",
+              "2026-01-24",
+              "2026-02-08",
+              "2026-02-21",
+              "2026-03-08",
+              "2026-03-22",
+              "2026-04-06",
+              "2026-04-22",
+              "2026-05-09",
+              "2026-05-17",
+              "2026-05-24"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            11,
+            19
+          ],
+          "rates": [
+            [
+              2.0,
+              0.8
+            ],
+            [
+              1.8,
+              1.6
+            ],
+            [
+              1.6363636363636365,
+              0.9090909090909091
+            ],
+            [
+              1.5263157894736843,
+              1.736842105263158
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.819904306220096,
+            1.1555023923444978
+          ],
+          "match_dates": [
+            [
+              "2026-08-23",
+              "2026-09-04",
+              "2026-09-20",
+              "2026-10-17",
+              "2026-11-08"
+            ],
+            [
+              "2026-03-03",
+              "2026-03-21",
+              "2026-04-19",
+              "2026-05-03",
+              "2026-05-15",
+              "2026-08-23",
+              "2026-09-04",
+              "2026-09-20",
+              "2026-10-17",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-23",
+              "2026-08-29",
+              "2026-09-04",
+              "2026-09-12",
+              "2026-09-20",
+              "2026-10-11",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-11-01",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-25",
+              "2025-09-14",
+              "2025-09-27",
+              "2025-10-04",
+              "2025-10-25",
+              "2025-11-09",
+              "2025-11-30",
+              "2025-12-06",
+              "2025-12-20",
+              "2026-01-04",
+              "2026-01-08",
+              "2026-01-24",
+              "2026-02-11",
+              "2026-02-22",
+              "2026-03-03",
+              "2026-03-21",
+              "2026-04-19",
+              "2026-05-03",
+              "2026-05-15"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "be.1",
+        "away": "en.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.6175240039484002,
+        "btts": 0.615231922321771,
+        "home_win": 0.5193702393585399,
+        "draw": 0.2232921163826721,
+        "away_win": 0.2573376442587878,
+        "probability_mass": 0.9999999999999992,
+        "top_scores": [
+          [
+            "1-1",
+            0.10085177689302541
+          ],
+          [
+            "2-1",
+            0.09603196270706128
+          ],
+          [
+            "1-0",
+            0.07858873022287156
+          ],
+          [
+            "2-0",
+            0.07483289082713257
+          ],
+          [
+            "1-2",
+            0.06471081078442273
+          ],
+          [
+            "2-2",
+            0.06161821198832189
+          ],
+          [
+            "3-1",
+            0.060961661727602694
+          ],
+          [
+            "0-1",
+            0.052956748023086524
+          ]
+        ],
+        "lambda_home": 1.9044178628389155,
+        "lambda_away": 1.2832854864433814,
+        "p_11": 0.10085177689302541,
+        "p_20": 0.07483289082713257,
+        "p_30": 0.0475043646730219
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "8f2b2b00705607975449a8082ee9b033fe7744ec5062bd74601305733d3872bf",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": "VENUE5_ONLY",
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915376",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Internazionale",
+      "away": "VfB Stuttgart",
+      "team_ids": {
+        "home": "110",
+        "away": "134"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915376",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Internazionale",
+        "away": "VfB Stuttgart",
+        "team_ids": {
+          "home": "110",
+          "away": "134"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            12,
+            19
+          ],
+          "rates": [
+            [
+              3.0,
+              1.2
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              2.6666666666666665,
+              1.4166666666666667
+            ],
+            [
+              2.6315789473684212,
+              0.8421052631578947
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.8964912280701753,
+            1.147543859649123
+          ],
+          "match_dates": [
+            [
+              "2026-09-05",
+              "2026-09-14",
+              "2026-10-10",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-04-05",
+              "2026-04-17",
+              "2026-05-03",
+              "2026-05-17",
+              "2026-08-22",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-10-10",
+              "2026-10-25",
+              "2026-11-08"
+            ],
+            [
+              "2026-08-22",
+              "2026-08-30",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-19",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-28",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-25",
+              "2025-08-31",
+              "2025-09-21",
+              "2025-10-04",
+              "2025-10-29",
+              "2025-11-09",
+              "2025-11-23",
+              "2025-12-06",
+              "2026-01-04",
+              "2026-01-11",
+              "2026-01-14",
+              "2026-01-23",
+              "2026-02-14",
+              "2026-02-28",
+              "2026-03-14",
+              "2026-04-05",
+              "2026-04-17",
+              "2026-05-03",
+              "2026-05-17"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            10,
+            17
+          ],
+          "rates": [
+            [
+              1.4,
+              1.0
+            ],
+            [
+              2.0,
+              2.1
+            ],
+            [
+              1.5,
+              1.5
+            ],
+            [
+              2.411764705882353,
+              1.9411764705882353
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.7011764705882353,
+            1.5241176470588236
+          ],
+          "match_dates": [
+            [
+              "2026-09-12",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-31",
+              "2026-11-21"
+            ],
+            [
+              "2026-03-22",
+              "2026-04-19",
+              "2026-05-02",
+              "2026-05-16",
+              "2026-08-28",
+              "2026-09-12",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-31",
+              "2026-11-21"
+            ],
+            [
+              "2026-08-28",
+              "2026-09-04",
+              "2026-09-12",
+              "2026-09-19",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-23",
+              "2026-10-31",
+              "2026-11-07",
+              "2026-11-21"
+            ],
+            [
+              "2025-08-23",
+              "2025-09-13",
+              "2025-09-28",
+              "2025-10-18",
+              "2025-11-01",
+              "2025-11-22",
+              "2025-11-30",
+              "2025-12-14",
+              "2026-01-10",
+              "2026-01-25",
+              "2026-02-07",
+              "2026-02-22",
+              "2026-03-07",
+              "2026-03-22",
+              "2026-04-19",
+              "2026-05-02",
+              "2026-05-16"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "it.1",
+        "away": "de.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.7033435664013128,
+        "btts": 0.6760631302184075,
+        "home_win": 0.5536891059573321,
+        "draw": 0.20288126590173117,
+        "away_win": 0.24342962814093713,
+        "probability_mass": 1.0000000000000009,
+        "top_scores": [
+          [
+            "2-1",
+            0.0918288687769844
+          ],
+          [
+            "1-1",
+            0.08309160242031564
+          ],
+          [
+            "3-1",
+            0.06765658538476557
+          ],
+          [
+            "2-2",
+            0.06539869134692351
+          ],
+          [
+            "2-0",
+            0.06447025901579684
+          ],
+          [
+            "1-2",
+            0.05917618427168823
+          ],
+          [
+            "1-0",
+            0.05833608974412196
+          ],
+          [
+            "3-2",
+            0.04818367256500536
+          ]
+        ],
+        "lambda_home": 2.2103044375644996,
+        "lambda_away": 1.4243601651186792,
+        "p_11": 0.08309160242031564,
+        "p_20": 0.06447025901579684,
+        "p_30": 0.04749963319784947
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "25d9f4cfbaa612d34ba77dfa753525af81e6b9a1f75493b4b9fd439daa145a38",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915377",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Lille",
+      "away": "Bayern Munich",
+      "team_ids": {
+        "home": "166",
+        "away": "132"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915377",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Lille",
+        "away": "Bayern Munich",
+        "team_ids": {
+          "home": "166",
+          "away": "132"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            11,
+            17
+          ],
+          "rates": [
+            [
+              1.0,
+              0.4
+            ],
+            [
+              1.1,
+              0.7
+            ],
+            [
+              1.2727272727272727,
+              0.7272727272727273
+            ],
+            [
+              1.411764705882353,
+              1.0
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.1257219251336898,
+            0.6154545454545455
+          ],
+          "match_dates": [
+            [
+              "2026-09-13",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-30",
+              "2026-11-21"
+            ],
+            [
+              "2026-04-04",
+              "2026-04-18",
+              "2026-05-03",
+              "2026-05-17",
+              "2026-08-28",
+              "2026-09-13",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-30",
+              "2026-11-21"
+            ],
+            [
+              "2026-08-23",
+              "2026-08-28",
+              "2026-09-03",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2025-08-24",
+              "2025-09-14",
+              "2025-09-28",
+              "2025-10-05",
+              "2025-10-26",
+              "2025-11-02",
+              "2025-11-23",
+              "2025-12-05",
+              "2026-01-03",
+              "2026-01-25",
+              "2026-02-14",
+              "2026-03-01",
+              "2026-03-08",
+              "2026-04-04",
+              "2026-04-18",
+              "2026-05-03",
+              "2026-05-17"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            10,
+            17
+          ],
+          "rates": [
+            [
+              1.8,
+              1.0
+            ],
+            [
+              2.3,
+              1.1
+            ],
+            [
+              3.0,
+              1.0
+            ],
+            [
+              3.176470588235294,
+              1.0
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.32764705882353,
+            1.03
+          ],
+          "match_dates": [
+            [
+              "2026-09-05",
+              "2026-09-13",
+              "2026-10-10",
+              "2026-10-25",
+              "2026-11-07"
+            ],
+            [
+              "2026-03-14",
+              "2026-04-04",
+              "2026-04-11",
+              "2026-04-25",
+              "2026-05-09",
+              "2026-09-05",
+              "2026-09-13",
+              "2026-10-10",
+              "2026-10-25",
+              "2026-11-07"
+            ],
+            [
+              "2026-08-28",
+              "2026-09-05",
+              "2026-09-13",
+              "2026-09-18",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-25",
+              "2026-10-31",
+              "2026-11-07",
+              "2026-11-20"
+            ],
+            [
+              "2025-08-30",
+              "2025-09-20",
+              "2025-10-04",
+              "2025-10-25",
+              "2025-11-08",
+              "2025-12-06",
+              "2025-12-21",
+              "2026-01-14",
+              "2026-01-17",
+              "2026-01-31",
+              "2026-02-14",
+              "2026-02-28",
+              "2026-03-14",
+              "2026-04-04",
+              "2026-04-11",
+              "2026-04-25",
+              "2026-05-09"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "fr.1",
+        "away": "de.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.4687977284525354,
+        "btts": 0.5082357066638375,
+        "home_win": 0.27720903819900655,
+        "draw": 0.2607616794944535,
+        "away_win": 0.4620292823065402,
+        "probability_mass": 0.9999999999999993,
+        "top_scores": [
+          [
+            "1-1",
+            0.12392032433258926
+          ],
+          [
+            "0-1",
+            0.11496874702418233
+          ],
+          [
+            "1-2",
+            0.0911775263364757
+          ],
+          [
+            "0-2",
+            0.08459117595217779
+          ],
+          [
+            "1-0",
+            0.08421070081471833
+          ],
+          [
+            "0-0",
+            0.07812760990450648
+          ],
+          [
+            "2-1",
+            0.06678444003336013
+          ],
+          [
+            "2-2",
+            0.04913834815074878
+          ]
+        ],
+        "lambda_home": 1.077860962566845,
+        "lambda_away": 1.4715508021390376,
+        "p_11": 0.12392032433258926,
+        "p_20": 0.04538371351929044,
+        "p_30": 0.01630577771292011
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "84b4bc312f220630101a99f6bf4e83d17817ee89b46fe72b33f050411925bda5",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915374",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Paris Saint-Germain",
+      "away": "AS Roma",
+      "team_ids": {
+        "home": "160",
+        "away": "104"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915374",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Paris Saint-Germain",
+        "away": "AS Roma",
+        "team_ids": {
+          "home": "160",
+          "away": "104"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            11,
+            17
+          ],
+          "rates": [
+            [
+              1.6,
+              0.6
+            ],
+            [
+              1.8,
+              1.1
+            ],
+            [
+              2.272727272727273,
+              1.0909090909090908
+            ],
+            [
+              2.411764705882353,
+              0.7058823529411765
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.87572192513369,
+            0.8587700534759358
+          ],
+          "match_dates": [
+            [
+              "2026-05-10",
+              "2026-09-04",
+              "2026-10-10",
+              "2026-10-26",
+              "2026-11-07"
+            ],
+            [
+              "2026-03-06",
+              "2026-04-03",
+              "2026-04-19",
+              "2026-04-22",
+              "2026-05-02",
+              "2026-05-10",
+              "2026-09-04",
+              "2026-10-10",
+              "2026-10-26",
+              "2026-11-07"
+            ],
+            [
+              "2026-08-23",
+              "2026-08-28",
+              "2026-09-04",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-26",
+              "2026-10-30",
+              "2026-11-07",
+              "2026-11-21"
+            ],
+            [
+              "2025-08-22",
+              "2025-09-14",
+              "2025-09-27",
+              "2025-10-17",
+              "2025-11-01",
+              "2025-11-22",
+              "2025-12-06",
+              "2026-01-04",
+              "2026-01-16",
+              "2026-02-08",
+              "2026-02-21",
+              "2026-03-06",
+              "2026-04-03",
+              "2026-04-19",
+              "2026-04-22",
+              "2026-05-02",
+              "2026-05-10"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            12,
+            19
+          ],
+          "rates": [
+            [
+              3.0,
+              1.2
+            ],
+            [
+              2.8,
+              1.3
+            ],
+            [
+              3.0,
+              0.9166666666666666
+            ],
+            [
+              1.368421052631579,
+              1.105263157894737
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.776842105263158,
+            1.163859649122807
+          ],
+          "match_dates": [
+            [
+              "2026-09-14",
+              "2026-10-11",
+              "2026-10-24",
+              "2026-10-31",
+              "2026-11-21"
+            ],
+            [
+              "2026-04-05",
+              "2026-04-25",
+              "2026-05-10",
+              "2026-05-24",
+              "2026-08-31",
+              "2026-09-14",
+              "2026-10-11",
+              "2026-10-24",
+              "2026-10-31",
+              "2026-11-21"
+            ],
+            [
+              "2026-08-24",
+              "2026-08-31",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-19",
+              "2026-10-11",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-27",
+              "2026-10-31",
+              "2026-11-07",
+              "2026-11-21"
+            ],
+            [
+              "2025-08-30",
+              "2025-09-21",
+              "2025-10-05",
+              "2025-10-26",
+              "2025-11-02",
+              "2025-11-23",
+              "2025-12-07",
+              "2025-12-20",
+              "2026-01-03",
+              "2026-01-06",
+              "2026-01-18",
+              "2026-02-02",
+              "2026-02-15",
+              "2026-03-08",
+              "2026-03-15",
+              "2026-04-05",
+              "2026-04-25",
+              "2026-05-10",
+              "2026-05-24"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "fr.1",
+        "away": "it.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.6480681077345005,
+        "btts": 0.6543829579929079,
+        "home_win": 0.3246070046245626,
+        "draw": 0.2262670822260098,
+        "away_win": 0.4491259131494275,
+        "probability_mass": 1.0,
+        "top_scores": [
+          [
+            "1-1",
+            0.0981367015909149
+          ],
+          [
+            "1-2",
+            0.08919674638062008
+          ],
+          [
+            "2-1",
+            0.0745736274785133
+          ],
+          [
+            "2-2",
+            0.06778019669554068
+          ],
+          [
+            "0-1",
+            0.06457250723065053
+          ],
+          [
+            "0-2",
+            0.058690148102005284
+          ],
+          [
+            "1-3",
+            0.054047462610224944
+          ],
+          [
+            "1-0",
+            0.05398634249531762
+          ]
+        ],
+        "lambda_home": 1.5197907871282486,
+        "lambda_away": 1.817806079369547,
+        "p_11": 0.0981367015909149,
+        "p_20": 0.04102397297756699,
+        "p_30": 0.02078261872756818
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "da500ea95a5e0880e78d1caa389789bac870ad938e6721b647cb1f5138f62f75",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915375",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "team_ids": {
+        "home": "493",
+        "away": "436"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915375",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Shakhtar Donetsk",
+        "away": "Fenerbahce",
+        "team_ids": {
+          "home": "493",
+          "away": "436"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            13,
+            15
+          ],
+          "rates": [
+            [
+              1.0,
+              0.4
+            ],
+            [
+              1.5,
+              0.6
+            ],
+            [
+              1.7692307692307692,
+              0.46153846153846156
+            ],
+            [
+              2.466666666666667,
+              0.6666666666666666
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.4505128205128206,
+            0.498974358974359
+          ],
+          "match_dates": [
+            [
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-20"
+            ],
+            [
+              "2026-05-21",
+              "2026-08-03",
+              "2026-08-29",
+              "2026-09-14",
+              "2026-09-20",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-20"
+            ],
+            [
+              "2026-08-03",
+              "2026-08-09",
+              "2026-08-16",
+              "2026-08-29",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-20",
+              "2026-10-09",
+              "2026-10-17",
+              "2026-10-24",
+              "2026-10-30",
+              "2026-11-08",
+              "2026-11-20"
+            ],
+            [
+              "2025-08-31",
+              "2025-09-22",
+              "2025-10-05",
+              "2025-10-26",
+              "2025-11-02",
+              "2025-11-09",
+              "2025-12-01",
+              "2025-12-14",
+              "2026-02-22",
+              "2026-02-27",
+              "2026-03-15",
+              "2026-04-05",
+              "2026-04-20",
+              "2026-05-13",
+              "2026-05-21"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            12,
+            17
+          ],
+          "rates": [
+            [
+              2.2,
+              0.8
+            ],
+            [
+              2.1,
+              0.9
+            ],
+            [
+              2.5833333333333335,
+              1.0
+            ],
+            [
+              2.176470588235294,
+              1.0588235294117647
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.2443137254901964,
+            0.8958823529411766
+          ],
+          "match_dates": [
+            [
+              "2026-09-14",
+              "2026-10-10",
+              "2026-10-26",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2026-04-11",
+              "2026-04-26",
+              "2026-05-09",
+              "2026-08-15",
+              "2026-08-30",
+              "2026-09-14",
+              "2026-10-10",
+              "2026-10-26",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2026-08-15",
+              "2026-08-22",
+              "2026-08-30",
+              "2026-09-05",
+              "2026-09-14",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-17",
+              "2026-10-26",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-21"
+            ],
+            [
+              "2025-08-16",
+              "2025-08-31",
+              "2025-09-21",
+              "2025-10-05",
+              "2025-10-27",
+              "2025-11-02",
+              "2025-11-23",
+              "2025-12-06",
+              "2025-12-20",
+              "2026-01-18",
+              "2026-02-02",
+              "2026-02-14",
+              "2026-03-01",
+              "2026-03-13",
+              "2026-04-11",
+              "2026-04-26",
+              "2026-05-09"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "ua.1",
+        "away": "tr.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.4676368225167541,
+        "btts": 0.5154198395758661,
+        "home_win": 0.32032238210470654,
+        "draw": 0.2656559346724173,
+        "away_win": 0.414021683222876,
+        "probability_mass": 0.9999999999999991,
+        "top_scores": [
+          [
+            "1-1",
+            0.12629957979933523
+          ],
+          [
+            "0-1",
+            0.10765414217368736
+          ],
+          [
+            "1-0",
+            0.09207897669557866
+          ],
+          [
+            "1-2",
+            0.08661903308409914
+          ],
+          [
+            "0-0",
+            0.07848548082379009
+          ],
+          [
+            "2-1",
+            0.07408718111260704
+          ],
+          [
+            "0-2",
+            0.07383158136708244
+          ],
+          [
+            "2-0",
+            0.054013416623772216
+          ]
+        ],
+        "lambda_home": 1.1731975867269986,
+        "lambda_away": 1.3716440422322778,
+        "p_11": 0.12629957979933523,
+        "p_20": 0.054013416623772216,
+        "p_30": 0.021122803344629838
+      },
+      "history_scope": "VERIFIED_MATCHDAY5_DOMESTIC_SNAPSHOT"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "d7177669da557c1ae264eaa6991f5ed81e8d90b60d0e91a01f514da45db5db84",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  },
+  {
+    "fixture": {
+      "event_id": "401915373",
+      "date": "2026-11-25",
+      "league": "UCL",
+      "kickoff_at": "2026-11-25T20:00:00+00:00",
+      "home": "Sporting CP",
+      "away": "Manchester United",
+      "team_ids": {
+        "home": "2250",
+        "away": "360"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+      "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+    },
+    "as_of": "2026-11-25T10:35:05.694268+00:00",
+    "venue5_research": null,
+    "domestic_research": {
+      "fixture": {
+        "event_id": "401915373",
+        "date": "2026-11-25",
+        "league": "UCL",
+        "kickoff_at": "2026-11-25T20:00:00+00:00",
+        "home": "Sporting CP",
+        "away": "Manchester United",
+        "team_ids": {
+          "home": "2250",
+          "away": "360"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "fixture_checked_at": "2026-11-25T10:34:58.804506+00:00"
+      },
+      "samples": {
+        "home": {
+          "counts": [
+            5,
+            10,
+            11,
+            17
+          ],
+          "rates": [
+            [
+              1.8,
+              1.0
+            ],
+            [
+              2.3,
+              1.2
+            ],
+            [
+              2.1818181818181817,
+              1.0
+            ],
+            [
+              3.0,
+              0.6470588235294118
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            2.1463636363636365,
+            1.0247058823529411
+          ],
+          "match_dates": [
+            [
+              "2026-08-22",
+              "2026-09-05",
+              "2026-09-19",
+              "2026-10-25",
+              "2026-11-07"
+            ],
+            [
+              "2026-04-19",
+              "2026-04-29",
+              "2026-05-04",
+              "2026-05-16",
+              "2026-08-14",
+              "2026-08-22",
+              "2026-09-05",
+              "2026-09-19",
+              "2026-10-25",
+              "2026-11-07"
+            ],
+            [
+              "2026-08-08",
+              "2026-08-14",
+              "2026-08-22",
+              "2026-08-28",
+              "2026-09-05",
+              "2026-09-13",
+              "2026-09-19",
+              "2026-10-09",
+              "2026-10-25",
+              "2026-10-30",
+              "2026-11-07"
+            ],
+            [
+              "2025-08-17",
+              "2025-08-30",
+              "2025-09-22",
+              "2025-10-05",
+              "2025-10-31",
+              "2025-11-30",
+              "2025-12-13",
+              "2025-12-28",
+              "2026-01-16",
+              "2026-02-01",
+              "2026-02-15",
+              "2026-02-27",
+              "2026-04-03",
+              "2026-04-19",
+              "2026-04-29",
+              "2026-05-04",
+              "2026-05-16"
+            ]
+          ]
+        },
+        "away": {
+          "counts": [
+            5,
+            10,
+            11,
+            19
+          ],
+          "rates": [
+            [
+              0.8,
+              2.0
+            ],
+            [
+              1.0,
+              1.4
+            ],
+            [
+              1.2727272727272727,
+              2.090909090909091
+            ],
+            [
+              1.5789473684210527,
+              1.368421052631579
+            ]
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.2,
+            0.1
+          ],
+          "result": [
+            1.03244019138756,
+            1.775023923444976
+          ],
+          "match_dates": [
+            [
+              "2026-09-06",
+              "2026-09-20",
+              "2026-10-18",
+              "2026-10-31",
+              "2026-11-22"
+            ],
+            [
+              "2026-03-20",
+              "2026-04-18",
+              "2026-05-09",
+              "2026-05-24",
+              "2026-08-22",
+              "2026-09-06",
+              "2026-09-20",
+              "2026-10-18",
+              "2026-10-31",
+              "2026-11-22"
+            ],
+            [
+              "2026-08-22",
+              "2026-08-30",
+              "2026-09-06",
+              "2026-09-13",
+              "2026-09-20",
+              "2026-10-10",
+              "2026-10-18",
+              "2026-10-25",
+              "2026-10-31",
+              "2026-11-08",
+              "2026-11-22"
+            ],
+            [
+              "2025-08-24",
+              "2025-09-14",
+              "2025-09-27",
+              "2025-10-19",
+              "2025-11-01",
+              "2025-11-08",
+              "2025-11-30",
+              "2025-12-08",
+              "2025-12-21",
+              "2026-01-04",
+              "2026-01-07",
+              "2026-01-25",
+              "2026-02-10",
+              "2026-02-23",
+              "2026-03-04",
+              "2026-03-20",
+              "2026-04-18",
+              "2026-05-09",
+              "2026-05-24"
+            ]
+          ]
+        }
+      },
+      "domestic_leagues": {
+        "home": "pt.1",
+        "away": "en.1"
+      },
+      "cross_league_strength_adjusted": false,
+      "calibrated": false,
+      "ex_final_allowed": false,
+      "status": "UNCALIBRATED_CROSS_LEAGUE_BASELINE",
+      "baseline": {
+        "over25": 0.5744009406245165,
+        "btts": 0.5520468300920767,
+        "home_win": 0.5904909280635686,
+        "draw": 0.21601788396421479,
+        "away_win": 0.19349118797221612,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "1-1",
+            0.10148989965538179
+          ],
+          [
+            "2-1",
+            0.09949530748870962
+          ],
+          [
+            "1-0",
+            0.09867058149239065
+          ],
+          [
+            "2-0",
+            0.09673139769583564
+          ],
+          [
+            "3-1",
+            0.06502661017425976
+          ],
+          [
+            "3-0",
+            0.06322021659455822
+          ],
+          [
+            "1-2",
+            0.05219488715009652
+          ],
+          [
+            "0-1",
+            0.05176223880321337
+          ]
+        ],
+        "lambda_home": 1.9606937799043063,
+        "lambda_away": 1.0285730368702506,
+        "p_11": 0.10148989965538179,
+        "p_20": 0.09673139769583564,
+        "p_30": 0.06322021659455822
+      },
+      "history_scope": "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    },
+    "markets": {
+      "markets": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "weighted_score": null,
+          "contributions": {},
+          "issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing"
+          ],
+          "weights": {
+            "team_strength": 0.5,
+            "match_conditions": 0.3,
+            "external_factors": 0.2
+          },
+          "calibrated_probability": null,
+          "ex_final_allowed": false,
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ]
+          }
+        }
+      },
+      "pup": {
+        "status": "NOT_REQUESTED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false
+      },
+      "evidence_complete": false,
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+    },
+    "tur2": true,
+    "auto_control": {
+      "status": "BLOCKED",
+      "issues": [
+        "odds_lock:blocked",
+        "ingestion:blocked",
+        "second_source:unverified",
+        "exg:uncalibrated",
+        "context:unverified",
+        "pup:unverified"
+      ],
+      "snapshot_sha256": "a08321feea390f37f199f8c1f3b62ed9e138d2b7540a6cd3422f6bc289ac3a3b",
+      "ex_final_allowed": false
+    },
+    "calibration_cohort": null,
+    "ex_final_allowed": false
+  }
+]
