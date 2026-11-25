@@ -53,8 +53,8 @@ jobs:
           import re
           from urllib.request import urlopen,Request
           files={
-              "pfl-asset": ("https://pfl.az/assets/index-6f2caa04.js",[r'https?://[^"\x27\x60 ]+',r'storage/games',r'/api/',r'protocol']),
-              "ita":("https://en.legaseriea.it/team/roma/schedule",[r'__next_f',r'preload',r'application/ld\+json',r'api\.']),
+              "pfl-asset": ("https://pfl.az/assets/index-6f2caa04.js",[r'https?://[^"\x27\x60 ]+',r'Ke\.get\([^)]{1,130}\)',r'\.pdf',r'game_file']),
+              "ita":("https://en.legaseriea.it/team/roma/schedule",[r'matchId',r'homeScore',r'awayScore',r'fixtures-results',r'fullTime',r'kickoff',r'eventStatus',r'dapi\.legaseriea\.it[^"\\ ]*(?:match|fixture)[^"\\ ]*']),
               "cz":("https://www.chanceliga.cz/zapas/8441-art-fkj",[r'href="[^"]*/statistiky/[^"]*"',r'\. Trenér:',r'Základní sestav']),
           }
           for name,(url,queries) in files.items():
