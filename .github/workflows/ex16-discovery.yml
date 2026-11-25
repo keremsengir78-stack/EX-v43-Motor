@@ -94,3 +94,19 @@ jobs:
               except Exception as e:
                   print(path,type(e).__name__,str(e))
           PY
+      - run: |
+          python - <<'PY'
+          import re
+          from urllib.request import urlopen
+          for url in ["https://1ereannonce.lfp.fr/index.asp",
+                      "https://www.premierleague.com/en/matchweek/2026_11/blog/saturday?tab=reporting",
+                      "https://en.legaseriea.it/serie-a/match/97ef80e0aff84867ae6f6c53b2be31e5/parma-vs-roma",
+                      "https://en.legaseriea.it/serie-a/fixtures-results"]:
+              try:
+                  with urlopen(url,timeout=10) as r: body = r.read(3000000).decode(errors="replace")
+                  print(url,len(body))
+                  for token in ["href=.{0,100}(?:pdf|result|JOURNEE)", "FULL.TIME Newcastle", "Match completed", "Full Time", "parma-vs-roma", "11-21"]:
+                      hits=list(re.finditer(token,body,re.I))
+                      print(token,len(hits),[body[max(m.start()-50,0):m.end()+135] for m in hits[:4]])
+              except OSError as e: print(str(e))
+          PY
