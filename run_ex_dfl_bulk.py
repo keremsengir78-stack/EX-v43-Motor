@@ -23,7 +23,7 @@ TEAMS = {
     "FC Augsburg": "Augsburg", "FC Bayern München": "Bayern Munich",
     "FC Schalke 04": "Schalke 04", "FC St. Pauli": "St Pauli",
     "Hamburger SV": "Hamburg", "Holstein Kiel": "Holstein Kiel",
-    "RB Leipzig": "RB Leipzig", "SC Freiburg": "Freiburg",
+    "RB Leipzig": "RB Leipzig", "SC Freiburg": "Freiburg", "Sport-Club Freiburg": "Freiburg",
     "SC Paderborn 07": "Paderborn", "SV 07 Elversberg": "Elversberg",
     "SV Elversberg": "Elversberg", "SV Werder Bremen": "Werder Bremen",
     "TSG Hoffenheim": "Hoffenheim", "VfB Stuttgart": "Stuttgart",

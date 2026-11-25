@@ -3,7 +3,6 @@
 import math
 
 
-
 def gate_pup(markets, expected, *, requested=False):
     issues = []
     for market in expected:
@@ -72,10 +71,11 @@ def execute_pup(markets, expected, odds_results, score_model, *, requested=False
         state["issues"].append("pup:score_distribution_unavailable")
     state.update(market_reasons=reasons, score_scenarios=scenarios, eligible_markets=eligible, selection=None)
     if not state["issues"]:
-        state["pup_allowed"] = True
         if not eligible:
+            state["pup_allowed"] = True
             state["status"] = "PASS"
         elif len(eligible) == 1:
+            state["pup_allowed"] = True
             state["status"] = "SINGLE_ELIGIBLE"
             state["selection"] = eligible[0]
         else:

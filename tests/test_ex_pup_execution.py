@@ -39,10 +39,14 @@ class PupExecutionTests(unittest.TestCase):
         comparison = self.run_pup()["pup"]
         self.assertEqual("REVIEW_REQUIRED", comparison["status"])
         self.assertIsNone(comparison["selection"])
+        self.assertFalse(comparison["pup_allowed"])
         self.quotes["MS1"]["decimal_odds"] = 1.195
         comparison = self.run_pup()["pup"]
         self.assertEqual("BLOCKED", comparison["status"])
         self.assertIn("MS1:price_rule_undefined", comparison["issues"])
+
+    def test_truthy_string_is_not_a_pup_request(self):
+        self.assertEqual("NOT_REQUESTED", self.run_pup("true")["pup"]["status"])
 
     def test_partition_retains_all_scenario_probability_mass(self):
         result = score_scenarios(1.8, .6)
