@@ -41,6 +41,7 @@ jobs:
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
             python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output settlements
+            python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output prior-weeks --limit 4
             python ex_evidence_store.py --store durable-evidence restore --kind retrospective-research --output pilot --limit 1
           fi
           if ! find pilot -name retrospective-examples.jsonl -print -quit 2>/dev/null | grep -q .; then
@@ -62,12 +63,12 @@ jobs:
           fi
           examples=$(find pilot -name retrospective-examples.jsonl -type f -print -quit)
           test -n "$examples"
-          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --settlements settlements --examples "$examples"
+          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --settlements settlements --prior-weeks prior-weeks --examples "$examples"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           report = json.load(open("weekly/capacity.json"))
           print("## Weekly EX capacity (UTC)")
-          print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91")
+          print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91 | Reused: {report['cached_boards']} | Requests: {report['network_requests']}")
           window = report["capture_window"]
           print(f"\nCapture window opened: {window['opened']} | Not yet due: {window['not_due']}")
           print("\n| Competition | Published | Prematch | Venue5 | Domestic baseline | Full strength | Settled venue5 | Full model |")

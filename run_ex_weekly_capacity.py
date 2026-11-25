@@ -135,18 +135,39 @@ def observed_coverage(fixtures, packs, settlements=None):
     return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}, performance
 
 
+def seed_cached_boards(packs, archive, week_start):
+    """Restore prior verified boards for this week before refreshing stale URLs."""
+    total = 0
+    for report_path in packs.glob("*/capacity.json"):
+        report = json.loads(report_path.read_text())
+        if report["week_start"] != str(week_start):
+            continue
+        cache = HistoryArchive(report_path.parent / "cache", 0)
+        for source in report["sources"]:
+            url = source["url"]
+            raw, stamp = cache._load(source, url)
+            archive.import_capture(url, raw, stamp, source["sha256"])
+            total += 1
+    return total
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--week-start", type=dt.date.fromisoformat, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--packs", type=Path)
+    parser.add_argument("--prior-weeks", type=Path)
     parser.add_argument("--settlements", type=Path)
     parser.add_argument("--examples", type=Path)
     args = parser.parse_args()
     if args.week_start.weekday() != 0:
         parser.error("Week starts on Monday UTC")
     archive = HistoryArchive(args.output / "cache", 7 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
+    if args.prior_weeks:
+        seed_cached_boards(args.prior_weeks, archive, args.week_start)
     result = collect(archive, args.week_start)
+    result["network_requests"] = archive.requests
+    result["cached_boards"] = archive.cache_hits
     if args.packs:
         coverage, result["weekly_performance"] = observed_coverage(result["fixtures"], args.packs, args.settlements)
         result["observed_coverage"] = coverage

@@ -535,10 +535,13 @@ def main():
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         tracked = read_tracked_fixtures(args.packs, {r["event_id"] for r in forecasts}) if args.packs else []
         official = json.loads(args.official.read_text()) if args.official else []
-        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked) + 12, fetch=paced_download(.75))
+        # Official sources and primary score results have separate request budgets.
+        fetch = paced_download(.75)
+        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked), fetch=fetch)
         official_errors = []
         if args.auto_official:
-            found, official_errors = league_reviews(forecasts + tracked, result_archive)
+            official_archive = HistoryArchive(args.cache, 32, fetch=fetch)
+            found, official_errors = league_reviews(forecasts + tracked, official_archive)
             known = {(r["league"], r["date"], r["home"], r["away"]) for r in official}
             official.extend(r for r in found if (r["league"], r["date"], r["home"], r["away"]) not in known)
         corroborated, provisional, pending = settle(
