@@ -1,0 +1,2400 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sabah FC</title>
+        <meta name="description" content="">
+        <meta name="author" content="Sabah FC">
+        <meta property="og:title" content="Sabah FC" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="/static/dist/img/sabahfc_meta.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"/>
+        <link rel="stylesheet" href="/static//dist/css/app.css">
+        <link rel="stylesheet" href="/static//dist/css/shop.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+        </style>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="/static/dist/img/Owl2%201.png" type="image/png">
+        <script src="/static/dist/js/jquery.min.js"></script>
+    </head>
+    <body>
+        
+    <div class="top-line"></div>
+<div class="block-container header">
+    <div class="container">
+        <div class="row items-center-y">
+            <div class="col-1">
+                <a href="/">
+                    <img src="/static//dist/img/SABAH%20FC%20LOGO%201.png" alt="" class="header-logo">
+                </a>
+                
+            </div>
+            <div class="col-8">
+                <ul class="header-navbar">
+                    <li>
+                        <a href="/news">XƏBƏRLƏR</a>
+                    </li>
+                    <li>
+                        <a href="/teams">KOMANDALAR</a>
+                    </li>
+                    <li>
+                        <a href="/matches?league_id=18">OYUNLAR</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">TICKETS</a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#">AZARKEŞ</a>
+                    </li> -->
+                    <li>
+                        <a href="/club/history">KLUB HAQQINDA</a>
+                    </li>
+                    <li>
+                        <a href="/media-registration">MEDİA AKKREDİTASİYASI</a>
+                    </li>
+                    <!-- <li>
+                        <a href="/request">TNS – "SABAH" OYUNU ÜÇÜN AZARKEŞ ANKETİ</a>
+                    </li> -->
+                    <!--
+                    <li>
+                        <a href="/final">FİNAL</a>
+                    </li> -->
+                    <li style="position: relative; cursor: pointer;">
+                        <a style="text-transform: uppercase;" id="toggle-lang">az</a>
+                        <ul id="dropdown-lang" style="display: none;">
+                            <li>
+                                <a href="/lang?lang=az&redirect=https://sabahfc.az/">AZ</a>
+                            </li>
+                            <li>
+                                <a href="/lang?lang=en&redirect=https://sabahfc.az/">EN</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="col-1"></div> -->
+            <div class="col-3">
+                <ul class="header-right-nav">
+                    <li>
+                        <img
+                            class="header-search"
+                            src="/static//dist/img/magnifer-linear.svg"
+                            alt=""
+                            id="app-search"
+                        >
+                    </li>
+                    
+                    <!-- <li>
+                        <a href="#">DAXİL OL</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile-header">
+    <div class="row space-between-x items-center-y">
+        <div class="col-auto pad-l">
+            <a href="/">
+                <img src="/static//dist/img/SABAH%20FC%20LOGO%201.png" alt="" class="m-header-logo">
+            </a>
+        </div>
+        <div class="col-auto">
+            <ul class="m-nav">
+                <li>
+                    <a href="#">
+                        <img src="/static//dist/img/magnifer-linear.svg" alt="">
+                    </a>
+                </li>
+                
+                <li>
+                    <a id="m-menu-dropdown" is-clicked="0">
+                        <img src="/static//dist/img/solar_hamburger-menu-linear.svg" id="for-open">
+                        <img src="/static//dist/img/solar_close-circle-broken.svg" id="for-close" style="display: none;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mobile-modal" id="m-modal" style="display: none;">
+    <div class="m-modal-body">
+        <ul class="m-header-navbar">
+            <li>
+                <a href="/news">XƏBƏRLƏR</a>
+            </li>
+            <li>
+                <a href="/teams">KOMANDALAR</a>
+            </li>
+            <li>
+                <a href="/matches?league_id=18">OYUNLAR</a>
+            </li>
+            <!-- <li>
+                <a href="/request">TNS – "SABAH" OYUNU ÜÇÜN AZARKEŞ ANKETİ</a>
+            </li> -->
+            <!-- <li>
+                <a href="#">TICKETS</a>
+            </li> -->
+            <!-- <li>
+                <a href="#">FAN ZONE</a>
+            </li> -->
+            <li>
+                <a href="/club/history">KLUB HAQQINDA</a>
+            </li>
+            <li>
+                <a href="/media-registration">MEDİA AKKREDİTASİYASI</a>
+            </li>
+            <li>
+                <a href="/lang?lang=az&redirect=https://sabahfc.az/">AZ</a>
+            </li>
+            <li>
+                <a href="/lang?lang=en&redirect=https://sabahfc.az/">EN</a>
+            </li>
+            <!-- <li>
+                <a href="#">MORE</a>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<div class="search-modal" style="display: none;">
+    <form action="/news">
+        <input type="text" placeholder="Axtar" name="key">
+        <button><i class="fa fa-search"></i></button>
+    </form>
+</div>
+    <!-- <div class="block-container announcements">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, omnis ipsa quasi voluptates at harum nemo assumenda corrupti illum, aliquid nisi perferendis ipsum quaerat.
+    </div> -->
+
+    <div class="home-slider">
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="slider-container" style="background-image: url('https://sabahfc.az/static/uploads/729874_MAC_KAZ_Sabah_Conference_24Nov2026_AZ-14.webp');">
+                        <div class="slider-body">
+                            <div class="slider-body-article">
+                                <!-- <a href="#" class="slider-body-article-category">XƏBƏR</a> -->
+                                <h2>
+                                    &#34;Sabah&#34; - &#34;Barselona &#34;: Oyun öncəsi mətbuat konfransı 
+                                </h2>
+                                <a href="/news/464" class="slider-body-article-read">
+                                    <span>OXU</span>
+                                    <img src="/static//dist/img/right-up-linear.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="slider-container" style="background-image: url('https://sabahfc.az/static/uploads/104658_sayt.webp');">
+                        <div class="slider-body">
+                            <div class="slider-body-article">
+                                <!-- <a href="#" class="slider-body-article-category">XƏBƏR</a> -->
+                                <h2>
+                                    “Sabah” – “Barselona”: Mətbuat konfransları və açıq məşqlərin vaxtı bəlli olub
+                                </h2>
+                                <a href="/news/462" class="slider-body-article-read">
+                                    <span>OXU</span>
+                                    <img src="/static//dist/img/right-up-linear.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="slider-container" style="background-image: url('https://sabahfc.az/static/uploads/339784_2S7A6119.webp');">
+                        <div class="slider-body">
+                            <div class="slider-body-article">
+                                <!-- <a href="#" class="slider-body-article-category">ƏSAS KOMANDA</a> -->
+                                <h2>
+                                    Baş məşqçimiz və futbolçularımız azarkeşlərlə görüşüblər
+                                </h2>
+                                <a href="/news/461" class="slider-body-article-read">
+                                    <span>OXU</span>
+                                    <img src="/static//dist/img/right-up-linear.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="slider-container" style="background-image: url('https://sabahfc.az/static/uploads/750277_IMG_20261123_020116_390.webp');">
+                        <div class="slider-body">
+                            <div class="slider-body-article">
+                                <!-- <a href="#" class="slider-body-article-category">PREMYER LİQA</a> -->
+                                <h2>
+                                    &#34;Sumqayıt&#34; - &#34;Sabah&#34;: Oyun sonrası mətbuat konfransı
+                                </h2>
+                                <a href="/news/460" class="slider-body-article-read">
+                                    <span>OXU</span>
+                                    <img src="/static//dist/img/right-up-linear.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="slider-container" style="background-image: url('https://sabahfc.az/static/uploads/602363_2S7A1991.JPG.webp');">
+                        <div class="slider-body">
+                            <div class="slider-body-article">
+                                <!-- <a href="#" class="slider-body-article-category">AKADEMİYA</a> -->
+                                <h2>
+                                    Akademiyamızda maarifləndirici tədbir keçirilib
+                                </h2>
+                                <a href="/news/459" class="slider-body-article-read">
+                                    <span>OXU</span>
+                                    <img src="/static//dist/img/right-up-linear.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper m-swiper" style="position: absolute; right: -25%; bottom: 50px; height: max-content;" id="bottom-slide-section">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide card" style="width: 300px; height: 200px;">
+                    <img src="https://sabahfc.az/static/uploads/729874_MAC_KAZ_Sabah_Conference_24Nov2026_AZ-14.webp" />
+                </div>
+                
+                <div class="swiper-slide card" style="width: 300px; height: 200px;">
+                    <img src="https://sabahfc.az/static/uploads/104658_sayt.webp" />
+                </div>
+                
+                <div class="swiper-slide card" style="width: 300px; height: 200px;">
+                    <img src="https://sabahfc.az/static/uploads/339784_2S7A6119.webp" />
+                </div>
+                
+                <div class="swiper-slide card" style="width: 300px; height: 200px;">
+                    <img src="https://sabahfc.az/static/uploads/750277_IMG_20261123_020116_390.webp" />
+                </div>
+                
+                <div class="swiper-slide card" style="width: 300px; height: 200px;">
+                    <img src="https://sabahfc.az/static/uploads/602363_2S7A1991.JPG.webp" />
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="space-line" style="background-image: url('/static/dist/img/group-bg.png');"></div>
+    <div class="block-container m-main" style="background-image: url('/static/dist/img/group-bg.png');">
+        <div class="container">
+            <div class="row space-between-x">
+                <div class="col-auto pad-x-m">
+                    <a href="/news" class="title-label">BÜTÜN XƏBƏRLƏR</a>
+                </div>
+                <!-- <div class="col-auto pad-x-m">
+                    <a href="#" class="title-label">FIND MORE</a>
+                </div> -->
+            </div>
+            <div class="row">
+                <!-- <div class="col-12 pad-x-m">
+                    <h2>BU GÜN SABAH FK-da</h2>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="block-container" style="background-image: url('/static/dist/img/group-bg.png');">
+        <div class="container">
+            <div class="row wrapped">
+                <div class="mobile-news-swiper mobile-news-mySwiper">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/464">
+                                            <img src="https://sabahfc.az/static/uploads/729874_MAC_KAZ_Sabah_Conference_24Nov2026_AZ-14.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/464">&#34;Sabah&#34; - &#34;Barselona &#34;: Oyun öncəsi mətbuat konfransı </a>
+                                        </h3>
+                                        <p>
+                                            UEFA Çempionlar Liqasının liqa mərhələsinin 5-ci turunda &#34;Barselona&#34; ilə qarşılaşacaq &#34;Sabah&#34;ın oyun
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>24 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/464" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/462">
+                                            <img src="https://sabahfc.az/static/uploads/104658_sayt.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/462">“Sabah” – “Barselona”: Mətbuat konfransları və açıq məşqlərin vaxtı bəlli olub</a>
+                                        </h3>
+                                        <p>
+                                            UEFA Çempionlar Liqasının liqa mərhələsində keçiriləcək “Sabah” – “Barselona” oyunu öncəsi mətbuat k
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>23 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/462" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/461">
+                                            <img src="https://sabahfc.az/static/uploads/339784_2S7A6119.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/461">Baş məşqçimiz və futbolçularımız azarkeşlərlə görüşüblər</a>
+                                        </h3>
+                                        <p>
+                                            İçərişəhərdə yerləşən “Fan Store”da “Sabah”ın baş məşqçisi Valdas Dambrauskas və futbolçularımız Aki
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>22 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/461" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/460">
+                                            <img src="https://sabahfc.az/static/uploads/750277_IMG_20261123_020116_390.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/460">&#34;Sumqayıt&#34; - &#34;Sabah&#34;: Oyun sonrası mətbuat konfransı</a>
+                                        </h3>
+                                        <p>
+                                            Misli Premyer Liqasının XII turunda &#34;Sabah&#34; səfərdə &#34;Sumqayıt&#34;a böyük hesabla qalib gəlib - 5:1. Mat
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>20 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/460" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/459">
+                                            <img src="https://sabahfc.az/static/uploads/602363_2S7A1991.JPG.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/459">Akademiyamızda maarifləndirici tədbir keçirilib</a>
+                                        </h3>
+                                        <p>
+                                            Noyabrın 6-da “Vətən” İdman Liseyinin binasında “Sabah” Futbol Akademiyasının 14–15 yaşlı futbolçula
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>12 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/459" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            
+                            <div class="col-3 col-m-12 pad-m">
+                                <div class="news-card card">
+                                    <div class="news-card-head">
+                                        <a href="/news/457">
+                                            <img src="https://sabahfc.az/static/uploads/684235_2S7A3005.webp" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <h3>
+                                            <a href="/news/457">&#34;Sabah&#34; - &#34;Şamaxı&#34; oyununun video icmalı</a>
+                                        </h3>
+                                        <p>
+                                            &#34;Sabah&#34; Misli Premyer Liqasının XI turunda evdə &#34;Şamaxı&#34; ilə heç-heçə edib (2:2). Oyunun video icmal
+                                        </p>
+                                    </div>
+                                    <div class="news-card-footer">
+                                        <div class="row space-between-x">
+                                            <div class="col-auto pad-l">
+                                                <span>08 Noyabr 2026</span>
+                                            </div>
+                                            <div class="col-auto pad-l">
+                                                <a href="/news/457" class="news-card-read-more">OXU</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="mobile-news-paginator">
+                    <button class="swiper-button-prev-mobile-news" style="border: 1px solid #fff;">
+                        <img src="/static//dist/img/arrow-left-linear.png" alt="">
+                    </button>
+                    <button class="swiper-button-next-mobile-news" style="border: 1px solid #fff;">
+                        <img src="/static//dist/img/arrow-right-linear.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="row wrapped desktop-news">
+                
+                <div class="col-3 col-m-6 pad-m">
+                    <div class="news-card card">
+                        <div class="news-card-head">
+                            <a href="/news/464">
+                                <img src="https://sabahfc.az/static/uploads/729874_MAC_KAZ_Sabah_Conference_24Nov2026_AZ-14.webp" alt="">
+                            </a>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>
+                                <a href="/news/464">&#34;Sabah&#34; - &#34;Barselona &#34;: Oyun öncəsi mətbuat konfransı </a>
+                            </h3>
+                            <p>
+                                UEFA Çempionlar Liqasının liqa mərhələsinin 5-ci turunda &#34;Barselona&#34; ilə qarşılaşacaq &#34;Sabah&#34;ın oyun ...
+                            </p>
+                        </div>
+                        <div class="news-card-footer">
+                            <div class="row space-between-x items-center-y">
+                                <div class="col-auto pad-l">
+                                    <span class="news-card-date">24 Noyabr 2026</span>
+                                </div>
+                                <div class="col-auto pad-l">
+                                    <a href="/news/464" class="news-card-read-more">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-3 col-m-6 pad-m">
+                    <div class="news-card card">
+                        <div class="news-card-head">
+                            <a href="/news/462">
+                                <img src="https://sabahfc.az/static/uploads/104658_sayt.webp" alt="">
+                            </a>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>
+                                <a href="/news/462">“Sabah” – “Barselona”: Mətbuat konfransları və açıq məşqlərin vaxtı bəlli olub</a>
+                            </h3>
+                            <p>
+                                UEFA Çempionlar Liqasının liqa mərhələsində keçiriləcək “Sabah” – “Barselona” oyunu öncəsi mətbuat k ...
+                            </p>
+                        </div>
+                        <div class="news-card-footer">
+                            <div class="row space-between-x items-center-y">
+                                <div class="col-auto pad-l">
+                                    <span class="news-card-date">23 Noyabr 2026</span>
+                                </div>
+                                <div class="col-auto pad-l">
+                                    <a href="/news/462" class="news-card-read-more">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-3 col-m-6 pad-m">
+                    <div class="news-card card">
+                        <div class="news-card-head">
+                            <a href="/news/461">
+                                <img src="https://sabahfc.az/static/uploads/339784_2S7A6119.webp" alt="">
+                            </a>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>
+                                <a href="/news/461">Baş məşqçimiz və futbolçularımız azarkeşlərlə görüşüblər</a>
+                            </h3>
+                            <p>
+                                İçərişəhərdə yerləşən “Fan Store”da “Sabah”ın baş məşqçisi Valdas Dambrauskas və futbolçularımız Aki ...
+                            </p>
+                        </div>
+                        <div class="news-card-footer">
+                            <div class="row space-between-x items-center-y">
+                                <div class="col-auto pad-l">
+                                    <span class="news-card-date">22 Noyabr 2026</span>
+                                </div>
+                                <div class="col-auto pad-l">
+                                    <a href="/news/461" class="news-card-read-more">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-3 col-m-6 pad-m">
+                    <div class="news-card card">
+                        <div class="news-card-head">
+                            <a href="/news/460">
+                                <img src="https://sabahfc.az/static/uploads/750277_IMG_20261123_020116_390.webp" alt="">
+                            </a>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>
+                                <a href="/news/460">&#34;Sumqayıt&#34; - &#34;Sabah&#34;: Oyun sonrası mətbuat konfransı</a>
+                            </h3>
+                            <p>
+                                Misli Premyer Liqasının XII turunda &#34;Sabah&#34; səfərdə &#34;Sumqayıt&#34;a böyük hesabla qalib gəlib - 5:1. Mat ...
+                            </p>
+                        </div>
+                        <div class="news-card-footer">
+                            <div class="row space-between-x items-center-y">
+                                <div class="col-auto pad-l">
+                                    <span class="news-card-date">20 Noyabr 2026</span>
+                                </div>
+                                <div class="col-auto pad-l">
+                                    <a href="/news/460" class="news-card-read-more">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="row wrapped desktop-news">
+                
+                <div class="col-6 col-m-12 pad-m">
+                    <div class="news-bp-card card">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="news-bp-card-image">
+                                    <a href="/news/459">
+                                        <img src="https://sabahfc.az/static/uploads/280682_2S7A1953.JPG.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="news-bp-card-body">
+                                    <div class="news-bp-card-body-article">
+                                        <a href="/news?category_id=3" class="_category">AKADEMİYA</a>
+                                        <h3>
+                                            <a href="/news/459">Akademiyamızda maarifləndirici tədbir keçirilib</a>
+                                        </h3>
+                                        <p>
+                                            Noyabrın 6-da “Vətən” İdman Liseyinin binasında “Sabah” Futbol Akademiyasının 14–15 yaşlı futbolçuları üçün “Uşaq və gənclərin hüquq və maraqlarının müdafiəsi” mövzusunda interaktiv tədbir keçirilib.Hüquqşünas Əlibaba Əliyevin rəhbərliyi ilə keçirilən gör ...
+                                        </p>
+                                    </div>
+                                    <div class="news-bp-card-body-footer">
+                                        <span class="news-card-date">12 Noyabr 2026</span>
+                                        <a href="/news/459" class="_readmore">OXU</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-m-12 pad-m">
+                    <div class="news-bp-card card">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="news-bp-card-image">
+                                    <a href="/news/457">
+                                        <img src="https://sabahfc.az/static/uploads/175051_IMG_20261108_235754_892.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="news-bp-card-body">
+                                    <div class="news-bp-card-body-article">
+                                        <a href="/news?category_id=2" class="_category">PREMYER LİQA</a>
+                                        <h3>
+                                            <a href="/news/457">&#34;Sabah&#34; - &#34;Şamaxı&#34; oyununun video icmalı</a>
+                                        </h3>
+                                        <p>
+                                            &#34;Sabah&#34; Misli Premyer Liqasının XI turunda evdə &#34;Şamaxı&#34; ilə heç-heçə edib (2:2). Oyunun video icmalını təqdim edirik. ...
+                                        </p>
+                                    </div>
+                                    <div class="news-bp-card-body-footer">
+                                        <span class="news-card-date">08 Noyabr 2026</span>
+                                        <a href="/news/457" class="_readmore">OXU</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="block-container matches" style="background-image: url('/static/dist/img/group-bg.png');">
+        <div class="container">
+            <div class="section-title">
+                <h2>OYUNLAR</h2>
+            </div>
+            
+            <div class="matches-swiper matches-mySwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-08-15</span>
+                                    <br>
+                                    <span>20:45, Bank Respublika Arena</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>2:0</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Kepez.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sabah vs Kəpəz</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/429838_2017-18-uefa-champions-league-uefa-europa-league-2018-uefa-champions-league-final-2015-16-uefa-champions-league-2014-15-uefa-champions-league-football-fc3d8e655da38b2f77cb083ce53eba3c.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-08-25</span>
+                                    <br>
+                                    <span>20:45, T. Bəhramov adına Respublika stadionu</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>5:2</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/928112_hapoelll.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sabah vs Hapoel Beer-Şeva</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-11-20</span>
+                                    <br>
+                                    <span>19:00, M.H. Sumqayıt ş. st.</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Sumqayit.png" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>--/--</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sumqayıt vs Sabah</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="/matches">Ətraflı</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-11-20</span>
+                                    <br>
+                                    <span>19:00, M.H. Sumqayıt ş. st.</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Sumqayit.png" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>--/--</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sumqayıt vs Sabah</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="/matches">Ətraflı</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-11-08</span>
+                                    <br>
+                                    <span>17:30, Sabah Arena</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>2:2</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Samaxi.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sabah vs Şamaxı</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://sabahfc.az/news/458">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/429838_2017-18-uefa-champions-league-uefa-europa-league-2018-uefa-champions-league-final-2015-16-uefa-champions-league-2014-15-uefa-champions-league-football-fc3d8e655da38b2f77cb083ce53eba3c.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-11-04</span>
+                                    <br>
+                                    <span>23:55, Viking Stadion</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/627863_abdul.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>4:1</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Viking vs Sabah</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://www.uefa.com/uefachampionsleague/match/2049624--viking-vs-sabah/">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-10-30</span>
+                                    <br>
+                                    <span>18:30, Tovuz şəhər stadionu</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Turan.png" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>3:2</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Turan Tovuz vs Sabah</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://sabahfc.az/news/449">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-10-25</span>
+                                    <br>
+                                    <span>18:00, Sabah Arena</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>0:0</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/Qarabag.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sabah vs Qarabağ</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://sabahfc.az/news/446">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/429838_2017-18-uefa-champions-league-uefa-europa-league-2018-uefa-champions-league-final-2015-16-uefa-champions-league-2014-15-uefa-champions-league-football-fc3d8e655da38b2f77cb083ce53eba3c.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-10-20</span>
+                                    <br>
+                                    <span>20:45, Bakı Olimpiya Stadionu</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>1:2</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/31846_sayt.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Sabah vs Borussiya Dortmund</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://www.uefa.com/uefachampionsleague/match/2049597--sabah-vs-b-dortmund/">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        
+                        <div class="match-card card">
+                            <div class="match-card-header ">
+                                <div class="_image">
+                                    <img src="https://sabahfc.az/static/uploads/884795_332862_Untitled-1.webp" alt="">
+                                </div>
+                                <div class="_description">
+                                    <span>2026-10-17</span>
+                                    <br>
+                                    <span>16:00, Qəbələ şəhər stadionu</span>
+                                </div>
+                            </div>
+                            <div class="match-card-body">
+                                <div class="match-details">
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/730395_ФК_Габала.webp" alt="">
+                                    </div>
+                                    
+                                    <div class="match-result">
+                                        <div class="_content">
+                                            
+                                            <span>0:4</span>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-logo">
+                                        <img src="https://sabahfc.az/static/uploads/638945_444141.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="match-info">
+                                    <span>Qəbələ vs Sabah</span>
+                                </div>
+                            </div>
+                            <div class="match-card-link">
+                                
+                                    <a href="https://sabahfc.az/news/439">ƏTRAFLI</a>
+                                
+                            </div>
+                                
+                            
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="match-paginator">
+                <button class="swiper-button-prev-match">
+                    <img src="/static//dist/img/arrow-left-linear.png" alt="">
+                </button>
+                <button class="swiper-button-next-match">
+                    <img src="/static//dist/img/arrow-right-linear.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-container gallery-section">
+        <div class="gallery-section-body">
+            <div class="container" style="overflow: hidden;">
+                <div class="gallery-title">
+                    <h2>QALEREYA</h2>
+                </div>
+                <div class="gallery-swiper gallery-mySwiper">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/44">
+                                        <img src="https://sabahfc.az/static/uploads/18946_sayt10.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/44">
+                                        Sabah - Qarabağ
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>23 Aprel 2026</span>
+                                    <a href="/gallery/44">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/43">
+                                        <img src="https://sabahfc.az/static/uploads/141644_11.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/43">
+                                        Sabah - Zirə
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>13 Aprel 2026</span>
+                                    <a href="/gallery/43">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/42">
+                                        <img src="https://sabahfc.az/static/uploads/924717_8.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/42">
+                                        Qarabağ - Sabah
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>02 Mart 2026</span>
+                                    <a href="/gallery/42">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/41">
+                                        <img src="https://sabahfc.az/static/uploads/233866_protocol.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/41">
+                                        Sabah - Kəpəz
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>23 Fevral 2026</span>
+                                    <a href="/gallery/41">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/40">
+                                        <img src="https://sabahfc.az/static/uploads/844821_1.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/40">
+                                        Qəbələ - Sabah
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>18 Fevral 2026</span>
+                                    <a href="/gallery/40">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/39">
+                                        <img src="https://sabahfc.az/static/uploads/548049_2S7A8109-(2).webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/39">
+                                        Sabah - Araz-Naxçıvan
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>12 Fevral 2026</span>
+                                    <a href="/gallery/39">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/38">
+                                        <img src="https://sabahfc.az/static/uploads/957815_2S7A5662.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/38">
+                                        Sabah - Qəbələ
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>12 Fevral 2026</span>
+                                    <a href="/gallery/38">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/37">
+                                        <img src="https://sabahfc.az/static/uploads/128139_2S7A0669-(1).webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/37">
+                                        Zirə - Sabah
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>12 Fevral 2026</span>
+                                    <a href="/gallery/37">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/36">
+                                        <img src="https://sabahfc.az/static/uploads/127740_2S7A0329-(2).webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/36">
+                                        Sabah - Karvan
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>12 Fevral 2026</span>
+                                    <a href="/gallery/36">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/35">
+                                        <img src="https://sabahfc.az/static/uploads/894075_2S7A9828.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/35">
+                                        Sumqayıt - Sabah
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>12 Fevral 2026</span>
+                                    <a href="/gallery/35">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/34">
+                                        <img src="https://sabahfc.az/static/uploads/504653_1.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/34">
+                                        Sabah - Qarabağ
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>19 Dekabr 2025</span>
+                                    <a href="/gallery/34">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery-card">
+                                <div class="gallery-card-image">
+                                    <a href="/gallery/33">
+                                        <img src="https://sabahfc.az/static/uploads/758581_2S7A6862.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="gallery-card-body">
+                                    <a href="/gallery/33">
+                                        İmişli - Sabah
+                                    </a>
+                                </div>
+                                <div class="gallery-card-footer">
+                                    <span>01 Dekabr 2025</span>
+                                    <a href="/gallery/33">OXU</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="match-paginator">
+                    <button class="swiper-button-prev-gallery" style="border: 1px solid #fff;">
+                        <img src="/static//dist/img/arrow-left-linear-white.png" alt="">
+                    </button>
+                    <button class="swiper-button-next-gallery" style="border: 1px solid #fff;">
+                        <img src="/static//dist/img/arrow-right-linear-white.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-container" style="overflow: hidden; background-image: url('/static/dist/img/group-bg.png');">
+        <div class="container" style="overflow: hidden;">
+            <div class="section-title">
+                <h2>KOMANDA</h2>
+            </div>
+            <div class="matches-swiper players-mySwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/107">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/499480_688621_Stas (2) (1).webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>1</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Amin Ramazanov
+                                            </span>
+                                            <span class="position">Qapıçı</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/91">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/688621_Stas (2).webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>92</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Stas Pokatilov
+                                            </span>
+                                            <span class="position">Qapıçı</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/113">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/621146_rm.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>94</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Rəvan Mirzəmmədov
+                                            </span>
+                                            <span class="position">Qapıçı</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/96">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/802060_Solvet.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>3</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Stiv Solvet
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/108">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/94664_aden.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>4</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Eyden Makkarti
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/16">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/21.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>5</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Rəhman Daşdəmirov
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/8">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/12.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>17</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Tellur Mütəllimov
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/100">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/263284_Puchach.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>27</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Timoteuş Puxaç
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/109">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/376097_fdd.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>33</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Junior Almeyda
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/110">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/820012_el.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>35</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Cafet Bulus
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/97">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/810208_Akim.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>80</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Akim Zedadka
+                                            </span>
+                                            <span class="position">Müdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/10">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/20.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>6</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Abdulla Xaybulayev
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/92">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/483776_UMARALI.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>7</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Umarali Raxmonaliyev
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/104">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/48507_Aleksey.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>10</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Aleksey İsayev
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/14">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/13.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>13</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                İvan Lepinitsa
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/112">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/525039_rr.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>16</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Rauf Rüstəmli
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/102">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/187877_Simic.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>21</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Velko Simiç
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/98">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/665243_Zidane.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>22</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Zinədin Uld Xaled
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/111">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/43134_21.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>88</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Rodriqo Fernandeş
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/13">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/3.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>9</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Xəyal Əliyev
+                                            </span>
+                                            <span class="position">Hücumçu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/20">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/15.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>11</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Kahim Parris
+                                            </span>
+                                            <span class="position">Hücumçu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/17">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/10.png" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>20</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Coy-Lens Mikels
+                                            </span>
+                                            <span class="position">Hücumçu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/105">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/654749_22222.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>99</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Orfe Mbina
+                                            </span>
+                                            <span class="position">Hücumçu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/99">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/689279_Cocach.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Valdas Dambrauskas
+                                            </span>
+                                            <span class="position">Baş məşqçi </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/116">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/653167_dsfsf.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>23</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Yunes Laşaab
+                                            </span>
+                                            <span class="position">Hücumçu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/115">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/620628_ssh.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>95</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Şahin İbrahimov
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/117">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/903233_ChatGPT Image Sep 7, 2026, 03_14_24 PM.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>37</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Eduardo Santos Keyros
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="/player/114">
+                            <div class="team-card card">
+                                <img src="https://sabahfc.az/static/uploads/561080_yr.webp" alt="">
+                                <div class="team-card-body">
+                                    <div class="team-card-info">
+                                        <div class="player-number">
+                                            
+                                            <span>34</span>
+                                            
+                                        </div>
+                                        <div class="player-info">
+                                            <span class="name">
+                                                Ksander Severina
+                                            </span>
+                                            <span class="position">Yarımmüdafiəçi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="match-paginator">
+                <button class="swiper-button-prev-player">
+                    <img src="/static//dist/img/arrow-left-linear.png" alt="">
+                </button>
+                <button class="swiper-button-next-player">
+                    <img src="/static//dist/img/arrow-right-linear.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="block-container footer">
+    <div class="footer-title footer-ping-text">
+        <span>TƏRƏFDAŞLAR</span>
+    </div>
+    <div class="partners">
+        <div class="partner-logo">
+            <img src="/static//dist/img/azloto.png" alt="">
+        </div>
+        <!-- <div class="partner-logo">
+            <img src="/static//dist/img/Bakupan.png" alt="">
+        </div> -->
+        <div class="partner-logo">
+            <img src="/static//dist/img/Bankrepsublika.png" alt="">
+        </div>
+        <div class="partner-logo">
+            <img src="/static//dist/img/Bridge.png" alt="">
+        </div>
+        <!-- <div class="partner-logo">
+            <img src="/static//dist/img/Costa%20cofe.png" alt="">
+        </div> -->
+        <!-- <div class="partner-logo">
+            <img src="/static//dist/img/Pejo.png" alt="">
+        </div> -->
+        
+        <div class="partner-logo">
+            <img src="/static//dist/img/Scalini.png" alt="">
+        </div>
+        <div class="partner-logo">
+            <img src="/static//dist/img/Slavyanka.png" alt="">
+        </div>
+        <!-- <div class="partner-logo">
+            <img src="/static//dist/img/pasha.png" alt="">
+        </div> -->
+        <div class="partner-logo" style="display: flex; justify-content: center; align-items: center;">
+            <img src="/static//dist/img/corpio.png" alt="">
+        </div>
+    </div>
+    <div class="footer-title footer-white-text">
+        <span>Bizi sosial şəbəkədə izləyin</span>
+    </div>
+    <div class="social-medias">
+        <div class="social-media-column">
+            <a href="https://www.youtube.com/@SabahFC" style="display: block;">
+                <div class="social-media-card youtube-bg">
+                    <div class="social-media-icon">
+                        <img src="/static//dist/img/mdi_youtube.svg">
+                    </div>
+                    <div class="social-media-text">
+                        <span class="smt-title">SABAH FK</span>
+                        <span class="smt-name">@SabahFC</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="social-media-column">
+            <a href="https://www.instagram.com/sabahfc/">
+                <div class="social-media-card instagram-bg">
+                    <div class="social-media-icon">
+                        <img src="/static//dist/img/mdi_instagram.svg">
+                    </div>
+                    <div class="social-media-text">
+                        <span class="smt-title">SABAH FK</span>
+                        <span class="smt-name">@sabahfc</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="social-media-column">
+            <a href="https://x.com/fc_sabah">
+                <div class="social-media-card twitter-bg">
+                    <div class="social-media-icon">
+                        <img src="/static//dist/img/prime_twitter.svg">
+                    </div>
+                    <div class="social-media-text">
+                        <span class="smt-title">SABAH FK</span>
+                        <span class="smt-name">@fc_sabah</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="social-media-column">
+            <a href="https://www.facebook.com/sabahfc.az">
+                <div class="social-media-card facebook-bg">
+                    <div class="social-media-icon">
+                        <img src="/static//dist/img/ic_baseline-facebook.svg">
+                    </div>
+                    <div class="social-media-text">
+                        <span class="smt-title">SABAH FK</span>
+                        <span class="smt-name">@sabahfc</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="social-media-column">
+            <a href="https://www.tiktok.com/@sabah.fc">
+                <div class="social-media-card twitter-bg">
+                    <div class="social-media-icon">
+                        <img src="/static//dist/img/ic_baseline-tiktok.svg">
+                    </div>
+                    <div class="social-media-text">
+                        <span class="smt-title">SABAH FK</span>
+                        <span class="smt-name">@sabahfc</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="foot_links">
+        <span>© 2025 Sabah FC</span>
+        <ul>
+            <li>
+                <a href="/policy">Məxvilik Siyasəti</a>
+            </li>
+            <li>
+                <a href="/contact">Əlaqə</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+    
+
+    <script src="/static//dist/js/swiper.min.js"></script>
+    <script src="/static//dist/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('[name="phone"]').mask('000(00)000-00-00');
+
+            $('.vote_modal_close').click(function() {
+                $('.vote_modal').hide();
+            });
+            // $('.vote_modal').click(function() {
+            //     $(this).hide();
+            // });
+        });
+
+        var swiper1 = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 'auto',
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper1,
+            },
+        });
+    </script>
+
+    <script>
+        var swiper1 = new Swiper(".mobile-news-mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 'auto',
+            freeMode: true,
+            watchSlidesProgress: true,
+            navigation: {
+                nextEl: '.swiper-button-next-mobile-news',
+                prevEl: '.swiper-button-prev-mobile-news',
+            },
+        });
+    </script>
+
+    <script>
+        var swiper3 = new Swiper(".matches-mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            on: {
+                init: function() {
+                    $('.swiper-slide').css('margin-right', '10px');
+                }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-match',
+                prevEl: '.swiper-button-prev-match',
+            },
+            breakpoints: {
+                "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                "@1.00": {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                "@1.50": {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+            },
+        });
+
+    </script>
+
+    <script>
+        // player
+        var swiper3 = new Swiper(".players-mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            on: {
+                init: function() {
+                    $('.swiper-slide').css('margin-right', '10px');
+                }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-player',
+                prevEl: '.swiper-button-prev-player',
+            },
+            breakpoints: {
+                "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                "@1.00": {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                "@1.50": {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+            },
+        });
+
+    </script>
+    
+    <script>
+        var swiper4 = new Swiper(".gallery-mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            on: {
+                init: function() {
+                    $('.swiper-slide').css('margin-right', '10px');
+                }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-gallery',
+                prevEl: '.swiper-button-prev-gallery',
+            },
+            breakpoints: {
+                "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                "@1.00": {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                "@1.50": {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+            },
+        });
+    </script>
+
+        <script src="/static/dist/js/main.js"></script>
+        <script src="/static/dist/js/cart.js"></script>
+        <script src="/static/assets/js/search.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.shop-cart-button').click(function() {
+                    $('.shop-cart-dropdown').toggle();
+                });
+
+                let cart = new Cart()
+                cart.update();
+            });
+        </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"fd3c2f0a5a1f4f06990726e7f9bcb9cd","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

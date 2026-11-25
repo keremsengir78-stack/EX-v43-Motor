@@ -1,0 +1,33 @@
+{
+  "sk.1": [],
+  "ua.1": [
+    {
+      "source_match_id": "15922",
+      "source_namespace": "official:ua.1",
+      "kickoff_at": "2026-11-25T11:00:00+00:00",
+      "competition_verified": true,
+      "league": "ua.1",
+      "names": {
+        "home": "Kryvbas",
+        "away": "Kharkiv"
+      },
+      "source_team_ids": {
+        "home": null,
+        "away": null
+      },
+      "official_match_url": "https://upl.ua/en/report/view/15922",
+      "source": {
+        "status": "LEAGUE_CALENDAR_ARCHIVED",
+        "url": "https://upl.ua/en/tournaments/games",
+        "final_url": "https://upl.ua/en/tournaments/games",
+        "sha256": "71c20b71df6149889458b63e6461eb3121a51a48d2ae0474b7da34513424458e",
+        "captured_at": "2026-11-25T05:43:10.371447+00:00",
+        "bytes": 154536
+      },
+      "espn_event_id": null,
+      "lineup_evidence": null,
+      "odds_evidence": null
+    }
+  ],
+  "az.1": []
+}
