@@ -8,6 +8,7 @@ on:
       - config/ex_official_sources.json
 permissions:
   contents: read
+  actions: read
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -22,3 +23,36 @@ jobs:
         with:
           name: ex-official-evidence
           path: official-evidence/
+
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45551884217
+          name: ex-official-evidence
+          path: archived
+      - run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          root=Path("archived")
+          m=json.loads((root/"manifest.json").read_text())
+          patterns={
+            "cz-report": ["Jablonec:", "Slavia:", "73'"],
+            "ua-report": ["Line-ups", "Ghram Alaa", "Bondar Valerii", "Substitutes"],
+            "sk-report": ["Striedania", "Čerepkai", "Barseghjan", "Michalovce"],
+            "sk-calendar": ["zapas/", "datetime=", "Tehelné"],
+            "az-report": ["<title", "captcha"],
+            "dfl-results": ["__NEXT_DATA__", "2026-11-20", "FCB", "scoreHome", "homeScore", "homeGoals",
+                            "kickoff", "kickOff", "MatchDay", "endResult", "awayTeam"],
+          }
+          for key, terms in patterns.items():
+            raw=(root/(m[key]["sha256"]+".html")).read_text(errors="replace")
+            print(key)
+            for term in terms:
+              positions=list(re.finditer(re.escape(term),raw,re.I))
+              print(term,len(positions))
+              for p in positions[:1]: print(repr(raw[max(p.start()-90,0):p.end()+155]))
+          PY

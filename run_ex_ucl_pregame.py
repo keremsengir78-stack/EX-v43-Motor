@@ -10,6 +10,7 @@ from ex_cross_verify import norm
 from ex_decision import MARKETS, WEIGHTS, assess_market_value, assess_markets
 from ex_engine import distribution
 from ex_fixture_odds import check_fixture
+from ex_pup_gate import execute_pup
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_environment import coordinates
 from ex_pregame_weather import forecast
@@ -31,7 +32,7 @@ def conditional_context_range(team_strength_reference):
             "ex_final_allowed": False}
 
 
-def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None, uefa_archive=None):
+def record_predictions(manifest, archive, historical, day, clock, provider_history=None, weather_archive=None, uefa_archive=None, *, request_pup=False):
     now = clock()
     config = json.loads(FIXTURE_CONFIG.read_text())
     meta = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
@@ -131,7 +132,8 @@ def record_predictions(manifest, archive, historical, day, clock, provider_histo
                         },
                         "observed_load": observed_load(json.loads(raw), set(entry["teams"].values()), captured, kickoff),
                         "tur2_consistent": consistent, "score_distribution": scores, "markets": markets,
-                        "pup_allowed": decisions["pup_allowed"], "ex_final_allowed": False})
+                        "pup": execute_pup(decisions["markets"], MARKETS, markets, scores, requested=request_pup),
+                        "pup_allowed": False, "ex_final_allowed": False})
     if len(results) != len(fixtures) or not results or any(not r["tur2_consistent"] for r in results):
         raise ValueError("Incomplete fixture coverage or inconsistent research recomputation")
     if clock() >= min(utc(row["fixture"]["kickoff_at"]) for row in results):
@@ -151,6 +153,7 @@ def main():
     parser.add_argument("--history-parts", type=Path)
     parser.add_argument("--weather-cache", type=Path)
     parser.add_argument("--uefa-cache", type=Path)
+    parser.add_argument("--pup", action="store_true", help="Explicitly run the research PUP comparison")
     parser.add_argument("--day", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -164,7 +167,8 @@ def main():
                        if args.weather_cache else None)
     uefa_archive = HistoryArchive(args.uefa_cache, 0) if args.uefa_cache else None
     report = record_predictions(json.loads(args.manifest.read_text()), HistoryArchive(args.archive, 0),
-                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc), provider_history, weather_archive, uefa_archive)
+                                args.historical, args.day, lambda: dt.datetime.now(dt.timezone.utc), provider_history, weather_archive, uefa_archive,
+                                request_pup=args.pup)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({"analysis_at": report["analysis_at"], "fixtures": len(report["fixtures"]),
                       "markets": sum(len(row["markets"]) for row in report["fixtures"]),

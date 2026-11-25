@@ -16,7 +16,7 @@ on:
     inputs:
       mode:
         type: choice
-        options: [audit, capture, settle]
+        options: [audit, capture, settle, cycle]
         required: true
       day:
         type: string
@@ -111,7 +111,7 @@ jobs:
           path: forecasts/
 
   capture:
-    if: inputs.mode == 'capture'
+    if: inputs.mode == 'capture' || inputs.mode == 'cycle'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -144,7 +144,7 @@ jobs:
             pregame-cache/
 
   settle:
-    if: inputs.mode == 'settle'
+    if: inputs.mode == 'settle' || inputs.mode == 'cycle'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
