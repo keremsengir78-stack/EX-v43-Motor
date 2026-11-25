@@ -8,7 +8,8 @@ import re
 
 
 KINDS = {"ex-prospective-forecasts": "prematch-and-research",
-         "ex-prospective-settlement": "settlement-and-performance"}
+         "ex-prospective-settlement": "settlement-and-performance",
+         "ex-weekly-capacity": "weekly-capacity", "ex-retrospective-results": "retrospective-research"}
 
 
 def digest(data):
@@ -51,8 +52,10 @@ def seal(store, source, receipt):
            (json.dumps(index, sort_keys=True, indent=2) + "\n").encode())
     categories = ({"prematch": ("capture.json", "pregame-cache/"),
                    "research-forecast": ("forecasts.jsonl", "forecasts/")}
-                  if kind == "prematch-and-research" else
-                  {"verified-outcome": ("outcomes.jsonl", "settlement/outcomes.jsonl", "settlement-cache/raw/")})
+                  if kind == "prematch-and-research" else {})
+    if kind == "settlement-and-performance":
+        categories = {"verified-outcome": ("outcomes.jsonl", "settlement/outcomes.jsonl"),
+                      "settlement-source": ("settlement-cache/raw/",)}
     for category, prefixes in categories.items():
         selected = {name: sha for name, sha in files.items()
                     if any(name.startswith(key) if key.endswith("/") else name == key for key in prefixes)}
@@ -66,6 +69,9 @@ def restore(store, kind, destination, limit=None):
     indexes = sorted((store / "records" / kind).glob("*.json"), key=lambda p: int(p.stem), reverse=True)
     for index in indexes[:limit]:
         record = json.loads(index.read_bytes())
+        receipt = record["receipt"]
+        if str(receipt["id"]) != index.stem or KINDS.get(receipt["name"]) != kind:
+            raise ValueError("Evidence receipt does not match archive index")
         target = destination / index.stem
         insert(target / "receipt.json", json.dumps(record["receipt"], sort_keys=True).encode())
         for name, sha in record["files"].items():
