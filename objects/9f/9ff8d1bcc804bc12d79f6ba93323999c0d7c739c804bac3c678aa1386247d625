@@ -1,0 +1,134 @@
+{
+  "UCL": {
+    "parsed_completed_rows": 81,
+    "sources": [
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-25T10:15:23.165790+00:00",
+        "sha256": "50ba690b2647bab82f494beb66badf0156acc5bf853e09c7100fec9afa53b303",
+        "size": 107244
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "be.1": {
+    "parsed_completed_rows": 1,
+    "sources": [
+      {
+        "url": "https://www.proleague.be/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sporting-charleroi-vs-stvv-702",
+        "retrieved_at": "2026-11-25T10:15:29.265743+00:00",
+        "sha256": "8b377ff8559972beffc88dc90285de34702e80a6c4812de686a2d91c830ec618",
+        "size": 3238464
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.1": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:15:22.831356+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.2": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/2bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:15:22.937909+00:00",
+        "sha256": "d19fb0cf1d44b8f3a2239787d84d5d0de60e17cda50bc0bd1ffdd02544563fac",
+        "size": 864662
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "es.1": {
+    "parsed_completed_rows": 10,
+    "sources": [
+      {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:15:25.100941+00:00",
+        "sha256": "33dbb3b6d33bb9b9d194fe0bff7509abdc25801a130d9be1880a62e016e4dc15",
+        "size": 420480
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "fr.1": {
+    "parsed_completed_rows": 11,
+    "sources": [
+      {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:15:23.539003+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.1": {
+    "parsed_completed_rows": 117,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/eredivisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:15:24.319203+00:00",
+        "sha256": "8507d8e23a063e634a68c58d221e107f413176541d0405b8878348be7b10a564",
+        "size": 235078
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.2": {
+    "parsed_completed_rows": 154,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:15:24.872650+00:00",
+        "sha256": "b5aa0de9f1f8c847afe895cce33b7878bacac37c08fc7b62172dbf3396a5d174",
+        "size": 262848
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "no.1": {
+    "parsed_completed_rows": 216,
+    "sources": [
+      {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:15:24.629553+00:00",
+        "sha256": "ebf9a0c7f6e48d8e46e06c93e045f7ba52298b9e8c7be813661ff4a90d7f2746",
+        "size": 359880
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "pt.1": {
+    "parsed_completed_rows": 1,
+    "sources": [
+      {
+        "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
+        "retrieved_at": "2026-11-25T10:15:26.201331+00:00",
+        "sha256": "3e11d51593801ce3cdb5606c675a9f87c2f8bf2f12cf5d3e230910db047744f1",
+        "size": 1683506
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "tr.1": {
+    "parsed_completed_rows": 0,
+    "sources": [
+      {
+        "url": "https://www.tff.org/default.aspx?pageID=198",
+        "retrieved_at": "2026-11-25T10:15:25.638593+00:00",
+        "sha256": "5bb9ce3201edfd5808f3ff9a3831578119160340657fa8466920f1d62c636645",
+        "size": 337288
+      }
+    ],
+    "state": "NO_RESULT_PARSER_OR_ROWS"
+  }
+}
