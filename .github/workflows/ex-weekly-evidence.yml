@@ -149,7 +149,7 @@ jobs:
 
   persist-scheduled-inventory:
     needs: inventory
-    if: (github.event_name == 'schedule' || inputs.persist_inventory) && needs.inventory.result == 'success'
+    if: always() && (github.event_name == 'schedule' || inputs.persist_inventory) && needs.inventory.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       actions: write
