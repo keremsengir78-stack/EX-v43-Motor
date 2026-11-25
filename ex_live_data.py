@@ -13,18 +13,10 @@ import urllib.request
 from pathlib import Path
 
 
-LEAGUES = {
-    "en.1": "England Premier League",
-    "en.2": "England Championship",
-    "de.1": "Germany Bundesliga",
-    "de.2": "Germany Bundesliga 2",
-    "es.1": "Spain La Liga",
-    "it.1": "Italy Serie A",
-    "fr.1": "France Ligue 1",
-    "nl.1": "Netherlands Eredivisie",
-    "pt.1": "Portugal Primeira Liga",
-    "be.1": "Belgium First Division",
-}
+from ex_leagues import APPROVED_LEAGUES, LEGACY_INGESTION, season_range
+
+
+LEAGUES = {league: entry[0] for league, entry in APPROVED_LEAGUES.items()} | LEGACY_INGESTION
 
 FIELDS = [
     "date", "league", "home", "away",
@@ -201,6 +193,7 @@ def run(
                     "unknown league " + league
                 )
 
+            espn = league in APPROVED_LEAGUES and APPROVED_LEAGUES[league][3] == "espn"
             url = (
                 "https://raw.githubusercontent.com/"
                 "openfootball/football.json/master/"
@@ -213,6 +206,13 @@ def run(
             )
 
             try:
+                if espn:
+                    from ex_espn_provider import parse_espn_scoreboard
+                    from ex_history_sources import ESPN
+                    start, end = season_range(league, season)
+                    last_day = end - dt.timedelta(days=1)
+                    slug = APPROVED_LEAGUES[league][1]
+                    url = f"{ESPN}/{slug}/scoreboard?dates={start:%Y%m%d}-{last_day:%Y%m%d}&limit=1000"
                 raw = (
                     local.read_bytes()
                     if local else fetch(url)
@@ -222,9 +222,22 @@ def run(
                     raw
                 ).hexdigest()
 
-                data, errors, fixtures = read_openfootball(
-                    raw, league, season, alias
-                )
+                if espn:
+                    payload = json.loads(raw)
+                    if {item["slug"] for item in payload["leagues"]} != {slug}:
+                        raise ValueError("ESPN board competition mismatch")
+                    if len(payload["events"]) >= 1000:
+                        raise ValueError("ESPN season response reached its result limit")
+                    data = [row | {"source": "ESPN", "season": season,
+                                   "home": team(row["home"], league, alias),
+                                   "away": team(row["away"], league, alias)}
+                            for row in parse_espn_scoreboard(payload, league, as_of)
+                            if start.isoformat() <= row["date"] < end.isoformat()]
+                    errors = []
+                    fixtures = sum(event.get("status", {}).get("type", {}).get("state") == "pre"
+                                   for event in payload["events"])
+                else:
+                    data, errors, fixtures = read_openfootball(raw, league, season, alias)
 
                 for error in errors:
                     rejected.append({

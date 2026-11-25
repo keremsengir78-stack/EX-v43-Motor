@@ -4,6 +4,7 @@ import argparse,csv,datetime as dt,json,math,hashlib,statistics
 from pathlib import Path
 from ex_baseline_calibration import chronological_intercept
 from ex_historical_features import HistoricalFeatures
+from ex_leagues import season_bounds
 W=(.4,.3,.2,.1)
 REQUIRED=('date','league','home','away','home_goals','away_goals')
 def date(s): return dt.date.fromisoformat(s)
@@ -56,7 +57,10 @@ def distribution(lh,la):
             'probability_mass':sum(p for h,a,p in grid),
             'top_scores':scores,'lambda_home':lh,'lambda_away':la,'p_11':poisson(1,lh)*poisson(1,la),'p_20':poisson(2,lh)*poisson(0,la),'p_30':poisson(3,lh)*poisson(0,la)}
 def calculate(rows,fixture,threshold=.70):
-    league=fixture['league']; cutoff=date(fixture['date']); ss=date(fixture['season_start']); ps=date(fixture['previous_start'])
+    league=fixture['league']; cutoff=date(fixture['date'])
+    ss, ps = season_bounds(league, cutoff)
+    if 'season_start' in fixture or 'previous_start' in fixture:
+        ss, ps = date(fixture['season_start']), date(fixture['previous_start'])
     if not ps<ss<=cutoff:raise ValueError('season bounds inconsistent')
     home,ha=weighted_form(rows,fixture['home'],'home',cutoff,league,ss,ps)
     away,aa=weighted_form(rows,fixture['away'],'away',cutoff,league,ss,ps)
@@ -93,8 +97,8 @@ def audit(rows,fixtures):
 def baseline_backtest_observations(rows, min_train=30):
     """Yield retrospective predictions from fixtures strictly earlier by date."""
     for r in rows:
-        ss=dt.date(r['date'].year if r['date'].month>=7 else r['date'].year-1,7,1)
-        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(dt.date(ss.year-1,7,1))}
+        ss, ps = season_bounds(r['league'], r['date'])
+        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(ps)}
         if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
         p=calculate(rows,f)
         if p['status']=='BASELINE_ONLY':

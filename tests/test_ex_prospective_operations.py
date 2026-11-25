@@ -237,13 +237,13 @@ class ProspectiveOperationsTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             roster_context(result, {**detail, "club_2": clubs[0]}, evidence)
 
-    def test_league_coverage_keeps_eerste_divisie_inactive(self):
+    def test_league_coverage_registers_approved_eerste_divisie(self):
         from run_ex_league_coverage import coverage
 
         result = coverage({"leagues": {}})
         row = result["registered_leagues"]["nl.2"]
-        self.assertFalse(row["main_ingestion"])
-        self.assertIsNone(row["espn_adapter"])
+        self.assertTrue(row["main_ingestion"])
+        self.assertEqual("ned.2", row["espn_adapter"])
         self.assertEqual([], row["history_seed_seasons"])
         self.assertFalse(result["ex_final_allowed"])
 
