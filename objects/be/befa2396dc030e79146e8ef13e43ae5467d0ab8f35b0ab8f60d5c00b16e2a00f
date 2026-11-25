@@ -1,0 +1,13 @@
+{
+  "forecasts": 0,
+  "skipped": [],
+  "alternate_fixtures": {
+    "sk.1": 0,
+    "ua.1": 1,
+    "az.1": 2
+  },
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-25T06:37:23.649220+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

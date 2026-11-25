@@ -1,0 +1,9 @@
+{
+  "pfl-match": {
+    "url": "https://pfl.az/api/v1/games/show/6865?withActions=true",
+    "final_url": "https://pfl.az/api/v1/games/show/6865?withActions=true",
+    "sha256": "c685c66955e8c454d7efe97f999c5eccce5f7076b2ce33e786b5ebe77ffc5a49",
+    "captured_at": "2026-11-25T06:09:20.229668+00:00",
+    "bytes": 2857
+  }
+}

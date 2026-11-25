@@ -1,0 +1,132 @@
+{
+  "sk.1": [],
+  "ua.1": [
+    {
+      "source_match_id": "15991",
+      "source_namespace": "official:ua.1",
+      "kickoff_at": "2026-11-27T11:00:00+00:00",
+      "competition_verified": true,
+      "league": "ua.1",
+      "names": {
+        "home": "Livyi Bereh",
+        "away": "Kolos"
+      },
+      "source_team_ids": {
+        "home": null,
+        "away": null
+      },
+      "official_match_url": "https://upl.ua/en/report/view/15991",
+      "source": {
+        "status": "LEAGUE_CALENDAR_ARCHIVED",
+        "url": "https://upl.ua/en/tournaments/games",
+        "final_url": "https://upl.ua/en/tournaments/games",
+        "sha256": "40edcb544c84a1329ec934cdc609d2d99ddfaec6d94c4f2ed47555010f633663",
+        "captured_at": "2026-11-25T06:09:17.205394+00:00",
+        "bytes": 154536
+      },
+      "espn_event_id": null,
+      "lineup_evidence": null,
+      "odds_evidence": null
+    }
+  ],
+  "az.1": [
+    {
+      "official_match_id": 6865,
+      "official_league_id": 52,
+      "kickoff_at": "2026-11-27T15:00:00+00:00",
+      "date_label": "27 noyabr 2026",
+      "source_team_ids": {
+        "home": 1,
+        "away": 6
+      },
+      "names": {
+        "home": "Neftçi",
+        "away": "Zirə"
+      },
+      "status": 0,
+      "venue": {
+        "id": 237,
+        "title": "Palms Sports Arena"
+      },
+      "protocol_url": null,
+      "calendar_evidence": {
+        "url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+        "final_url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+        "sha256": "f8b7b9133faaf38d6d10cb1d3f2890cc4cb0bfc84854d5fe68c7ff38a6fea4a9",
+        "captured_at": "2026-11-25T06:09:19.779345+00:00",
+        "bytes": 91654
+      },
+      "league": "az.1",
+      "competition_verified": true,
+      "source_match_id": "6865",
+      "source_namespace": "official:az.1",
+      "official_match_url": "https://pfl.az/api/v1/games/show/6865?withActions=true",
+      "espn_event_id": null,
+      "odds_evidence": null,
+      "lineup_evidence": null,
+      "roster_observation": {
+        "counts": {
+          "home": 0,
+          "away": 0
+        },
+        "source": {
+          "url": "https://pfl.az/api/v1/games/show/6865?withActions=true",
+          "final_url": "https://pfl.az/api/v1/games/show/6865?withActions=true",
+          "sha256": "c685c66955e8c454d7efe97f999c5eccce5f7076b2ce33e786b5ebe77ffc5a49",
+          "captured_at": "2026-11-25T06:09:20.229668+00:00",
+          "bytes": 2857
+        },
+        "scope": "PUBLISHED_CLUB_SQUADS"
+      }
+    },
+    {
+      "official_match_id": 6866,
+      "official_league_id": 52,
+      "kickoff_at": "2026-11-27T10:30:00+00:00",
+      "date_label": "27 noyabr 2026",
+      "source_team_ids": {
+        "home": 69,
+        "away": 99
+      },
+      "names": {
+        "home": "İmişli",
+        "away": "Şəfa"
+      },
+      "status": 0,
+      "venue": {
+        "id": 167,
+        "title": "Yevlax şəhər stadionu"
+      },
+      "protocol_url": null,
+      "calendar_evidence": {
+        "url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+        "final_url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+        "sha256": "f8b7b9133faaf38d6d10cb1d3f2890cc4cb0bfc84854d5fe68c7ff38a6fea4a9",
+        "captured_at": "2026-11-25T06:09:19.779345+00:00",
+        "bytes": 91654
+      },
+      "league": "az.1",
+      "competition_verified": true,
+      "source_match_id": "6866",
+      "source_namespace": "official:az.1",
+      "official_match_url": "https://pfl.az/api/v1/games/show/6866?withActions=true",
+      "espn_event_id": null,
+      "odds_evidence": null,
+      "lineup_evidence": null,
+      "roster_observation": {
+        "counts": {
+          "home": 0,
+          "away": 0
+        },
+        "source": {
+          "url": "https://pfl.az/api/v1/games/show/6866?withActions=true",
+          "final_url": "https://pfl.az/api/v1/games/show/6866?withActions=true",
+          "sha256": "a949509770a6d8a0f0ed6ebebeb44eb8161954092f9515209fa8228477a6fe5e",
+          "captured_at": "2026-11-25T06:09:20.507589+00:00",
+          "bytes": 2535
+        },
+        "scope": "PUBLISHED_CLUB_SQUADS"
+      }
+    }
+  ]
+}

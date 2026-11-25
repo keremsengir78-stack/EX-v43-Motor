@@ -1,0 +1,570 @@
+{
+  "kind": "REGISTERED_LEAGUE_CAPTURE",
+  "day": "2026-11-25",
+  "reports": {
+    "en.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "en.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:50.427071+00:00",
+        "sha256": "a5c5a407d8cdd27e2938f56575bfb80a4317f661175ef412aa57264d404723d9",
+        "size": 2623
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 1,
+      "ex_final_allowed": false
+    },
+    "en.2": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "en.2",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:51.206560+00:00",
+        "sha256": "85e6f14ebcbbf2515abed773f6a9748bbc2105857e9a29525a5b2dcee55ddbcd",
+        "size": 51245
+      },
+      "records": [
+        {
+          "event_id": "401880140",
+          "kickoff_at": "2026-11-25T19:45:00+00:00",
+          "teams": {
+            "home": "358",
+            "away": "383"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880140",
+            "retrieved_at": "2026-11-25T05:36:51.928884+00:00",
+            "sha256": "ea5f835fa7f14ba32c60bd766be7025e5df2f07081bed8789e51b1388a8dcc0d",
+            "size": 189733
+          }
+        },
+        {
+          "event_id": "401880139",
+          "kickoff_at": "2026-11-25T19:45:00+00:00",
+          "teams": {
+            "home": "379",
+            "away": "392"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880139",
+            "retrieved_at": "2026-11-25T05:36:52.700419+00:00",
+            "sha256": "fd1f704a4848badf8282fae6a549d894c222d2a70c316e2989fc451be4d94189",
+            "size": 192923
+          }
+        },
+        {
+          "event_id": "401880137",
+          "kickoff_at": "2026-11-25T19:45:00+00:00",
+          "teams": {
+            "home": "395",
+            "away": "365"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880137",
+            "retrieved_at": "2026-11-25T05:36:53.433844+00:00",
+            "sha256": "b47f56cdc6703110fb74429b8156c712103496fb051333f5d5d994b4a25de9bd",
+            "size": 191108
+          }
+        },
+        {
+          "event_id": "401880138",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "336",
+            "away": "391"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880138",
+            "retrieved_at": "2026-11-25T05:36:54.210236+00:00",
+            "sha256": "91f01d1066660f740f7688b892474e5cc8f00ddb4bd89f3443d81a37d7ab89a6",
+            "size": 191996
+          }
+        }
+      ],
+      "errors": [],
+      "eligible": 4,
+      "requests": 6,
+      "ex_final_allowed": false
+    },
+    "de.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "de.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:54.930672+00:00",
+        "sha256": "9a5199d75b57f7af9bdd80b90350b4b9770f006241ede9182813ccf1c1aec25b",
+        "size": 2332
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 7,
+      "ex_final_allowed": false
+    },
+    "de.2": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "de.2",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:55.679674+00:00",
+        "sha256": "48afb75c994604845cceaaeefe1e75e41087801ec8b185096ca36ecb18e54c36",
+        "size": 2195
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 8,
+      "ex_final_allowed": false
+    },
+    "es.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "es.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:56.407263+00:00",
+        "sha256": "b7f00c50b93da9df133e784e0f2d9b441c033acd1b2f2db742411908a2708265",
+        "size": 2727
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 9,
+      "ex_final_allowed": false
+    },
+    "it.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "it.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:57.179158+00:00",
+        "sha256": "2048ebfe872d9a0cca6236e6397c9e0a3044969672cee3a2dfa21cf34c450d5b",
+        "size": 2568
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 10,
+      "ex_final_allowed": false
+    },
+    "fr.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "fr.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:57.917167+00:00",
+        "sha256": "40517d657979232c33653a580910bdcee59990751f60f11b0e6d885ecb97210f",
+        "size": 2428
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 11,
+      "ex_final_allowed": false
+    },
+    "UCL": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "UCL",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:36:58.763620+00:00",
+        "sha256": "d5c315064a18a38208b2676aa55dbb247665dd8d46cf88be5b16f63755727c29",
+        "size": 111433
+      },
+      "records": [
+        {
+          "event_id": "401915378",
+          "kickoff_at": "2026-11-25T17:45:00+00:00",
+          "teams": {
+            "home": "21922",
+            "away": "83"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915378",
+            "retrieved_at": "2026-11-25T05:36:59.441205+00:00",
+            "sha256": "db72151591fdbe4e9cd326f69c6b87a5f9ddd181b09e6fdd23036b2a725effcf",
+            "size": 207928
+          }
+        },
+        {
+          "event_id": "401915293",
+          "kickoff_at": "2026-11-25T17:45:00+00:00",
+          "teams": {
+            "home": "494",
+            "away": "102"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915293",
+            "retrieved_at": "2026-11-25T05:37:00.179091+00:00",
+            "sha256": "4fc1e70032f27859188dbefa2ba048524d74ccfdce09719e5d4ff97d0dfa0a71",
+            "size": 217324
+          }
+        },
+        {
+          "event_id": "401915291",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "1068",
+            "away": "510"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915291",
+            "retrieved_at": "2026-11-25T05:37:00.949891+00:00",
+            "sha256": "4df8261ff7a6ce10a04db38395c8ac8e0b2b538dd026440c058af01fd83d43dd",
+            "size": 205109
+          }
+        },
+        {
+          "event_id": "401915292",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "570",
+            "away": "364"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915292",
+            "retrieved_at": "2026-11-25T05:37:01.687706+00:00",
+            "sha256": "eecdff31992218e55eb2a9fe8f6014f7963babce38a429b9f8875e9b4f8c9715",
+            "size": 206707
+          }
+        },
+        {
+          "event_id": "401915376",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "110",
+            "away": "134"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915376",
+            "retrieved_at": "2026-11-25T05:37:02.443073+00:00",
+            "sha256": "6d63dfd37bbb95dbae5452a24e341fee4c8a1841e80884d097c8ebbc0e049960",
+            "size": 209277
+          }
+        },
+        {
+          "event_id": "401915377",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "166",
+            "away": "132"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915377",
+            "retrieved_at": "2026-11-25T05:37:03.185761+00:00",
+            "sha256": "9aceb2198d0c6ea13439d0c33c33fea7ec8f48b88a4eafee5620fdbb5c722a98",
+            "size": 211497
+          }
+        },
+        {
+          "event_id": "401915374",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "160",
+            "away": "104"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915374",
+            "retrieved_at": "2026-11-25T05:37:04.004215+00:00",
+            "sha256": "1647603d429247d3a31b614daebb03ded55b290b316e6a5c1c63be2684b04e95",
+            "size": 211230
+          }
+        },
+        {
+          "event_id": "401915375",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "493",
+            "away": "436"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915375",
+            "retrieved_at": "2026-11-25T05:37:04.682921+00:00",
+            "sha256": "1682c922934ba494c1ac93381ed0be7de9329bc73ede595f57b5cf5704ad4d68",
+            "size": 211571
+          }
+        },
+        {
+          "event_id": "401915373",
+          "kickoff_at": "2026-11-25T20:00:00+00:00",
+          "teams": {
+            "home": "2250",
+            "away": "360"
+          },
+          "observed_fields": {
+            "venue_observed": true,
+            "quote_payload_observed": true,
+            "roster_payload_observed": true
+          },
+          "source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915373",
+            "retrieved_at": "2026-11-25T05:37:05.815080+00:00",
+            "sha256": "c699e35e200b1e9a62f00783d67b86ec93bd7beeabee15c647f4a96d3c532170",
+            "size": 220211
+          }
+        }
+      ],
+      "errors": [],
+      "eligible": 9,
+      "requests": 21,
+      "ex_final_allowed": false
+    },
+    "tr.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "tr.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:06.164862+00:00",
+        "sha256": "5458099979fbe6ba33a76a0c84839a005efd555ef1cdbf4617daf1addd17816d",
+        "size": 2520
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 22,
+      "ex_final_allowed": false
+    },
+    "nl.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "nl.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:07.012030+00:00",
+        "sha256": "25d3b29889170daa3757cc1e58fcbb9867bf09f0558d1a85b861ca5e68860155",
+        "size": 2445
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 23,
+      "ex_final_allowed": false
+    },
+    "pt.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "pt.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:07.701774+00:00",
+        "sha256": "4d37bf9a6595be37c4e7d65f733512b0e8e2e15650d4f5de6a5c2c785caa34d3",
+        "size": 2447
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 24,
+      "ex_final_allowed": false
+    },
+    "be.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "be.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:08.408748+00:00",
+        "sha256": "7e80e96edb2d886c4e34f20c37ce3eeb85aebc9ed92e816d243e078f9fa82f9f",
+        "size": 2319
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 25,
+      "ex_final_allowed": false
+    },
+    "no.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "no.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:09.161520+00:00",
+        "sha256": "26b417788bdcc18744448f6908a767a94236e46ba92488c551412358ddc8f70b",
+        "size": 2424
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 26,
+      "ex_final_allowed": false
+    },
+    "at.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "at.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:09.923099+00:00",
+        "sha256": "6d164802f032fcf616afe93e4413ec9420af30cb716b5e328d4f97957c62953d",
+        "size": 1990
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 27,
+      "ex_final_allowed": false
+    },
+    "gr.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "gr.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:10.697771+00:00",
+        "sha256": "ca90a38c392ef142fc6bb24b9e2e398cdfba94974b40ef428a218427e6a49823",
+        "size": 1789
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 28,
+      "ex_final_allowed": false
+    },
+    "cz.1": {
+      "kind": "PREMATCH_CAPTURE",
+      "league": "cz.1",
+      "board": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/cze.1/scoreboard?dates=20261125",
+        "retrieved_at": "2026-11-25T05:37:12.197978+00:00",
+        "sha256": "ab09daceb913c44f12c98b798829fca2fdecb31230545747297e1d6ef46622c9",
+        "size": 456
+      },
+      "records": [],
+      "errors": [],
+      "eligible": 0,
+      "requests": 30,
+      "ex_final_allowed": false
+    }
+  },
+  "errors": [
+    {
+      "league": "sk.1",
+      "stage": "board",
+      "url": null,
+      "category": "REQUEST_REJECTED",
+      "retry_deferred": false,
+      "error": "HTTP Error 400: Bad Request"
+    },
+    {
+      "league": "ua.1",
+      "stage": "board",
+      "url": null,
+      "category": "REQUEST_REJECTED",
+      "retry_deferred": false,
+      "error": "HTTP Error 400: Bad Request"
+    },
+    {
+      "league": "az.1",
+      "stage": "board",
+      "url": null,
+      "category": "REQUEST_REJECTED",
+      "retry_deferred": false,
+      "error": "HTTP Error 400: Bad Request"
+    }
+  ],
+  "registered_leagues": [
+    "en.1",
+    "en.2",
+    "de.1",
+    "de.2",
+    "es.1",
+    "it.1",
+    "fr.1",
+    "UCL",
+    "tr.1",
+    "nl.1",
+    "pt.1",
+    "be.1",
+    "no.1",
+    "at.1",
+    "gr.1",
+    "sk.1",
+    "cz.1",
+    "ua.1",
+    "az.1"
+  ],
+  "requests": 32,
+  "ex_final_allowed": false,
+  "alternate_calendar_evidence": {
+    "sk.1": {
+      "status": "LEAGUE_CALENDAR_ARCHIVED",
+      "url": "https://www.nikeliga.sk/zapasy",
+      "final_url": "https://www.nikeliga.sk/zapasy",
+      "sha256": "607bbef69ab528a2d8fb80f1ef2429a069f5542ac57b3f716b2b7000fce731ec",
+      "captured_at": "2026-11-25T05:37:14.387393+00:00",
+      "bytes": 38343
+    },
+    "ua.1": {
+      "status": "LEAGUE_CALENDAR_ARCHIVED",
+      "url": "https://upl.ua/en/tournaments/games",
+      "final_url": "https://upl.ua/en/tournaments/games",
+      "sha256": "d453542d06fcef0fb0cb8d01329a10229b0c96db18656af153e0eda1bd4004b0",
+      "captured_at": "2026-11-25T05:37:16.470977+00:00",
+      "bytes": 154536
+    },
+    "az.1": {
+      "status": "CLUB_CALENDAR_ARCHIVED",
+      "url": "https://sabahfc.az/?team_type=3",
+      "final_url": "https://sabahfc.az/?team_type=3",
+      "sha256": "3334ec04f67d9906ded05e8da395377df8d0051e012a2ce408b255abc7965bb7",
+      "captured_at": "2026-11-25T05:37:17.908956+00:00",
+      "bytes": 120497
+    }
+  }
+}

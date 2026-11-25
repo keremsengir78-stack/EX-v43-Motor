@@ -1,0 +1,9 @@
+{
+  "pfl-tours": {
+    "url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+    "final_url": "https://pfl.az/api/v1/tours/get-games?league_id=52",
+    "sha256": "f8b7b9133faaf38d6d10cb1d3f2890cc4cb0bfc84854d5fe68c7ff38a6fea4a9",
+    "captured_at": "2026-11-25T06:09:19.779345+00:00",
+    "bytes": 91654
+  }
+}

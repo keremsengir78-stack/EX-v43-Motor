@@ -1,0 +1,58 @@
+{
+  "forecasts": 2,
+  "skipped": [
+    {
+      "event_id": "401880140",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401880139",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401880137",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401880138",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915378",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915291",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915376",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915377",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915374",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915375",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915373",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "alternate_fixtures": {
+    "sk.1": 0,
+    "ua.1": 0,
+    "az.1": 0
+  },
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-25T05:37:18.021278+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

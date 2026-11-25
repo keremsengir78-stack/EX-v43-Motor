@@ -1,0 +1,9 @@
+{
+  "pfl-seasons": {
+    "url": "https://pfl.az/api/v1/seasons?project_id=1",
+    "final_url": "https://pfl.az/api/v1/seasons?project_id=1",
+    "sha256": "d88d4eb074fb955f6f63d26a9db60695f2a8e2cf474a7b789e83e9d16a7087a1",
+    "captured_at": "2026-11-25T06:37:22.747515+00:00",
+    "bytes": 35570
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sk-1": {
+    "url": "https://www.nikeliga.sk/zapasy",
+    "final_url": "https://www.nikeliga.sk/zapasy",
+    "sha256": "607bbef69ab528a2d8fb80f1ef2429a069f5542ac57b3f716b2b7000fce731ec",
+    "captured_at": "2026-11-25T05:37:14.387393+00:00",
+    "bytes": 38343
+  },
+  "ua-1": {
+    "url": "https://upl.ua/en/tournaments/games",
+    "final_url": "https://upl.ua/en/tournaments/games",
+    "sha256": "d453542d06fcef0fb0cb8d01329a10229b0c96db18656af153e0eda1bd4004b0",
+    "captured_at": "2026-11-25T05:37:16.470977+00:00",
+    "bytes": 154536
+  },
+  "az-1": {
+    "url": "https://sabahfc.az/?team_type=3",
+    "final_url": "https://sabahfc.az/?team_type=3",
+    "sha256": "3334ec04f67d9906ded05e8da395377df8d0051e012a2ce408b255abc7965bb7",
+    "captured_at": "2026-11-25T05:37:17.908956+00:00",
+    "bytes": 120497
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": {
+    "outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "receipt": {
+    "created_at": "2026-11-25T06:09:01Z",
+    "digest": "sha256:92e794e4e6a71731f4695fcd3a0f5fd1f026464ae4f408bd1ced31da9979d49d",
+    "id": 14996637070,
+    "name": "ex-prospective-settlement"
+  }
+}
