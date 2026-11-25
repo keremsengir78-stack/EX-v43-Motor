@@ -77,6 +77,15 @@ def parse_vi(html, as_of):
 
 
 
+def parse_vi_daily(html, as_of):
+    sections = re.split(r"<h2\b[^>]*>(.*?)</h2>", html, flags=re.S)
+    matches = [sections[i + 1] for i in range(1, len(sections), 2)
+               if plain(sections[i]) == "Keuken Kampioen Divisie"]
+    if len(matches) != 1:
+        raise ValueError("Daily VI page needs one exact Eerste Divisie section")
+    return parse_vi(matches[0], as_of)
+
+
 def reconcile(primary, results_by_source):
     output, counts = [], {}
     for row in primary:
@@ -96,6 +105,7 @@ def main():
     parser.add_argument("--primary", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--as-of", type=date.fromisoformat, required=True)
+    parser.add_argument("--vi-daily-limit", type=int, choices=range(1, 151))
     args = parser.parse_args()
     sources = {"knvb": KNVB, "vi": VI}
     captures = capture(sources, args.output / "raw", reuse=True)
@@ -112,6 +122,25 @@ def main():
         raise ValueError(issues.get("knvb", "Missing official Dutch result rows"))
     with args.primary.open() as source:
         primary = [row for row in csv.DictReader(source) if row["league"] == "nl.2"]
+    if args.vi_daily_limit:
+        covered = set().union(*(set(rows) for rows in results.values()))
+        days = sorted({row["date"] for row in primary
+                       if identity(row["date"], row["home"], row["away"]) not in covered}, reverse=True)
+        daily = {day: f"https://www.vi.nl/wedstrijden/{day}" for day in days[:args.vi_daily_limit]}
+        entries = capture(daily, args.output / "vi-daily", reuse=True)
+        combined = {}
+        for day, entry in entries.items():
+            try:
+                if entry.get("final_url") != daily[day]:
+                    raise ValueError(entry.get("error", "Unexpected VI daily URL"))
+                page = read_evidence(args.output / "vi-daily", entry)
+                rows = parse_vi_daily(page, args.as_of)
+                if any(key[0] != day for key in rows):
+                    raise ValueError("Unexpected date in VI daily results")
+                combined.update(rows)
+            except (OSError, KeyError, ValueError) as exc:
+                issues[f"vi-{day}"] = str(exc)
+        results["vi-daily"] = combined
     result = reconcile(primary, results)
     result["source_evidence"] = captures
     result["source_issues"] = issues

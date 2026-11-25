@@ -4,6 +4,11 @@ on:
     branches: [ex-v43-development]
     paths: [.github/workflows/ex-production-coverage.yml, run_ex_production_coverage.py, run_ex_dutch_reconcile.py, run_ex_source_audit.py]
   workflow_dispatch:
+    inputs:
+      vi_daily_limit:
+        description: Maximum additional published VI results dates
+        type: number
+        default: 120
 permissions:
   contents: read
   actions: read
@@ -69,9 +74,13 @@ jobs:
           run-id: 45562034679
           name: ex-expanded-official-score-evidence
           path: expanded
-      - run: |
+      - env:
+          VI_DAILY_LIMIT: ${{ inputs.vi_daily_limit }}
+        run: |
+          vi=()
+          if [ -n "$VI_DAILY_LIMIT" ]; then vi+=(--vi-daily-limit "$VI_DAILY_LIMIT"); fi
           python run_ex_source_audit.py --ledger scores/score-evidence.json --official-results dfl/results.json laliga/results.json expanded/results.json --output evidence/score-audit.json
-          python run_ex_dutch_reconcile.py --primary dutch/history/results.csv --as-of 2026-11-25 --output evidence/dutch
+          python run_ex_dutch_reconcile.py --primary dutch/history/results.csv --as-of 2026-11-25 --output evidence/dutch "${vi[@]}"
           python run_ex_production_coverage.py --plan plan/plan.json --examples retrospectives/retrospective-examples.jsonl --capture day1/capture.json day2/capture.json --dutch-ingestion dutch/history/audit.json --retrospective-report retrospectives/retrospective.json --output evidence/coverage.json
       - uses: actions/upload-artifact@v4
         if: always()
