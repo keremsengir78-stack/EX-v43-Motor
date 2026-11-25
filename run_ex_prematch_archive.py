@@ -46,6 +46,36 @@ def summary(raw, captured, event_id, kickoff, sides):
             "roster_payload_observed": bool(payload.get("rosters"))}
 
 
+def seed_recent_pregame(packs, archive, day):
+    """Import only currently reusable evidence for this fixture date."""
+    seen = set()
+    now = archive.clock()
+    for receipt in packs.glob("*/receipt.json"):
+        seal = utc(json.loads(receipt.read_text())["created_at"])
+        if seal >= now:
+            continue
+        candidates = [receipt.parent / filename for filename in ("forecasts/capture.json", "capture.json")]
+        manifest_file = next((path for path in candidates if path.is_file()), None)
+        if manifest_file is None:
+            continue
+        manifest = json.loads(manifest_file.read_text())
+        if manifest["day"] != day.isoformat():
+            continue
+        source = HistoryArchive(receipt.parent / "pregame-cache", 0, clock=lambda: now)
+        for report in manifest["reports"].values():
+            for meta in [report["board"], *(row["source"] for row in report["records"])]:
+                captured = utc(meta["retrieved_at"])
+                if captured > seal:
+                    raise ValueError("Archived pregame source postdates its receipt")
+                identity = meta["url"], captured, meta["sha256"]
+                if now - captured > dt.timedelta(minutes=20) or identity in seen:
+                    continue
+                raw, _ = source._load(meta, meta["url"])
+                archive.import_capture(meta["url"], raw, captured, meta["sha256"])
+                seen.add(identity)
+    return len(seen)
+
+
 def collect(archive, league, day, limit):
     competition = ESPN_LEAGUES[league]
     board_url = f"{ESPN}/{competition}/scoreboard?dates={day:%Y%m%d}"

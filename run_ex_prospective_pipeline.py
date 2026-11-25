@@ -459,6 +459,7 @@ def main():
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--capture", type=Path)
     parser.add_argument("--daily-capture")
+    parser.add_argument("--prior-pregame", type=Path)
     parser.add_argument("--domestic-packs", type=Path)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--history", type=Path)
@@ -477,15 +478,18 @@ def main():
     current = dt.datetime.now(dt.timezone.utc)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     if args.daily_capture:
-        from run_ex_prematch_archive import collect_registered
+        from run_ex_prematch_archive import collect_registered, seed_recent_pregame
         from ex_leagues import APPROVED_LEAGUES
 
         day = dt.date.fromisoformat(args.daily_capture)
         if not current.date() <= day <= current.date() + dt.timedelta(days=2):
             parser.error("Choose an upcoming UTC date within two days")
         args.capture = args.output_dir / "capture.json"
-        live = collect_registered(HistoryArchive(args.cache, 26 * len(APPROVED_LEAGUES),
-                                                 fetch=paced_download(.75)), day, 25, APPROVED_LEAGUES)
+        daily_archive = HistoryArchive(args.cache, 26 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
+        if args.prior_pregame:
+            seed_recent_pregame(args.prior_pregame, daily_archive, day)
+        live = collect_registered(daily_archive, day, 25, APPROVED_LEAGUES)
+        live["cache_hits"] = daily_archive.cache_hits
         if live["reports"].get("be.1", {}).get("eligible"):
             calendar_cache = HistoryArchive(args.cache, 1, fetch=paced_download(.75))
             try:
@@ -549,6 +553,8 @@ def main():
                   "daily_research_covered": sum(row["venue5_research"] is not None or
                                                 bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "capture_source_errors": manifest.get("errors", []),
+                  "capture_cache_hits": manifest.get("cache_hits", 0),
+                  "capture_network_requests": manifest.get("requests"),
                   "alternate_fixtures": {league: len(rows) for league, rows in context.items()},
                   "alternate_calendar_issues": issues}
     else:

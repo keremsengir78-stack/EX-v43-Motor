@@ -8,7 +8,7 @@ from ex_decision import MARKETS
 from ex_history_archive import HistoryArchive, utc
 from ex_history_sources import ESPN
 from ex_leagues import APPROVED_LEAGUES
-from run_ex_prematch_archive import collect_registered
+from run_ex_prematch_archive import collect_registered, seed_recent_pregame
 from run_ex_prospective_pipeline import OFFICIAL_RESULT_HOSTS, archive_history, forecast_rows, jsonl, settle
 from run_ex_weekly_capacity import observed_coverage
 
@@ -65,6 +65,12 @@ class ArchiveChainTests(unittest.TestCase):
             (pre / "forecasts.jsonl").write_bytes(jsonl(forecasts))
             (pre / "receipt.json").write_text(json.dumps({"name": "ex-prospective-forecasts",
                                                          "created_at": sealed.isoformat()}))
+            prior = HistoryArchive(root / "seeded", 0, clock=lambda: sealed + dt.timedelta(minutes=1))
+            self.assertEqual(len(payloads), seed_recent_pregame(root / "packs", prior, kickoff.date()))
+            cached = collect_registered(prior, kickoff.date(), 25, APPROVED_LEAGUES)
+            self.assertEqual([], cached["errors"])
+            self.assertEqual(0, prior.requests)
+            self.assertEqual(len(payloads), prior.cache_hits)
             post = root / "settled/2"
             result_archive = HistoryArchive(post / "settlement-cache", len(fixtures),
                                             fetch=lambda url: final_payloads[url], clock=lambda: finished)

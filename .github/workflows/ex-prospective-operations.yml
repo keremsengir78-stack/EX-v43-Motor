@@ -202,6 +202,7 @@ jobs:
             python ex_evidence_store.py --store durable-evidence restore --kind ucl-domestic-research --output domestic --limit 1
             python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output weekly-boards
             python ex_evidence_store.py --store durable-evidence restore --kind historical-facts --output facts --limit 1
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output prior-pregame --limit 6
           fi
           facts=$(find facts -type f -name historical-facts.jsonl -print -quit 2>/dev/null || true)
           echo "facts=$facts" >> "$GITHUB_OUTPUT"
@@ -229,7 +230,7 @@ jobs:
           fi
           python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}" \
             "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
-            --domestic-packs domestic --weekly-scoreboards weekly-boards --output-dir forecasts
+            --domestic-packs domestic --weekly-scoreboards weekly-boards --prior-pregame prior-pregame --output-dir forecasts
       - uses: actions/upload-artifact@v4
         if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
         with:
