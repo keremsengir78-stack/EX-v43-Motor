@@ -37,9 +37,10 @@ def ukrainian_fixtures(html):
             day = match[1] if match else None
         elif day and fields(r'class="match-tournament">(.*?)</div>', item) == ["UPL"]:
             names = fields(r'class="team (?:first|second)-team">\s*<div class="logo">.*?</div>(.*?)</div>', item)
-            links = re.findall(r'<a href="(/en/report/view/(\d+))"[^>]*>(\d{2}:\d{2})</a>', item)
+            links = re.findall(r'<a href="(/en/report/view/(\d+))"[^>]*>\s*([^<]+?)\s*</a>', item)
             if len(names) == 2 and len(links) == 1:
-                link, match_id, kickoff = links[0]
+                link, match_id, marker = links[0]
+                kickoff = marker if re.fullmatch(r"\d{2}:\d{2}", marker) else None
                 yield match_id, day, kickoff, names, [None, None], link, True
 
 
