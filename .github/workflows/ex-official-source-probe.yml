@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/ex-official-source-probe.yml
       - run_ex_official_sources.py
+      - ex_official_report_html.py
       - config/ex_official_sources.json
 permissions:
   contents: read
@@ -41,32 +42,23 @@ jobs:
                                 for name, minutes in expected.items()}, (actual, expected)
           print("Official Czech report: 32 player minute totals agree with reviewed timeline")
           PY
-      - name: Identify official template fields
+      - name: Validate Niké liga and UPL report templates
         run: |
           python - <<'PY'
-          import json, re
+          import json
           from pathlib import Path
+          from ex_official_report_html import slovak_minutes, ukrainian_minutes
           from run_ex_official_sources import read_evidence
-
           root = Path("official-evidence")
           entries = json.loads((root / "manifest.json").read_text())
-          fields = {
-              "sk-report": ['class="sub">65', 'class="sub">', "Čerepkai", 'class="red'],
-              "ua-report": ["Bondar Valerii", "Alefirenko", "Substitutions", "player-replace"],
-              "ua-calendar": ["Shakhtar", "25.11.2026"],
-              "sk-calendar": ['scoreboard__item__date', 'scoreboard__item__score'],
-              "dfl-results": ['class="score"', "application/ld+json", "match-tile", "aria-label="],
-          }
-          for key, terms in fields.items():
-              if "sha256" not in entries[key]:
-                  print(key, entries[key])
-                  continue
-              page = read_evidence(root, entries[key])
-              for term in terms:
-                  matches = list(re.finditer(re.escape(term), page, re.I))
-                  print(key, term, len(matches))
-                  for match in matches[:2]:
-                      print(repr(page[max(0,match.start()-370):match.end()+750]))
+          errors = []
+          for key, parse in [("sk-report", slovak_minutes), ("ua-report", ukrainian_minutes)]:
+              try:
+                  result = parse(read_evidence(root, entries[key]))
+                  print(key, json.dumps(result, ensure_ascii=False))
+              except (ValueError, KeyError) as exc:
+                  errors.append(f"{key}: {exc}")
+          assert not errors, errors
           PY
       - uses: actions/upload-artifact@v4
         if: always()
