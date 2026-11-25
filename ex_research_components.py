@@ -57,10 +57,12 @@ def archive_weather(packs, as_of):
         if sealed >= as_of:
             continue
         for row in json.loads(path.read_bytes()):
+            item = (row.get("observed_inputs") or {}).get("prematch_weather_forecast")
+            if item is None:
+                continue
             fixture = row["fixture"]
             kickoff = utc(fixture["kickoff_at"])
             captured = utc(row["as_of"])
-            item = row["observed_inputs"].get("prematch_weather_forecast")
             if captured >= sealed or sealed >= kickoff or weather_vector(item, kickoff.isoformat(), captured) is None:
                 continue
             event = (fixture["event_id"], kickoff)

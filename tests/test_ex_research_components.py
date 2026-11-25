@@ -56,7 +56,7 @@ class ResearchComponentTests(unittest.TestCase):
             root = Path(directory)
             forecasts = root / "1" / "forecasts"
             forecasts.mkdir(parents=True)
-            (forecasts / "daily-analysis.json").write_text(json.dumps([row]))
+            (forecasts / "daily-analysis.json").write_text(json.dumps([{"fixture": row["fixture"]}, row]))
             receipt = forecasts.parent / "receipt.json"
             cutoff = utc("2026-11-26T00:00:00Z")
             receipt.write_text(json.dumps({"created_at": kickoff}))
