@@ -10,6 +10,7 @@ from statistics import mean
 from collections import defaultdict
 
 from ex_component_experiment import weekly_interval
+from ex_decision import weighted_evidence
 from ex_history_archive import atomic_write, utc
 from ex_model_challengers import fit_offset, sigmoid
 from ex_prospective_power import verdict
@@ -107,6 +108,7 @@ def evaluate(model, rows, design=None, *, evaluation_at=None):
     results = {}
     for market in (*MARKETS, "MS1", "MS2"):
         observations, reference, selected, strength_reference, strength_candidate = [], [], [], [], []
+        component_dates, component_reference, component_candidate = [], [], []
         for row in sorted(rows, key=lambda row: utc(row["kickoff"])):
             date = utc(row["kickoff"]).date()
             actual = row["labels"][market]
@@ -124,6 +126,12 @@ def evaluate(model, rows, design=None, *, evaluation_at=None):
                 logit(stronger)
                 strength_reference.append(((date,), (base - actual)**2))
                 strength_candidate.append((stronger - actual)**2)
+            evidence = row.get("components", {}).get(market, {})
+            assessed = weighted_evidence(evidence, as_of=row["forecast_at"])
+            if assessed["status"] == "EVIDENCE_COMPLETE_UNCALIBRATED":
+                component_dates.append((date,))
+                component_reference.append((base - actual)**2)
+                component_candidate.append((assessed["weighted_score"] - actual)**2)
         def metrics(dates, original, candidate):
             interval = weekly_interval(dates, original, candidate) if original else None
             weeks = defaultdict(list)
@@ -141,6 +149,7 @@ def evaluate(model, rows, design=None, *, evaluation_at=None):
                     "supported": statistic["research_supported"]}
         results[market] = {
             "calibration": metrics(observations, reference, selected) if market in MARKETS else "REFERENCE_ONLY",
+            "fixed_components_research": metrics(component_dates, component_reference, component_candidate),
             "fixed_strength": metrics([item[0] for item in strength_reference],
                                       [item[1] for item in strength_reference], strength_candidate),
         }

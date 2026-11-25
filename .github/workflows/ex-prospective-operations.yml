@@ -6,6 +6,8 @@ on:
     paths:
       - .github/workflows/ex-prospective-operations.yml
       - run_ex_prospective_pipeline.py
+      - run_ex_prospective_validation.py
+      - ex_official_calendar.py
       - run_ex_source_audit.py
       - run_ex_official_minutes_batch.py
       - run_ex_power_design.py
@@ -109,6 +111,42 @@ jobs:
         with:
           name: ex-prospective-forecasts
           path: forecasts/
+
+  archived-calendars:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45552936337
+          name: ex-prospective-forecasts
+          path: archived
+      - run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          from pathlib import Path
+          from ex_official_calendar import PARSERS
+          from run_ex_official_sources import read_evidence
+          from run_ex_prospective_pipeline import alternate_context
+          root = Path("archived")
+          report = json.loads((root / "capture.json").read_text())
+          cache = root / "pregame-cache"
+          for league, source in report["alternate_calendar_evidence"].items():
+              rows = list(PARSERS[league](read_evidence(cache / "alternate-calendars", source)))
+              assert rows, league
+              print(league, len(rows))
+          for day in range(25, 31):
+              report["day"] = dt.date(2026, 11, day).isoformat()
+              context, issues = alternate_context(report, cache)
+              assert not issues, issues
+              print(report["day"], {league: len(rows) for league, rows in context.items()})
+          PY
 
   capture:
     if: inputs.mode == 'capture' || inputs.mode == 'cycle'

@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from ex_history_archive import atomic_write
@@ -10,12 +10,15 @@ from ex_history_archive import atomic_write
 
 def audit(ledger, dfl=None):
     records = {}
+    seasons = defaultdict(set)
 
     def add(row, provider):
         key = tuple(row[k] for k in ("league", "date", "home", "away"))
         entry = records.setdefault(key, {"providers": set(), "scores": set(), "proof": set()})
         entry["scores"].add((row["home_goals"], row["away_goals"]))
         entry["providers"].add(provider)
+        if row.get("season") is not None:
+            seasons[key].add(str(row["season"]))
 
     for name, queue in ledger["queues"].items():
         for row in queue["provisional_matches"]:
@@ -39,6 +42,7 @@ def audit(ledger, dfl=None):
             row["proof"].add("dfl_official_result")
 
     categories = {}
+    by_league_season = defaultdict(Counter)
     for key, item in sorted(records.items()):
         if len(item["scores"]) > 1:
             category = "CONFLICT"
@@ -48,13 +52,18 @@ def audit(ledger, dfl=None):
             category = "OFFICIAL_RESULT_CORROBORATION_ONLY"
         else:
             category = "UPSTREAM_LINEAGE_UNPROVEN"
+        season = next(iter(seasons[key])) if len(seasons[key]) == 1 else "unresolved"
+        by_league_season[(key[0], season)][category] += 1
         categories.setdefault(category, []).append({
             **dict(zip(("league", "date", "home", "away"), key, strict=True)),
             "providers": sorted(item["providers"]), "proof": sorted(item["proof"]),
             "scores": sorted(item["scores"]), "upstream_lineage_certified": False,
         })
     return {"total": len(records), "counts": {k: len(v) for k, v in categories.items()},
-            "categories": categories, "ex_final_allowed": False}
+            "categories": categories,
+            "league_season_counts": [{"league": league, "season": season, "counts": dict(counts)}
+                                     for (league, season), counts in sorted(by_league_season.items())],
+            "ex_final_allowed": False}
 
 
 def main():

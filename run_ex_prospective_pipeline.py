@@ -198,8 +198,7 @@ def component_audit(rows):
             assessed = weighted_evidence(evidence, as_of=row["forecast_at"])
             for component in WEIGHTS:
                 counts[market][component] += component in assessed.get("contributions", {})
-            if (assessed["status"] == "EVIDENCE_COMPLETE_UNCALIBRATED"
-                    and utc(row["kickoff"]).date() == utc(row["finished"]).date()):
+            if assessed["status"] == "EVIDENCE_COMPLETE_UNCALIBRATED":
                 samples[market].append((utc(row["kickoff"]).date(), row["short"][market], row["labels"][market],
                                         tuple(assessed["contributions"][key] for key in WEIGHTS)))
     estimates = {market: compare_calibration(sorted(samples[market])) for market in MARKETS}
