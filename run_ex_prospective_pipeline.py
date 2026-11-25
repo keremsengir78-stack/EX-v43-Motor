@@ -27,6 +27,20 @@ def jsonl(rows):
     return "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows).encode()
 
 
+def portable_facts(path):
+    """Restore normalized facts emitted by the hash-verifying raw replay."""
+    rows = [json.loads(line) for line in path.read_text().splitlines()]
+    if not rows or len({r["event_id"] for r in rows}) != len(rows):
+        raise ValueError("Empty or duplicate historical facts")
+    for row in rows:
+        for field in ("kickoff", "captured_at", "finished"):
+            if row[field] is not None:
+                row[field] = utc(row[field])
+        if row["score"] is not None:
+            row["score"] = tuple(row["score"])
+    return rows
+
+
 def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
@@ -360,6 +374,8 @@ def main():
     parser.add_argument("--domestic-packs", type=Path)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--history", type=Path)
+    parser.add_argument("--historical-facts", type=Path)
+    parser.add_argument("--export-facts", type=Path)
     parser.add_argument("--prior-settlements", type=Path)
     parser.add_argument("--forecast-ledger", type=Path)
     parser.add_argument("--sealed-at")
@@ -382,11 +398,18 @@ def main():
                                                  fetch=paced_download(.75)), day, 25, APPROVED_LEAGUES)
         atomic_write(args.capture, json.dumps(live).encode())
     if args.capture:
-        if not args.plan or not args.history or args.forecast_ledger:
-            parser.error("Capture mode requires plan and history")
-        facts, missing = load_facts(json.loads(args.plan.read_text()), args.history)
+        if args.forecast_ledger or (not args.historical_facts and (not args.plan or not args.history)):
+            parser.error("Capture mode requires archived facts or raw history and its plan")
+        if args.historical_facts:
+            facts, missing = portable_facts(args.historical_facts), 0
+        else:
+            facts, missing = load_facts(json.loads(args.plan.read_text()), args.history)
         if not facts or missing:
             raise ValueError("Incomplete historical archive")
+        if args.export_facts and not args.historical_facts:
+            payload = [dict(row, **{field: row[field].isoformat() if row[field] is not None else None
+                                   for field in ("kickoff", "captured_at", "finished")}) for row in facts]
+            atomic_write(args.export_facts, jsonl(payload))
         manifest = json.loads(args.capture.read_text())
         archive = HistoryArchive(args.cache, 0)
         # Establish the feature cutoff after archive integrity verification.

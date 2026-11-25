@@ -160,19 +160,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - uses: actions/download-artifact@v4
-        with:
-          github-token: ${{ github.token }}
-          run-id: ${{ inputs.history_run_id || '45469007220' }}
-          name: history-plan-1
-      - uses: actions/download-artifact@v4
-        with:
-          github-token: ${{ github.token }}
-          run-id: ${{ inputs.history_run_id || '45469007220' }}
-          pattern: history-summary-evidence-1-*
-          path: history
-      - env:
-          DAY: ${{ inputs.day }}
+      - name: Restore durable capture inputs
+        id: archive
         run: |
           ref=refs/heads/ex-evidence-archive
           if [ -n "$(git ls-remote origin "$ref")" ]; then
@@ -180,8 +169,41 @@ jobs:
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
             python ex_evidence_store.py --store durable-evidence restore --kind ucl-domestic-research --output domestic --limit 1
+            python ex_evidence_store.py --store durable-evidence restore --kind historical-facts --output facts --limit 1
           fi
-          python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}"             --plan plan.json --history history --cache pregame-cache --prior-settlements prior-outcomes             --domestic-packs domestic --output-dir forecasts
+          facts=$(find facts -type f -name historical-facts.jsonl -print -quit 2>/dev/null || true)
+          echo "facts=$facts" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
+          pattern: history-summary-evidence-1-*
+          path: history
+      - env:
+          DAY: ${{ inputs.day }}
+          FACTS: ${{ steps.archive.outputs.facts }}
+          RAW_OVERRIDE: ${{ inputs.history_run_id }}
+        run: |
+          history=(--plan plan.json --history history --export-facts historical-facts.jsonl)
+          if [ -n "$FACTS" ] && [ -z "$RAW_OVERRIDE" ]; then
+            history=(--historical-facts "$FACTS")
+          fi
+          python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}" \
+            "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
+            --domestic-packs domestic --output-dir forecasts
+      - uses: actions/upload-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          name: ex-historical-facts
+          path: historical-facts.jsonl
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
           name: ex-prospective-forecasts
@@ -279,7 +301,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           TARGET: ${{ github.ref_name }}
         run: |
-          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select(.name == "ex-prospective-forecasts" or .name == "ex-prospective-settlement") | .id] | join(",")')
+          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select(.name == "ex-prospective-forecasts" or .name == "ex-prospective-settlement" or .name == "ex-historical-facts") | .id] | join(",")')
           test -n "$ids"
           monday=$(date -u -d "$(date -u +%F) - $(($(date -u +%u) - 1)) days" +%F)
-          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$TARGET"             -f week_start="$monday" -f artifact_ids="$ids"
+          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$TARGET"             -f week_start="$monday" -f artifact_ids="$ids" -f preserve_only=true

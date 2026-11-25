@@ -3,12 +3,18 @@ on:
   pull_request:
     branches: [ex-v43-development]
     paths: [.github/workflows/ex-weekly-evidence.yml, run_ex_weekly_capacity.py, ex_evidence_store.py, run_ex_production_coverage.py]
+  schedule:
+    - cron: '37 6 * * 1'
   workflow_dispatch:
     inputs:
       week_start:
         description: Monday UTC for the seven-day published fixture inventory
         required: true
         type: string
+      preserve_only:
+        description: Only persist evidence without refreshing the weekly fixture inventory
+        type: boolean
+        default: false
       artifact_ids:
         description: Optional comma separated forecast and settlement artifact IDs to preserve
         type: string
@@ -18,7 +24,7 @@ permissions:
 jobs:
   inventory:
     needs: preserve
-    if: always() && (needs.preserve.result == 'success' || needs.preserve.result == 'skipped')
+    if: always() && !inputs.preserve_only && (needs.preserve.result == 'success' || needs.preserve.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -47,8 +53,12 @@ jobs:
           name: ex-retrospective-results
           path: pilot
       - env:
-          WEEK_START: ${{ inputs.week_start || '2026-11-23' }}
+          WEEK_START: ${{ inputs.week_start || '' }}
         run: |
+          if [ -z "$WEEK_START" ]; then
+            if [ "$GITHUB_EVENT_NAME" = schedule ]; then WEEK_START=$(date -u -d '7 days ago' +%F)
+            else WEEK_START=2026-11-23; fi
+          fi
           examples=$(find pilot -name retrospective-examples.jsonl -type f -print -quit)
           test -n "$examples"
           python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --examples "$examples"

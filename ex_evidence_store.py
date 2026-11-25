@@ -9,6 +9,7 @@ import re
 
 KINDS = {"ex-prospective-forecasts": "prematch-and-research",
          "ex-prospective-settlement": "settlement-and-performance",
+         "ex-historical-facts": "historical-facts", "ex-frozen-research-candidates": "frozen-candidates",
          "ex-weekly-capacity": "weekly-capacity", "ucl-research-evidence": "ucl-domestic-research", "ex-retrospective-results": "retrospective-research"}
 
 
@@ -50,7 +51,7 @@ def seal(store, source, receipt):
     index = {"receipt": {k: meta[k] for k in ("id", "name", "created_at", "digest")}, "files": files}
     insert(store / "records" / kind / f"{asset}.json",
            (json.dumps(index, sort_keys=True, indent=2) + "\n").encode())
-    categories = ({"prematch": ("capture.json", "pregame-cache/"),
+    categories = ({"prematch": ("capture.json", "forecasts/capture.json", "pregame-cache/"),
                    "research-forecast": ("forecasts.jsonl", "forecasts/")}
                   if kind == "prematch-and-research" else {})
     if kind == "settlement-and-performance":
