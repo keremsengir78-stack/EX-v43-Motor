@@ -1,0 +1,15 @@
+{
+  "files": {
+    "forecasts/capture.json": "f303db3162a7e1552833399f757760f645c0c7fbe3f5e30c4ac3d8e2e82d3d09",
+    "forecasts/daily-analysis.json": "617544e3044f830d05daac7609d20181909ac40ef6dbb9a70574b49a4d9a0cbe",
+    "forecasts/forecasts.jsonl": "c7049f43e3d160460cbf46a03112f068b981b2b88f620bb056b696e437ad1061",
+    "forecasts/official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "forecasts/report.json": "6d683815ad2e5ebb04940586b90372a9ad1c043707e656e49648cb273d0c93cc"
+  },
+  "receipt": {
+    "created_at": "2026-11-25T09:39:52Z",
+    "digest": "sha256:b921a91e061fedf0612ef6a31eba720090e347f5b12359b9cd32b1ab4ac53ee8",
+    "id": 15009656548,
+    "name": "ex-prospective-forecasts"
+  }
+}
