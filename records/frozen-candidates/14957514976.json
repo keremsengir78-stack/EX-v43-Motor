@@ -1,0 +1,11 @@
+{
+  "files": {
+    "frozen-candidates.json": "ae36fb597b244060d0d4aae0384eaa12af2f88a28b5c311e4b4612b05569a2ae"
+  },
+  "receipt": {
+    "created_at": "2026-11-24T19:56:49Z",
+    "digest": "sha256:2daee41c7256959fb6ad4b6f7d4072caf17f8272ef385792ef4bc193bd7ddd15",
+    "id": 14957514976,
+    "name": "ex-frozen-research-candidates"
+  }
+}
