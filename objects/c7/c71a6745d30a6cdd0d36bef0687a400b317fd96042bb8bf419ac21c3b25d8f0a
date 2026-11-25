@@ -1,0 +1,136 @@
+{
+  "UCL": {
+    "parsed_completed_rows": 81,
+    "sources": [
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-25T10:38:40.437811+00:00",
+        "sha256": "6e35c2f7333ce285cf7d8a7a6512fd9bf3b7d2c80458023ce735851278dd63e2",
+        "size": 107244
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "be.1": {
+    "parsed_completed_rows": 0,
+    "stage": "official_source_probe",
+    "url": "https://www.proleague.be/jpl-kalender?activeTab=results",
+    "category": "UPSTREAM_HTTP",
+    "retry_deferred": false,
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  "de.1": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:38:39.492280+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.2": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/2bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:38:39.654543+00:00",
+        "sha256": "d19fb0cf1d44b8f3a2239787d84d5d0de60e17cda50bc0bd1ffdd02544563fac",
+        "size": 864662
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "es.1": {
+    "parsed_completed_rows": 10,
+    "sources": [
+      {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:38:42.075446+00:00",
+        "sha256": "edd60d8367980c85898d7903ac2f945679ac407fc3613d53a853786a4ea1fa2e",
+        "size": 420480
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "fr.1": {
+    "parsed_completed_rows": 11,
+    "sources": [
+      {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:38:40.002822+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.1": {
+    "parsed_completed_rows": 117,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/eredivisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:38:41.597175+00:00",
+        "sha256": "f35901fcd3080af86ef01695d7c4f4915065e966bd3cc24592142619935628bd",
+        "size": 235076
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.2": {
+    "parsed_completed_rows": 154,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:38:42.061403+00:00",
+        "sha256": "d2da5ff36c1171fbd57c5d3b267ee487f49c4b3a2a02ccd4a1f042c4d6d4f2b9",
+        "size": 262846
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "no.1": {
+    "parsed_completed_rows": 216,
+    "sources": [
+      {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:38:41.953522+00:00",
+        "sha256": "21b2498127bbae87aa35d34d946bf1a71dfc32f01188627a138690c61f0a43f6",
+        "size": 359880
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "pt.1": {
+    "parsed_completed_rows": 2,
+    "sources": [
+      {
+        "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/10/8?tab=match_timeline",
+        "retrieved_at": "2026-11-25T10:38:45.052078+00:00",
+        "sha256": "1d4deff46826211c8102d8cea01cff6018b01e752a04bf957ce365361b343a3f",
+        "size": 1638574
+      },
+      {
+        "retrieved_at": "2026-11-25T10:38:43.382436+00:00",
+        "sha256": "de69d7ca0024fa5d4732d5546ed34adcb89e2d9cc97d1da3fd5ff8f3ab5aa7a5",
+        "size": 1683506,
+        "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline"
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "tr.1": {
+    "parsed_completed_rows": 1,
+    "sources": [
+      {
+        "url": "https://www.tff.org/Default.aspx?macID=317885&pageID=29",
+        "retrieved_at": "2026-11-25T10:38:43.434930+00:00",
+        "sha256": "62e896e63f2cc94b3430698e8ce990e7f0fe0bf3faefb85e1db7ec86ce6a5260",
+        "size": 170279
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  }
+}
