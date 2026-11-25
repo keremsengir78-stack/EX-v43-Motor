@@ -82,11 +82,33 @@ def main():
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--examples", type=Path, required=True)
     parser.add_argument("--capture", type=Path, nargs="+", required=True)
+    parser.add_argument("--dutch-ingestion", type=Path)
+    parser.add_argument("--retrospective-report", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     examples = [json.loads(line) for line in args.examples.read_text().splitlines()]
     result = audit(json.loads(args.plan.read_text()), examples,
                    [json.loads(path.read_text()) for path in args.capture])
+    if args.dutch_ingestion:
+        dutch = json.loads(args.dutch_ingestion.read_text())
+        result["leagues"]["nl.2"]["historical"]["archived_result_rows"] = sum(
+            row.get("rows_before_cutoff", 0) for row in dutch["sources"] if row["league"] == "nl.2")
+    if args.retrospective_report:
+        replay = json.loads(args.retrospective_report.read_text())
+        if replay["feature_examples"] != len(examples) or replay["targets"] != result["archived_plan_total"]:
+            raise ValueError("Retrospective report and feature archive differ")
+        result["verified_archive_summary_count"] = replay["archived"]
+        result["component_evidence"] = {
+            "team_strength": {"fixed_weight_test": {market: record.get("fixed_weights_vs_venue5")
+                                                    for market, record in replay["markets"].items()}},
+            "match_conditions": {"available": ["prior_rest", "observed_fixture_load", "completed_player_minutes"],
+                                 "increment_supported": {
+                                     market: {kind: record[kind].get("increment_supported", False)
+                                              for kind in ("conditions_rest_load", "conditions_minutes")}
+                                     for market, record in replay["markets"].items()}},
+            "external_factors": {"status": "PREMATCH_ARCHIVE_REQUIRED",
+                                 "scope": ["weather_forecast", "actual_travel_plan", "matchday_pitch_condition"]},
+        }
     result["strength_power_sensitivity"] = calibration_sensitivity(examples)
     atomic_write(args.output, (json.dumps(result, indent=2) + "\n").encode())
     print(json.dumps(result))
