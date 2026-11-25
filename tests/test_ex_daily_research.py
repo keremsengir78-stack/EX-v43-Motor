@@ -83,6 +83,10 @@ class DailyResearchTests(unittest.TestCase):
         self.assertNotIn("fixture_sources:unverified", row["auto_control_by_market"]["MS1"]["issues"])
         self.assertIn("second_source:unverified", row["auto_control_by_market"]["MS1"]["issues"])
         self.assertFalse(row["auto_control_by_market"]["MS1"]["ex_final_allowed"])
+        low = daily_analysis(fixture, None, None, cutoff, board_evidence=board,
+                             quotes=[{**quotes[0], "decimal_odds": 1.19}])
+        self.assertIn("odds_lock:pass_1_19_or_lower", low["auto_control_by_market"]["MS1"]["issues"])
+        self.assertNotIn("odds_lock:pass_1_19_or_lower", low["auto_control_by_market"]["KG_VAR"]["issues"])
         reversed_fixture = {**fixture, "home": "Barcelona", "away": "Sabah FK"}
         rejected = daily_analysis(reversed_fixture, None, None, cutoff, board_evidence=board)
         self.assertEqual("UNVERIFIED", rejected["fixture_evidence"]["status"])

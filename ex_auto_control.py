@@ -23,6 +23,9 @@ def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=
     for gate in (("fixture_lock","odds_lock") if require_odds else ("fixture_lock",)):
         if not isinstance(match.get(gate),dict) or match[gate].get("status")!="VERIFIED_INPUT":
             issues.append(gate+":blocked")
+    if (match.get("market") in MARKET_KEYS and
+            (match.get("odds_lock") or {}).get("decision") == "PASS_ODDS_1_19_OR_LOWER"):
+        issues.append("odds_lock:pass_1_19_or_lower")
     market=match.get("market_baselines_pct")
     if not isinstance(market,dict) or any(k not in market for k in MARKET_KEYS):
         issues.append("market_baselines:missing")
