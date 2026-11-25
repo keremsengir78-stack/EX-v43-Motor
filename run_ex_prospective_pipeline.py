@@ -401,6 +401,8 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None, conflicts=N
             continue
         store = HistoryArchive(pack.parent / "settlement-cache", 0, clock=lambda: cutoff)
         sealed = utc(json.loads(pack.read_text())["created_at"])
+        if sealed >= cutoff:
+            continue
         lines = (line for path in ledgers if path.is_file() for line in path.read_text().splitlines())
         for line in lines:
             row = json.loads(line)
@@ -412,8 +414,6 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None, conflicts=N
                 review = row["official_review"]
                 meta = row["source"]
                 source = urlsplit(review["source"])
-                if sealed >= cutoff:
-                    continue
                 evidence_times = [utc(item["retrieved_at"]) for item in review.get("evidence", [])]
                 if max(utc(review["verified_at"]), utc(meta["retrieved_at"]), *evidence_times) > sealed:
                     raise ValueError("Archived result evidence postdates the receipt")
@@ -435,14 +435,14 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None, conflicts=N
                     raise ValueError("Archived settlement disagrees with source")
                 if row["labels"] != market_labels(*fact["score"]):
                     raise ValueError("Archived settlement labels disagree with source")
-                if verified_outcomes is not None:
-                    old = verified_outcomes.get(event)
-                    if old is None or available_at < old[0]:
-                        verified_outcomes[event] = (available_at, row, store)
                 existing = history.get(event)
                 if existing and (any(existing[key] != fact[key] for key in ("kickoff", "teams", "competition"))
                                  or (existing["score"] is not None and existing["score"] != fact["score"])):
                     raise ValueError("Conflicting archived result")
+                if verified_outcomes is not None:
+                    old = verified_outcomes.get(event)
+                    if old is None or available_at < old[0]:
+                        verified_outcomes[event] = (available_at, row, store)
                 if not existing or existing["score"] is None or existing["captured_at"] > available_at:
                     history[event] = {**fact, "captured_at": available_at,
                                       "minutes": validated_team_minutes(detail, fact["teams"].values()),

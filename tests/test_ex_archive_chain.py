@@ -91,3 +91,14 @@ class ArchiveChainTests(unittest.TestCase):
             self.assertEqual(len(APPROVED_LEAGUES), performance["matched"])
             self.assertEqual(set(MARKETS), set(performance["venue5_brier"]))
             self.assertFalse(performance["production_allowed"])
+
+            corrupt = {**outcomes[0], "score": [9, 9]}
+            (post / "settlement/outcomes.jsonl").write_bytes(jsonl([corrupt, *outcomes[1:]]))
+            cutoff = after + dt.timedelta(minutes=1)
+            with self.assertRaisesRegex(ValueError, "Unverified official settlement evidence"):
+                archive_history(root / "settled", [], cutoff)
+            conflicts = set()
+            remaining, count = archive_history(root / "settled", [], cutoff, conflicts=conflicts)
+            self.assertEqual({corrupt["event_id"]}, conflicts)
+            self.assertEqual(12, count)
+            self.assertEqual(12, len(remaining))
