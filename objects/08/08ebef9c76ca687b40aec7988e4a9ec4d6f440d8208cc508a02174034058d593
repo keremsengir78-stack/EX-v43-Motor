@@ -1,0 +1,447 @@
+{
+  "provenance": "RETROSPECTIVE_SETTLED_EVENT_RECONSTRUCTION",
+  "evidence_classes": {
+    "retrospective_settled_events": [
+      "score",
+      "venue_form",
+      "played_minutes",
+      "rest_since_observed_finish",
+      "observed_load"
+    ],
+    "requires_prematch_capture": [
+      "lineup_availability",
+      "injuries",
+      "market_quote",
+      "weather_forecast",
+      "actual_travel_plan",
+      "matchday_pitch_condition"
+    ]
+  },
+  "targets": 6820,
+  "archived": 6820,
+  "missing": 0,
+  "source_requests": 0,
+  "season_basis_counts": {
+    "PROVIDER_SEASON": 6820
+  },
+  "terminal_evidence": {
+    "PROVIDER_END_REGULAR_TIME": 4328,
+    "FINAL_STATUS_CAPTURE_UPPER_BOUND": 2342,
+    "UNUSABLE": 150
+  },
+  "feature_examples": 2317,
+  "markets": {
+    "MS1": {
+      "venue5_reference": {
+        "retrospective_n": 2315,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 1328,
+        "validation_n": 457,
+        "test_n": 530,
+        "validation_start": "2026-04-14",
+        "test_start": "2026-08-26",
+        "validation_brier": {
+          "identity": 0.24363238512035013,
+          "intercept": 0.24348486016373108,
+          "platt": 0.23566917273869875,
+          "platt_with_workload": 0.23566917273869875
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.22656603773584907,
+        "test_selected_brier": 0.22755238957033838,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": [
+          -0.005585434342748746,
+          0.006386911672038578
+        ],
+        "test_weeks": 11
+      },
+      "fixed_weight_strength": {
+        "retrospective_n": 503,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 174,
+        "validation_n": 182,
+        "test_n": 147,
+        "validation_start": "2026-09-18",
+        "test_start": "2026-10-26",
+        "validation_brier": {
+          "identity": 0.2301932221795553,
+          "intercept": 0.23544715766279242,
+          "platt": 0.24353854526585558,
+          "platt_with_workload": 0.24353854526585558
+        },
+        "selected_on_validation": "identity",
+        "test_reference_brier": 0.22634013820263252,
+        "test_selected_brier": 0.22634013820263252,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": null,
+        "test_weeks": 4
+      },
+      "conditions_rest_load": {
+        "retrospective_n": 426,
+        "train_n": 169,
+        "validation_n": 133,
+        "test_n": 124,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-26",
+        "reference": "identity",
+        "selected": "identity",
+        "test_reference_brier": 0.23188369712203735,
+        "test_selected_brier": 0.23188369712203735,
+        "test_reference_log_loss": 0.6527157683493277,
+        "test_selected_log_loss": 0.6527157683493277,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "conditions_minutes": {
+        "retrospective_n": 312,
+        "train_n": 135,
+        "validation_n": 93,
+        "test_n": 84,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-27",
+        "reference": "identity",
+        "selected": "identity",
+        "test_reference_brier": 0.23938418356814603,
+        "test_selected_brier": 0.23938418356814603,
+        "test_reference_log_loss": 0.6698171568572007,
+        "test_selected_log_loss": 0.6698171568572007,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "fixed_weights_vs_venue5": {
+        "test_n": 147,
+        "venue5_brier": 0.23496598639455782,
+        "weighted_brier": 0.22634013820263252,
+        "weekly_delta_brier_99pct": null
+      },
+      "external_factors": {
+        "status": "UNAVAILABLE_PREMATCH_EVIDENCE"
+      }
+    },
+    "MS2": {
+      "venue5_reference": {
+        "retrospective_n": 2315,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 1328,
+        "validation_n": 457,
+        "test_n": 530,
+        "validation_start": "2026-04-14",
+        "test_start": "2026-08-26",
+        "validation_brier": {
+          "identity": 0.22321663019693655,
+          "intercept": 0.2232900866212199,
+          "platt": 0.21590381514108936,
+          "platt_with_workload": 0.21590381514108936
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.21241509433962266,
+        "test_selected_brier": 0.2222075074181971,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": [
+          0.0029056709438425696,
+          0.0162229086860872
+        ],
+        "test_weeks": 11
+      },
+      "fixed_weight_strength": {
+        "retrospective_n": 503,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 174,
+        "validation_n": 182,
+        "test_n": 147,
+        "validation_start": "2026-09-18",
+        "test_start": "2026-10-26",
+        "validation_brier": {
+          "identity": 0.2121962501075733,
+          "intercept": 0.21358938336975353,
+          "platt": 0.2150350596426699,
+          "platt_with_workload": 0.2150350596426699
+        },
+        "selected_on_validation": "identity",
+        "test_reference_brier": 0.20836288514957133,
+        "test_selected_brier": 0.20836288514957133,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": null,
+        "test_weeks": 4
+      },
+      "conditions_rest_load": {
+        "retrospective_n": 426,
+        "train_n": 169,
+        "validation_n": 133,
+        "test_n": 124,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-26",
+        "reference": "identity",
+        "selected": "context",
+        "test_reference_brier": 0.20461598445924045,
+        "test_selected_brier": 0.1984524621910195,
+        "test_reference_log_loss": 0.5964816487393904,
+        "test_selected_log_loss": 0.5821651817516659,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "conditions_minutes": {
+        "retrospective_n": 312,
+        "train_n": 135,
+        "validation_n": 93,
+        "test_n": 84,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-27",
+        "reference": "identity",
+        "selected": "identity",
+        "test_reference_brier": 0.19674193973377252,
+        "test_selected_brier": 0.19674193973377252,
+        "test_reference_log_loss": 0.5809433342808941,
+        "test_selected_log_loss": 0.5809433342808941,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "fixed_weights_vs_venue5": {
+        "test_n": 147,
+        "venue5_brier": 0.21823129251700682,
+        "weighted_brier": 0.20836288514957133,
+        "weekly_delta_brier_99pct": null
+      },
+      "external_factors": {
+        "status": "UNAVAILABLE_PREMATCH_EVIDENCE"
+      }
+    },
+    "KG_VAR": {
+      "venue5_reference": {
+        "retrospective_n": 2315,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 1328,
+        "validation_n": 457,
+        "test_n": 530,
+        "validation_start": "2026-04-14",
+        "test_start": "2026-08-26",
+        "validation_brier": {
+          "identity": 0.26041575492341357,
+          "intercept": 0.260413333279517,
+          "platt": 0.24554826443747732,
+          "platt_with_workload": 0.24554826443747732
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.271,
+        "test_selected_brier": 0.24547498903766293,
+        "improved_on_final_test": true,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": [
+          -0.039378573421664294,
+          -0.009537587837233245
+        ],
+        "test_weeks": 11
+      },
+      "fixed_weight_strength": {
+        "retrospective_n": 503,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 174,
+        "validation_n": 182,
+        "test_n": 147,
+        "validation_start": "2026-09-18",
+        "test_start": "2026-10-26",
+        "validation_brier": {
+          "identity": 0.26817918987151873,
+          "intercept": 0.2686930849101301,
+          "platt": 0.2600192465470741,
+          "platt_with_workload": 0.2600192465470741
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.25946666046520744,
+        "test_selected_brier": 0.2616866371159947,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": null,
+        "test_weeks": 4
+      },
+      "conditions_rest_load": {
+        "retrospective_n": 426,
+        "train_n": 169,
+        "validation_n": 133,
+        "test_n": 124,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-26",
+        "reference": "platt",
+        "selected": "platt",
+        "test_reference_brier": 0.26464843339507277,
+        "test_selected_brier": 0.26464843339507277,
+        "test_reference_log_loss": 0.7242914632641136,
+        "test_selected_log_loss": 0.7242914632641136,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "conditions_minutes": {
+        "retrospective_n": 312,
+        "train_n": 135,
+        "validation_n": 93,
+        "test_n": 84,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-27",
+        "reference": "identity",
+        "selected": "identity",
+        "test_reference_brier": 0.24748178919413916,
+        "test_selected_brier": 0.24748178919413916,
+        "test_reference_log_loss": 0.6862722194933166,
+        "test_selected_log_loss": 0.6862722194933166,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "fixed_weights_vs_venue5": {
+        "test_n": 147,
+        "venue5_brier": 0.2768027210884354,
+        "weighted_brier": 0.25946666046520744,
+        "weekly_delta_brier_99pct": null
+      },
+      "external_factors": {
+        "status": "UNAVAILABLE_PREMATCH_EVIDENCE"
+      }
+    },
+    "2.5_UST": {
+      "venue5_reference": {
+        "retrospective_n": 2315,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 1328,
+        "validation_n": 457,
+        "test_n": 530,
+        "validation_start": "2026-04-14",
+        "test_start": "2026-08-26",
+        "validation_brier": {
+          "identity": 0.25529540481400437,
+          "intercept": 0.25538994251244485,
+          "platt": 0.24674691306248073,
+          "platt_with_workload": 0.24674691306248073
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.25449056603773584,
+        "test_selected_brier": 0.24155173892874873,
+        "improved_on_final_test": true,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": [
+          -0.02145497778546346,
+          -0.002373050097005579
+        ],
+        "test_weeks": 11
+      },
+      "fixed_weight_strength": {
+        "retrospective_n": 503,
+        "external_ucl_transfer": {
+          "eligible_n": 0
+        },
+        "train_n": 174,
+        "validation_n": 182,
+        "test_n": 147,
+        "validation_start": "2026-09-18",
+        "test_start": "2026-10-26",
+        "validation_brier": {
+          "identity": 0.247522146666751,
+          "intercept": 0.24631476215117976,
+          "platt": 0.23947662840921335,
+          "platt_with_workload": 0.23947662840921335
+        },
+        "selected_on_validation": "platt",
+        "test_reference_brier": 0.25919568602619175,
+        "test_selected_brier": 0.264198869653438,
+        "improved_on_final_test": false,
+        "production_allowed": false,
+        "selected_minus_reference_week_bootstrap_95pct": null,
+        "test_weeks": 4
+      },
+      "conditions_rest_load": {
+        "retrospective_n": 426,
+        "train_n": 169,
+        "validation_n": 133,
+        "test_n": 124,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-26",
+        "reference": "platt",
+        "selected": "platt",
+        "test_reference_brier": 0.26021230210241336,
+        "test_selected_brier": 0.26021230210241336,
+        "test_reference_log_loss": 0.7159255324493119,
+        "test_selected_log_loss": 0.7159255324493119,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "conditions_minutes": {
+        "retrospective_n": 312,
+        "train_n": 135,
+        "validation_n": 93,
+        "test_n": 84,
+        "validation_start": "2026-09-16",
+        "test_start": "2026-10-27",
+        "reference": "platt",
+        "selected": "platt",
+        "test_reference_brier": 0.2472710426476315,
+        "test_selected_brier": 0.2472710426476315,
+        "test_reference_log_loss": 0.6874638606528274,
+        "test_selected_log_loss": 0.6874638606528274,
+        "weekly_delta_brier_99pct": null,
+        "increment_supported": false,
+        "production_allowed": false
+      },
+      "fixed_weights_vs_venue5": {
+        "test_n": 147,
+        "venue5_brier": 0.27462585034013604,
+        "weighted_brier": 0.25919568602619175,
+        "weekly_delta_brier_99pct": null
+      },
+      "external_factors": {
+        "status": "UNAVAILABLE_PREMATCH_EVIDENCE"
+      }
+    }
+  },
+  "production_calibration_allowed": false,
+  "ex_final_allowed": false,
+  "score_deduplication": {
+    "unique_provider_matches": 1078,
+    "by_provider_combination": {
+      "ESPN": 807,
+      "ESPN+OpenLigaDB": 99,
+      "OpenLigaDB": 172
+    },
+    "unique_fixtures_including_reviewed": 1078,
+    "reviewed_fixtures_with_provider_match": 39,
+    "conflicting_target_scores": 0,
+    "provider_overlap_proves_independence": false,
+    "reviewed_evidence": {
+      "historical": {
+        "official_result_matches": 38,
+        "independently_confirmed_result_matches": 1
+      },
+      "newer": {
+        "official_result_matches": 0,
+        "independently_confirmed_result_matches": 0
+      }
+    },
+    "lineage_status": {
+      "ESPN": "UPSTREAM_MATCH_FEED_UNCONFIRMED",
+      "OpenLigaDB": "COMMUNITY_SOURCE_PER_MATCH_LINEAGE_UNCONFIRMED"
+    }
+  }
+}
