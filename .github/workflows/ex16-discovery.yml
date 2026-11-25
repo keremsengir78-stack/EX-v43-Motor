@@ -145,7 +145,7 @@ jobs:
                       for token in re.findall(r'<script>self\.__next_f\.push\((\[1,\s*".*?"\])\)</script>',s,re.S):
                           chunks.append(json.loads(token)[1])
                       body="".join(chunks)
-                      loc=body.find("serie-a::Football_Match::979e686")
-                      print("italy",len(chunks),body[loc-225:loc+3700])
+                      loc=body.find('"providerStatus":"Finished"')
+                      print("italy",len(chunks),body[loc-470:loc+6500])
               except OSError as e: print(name,str(e))
           PY

@@ -16,7 +16,8 @@ from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
 from ex_retrospective import settled_facts, window, workload
-from run_ex_prematch_archive import summary
+from run_ex_prematch_archive import prematch_fixtures, summary
+from run_ucl_matchday_inputs import market_quotes
 from run_ex_prospective_validation import evaluate, join_holdout, read_rows
 from run_ex_retrospective import load_facts
 
@@ -80,6 +81,49 @@ def forecast_rows(manifest, cache, facts, now):
     return rows, skipped
 
 
+def bind_espn_context(context, reports, cache_root, day):
+    """Attach archived data only after a unique league, kickoff and home-away match."""
+    archive = HistoryArchive(cache_root, 0)
+    for league, official in context.items():
+        registered = reports.get(league)
+        if not official or not registered:
+            continue
+        competition = ESPN_LEAGUES[league]
+        board = registered["board"]
+        expected = f"{ESPN}/{competition}/scoreboard?dates={day:%Y%m%d}"
+        raw, captured = archive._load(board, expected)
+        valid = {event_id: (kickoff, sides) for event_id, kickoff, sides in
+                 prematch_fixtures(raw, captured, day, competition, dt.timedelta(hours=48))}
+        records = {row["event_id"]: row for row in registered["records"]}
+        items = json.loads(raw)["events"]
+        for fixture in official:
+            if not fixture["competition_verified"]:
+                continue
+            candidates = []
+            for item in items:
+                event_id = item["id"]
+                if event_id not in records or event_id not in valid:
+                    continue
+                kickoff, sides = valid[event_id]
+                (event,) = item["competitions"]
+                names = {team["homeAway"]: team["team"]["displayName"] for team in event["competitors"]}
+                if kickoff == utc(fixture["kickoff_at"]) and names == fixture["names"]:
+                    candidates.append((event_id, kickoff, sides, event))
+            if len(candidates) != 1:
+                continue
+            event_id, kickoff, sides, event = candidates[0]
+            evidence = records[event_id]["source"]
+            url = f"{ESPN}/{competition}/summary?event={event_id}"
+            raw_summary, stamp = archive._load(evidence, url)
+            fields = summary(raw_summary, stamp, event_id, kickoff, sides)
+            fixture["espn_event_id"] = event_id
+            fixture["espn_identity_evidence"] = board
+            fixture["lineup_evidence"] = ({"source": evidence, "scope": "PREGAME_ROSTER_PAYLOAD"}
+                                          if fields["roster_payload_observed"] else None)
+            fixture["odds_evidence"] = market_quotes(event.get("odds"), board, kickoff.isoformat()) or None
+
+
+
 def alternate_context(manifest, cache_root):
     root = cache_root / "alternate-calendars"
     day = dt.date.fromisoformat(manifest["day"])
@@ -123,6 +167,10 @@ def alternate_context(manifest, cache_root):
             context.setdefault("az.1", []).append(verified)
         except (OSError, KeyError, TypeError, ValueError) as exc:
             issues["pfl"] = str(exc)
+    try:
+        bind_espn_context(context, manifest.get("reports", {}), cache_root, day)
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        issues["espn_crosswalk"] = str(exc)
     return context, issues
 
 
