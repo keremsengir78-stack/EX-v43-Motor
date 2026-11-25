@@ -59,7 +59,7 @@ def distribution(lh,la):
 def calculate(rows,fixture,threshold=.70):
     league=fixture['league']; cutoff=date(fixture['date'])
     ss, ps = season_bounds(league, cutoff)
-    if 'season_start' in fixture or 'previous_start' in fixture:
+    if fixture.get('season_start') or fixture.get('previous_start'):
         ss, ps = date(fixture['season_start']), date(fixture['previous_start'])
     if not ps<ss<=cutoff:raise ValueError('season bounds inconsistent')
     home,ha=weighted_form(rows,fixture['home'],'home',cutoff,league,ss,ps)

@@ -4,6 +4,11 @@ on:
     branches: [ex-v43-development]
     paths: [.github/workflows/ex-approved-leagues.yml, ex_leagues.py, ex_espn_season.py, ex_live_data.py, ex_engine.py, run_ex_league_coverage.py]
   workflow_dispatch:
+    inputs:
+      as_of:
+        description: Exclusive UTC date cutoff for the Dutch season archive
+        type: string
+        default: '2026-11-25'
 permissions:
   contents: read
 jobs:
@@ -15,11 +20,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: |
+      - env:
+          CUTOFF: ${{ inputs.as_of || '2026-11-25' }}
+        run: |
           mkdir -p approved-evidence
           python run_ex_league_coverage.py > approved-evidence/coverage.json
           if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
-            python ex_live_data.py --seasons 2025-26 2026-27 --leagues nl.2 --as-of 2026-11-25 --outdir approved-evidence/history
+            python ex_live_data.py --seasons 2025-26 2026-27 --leagues nl.2 --as-of "$CUTOFF" --outdir approved-evidence/history
           else
             python ex_live_data.py --seasons 2025-26 2026-27 --leagues nl.2 no.1 UCL --as-of 2026-11-25 --outdir approved-evidence/history --espn-day-limit 12
           fi
@@ -27,11 +34,25 @@ jobs:
           import json
           from pathlib import Path
           audit = json.loads(Path("approved-evidence/history/audit.json").read_text())
-          print(json.dumps(audit["sources"]))
+          fields = ("league", "season", "calendar_days", "queried_days", "rows_before_cutoff", "coverage_partial", "stale", "error")
+          print(json.dumps([{field: row.get(field) for field in fields} for row in audit["sources"]]))
           assert len(audit["sources"]) in {2, 6}
           assert all(s.get("rows_before_cutoff", 0) > 0
                      for s in audit["sources"] if s["league"] in {"nl.2", "no.1"}), audit["sources"]
           assert not audit["ex_final_allowed"]
+          PY
+      - run: |
+          python ex_engine.py --results approved-evidence/history/results.csv --backtest --output approved-evidence/baseline.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from ex_decision import MARKETS
+          result = json.loads(Path("approved-evidence/baseline.json").read_text())["backtest"]
+          print(json.dumps({"status": result["status"], "matches": result["n"],
+                            "brier": {market: record["brier"] for market, record in result.get("markets", {}).items()}}))
+          if result["n"]:
+              assert set(result["markets"]) == set(MARKETS)
+              assert not result["ex_final_allowed"]
           PY
       - uses: actions/upload-artifact@v4
         if: always()

@@ -21,6 +21,8 @@ Brier kaybı farkı aynı maçta aday eksi referans olarak hesaplanır. Maç far
 
 ## Lig kapsamı
 
-`python run_ex_league_coverage.py` ana veri alımı, ESPN adaptörü, genişleme sezon tohumları, alternatif takvim ve resmî kaynak konaklarını karşılaştırır. Hollanda 2. Ligi (`nl.2`, Eerste Divisie) ana alım, ESPN kaydı, sezon tohumu ve toplu resmî doğrulama kapsamı dışında. Bu lig etkinleştirilmedi. Depodaki kayıtlar 10 ana alım ligi ve 19 ESPN lig veya müsabaka kodu gösteriyor. Kullanıcı onaylı bütün ligleri içeren ayrı bir katalog bu denetimin girdileri arasında yok.
+`python run_ex_league_coverage.py` kullanıcı onaylı 13 müsabakayı ana veri alımı, tarihsel skor, takvim, oran adaptörü ve sonuç doğrulama açısından karşılaştırır. İngiltere Championship eski çağıranlar için desteklenir ve onaylı ana kataloğun dışında kalır. Bir ESPN adaptörü gerçek kadro, likit oran veya bağımsız skor teyidi bulunduğu anlamına gelmez.
 
-Dünya liglerine genişleme için sezon yılı, sezonun başlangıç ve bitiş tarihleri, müsabaka aşaması ve kaynak takım kimlikleri lig bazında tanımlanmalı. Tarihsel değerlendirmedeki 1 Temmuz varsayımı, takvim yılıyla oynanan liglerde ayrıca ele alınmalı. Toplu dakikalar `EX league minutes collection` iş akışındaki manuel aralıklarla toplanır. Ham raporlar ve PDF'ler önceki Actions arşivinden özeti doğrulanarak kullanılabilir.
+Eerste Divisie ve Eliteserien alımı ESPN'nin yayımladığı sezon takviminden günlük ham kopyaları arşivler. Varsayılan sezon sınırı yaz liglerinde 1 Temmuz, Eliteserien'de 1 Ocak. Sonuç hesapları hedef tarihin öncesiyle sınırlı. UEFA için yalnız normal sürede tamamlanan maçlar ortak tarihsel gol veri setine girer. Gün bütçesi sınırlanan veya kaynak eksiği bulunan alım, kapsamı kısmi olarak işaretler. Canlı ve tarihsel kanıt akışlarında EX FINAL güvenlik kuralları geçerlidir.
+
+Dünya liglerine genişlemede güvenilir sezon başlangıcı, müsabaka aşaması ve kaynak takım kimlikleri tanımlanmalı. Toplu dakikalar `EX league minutes collection` iş akışındaki manuel aralıklarla toplanır. Ham raporlar ve PDF'ler önceki Actions arşivinden özeti doğrulanarak kullanılabilir.
