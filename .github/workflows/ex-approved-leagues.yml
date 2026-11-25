@@ -39,22 +39,3 @@ jobs:
           name: ex-approved-league-evidence
           path: approved-evidence/
 
-  french-source-check:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          python - <<'PY'
-          import re
-          from urllib.request import urlopen
-          for url in ("https://www.psg.fr/football-masculin/calendrier/season/2026-27?competition=French_Ligue_1", "https://www.om.fr/fr/equipe/hommes/resultats"):
-              try:
-                  with urlopen(url,timeout=12) as r:
-                      s=r.read(4500000).decode("utf8","replace")
-                  print(url,len(s))
-                  for term in ("French_Ligue_1", "homeScore", "awayScore", "2026-11-07", "2026-11-22", "finalResult", "SportsEvent"):
-                      hits=list(re.finditer(re.escape(term),s,re.I))
-                      print(term,len(hits),[s[max(0,m.start()-125):m.end()+650] for m in hits[:2]])
-              except OSError as e:
-                  print(type(e).__name__, str(e))
-          PY

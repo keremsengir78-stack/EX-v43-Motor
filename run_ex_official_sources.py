@@ -19,7 +19,7 @@ from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
 
 
 ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az", "www.laliga.com",
-                                                  "en.legaseriea.it", "fantasy.premierleague.com"})
+                                                  "en.legaseriea.it", "fantasy.premierleague.com", "www.om.fr"})
 
 
 def checked(url):

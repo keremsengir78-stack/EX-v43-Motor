@@ -12,6 +12,7 @@ from run_ex_source_audit import audit
 
 SERIE_A = "https://en.legaseriea.it/serie-a"
 FPL = "https://fantasy.premierleague.com/api/"
+MARSEILLE = "https://www.om.fr/fr/equipe/hommes/resultats"
 ENGLISH = {
     "Arsenal": "Arsenal", "Aston Villa": "Aston Villa", "Bournemouth": "Bournemouth",
     "Brentford": "Brentford", "Brighton": "Brighton", "Burnley": "Burnley", "Chelsea": "Chelsea",
@@ -34,10 +35,43 @@ def final_score(values):
     return values
 
 
-def italian_scores(html, source, captured_at):
+def next_payload(html):
     chunks = [json.loads(row)[1] for row in re.findall(
         r'<script>self\.__next_f\.push\((\[1,\s*".*?"\])\)</script>', html, re.S)]
-    body = "".join(chunks)
+    return "".join(chunks)
+
+
+def marseille_scores(html, captured_at):
+    body = next_payload(html)
+    decoder = json.JSONDecoder()
+    result = {}
+    aliases = {"Paris Saint-Germain": "Paris SG", "Stade Rennais": "Rennes", "Le Havre AC": "Le Havre"}
+    for marker in re.finditer(r'"name":"\d{4}/\d{4} LI1 J\d+ : ', body):
+        item, _ = decoder.raw_decode(body, body.rfind("{", 0, marker.start()))
+        if item.get("competition", {}).get("name") != "Ligue 1" or not item.get("date"):
+            continue
+        kickoff = utc(item["date"].removeprefix("$D"))
+        if kickoff.date() >= utc(captured_at).date():
+            continue
+        names = [item[side]["name"] for side in ("homeClub", "awayClub")]
+        if names.count("Marseille") != 1:
+            continue
+        scores = [item.get("homeTeamScore"), item.get("awayTeamScore")]
+        if None in scores:
+            continue
+        home, away = [aliases.get(name, name) for name in names]
+        key = item["slug"]
+        row = {"league": "fr.1", "date": kickoff.date().isoformat(), "home": home, "away": away,
+               "official_score": final_score(scores), "source_match_id": key, "source": MARSEILLE,
+               "proof": "marseille_official_club_result"}
+        if key in result and result[key] != row:
+            raise ValueError("Conflicting published Marseille score")
+        result[key] = row
+    return list(result.values())
+
+
+def italian_scores(html, source, captured_at):
+    body = next_payload(html)
     decoder = json.JSONDecoder()
     result = {}
     for match in re.finditer(r'\{"providerId":"[^"]+","seasonId":"serie-a::Football_Season::[a-f0-9]+"', body):
@@ -99,7 +133,8 @@ def main():
     cli.add_argument("--output", type=Path, required=True)
     args = cli.parse_args()
     raw = args.output / "raw"
-    sources = {"serie-a": SERIE_A, "fpl-fixtures": FPL + "fixtures/", "fpl-teams": FPL + "bootstrap-static/"}
+    sources = {"serie-a": SERIE_A, "fpl-fixtures": FPL + "fixtures/", "fpl-teams": FPL + "bootstrap-static/",
+               "marseille": MARSEILLE}
     pages = capture(sources, raw, reuse=True)
 
     def read(key):
@@ -110,6 +145,7 @@ def main():
 
     rows, errors = {}, {}
     for name, extract in {
+        "fr.1": lambda: marseille_scores(read("marseille"), pages["marseille"]["captured_at"]),
         "it.1": lambda: italian_scores(read("serie-a"), SERIE_A, pages["serie-a"]["captured_at"]),
         "en.1": lambda: english_scores(json.loads(read("fpl-fixtures")), json.loads(read("fpl-teams")),
                                       pages["fpl-fixtures"]["captured_at"]),
