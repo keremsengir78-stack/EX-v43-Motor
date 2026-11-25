@@ -164,6 +164,12 @@ jobs:
           run-id: 45555442252
           name: ex-laliga-bulk-evidence
           path: laliga
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45558254066
+          name: ex-expanded-official-score-evidence
+          path: score-evidence
       - run: python run_ex_additional_official_scores.py --ledger scores/score-evidence.json --dfl dfl/results.json --laliga laliga/results.json --output score-evidence
       - uses: actions/upload-artifact@v4
         if: always()

@@ -20,6 +20,10 @@ ENGLISH = {
     "Liverpool": "Liverpool", "Man City": "Man City", "Man Utd": "Man United", "Newcastle": "Newcastle",
     "Nott'm Forest": "Nott'm Forest", "Southampton": "Southampton", "Spurs": "Tottenham",
     "Sunderland": "Sunderland", "West Ham": "West Ham", "Wolves": "Wolves",
+    "AFC Bournemouth": "Bournemouth", "Brighton & Hove Albion": "Brighton", "Coventry City": "Coventry",
+    "Hull City": "Hull", "Leeds United": "Leeds", "Manchester City": "Man City",
+    "Manchester United": "Man United", "Newcastle United": "Newcastle", "Nottingham Forest": "Nott'm Forest",
+    "Tottenham Hotspur": "Tottenham", "West Ham United": "West Ham", "Wolverhampton Wanderers": "Wolves",
 }
 SCORES = {"Inter": "Inter", "Milan": "Milan", "Hellas Verona": "Verona"}
 
@@ -75,7 +79,8 @@ def english_scores(games, catalog, captured_at):
         kickoff = utc(game["kickoff_time"])
         if kickoff >= utc(captured_at):
             raise ValueError("Official Premier League postgame status precedes kickoff")
-        home, away = (ENGLISH[teams[game[f"team_{side}"]]] for side in ("h", "a"))
+        names = [teams[game[f"team_{side}"]] for side in ("h", "a")]
+        home, away = [ENGLISH.get(name, name) for name in names]
         match_id = game["id"]
         if match_id in result or home == away:
             raise ValueError("Duplicate or malformed Premier League result")
@@ -95,7 +100,7 @@ def main():
     args = cli.parse_args()
     raw = args.output / "raw"
     sources = {"serie-a": SERIE_A, "fpl-fixtures": FPL + "fixtures/", "fpl-teams": FPL + "bootstrap-static/"}
-    pages = capture(sources, raw)
+    pages = capture(sources, raw, reuse=True)
 
     def read(key):
         entry = pages[key]

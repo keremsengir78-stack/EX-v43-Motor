@@ -214,3 +214,35 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertEqual({"OFFICIAL_RESULT_CORROBORATION_ONLY": 1}, audited["counts"])
         self.assertEqual("2026-27", audited["league_season_counts"][0]["season"])
         self.assertFalse(audited["categories"]["OFFICIAL_RESULT_CORROBORATION_ONLY"][0]["upstream_lineage_certified"])
+
+    def test_pfl_binds_protocol_to_league_match_and_local_kickoff(self):
+        from run_ex_pfl_discovery import match_plan, roster_context
+
+        clubs = [{"id": 8, "title": "Sabah"}, {"id": 6, "title": "Zirə"}]
+        fixture = {"id": 6807, "start_date": "05/09/2026 18:30", "status": 0,
+                   "club_1": clubs[0], "club_2": clubs[1],
+                   "protocol_src": "https://pfl.az/storage/games/files/6a9c4a2d0c875_1788627501.pdf"}
+        payload = {"data": [{"league": {"id": 52}, "games": [fixture]}]}
+        evidence = {"captured_at": "2026-09-05T13:00:00Z"}
+        result, = match_plan(payload, 52, evidence)
+        self.assertEqual(6807, result["official_match_id"])
+        self.assertEqual("2026-09-05T14:30:00+00:00", result["kickoff_at"])
+        self.assertEqual({"home": 8, "away": 6}, result["source_team_ids"])
+        with self.assertRaises(ValueError):
+            list(match_plan(payload, 47, evidence))
+        detail = {**fixture, "league": {"id": 52}, "club_1": {**clubs[0], "players": [{"id": 10}]}}
+        self.assertEqual({"home": 1, "away": 0}, roster_context(result, detail, evidence)["counts"])
+        with self.assertRaises(ValueError):
+            roster_context(result, detail, {"captured_at": result["kickoff_at"]})
+        with self.assertRaises(ValueError):
+            roster_context(result, {**detail, "club_2": clubs[0]}, evidence)
+
+    def test_league_coverage_keeps_eerste_divisie_inactive(self):
+        from run_ex_league_coverage import coverage
+
+        result = coverage({"leagues": {}})
+        row = result["registered_leagues"]["nl.2"]
+        self.assertFalse(row["main_ingestion"])
+        self.assertIsNone(row["espn_adapter"])
+        self.assertEqual([], row["history_seed_seasons"])
+        self.assertFalse(result["ex_final_allowed"])
