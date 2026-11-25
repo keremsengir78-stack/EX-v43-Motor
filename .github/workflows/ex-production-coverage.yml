@@ -11,19 +11,45 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45561565207
+          name: ex-approved-league-evidence
+          path: dutch
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+          path: plan
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422307
+          name: ex-retrospective-results
+          path: retrospectives
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555434697
+          name: ex-prospective-forecasts
+          path: day1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45561898364
+          name: ex-prospective-forecasts
+          path: day2
       - run: |
-          python - <<'PY'
-          import re
-          from urllib.request import urlopen
-          for url in ["https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen",
-                      "https://www.vi.nl/competities/eerste-divisie/2025-2026/wedstrijden",
-                      "https://cornerflick.com/football/leagues/eerste-divisie/results"]:
-              try:
-                  with urlopen(url,timeout=20) as r:
-                      s=r.read(4500000).decode()
-                      print(r.geturl(),len(s))
-                  for term in ("2026-05-", "homeTeam", "awayTeam", "matchScore", "goalCount", "380", "2026-04-"):
-                      hits=list(re.finditer(term,s,re.I))
-                      print(term,len(hits),[s[max(m.start()-100,0):m.end()+500] for m in hits[:2]])
-              except OSError as e: print(type(e).__name__,e)
-          PY
+          python run_ex_dutch_reconcile.py --primary dutch/history/results.csv --as-of 2026-11-25 --output evidence/dutch
+          python run_ex_production_coverage.py --plan plan/plan.json --examples retrospectives/retrospective-examples.jsonl --capture day1/capture.json day2/capture.json --output evidence/coverage.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-production-coverage-evidence
+          path: evidence/
