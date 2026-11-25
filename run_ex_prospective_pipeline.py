@@ -501,6 +501,7 @@ def main():
     parser.add_argument("--daily-capture")
     parser.add_argument("--component-research", action="store_true")
     parser.add_argument("--prior-pregame", type=Path)
+    parser.add_argument("--component-archive", type=Path)
     parser.add_argument("--domestic-packs", type=Path)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--history", type=Path)
@@ -556,13 +557,9 @@ def main():
         archive = HistoryArchive(args.cache, 0)
         model, weather, weather_errors = None, {}, {}
         if args.component_research:
-            from ex_research_components import audit
             from ex_history_environment import coordinates
             from ex_pregame_weather import forecast
 
-            model = audit(facts, as_of=archive.clock())
-            atomic_write(args.output_dir / "component-research-audit.json",
-                         (json.dumps(model, indent=2) + "\n").encode())
             registry = json.loads(Path("config/ex_history_venues.json").read_text())
             registry.update(json.loads(Path("config/ex_pregame_venues.json").read_text()))
             weather_archive = HistoryArchive(args.cache, 25, fetch=paced_download(.75))
@@ -609,6 +606,13 @@ def main():
                 elif prior is None:
                     rolling.append(row)
             facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
+        if args.component_research:
+            from ex_research_components import archive_weather, audit
+
+            archived_weather = archive_weather(args.component_archive, cutoff) if args.component_archive else {}
+            model = audit(facts, as_of=cutoff, external_observations=archived_weather)
+            atomic_write(args.output_dir / "component-research-audit.json",
+                         (json.dumps(model, indent=2) + "\n").encode())
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather)
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):

@@ -1,8 +1,11 @@
+import json
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from ex_decision import MARKETS
 from ex_history_archive import utc
-from ex_research_components import metrics, score_components, weather_vector
+from ex_research_components import archive_weather, metrics, score_components, weather_vector
 
 
 class ResearchComponentTests(unittest.TestCase):
@@ -39,6 +42,27 @@ class ResearchComponentTests(unittest.TestCase):
 
         item["source"]["sha256"] = "missing"
         self.assertIsNone(weather_vector(item, "2026-11-25T20:30:00Z", utc("2026-11-25T13:01:00Z")))
+
+    def test_archive_weather_rejects_packs_sealed_after_kickoff(self):
+        source = {"url": "https://api.open-meteo.com/v1/forecast?timezone=GMT",
+                  "sha256": "a" * 64, "retrieved_at": "2026-11-25T12:00:00Z"}
+        item = {"kind": "PREMATCH_NUMERICAL_FORECAST", "source": source,
+                "forecast_hour_utc": "2026-11-25T20:00:00Z",
+                "values": {"temperature_2m": 10, "precipitation_probability": 0, "wind_speed_10m": 5}}
+        kickoff = "2026-11-25T20:00:00Z"
+        row = {"fixture": {"event_id": "fixture", "kickoff_at": kickoff}, "as_of": "2026-11-25T13:00:00Z",
+               "observed_inputs": {"prematch_weather_forecast": item}}
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            forecasts = root / "1" / "forecasts"
+            forecasts.mkdir(parents=True)
+            (forecasts / "daily-analysis.json").write_text(json.dumps([row]))
+            receipt = forecasts.parent / "receipt.json"
+            cutoff = utc("2026-11-26T00:00:00Z")
+            receipt.write_text(json.dumps({"created_at": kickoff}))
+            self.assertEqual({}, archive_weather(root, cutoff))
+            receipt.write_text(json.dumps({"created_at": "2026-11-25T14:00:00Z"}))
+            self.assertEqual({("fixture", utc(kickoff)): item}, archive_weather(root, cutoff))
 
     def test_metrics_keep_brier_and_calibration_separate(self):
         report, _ = metrics([{"label": 1}, {"label": 0}], [.5, .5])

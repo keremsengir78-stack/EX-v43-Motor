@@ -2,6 +2,7 @@
 
 from collections import Counter, defaultdict
 from datetime import timedelta
+import json
 import math
 import re
 from statistics import mean
@@ -47,6 +48,27 @@ def weather_vector(observation, kickoff, as_of):
     return temperature / 30, precipitation / 100, wind / 50
 
 
+def archive_weather(packs, as_of):
+    """Select the latest sealed pre-kickoff forecast for each exact fixture."""
+    selected = {}
+    for path in packs.glob("*/forecasts/daily-analysis.json"):
+        receipt = path.parent.parent / "receipt.json"
+        sealed = utc(json.loads(receipt.read_bytes())["created_at"])
+        if sealed >= as_of:
+            continue
+        for row in json.loads(path.read_bytes()):
+            fixture = row["fixture"]
+            kickoff = utc(fixture["kickoff_at"])
+            captured = utc(row["as_of"])
+            item = row["observed_inputs"].get("prematch_weather_forecast")
+            if captured >= sealed or sealed >= kickoff or weather_vector(item, kickoff.isoformat(), captured) is None:
+                continue
+            event = (fixture["event_id"], kickoff)
+            if event not in selected or captured > selected[event][0]:
+                selected[event] = captured, item
+    return {event: item for event, (_, item) in selected.items()}
+
+
 def metrics(rows, predictions):
     actual = [r["label"] for r in rows]
     bins = defaultdict(list)
@@ -74,7 +96,7 @@ def audit(facts, *, as_of=None, external_observations=None):
                 features = row["workload"]
             elif component == "external_factors":
                 kickoff = row["kickoff"]
-                observation = (external_observations or {}).get(row["event_id"])
+                observation = (external_observations or {}).get((row["event_id"], kickoff))
                 if observation:
                     features = weather_vector(observation, kickoff.isoformat(), kickoff - timedelta(microseconds=1))
                 else:

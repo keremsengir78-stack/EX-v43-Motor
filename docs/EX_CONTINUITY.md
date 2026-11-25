@@ -434,3 +434,9 @@ yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
 - Günlük araştırmada çelişkili tarihsel maç kendi kimliğiyle
   örneklem dışına alınır. Sonuçlandırma, arşiv bütünlüğü ve FINAL
   kontrolleri katı kalır.
+
+### Paket 27 — Pazar bazında araştırma bileşenleri
+
+Günlük araştırma motoru her pazarda takım gücünü %50, maç koşullarını %30 ve dış etkenleri %20 ağırlıkla değerlendirir. Dört saha ve sezon penceresi %40/%30/%20/%10 ağırlıklarıyla hesaplanır. Karma lig karşılaşmalarında yerel saha ve sezon gol ortalamalarıyla Poisson araştırma tabanı kullanılabilir. Maç koşulları, önceki tamamlanmış maçlardan hesaplanan dinlenme ve 14 günlük maç yükünü pazar bazında düzenlileştirilmiş lojistik modelle puanlar. Dış etken adayı stadyum konumundaki zaman damgalı maç öncesi sıcaklığı, yağış olasılığını ve rüzgârı kullanır.
+
+Kronolojik denetim, kalıcı arşivdeki tarihsel maçları ve doğrulanmış sonuçları kullanır. Hava örnekleri, maç başlamadan önce mühürlenmiş günlük kayıtlardan fikstür kimliği ve kesin başlama saatiyle eşleştirilir. Eğitim, doğrulama ve test günleri ayrıdır. Doğrulama ve test raporları Brier kaybını, on aralıklı kalibrasyon hatasını ve yeterli takvim haftası varsa eşleştirilmiş Brier farkı aralığını gösterir. Üç bileşen de mevcut olduğunda birleşik araştırma puanı hesaplanır. Üretim kabulü ve EX FINAL onaylı kanıt kapılarına bağlıdır.

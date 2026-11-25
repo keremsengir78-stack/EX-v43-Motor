@@ -67,16 +67,19 @@ def seal(store, source, receipt):
                    (json.dumps(typed, sort_keys=True, indent=2) + "\n").encode())
 
 
-def restore(store, kind, destination, limit=None):
+def restore(store, kind, destination, limit=None, *, files=None):
     indexes = sorted((store / "records" / kind).glob("*.json"), key=lambda p: int(p.stem), reverse=True)
     for index in indexes[:limit]:
         record = json.loads(index.read_bytes())
         receipt = record["receipt"]
         if str(receipt["id"]) != index.stem or KINDS.get(receipt["name"]) != kind:
             raise ValueError("Evidence receipt does not match archive index")
+        selected = {name: sha for name, sha in record["files"].items() if files is None or name in files}
+        if not selected:
+            continue
         target = destination / index.stem
         insert(target / "receipt.json", json.dumps(record["receipt"], sort_keys=True).encode())
-        for name, sha in record["files"].items():
+        for name, sha in selected.items():
             parts = PurePosixPath(name)
             if parts.is_absolute() or ".." in parts.parts or not re.fullmatch(r"[a-f0-9]{64}", sha):
                 raise ValueError("Unsafe archived evidence reference")
@@ -97,11 +100,12 @@ def main():
     reader.add_argument("--kind", choices=KINDS.values(), required=True)
     reader.add_argument("--output", type=Path, required=True)
     reader.add_argument("--limit", type=int)
+    reader.add_argument("--file", action="append")
     args = p.parse_args()
     if args.mode == "seal":
         seal(args.store, args.source, args.receipt)
     else:
-        restore(args.store, args.kind, args.output, args.limit)
+        restore(args.store, args.kind, args.output, args.limit, files=args.file)
 
 
 if __name__ == "__main__":
