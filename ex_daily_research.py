@@ -1,5 +1,6 @@
 """Keep date-granular domestic UCL baselines outside the frozen holdout ledger."""
 
+from datetime import timedelta
 import json
 from functools import lru_cache
 
@@ -91,6 +92,26 @@ def corroborated_fixture(fixture, board, as_of):
     return result
 
 
+
+def recent_domestic_scores(fixture, snapshot, as_of):
+    """Expose date-granular observations without feeding them to the timed workload model."""
+    if fixture["league"] != "UCL" or not snapshot:
+        return {}
+    rows, _, names, leagues, fixtures = snapshot
+    home, away = (names.get(norm(fixture[side])) for side in ("home", "away"))
+    kickoff = utc(fixture["kickoff_at"])
+    if (kickoff, home, away) not in fixtures or as_of < utc(CUTOFF + "T00:00:00Z"):
+        return {}
+    start = (kickoff - timedelta(days=14)).date()
+    return {
+        side: [{"date": str(row["date"]), "home": row["home"], "away": row["away"],
+                "score": [row["hg"], row["ag"]]}
+               for row in rows if row["league"] == leagues[club] and club in (row["home"], row["away"])
+               and start < row["date"] < min(as_of.date(), kickoff.date())]
+        for side, club in (("home", home), ("away", away))
+        if leagues.get(club) in {"az.1", "cz.1", "ua.1"}
+    }
+
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None, component_model=None,
                    strength=None, workload=None, weather=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
@@ -144,7 +165,8 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
               for market, value in values_by_market.items()}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
             "domestic_research": baseline, "markets": decisions, "market_values": values_by_market,
-            "observed_inputs": {**(observations or {}), "prematch_weather_forecast": weather},
+            "observed_inputs": {**(observations or {}), "prematch_weather_forecast": weather,
+                                "dated_domestic_scores": recent_domestic_scores(fixture, snapshot, as_of)},
             "component_research": components,
             "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
             "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, pup_requested=False, fixture_evidence=evidence, require_odds=False),

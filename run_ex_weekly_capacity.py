@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from statistics import mean
 
+from ex_daily_research import MARKET_KEYS
 from ex_decision import MARKETS
 from ex_historical_features import market_labels
 
@@ -75,6 +76,7 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
         counts["sealed_research_forecasts"] += 1
         counts["full_strength_window"] += row["strength"] is not None
     phase = defaultdict(set)
+    domestic = {}
     for receipt in packs.glob("*/receipt.json"):
         meta = json.loads(receipt.read_text())
         sealed = utc(meta["created_at"])
@@ -101,12 +103,22 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                     and utc(fixture["kickoff"]) == utc(identity["kickoff_at"])
                     and utc(row["as_of"]) <= sealed < utc(fixture["kickoff"])
                     and (row["domestic_research"] or {}).get("baseline")):
+                baseline = row["domestic_research"]["baseline"]
+                probabilities = {market: baseline.get(MARKET_KEYS[market]) for market in MARKETS}
+                if not all(type(value) in (int, float) and 0 <= value <= 1 for value in probabilities.values()):
+                    continue
                 phase["domestic_research_baselines"].add(event)
+                prior = domestic.get(event)
+                if prior and prior[0] == sealed and prior[1] != probabilities:
+                    raise ValueError("Conflicting domestic forecasts sealed at the same instant")
+                if prior is None or sealed < prior[0]:
+                    domestic[event] = sealed, probabilities
     joined_outcomes = {}
     forecast_ids = {row["event_id"] for row in forecasts}
     if settlements:
         for receipt in settlements.glob("*/receipt.json"):
-            for name in ("settlement/outcomes.jsonl", "outcomes.jsonl"):
+            for name in ("settlement/outcomes.jsonl", "outcomes.jsonl",
+                         "settlement/tracked-verified-outcomes.jsonl", "tracked-verified-outcomes.jsonl"):
                 ledger = receipt.parent / name
                 if not ledger.is_file():
                     continue
@@ -114,28 +126,38 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                     row = json.loads(line)
                     event = row["event_id"]
                     fixture = fixtures.get(event)
-                    if (fixture and event in forecast_ids and fixture["teams"] == row["teams"]
+                    if (fixture and (event in forecast_ids or event in domestic)
+                            and fixture["league"] == row["league"] and fixture["teams"] == row["teams"]
                             and utc(fixture["kickoff"]) == utc(row["kickoff"])
+                            and utc(row["kickoff"]) < utc(row["settled_at"])
                             and row.get("official_review", {}).get("scope") == "REVIEWED_OFFICIAL_RESULT"):
                         if row["labels"] != market_labels(*row["score"]):
                             raise ValueError("Archived result labels disagree with the score")
                         existing = joined_outcomes.setdefault(event, row)
                         if existing["labels"] != row["labels"] or existing["score"] != row["score"]:
                             raise ValueError("Conflicting corroborated outcomes across archived packs")
-                        phase["independently_settled_venue5"].add(event)
+                        if event in forecast_ids:
+                            phase["independently_settled_venue5"].add(event)
+                        if event in domestic:
+                            phase["independently_settled_domestic"].add(event)
     for column, events in phase.items():
         for event in events:
             by_league[fixtures[event]["league"]][column] += 1
     columns = ("prematch_archived", "sealed_research_forecasts", "domestic_research_baselines",
-               "full_strength_window", "independently_settled_venue5", "full_model_verified")
+               "full_strength_window", "independently_settled_venue5", "independently_settled_domestic", "full_model_verified")
     if fixture_phases is not None:
         fixture_phases.update(phase)
-    rows = join_holdout(forecasts, list(joined_outcomes.values())) if joined_outcomes else []
+    rows = join_holdout(forecasts, [row for event, row in joined_outcomes.items() if event in forecast_ids])
+    domestic_events = phase["independently_settled_domestic"]
     performance = {
         "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",
         "matched": len(rows),
         "venue5_brier": {m: mean((r["short"][m] - r["labels"][m]) ** 2 for r in rows) for m in MARKETS}
         if rows else {},
+        "domestic_research": {"matched": len(domestic_events),
+                              "brier": {m: mean((domestic[e][1][m] - joined_outcomes[e]["labels"][m]) ** 2
+                                                for e in sorted(domestic_events)) for m in MARKETS}
+                              if domestic_events else {}},
         "production_allowed": False,
     }
     return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}, performance

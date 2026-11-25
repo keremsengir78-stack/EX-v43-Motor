@@ -17,7 +17,7 @@ from ex_history_sources import ESPN, match_detail, teams, validated_team_minutes
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
-from ex_rolling_scoreboards import scoreboard_facts
+from ex_rolling_scoreboards import archived_domestic_boards, scoreboard_facts
 from ex_retrospective import observed_season, settled_facts, window, workload
 from run_ex_prematch_archive import prematch_fixtures, summary
 from run_ucl_matchday_inputs import market_quotes, observed_load
@@ -89,6 +89,16 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                 context, minutes = workload(history, kickoff)
                 teams_features.append((short, strength, context, minutes))
             home, away = teams_features
+            archived_score_window = None
+            if league in {"de.2", "nl.2"}:
+                score_windows = []
+                for side, club in fixture["teams"].items():
+                    valid = [(r["kickoff"], "home" if r["teams"]["home"] == club else "away", r)
+                             for r in domestic_teams.get(club, ()) if r["competition"] == competition
+                             and r["finished"] < kickoff]
+                    score_windows.append(window(sorted(valid, key=lambda item: item[0]), labels, side, season)[1])
+                if len(score_windows) == 2 and all(score_windows):
+                    archived_score_window = {m: mean(part[m] for part in score_windows) for m in MARKETS}
             players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
             short = {m: mean((home[0][m], away[0][m])) for m in MARKETS} if home[0] and away[0] else None
             strength = ({m: mean((home[1][m], away[1][m])) for m in MARKETS}
@@ -131,10 +141,14 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                 "confirmed_lineup_required": False, "individual_international_break_required": False,
                                 "recent_schedule_issue": workload_issue}
                 quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())
+                board_markets = {quote["market"] for quote in quotes}
+                summary_quotes = market_quotes(payload.get("odds") or payload.get("pickcenter"), source,
+                                               kickoff.isoformat())
+                quotes.extend(quote for quote in summary_quotes if quote["market"] not in board_markets)
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
                                             board_evidence=board_source, component_model=component_model,
-                                            strength=strength, workload=(*home[2], *away[2]) if home[2] and away[2] else None,
+                                            strength=strength or archived_score_window, workload=(*home[2], *away[2]) if home[2] and away[2] else None,
                                             weather=(weather or {}).get(event_id)))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
@@ -589,15 +603,19 @@ def main():
             facts, reused = archive_history(args.prior_settlements, facts, cutoff, conflicts=history_conflicts)
         daily = []
         domestic = None
+        supplemental = []
         if args.domestic_packs:
             receipts = sorted(args.domestic_packs.glob("*/receipt.json"), key=lambda path: int(path.parent.name))
             candidates = [path for path in receipts if utc(json.loads(path.read_text())["created_at"]) < cutoff]
             if candidates:
-                domestic = domestic_snapshot(candidates[-1].parent)
+                pack = candidates[-1].parent
+                domestic = domestic_snapshot(pack)
+                supplemental = archived_domestic_boards(pack, cutoff)
         rolling = []
-        if args.weekly_scoreboards:
+        if args.weekly_scoreboards or supplemental:
             existing = {r["event_id"]: r for r in facts}
-            for row in scoreboard_facts(args.weekly_scoreboards, cutoff, conflicts=history_conflicts):
+            weekly = scoreboard_facts(args.weekly_scoreboards, cutoff, conflicts=history_conflicts) if args.weekly_scoreboards else []
+            for row in weekly + supplemental:
                 event = row["event_id"]
                 prior = existing.get(event)
                 if prior and (any(prior[key] != row[key] for key in ("teams", "competition", "kickoff"))
@@ -605,6 +623,7 @@ def main():
                     history_conflicts.add(event)
                 elif prior is None:
                     rolling.append(row)
+                    existing[event] = row
             facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
         if args.component_research:
             from ex_research_components import archive_weather, audit
@@ -622,12 +641,15 @@ def main():
         atomic_write(args.output_dir / "official-fixture-context.json",
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
+                  "supplemental_scoreboard_records": len(supplemental),
                   "reused_verified_outcomes": reused, "rolling_scoreboard_matches": len(rolling), "skipped": skipped,
                   "daily_fixture_records": len(daily),
                   "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or
-                                                bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
+                                                bool((row["domestic_research"] or {}).get("baseline")) or
+                                                any(p["components"]["team_strength"]["score"] is not None
+                                                    for p in row["component_research"].values()) for row in daily),
                   "historical_events_quarantined": sorted(history_conflicts),
                   "weather_sources_observed": len(weather), "weather_errors": weather_errors,
                   "capture_source_errors": manifest.get("errors", []),

@@ -54,6 +54,37 @@ class DurableEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "not sealed before kickoff"):
             combine_forecasts([(utc(row["kickoff"]), [row])])
 
+    def test_weekly_domestic_baseline_uses_tracked_outcome_without_enrolling_in_venue5(self):
+        from ex_daily_research import MARKET_KEYS
+        from ex_historical_features import market_labels
+        from run_ex_weekly_capacity import observed_coverage
+
+        kickoff = "2026-11-25T20:00:00Z"
+        teams = {"home": "11", "away": "22"}
+        fixture = {"league": "UCL", "teams": teams, "kickoff": kickoff}
+        daily = {"fixture": {"event_id": "1", "league": "UCL", "team_ids": teams, "kickoff_at": kickoff},
+                 "as_of": "2026-11-25T07:00:00Z",
+                 "domestic_research": {"baseline": dict.fromkeys(MARKET_KEYS.values(), .25)}}
+        result = {"event_id": "1", **fixture, "score": [1, 0], "labels": market_labels(1, 0),
+                  "settled_at": "2026-11-25T22:00:00Z",
+                  "official_review": {"scope": "REVIEWED_OFFICIAL_RESULT"}}
+        with TemporaryDirectory() as root:
+            path = Path(root)
+            pack = path / "packs" / "1"
+            (pack / "forecasts").mkdir(parents=True)
+            (pack / "receipt.json").write_text(json.dumps({
+                "name": "ex-prospective-forecasts", "created_at": "2026-11-25T08:00:00Z"}))
+            (pack / "forecasts/forecasts.jsonl").touch()
+            (pack / "forecasts/daily-analysis.json").write_text(json.dumps([daily]))
+            settlement = path / "settlements" / "2"
+            settlement.mkdir(parents=True)
+            (settlement / "receipt.json").write_text("{}")
+            (settlement / "tracked-verified-outcomes.jsonl").write_text(json.dumps(result))
+            counts, report = observed_coverage({"1": fixture}, path / "packs", path / "settlements")
+            self.assertEqual(1, counts["UCL"]["independently_settled_domestic"])
+            self.assertEqual(0, report["matched"])
+            self.assertEqual(.5625, report["domestic_research"]["brier"]["MS1"])
+
     def test_weekly_report_uses_earliest_forecast_and_rejects_changed_outcome(self):
         from ex_decision import MARKETS
         from ex_historical_features import market_labels
