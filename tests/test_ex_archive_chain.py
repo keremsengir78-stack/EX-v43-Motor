@@ -97,8 +97,16 @@ class ArchiveChainTests(unittest.TestCase):
             cutoff = after + dt.timedelta(minutes=1)
             with self.assertRaisesRegex(ValueError, "Unverified official settlement evidence"):
                 archive_history(root / "settled", [], cutoff)
-            conflicts = set()
-            remaining, count = archive_history(root / "settled", [], cutoff, conflicts=conflicts)
+            second = root / "settled/3"
+            from shutil import copytree
+
+            copytree(post, second)
+            (post / "settlement/outcomes.jsonl").write_bytes(jsonl(outcomes))
+            conflicts, verified = set(), {}
+            remaining, count = archive_history(root / "settled", [], cutoff, conflicts=conflicts,
+                                               verified_outcomes=verified)
+            self.assertNotIn(corrupt["event_id"], verified)
+            self.assertEqual(12, len(verified))
             self.assertEqual({corrupt["event_id"]}, conflicts)
             self.assertEqual(12, count)
             self.assertEqual(12, len(remaining))

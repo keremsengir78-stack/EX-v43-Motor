@@ -484,6 +484,8 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None, conflicts=N
                     raise
                 conflicts.add(event_id)
                 history.pop(event_id, None)
+                if verified_outcomes is not None:
+                    verified_outcomes.pop(event_id, None)
                 reused.discard(event_id)
     return list(history.values()), len(reused)
 
@@ -689,29 +691,35 @@ def main():
             raw = args.forecast_ledger.read_bytes()
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         tracked = read_tracked_fixtures(args.packs, {r["event_id"] for r in forecasts}) if args.packs else []
-        verified_archive = {}
+        verified_archive, settlement_conflicts = {}, set()
         if args.prior_settlements:
-            archive_history(args.prior_settlements, [], current, verified_outcomes=verified_archive)
+            archive_history(args.prior_settlements, [], current, verified_outcomes=verified_archive,
+                            conflicts=settlement_conflicts)
 
         def reuse(matches):
-            old, queued = [], []
+            old, queued, quarantined = [], [], []
             for fixture in matches:
-                entry = verified_archive.get(fixture["event_id"])
+                event = fixture["event_id"]
+                if event in settlement_conflicts:
+                    quarantined.append({"event_id": event, "reason": "ARCHIVED_RESULT_CONFLICT"})
+                    continue
+                entry = verified_archive.get(event)
                 if entry is None:
                     queued.append(fixture)
                     continue
                 _, row, store = entry
                 if (row["league"] != fixture["league"] or row["teams"] != fixture["teams"]
                         or utc(row["kickoff"]) != utc(fixture["kickoff"])):
-                    raise ValueError("Archived result and forecast identity disagree")
+                    quarantined.append({"event_id": event, "reason": "ARCHIVED_RESULT_IDENTITY_MISMATCH"})
+                    continue
                 for meta in [row["source"], *row["official_review"].get("evidence", [])]:
                     raw, _ = store._load(meta, meta["url"])
                     atomic_write(args.cache / "raw" / meta["sha256"], raw)
                 old.append(row)
-            return queued, old
+            return queued, old, quarantined
 
-        queued_forecasts, prior_forecasts = reuse(forecasts)
-        queued_tracked, prior_tracked = reuse(tracked)
+        queued_forecasts, prior_forecasts, quarantined_forecasts = reuse(forecasts)
+        queued_tracked, prior_tracked, quarantined_tracked = reuse(tracked)
         official = json.loads(args.official.read_text()) if args.official else []
         # Official sources and primary score results have separate request budgets.
         fetch = paced_download(.75)
@@ -739,13 +747,13 @@ def main():
         model = json.loads(args.frozen_model.read_text()) if args.frozen_model else None
         design = json.loads(args.design.read_text()) if args.design else None
         cohort = select_evaluation_rows(model, rows, design) if model else []
-        report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending,
+        report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending + quarantined_forecasts,
                   "official_source_errors": official_errors,
                   "verified_outcomes_reused": len(prior_forecasts) + len(prior_tracked),
                   "new_primary_requests": result_archive.requests,
                   "fixture_result_tracking": {"verified": len(verified_tracking),
                                               "provisional": len(provisional_tracking),
-                                              "pending": pending_tracking},
+                                              "pending": pending_tracking + quarantined_tracked},
                   "eligible_evaluation_rows": len(cohort),
                   "components": component_audit(rows),
                   "evaluation": evaluate(model, cohort, design, evaluation_at=current) if cohort else {"status": "NO_ELIGIBLE_HOLDOUT"}}
