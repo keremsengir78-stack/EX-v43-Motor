@@ -12,6 +12,7 @@ from ex_history_archive import atomic_write
 from ex_official_report_html import plain
 from run_ex_official_sources import capture, read_evidence
 
+VI = "https://www.vi.nl/competities/eerste-divisie/2025-2026/wedstrijden"
 KNVB = "https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen"
 MONTHS = "januari februari maart april mei juni juli augustus september oktober november december".split()
 ALIASES = {
@@ -55,16 +56,38 @@ def parse_knvb(html, as_of):
     return scores
 
 
-def reconcile(primary, results):
+def parse_vi(html, as_of):
+    results = {}
+    anchors = re.findall(r'<a class="MatchList_match-link__[^"]+" href="/wedstrijden/'
+                         r'(\d{4}-\d{2}-\d{2})/([a-z0-9-]+)-vs-([a-z0-9-]+)">(.*?)</a>', html, re.S)
+    for day, home, away, block in anchors:
+        if date.fromisoformat(day) >= as_of or not re.search(r">FT</span>", block):
+            continue
+        score = re.search(r'<ul class="score-element [^"]+">\s*<li>(\d{1,2})</li>\s*<li>(\d{1,2})</li>', block)
+        if not score:
+            continue
+        key = identity(day, home, away)
+        value = tuple(map(int, score.groups()))
+        if key in results and results[key] != value:
+            raise ValueError(f"Conflicting VI result {key}")
+        results[key] = value
+    if not results:
+        raise ValueError("VI published no supported completed score rows")
+    return results
+
+
+
+def reconcile(primary, results_by_source):
     output, counts = [], {}
     for row in primary:
         key = identity(row["date"], row["home"], row["away"])
         expected = int(row["home_goals"]), int(row["away_goals"])
-        result = results.get(key)
-        status = "UNMATCHED" if result is None else "MATCH" if result == expected else "CONFLICT"
+        hits = {source: results[key] for source, results in results_by_source.items() if key in results}
+        status = ("UNMATCHED" if not hits else
+                  "MATCH" if all(result == expected for result in hits.values()) else "CONFLICT")
         counts[status] = counts.get(status, 0) + 1
-        output.append({**row, "comparison": status, "official_score": result})
-    return {"counts": counts, "fixtures": output, "result_source": KNVB,
+        output.append({**row, "comparison": status, "comparison_scores": hits})
+    return {"counts": counts, "fixtures": output, "result_sources": sorted(results_by_source),
             "upstream_lineage_certified": False, "ex_final_allowed": False}
 
 
@@ -74,16 +97,27 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--as-of", type=date.fromisoformat, required=True)
     args = parser.parse_args()
-    entry = capture({"knvb": KNVB}, args.output / "raw", reuse=True)["knvb"]
-    if entry.get("final_url") != KNVB:
-        raise ValueError(entry.get("error", "Unexpected KNVB URL"))
-    scores = parse_knvb(read_evidence(args.output / "raw", entry), args.as_of)
+    sources = {"knvb": KNVB, "vi": VI}
+    captures = capture(sources, args.output / "raw", reuse=True)
+    results, issues = {}, {}
+    for key, parse in (("knvb", parse_knvb), ("vi", parse_vi)):
+        entry = captures[key]
+        try:
+            if entry.get("final_url") != sources[key]:
+                raise ValueError(entry.get("error", "Unexpected Dutch source URL"))
+            results[key] = parse(read_evidence(args.output / "raw", entry), args.as_of)
+        except (OSError, KeyError, ValueError) as exc:
+            issues[key] = str(exc)
+    if "knvb" not in results:
+        raise ValueError(issues.get("knvb", "Missing official Dutch result rows"))
     with args.primary.open() as source:
         primary = [row for row in csv.DictReader(source) if row["league"] == "nl.2"]
-    result = reconcile(primary, scores)
-    result["source_evidence"] = entry
+    result = reconcile(primary, results)
+    result["source_evidence"] = captures
+    result["source_issues"] = issues
     atomic_write(args.output / "comparison.json", (json.dumps(result, indent=2, ensure_ascii=False) + "\n").encode())
-    print(json.dumps({"reference_rows": len(primary), "official_rows": len(scores), "counts": result["counts"]}))
+    print(json.dumps({"reference_rows": len(primary), "source_rows": {source: len(rows) for source, rows in results.items()},
+                      "counts": result["counts"], "source_issues": issues}))
 
 
 if __name__ == "__main__":
