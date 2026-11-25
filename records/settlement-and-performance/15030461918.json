@@ -1,0 +1,15 @@
+{
+  "files": {
+    "settlement/outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "settlement/provisional-outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "settlement/report.json": "ccd8f8d77bb35b589b6c671cd566bc19dbab88ab605490634c30231efbc89d32",
+    "settlement/tracked-provisional-outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "settlement/tracked-verified-outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "receipt": {
+    "created_at": "2026-11-25T14:04:39Z",
+    "digest": "sha256:061066143f031a2d145876fc4b51aeabfb10a09198a5aba34abec9f9b0f367ee",
+    "id": 15030461918,
+    "name": "ex-prospective-settlement"
+  }
+}
