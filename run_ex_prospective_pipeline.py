@@ -560,7 +560,7 @@ def main():
             from ex_history_environment import coordinates
             from ex_pregame_weather import forecast
 
-            model = audit(facts)
+            model = audit(facts, as_of=archive.clock())
             atomic_write(args.output_dir / "component-research-audit.json",
                          (json.dumps(model, indent=2) + "\n").encode())
             registry = json.loads(Path("config/ex_history_venues.json").read_text())

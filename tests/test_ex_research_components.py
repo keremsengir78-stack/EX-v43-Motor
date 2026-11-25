@@ -29,12 +29,16 @@ class ResearchComponentTests(unittest.TestCase):
 
     def test_weather_requires_expected_hour_and_prematch_timestamp(self):
         item = {"kind": "PREMATCH_NUMERICAL_FORECAST", "forecast_hour_utc": "2026-11-25T20:00:00Z",
-                "source": {"retrieved_at": "2026-11-25T13:00:00Z"},
+                "source": {"retrieved_at": "2026-11-25T13:00:00Z", "sha256": "a" * 64,
+                           "url": "https://api.open-meteo.com/v1/forecast?timezone=GMT"},
                 "values": {"temperature_2m": 15, "precipitation_probability": 25, "wind_speed_10m": 10}}
         self.assertEqual((.5, .25, .2), weather_vector(item, "2026-11-25T20:30:00Z",
                                                      utc("2026-11-25T13:01:00Z")))
         self.assertIsNone(weather_vector(item, "2026-11-25T20:30:00Z", utc("2026-11-25T13:00:00Z")))
         self.assertIsNone(weather_vector(item, "2026-11-25T21:30:00Z", utc("2026-11-25T13:01:00Z")))
+
+        item["source"]["sha256"] = "missing"
+        self.assertIsNone(weather_vector(item, "2026-11-25T20:30:00Z", utc("2026-11-25T13:01:00Z")))
 
     def test_metrics_keep_brier_and_calibration_separate(self):
         report, _ = metrics([{"label": 1}, {"label": 0}], [.5, .5])

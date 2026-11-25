@@ -1,7 +1,9 @@
 """Shared research-only component scoring and chronological evaluation."""
 
 from collections import Counter, defaultdict
+from datetime import timedelta
 import math
+import re
 from statistics import mean
 
 from ex_component_experiment import weekly_interval
@@ -22,15 +24,27 @@ def vector(values, count):
 
 
 def weather_vector(observation, kickoff, as_of):
-    if not observation or observation.get("kind") != "PREMATCH_NUMERICAL_FORECAST":
+    if not isinstance(observation, dict) or observation.get("kind") != "PREMATCH_NUMERICAL_FORECAST":
         return None
     stamp = utc(kickoff)
-    if (observation["forecast_hour_utc"] != stamp.strftime("%Y-%m-%dT%H:00:00Z")
-            or not utc(observation["source"]["retrieved_at"]) < as_of < stamp):
+    source = observation.get("source")
+    values = observation.get("values")
+    if (not isinstance(source, dict) or not isinstance(values, dict)
+            or not str(source.get("url", "")).startswith("https://api.open-meteo.com/v1/forecast?")
+            or not re.fullmatch(r"[0-9a-f]{64}", str(source.get("sha256", "")))
+            or observation.get("forecast_hour_utc") != stamp.strftime("%Y-%m-%dT%H:00:00Z")):
         return None
-    values = observation["values"]
-    return vector((values["temperature_2m"] / 30, values["precipitation_probability"] / 100,
-                   values["wind_speed_10m"] / 50), FIELDS["external_factors"])
+    try:
+        if not utc(source["retrieved_at"]) < as_of < stamp:
+            return None
+    except (KeyError, TypeError, ValueError):
+        return None
+    measurements = vector(tuple(values.get(key) for key in (
+        "temperature_2m", "precipitation_probability", "wind_speed_10m")), FIELDS["external_factors"])
+    if measurements is None or not 0 <= measurements[1] <= 100 or measurements[2] < 0:
+        return None
+    temperature, precipitation, wind = measurements
+    return temperature / 30, precipitation / 100, wind / 50
 
 
 def metrics(rows, predictions):
@@ -44,9 +58,11 @@ def metrics(rows, predictions):
     return {"brier": mean(losses), "ece_10_equal_width": error}, losses
 
 
-def audit(facts, *, external_observations=None):
+def audit(facts, *, as_of=None, external_observations=None):
     by_competition = {record[1]: league for league, record in APPROVED_LEAGUES.items()}
-    approved = [row for row in facts if row["competition"] in by_competition]
+    approved = [row for row in facts if row["competition"] in by_competition
+                and (as_of is None or (row["kickoff"] < as_of and row["finished"] is not None
+                                       and row["finished"] < as_of and row["captured_at"] < as_of))]
     metadata = {row["event_id"]: row for row in approved}
     examples = build_examples(approved)
     reports, parameters = {}, {}
@@ -60,7 +76,6 @@ def audit(facts, *, external_observations=None):
                 kickoff = row["kickoff"]
                 observation = (external_observations or {}).get(row["event_id"])
                 if observation:
-                    from datetime import timedelta
                     features = weather_vector(observation, kickoff.isoformat(), kickoff - timedelta(microseconds=1))
                 else:
                     features = None
@@ -90,22 +105,24 @@ def audit(facts, *, external_observations=None):
                          (row["strength"] or row["short"])[market],
                          "strength": (row["strength"] or row["short"])[market],
                          "features": features} for day, row, features in block]
-            train, _, test = map(prepare, parts)
-            if component == "team_strength":
-                candidate = [r["strength"] for r in test]
-            else:
+            train, validation, test = map(prepare, parts)
+            if component != "team_strength":
                 if len({r["label"] for r in train}) != 2:
                     continue
-                coef = fit_offset([(0., r["label"], (1., *r["features"])) for r in train],
-                                  FIELDS[component] + 1)
-                parameters[component][market] = coef
-                candidate = [sigmoid(sum(b * v for b, v in zip(coef, (1., *r["features"]), strict=True)))
-                             for r in test]
-            ref, old = metrics(test, [r["reference"] for r in test])
-            score, new = metrics(test, candidate)
-            interval = weekly_interval([(r["date"],) for r in test], old, new)
-            series["markets"][market] = {"candidate": score, "reference": ref,
-                                         "weekly_delta_brier_99pct": interval}
+                coefficients = fit_offset([(0., r["label"], (1., *r["features"])) for r in train],
+                                          FIELDS[component] + 1)
+                parameters[component][market] = coefficients
+
+            def evaluate(block):
+                candidate = [r["strength"] for r in block] if component == "team_strength" else [
+                    sigmoid(sum(b * v for b, v in zip(coefficients, (1., *r["features"]), strict=True)))
+                    for r in block]
+                reference, old = metrics(block, [r["reference"] for r in block])
+                score, new = metrics(block, candidate)
+                return {"candidate": score, "reference": reference,
+                        "weekly_delta_brier_99pct": weekly_interval([(r["date"],) for r in block], old, new)}
+
+            series["markets"][market] = {**evaluate(test), "validation": evaluate(validation)}
     coverage = Counter(by_competition[row["competition"]] for row in approved)
     return {"archive_matches": len(facts), "approved_matches": len(approved), "examples": len(examples),
             "by_league": {league: coverage[league] for league in APPROVED_LEAGUES},
