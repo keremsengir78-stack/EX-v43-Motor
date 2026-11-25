@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from ex_history_archive import MAX_BYTES, atomic_write
+from ex_official_report_html import slovak_minutes, ukrainian_minutes
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
 
 
@@ -84,6 +85,41 @@ def extract_czech_report(html, fixture, labels):
     return normalize([{**fixture, "teams": teams}])
 
 
+def parse_minutes_batch(root, fixtures):
+    """Resolve match reports from immutable evidence and record partial coverage."""
+    manifest = json.loads((root / "manifest.json").read_text())
+    matches, errors, seen = [], {}, set()
+    for label, fixture in fixtures.items():
+        try:
+            league = fixture["league"]
+            entry = manifest[label]
+            source = urlsplit(fixture["source"])
+            key = league, fixture["official_match_id"]
+            if (source.hostname not in OFFICIAL_HOSTS[league] or key in seen
+                    or not key[1].isascii() or not key[1].isdigit()
+                    or not re.search(rf"(?<![0-9]){key[1]}(?![0-9])", source.path)
+                    or entry["url"] != fixture["source"] or entry["final_url"] != fixture["source"]):
+                raise ValueError("Mismatch or duplicate official match identity")
+            seen.add(key)
+            page = read_evidence(root, entry)
+            if league == "cz.1":
+                reviewed = extract_czech_report(page, fixture, fixture["labels"])
+                if reviewed["errors"]:
+                    raise ValueError(str(reviewed["errors"]))
+                minutes = reviewed["minutes"][0]["minutes"]
+            elif league == "ua.1":
+                minutes = ukrainian_minutes(page)
+            elif league == "sk.1":
+                minutes = slovak_minutes(page)
+            else:
+                raise ValueError("No supported PFL match document in the public HTML response")
+            matches.append({"league": league, "official_match_id": key[1],
+                            "source": entry, "minutes": minutes, "basis": "NOMINAL_REGULATION"})
+        except (KeyError, AttributeError, TypeError, OSError, ValueError) as exc:
+            errors[label] = str(exc)
+    return {"matches": matches, "errors": errors, "ex_final_allowed": False}
+
+
 ALTERNATE_CALENDARS = {
     "sk.1": ("https://www.nikeliga.sk/zapasy", r'href="/zapas/'),
     "ua.1": ("https://upl.ua/en/tournaments/games", r'href="/en/report/view/'),
@@ -103,7 +139,10 @@ def archive_alternate_calendars(leagues, root):
         league = label.replace("-", ".")
         status = "UNAVAILABLE"
         if "sha256" in entry:
-            html = read_evidence(root, entry)
+            try:
+                html = read_evidence(root, entry)
+            except (OSError, ValueError):
+                html = ""
             if re.search(ALTERNATE_CALENDARS[league][1], html, re.IGNORECASE):
                 status = "CLUB_CALENDAR_ARCHIVED" if league == "az.1" else "LEAGUE_CALENDAR_ARCHIVED"
             else:
@@ -116,8 +155,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--minutes-fixtures", type=Path)
     args = parser.parse_args()
     print(json.dumps(capture(json.loads(args.config.read_text()), args.output)))
+    if args.minutes_fixtures:
+        result = parse_minutes_batch(args.output, json.loads(args.minutes_fixtures.read_text()))
+        atomic_write(args.output / "minutes.json", (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode())
+        print(json.dumps({"minutes_matches": len(result["matches"]), "errors": result["errors"]}))
 
 
 if __name__ == "__main__":

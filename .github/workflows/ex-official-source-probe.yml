@@ -8,6 +8,7 @@ on:
       - ex_official_report_html.py
       - run_ex_dfl_bulk.py
       - config/ex_official_sources.json
+      - config/ex_official_minutes_fixtures.json
 permissions:
   contents: read
   actions: read
@@ -20,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python run_ex_official_sources.py --config config/ex_official_sources.json --output official-evidence
+      - run: python run_ex_official_sources.py --config config/ex_official_sources.json --output official-evidence --minutes-fixtures config/ex_official_minutes_fixtures.json
       - name: Compare official Czech report to reviewed timeline
         run: |
           python - <<'PY'
@@ -44,23 +45,23 @@ jobs:
                                 for name, minutes in expected.items()}, (actual, expected)
           print("Official Czech report: 32 player minute totals agree with reviewed timeline")
           PY
-      - name: Validate Niké liga and UPL report templates
+      - name: Verify the official minutes batch
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          from ex_official_report_html import slovak_minutes, ukrainian_minutes
-          from run_ex_official_sources import read_evidence
-          root = Path("official-evidence")
-          entries = json.loads((root / "manifest.json").read_text())
-          errors = []
-          for key, parse in [("sk-report", slovak_minutes), ("ua-report", ukrainian_minutes)]:
-              try:
-                  result = parse(read_evidence(root, entries[key]))
-                  print(key, json.dumps(result, ensure_ascii=False))
-              except (ValueError, KeyError) as exc:
-                  errors.append(f"{key}: {exc}")
-          assert not errors, errors
+          from run_ex_official_minutes_batch import normalize
+
+          data = json.loads(Path("official-evidence/minutes.json").read_text())
+          rows = {row["league"]: row["minutes"] for row in data["matches"]}
+          assert set(rows) == {"cz.1", "sk.1", "ua.1"}, data["errors"]
+          assert "az-report" in data["errors"]
+          reviewed = json.loads(Path("research/ucl/domestic-minutes-pilot.json").read_text())
+          expected = normalize([reviewed])["minutes"][0]["minutes"]
+          for side, observed in rows["ua.1"].items():
+              assert sorted(observed.values()) == sorted(expected[side].values())
+          print("Official minutes batch:", {league: [len(side) for side in minutes.values()]
+                                             for league, minutes in rows.items()})
           PY
       - uses: actions/upload-artifact@v4
         if: always()
