@@ -53,3 +53,41 @@ class DurableEvidenceTests(unittest.TestCase):
                "kickoff": "2026-11-25T20:00:00Z"}
         with self.assertRaisesRegex(ValueError, "not sealed before kickoff"):
             combine_forecasts([(utc(row["kickoff"]), [row])])
+
+    def test_weekly_report_uses_earliest_forecast_and_rejects_changed_outcome(self):
+        from ex_decision import MARKETS
+        from ex_historical_features import market_labels
+        from run_ex_weekly_capacity import observed_coverage
+
+        kickoff = "2026-11-25T20:00:00Z"
+        teams = {"home": "11", "away": "22"}
+        fixture = {"league": "UCL", "teams": teams, "kickoff": kickoff}
+        forecast = {"event_id": "1", **fixture, "forecast_at": "2026-11-25T07:00:00Z",
+                    "short": dict.fromkeys(MARKETS, .25), "strength": None}
+        result = {"event_id": "1", **fixture, "score": [1, 0], "labels": market_labels(1, 0),
+                  "finished": "2026-11-25T22:00:00Z", "settled_at": "2026-11-26T00:00:00Z",
+                  "official_review": {"scope": "REVIEWED_OFFICIAL_RESULT"}}
+        with TemporaryDirectory() as root:
+            path = Path(root)
+            for index, hour in ((1, 8), (2, 9)):
+                folder = path / "packs" / str(index)
+                folder.mkdir(parents=True)
+                (folder / "receipt.json").write_text(json.dumps({
+                    "name": "ex-prospective-forecasts", "created_at": f"2026-11-25T{hour:02d}:00:00Z"}))
+                row = forecast if index == 1 else {**forecast, "short": dict.fromkeys(MARKETS, .99)}
+                (folder / "forecasts.jsonl").write_text(json.dumps(row) + "\n")
+            folder = path / "settlements" / "3"
+            folder.mkdir(parents=True)
+            (folder / "receipt.json").write_text("{}")
+            outcomes = folder / "outcomes.jsonl"
+            outcomes.write_text(json.dumps(result) + "\n")
+            _, report = observed_coverage({"1": fixture}, path / "packs", path / "settlements")
+            self.assertEqual(1, report["matched"])
+            self.assertEqual(.5625, report["venue5_brier"]["MS1"])
+            second = path / "settlements" / "4"
+            second.mkdir()
+            (second / "receipt.json").write_text("{}")
+            (second / "outcomes.jsonl").write_text(json.dumps({
+                **result, "score": [0, 1], "labels": market_labels(0, 1)}) + "\n")
+            with self.assertRaisesRegex(ValueError, "Conflicting corroborated outcomes"):
+                observed_coverage({"1": fixture}, path / "packs", path / "settlements")

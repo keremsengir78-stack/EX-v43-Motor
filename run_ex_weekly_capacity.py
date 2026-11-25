@@ -8,6 +8,7 @@ from pathlib import Path
 from statistics import mean
 
 from ex_decision import MARKETS
+from ex_historical_features import market_labels
 
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
@@ -116,6 +117,8 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                     if (fixture and event in forecast_ids and fixture["teams"] == row["teams"]
                             and utc(fixture["kickoff"]) == utc(row["kickoff"])
                             and row.get("official_review", {}).get("scope") == "REVIEWED_OFFICIAL_RESULT"):
+                        if row["labels"] != market_labels(*row["score"]):
+                            raise ValueError("Archived result labels disagree with the score")
                         existing = joined_outcomes.setdefault(event, row)
                         if existing["labels"] != row["labels"] or existing["score"] != row["score"]:
                             raise ValueError("Conflicting corroborated outcomes across archived packs")

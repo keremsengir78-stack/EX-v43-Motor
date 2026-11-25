@@ -9,7 +9,7 @@ import re
 
 KINDS = {"ex-prospective-forecasts": "prematch-and-research",
          "ex-prospective-settlement": "settlement-and-performance",
-         "ex-official-source-probe": "official-source-probe", "ex-historical-facts": "historical-facts", "ex-frozen-research-candidates": "frozen-candidates",
+         "ex-technical-audit": "technical-audit", "ex-official-source-probe": "official-source-probe", "ex-historical-facts": "historical-facts", "ex-frozen-research-candidates": "frozen-candidates",
          "ex-weekly-capacity": "weekly-capacity", "ucl-research-evidence": "ucl-domestic-research", "ex-retrospective-results": "retrospective-research"}
 
 

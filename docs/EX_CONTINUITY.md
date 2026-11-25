@@ -383,3 +383,7 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
    Normal Actions yazımı için **Restrict updates** ve zorunlu pull request
    seçeneklerini bu kuralda açma. Kaydet ve dal ekranındaki koruma durumunu
    doğrula. REST ile işlem yapılıyorsa **Administration: write** gerekir.
+
+Ortak arşiv yazıcısının kuyruğunu doldurmamak için üç günlük çağrıyı
+`--offset 0`, `--offset 1`, `--offset 2` ile ayrı zaman aralıklarına
+yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
