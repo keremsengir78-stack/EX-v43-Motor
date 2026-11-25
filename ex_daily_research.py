@@ -30,7 +30,7 @@ def domestic_snapshot(root):
 DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league != "UCL"}
 
 
-def rolling_domestic(fixture, by_team, as_of):
+def rolling_domestic(fixture, by_team, as_of, *, retrospective=False):
     """Join current domestic membership by ESPN club ID; never infer from a name."""
     cutoff = as_of.date()
     rows, leagues = [], []
@@ -38,7 +38,9 @@ def rolling_domestic(fixture, by_team, as_of):
         club = fixture["team_ids"][side]
         history = [row for row in by_team.get(club, ())
                    if row["competition"] in DOMESTIC_BY_SLUG and row["kickoff"].date() < cutoff
-                   and row["finished"] <= row["captured_at"] < as_of]
+                   and row["finished"] is not None and row["score"] is not None
+                   and (row["finished"] < as_of if retrospective
+                        else row["finished"] <= row["captured_at"] < as_of)]
         current = {row["competition"] for row in history
                    if row["kickoff"].date() >= season_bounds(DOMESTIC_BY_SLUG[row["competition"]], cutoff)[0]}
         if len(current) != 1:

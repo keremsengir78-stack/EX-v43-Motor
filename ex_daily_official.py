@@ -6,6 +6,8 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
+from ex_benelux_results import (BELGIUM_CALENDAR, BELGIUM_SAMPLE, PORTUGAL_SAMPLE, belgian_matches,
+                                belgian_results, embedded, portuguese_results)
 from ex_cross_verify import norm
 from ex_history_archive import BudgetExhausted, source_error, utc
 from run_ex_additional_official_scores import ENGLISH, FPL, SERIE_A, english_scores, italian_scores, MARSEILLE, marseille_scores
@@ -20,7 +22,7 @@ UEFA_CONFIG = Path(__file__).with_name("config") / "ucl_matchday5_2026_research.
 GERMANY = {"de.1": ("bl1", "bundesliga"), "de.2": ("bl2", "2bundesliga")}
 NORWAY = "https://www.eliteserien.no/resultater"
 TURKEY = "https://www.tff.org/default.aspx?pageID=198"
-OFFICIAL_LEAGUES = ("en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1")
+OFFICIAL_LEAGUES = ("en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1", "be.1", "pt.1")
 
 
 def norway_scores(raw, stamp):
@@ -116,6 +118,30 @@ def uefa_scores(raw, url, stamp):
 def archive_candidates(league, archive, fixtures=()):
     """Use published full-time results from competition and federation sources."""
     ttl = dt.timedelta(hours=6)
+    if league in {"be.1", "pt.1"}:
+        days = {utc(row["kickoff"]).date().isoformat() for row in fixtures}
+        urls = {}
+        if league == "be.1":
+            if "2026-11-21" in days:
+                urls[BELGIUM_SAMPLE] = None
+            def links(raw, _):
+                rows = belgian_matches(embedded(raw, b"__NEXT_DATA__"))
+                return [f"https://www.proleague.be/wedstrijden/{row['slug']}" for row in rows
+                        if row["date"] in days and re.fullmatch(r"[a-z0-9-]+", row["slug"])]
+            if days:
+                more, _ = archive.get(BELGIUM_CALENDAR, links, max_age=ttl)
+                urls.update(dict.fromkeys(more))
+            parse = belgian_results
+        else:
+            if "2026-11-08" in days:
+                urls[PORTUGAL_SAMPLE] = None
+            parse = portuguese_results
+        entries, evidence = [], []
+        for url in list(urls)[:9]:
+            rows, source = archive.get(url, lambda raw, stamp: parse(raw, url, stamp), max_age=ttl)
+            entries.extend(rows)
+            evidence.append(source)
+        return entries, evidence
     if league in GERMANY:
         return german_scores(league, fixtures, archive)
     if league in {"tr.1", "no.1"}:
@@ -258,6 +284,9 @@ def main():
                 url = f"{LALIGA}/2026-27/gameweek-6"
                 rows, source = archive.get(url, lambda raw, stamp: laliga_scores(raw.decode(), url, stamp.isoformat())[0])
                 evidence = [source]
+            elif league in {"be.1", "pt.1"}:
+                date = "2026-11-21" if league == "be.1" else "2026-11-08"
+                rows, evidence = archive_candidates(league, archive, [{"kickoff": date + "T20:00:00Z"}])
             elif league in {"tr.1", "no.1"}:
                 rows, evidence = archive_candidates(league, archive)
             elif league in discovery:
