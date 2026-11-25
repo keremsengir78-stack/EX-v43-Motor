@@ -101,3 +101,19 @@ jobs:
         with:
           name: ex-dfl-bulk-evidence
           path: dfl-evidence/
+
+  laliga-template:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl --fail --silent --show-error --max-time 20 https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4 -o round.html
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path("round.html").read_text()
+          for q in ("__NEXT_DATA__", "06.09.2026", "Valencia CF", "2026-09-06", "homeScore"):
+              print(q, len(list(re.finditer(re.escape(q),text))))
+              i = text.find(q)
+              if i >= 0:
+                  print(text[max(i-400,0):i+1000])
+          PY
