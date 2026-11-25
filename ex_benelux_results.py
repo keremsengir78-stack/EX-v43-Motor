@@ -71,3 +71,24 @@ def portuguese_results(raw, url, stamp):
     return [{"date": kickoff.date().isoformat(), "home": values[entry("homeTeam")["name"]],
              "away": values[entry("awayTeam")["name"]], "official_score": scores,
              "source": url, "source_match_id": urlsplit(url).path}]
+
+
+def portuguese_related_links(raw, days):
+    """Discover exact fixture IDs from the league's related-match references."""
+    values = embedded(raw, b"__NUXT_DATA__")
+    required = {"seasonCode", "competitionName", "fixtureDate", "matchweekNumber", "fixtureNumber"}
+    links = set()
+    for row in values:
+        if not isinstance(row, dict) or not required <= row.keys():
+            continue
+        competition, season, kickoff, week, number = (values[row[field]] for field in
+            ("competitionName", "seasonCode", "fixtureDate", "matchweekNumber", "fixtureNumber"))
+        if (competition != "Liga Portugal Betclic" or not isinstance(season, str)
+                or not re.fullmatch(r"20[0-9]{2}-20[0-9]{2}", season)
+                or not isinstance(kickoff, str) or utc(kickoff).date().isoformat() not in days
+                or type(week) is not int or not 1 <= week <= 34
+                or type(number) is not int or not 1 <= number <= 9):
+            continue
+        links.add(f"https://www.ligaportugal.pt/match/{season.replace('-', '')}/ligaportugalbetclic/"
+                  f"{week}/{number}?tab=match_timeline")
+    return sorted(links)

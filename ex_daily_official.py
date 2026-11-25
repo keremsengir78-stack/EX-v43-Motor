@@ -7,7 +7,7 @@ from pathlib import Path
 from collections import defaultdict
 
 from ex_benelux_results import (BELGIUM_CALENDAR, BELGIUM_SAMPLE, PORTUGAL_SAMPLE, belgian_matches,
-                                belgian_results, embedded, portuguese_results)
+                                belgian_results, embedded, portuguese_related_links, portuguese_results)
 from ex_cross_verify import norm
 from ex_history_archive import BudgetExhausted, source_error, utc
 from run_ex_additional_official_scores import ENGLISH, FPL, SERIE_A, english_scores, italian_scores, MARSEILLE, marseille_scores
@@ -159,6 +159,10 @@ def archive_candidates(league, archive, fixtures=()):
                         raise
             parse = belgian_results
         else:
+            if days:
+                links, _ = archive.get(PORTUGAL_SAMPLE, lambda raw, _: portuguese_related_links(raw, days),
+                                       max_age=ttl)
+                urls.update(dict.fromkeys(links))
             if "2026-11-08" in days:
                 urls[PORTUGAL_SAMPLE] = None
             parse = portuguese_results
@@ -312,7 +316,10 @@ def main():
                 evidence = [source]
             elif league in {"be.1", "pt.1"}:
                 date = "2026-11-21" if league == "be.1" else "2026-11-08"
-                rows, evidence = archive_candidates(league, archive, [{"kickoff": date + "T20:00:00Z"}])
+                fixtures = [{"kickoff": date + "T20:00:00Z"}]
+                if league == "pt.1":
+                    fixtures.append({"kickoff": "2026-10-31T20:30:00Z"})
+                rows, evidence = archive_candidates(league, archive, fixtures)
             elif league in {"tr.1", "no.1"}:
                 rows, evidence = archive_candidates(league, archive)
             elif league in discovery:
