@@ -5,7 +5,7 @@ from collections import Counter, defaultdict
 import json
 from pathlib import Path
 
-from ex_daily_official import DUTCH, GERMANY, key, norway_scores, turkey_scores, uefa_scores
+from ex_daily_official import DUTCH, GERMANY, TURKEY_DETAIL, key, norway_scores, turkey_detail_scores, turkey_scores, uefa_scores
 from ex_benelux_results import belgian_results, portuguese_results
 from ex_history_archive import HistoryArchive, atomic_write
 from run_ex_additional_official_scores import marseille_scores
@@ -41,7 +41,7 @@ def source_rows(root):
             elif league == "no.1":
                 rows = norway_scores(raw, stamp)
             elif league == "tr.1":
-                rows = turkey_scores(raw, stamp)
+                rows = turkey_detail_scores(raw, stamp) if url == TURKEY_DETAIL else turkey_scores(raw, stamp)
             else:
                 raise ValueError(f"Unsupported league: {league}")
             observed += len(rows)

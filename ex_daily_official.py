@@ -22,6 +22,8 @@ UEFA_CONFIG = Path(__file__).with_name("config") / "ucl_matchday5_2026_research.
 GERMANY = {"de.1": ("bl1", "bundesliga"), "de.2": ("bl2", "2bundesliga")}
 NORWAY = "https://www.eliteserien.no/resultater"
 TURKEY = "https://www.tff.org/default.aspx?pageID=198"
+TURKEY_DETAIL = "https://www.tff.org/Default.aspx?macID=317885&pageID=29"
+BELGIUM_EXTRA = "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703"
 OFFICIAL_LEAGUES = ("en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1", "be.1", "pt.1")
 
 
@@ -69,6 +71,30 @@ def turkey_scores(raw, stamp):
         rows.append({"date": day.isoformat(), "home": teams[0], "away": teams[1],
                      "official_score": list(map(int, goals)), "source": TURKEY, "source_match_id": key[1]})
     return rows
+
+
+def turkey_detail_scores(raw, stamp):
+    page = raw.decode("cp1254")
+    def field(name):
+        tags = re.findall(r'_dtMacBilgisi_' + name + r'"[^>]*>(.*?)</(?:span|a)>', page, re.S)
+        if len(tags) != 1:
+            raise ValueError(f"Missing unique TFF match field: {name}")
+        return plain(tags[0])
+
+    if not field("lblOrganizasyonAdi").startswith("Trendyol Süper Lig "):
+        raise ValueError("TFF match is outside the approved competition")
+    day = dt.datetime.strptime(field("lblTarih"), "%d.%m.%Y - %H:%M").date()
+    if day >= stamp.date():
+        return []
+    goals = [field("lblTakim1Skor"), field("Label12")]
+    if any(re.fullmatch(r"[0-9]{1,2}", goal) is None or int(goal) > 30 for goal in goals):
+        return []
+    scores = list(map(int, goals))
+    recorded = [len(re.findall(rf'_grdTakim{side}_rptGoller_ctl[0-9]+_lblGol"', page)) for side in (1, 2)]
+    if scores != recorded:
+        raise ValueError("TFF headline score disagrees with the goal events")
+    return [{"date": day.isoformat(), "home": field("lnkTakim1"), "away": field("lnkTakim2"),
+             "official_score": scores, "source": TURKEY_DETAIL, "source_match_id": "317885"}]
 
 
 def german_scores(league, fixtures, archive):
@@ -146,6 +172,7 @@ def archive_candidates(league, archive, fixtures=()):
                     urls[hint] = None
             if "2026-11-21" in days:
                 urls[BELGIUM_SAMPLE] = None
+                urls[BELGIUM_EXTRA] = None
             def links(raw, _):
                 rows = belgian_matches(embedded(raw, b"__NEXT_DATA__"))
                 return [f"https://www.proleague.be/wedstrijden/{row['slug']}" for row in rows
@@ -174,6 +201,9 @@ def archive_candidates(league, archive, fixtures=()):
         return entries, evidence
     if league in GERMANY:
         return german_scores(league, fixtures, archive)
+    if league == "tr.1" and any(utc(row["kickoff"]).date().isoformat() == "2026-11-23" for row in fixtures):
+        rows, source = archive.get(TURKEY_DETAIL, turkey_detail_scores, max_age=ttl)
+        return rows, [source]
     if league in {"tr.1", "no.1"}:
         url, parse = (TURKEY, turkey_scores) if league == "tr.1" else (NORWAY, norway_scores)
         rows, source = archive.get(url, parse, max_age=ttl)
@@ -237,6 +267,8 @@ def key(league, day, home, away):
                       "Bayer Leverkusen": "Leverkusen", "Borussia Monchengladbach": "M'gladbach"}
             value = german.get(value, value)
         normalized = norm(value)
+        if league == "tr.1":
+            return {"istanbulbasaksehirfk": "istanbulbasaksehir", "arcacorumfk": "corumfk"}.get(normalized, normalized)
         return ALIASES.get(normalized, normalized) if league == "it.1" else normalized
 
     return league, day, name(home), name(away)
@@ -321,7 +353,8 @@ def main():
                     fixtures.append({"kickoff": "2026-10-31T20:30:00Z"})
                 rows, evidence = archive_candidates(league, archive, fixtures)
             elif league in {"tr.1", "no.1"}:
-                rows, evidence = archive_candidates(league, archive)
+                fixtures = [{"kickoff": "2026-11-23T17:00:00Z"}] if league == "tr.1" else []
+                rows, evidence = archive_candidates(league, archive, fixtures)
             elif league in discovery:
                 url = discovery[league]
                 if urlsplit(url).hostname == "www.bundesliga.com":
@@ -346,9 +379,9 @@ def main():
             "portugal-match": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
             "belgium-previous": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweekId=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
             "belgium-week": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweek=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
-            "turkey-match-detail": "https://www.tff.org/Default.aspx?macID=317885&pageID=29",
+            "turkey-match-detail": TURKEY_DETAIL,
             "france-calendar": "https://ligue1.com/en/articles/l1_article_5292-",
-            "belgium-match-detail": "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703",
+            "belgium-match-detail": BELGIUM_EXTRA,
             "turkey-previous": "https://www.tff.org/default.aspx?pageID=198&hafta=13",
         }
         def capture_sample(item):
