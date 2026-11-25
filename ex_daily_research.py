@@ -105,5 +105,5 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
             "domestic_research": baseline, "markets": decisions, "market_values": values_by_market,
             "observed_inputs": observations or {},
             "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
-            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate),
+            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, pup_requested=False),
             "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}

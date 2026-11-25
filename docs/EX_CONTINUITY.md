@@ -421,3 +421,16 @@ yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
    **Actions: write** gerektirir. Dal kuralı **Administration: write**
    yetkisiyle veya bir depo yöneticisi tarafından GitHub ekranında
    ayarlanır. Koruma yalnızca `ex-evidence-archive` dalını hedefler.
+
+### Paket 24–25 — günlük karar kanıtı
+
+- `daily-analysis.json` dört bağımsız pazarın kaynak fiyatlarını ve
+  EX-D giriş durumunu, kalibre edilmemiş skor dağılımından ve EX-G
+  kanıtından ayrı tutar. Kaynak çalışma yükü ve hava gözlemi varsa
+  kaydedilir. Doğrulanmış bileşen puanlarına dönüştürülmez.
+- Açık PUP isteği olmayan günlük çalıştırmada Auto-Control PUP
+  eksikliği yazmaz. Kesin ilk 11 ve kişisel millî ara etkisi zorunlu
+  tutulmaz. Diğer veri, bağımsız kaynak ve kalibrasyon kapıları korunur.
+- Günlük araştırmada çelişkili tarihsel maç kendi kimliğiyle
+  örneklem dışına alınır. Sonuçlandırma, arşiv bütünlüğü ve FINAL
+  kontrolleri katı kalır.

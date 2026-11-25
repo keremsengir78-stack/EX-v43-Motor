@@ -123,7 +123,9 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                         "validated_minutes_proxy_available": minutes is not None,
                         "source_recent_schedule": source_load.get(fixture["teams"][side]),
                     }
+                game_info = payload.get("gameInfo") or {}
                 observations = {**observed, "workload": side_load, "summary_source": source,
+                                "provider_weather_observed": bool(game_info.get("weather")),
                                 "confirmed_lineup_required": False, "individual_international_break_required": False,
                                 "recent_schedule_issue": workload_issue}
                 quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())

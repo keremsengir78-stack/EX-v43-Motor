@@ -31,6 +31,8 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual(set(MARKETS), set(result["markets"]["markets"]))
         self.assertTrue(all(m["ex_g"]["probability"] is None for m in result["markets"]["markets"].values()))
         self.assertFalse(result["auto_control"]["ex_final_allowed"])
+        self.assertNotIn("pup:unverified", result["auto_control"]["issues"])
+        self.assertEqual("NOT_REQUESTED", result["markets"]["pup"]["status"])
         self.assertIsNone(daily_analysis({**fixture, "home": "Different"}, None, snapshot, cutoff)["domestic_research"])
 
     def test_official_aliases_preserve_date_and_orientation(self):
