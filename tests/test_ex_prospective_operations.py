@@ -11,11 +11,27 @@ from ex_live_data import LEAGUES
 from ex_prospective_power import plan, verdict
 from run_ex_official_minutes_batch import normalize
 from run_ex_prematch_archive import collect_registered
-from run_ex_prospective_pipeline import settle
+from run_ex_prospective_pipeline import forecast_rows, settle
 from run_ex_source_audit import audit
 
 
 class ProspectiveOperationsTests(unittest.TestCase):
+    def test_a_corrupt_board_does_not_block_another_competition(self):
+        cutoff = utc("2026-11-25T16:00:00Z")
+        with TemporaryDirectory() as root:
+            archive = HistoryArchive(root, 0, clock=lambda: cutoff)
+            url = "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125"
+            raw = b'{"events":[]}'
+            valid = archive.import_capture(url, raw, cutoff, archive.digest(raw))
+            manifest = {"day": "2026-11-25", "reports": {
+                "en.1": {"board": valid, "records": []},
+                "UCL": {"board": valid, "records": [{"event_id": "123"}]},
+            }}
+            rows, skipped = forecast_rows(manifest, archive, [], cutoff)
+        self.assertEqual([], rows)
+        self.assertEqual(["research_board", "research_fixture"], [entry["stage"] for entry in skipped])
+        self.assertEqual("123", skipped[1]["event_id"])
+
     def test_registered_capture_covers_catalog_and_isolates_unavailable_sources(self):
         def collect(_, league, day, limit):
             if league == "az.1":

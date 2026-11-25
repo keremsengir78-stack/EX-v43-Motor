@@ -66,6 +66,13 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual("2026-09-10", result["samples"]["home"]["match_dates"][0][-1])
         self.assertTrue(row["tur2"])
         self.assertIsNone(row["calibration_cohort"])
+        for game in by_team["456"]:
+            game["competition"] = "eng.1"
+        domestic = daily_analysis({**fixture, "league": "en.1"}, None, None, cutoff, by_team=by_team)
+        self.assertEqual("UNCALIBRATED_SAME_LEAGUE_BASELINE", domestic["domestic_research"]["status"])
+        self.assertTrue(domestic["domestic_research"]["baseline"]["top_scores"])
+        self.assertTrue(domestic["tur2"])
+        self.assertFalse(domestic["ex_final_allowed"])
 
     def test_official_fixture_and_odds_checks_are_market_scoped(self):
         cutoff = utc("2026-11-25T13:00:00Z")
