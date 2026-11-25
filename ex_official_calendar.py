@@ -29,7 +29,7 @@ def slovak_fixtures(html):
 
 
 def ukrainian_fixtures(html):
-    markers = re.split(r'(?=<div class="tour-(?:date|match)">)', html)
+    markers = re.split(r'(?=<div class="tour-(?:date|match)(?: [^"]+)?">)', html)
     day = None
     for item in markers:
         if item.startswith('<div class="tour-date">'):

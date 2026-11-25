@@ -29,18 +29,18 @@
   },
   "az-pfl-sabah": {
     "league": "az.1",
-    "official_match_id": "1743269964",
     "source": "https://pfl.az/storage/games/files/67e8304cee9af_1743269964.pdf",
     "home": "Sumqayıt",
     "away": "Sabah",
-    "match_date_label": "29 mart 2025"
+    "match_date_label": "29 mart 2025",
+    "official_document_id": "1743269964"
   },
   "az-pfl-neftci": {
     "league": "az.1",
-    "official_match_id": "1793989279",
     "source": "https://pfl.az/storage/games/files/6aee1a9f33881_1793989279.pdf",
     "home": "Neftçi",
     "away": "Kəpəz",
-    "match_date_label": "6 noyabr 2026"
+    "match_date_label": "6 noyabr 2026",
+    "official_document_id": "1793989279"
   }
 }

@@ -139,16 +139,7 @@ jobs:
           cache = root / "pregame-cache"
           for league, source in report["alternate_calendar_evidence"].items():
               rows = list(PARSERS[league](read_evidence(cache / "alternate-calendars", source)))
-              if league == "ua.1" and not rows:
-                  import re
-                  from ex_official_calendar import fields
-                  page = read_evidence(cache / "alternate-calendars", source)
-                  print("UPL competition markers", set(fields(r'class="match-tournament">(.*?)</div>', page)))
-                  blocks = [b for b in re.split(r'(?=<div class="tour-(?:date|match)">)', page)
-                            if b.startswith('<div class="tour-match">') and "UPL" in b]
-                  print("UPL sample", blocks[0][:3250] if blocks else "absent")
-              else:
-                  assert rows, league
+              assert rows, league
               print(league, len(rows))
           for day in range(25, 31):
               report["day"] = dt.date(2026, 11, day).isoformat()

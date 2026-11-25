@@ -8,6 +8,8 @@ on:
       - ex_official_report_html.py
       - ex_pfl_protocol.py
       - run_ex_dfl_bulk.py
+      - run_ex_laliga_bulk.py
+      - run_ex_source_audit.py
       - config/ex_official_sources.json
       - config/ex_official_minutes_fixtures.json
 permissions:
@@ -57,7 +59,7 @@ jobs:
           data = json.loads(Path("official-evidence/minutes.json").read_text())
           rows = {row["league"]: row["minutes"] for row in data["matches"]}
           assert set(rows) == {"cz.1", "sk.1", "ua.1", "az.1"}, data["errors"]
-          pfl = {row["official_match_id"]: row["minutes"] for row in data["matches"] if row["league"] == "az.1"}
+          pfl = {row["official_document_id"]: row["minutes"] for row in data["matches"] if row["league"] == "az.1"}
           assert len(pfl) == 2, data["errors"]
           assert pfl["1743269964"]["home"]["Silvanus Nimeli"] == 0
           assert pfl["1793989279"]["away"]["Şahnur İsmayılov"] == 0
@@ -102,26 +104,29 @@ jobs:
           name: ex-dfl-bulk-evidence
           path: dfl-evidence/
 
-  laliga-template:
+  laliga-bulk:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - run: |
-          curl --fail --silent --show-error --max-time 20 https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-4 -o round.html
-          python - <<'PY'
-          import re
-          from pathlib import Path
-          text = Path("round.html").read_text()
-          import json
-          data = json.loads(re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>',text,re.S)[1])
-          props = data["props"]["pageProps"]
-          print(list(props))
-          for k, v in props.items():
-              if isinstance(v, list) and v and isinstance(v[0],dict):
-                  print(k, len(v), json.dumps(v[0])[:2200])
-              if isinstance(v, dict):
-                  print(k, list(v))
-          for row in re.findall(r'<tr\b[^>]*>(.*?)</tr>',text,re.S)[:3]:
-              cells = re.findall(r'<td\b([^>]*)>(.*?)</td>',row,re.S)
-              print([(re.findall(r'data-type="([^"]+)"', tags), re.sub(r'<[^>]*>', ' ', value).strip()[:200])
-                     for tags, value in cells])
-          PY
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - run: python run_ex_laliga_bulk.py --ledger scores/score-evidence.json --dfl dfl/results.json --output laliga-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-laliga-bulk-evidence
+          path: laliga-evidence/

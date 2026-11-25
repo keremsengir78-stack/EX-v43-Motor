@@ -35,11 +35,11 @@ def audit(ledger, dfl=None):
                     records[key]["proof"].add(label)
 
     for item in (dfl or {}).get("fixtures", []):
-        key = "de.1", item["date"], item["home"], item["away"]
+        key = item.get("league", "de.1"), item["date"], item["home"], item["away"]
         if key in records:
             row = records[key]
             row["scores"].add(tuple(item["official_score"]))
-            row["proof"].add("dfl_official_result")
+            row["proof"].add(item.get("proof", "dfl_official_result"))
 
     categories = {}
     by_league_season = defaultdict(Counter)

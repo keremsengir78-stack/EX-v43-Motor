@@ -18,7 +18,7 @@ from ex_pfl_protocol import extract_minutes, pdf_layout
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
 
 
-ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az"})
+ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az", "www.laliga.com"})
 
 
 def checked(url):
@@ -99,9 +99,10 @@ def parse_minutes_batch(root, fixtures):
             league = fixture["league"]
             entry = manifest[label]
             source = urlsplit(fixture["source"])
-            key = league, fixture["official_match_id"]
             is_pdf = league == "az.1" and re.fullmatch(
                 r"/storage/games/files/[a-f0-9]+_\d+\.pdf", source.path) is not None
+            id_field = "official_document_id" if is_pdf else "official_match_id"
+            key = league, fixture[id_field]
             if (source.hostname not in OFFICIAL_HOSTS[league] or key in seen
                     or not key[1].isascii() or not key[1].isdigit()
                     or not re.search(rf"(?<![0-9]){key[1]}(?![0-9])", source.path)
@@ -123,7 +124,7 @@ def parse_minutes_batch(root, fixtures):
                 minutes = slovak_minutes(read_evidence(root, entry))
             else:
                 raise ValueError("No supported PFL match document in the public HTML response")
-            matches.append({"league": league, "official_match_id": key[1],
+            matches.append({"league": league, id_field: key[1],
                             "source": entry, "minutes": minutes, "basis": "NOMINAL_REGULATION"})
         except (KeyError, AttributeError, TypeError, OSError, ValueError) as exc:
             errors[label] = str(exc)
