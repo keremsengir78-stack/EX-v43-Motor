@@ -40,8 +40,8 @@ def load_facts(plan, root):
                     if minutes and all(value is not None for value in minutes.values()) and sum(minutes.values()) == 990:
                         totals[team] = minutes
             return {**fact, "minutes": totals, "source_sha256": meta["sha256"], "captured_at": captured}
-        parsed, _ = archive.get(url, parse)
-        facts.append(parsed)
+        raw, captured = archive._load(meta, url)
+        facts.append(parse(raw, captured))
     return facts, missing
 
 
