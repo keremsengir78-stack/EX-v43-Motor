@@ -1,0 +1,126 @@
+{
+  "tr.1": {
+    "parsed_completed_rows": 0,
+    "sources": [
+      {
+        "url": "https://www.tff.org/default.aspx?pageID=198",
+        "retrieved_at": "2026-11-25T10:07:37.057611+00:00",
+        "sha256": "b531a6cf4d0818ed6ec27407380b51b4ebe462d9d6d2bbf64cb8168abbad6107",
+        "size": 337040
+      }
+    ],
+    "state": "NO_RESULT_PARSER_OR_ROWS"
+  },
+  "de.1": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:07:33.309355+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.2": {
+    "parsed_completed_rows": 0,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/2bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:07:33.916145+00:00",
+        "sha256": "d19fb0cf1d44b8f3a2239787d84d5d0de60e17cda50bc0bd1ffdd02544563fac",
+        "size": 864662
+      }
+    ],
+    "state": "NO_RESULT_PARSER_OR_ROWS"
+  },
+  "pt.1": {
+    "parsed_completed_rows": 0,
+    "stage": "official_source_probe",
+    "url": "https://www.ligaportugal.pt/competicao/1/classificacao",
+    "category": "NOT_AVAILABLE",
+    "retry_deferred": false,
+    "error": "HTTP Error 404: Not Found"
+  },
+  "be.1": {
+    "parsed_completed_rows": 0,
+    "stage": "official_source_probe",
+    "url": "https://www.proleague.be/jpl/kalender",
+    "category": "NOT_AVAILABLE",
+    "retry_deferred": false,
+    "error": "HTTP Error 404: Not Found"
+  },
+  "no.1": {
+    "parsed_completed_rows": 0,
+    "sources": [
+      {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:07:34.278374+00:00",
+        "sha256": "e0cd22f9fbacf53fe58edcea29215c3277d0b0fd758fe9f7f4d011f6f7b69593",
+        "size": 359880
+      }
+    ],
+    "state": "NO_RESULT_PARSER_OR_ROWS"
+  },
+  "es.1": {
+    "parsed_completed_rows": 10,
+    "sources": [
+      {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:07:35.975037+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.1": {
+    "parsed_completed_rows": 117,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/eredivisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:07:35.688788+00:00",
+        "sha256": "1f12bcdce8d276359fa16f264e66cb8d3491351de870a0d3f1c617b6c2456af6",
+        "size": 235078
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.2": {
+    "parsed_completed_rows": 154,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:07:35.732324+00:00",
+        "sha256": "edc523792c64d9b3373aef48fa8326580ac3cb999d5aba84352c75cacc2c8ffc",
+        "size": 262848
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "fr.1": {
+    "parsed_completed_rows": 11,
+    "sources": [
+      {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "UCL": {
+    "parsed_completed_rows": 81,
+    "sources": [
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-25T10:07:36.159287+00:00",
+        "sha256": "5024bbbb2ed6f32be6319d3df47bebb04047818a7a6747c3c6d4c7def6eb5830",
+        "size": 107243
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  }
+}
