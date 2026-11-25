@@ -11,8 +11,8 @@ class ProductionCoverageTests(unittest.TestCase):
                 '<div class="row"><div class="value home"><div class="team">Jong Ajax</div></div>'
                 '<div class="value center">3-0</div><div class="value away"><div class="team">Jong AZ</div></div></div>')
         results = parse_knvb(html, date(2026, 11, 25))
-        vi = ('<a class="MatchList_match-link__a" href="/wedstrijden/2026-11-23/jong-ajax-vs-jong-az">'
-              '<span>FT</span><ul class="score-element ScoreElement_a"><li>3</li><li>1</li></ul></a>')
+        vi = ('<a class="MatchList_match-link__a" href="/wedstrijden/2026-11-23/jong-ajax-vs-jong-az2">'
+              '<span>FT</span><ul class="score-element ScoreElement_a"><li>3</li><li>1</li></ul><ul class="MatchList_teams__a"><li>Jong Ajax</li><li>Jong AZ</li></ul></a>')
         other = parse_vi(vi, date(2026, 11, 25))
         primary = {"date": "2026-11-23", "home": "Ajax II", "away": "AZ II", "home_goals": 3, "away_goals": 0}
         result = reconcile([primary, {**primary, "home": "AZ II", "away": "Ajax II"}],

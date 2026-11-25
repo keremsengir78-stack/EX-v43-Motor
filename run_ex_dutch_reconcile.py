@@ -66,6 +66,12 @@ def parse_vi(html, as_of):
         score = re.search(r'<ul class="score-element [^"]+">\s*<li>(\d{1,2})</li>\s*<li>(\d{1,2})</li>', block)
         if not score:
             continue
+        team_list = re.search(r'<ul class="MatchList_teams__[^"]+">(.*?)</ul>', block, re.S)
+        if team_list:
+            names = [plain(cell) for cell in re.findall(r"<li\b[^>]*>(.*?)</li>", team_list[1], re.S)]
+            if len(names) != 2 or not all(names):
+                raise ValueError("VI result needs two rendered teams")
+            home, away = names
         key = identity(day, home, away)
         value = tuple(map(int, score.groups()))
         if key in results and results[key] != value:
