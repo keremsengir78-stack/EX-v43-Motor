@@ -100,7 +100,6 @@ jobs:
     if: inputs.artifact_ids != ''
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    concurrency: ex-evidence-archive-writer
     permissions:
       contents: write
       actions: read
@@ -135,7 +134,17 @@ jobs:
           git -C "$root/store" add objects records
           if ! git -C "$root/store" diff --cached --quiet; then
             git -C "$root/store" -c user.name=ex-evidence-bot -c user.email=ex-evidence-bot@users.noreply.github.com commit -m "Preserve EX evidence artifacts $ARTIFACT_IDS"
-            git -C "$root/store" push origin "HEAD:$ref"
+            for attempt in 1 2 3 4 5; do
+              if git -C "$root/store" push origin "HEAD:$ref"; then exit 0; fi
+              git -C "$root/store" fetch origin "$ref"
+              if git -C "$root/store" merge-base HEAD FETCH_HEAD >/dev/null; then
+                git -C "$root/store" -c user.name=ex-evidence-bot -c user.email=ex-evidence-bot@users.noreply.github.com rebase FETCH_HEAD
+              else
+                git -C "$root/store" -c user.name=ex-evidence-bot -c user.email=ex-evidence-bot@users.noreply.github.com rebase --root --onto FETCH_HEAD
+              fi
+              sleep "$attempt"
+            done
+            exit 1
           fi
 
   persist-scheduled-inventory:
