@@ -1,0 +1,146 @@
+{
+  "UCL": {
+    "parsed_completed_rows": 81,
+    "sources": [
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-25T10:39:58.967813+00:00",
+        "sha256": "6e35c2f7333ce285cf7d8a7a6512fd9bf3b7d2c80458023ce735851278dd63e2",
+        "size": 107244
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "be.1": {
+    "parsed_completed_rows": 2,
+    "sources": [
+      {
+        "url": "https://www.proleague.be/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sporting-charleroi-vs-stvv-702",
+        "retrieved_at": "2026-11-25T10:40:04.660688+00:00",
+        "sha256": "a712cfd616f793af086841f9f92f36b1a8189ec0cdf3549999385c71cb683a9f",
+        "size": 3238464
+      },
+      {
+        "url": "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703",
+        "retrieved_at": "2026-11-25T10:40:08.143041+00:00",
+        "sha256": "7d3783f18de65c62ddae8c62a59b542d9095842a4e718903bc38ed9ce090f190",
+        "size": 3225850
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.1": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:39:59.000749+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "de.2": {
+    "parsed_completed_rows": 9,
+    "sources": [
+      {
+        "url": "https://www.bundesliga.com/en/2bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:39:59.013721+00:00",
+        "sha256": "d19fb0cf1d44b8f3a2239787d84d5d0de60e17cda50bc0bd1ffdd02544563fac",
+        "size": 864662
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "es.1": {
+    "parsed_completed_rows": 10,
+    "sources": [
+      {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:39:59.368452+00:00",
+        "sha256": "edd60d8367980c85898d7903ac2f945679ac407fc3613d53a853786a4ea1fa2e",
+        "size": 420480
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "fr.1": {
+    "parsed_completed_rows": 11,
+    "sources": [
+      {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:39:59.404420+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.1": {
+    "parsed_completed_rows": 117,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/eredivisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:40:00.526285+00:00",
+        "sha256": "3c25cf497ff7a5a336368a983aca096e31acdc38cc00089738420265723e9b54",
+        "size": 235076
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "nl.2": {
+    "parsed_completed_rows": 154,
+    "sources": [
+      {
+        "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/uitslagen",
+        "retrieved_at": "2026-11-25T10:40:00.886622+00:00",
+        "sha256": "932a47a0f93f3e6afb3f646e9b1b383cf717acbdde21ee0d281b20c392a29ba8",
+        "size": 262846
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "no.1": {
+    "parsed_completed_rows": 216,
+    "sources": [
+      {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:39:59.763957+00:00",
+        "sha256": "7b6f72f27396a4815bc5eae7a8bda00d472d68bc157cfef1c92861fee02f9baa",
+        "size": 359880
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "pt.1": {
+    "parsed_completed_rows": 2,
+    "sources": [
+      {
+        "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/10/8?tab=match_timeline",
+        "retrieved_at": "2026-11-25T10:40:03.045816+00:00",
+        "sha256": "aeb3e6559803aae8b369539d21b50085d6790d878866b7170e07dc9c9926e900",
+        "size": 1638574
+      },
+      {
+        "retrieved_at": "2026-11-25T10:40:01.263282+00:00",
+        "sha256": "0baec4ab30ae5685c55cb4fc297448435cd86803bcfb93495a4c812f7be4fa25",
+        "size": 1683506,
+        "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline"
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  },
+  "tr.1": {
+    "parsed_completed_rows": 1,
+    "sources": [
+      {
+        "url": "https://www.tff.org/Default.aspx?macID=317885&pageID=29",
+        "retrieved_at": "2026-11-25T10:40:01.790533+00:00",
+        "sha256": "e9363becd5a2bb14cb3ea43b53ef62f24391222754a72fa33f4f4fbad98844bf",
+        "size": 170748
+      }
+    ],
+    "state": "MATCH_ROWS_PARSED"
+  }
+}
