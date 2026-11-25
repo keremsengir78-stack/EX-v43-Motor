@@ -240,6 +240,7 @@ def main():
 
     parser = argparse.ArgumentParser(description=main.__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--discover", action="store_true")
     args = parser.parse_args()
     discovery = {
         "tr.1": "https://www.tff.org/default.aspx?pageID=198",
@@ -277,6 +278,27 @@ def main():
         except (OSError, KeyError, ValueError, TypeError, AttributeError, BudgetExhausted) as exc:
             return league, {"parsed_completed_rows": 0, **source_error("official_source_probe", discovery.get(league), exc)}
 
+    if args.discover:
+        samples = {
+            "portugal-team": "https://www.ligaportugal.pt/equipa/157/fc-porto/resultados",
+            "portugal-match": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
+            "belgium-previous": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweekId=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+            "belgium-week": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweek=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+            "turkey-previous": "https://www.tff.org/default.aspx?pageID=198&hafta=13",
+        }
+        def capture_sample(item):
+            name, url = item
+            archive = HistoryArchive(args.output / name, 1)
+            try:
+                _, evidence = archive.get(url, lambda raw, _: len(raw))
+                return name, {"source": evidence}
+            except (OSError, ValueError) as exc:
+                return name, source_error("official_source_discovery", url, exc)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+            report = dict(pool.map(capture_sample, samples.items()))
+        atomic_write(args.output / "report.json", json.dumps(report, indent=2).encode())
+        print(json.dumps(report))
+        return
     leagues = sorted(set(discovery) | (set(OFFICIAL_LEAGUES) - {"en.1", "it.1"}))
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         report = dict(pool.map(probe, leagues))
