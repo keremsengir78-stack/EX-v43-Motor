@@ -1,0 +1,66 @@
+{
+  "portugal-team": {
+    "source": {
+      "url": "https://www.ligaportugal.pt/equipa/157/fc-porto/resultados",
+      "retrieved_at": "2026-11-25T10:36:09.215225+00:00",
+      "sha256": "0755450e69b18ae809175c93848a1b613955ef5136cc34cc554cdcb7545bb54f",
+      "size": 1623243
+    }
+  },
+  "portugal-match": {
+    "source": {
+      "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
+      "retrieved_at": "2026-11-25T10:36:09.605615+00:00",
+      "sha256": "547b396ed8bb0483241c5e17be74829327a23e8829ddd4efe81e8ed380d48a36",
+      "size": 1683506
+    }
+  },
+  "belgium-previous": {
+    "source": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweekId=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+      "retrieved_at": "2026-11-25T10:36:09.051213+00:00",
+      "sha256": "117cbd5003fdacaf90d0fc9ef1cb073ff288580a3560b5de40aff881886fd5f4",
+      "size": 239617
+    }
+  },
+  "belgium-week": {
+    "source": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweek=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+      "retrieved_at": "2026-11-25T10:36:08.907440+00:00",
+      "sha256": "d52071f2ef03aa5e94cea3131982b8d944e829b4b88772c5dc81289e02703067",
+      "size": 239607
+    }
+  },
+  "turkey-match-detail": {
+    "source": {
+      "url": "https://www.tff.org/Default.aspx?macID=317885&pageID=29",
+      "retrieved_at": "2026-11-25T10:36:12.332916+00:00",
+      "sha256": "feb3f990ebdaac17f9f1ce637561b33e555aea4230bdada8d8e7ab28e8d0d98b",
+      "size": 170279
+    }
+  },
+  "france-calendar": {
+    "source": {
+      "url": "https://ligue1.com/en/articles/l1_article_5292-",
+      "retrieved_at": "2026-11-25T10:36:10.523212+00:00",
+      "sha256": "be52df3ca5af708c8b8553ae2b9fa91f8fcdecac7787a3e86571be6c0aa4b017",
+      "size": 102308
+    }
+  },
+  "belgium-match-detail": {
+    "source": {
+      "url": "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703",
+      "retrieved_at": "2026-11-25T10:36:12.975449+00:00",
+      "sha256": "86398057e1e174394f06eb97e6187fc5c64a33e8b4cdc607d2eaad5ec476b400",
+      "size": 3225850
+    }
+  },
+  "turkey-previous": {
+    "source": {
+      "url": "https://www.tff.org/default.aspx?pageID=198&hafta=13",
+      "retrieved_at": "2026-11-25T10:36:12.380298+00:00",
+      "sha256": "9feb3a664df7253d1d555e14bad4aa8fc4fc5c7437e90f176dd2da84dc600339",
+      "size": 335696
+    }
+  }
+}
