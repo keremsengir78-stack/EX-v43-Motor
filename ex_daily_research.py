@@ -52,7 +52,7 @@ def rolling_domestic(fixture, by_team, as_of):
                     if row["competition"] == competition)
     unique = {(r["league"], r["date"], r["home"], r["away"]): r for r in rows}
     first, prior = season_bounds("UCL", cutoff)
-    return tuple(unique.values()), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
+    return sorted(unique.values(), key=lambda row: row["date"]), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
 
 
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None):

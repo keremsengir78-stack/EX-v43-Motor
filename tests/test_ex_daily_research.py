@@ -38,3 +38,29 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual(match, key("en.1", "2026-11-25", "Man United", "Tottenham"))
         self.assertNotEqual(match, key("en.1", "2026-11-25", "Tottenham", "Man United"))
         self.assertNotEqual(match, key("en.1", "2026-11-26", "Man United", "Tottenham"))
+
+    def test_rolling_history_uses_ids_and_actual_seasons_after_matchday_five(self):
+        cutoff = utc("2027-02-16T13:00:00Z")
+        fixture = {"league": "UCL", "home": "Changed brand A", "away": "Changed brand B",
+                   "date": "2027-02-16", "kickoff_at": "2027-02-16T20:00:00Z",
+                   "team_ids": {"home": "123", "away": "456"}}
+        by_team = {}
+        for team, league, side in (("123", "eng.1", "home"), ("456", "ger.1", "away")):
+            games = []
+            for year in (2025, 2026):
+                for index in range(10, 0, -1):
+                    kickoff = utc(f"{year}-09-{index:02}T12:00:00Z")
+                    teams = {side: team, "home" if side == "away" else "away": f"other{index}"}
+                    games.append({"kickoff": kickoff, "finished": kickoff + dt.timedelta(hours=2),
+                                  "captured_at": kickoff + dt.timedelta(hours=3),
+                                  "competition": league, "teams": teams, "score": (2, 1)})
+            games.append({**games[-1], "captured_at": cutoff, "score": (20, 20),
+                          "kickoff": utc("2027-02-13T12:00:00Z")})
+            by_team[team] = games
+        row = daily_analysis(fixture, None, None, cutoff, by_team=by_team)
+        result = row["domestic_research"]
+        self.assertEqual("ROLLING_DOMESTIC_PROVIDER_TEAM_ID", result["history_scope"])
+        self.assertEqual({"home": "en.1", "away": "de.1"}, result["domestic_leagues"])
+        self.assertEqual("2026-09-10", result["samples"]["home"]["match_dates"][0][-1])
+        self.assertTrue(row["tur2"])
+        self.assertIsNone(row["calibration_cohort"])
