@@ -48,3 +48,22 @@ jobs:
               for out in pool.map(probe,urls.items()):
                   print(out)
           PY
+      - run: |
+          python - <<'PY'
+          import re
+          from urllib.request import urlopen,Request
+          files={
+              "pfl-asset": ("https://pfl.az/assets/index-6f2caa04.js",[r'https?://[^"\x27\x60 ]+',r'storage/games',r'/api/',r'protocol']),
+              "ita":("https://en.legaseriea.it/team/roma/schedule",[r'__next_f',r'preload',r'application/ld\+json',r'api\.']),
+              "cz":("https://www.chanceliga.cz/zapas/8441-art-fkj",[r'href="[^"]*/statistiky/[^"]*"',r'\. Trenér:',r'Základní sestav']),
+          }
+          for name,(url,queries) in files.items():
+              try:
+                  with urlopen(Request(url,headers={"User-Agent":"EX-v4.3 evidence audit"}),timeout=10) as r:
+                      body=r.read(5000000).decode(errors="replace")
+                  for query in queries:
+                      hits=list(re.finditer(query,body,re.I))
+                      print(name,query,len(hits),[body[max(0,m.start()-70):m.end()+100] for m in hits[:10]])
+              except OSError as e:
+                  print(name,str(e))
+          PY
