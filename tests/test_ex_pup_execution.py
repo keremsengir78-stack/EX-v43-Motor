@@ -39,6 +39,12 @@ class PupExecutionTests(unittest.TestCase):
         comparison = self.run_pup()["pup"]
         self.assertEqual("REVIEW_REQUIRED", comparison["status"])
         self.assertIsNone(comparison["selection"])
+        review = comparison["user_review"]
+        self.assertTrue(review["required"])
+        self.assertEqual({"MS1", "2.5_UST"}, set(review["options"]))
+        self.assertEqual(.9, review["options"]["MS1"]["ex_g"])
+        self.assertEqual("NEGATIVE_EX_D_IS_NOT_A_PASS_RULE", review["options"]["2.5_UST"]["eligibility_reason"])
+        self.assertGreater(review["options"]["2.5_UST"]["score_context"]["only_this_market"], 0)
         self.assertFalse(comparison["pup_allowed"])
         self.quotes["MS1"]["decimal_odds"] = 1.195
         comparison = self.run_pup()["pup"]

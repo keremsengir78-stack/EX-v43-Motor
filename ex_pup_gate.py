@@ -81,4 +81,19 @@ def execute_pup(markets, expected, odds_results, score_model, *, requested=False
         else:
             state["status"] = "REVIEW_REQUIRED"
             state["issues"].append("pup:no_approved_ordering_for_multiple_eligible_markets")
+            state["user_review"] = {
+                "required": True,
+                "options": {
+                    market: {
+                        "eligibility_reason": reasons[market],
+                        "ex_g": markets[market]["ex_g"]["probability"],
+                        "bookmaker_implied_probability": odds_results[market]["bookmaker_implied_probability"],
+                        "ex_d": odds_results[market].get("ex_d"),
+                        "score_context": {
+                            "2.5_UST": {"only_this_market": scenarios["over25_only"], "both": scenarios["both"]},
+                            "KG_VAR": {"only_this_market": scenarios["btts_only"], "both": scenarios["both"]},
+                        }.get(market),
+                    } for market in eligible
+                },
+            }
     return state

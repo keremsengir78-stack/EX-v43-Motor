@@ -22,7 +22,7 @@ def parse_parenthetical_lineup(text):
         raise ValueError("Expected one extracted team lineup line")
     starters, changes = [], []
     for segment in re.split(r",\s*|\s+[–-]\s+", text):
-        match = re.fullmatch(r"([^()]+?)(?:\s*\((\d{1,2})\.\s+([^()]+)\))?", segment.strip())
+        match = re.fullmatch(r"([^()]+?)(?:\s*\((\d{1,2})\.\s*([^()]+)\))?", segment.strip())
         if not match or not match[1].strip():
             raise ValueError("Unrecognized report lineup token")
         player = match[1].strip()

@@ -33,16 +33,30 @@ class OfficialRedirect(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def capture(config, root):
+def capture(config, root, *, reuse=False):
     client = build_opener(OfficialRedirect)
+    manifest = root / "manifest.json"
+    previous = json.loads(manifest.read_text()) if reuse and manifest.is_file() else {}
     rows = {}
-    for index, (name, url) in enumerate(config.items()):
-        if index:
-            time.sleep(0.75)
+    requested = False
+    for name, url in config.items():
         if not re.fullmatch(r"[a-z0-9-]+", name):
             raise ValueError("Invalid source label")
         try:
             checked(url)
+            old = previous.get(name, {})
+            if old.get("url") == url and old.get("sha256"):
+                try:
+                    checked(old["final_url"])
+                    read_bytes(root, old)
+                except (ValueError, OSError, KeyError):
+                    pass
+                else:
+                    rows[name] = old
+                    continue
+            if requested:
+                time.sleep(0.75)
+            requested = True
             with client.open(Request(url, headers={"User-Agent": "EX-v4.3 evidence audit"}), timeout=12) as response:
                 raw = response.read(MAX_BYTES + 1)
                 final_url = response.geturl()

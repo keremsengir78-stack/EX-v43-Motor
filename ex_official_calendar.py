@@ -28,7 +28,7 @@ def slovak_fixtures(html):
             yield match_id, dates[0], times[0], names, keys, link, True
 
 
-def ukrainian_fixtures(html):
+def ukrainian_results_and_fixtures(html):
     markers = re.split(r'(?=<div class="tour-(?:date|match)(?: [^"]+)?">)', html)
     day = None
     for item in markers:
@@ -41,7 +41,14 @@ def ukrainian_fixtures(html):
             if len(names) == 2 and len(links) == 1:
                 link, match_id, marker = links[0]
                 kickoff = marker if re.fullmatch(r"\d{2}:\d{2}", marker) else None
-                yield match_id, day, kickoff, names, [None, None], link, True
+                score = re.fullmatch(r"(\d{1,2})\s*:\s*(\d{1,2})", marker)
+                yield (match_id, day, kickoff, names, [None, None], link, True), (
+                    tuple(map(int, score.groups())) if score else None)
+
+
+def ukrainian_fixtures(html):
+    for row, _ in ukrainian_results_and_fixtures(html):
+        yield row
 
 
 def sabah_fixtures(html):

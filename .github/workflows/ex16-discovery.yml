@@ -67,3 +67,30 @@ jobs:
               except OSError as e:
                   print(name,str(e))
           PY
+      - run: |
+          python - <<'PY'
+          import json
+          from urllib.request import Request,urlopen
+          base="https://pfl.az/api/v1"
+          def get(path):
+              with urlopen(Request(base+path,headers={"User-Agent":"EX-v4.3 evidence audit","Accept-Language":"az","Accept":"application/json"}),timeout=12) as r:
+                  return json.load(r)
+          for path in ["/seasons?project_id=1","/games/show/6807?withActions=true"]:
+              try:
+                  payload=get(path)
+                  data=payload["data"]
+                  if isinstance(data,list):
+                      print(path,json.dumps(data[:3],ensure_ascii=False)[:3500])
+                      season=data[0]
+                      leagues=season.get("leagues",[])
+                      if leagues:
+                          i=leagues[0]["id"]
+                          res=get(f"/tours/get-games?league_id={i}")
+                          print("tour",i,str(res)[:5500])
+                  elif isinstance(data,dict):
+                      print(path, list(data), {k:v for k,v in data.items() if not isinstance(v,(dict,list))})
+                      for k,v in data.items():
+                          if isinstance(v,dict): print(k,str(v)[:425])
+              except Exception as e:
+                  print(path,type(e).__name__,str(e))
+          PY
