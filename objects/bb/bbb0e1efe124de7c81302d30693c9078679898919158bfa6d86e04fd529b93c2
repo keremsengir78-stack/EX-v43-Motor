@@ -1,0 +1,333 @@
+{
+  "inventory_measured_at": "2026-11-25T10:27:38.274588+00:00",
+  "searched_archives": 13,
+  "fixtures": [
+    {
+      "event_id": "401888370",
+      "league": "tr.1",
+      "kickoff": "2026-11-23T17:00:00+00:00",
+      "teams": {
+        "home": "7914",
+        "away": "132334"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Istanbul Basaksehir",
+        "away": "\u00c7orum FK"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401879237",
+      "league": "en.1",
+      "kickoff": "2026-11-23T20:00:00+00:00",
+      "teams": {
+        "home": "337",
+        "away": "368"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Brentford",
+        "away": "Everton"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401882802",
+      "league": "es.1",
+      "kickoff": "2026-11-23T20:00:00+00:00",
+      "teams": {
+        "home": "1538",
+        "away": "3751"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Levante",
+        "away": "Elche"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401875009",
+      "league": "it.1",
+      "kickoff": "2026-11-23T19:45:00+00:00",
+      "teams": {
+        "home": "4007",
+        "away": "109"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Monza",
+        "away": "Fiorentina"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401875836",
+      "league": "nl.2",
+      "kickoff": "2026-11-23T19:00:00+00:00",
+      "teams": {
+        "home": "10597",
+        "away": "18748"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Jong Ajax",
+        "away": "Jong AZ"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401875835",
+      "league": "nl.2",
+      "kickoff": "2026-11-23T19:00:00+00:00",
+      "teams": {
+        "home": "9983",
+        "away": "18278"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Jong PSV",
+        "away": "Jong FC Utrecht"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401875856",
+      "league": "nl.2",
+      "kickoff": "2026-11-23T19:00:00+00:00",
+      "teams": {
+        "home": "154",
+        "away": "144"
+      },
+      "status": "NO_DATED_PREMATCH_EVIDENCE",
+      "names": {
+        "home": "Vitesse",
+        "away": "De Graafschap"
+      },
+      "summary": null,
+      "fixture_evidence": null,
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915380",
+      "league": "UCL",
+      "kickoff": "2026-11-24T17:45:00+00:00",
+      "teams": {
+        "home": "2980",
+        "away": "4411"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Bodo/Glimt",
+        "away": "LASK Linz"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915300",
+      "league": "UCL",
+      "kickoff": "2026-11-24T17:45:00+00:00",
+      "teams": {
+        "home": "432",
+        "away": "362"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Galatasaray",
+        "away": "Aston Villa"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915295",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "359",
+        "away": "124"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Arsenal",
+        "away": "Borussia Dortmund"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915296",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "2572",
+        "away": "887"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Como",
+        "away": "AEK Athens"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915294",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "142",
+        "away": "437"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Feyenoord Rotterdam",
+        "away": "FC Porto"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915379",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "382",
+        "away": "114"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Manchester City",
+        "away": "Napoli"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915299",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "11420",
+        "away": "175"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "RB Leipzig",
+        "away": "Lens"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915298",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "86",
+        "away": "148"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Real Madrid",
+        "away": "PSV Eindhoven"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    },
+    {
+      "event_id": "401915297",
+      "league": "UCL",
+      "kickoff": "2026-11-24T20:00:00+00:00",
+      "teams": {
+        "home": "521",
+        "away": "244"
+      },
+      "status": "DATED_FIXTURE_ONLY",
+      "names": {
+        "home": "Slovan Bratislava",
+        "away": "Real Betis"
+      },
+      "summary": null,
+      "fixture_evidence": {
+        "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/",
+        "retrieved_at": "2026-11-24T09:44:03.275145+00:00",
+        "original_response_sha256": "d256fb167166616908d86385fb850b6fd646009d4b602f56346195a52ce2f3ad",
+        "sha256": "10e8406274f78da9ecad7443ccde2a931013dabd0dc04d588446cd2673cf2f9b",
+        "scope": "Original UEFA HTML excerpts: kickoff convention and matchdays 1\u20135 match listings"
+      },
+      "forecast_recovered": false
+    }
+  ],
+  "ex_final_allowed": false
+}
