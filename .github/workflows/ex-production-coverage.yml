@@ -22,7 +22,7 @@ jobs:
                   with urlopen(url,timeout=20) as r:
                       s=r.read(4500000).decode()
                       print(r.geturl(),len(s))
-                  for term in ('class="row"', 'class="value center"', "november 2026", "CSV", "JSON", "speelronde", "2025-08-"):
+                  for term in ("2026-05-", "homeTeam", "awayTeam", "matchScore", "goalCount", "380", "2026-04-"):
                       hits=list(re.finditer(term,s,re.I))
                       print(term,len(hits),[s[max(m.start()-100,0):m.end()+500] for m in hits[:2]])
               except OSError as e: print(type(e).__name__,e)
