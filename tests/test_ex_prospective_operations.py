@@ -154,3 +154,63 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertEqual(0, result["2.5_UST"]["fixed_components_research"]["n"])
         evidence["external_factors"]["timestamp"] = row["kickoff"]
         self.assertEqual(0, evaluate(frozen, [row])["markets"]["KG_VAR"]["fixed_components_research"]["n"])
+
+    def test_upl_calendar_rejects_youth_and_resolves_local_time(self):
+        from ex_official_calendar import calendar_fixtures
+
+        def fixture(match_id, league, marker):
+            return f'''<div class="tour-match u21">
+                <div class="match-tournament"><!-- -->{league}</div>
+                <div class="team first-team"><div class="logo"></div>Shakhtar</div>
+                <a href="/en/report/view/{match_id}">{marker}</a>
+                <div class="team second-team"><div class="logo"></div>Dynamo</div>'''
+
+        page = ('<div class="tour-date">Wed, 25.11.2026</div>' + fixture(1, "UPL", "20:00")
+                + fixture(2, "UPL2", "19:00") + fixture(3, "UPL", "1 : 0"))
+        clock = utc("2026-11-25T17:00:00Z")
+        evidence = {"captured_at": clock.isoformat(), "final_url": "https://upl.ua/en/tournaments/games"}
+        match, = calendar_fixtures("ua.1", page, evidence, clock.date())
+        self.assertEqual("1", match["source_match_id"])
+        self.assertEqual("https://upl.ua/en/report/view/1", match["official_match_url"])
+        self.assertEqual("2026-11-25T18:00:00+00:00", match["kickoff_at"])
+        self.assertEqual({"home": "Shakhtar", "away": "Dynamo"}, match["names"])
+        self.assertIsNone(match["espn_event_id"])
+        self.assertIsNone(match["odds_evidence"])
+        evidence["captured_at"] = "2026-11-25T18:00:00Z"
+        self.assertEqual([], calendar_fixtures("ua.1", page, evidence, clock.date()))
+
+
+    def test_preregistered_cohort_selection_preserves_only_eligible_settlements(self):
+        from run_ex_prospective_pipeline import select_evaluation_rows
+
+        model = {"original_ids": ["old"], "original_last_kickoff": "2026-11-22T10:00:00Z",
+                 "frozen_at": "2026-11-23T10:00:00Z"}
+        design = {"registered_at": "2026-11-24T10:00:00Z", "holdout_start": "2026-11-25T00:00:00Z",
+                  "holdout_end": "2026-12-01T00:00:00Z"}
+        valid = {"event_id": "new", "forecast_at": "2026-11-25T02:00:00Z", "kickoff": "2026-11-25T19:00:00Z"}
+        rows = [valid, {**valid, "event_id": "old"}, {**valid, "event_id": "before",
+                "forecast_at": "2026-11-24T19:00:00Z"}, {**valid, "event_id": "after",
+                "kickoff": design["holdout_end"]}]
+        self.assertEqual([valid], select_evaluation_rows(model, rows, design))
+
+    def test_laliga_audit_uses_only_published_full_time_scores(self):
+        from run_ex_laliga_bulk import LALIGA, extract
+
+        url = f"{LALIGA}/2026-27/gameweek-4"
+        match = {"id": 1, "date": "2026-09-06T14:15:00+00:00", "home_score": 0, "away_score": 5,
+                 "home_team": {"slug": "valencia-cf"}, "away_team": {"slug": "fc-barcelona"},
+                 "status": "FullTime"}
+        props = {"competition": "primera-division", "isGameweekPage": True, "gameweek": {"week": 4},
+                 "canonical": url, "matches": [match, {**match, "id": 2, "status": "InPlay"}]}
+        state = json.dumps({"props": {"pageProps": props}})
+        result, skipped = extract(f'<script id="__NEXT_DATA__">{state}</script>', url,
+                                  "2026-09-07T10:00:00+00:00")
+        self.assertEqual(set(), skipped)
+        self.assertEqual([0, 5], result[0]["official_score"])
+        self.assertEqual(1, len(result))
+        ledger = {"queues": {"newer": {"provisional_matches": [
+            {**result[0], "season": "2026-27", "home_goals": 0, "away_goals": 5}]}}}
+        audited = audit(ledger, {"fixtures": result})
+        self.assertEqual({"OFFICIAL_RESULT_CORROBORATION_ONLY": 1}, audited["counts"])
+        self.assertEqual("2026-27", audited["league_season_counts"][0]["season"])
+        self.assertFalse(audited["categories"]["OFFICIAL_RESULT_CORROBORATION_ONLY"][0]["upstream_lineage_certified"])

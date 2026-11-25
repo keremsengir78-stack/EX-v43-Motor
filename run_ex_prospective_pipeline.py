@@ -206,6 +206,21 @@ def component_audit(rows):
             "chronological_component_research": estimates, "production_allowed": False}
 
 
+def select_evaluation_rows(model, rows, design=None):
+    """Choose the frozen model's cohort from a settlement ledger that spans dates."""
+    boundary = max(utc(model["original_last_kickoff"]), utc(model["frozen_at"]))
+    original = set(model["original_ids"])
+    start = utc(design["holdout_start"]) if design else boundary
+    end = utc(design["holdout_end"]) if design else None
+    if design and not utc(design["registered_at"]) <= start < end:
+        raise ValueError("Invalid preregistered test window")
+    return [row for row in rows if row["event_id"] not in original
+            and utc(row["forecast_at"]) >= max(boundary, start)
+            and utc(row["kickoff"]) > boundary
+            and (end is None or utc(row["kickoff"]) < end)]
+
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
@@ -264,9 +279,11 @@ def main():
         rows = join_holdout(forecasts, corroborated) if corroborated else []
         model = json.loads(args.frozen_model.read_text()) if args.frozen_model else None
         design = json.loads(args.design.read_text()) if args.design else None
+        cohort = select_evaluation_rows(model, rows, design) if model else []
         report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending,
+                  "eligible_evaluation_rows": len(cohort),
                   "components": component_audit(rows),
-                  "evaluation": evaluate(model, rows, design, evaluation_at=current) if model and rows else {"status": "NO_ELIGIBLE_HOLDOUT"}}
+                  "evaluation": evaluate(model, cohort, design, evaluation_at=current) if cohort else {"status": "NO_ELIGIBLE_HOLDOUT"}}
     report.update({"generated_at": current.isoformat(), "production_allowed": False, "ex_final_allowed": False})
     atomic_write(args.output_dir / "report.json", (json.dumps(report, indent=2) + "\n").encode())
     print(json.dumps(report))

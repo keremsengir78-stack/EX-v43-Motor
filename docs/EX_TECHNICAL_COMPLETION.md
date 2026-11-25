@@ -2,13 +2,13 @@
 
 | Alan | Yazılım ve doğrulama | Açık veri veya üretim engeli |
 |---|---|---|
-| Oyuncu dakikaları | Dört resmî kaynak alanı için kuyruk doğrulama, toplu nominal dakika, kabul/ret kaydı. Chance Liga'nın incelenmiş satır biçimi ayrıştırılıyor | Slovakya ve Azerbaycan'da tam resmî değişiklik zaman çizelgesi, dört sitenin uçtan uca otomatik ham belge ayrıştırması |
-| Skor kökeni | 1.078 kayıt maç bazında mutabakat, resmî doğrulama, bağımsız inceleme, kanıtlanamayan köken ve çelişki sınıflarıyla ayrı listeleniyor | Sağlayıcıların kayıt başına üst kaynak zinciri |
-| PUP | Dört pazarda ayrı EX-G kimliği, aralık ve kalibrasyon denetimi test edildi | Depoda kullanıcı onaylı yürütülebilir PUP protokolü yok. PUP ve EX FINAL kapalı |
-| Maç önü | Kayıtlı 19 lig ve müsabaka kodu tek geçişte işleniyor. İngiltere ve Almanya ikinci ligleri dahil | Başarısız sağlayıcı yanıtı ayrı kaydedilir. Desteksiz liglerde alternatif maç önü beslemesi |
-| Sonuç ve performans | Actions arşiv fişi, kesin santra, takım kimliği, maç durumu ve resmî karşılaştırma. Çok günlük arşivler en erken geçerli zaman damgasıyla birleştiriliyor | Yeni maçlar ve resmî sonuç inceleme defteri. Tek sağlayıcılı sonuç geçici kalır |
-| %50/%30/%20 | Her pazarda bileşen kapsaması ölçülüyor. Tam doğrulanmış puanlar oluştuğunda kronolojik araştırma karşılaştırması çalışır | Tam pazar bileşenleri, bağımsız sonuçlar ve yeterli zaman örneklemi |
-| Otomasyon | `EX prospective operations` iş akışı denetim, yakalama ve sonuçlandırma kipleri içeriyor | Yeni zamanlanmış tetikleyici yok. Resmî sonuç beslemesi için inceleme paketi gerekiyor |
+| Oyuncu dakikaları | Çekya, Slovakya ve Ukrayna HTML raporları ile Azerbaycan PFL PDF protokolleri gerçek belgelerle test edildi | Yeni PFL belgelerinin maç kimlikleriyle toplu keşfi. Nominal dakikalar saha içi kronometre ölçümü içermez |
+| Skor kökeni | Bundesliga ve LALIGA resmî maç günleri ham arşivle işleniyor. Denetim lig ve sezon bazında kapsama ve çelişkileri gösteriyor | Kalan maçlar için diğer resmî liglerin kapsamı ve sağlayıcıların kayıt başına üst kaynak zinciri |
+| PUP | Açık taleple çalışır. Skor senaryoları, oran sınırları ve EX-G ayrı denetlenir. Çoklu uygun pazarda inceleme durumu döner | Otomatik sıralama ancak ayrıca onaylanmış karar kuralıyla yapılabilir |
+| Maç önü | Üç alternatif takvim EX araştırmasına kaynak kimliği, varsa resmî maç bağlantısı, UTC başlangıcı ve saha yönü şeklinde bağlanıyor | ESPN kimlikleriyle doğrulanmış çapraz eşleme, Azerbaycan’da lig kapsamı ile kadro ve oran sağlayıcısı |
+| Sonuç ve performans | `cycle` yeni maç öncesi arşivleri üretir ve önceki mühürlü arşivleri aynı çalıştırmada sonuçlandırır | Gerçek performans için maç sonu ve bağımsız resmî sonuç kaynağı. Tek sağlayıcılı sonuç geçici kalır |
+| %50/%30/%20 | Dört pazarda bileşen kapsamı, sabit ağırlıklı adayın Brier kaybı ve dondurulmuş Platt adayları ayrı raporlanır | Bağımsız sonuçlu tamamlanmış kohort, yeterli hafta ve önceden ilan edilmiş değerlendirme tasarımı |
+| Otomasyon | Denetim, yakalama, sonuçlandırma ve birleşik `cycle` kipleri test edildi | Yeni zamanlanmış tetikleyici etkin değildir |
 
 ## Örneklem tasarımı
 

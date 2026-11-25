@@ -14,7 +14,8 @@ from run_ex_source_audit import audit
 LALIGA = "https://www.laliga.com/en-GB/laliga-easports/results"
 TEAMS = {
     "athletic-club": "Ath Bilbao", "atletico-de-madrid": "Ath Madrid", "fc-barcelona": "Barcelona",
-    "celta": "Celta", "deportivo-alaves": "Alaves", "elche-cf": "Elche",
+    "celta": "Celta", "deportivo-alaves": "Alaves", "d-alaves": "Alaves", "elche-cf": "Elche",
+    "elche-c-f": "Elche", "c-a-osasuna": "Osasuna", "malaga-cf": "Malaga", "r-racing-club": "Santander",
     "getafe-cf": "Getafe", "girona-fc": "Girona", "levante-ud": "Levante", "rayo-vallecano": "Vallecano",
     "rc-celta": "Celta", "rc-deportivo": "La Coruna", "rcd-espanyol": "Espanol",
     "rcd-mallorca": "Mallorca", "real-betis": "Betis", "real-madrid": "Real Madrid",
