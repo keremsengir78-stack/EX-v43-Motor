@@ -3,7 +3,7 @@
 | Alan | Yazılım ve doğrulama | Açık veri veya üretim engeli |
 |---|---|---|
 | Oyuncu dakikaları | Çekya, Slovakya ve Ukrayna HTML raporları ile Azerbaycan PFL PDF protokolleri gerçek belgelerle test edildi | PFL API sezon, tur, maç ve protokol PDF bağlantısını toplu keşfediyor. Kırmızı kartlar ve belirsiz değişiklikler ayrı incelemeye kalıyor |
-| Skor kökeni | Bundesliga, LALIGA, Premier League ve Serie A resmî maç sonuçları ham arşivle işleniyor. Denetim lig ve sezon bazında kapsama ve çelişkileri gösteriyor | Kalan maçlar için diğer resmî liglerin kapsamı ve sağlayıcıların kayıt başına üst kaynak zinciri |
+| Skor kökeni | Bundesliga, LALIGA, Premier League, Serie A ve Marseille kulüp arşivindeki Ligue 1 resmî maç sonuçları ham arşivle işleniyor. Denetim lig ve sezon bazında kapsama ve çelişkileri gösteriyor | Kalan maçlar için diğer resmî liglerin kapsamı ve sağlayıcıların kayıt başına üst kaynak zinciri |
 | PUP | Açık taleple çalışır. Skor senaryoları, oran sınırları ve EX-G ayrı denetlenir. Çoklu uygun pazarda EX-G, piyasa olasılığı, EX-D, skor bağlamı ve uygunluk gerekçesi incelemeye sunulur | Otomatik sıralama ancak ayrıca onaylanmış karar kuralıyla yapılabilir |
 | Maç önü | Üç alternatif takvim EX araştırmasına kaynak kimliği, varsa resmî maç bağlantısı, UTC başlangıcı ve saha yönü şeklinde bağlanıyor | PFL lig ve takım kimlikleri doğrulanabilir. ESPN çapraz eşlemesi için tekil lig, santra, ev ve deplasman eşleşmesi gerekir. Yayımlanan kulüp kadrosu, teyitli ilk 11 alanından ayrı tutulur |
 | Sonuç ve performans | `cycle` yeni maç öncesi arşivleri üretir ve önceki mühürlü arşivleri aynı çalıştırmada sonuçlandırır | Gerçek performans için maç sonu ve bağımsız resmî sonuç kaynağı. Tek sağlayıcılı sonuç geçici kalır |

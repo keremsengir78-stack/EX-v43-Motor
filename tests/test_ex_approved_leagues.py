@@ -40,3 +40,38 @@ class ApprovedLeaguesTests(unittest.TestCase):
         self.assertEqual(set(MARKETS), set(decision["markets"]))
         self.assertIsNotNone(decision["pup"]["score_scenarios"])
         self.assertFalse(decision["ex_final_allowed"])
+
+    def test_main_entry_point_runs_explicit_pup_after_research_markets(self):
+        import json
+        from pathlib import Path
+        import subprocess
+        import sys
+        from tempfile import TemporaryDirectory
+
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            season = root / "2026-27"
+            season.mkdir()
+            (season / "en.1.json").write_text(json.dumps({"matches": [
+                {"date": day, "team1": "A", "team2": "B", "score": {"ft": [2, 1]}}
+                for day in ("2026-06-01", "2026-10-01")
+            ]}))
+            fixtures = root / "fixtures.csv"
+            fixtures.write_text("date,league,home,away,kickoff_at\n2026-11-25,en.1,A,B,2026-11-25T18:00:00Z\n")
+            odds = root / "odds.json"
+            odds.write_text(json.dumps([{"MS1": {"market": "MS1", "bookmaker": "test",
+                                                 "observed_at": "2026-11-25T11:00:00Z",
+                                                 "decimal_odds": 1.25, "source": "test"}}]))
+            output = root / "out"
+            subprocess.run([sys.executable, "ex_one_command.py", "--as-of", "2026-11-25",
+                            "--seasons", "2026-27", "--leagues", "en.1", "--offline", directory,
+                            "--outdir", str(output), "--fixtures", str(fixtures), "--odds", str(odds),
+                            "--no-secondary", "--pup"], check=True, capture_output=True)
+            report = json.loads((output / "full_report.json").read_text())
+            match, = report["matches"]
+            self.assertTrue(match["recompute_consistent"])
+            self.assertEqual(set(MARKETS), set(match["market_values"]))
+            self.assertEqual("VERIFIED_INPUT", match["market_values"]["MS1"]["odds_lock"]["status"])
+            self.assertEqual("BLOCKED", match["auto_control"]["status"])
+            self.assertEqual("BLOCKED", match["pup"]["status"])
+            self.assertFalse(report["ex_final_allowed"])

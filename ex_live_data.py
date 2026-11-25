@@ -373,8 +373,9 @@ def run(
         "freshness_policy": "Historical seasons are archives; newest requested season requires freshness.",
         "blocking_sources": [
             {"season": r["season"], "league": r["league"],
-             "reason": "stale" if r.get("stale") else "source_error"}
-            for r in reports if r.get("stale")
+             "reason": ("source_error" if r.get("error") else
+                        "stale" if r.get("stale") else "partial_season_coverage")}
+            for r in reports if r.get("stale") or r.get("coverage_partial")
         ],
         "ex_final_allowed": False,
         "warning": (
