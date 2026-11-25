@@ -9,6 +9,7 @@ from ex_espn_provider import ESPN_LEAGUES
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 from run_ex_official_sources import archive_alternate_calendars
+from run_ex_pfl_discovery import prematch as pfl_prematch
 
 
 def prematch_fixtures(raw, captured, day, competition, horizon):
@@ -96,6 +97,11 @@ def main():
         rejected = [row["league"] for row in report["errors"] if row["category"] == "REQUEST_REJECTED"]
         report["alternate_calendar_evidence"] = archive_alternate_calendars(
             rejected, args.cache / "alternate-calendars")
+        if "az.1" in rejected:
+            try:
+                report["pfl_prematch_matches"] = pfl_prematch(args.cache / "pfl-pregame", args.day)
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                report["pfl_prematch_issue"] = str(exc)
     atomic_write(args.output, (json.dumps(report, indent=2) + "\n").encode())
     groups = report.get("reports", {args.league: report})
     print(json.dumps({"eligible": sum(r["eligible"] for r in groups.values()),

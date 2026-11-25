@@ -120,6 +120,48 @@ def collect(root, years, limit, offset):
     return {**result, "matches": list(matches)}
 
 
+
+def context_fixture(game):
+    key = game["official_match_id"]
+    return {**game, "league": "az.1", "competition_verified": True,
+            "source_match_id": str(key), "source_namespace": "official:az.1",
+            "official_match_url": f"{PFL}/games/show/{key}?withActions=true",
+            "espn_event_id": None, "odds_evidence": None, "lineup_evidence": None,
+            "roster_observation": None}
+
+
+def roster_context(game, data, evidence):
+    clubs = [data[f"club_{side}"] for side in (1, 2)]
+    at = utc(game["kickoff_at"])
+    if (data["id"] != game["official_match_id"] or data["league"]["id"] != game["official_league_id"]
+            or data["status"] != 0 or [club["id"] for club in clubs] != list(game["source_team_ids"].values())
+            or dt.datetime.strptime(data["start_date"], "%d/%m/%Y %H:%M").replace(
+                tzinfo=ZoneInfo("Asia/Baku")) != at or utc(evidence["captured_at"]) >= at):
+        raise ValueError("PFL pregame fixture detail identity mismatch")
+    roster = {side: len(club.get("players") or []) for side, club in zip(("home", "away"), clubs, strict=True)}
+    return {"counts": roster, "source": evidence, "scope": "PUBLISHED_CLUB_SQUADS"}
+
+
+def prematch(root, day):
+    """Archive the published PFL fixture and squad payload during the pregame window."""
+    start = day.year if day.month >= 7 else day.year - 1
+    result = []
+    for game in fixtures(root, [f"{start}-{start + 1}"]):
+        at = utc(game["kickoff_at"])
+        if (game["status"] != 0 or at.date() != day
+                or not utc(game["calendar_evidence"]["captured_at"]) < at):
+            continue
+        key = game["official_match_id"]
+        match = context_fixture(game)
+        try:
+            payload, evidence = official_json(root / f"detail-{key}", "pfl-match", match["official_match_url"])
+            match["roster_observation"] = roster_context(game, payload["data"], evidence)
+        except (KeyError, OSError, ValueError, TypeError) as exc:
+            match["roster_issue"] = str(exc)
+        result.append(match)
+    return result
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--output", type=Path, required=True)

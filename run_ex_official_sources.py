@@ -71,7 +71,7 @@ def capture(config, root, *, reuse=False):
             rows[name] = {"url": url, "final_url": final_url, "sha256": digest,
                           "captured_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                           "bytes": len(raw)}
-    atomic_write(root / "manifest.json", (json.dumps(rows, indent=2) + "\n").encode())
+    atomic_write(root / "manifest.json", (json.dumps({**previous, **rows}, indent=2) + "\n").encode())
     return rows
 
 

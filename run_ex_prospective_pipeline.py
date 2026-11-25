@@ -93,6 +93,36 @@ def alternate_context(manifest, cache_root):
             context[league] = calendar_fixtures(league, read_evidence(root, evidence), evidence, day)
         except (OSError, KeyError, ValueError) as exc:
             issues[league] = str(exc)
+    if manifest.get("pfl_prematch_issue"):
+        issues["pfl"] = manifest["pfl_prematch_issue"]
+    for fixture in manifest.get("pfl_prematch_matches", []):
+        try:
+            from run_ex_pfl_discovery import context_fixture, match_plan, roster_context
+            league_id = fixture["official_league_id"]
+            source = fixture["calendar_evidence"]
+            url = source["final_url"]
+            query = f"https://pfl.az/api/v1/tours/get-games?league_id={league_id}"
+            page = url.removeprefix(query + "&page=") if url != query else "1"
+            if (not page.isascii() or not page.isdigit() or not 1 <= int(page) <= 40
+                    or (url != query and url != query + f"&page={page}")):
+                raise ValueError("Unrecognized PFL calendar page")
+            board = cache_root / "pfl-pregame" / f"league-{league_id}-page-{page}"
+            observed = match_plan(json.loads(read_evidence(board, source)), league_id, source)
+            match = next((row for row in observed if row["official_match_id"] == fixture["official_match_id"]), None)
+            at = utc(fixture["kickoff_at"])
+            if (not match or any(match[key] != fixture[key] for key in match)
+                    or fixture["status"] != 0 or at.date() != day or utc(source["captured_at"]) >= at):
+                raise ValueError("PFL fixture does not match archived board or kickoff")
+            verified = context_fixture(match)
+            if fixture.get("roster_observation"):
+                meta = fixture["roster_observation"]["source"]
+                if meta["url"] != verified["official_match_url"] or meta["final_url"] != meta["url"]:
+                    raise ValueError("Unrecognized PFL squad evidence URL")
+                raw = read_evidence(cache_root / "pfl-pregame" / f'detail-{match["official_match_id"]}', meta)
+                verified["roster_observation"] = roster_context(match, json.loads(raw)["data"], meta)
+            context.setdefault("az.1", []).append(verified)
+        except (OSError, KeyError, TypeError, ValueError) as exc:
+            issues["pfl"] = str(exc)
     return context, issues
 
 

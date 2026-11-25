@@ -26,9 +26,13 @@ def ukrainian_minutes(html):
                          r'class="list-title">\s*Substitutes', html, flags=re.S)
     if len(lineups) != 2:
         raise ValueError("Expected two UPL starting lineups")
-    starters = [[plain(name) for name in re.findall(r'class="player-name">(.*?)</div>', segment, re.S)]
+    def player(value):
+        return re.sub(r"\s+\(C\)$", "", plain(value), flags=re.I)
+
+    starters = [[player(name) for name in re.findall(r'class="player-name">(.*?)</div>', segment, re.S)]
                 for segment in lineups]
     changes = [[], []]
+    substitutions = []
     events = re.split(r'(?=<div class="event [^"]+">)', html)
     for event in events:
         if not event.startswith('<div class="event type-change">'):
@@ -37,15 +41,23 @@ def ukrainian_minutes(html):
         point = re.search(r'class="point">(.*?)</div>', event, re.S)
         if len(players) != 1 or not point:
             raise ValueError("Incomplete UPL change")
-        names = [plain(name) for name in re.split(r"<br\s*/?>", players[0])]
+        names = [player(name) for name in re.split(r"<br\s*/?>", players[0])]
         if len(names) != 2:
             raise ValueError("UPL change requires two players")
-        outgoing, incoming = names
-        applicable = [i for i, group in enumerate(starters)
-                      if outgoing in group or any(outgoing == change[2] for change in changes[i])]
+        substitutions.append((nominal_minute(plain(point[1])), names))
+    active = [set(group) for group in starters]
+    appeared = [group.copy() for group in active]
+    for minute, names in sorted(substitutions, key=lambda event: event[0]):
+        applicable = [(i, outgoing, incoming) for i, group in enumerate(active)
+                      for outgoing, incoming in (names, names[::-1])
+                      if outgoing in group and incoming not in appeared[i]]
         if len(applicable) != 1:
             raise ValueError("Cannot identify UPL substitution team")
-        changes[applicable[0]].append((nominal_minute(plain(point[1])), outgoing, incoming))
+        i, outgoing, incoming = applicable[0]
+        active[i].remove(outgoing)
+        active[i].add(incoming)
+        appeared[i].add(incoming)
+        changes[i].append((minute, outgoing, incoming))
     return {side: minutes_from_timeline(starters[i], sorted(changes[i], key=lambda row: row[0]))
             for i, side in enumerate(("home", "away"))}
 

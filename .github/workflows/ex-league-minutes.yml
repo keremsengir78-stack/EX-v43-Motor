@@ -2,7 +2,7 @@ name: EX league minutes collection
 on:
   pull_request:
     branches: [ex-v43-development]
-    paths: [.github/workflows/ex-league-minutes.yml, run_ex_league_minutes.py, run_ex_pfl_discovery.py, ex_official_calendar.py]
+    paths: [.github/workflows/ex-league-minutes.yml, run_ex_league_minutes.py, run_ex_pfl_discovery.py, ex_official_calendar.py, ex_official_report_html.py, run_ex_official_sources.py]
   workflow_dispatch:
     inputs:
       offset:
