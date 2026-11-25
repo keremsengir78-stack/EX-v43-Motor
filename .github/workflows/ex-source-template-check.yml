@@ -34,5 +34,7 @@ jobs:
                       print(key, needle, len(positions), repr(page[max(0,p-400):p+1700]))
           PY
       - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
           curl --fail --silent --show-error --max-time 20 https://pfl.az/storage/games/files/67e8304cee9af_1743269964.pdf -o official.pdf
           pdftotext -layout official.pdf -
