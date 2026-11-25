@@ -110,3 +110,19 @@ jobs:
                       print(token,len(hits),[body[max(m.start()-50,0):m.end()+135] for m in hits[:4]])
               except OSError as e: print(str(e))
           PY
+      - run: |
+          python - <<'PY'
+          import json,re
+          from urllib.request import urlopen
+          for path in ["https://1ereannonce.lfp.fr/index.asp","https://en.legaseriea.it/serie-a","https://en.legaseriea.it/serie-a/match/97ef80e0aff84867ae6f6c53b2be31e5/parma-vs-roma"]:
+              try:
+                  with urlopen(path,timeout=10) as r: s=r.read(3000000).decode("utf8","replace")
+                  print(path)
+                  if "1ere" in path: print(s)
+                  print("links", list(dict.fromkeys(re.findall(r'href="(/serie-a/match/[^"]+)"',s)))[:20])
+                  print("json", [(len(x),x[:4000]) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>',s,re.S) if "SportsEvent" in x])
+                  for q in ["matchStatus","matchState","\x221-5\x22","\x221 - 5\x22", "finished","eventDetails"]:
+                      p=s.lower().find(q.lower())
+                      if p>=0: print(q,s[max(p-80,0):p+240])
+              except OSError as e: print(str(e))
+          PY
