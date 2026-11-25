@@ -25,11 +25,12 @@ jobs:
               league, query = pair
               try:
                   body = json.loads(download(f"{ESPN}/{league}/scoreboard?{query}"))
-                  return league, query, len(body["events"]), sorted({e["status"]["type"]["name"] for e in body["events"]})
+                  data = body["leagues"][0]
+                  calendar = data.get("calendar", [])
+                  return league, query, len(body["events"]), list(data), len(calendar), str(calendar)[:350]
               except (OSError,ValueError) as e:
                   return league,query,str(e)
-          params = ["dates=20261120", "dates=20261101-20261124", "dates=20261101-20261124&limit=100",
-                    "dates=20250701-20260630", "dates=20250701-20260630&limit=500"]
+          params = ["dates=20261120", "dates=20250502", "dates=20251120"]
           with ThreadPoolExecutor(max_workers=3) as p:
               for row in p.map(check, [(k,q) for k in ("ned.2","nor.1","uefa.champions") for q in params]):
                   print(row)
