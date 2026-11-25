@@ -70,7 +70,8 @@ def main():
     sources = {f"dfl-{season}-{round_number}": f"{DFL}/{season}-{season+1}/{round_number}"
                for season, rounds in ((2025, 34), (2026, 10)) for round_number in range(1, rounds+1)}
     root = args.output / "raw"
-    manifest = capture(sources, root)
+    manifest_path = root / "manifest.json"
+    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else capture(sources, root)
     matches, skipped, errors = [], [], {}
     for key, entry in manifest.items():
         try:
@@ -84,12 +85,12 @@ def main():
     prior = json.loads(Path("research/ucl/dfl-score-review.json").read_text())
     expected = {tuple(row) for row in prior["fixtures"]}
     actual = {(row["date"], row["home"], row["away"], *row["official_score"]) for row in matches}
-    if not expected <= actual:
-        raise ValueError(f"Official parser disagrees with reviewed pilot: {expected - actual}; {errors}")
     report = audit(json.loads(args.ledger.read_text()), {"fixtures": matches})
     for name, data in (("audit", report), ("results", {"matches": matches, "skipped": skipped, "errors": errors})):
         atomic_write(args.output / f"{name}.json", (json.dumps(data, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({"parsed": len(matches), "skipped": skipped, "errors": errors, "audit": report["counts"]}))
+    if not expected <= actual:
+        raise ValueError(f"Official parser disagrees with reviewed pilot: {expected - actual}")
 
 
 if __name__ == "__main__":

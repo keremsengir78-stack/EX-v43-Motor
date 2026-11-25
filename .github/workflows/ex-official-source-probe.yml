@@ -83,6 +83,12 @@ jobs:
           run-id: 45469007220
           name: history-score-evidence-1
           path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45552742440
+          name: ex-dfl-bulk-evidence
+          path: dfl-evidence
       - run: python run_ex_dfl_bulk.py --ledger scores/score-evidence.json --output dfl-evidence
       - uses: actions/upload-artifact@v4
         if: always()
