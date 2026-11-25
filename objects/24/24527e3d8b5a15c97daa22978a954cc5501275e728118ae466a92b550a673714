@@ -1,0 +1,451 @@
+{
+  "forecasts": 0,
+  "historical_matches": 6832,
+  "reused_verified_outcomes": 0,
+  "rolling_scoreboard_matches": 12,
+  "skipped": [],
+  "daily_fixture_records": 0,
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 0,
+  "daily_research_covered": 0,
+  "capture_source_errors": [],
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-25T10:26:18.897358+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
