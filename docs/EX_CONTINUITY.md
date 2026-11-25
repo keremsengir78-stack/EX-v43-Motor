@@ -277,3 +277,34 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 
 - Ham 6.820 özet, skor defteri ve plan Actions'ta ağsız olarak tekrar işlendi. Tamamlanmış maçlardan elde edilebilen veriler ve gerçek maç önü yakalama gerektiren veriler ayrı tutuldu. Kronolojik pazar deneyleri ve skor kaynakları arasındaki tekil fikstür kapsamı araştırma çıktısına eklendi.
 - Maç öncesi ESPN yakalama işi, zamanı doğrulanmış ham kayıtları gelecekteki değerlendirmeler için saklıyor. Dört ek ligde resmî oyuncu ve kadro kaynakları dokümante edildi.
+
+### Kalıcı arşiv ve haftalık doğrulama
+
+- `EX prospective operations` iş akışını maçlar başlamadan önce `mode=capture`
+  ve UTC fikstür tarihiyle çalıştır. Onaylı 13 müsabaka sorgulanır. Arşivlenen
+  araştırma tahminleri EX-G ve EX FINAL alanlarını doldurmaz.
+- Haftalık envanter için `EX weekly research evidence` akışına UTC pazartesi
+  tarihini ver. `artifact_ids` alanına kalıcı hale getirilecek arşiv paketlerini
+  virgülle ayırarak yaz. Kaynak GitHub makbuzu, ZIP özeti ve her dosyanın SHA-256
+  özeti doğrulanır. Maç önü veri, araştırma tahmini, doğrulanmış sonuç ve
+  sonuç kaynağı ayrı indekslenir. Aynı paketin tekrar yazımı etkisizdir ve
+  içerik değişikliği reddedilir. Depo yöneticisi yetkileri için Git dalına
+  ayrıca koruma uygulanması gerekir.
+- `mode=settle` kalıcı tahmin paketlerini kendisi okur. Bağımsız resmî
+  kontroller varsa `official_run_id` ver. Resmî kanıtı bulunmayan sonuçlar
+  geçici defterde tutulur ve ileriye dönük ölçüme katılmaz. Yeni sonuç
+  paketinin kimliğini sonraki hafta kalıcı arşiv çalışmasına ekle.
+  Yeni günlük analiz, ham kaynağıyla arşivlenmiş ve tahmin kesiminden
+  önce doğrulanmış sonuçları geçmiş hesaplarına ekler.
+- Haftalık rapor yayımlanmış fikstürü, mühürlenmiş araştırma tahminini ve
+  tam takım gücü penceresini ayrı sayar. Fikstür envanterinde başarısız
+  kaynak günleri ayrıca listelenir. 23–29 Kasım 2026 UTC örneğinde 91/91
+  sorgudan 128 fikstür görüldü. Bu sayı lig ve kupa takvimine göre değişir.
+- Süre senaryoları, 2.317 geriye dönük satır içindeki uygun 503 satırın
+  13 haftalık eşleştirilmiş Brier farkını kullanır. Hafta içi örneklem
+  büyüklüğü `m` ve varsayımsal korelasyon `rho` için göreli varyans
+  `rho + (1 - rho) / m` ile ölçeklenir. Haftalar arası bağımsızlık
+  planlama varsayımıdır. Kesin kabul testinin haftalık güven sınırı ve
+  ileriye dönük veri koşulları ayrıca uygulanır. Tam üç bileşenli
+  modelin süresi, uygun ileriye dönük pilot oluştuğunda hesaplanabilir.
+- Akışlar elle başlatılabilir. Yeni zamanlayıcı tanımlanmadı.

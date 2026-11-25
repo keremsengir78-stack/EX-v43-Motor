@@ -26,7 +26,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Restore durable inputs
+        id: evidence
+        run: |
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+            python ex_evidence_store.py --store durable-evidence restore --kind retrospective-research --output pilot --limit 1
+          fi
+          if ! find pilot -name retrospective-examples.jsonl -print -quit 2>/dev/null | grep -q .; then
+            echo "need_pilot=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/download-artifact@v4
+        if: steps.evidence.outputs.need_pilot == 'true'
         with:
           github-token: ${{ github.token }}
           run-id: 45567037197
@@ -35,13 +49,9 @@ jobs:
       - env:
           WEEK_START: ${{ inputs.week_start || '2026-11-23' }}
         run: |
-          ref=refs/heads/ex-evidence-archive
-          if [ -n "$(git ls-remote origin "$ref")" ]; then
-            git fetch origin "$ref"
-            git worktree add --detach durable-evidence FETCH_HEAD
-            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
-          fi
-          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --examples pilot/retrospective-examples.jsonl
+          examples=$(find pilot -name retrospective-examples.jsonl -type f -print -quit)
+          test -n "$examples"
+          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --examples "$examples"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           report = json.load(open("weekly/capacity.json"))
