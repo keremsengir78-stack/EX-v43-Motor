@@ -1,0 +1,35 @@
+name: EX source template check
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths: [.github/workflows/ex-source-template-check.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  templates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45552936337
+          name: ex-prospective-forecasts
+      - run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          root = Path("pregame-cache/alternate-calendars")
+          needles = {
+              "sk-1": [r'class="[^"]*(?:matches|match-list|round)[^"]*"', r'href="/zapas/\d+',r'25\.\s*11\.'],
+              "ua-1": [r'25\.11\.2026', r'/en/report/view/\d+',r'Wednesday'],
+              "az-1": [r'Sumqayıt vs Sabah',r'2026-11-20',r'2026-11-08'],
+          }
+          for key, entry in json.loads((root/"manifest.json").read_text()).items():
+              page = (root/(entry["sha256"]+".html")).read_text()
+              for needle in needles[key]:
+                  positions = list(re.finditer(needle,page,re.I))
+                  for position in positions[-2:]:
+                      p = position.start()
+                      print(key, needle, len(positions), repr(page[max(0,p-400):p+1700]))
+          PY
