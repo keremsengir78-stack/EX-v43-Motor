@@ -3,6 +3,7 @@
 import argparse
 import datetime as dt
 from hashlib import sha256
+from html import unescape
 import json
 from pathlib import Path
 import re
@@ -11,7 +12,8 @@ from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from ex_history_archive import MAX_BYTES, atomic_write
-from run_ex_official_minutes_batch import OFFICIAL_HOSTS
+from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
+import time
 
 
 ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com"})
@@ -32,7 +34,9 @@ class OfficialRedirect(HTTPRedirectHandler):
 def capture(config, root):
     client = build_opener(OfficialRedirect)
     rows = {}
-    for name, url in config.items():
+    for index, (name, url) in enumerate(config.items()):
+        if index:
+            time.sleep(0.75)
         if not re.fullmatch(r"[a-z0-9-]+", name):
             raise ValueError("Invalid source label")
         try:
@@ -53,6 +57,31 @@ def capture(config, root):
                           "bytes": len(raw)}
     atomic_write(root / "manifest.json", (json.dumps(rows, indent=2) + "\n").encode())
     return rows
+
+
+def read_evidence(root, entry):
+    digest = entry["sha256"]
+    if not re.fullmatch(r"[a-f0-9]{64}", digest):
+        raise ValueError("Malformed evidence digest")
+    raw = (root / f"{digest}.html").read_bytes()
+    if len(raw) != entry["bytes"] or sha256(raw).hexdigest() != digest:
+        raise ValueError("Evidence bytes do not match manifest")
+    return raw.decode("utf-8")
+
+
+def extract_czech_report(html, fixture, labels):
+    """Read both actual Chance Liga report paragraphs for an identified fixture."""
+    paragraphs = re.findall(r"<p(?:\s[^>]*)?>\s*<strong>([^<]+):</strong>(.*?)</p>",
+                            html, flags=re.IGNORECASE | re.DOTALL)
+    teams = {}
+    for side, label in labels.items():
+        lines = [unescape(re.sub(r"<[^>]*>", "", value)) for name, value in paragraphs
+                 if unescape(name).strip() == label]
+        if len(lines) != 1 or ". Trenér:" not in lines[0]:
+            raise ValueError(f"Missing or ambiguous official lineup for {side}")
+        line = " ".join(lines[0].split(". Trenér:", 1)[0].split())
+        teams[side] = {"lineup_text": line}
+    return normalize([{**fixture, "teams": teams}])
 
 
 def main():

@@ -12,7 +12,7 @@ def gate_pup(markets, expected, *, requested=False):
         if (record.get("status") != "EX_G_AVAILABLE" or record.get("market") != market
                 or type(chance) not in (int, float) or not math.isfinite(chance) or not 0 <= chance <= 1):
             issues.append(f"{market}:calibrated_probability_missing")
-    return {"status": "BLOCKED" if requested else "NOT_REQUESTED", "issues": issues,
+    return {"status": "BLOCKED" if requested is True else "NOT_REQUESTED", "issues": issues,
             "markets_checked": list(expected), "pup_allowed": False, "ex_final_allowed": False}
 
 
@@ -45,7 +45,7 @@ def score_scenarios(home, away):
 
 def execute_pup(markets, expected, odds_results, score_model, *, requested=False):
     state = gate_pup(markets, expected, requested=requested)
-    if not requested:
+    if requested is not True:
         return state
     reasons, eligible = {}, []
     for market in expected:
