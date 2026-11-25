@@ -76,6 +76,10 @@ jobs:
                     f"{coverage['sealed_research_forecasts']} | {coverage['domestic_research_baselines']} | "
                     f"{coverage['full_strength_window']} | {coverage['independently_settled_venue5']} | "
                     f"{coverage['full_model_verified']} |")
+          performance = report["weekly_performance"]
+          print(f"\nWeekly paired outcomes: {performance['matched']} ({performance['status']})")
+          for market, brier in performance["venue5_brier"].items():
+              print(f"- {market} venue5 Brier: {brier:.6f}")
           for market, design in report["retrospective_sizing"]["markets"].items():
               weeks = design.get("weeks_by_matches_per_week_and_assumed_intraweek_correlation", {})
               print(f"\n- {market} strength, indicative weeks by intraweek correlation: "

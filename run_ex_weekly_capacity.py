@@ -5,12 +5,16 @@ from collections import Counter, defaultdict
 import datetime as dt
 import json
 from pathlib import Path
+from statistics import mean
+
+from ex_decision import MARKETS
 
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 from ex_leagues import APPROVED_LEAGUES
 from run_ex_production_coverage import calibration_sensitivity
 from run_ex_prospective_pipeline import combine_forecasts, read_forecast_pack
+from run_ex_prospective_validation import join_holdout
 
 
 def board(raw, slug, day):
@@ -96,6 +100,7 @@ def observed_coverage(fixtures, packs, settlements=None):
                     and utc(row["as_of"]) <= sealed < utc(fixture["kickoff"])
                     and (row["domestic_research"] or {}).get("baseline")):
                 phase["domestic_research_baselines"].add(event)
+    joined_outcomes = {}
     forecast_ids = {row["event_id"] for row in forecasts}
     if settlements:
         for receipt in settlements.glob("*/receipt.json"):
@@ -110,13 +115,24 @@ def observed_coverage(fixtures, packs, settlements=None):
                     if (fixture and event in forecast_ids and fixture["teams"] == row["teams"]
                             and utc(fixture["kickoff"]) == utc(row["kickoff"])
                             and row.get("official_review", {}).get("scope") == "REVIEWED_OFFICIAL_RESULT"):
+                        existing = joined_outcomes.setdefault(event, row)
+                        if existing["labels"] != row["labels"] or existing["score"] != row["score"]:
+                            raise ValueError("Conflicting corroborated outcomes across archived packs")
                         phase["independently_settled_venue5"].add(event)
     for column, events in phase.items():
         for event in events:
             by_league[fixtures[event]["league"]][column] += 1
     columns = ("prematch_archived", "sealed_research_forecasts", "domestic_research_baselines",
                "full_strength_window", "independently_settled_venue5", "full_model_verified")
-    return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}
+    rows = join_holdout(forecasts, list(joined_outcomes.values())) if joined_outcomes else []
+    performance = {
+        "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",
+        "matched": len(rows),
+        "venue5_brier": {m: mean((r["short"][m] - r["labels"][m]) ** 2 for r in rows) for m in MARKETS}
+        if rows else {},
+        "production_allowed": False,
+    }
+    return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}, performance
 
 
 def main():
@@ -132,7 +148,7 @@ def main():
     archive = HistoryArchive(args.output / "cache", 7 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
     result = collect(archive, args.week_start)
     if args.packs:
-        coverage = observed_coverage(result["fixtures"], args.packs, args.settlements)
+        coverage, result["weekly_performance"] = observed_coverage(result["fixtures"], args.packs, args.settlements)
         result["observed_coverage"] = coverage
         totals = {key: sum(row[key] for row in coverage.values()) for key in next(iter(coverage.values()))}
         fixtures = result["published_fixtures"]
