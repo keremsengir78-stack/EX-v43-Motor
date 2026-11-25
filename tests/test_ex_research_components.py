@@ -1,4 +1,5 @@
 import json
+from math import log
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -19,9 +20,12 @@ class ResearchComponentTests(unittest.TestCase):
                 "external_factors": {market: [0, 0, 0, 0] for market in MARKETS},
             },
         }
+        model["coefficients"]["match_conditions"]["MS1"][0] = log(3)
+        model["coefficients"]["external_factors"]["MS1"][0] = -log(3)
         strength = dict.fromkeys(MARKETS, .8)
         scores, decisions = score_components(strength, (0, 0, 0, 0), (0, 0, 0), model, as_of)
-        self.assertAlmostEqual(.65, scores["MS1"]["weighted_research_score"])
+        self.assertAlmostEqual(.675, scores["MS1"]["weighted_research_score"])
+        self.assertAlmostEqual(.65, scores["MS2"]["weighted_research_score"])
         self.assertIsNone(decisions["markets"]["MS1"]["ex_g"]["probability"])
         self.assertFalse(decisions["ex_final_allowed"])
         scores, _ = score_components(strength, (0, 0, 0, 0), None, model, as_of)

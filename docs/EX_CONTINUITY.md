@@ -448,3 +448,9 @@ Günlük araştırma yolu, onaylı yerel lig karşılaşmalarında yeterli arşi
 FINAL kabulünde yazılım tarafında sertifikalı bağlamın, pazar kalibrasyonunun ve bağımsız kanıtın günlük araştırma yoluna bağlanması gerekiyor. Veri tarafında sabit pencereler, pazar oranı ve bağlam kanıtı bulunmalı. İstatistiksel tarafta dört pazarın kalibrasyon ve bağımsız test kanıtı tamamlanmalı. Fikstür kimliği doğrulaması ayrı kapsam taşır. Auto-Control'deki alım durumu ve bağımsız kaynak sayısı ayrı kanıt şartlarıdır. Aynı eksik belge iki kodu tetikleyebilir. Kullanıcı bu kodların arayüzde gruplanmasını değerlendirebilir. Kabul şartları için değişiklik önerilmedi.
 
 Manuel günlük ve haftalık komutlar ile isteğe bağlı dış zamanlayıcı ve arşiv dalı kuralları Paket 21 bölümünde yer alır. Dış zamanlayıcı için depo kapsamlı Actions yazma yetkisi, dal kuralı için depo yönetim yetkisi gerekir.
+
+### Paket 30 — Günlük başlangıç ve arşiv sonuçlandırma
+
+Depo kökünde `python run_ex_archive_dispatch.py --offset 0 --execute` günün kalıcı arşiv, maç öncesi araştırma ve sonuçlandırma çevrimini başlatır. Komut UTC fikstür tarihini ve PR dalını kullanır. Kullanıcı hesabı veya dış işleyici bu depoda Actions çalıştırabilmelidir. Haftalık rapor için aynı komut `--offset 0` yerine `--weekly` ile çalıştırılır. Dış zamanlayıcı ve arşiv dalı koruması için Paket 21 adımları geçerlidir.
+
+Arşivden dönen bir skor çelişkisi ilgili fikstürü sonuçlandırma bekleme listesine alır. Aynı maçın önceki doğrulanmış kopyası da yeniden kullanım listesinden çıkarılır. Diğer maçlar sonuçlandırılabilir. %50/%30/%20 yönteminin sabit ağırlıkları farklı bileşen puanlarıyla regresyon testinde doğrulanır. Üretim kabulü mevcut sertifikalı kalibrasyon ve kaynak kapılarına bağlıdır.
