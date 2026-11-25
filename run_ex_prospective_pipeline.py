@@ -366,7 +366,7 @@ def settle(forecasts, archive, sealed_at, official, *, expected_kind="PROSPECTIV
     return corroborated, provisional, pending
 
 
-def archive_history(packs, facts, cutoff):
+def archive_history(packs, facts, cutoff, *, verified_outcomes=None):
     """Reuse verified final scores whose evidence was available at forecast time."""
     history = {fact["event_id"]: fact for fact in facts}
     reused = set()
@@ -375,7 +375,7 @@ def archive_history(packs, facts, cutoff):
                    ("outcomes.jsonl", "tracked-verified-outcomes.jsonl")]
         if not any(path.is_file() for path in ledgers):
             continue
-        store = HistoryArchive(pack.parent / "settlement-cache", 0)
+        store = HistoryArchive(pack.parent / "settlement-cache", 0, clock=lambda: cutoff)
         sealed = utc(json.loads(pack.read_text())["created_at"])
         lines = (line for path in ledgers if path.is_file() for line in path.read_text().splitlines())
         for line in lines:
@@ -384,9 +384,12 @@ def archive_history(packs, facts, cutoff):
             review = row["official_review"]
             meta = row["source"]
             source = urlsplit(review["source"])
-            available_at = max(utc(review["verified_at"]), utc(meta["retrieved_at"]), sealed)
-            if available_at >= cutoff:
+            if sealed >= cutoff:
                 continue
+            evidence_times = [utc(item["retrieved_at"]) for item in review.get("evidence", [])]
+            if max(utc(review["verified_at"]), utc(meta["retrieved_at"]), *evidence_times) > sealed:
+                raise ValueError("Archived result evidence postdates the receipt")
+            available_at = sealed
             if (source.scheme != "https" or source.netloc not in OFFICIAL_RESULT_HOSTS.get(row["league"], ())
                     or review["scope"] != "REVIEWED_OFFICIAL_RESULT"
                     or review["league"] != row["league"] or review["score"] != row["score"]):
@@ -402,6 +405,12 @@ def archive_history(packs, facts, cutoff):
             if (fact["score"] != tuple(row["score"]) or not fact["finished"]
                     or fact["finished"] > utc(review["verified_at"])):
                 raise ValueError("Archived settlement disagrees with source")
+            if row["labels"] != market_labels(*fact["score"]):
+                raise ValueError("Archived settlement labels disagree with source")
+            if verified_outcomes is not None:
+                old = verified_outcomes.get(event)
+                if old is None or available_at < old[0]:
+                    verified_outcomes[event] = (available_at, row, store)
             existing = history.get(event)
             if existing and (any(existing[key] != fact[key] for key in ("kickoff", "teams", "competition"))
                              or (existing["score"] is not None and existing["score"] != fact["score"])):
@@ -556,23 +565,48 @@ def main():
             raw = args.forecast_ledger.read_bytes()
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         tracked = read_tracked_fixtures(args.packs, {r["event_id"] for r in forecasts}) if args.packs else []
+        verified_archive = {}
+        if args.prior_settlements:
+            archive_history(args.prior_settlements, [], current, verified_outcomes=verified_archive)
+
+        def reuse(matches):
+            old, queued = [], []
+            for fixture in matches:
+                entry = verified_archive.get(fixture["event_id"])
+                if entry is None:
+                    queued.append(fixture)
+                    continue
+                _, row, store = entry
+                if (row["league"] != fixture["league"] or row["teams"] != fixture["teams"]
+                        or utc(row["kickoff"]) != utc(fixture["kickoff"])):
+                    raise ValueError("Archived result and forecast identity disagree")
+                for meta in [row["source"], *row["official_review"].get("evidence", [])]:
+                    raw, _ = store._load(meta, meta["url"])
+                    atomic_write(args.cache / "raw" / meta["sha256"], raw)
+                old.append(row)
+            return queued, old
+
+        queued_forecasts, prior_forecasts = reuse(forecasts)
+        queued_tracked, prior_tracked = reuse(tracked)
         official = json.loads(args.official.read_text()) if args.official else []
         # Official sources and primary score results have separate request budgets.
         fetch = paced_download(.75)
-        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked), fetch=fetch)
+        result_archive = HistoryArchive(args.cache, len(queued_forecasts) + len(queued_tracked), fetch=fetch)
         official_errors = []
         if args.auto_official:
             official_archive = HistoryArchive(args.cache, 32, fetch=fetch)
-            found, official_errors = league_reviews(forecasts + tracked, official_archive)
+            found, official_errors = league_reviews(queued_forecasts + queued_tracked, official_archive)
             known = {(r["league"], r["date"], r["home"], r["away"]) for r in official}
             official.extend(r for r in found if (r["league"], r["date"], r["home"], r["away"]) not in known)
         corroborated, provisional, pending = settle(
-            forecasts, result_archive,
+            queued_forecasts, result_archive,
             sealed, official,
         )
         verified_tracking, provisional_tracking, pending_tracking = settle(
-            tracked, result_archive, None, official, expected_kind="PREMATCH_TRACKED_FIXTURE",
+            queued_tracked, result_archive, None, official, expected_kind="PREMATCH_TRACKED_FIXTURE",
         )
+        corroborated = prior_forecasts + corroborated
+        verified_tracking = prior_tracked + verified_tracking
         atomic_write(args.output_dir / "tracked-verified-outcomes.jsonl", jsonl(verified_tracking))
         atomic_write(args.output_dir / "tracked-provisional-outcomes.jsonl", jsonl(provisional_tracking))
         atomic_write(args.output_dir / "outcomes.jsonl", jsonl(corroborated))
@@ -583,6 +617,8 @@ def main():
         cohort = select_evaluation_rows(model, rows, design) if model else []
         report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending,
                   "official_source_errors": official_errors,
+                  "verified_outcomes_reused": len(prior_forecasts) + len(prior_tracked),
+                  "new_primary_requests": result_archive.requests,
                   "fixture_result_tracking": {"verified": len(verified_tracking),
                                               "provisional": len(provisional_tracking),
                                               "pending": pending_tracking},

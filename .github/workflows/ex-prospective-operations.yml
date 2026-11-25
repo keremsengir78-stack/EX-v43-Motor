@@ -258,6 +258,7 @@ jobs:
             git fetch origin "$ref"
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+            python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
             python ex_evidence_store.py --store durable-evidence restore --kind frozen-candidates --output frozen --limit 1
             candidate=$(find frozen -name frozen-candidates.json -type f -print -quit 2>/dev/null || true)
             if [ -n "$candidate" ]; then mkdir -p model; cp "$candidate" model/frozen-candidates.json; fi
@@ -307,7 +308,7 @@ jobs:
           official=()
           if [ -f reviewed/official.json ]; then official+=(--official reviewed/official.json); fi
           if [ -f design/design.json ]; then official+=(--design design/design.json); fi
-          python run_ex_prospective_pipeline.py --packs packs --auto-official --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
+          python run_ex_prospective_pipeline.py --packs packs --prior-settlements prior-outcomes --auto-official --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
       - uses: actions/cache/save@v4
         if: always()
         with:
