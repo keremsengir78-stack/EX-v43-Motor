@@ -1,0 +1,123 @@
+{
+  "corroborated": 0,
+  "provisional": 0,
+  "pending": [
+    {
+      "event_id": "401915293",
+      "reason": "AWAITING_FULL_TIME"
+    },
+    {
+      "event_id": "401915292",
+      "reason": "AWAITING_FULL_TIME"
+    }
+  ],
+  "official_source_errors": [],
+  "verified_outcomes_reused": 0,
+  "new_primary_requests": 0,
+  "fixture_result_tracking": {
+    "verified": 0,
+    "provisional": 0,
+    "pending": [
+      {
+        "event_id": "401880140",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401880139",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401880137",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401880138",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915378",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915291",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915376",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915377",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915374",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915375",
+        "reason": "AWAITING_FULL_TIME"
+      },
+      {
+        "event_id": "401915373",
+        "reason": "AWAITING_FULL_TIME"
+      }
+    ]
+  },
+  "eligible_evaluation_rows": 0,
+  "components": {
+    "component_coverage": {
+      "2.5_UST": {
+        "team_strength": 0,
+        "match_conditions": 0,
+        "external_factors": 0
+      },
+      "KG_VAR": {
+        "team_strength": 0,
+        "match_conditions": 0,
+        "external_factors": 0
+      },
+      "MS1": {
+        "team_strength": 0,
+        "match_conditions": 0,
+        "external_factors": 0
+      },
+      "MS2": {
+        "team_strength": 0,
+        "match_conditions": 0,
+        "external_factors": 0
+      }
+    },
+    "complete_weighted_rows": {
+      "2.5_UST": 0,
+      "KG_VAR": 0,
+      "MS1": 0,
+      "MS2": 0
+    },
+    "chronological_component_research": {
+      "2.5_UST": {
+        "status": "INSUFFICIENT_SAMPLE",
+        "production_allowed": false
+      },
+      "KG_VAR": {
+        "status": "INSUFFICIENT_SAMPLE",
+        "production_allowed": false
+      },
+      "MS1": {
+        "status": "INSUFFICIENT_SAMPLE",
+        "production_allowed": false
+      },
+      "MS2": {
+        "status": "INSUFFICIENT_SAMPLE",
+        "production_allowed": false
+      }
+    },
+    "production_allowed": false
+  },
+  "evaluation": {
+    "status": "NO_ELIGIBLE_HOLDOUT"
+  },
+  "generated_at": "2026-11-25T14:14:42.401207+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
