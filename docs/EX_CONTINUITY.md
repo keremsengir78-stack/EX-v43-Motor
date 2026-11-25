@@ -387,3 +387,20 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 Ortak arşiv yazıcısının kuyruğunu doldurmamak için üç günlük çağrıyı
 `--offset 0`, `--offset 1`, `--offset 2` ile ayrı zaman aralıklarına
 yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
+
+### Paket 22 — haftalık işletim ve kanıt sınırları
+
+- Önceki bölümdeki dış zamanlayıcı ve GitHub dal koruması adımları birlikte
+  uygulanır. Kurulumdan önce `run_ex_archive_dispatch.py` komutlarını
+  `--execute` olmadan kontrol et. Bir günlük ve bir haftalık Actions
+  çalıştırmasında arşiv yazıcısının başarılı olduğunu doğrula.
+- Günlük analiz ve sonuçlandırma `ex-evidence-archive` dalındaki mühürlü
+  kayıtlardan başlar. Önceden doğrulanmış skorların ham kaynağı yeniden
+  doğrulanır ve sonuç tablosu tekrar sorgulanmaz. Çelişkili skor veya
+  maç kimliği arşivden tekrar kullanımı durdurur.
+- `run_ex_missed_prematch_audit.py` eski fikstürlerde zamanında çekilmiş
+  maç önü özetini arar. UEFA arşivinden doğrulanabilen fikstür kimliği
+  ayrı gösterilir. Başlama saati sonrası bir kayıttan geriye dönük
+  tahmin veya kalibrasyon örneği üretilmez.
+- 13 müsabakanın uçtan uca senaryosu kontrollü kaynak girdileriyle
+  sınanır. Gerçek kaynak erişim ve kapsam raporu bundan ayrı tutulur.

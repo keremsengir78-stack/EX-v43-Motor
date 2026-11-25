@@ -346,6 +346,9 @@ def main():
             "portugal-match": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
             "belgium-previous": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweekId=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
             "belgium-week": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweek=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+            "turkey-match-detail": "https://www.tff.org/Default.aspx?macID=317885&pageID=29",
+            "france-calendar": "https://ligue1.com/en/articles/l1_article_5292-",
+            "belgium-match-detail": "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703",
             "turkey-previous": "https://www.tff.org/default.aspx?pageID=198&hafta=13",
         }
         def capture_sample(item):

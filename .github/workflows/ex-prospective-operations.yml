@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/ex-prospective-operations.yml
       - run_ex_official_queue_join.py
+      - run_ex_missed_prematch_audit.py
       - ex_daily_research.py
       - ex_daily_official.py
       - run_ex_prospective_pipeline.py
@@ -73,6 +74,9 @@ jobs:
           git worktree add --detach durable-evidence FETCH_HEAD
           python ex_evidence_store.py --store durable-evidence restore --kind official-source-probe --output probes
           python run_ex_official_queue_join.py --probe probes/15012525469 --ledger scores/score-evidence.json --output official-queue-join.json
+          python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output weeks
+          python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output captures
+          python run_ex_missed_prematch_audit.py --inventory weeks/15012941747/capacity.json --packs captures --output missed-prematch.json
       - uses: actions/upload-artifact@v4
         with:
           name: ex-technical-audit
@@ -80,6 +84,7 @@ jobs:
             source-audit.json
             minutes.json
             official-queue-join.json
+            missed-prematch.json
 
 
   archived-preflight:
