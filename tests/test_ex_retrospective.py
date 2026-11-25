@@ -48,6 +48,8 @@ class RetrospectiveTests(unittest.TestCase):
         rotated = {**match, "minutes": {"t": {str(i): 90 for i in range(11, 22)}}}
         self.assertEqual(1, workload([match, match], cutoff)[1][-1])
         self.assertEqual(.5, workload([match, rotated], cutoff)[1][-1])
+        unfinished = {**rotated, "finished": cutoff}
+        self.assertEqual(workload([match], cutoff), workload([match, unfinished], cutoff))
 
     def test_prematch_summary_rejects_actual_kickoff(self):
         import json
@@ -85,3 +87,12 @@ class RetrospectiveTests(unittest.TestCase):
             rows = [json.loads(line) for line in path.read_text().splitlines()]
         self.assertEqual(["train"] * 4 + ["validation"] * 2 + ["test"] * 2 + [None],
                          [r["venue5_partition"] for r in rows])
+
+
+    def test_approved_season_fallback_respects_calendar_year_leagues(self):
+        from ex_retrospective import observed_season
+
+        when = utc("2026-04-10T12:00:00Z")
+        self.assertEqual((2026, "APPROVED_COMPETITION_CALENDAR"), observed_season("nor.1", when, None))
+        self.assertEqual((2025, "APPROVED_COMPETITION_CALENDAR"), observed_season("ned.2", when, None))
+        self.assertEqual((None, "SEASON_UNAVAILABLE"), observed_season("unregistered", when, None))

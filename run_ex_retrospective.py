@@ -121,6 +121,7 @@ def main():
     report = {"provenance": "RETROSPECTIVE_SETTLED_EVENT_RECONSTRUCTION",
               "evidence_classes": EVIDENCE_CLASSES, "targets": len(plan["pending_events"]),
               "archived": len(facts), "missing": missing, "source_requests": 0,
+              "season_basis_counts": dict(Counter(row["season_basis"] for row in facts)),
               "terminal_evidence": dict(Counter(row.get("terminal_source", "UNUSABLE") for row in facts)),
               "feature_examples": len(examples), "markets": evaluate(examples),
               "production_calibration_allowed": False, "ex_final_allowed": False}

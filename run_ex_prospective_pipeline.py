@@ -15,7 +15,7 @@ from ex_history_sources import ESPN, match_detail, teams
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
-from ex_retrospective import settled_facts, window, workload
+from ex_retrospective import observed_season, settled_facts, window, workload
 from run_ex_prematch_archive import prematch_fixtures, summary
 from run_ucl_matchday_inputs import market_quotes
 from run_ex_prospective_validation import evaluate, join_holdout, read_rows
@@ -51,7 +51,7 @@ def forecast_rows(manifest, cache, facts, now):
                 raise ValueError("Summary URL does not match fixture")
             raw, captured = cache._load(source, source["url"])
             summary(raw, captured, event_id, kickoff, fixture["teams"])
-            season = event.get("season", {}).get("year")
+            season, season_basis = observed_season(competition, kickoff, event.get("season", {}).get("year"))
             if not max(captured, board_at) < now < kickoff or type(season) is not int:
                 skipped.append({"event_id": event_id, "reason": "TIME_OR_SEASON_UNAVAILABLE"})
                 continue
@@ -71,7 +71,7 @@ def forecast_rows(manifest, cache, facts, now):
                 continue
             players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
             rows.append({"event_id": event_id, "kickoff": kickoff.isoformat(), "forecast_at": now.isoformat(),
-                         "league": league, "season": season, "teams": fixture["teams"], "names": players,
+                         "league": league, "season": season, "season_basis": season_basis, "teams": fixture["teams"], "names": players,
                          "short": {m: mean((home[0][m], away[0][m])) for m in MARKETS},
                          "strength": {m: mean((home[1][m], away[1][m])) for m in MARKETS}
                          if home[1] and away[1] else None,

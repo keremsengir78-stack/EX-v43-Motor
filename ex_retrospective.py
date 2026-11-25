@@ -7,6 +7,7 @@ from statistics import mean
 
 from ex_historical_features import market_labels
 from ex_history_archive import utc
+from ex_leagues import APPROVED_LEAGUES, season_bounds
 from ex_model_challengers import compare_calibration, date_partitions, fit_offset, sigmoid
 from ex_component_experiment import weekly_interval
 
@@ -18,12 +19,26 @@ EVIDENCE_CLASSES = {
 }
 
 
+PROVIDER_LEAGUES = {record[1]: code for code, record in APPROVED_LEAGUES.items()}
+
+
+def observed_season(competition, kickoff, supplied):
+    if type(supplied) is int:
+        return supplied, "PROVIDER_SEASON"
+    league = PROVIDER_LEAGUES.get(competition)
+    if league:
+        return season_bounds(league, kickoff.date())[0].year, "APPROVED_COMPETITION_CALENDAR"
+    return None, "SEASON_UNAVAILABLE"
+
+
 def settled_facts(payload, event, retrieved_at):
     competition, = payload["header"]["competitions"]
     status = competition["status"]["type"]
+    kickoff = utc(event["kickoff_at"])
+    season, basis = observed_season(event["competition"], kickoff, event.get("source_season"))
     facts = {"event_id": event["event_id"], "competition": event["competition"],
-             "season": event.get("source_season"), "teams": event["teams"],
-             "kickoff": utc(event["kickoff_at"]), "score": None, "finished": None}
+             "season": season, "season_basis": basis, "teams": event["teams"],
+             "kickoff": kickoff, "score": None, "finished": None}
     if status.get("name") != "STATUS_FULL_TIME" or status.get("completed") is not True:
         return facts
     scores = {side["homeAway"]: str(side.get("score", "")) for side in competition["competitors"]}
@@ -69,7 +84,8 @@ def window(games, values, side, season):
 
 
 def workload(games, kickoff):
-    recent = [row for row in games if kickoff - row["kickoff"] <= timedelta(days=14)]
+    recent = [row for row in games if row["finished"] is not None and
+              row["finished"] < kickoff and timedelta() < kickoff - row["kickoff"] <= timedelta(days=14)]
     if not recent:
         return None, None
     rest = min((kickoff - max(row["finished"] for row in recent)).total_seconds() / 3600, 336)
