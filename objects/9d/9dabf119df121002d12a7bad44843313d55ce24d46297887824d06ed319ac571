@@ -1,0 +1,44 @@
+{
+  "forecasts": 2,
+  "historical_matches": 6820,
+  "reused_verified_outcomes": 0,
+  "skipped": [
+    {
+      "event_id": "401915378",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915291",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915376",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915377",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915374",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915375",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915373",
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 9,
+  "domestic_baselines": 9,
+  "daily_research_covered": 9,
+  "capture_source_errors": [],
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-25T09:35:40.164220+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
