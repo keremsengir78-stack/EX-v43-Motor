@@ -12,7 +12,7 @@ def snapshot(data):
     raw=json.dumps(data,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
-def auto_control(match, ingestion=None, *, pup_requested=None):
+def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=None, require_odds=True):
     issues=[]
     if not isinstance(match,dict):
         return {"status":"BLOCKED","issues":["match:invalid"],"ex_final_allowed":False}
@@ -20,7 +20,7 @@ def auto_control(match, ingestion=None, *, pup_requested=None):
         issues.append("tur2:recompute_mismatch")
     if match.get("status")!="BASELINE_ONLY":
         issues.append("historical_samples:incomplete")
-    for gate in ("fixture_lock","odds_lock"):
+    for gate in (("fixture_lock","odds_lock") if require_odds else ("fixture_lock",)):
         if not isinstance(match.get(gate),dict) or match[gate].get("status")!="VERIFIED_INPUT":
             issues.append(gate+":blocked")
     market=match.get("market_baselines_pct")
@@ -39,6 +39,8 @@ def auto_control(match, ingestion=None, *, pup_requested=None):
             not isinstance(ingestion.get("independent_sources_confirmed"),int) or
             ingestion.get("independent_sources_confirmed",0)<2):
         issues.append("second_source:unverified")
+    if fixture_evidence is not None and fixture_evidence.get("status") != "FIXTURE_CROSS_VERIFIED":
+        issues.append("fixture_sources:unverified")
     # Explicitly unimplemented inputs cannot be silently treated as verified.
     issues.extend(["exg:uncalibrated","context:unverified"])
     if pup_requested is not False:

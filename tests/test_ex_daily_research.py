@@ -66,3 +66,23 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual("2026-09-10", result["samples"]["home"]["match_dates"][0][-1])
         self.assertTrue(row["tur2"])
         self.assertIsNone(row["calibration_cohort"])
+
+    def test_official_fixture_and_odds_checks_are_market_scoped(self):
+        cutoff = utc("2026-11-25T13:00:00Z")
+        board = {"url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+                 "retrieved_at": "2026-11-25T12:59:00Z", "sha256": "1" * 64}
+        fixture = {"league": "UCL", "home": "Sabah FK", "away": "Barcelona", "date": "2026-11-25",
+                   "kickoff_at": "2026-11-25T17:45:00Z", "fixture_source": board["url"],
+                   "fixture_checked_at": board["retrieved_at"]}
+        quotes = [{"market": "MS1", "bookmaker": "DraftKings", "decimal_odds": 2,
+                   "observed_at": board["retrieved_at"], "source": board["url"]}]
+        row = daily_analysis(fixture, None, None, cutoff, quotes=quotes, board_evidence=board)
+        self.assertEqual("FIXTURE_CROSS_VERIFIED", row["fixture_evidence"]["status"])
+        self.assertNotIn("odds_lock:blocked", row["auto_control_by_market"]["MS1"]["issues"])
+        self.assertIn("odds_lock:blocked", row["auto_control_by_market"]["KG_VAR"]["issues"])
+        self.assertNotIn("fixture_sources:unverified", row["auto_control_by_market"]["MS1"]["issues"])
+        self.assertIn("second_source:unverified", row["auto_control_by_market"]["MS1"]["issues"])
+        self.assertFalse(row["auto_control_by_market"]["MS1"]["ex_final_allowed"])
+        reversed_fixture = {**fixture, "home": "Barcelona", "away": "Sabah FK"}
+        rejected = daily_analysis(reversed_fixture, None, None, cutoff, board_evidence=board)
+        self.assertEqual("UNVERIFIED", rejected["fixture_evidence"]["status"])

@@ -130,7 +130,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                                 "recent_schedule_issue": workload_issue}
                 quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
-                                            by_team=domestic_teams, observations=observations, quotes=quotes))
+                                            by_team=domestic_teams, observations=observations, quotes=quotes,
+                                            board_evidence=board_source))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)

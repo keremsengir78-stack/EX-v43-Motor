@@ -14,6 +14,7 @@ from ex_history_sources import ESPN
 from run_ucl_baselines import verified_bytes
 from ex_model_challengers import date_partitions
 from ex_decision import MARKETS
+from ex_historical_features import market_labels
 from ex_espn_provider import ESPN_LEAGUES
 from ex_ucl_baseline import cross_league_baseline
 from run_ex_prospective_pipeline import portable_facts
@@ -75,7 +76,7 @@ def replay(facts, examples, supplemental=()):
     by_team = defaultdict(list)
     references = {row["event_id"]: row for row in examples}
     coverage = Counter()
-    compared, fixture_audit = [], []
+    compared, all_candidates, fixture_audit = [], [], []
     for row in [*facts, *supplemental]:
         if row["score"] is not None and row["finished"] is not None:
             for team in row["teams"].values():
@@ -102,6 +103,7 @@ def replay(facts, examples, supplemental=()):
             diagnostic["status"] = "INCOMPLETE_DOMESTIC_WINDOWS"
             coverage["incomplete_domestic_windows"] += 1
             continue
+        all_candidates.append((kickoff.date(), market_labels(*row["score"]), candidate))
         ref = references.get(row["event_id"])
         coverage["rolling_baseline_available"] += 1
         if ref is None or utc(ref["kickoff"]) != kickoff:
@@ -118,7 +120,13 @@ def replay(facts, examples, supplemental=()):
                     "rolling_brier": mean((candidate[MARKET_KEYS[market]] - ref["labels"][market]) ** 2
                                           for _, ref, candidate in cohort),
                 } for market in MARKETS}}
-    return {"source_facts": len(facts), "reference_examples": len(examples), "supplemental_matches": len(supplemental),
+    standalone = {}
+    for scope, portion in zip(("early", "validation", "test"), date_partitions(all_candidates) or ([], [], []), strict=True):
+        if portion:
+            standalone[scope] = {"n": len(portion),
+                                 "brier": {market: mean((candidate[MARKET_KEYS[market]] - labels[market]) ** 2
+                                                        for _, labels, candidate in portion) for market in MARKETS}}
+    return {"standalone_chronological": standalone, "source_facts": len(facts), "reference_examples": len(examples), "supplemental_matches": len(supplemental),
             "scope": "RETROSPECTIVE_DATE_AND_FINAL_STATUS_RECONSTRUCTION",
             "coverage": dict(coverage), "fixture_audit": fixture_audit, "paired": len(compared), "metrics": metrics,
             "production_allowed": False, "ex_final_allowed": False}

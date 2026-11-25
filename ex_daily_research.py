@@ -1,6 +1,7 @@
 """Keep date-granular domestic UCL baselines outside the frozen holdout ledger."""
 
 import json
+from functools import lru_cache
 
 from ex_auto_control import auto_control
 from ex_cross_verify import norm
@@ -9,7 +10,8 @@ from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
 from ex_leagues import APPROVED_LEAGUES, season_bounds
 from ex_ucl_baseline import cross_league_baseline
-from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index
+from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index, verified_bytes
+from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
 
 MARKET_KEYS = {"2.5_UST": "over25", "KG_VAR": "btts", "MS1": "home_win",
                "MSX": "draw", "MS2": "away_win"}
@@ -58,7 +60,37 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
     return sorted(unique.values(), key=lambda row: row["date"]), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
 
 
-def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=()):
+@lru_cache(maxsize=1)
+def official_ucl_index():
+    config = json.loads(FIXTURE_CONFIG.read_text())
+    metadata = json.loads(UEFA_SNAPSHOT.with_suffix(".json").read_text())
+    if metadata["url"] != config["source"]:
+        raise ValueError("Unexpected official UCL evidence source")
+    raw = verified_bytes(UEFA_SNAPSHOT.with_suffix(".html"), metadata["sha256"])
+    _, aliases = team_index(config["domestic_team_names"])
+    canonical = {alias: name for (_, alias), name in aliases.items()}
+    indexed = {(stamp, canonical.get(home, home), canonical.get(away, away))
+               for stamp, home, away in uefa_fixtures(raw, config["matchday"])}
+    return metadata, canonical, indexed
+
+
+def corroborated_fixture(fixture, board, as_of):
+    result = {"status": "UNVERIFIED", "scope": "FIXTURE_IDENTITY_ONLY", "sources": []}
+    if fixture["league"] != "UCL" or not board:
+        return result
+    status = check_fixture(fixture, as_of.isoformat())
+    if (status["status"] != "VERIFIED_INPUT" or board["url"] != fixture["fixture_source"]
+            or utc(board["retrieved_at"]) != utc(fixture["fixture_checked_at"])):
+        return result
+    metadata, aliases, index = official_ucl_index()
+    home, away = (aliases.get(norm(fixture[side]), norm(fixture[side])) for side in ("home", "away"))
+    kickoff = utc(fixture["kickoff_at"])
+    if utc(metadata["retrieved_at"]) < as_of < kickoff and (kickoff, home, away) in index:
+        result.update(status="FIXTURE_CROSS_VERIFIED", sources=[board, metadata])
+    return result
+
+
+def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -97,13 +129,18 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
         selected = next(iter(unique.values())) if len(unique) == 1 else None
         value = assess_market_value(market, decisions["markets"][market]["ex_g"], selected, time)
         values_by_market[market] = {**value, "observed_quotes": offers}
+    evidence = corroborated_fixture(fixture, board_evidence, as_of)
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
-            "fixture_lock": check_fixture(fixture, time), "odds_lock": check_odds(None, time),
+            "fixture_lock": check_fixture(fixture, time),
             "market_baselines_pct": market_percentages,
             "recompute_consistent": recomputed}
+    checks = {market: auto_control({**gate, "market": market, "odds_lock": value["odds_lock"]},
+                                   pup_requested=False, fixture_evidence=evidence)
+              for market, value in values_by_market.items()}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
             "domestic_research": baseline, "markets": decisions, "market_values": values_by_market,
             "observed_inputs": observations or {},
             "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
-            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, pup_requested=False),
+            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, pup_requested=False, fixture_evidence=evidence, require_odds=False),
+            "auto_control_by_market": checks, "fixture_evidence": evidence,
             "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}
