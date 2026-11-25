@@ -1,0 +1,110 @@
+{
+  "minutes": [
+    {
+      "league": "cz.1",
+      "official_match_id": "8430",
+      "match_date": "2026-10-31",
+      "home": "FK Jablonec",
+      "away": "SK Slavia Praha",
+      "source": "https://www.chanceliga.cz/zapas/statistiky/8430-fk-jablonec-sk-slavia-praha",
+      "minutes": {
+        "home": {
+          "M. Polidar": 46,
+          "A. Růsek": 46,
+          "J. Hanuš": 51,
+          "N. Okeke": 67,
+          "G. Kuol": 77,
+          "M. Cedidla": 90,
+          "D. Pavlovič": 90,
+          "F. Novák": 90,
+          "J. Sláma": 90,
+          "R. Sedláček": 90,
+          "V. Čanturišvili": 90,
+          "S. Alioum": 44,
+          "D. Hollý": 44,
+          "K. Mihelak": 39,
+          "S. Nebyla": 23,
+          "H. Ahl": 13
+        },
+        "away": {
+          "D. Zima": 71,
+          "A. N'Guessan": 71,
+          "D. Moses": 71,
+          "E. Ayaosi": 76,
+          "M. Suleiman": 83,
+          "N. Domčak": 90,
+          "T. Vlček": 90,
+          "T. Holeš": 90,
+          "O. Kubiak": 90,
+          "M. Sadílek": 90,
+          "W. Nowak": 90,
+          "M. Konečný": 19,
+          "Š. Chaloupek": 19,
+          "M. Chytil": 19,
+          "D. Šturm": 14,
+          "P. Kačor": 7
+        }
+      },
+      "scope": "REVIEWED_NOMINAL_REGULATION_ONLY"
+    },
+    {
+      "league": "ua.1",
+      "official_match_id": "15927",
+      "match_date": "2026-09-14",
+      "home": "Shakhtar Donetsk",
+      "away": "Chornomorets Odesa",
+      "source": "https://upl.ua/en/report/view/15927/report",
+      "minutes": {
+        "home": {
+          "Alaa Ghram": 8,
+          "Oleh Ocheretko": 46,
+          "Dmytro Kryskiv": 70,
+          "G. Carvalho": 70,
+          "L. Meirelles": 84,
+          "Dmytro Riznyk": 90,
+          "Newertton": 90,
+          "Pedro Henrique": 90,
+          "Oleksandr Karavaiev": 90,
+          "Mykola Matviienko": 90,
+          "Lucas": 90,
+          "Valerii Bondar": 82,
+          "Viktor Tsukanov": 44,
+          "Yehor Nazaryna": 20,
+          "Isaque": 20,
+          "L. Traore": 6
+        },
+        "away": {
+          "Kiril Popov": 46,
+          "Hiorhi Robakidze": 46,
+          "M. Kohut": 46,
+          "Vitalii Farasieienko": 57,
+          "Kristian Mba": 75,
+          "Chijioke Kingsley Aniagboso": 90,
+          "Vasyl Kurko": 90,
+          "Oleksii Husiev": 90,
+          "Moses Jarju": 90,
+          "Oleh Pushkarov": 90,
+          "Muhammed Jobe": 90,
+          "Danyil Alefirenko": 44,
+          "Dmytro Klots": 44,
+          "Serhii Korniichuk": 44,
+          "Artur Avahimian": 33,
+          "Yoka": 15
+        }
+      },
+      "scope": "REVIEWED_NOMINAL_REGULATION_ONLY"
+    }
+  ],
+  "errors": [],
+  "leagues": [
+    "cz.1",
+    "ua.1"
+  ],
+  "league_registry": [
+    "az.1",
+    "cz.1",
+    "sk.1",
+    "ua.1"
+  ],
+  "ex_final_allowed": false
+}
