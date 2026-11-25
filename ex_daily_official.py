@@ -115,6 +115,23 @@ def uefa_scores(raw, url, stamp):
     return output
 
 
+def belgian_links(raw, stamp):
+    links = {}
+    for item in belgian_matches(embedded(raw, b"__NEXT_DATA__")):
+        slug = item["slug"]
+        if not re.fullmatch(r"seizoen-[0-9-]+-jupiler-pro-league-[a-z0-9-]+", slug):
+            continue
+        anchor = (utc(item["time"]), key("be.1", item["date"], item["homeTeam"]["name"], item["awayTeam"]["name"]))
+        url = f"https://www.proleague.be/wedstrijden/{slug}"
+        if links.setdefault(anchor, url) != url:
+            raise ValueError("Ambiguous Belgian official fixture link")
+    return links
+
+
+def belgian_match_hint(links, kickoff, clubs):
+    return links.get((kickoff, key("be.1", kickoff.date().isoformat(), clubs["home"], clubs["away"])))
+
+
 def archive_candidates(league, archive, fixtures=()):
     """Use published full-time results from competition and federation sources."""
     ttl = dt.timedelta(hours=6)
@@ -122,6 +139,11 @@ def archive_candidates(league, archive, fixtures=()):
         days = {utc(row["kickoff"]).date().isoformat() for row in fixtures}
         urls = {}
         if league == "be.1":
+            for fixture in fixtures:
+                hint = fixture.get("official_match_url")
+                if isinstance(hint, str) and re.fullmatch(
+                        r"https://www\.proleague\.be/wedstrijden/seizoen-[0-9-]+-jupiler-pro-league-[a-z0-9-]+", hint):
+                    urls[hint] = None
             if "2026-11-21" in days:
                 urls[BELGIUM_SAMPLE] = None
             def links(raw, _):
@@ -129,8 +151,12 @@ def archive_candidates(league, archive, fixtures=()):
                 return [f"https://www.proleague.be/wedstrijden/{row['slug']}" for row in rows
                         if row["date"] in days and re.fullmatch(r"[a-z0-9-]+", row["slug"])]
             if days:
-                more, _ = archive.get(BELGIUM_CALENDAR, links, max_age=ttl)
-                urls.update(dict.fromkeys(more))
+                try:
+                    more, _ = archive.get(BELGIUM_CALENDAR, links, max_age=ttl)
+                    urls.update(dict.fromkeys(more))
+                except (OSError, ValueError):
+                    if not urls:
+                        raise
             parse = belgian_results
         else:
             if "2026-11-08" in days:

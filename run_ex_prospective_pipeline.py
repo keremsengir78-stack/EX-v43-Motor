@@ -7,7 +7,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
-from ex_daily_official import league_reviews
+from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
@@ -54,6 +54,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
             if row.get("evidence_scope") != "ESPN_SCOREBOARD_RESEARCH":
                 by_team.setdefault(club, []).append(row)
     rows, skipped = [], []
+    belgian = archived_belgian_links(manifest, cache, now)
     for league, report in manifest["reports"].items():
         competition = ESPN_LEAGUES[league]
         board_source = report["board"]
@@ -113,6 +114,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                 continue
             rows.append({"event_id": event_id, "kickoff": kickoff.isoformat(), "forecast_at": now.isoformat(),
                          "league": league, "season": season, "season_basis": season_basis, "teams": fixture["teams"], "names": players,
+                         **({"official_match_url": belgian_match_hint(belgian, kickoff, players)} if league == "be.1" else {}),
                          "short": short,
                          "strength": {m: mean((home[1][m], away[1][m])) for m in MARKETS}
                          if home[1] and away[1] else None,
@@ -258,6 +260,16 @@ def combine_forecasts(packs):
     return list(chosen.values())
 
 
+def archived_belgian_links(manifest, cache, cutoff):
+    metadata = manifest.get("belgian_calendar")
+    if not metadata:
+        return {}
+    raw, stamp = cache._load(metadata, BELGIUM_CALENDAR)
+    if stamp >= cutoff:
+        return {}
+    return belgian_links(raw, stamp)
+
+
 def read_tracked_fixtures(packs, forecast_ids):
     """Track matches from sealed pregame boards even if summaries failed."""
     tracked = {}
@@ -270,6 +282,7 @@ def read_tracked_fixtures(packs, forecast_ids):
         manifest = json.loads(manifest_file.read_text())
         cache = HistoryArchive(receipt.parent / "pregame-cache", 0)
         day = dt.date.fromisoformat(manifest["day"])
+        belgian = archived_belgian_links(manifest, cache, sealed)
         for league, report in manifest["reports"].items():
             competition = ESPN_LEAGUES[league]
             url = f"{ESPN}/{competition}/scoreboard?dates={day:%Y%m%d}"
@@ -292,6 +305,8 @@ def read_tracked_fixtures(packs, forecast_ids):
                        "names": {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]},
                        "forecast_at": captured.isoformat(), "sealed_at": sealed.isoformat(),
                        "kind": "PREMATCH_TRACKED_FIXTURE"}
+                if league == "be.1":
+                    row["official_match_url"] = belgian_match_hint(belgian, kickoff, row["names"])
                 old = tracked.get(event)
                 if old and any(row[field] != old[field] for field in ("kickoff", "league", "teams", "season")):
                     raise ValueError("Tracked fixture identity changed across archived packs")
@@ -462,6 +477,13 @@ def main():
         args.capture = args.output_dir / "capture.json"
         live = collect_registered(HistoryArchive(args.cache, 26 * len(APPROVED_LEAGUES),
                                                  fetch=paced_download(.75)), day, 25, APPROVED_LEAGUES)
+        if live["reports"].get("be.1", {}).get("eligible"):
+            calendar_cache = HistoryArchive(args.cache, 1, fetch=paced_download(.75))
+            try:
+                _, live["belgian_calendar"] = calendar_cache.get(
+                    BELGIUM_CALENDAR, belgian_links, max_age=dt.timedelta(hours=6))
+            except (OSError, ValueError, TypeError, KeyError) as exc:
+                live["errors"].append({"league": "be.1", **source_error("official_fixture_links", BELGIUM_CALENDAR, exc)})
         atomic_write(args.capture, json.dumps(live).encode())
     if args.capture:
         if args.forecast_ledger or (not args.historical_facts and (not args.plan or not args.history)):
