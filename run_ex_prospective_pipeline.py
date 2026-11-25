@@ -90,6 +90,18 @@ OFFICIAL_RESULT_HOSTS = {
 }
 
 
+def read_forecast_pack(receipt):
+    metadata = json.loads(receipt.read_text())
+    if metadata.get("name") != "ex-prospective-forecasts":
+        raise ValueError("Unexpected artifact receipt")
+    paths = [path for path in (receipt.parent / "forecasts.jsonl",
+                               receipt.parent / "forecasts/forecasts.jsonl") if path.is_file()]
+    if len(paths) != 1:
+        raise ValueError("Exactly one forecast ledger is required in the artifact")
+    raw = paths[0].read_bytes()
+    return utc(metadata["created_at"]), read_rows(raw) if raw.strip() else []
+
+
 def combine_forecasts(packs):
     chosen = {}
     for sealed_at, rows in sorted(packs, key=lambda pack: pack[0]):
@@ -211,11 +223,7 @@ def main():
         if args.packs:
             if args.forecast_ledger or args.sealed_at:
                 parser.error("Use packs or a single forecast ledger")
-            packs = []
-            for receipt in sorted(args.packs.glob("*/receipt.json")):
-                stamp = utc(json.loads(receipt.read_text())["created_at"])
-                raw = (receipt.parent / "forecasts/forecasts.jsonl").read_bytes()
-                packs.append((stamp, read_rows(raw) if raw.strip() else []))
+            packs = [read_forecast_pack(receipt) for receipt in sorted(args.packs.glob("*/receipt.json"))]
             if not packs:
                 raise ValueError("No forecast artifact receipts")
             forecasts, sealed = combine_forecasts(packs), None

@@ -16,4 +16,4 @@ Brier kaybı farkı aynı maçta aday eksi referans olarak hesaplanır. Maç far
 
 `run_ex_power_design.py` pilot farkları ve önceden belirlenen araştırma kararıyla tasarım dosyası oluşturur. Hoeffding sınırına dayanan ihtiyatlı güç boyutu ayrıca raporlanır. Aile duyarlı araştırma kabulü, önceden belirlenen pencere sona erdiğinde, yeterli hafta, negatif tek yönlü üst Brier sınırı ve hedef kazanç birlikte gerçekleştiğinde verilir. Bu karar EX-G veya EX FINAL yetkisi vermez.
 
-`capture` kipinde UTC gün ve isteğe bağlı güncel tarihsel arşiv çalışması verilir. `settle` kipinde virgülle ayrılmış tahmin arşivi kimlikleri verilir. Aynı depoda yayımlanmış resmî inceleme ve araştırma tasarımı çıktıları isteğe bağlıdır. Hâlihazırda tamamlanan geçmiş maç kaynakları yeniden indirilmez. 
+`capture` kipinde UTC gün ve isteğe bağlı güncel tarihsel arşiv çalışması verilir. `settle` kipinde virgülle ayrılmış tahmin arşivi kimlikleri verilir. Aynı depoda yayımlanmış resmî inceleme ve araştırma tasarımı çıktıları isteğe bağlıdır. Hâlihazırda tamamlanan geçmiş maç kaynakları yeniden indirilmez.

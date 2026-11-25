@@ -113,3 +113,22 @@ class ProspectiveOperationsTests(unittest.TestCase):
             self.assertEqual(1, len(verified))
             self.assertEqual(1, verified[0]["labels"]["KG_VAR"])
             self.assertEqual(1, archive.requests)
+
+    def test_receipt_accepts_flat_or_nested_but_not_ambiguous_archive(self):
+        from run_ex_prospective_pipeline import read_forecast_pack
+
+        with TemporaryDirectory() as root:
+            base = Path(root)
+            receipt = base / "receipt.json"
+            receipt.write_text(json.dumps({"name": "ex-prospective-forecasts",
+                                           "created_at": "2026-11-25T10:00:00Z"}))
+            flat = base / "forecasts.jsonl"
+            flat.write_text('{"event_id":"17"}\n')
+            self.assertEqual("17", read_forecast_pack(receipt)[1][0]["event_id"])
+            nested = base / "forecasts/forecasts.jsonl"
+            nested.parent.mkdir()
+            nested.write_text(flat.read_text())
+            with self.assertRaises(ValueError):
+                read_forecast_pack(receipt)
+            flat.unlink()
+            self.assertEqual("17", read_forecast_pack(receipt)[1][0]["event_id"])
