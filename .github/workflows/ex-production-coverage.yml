@@ -9,12 +9,16 @@ on:
         description: Maximum additional published VI results dates
         type: number
         default: 120
+      resume_run_id:
+        description: Earlier coverage run that contains verified Dutch raw snapshots
+        type: string
 permissions:
   contents: read
   actions: read
 jobs:
   coverage:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -74,6 +78,13 @@ jobs:
           run-id: 45562034679
           name: ex-expanded-official-score-evidence
           path: expanded
+      - uses: actions/download-artifact@v4
+        if: inputs.resume_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.resume_run_id }}
+          name: ex-production-coverage-evidence
+          path: evidence
       - env:
           VI_DAILY_LIMIT: ${{ inputs.vi_daily_limit }}
         run: |

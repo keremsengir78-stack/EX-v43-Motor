@@ -145,8 +145,19 @@ def main():
     result["source_evidence"] = captures
     result["source_issues"] = issues
     atomic_write(args.output / "comparison.json", (json.dumps(result, indent=2, ensure_ascii=False) + "\n").encode())
+    by_day = {}
+    for source_records in results.values():
+        for day, home, away in source_records:
+            by_day.setdefault(day, set()).add((home, away))
+    unresolved = []
+    for row in result["fixtures"]:
+        if row["comparison"] == "UNMATCHED":
+            day, home, away = identity(row["date"], row["home"], row["away"])
+            possible = sorted(pair for pair in by_day.get(day, ()) if home == pair[0] or away == pair[1])
+            unresolved.append({"date": day, "home": row["home"], "away": row["away"],
+                               "same_day_same_side": possible})
     print(json.dumps({"reference_rows": len(primary), "source_rows": {source: len(rows) for source, rows in results.items()},
-                      "counts": result["counts"], "source_issues": issues}))
+                      "counts": result["counts"], "source_issues": issues, "unresolved": unresolved}))
 
 
 if __name__ == "__main__":
