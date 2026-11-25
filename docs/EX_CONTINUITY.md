@@ -335,3 +335,32 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
   tanımlayabilir. Zorla gönderimi ve silmeyi engelle, normal hızlı ileri
   Actions yazımını açık tut. REST kullanılıyorsa depo için
   Administration: write yetkili fine-grained PAT veya GitHub App gerekir.
+
+### Birleştirilmiş paket — kayan arşiv ve bağımsız skorlar
+
+- UCL günlük araştırması takım adından lig tahmin etmez. Maç önü ESPN
+  takım kimliği, ilgili sezonun yerel lig kayıtları ve doğru saha yönüyle
+  eşleşir. Birden fazla güncel lig veya eksik pencere başlangıç hesabını
+  engeller. 5. maç günü arşivi yalnızca doğrulanan fikstürlere geri dönüş
+  sağlar. Mühürlenmiş haftalık skor tablolarından alınan yeni sonuçlar
+  yalnızca araştırma takım gücü geçmişine girer.
+- `run_ex_rolling_validation.py --facts ... --examples ... --output ...`
+  kalıcı arşivden 6.820 özet ve 2.317 referans satırıyla kronolojik
+  karşılaştırma yapar. Bu arşivdeki 255 bitmiş UCL maçının 34'ünde kayan
+  yerel lig başlangıcı, sekizinde karşılaştırılabilir venue5 referansı
+  bulundu. Son test dilimindeki üç maç üretim kararı için yetersiz.
+- Haftalık rapor 48 saatlik maç önü penceresi henüz açılmayan maçları
+  erişim paydasından ayırır. Maç özeti erişilemese bile mühürlü maç önü
+  fikstür tablosu sonuç takibini başlatabilir. Haftalık cron raporu
+  arşiv yazıcısına kendisi iletir.
+- `mode=source-audit` gerçek resmî sayfaları toplar ve ham kanıtı
+  saklar. DFL, LaLiga, KNVB, Eliteserien ve UEFA kaynakları ile
+  Fransa'da Marsilya arşivi desteklenir. Belçika güncel hafta ve
+  bilinen maç belgeleriyle, Portekiz eşleştirilmiş maç belgesiyle
+  sınırlıdır. TFF güncel hafta sayfası boş veya gelecek skorları
+  kabul etmez.
+- Varsayılan dalı değiştirmeden otomatik çalışma için yetkili bir dış
+  zamanlayıcı aynı `gh workflow run` çağrılarını PR dalı ref'iyle
+  yapabilir. GitHub'da `Actions: write` yetkili GitHub App veya
+  fine-grained PAT ile çalıştırılır. Bu pakette bir dış zamanlayıcı
+  kurulmadı ve varsayılan dal ayarı değiştirilmedi.
