@@ -147,7 +147,8 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                "full_strength_window", "independently_settled_venue5", "independently_settled_domestic", "full_model_verified")
     if fixture_phases is not None:
         fixture_phases.update(phase)
-    rows = join_holdout(forecasts, [row for event, row in joined_outcomes.items() if event in forecast_ids])
+    venue_outcomes = [row for event, row in joined_outcomes.items() if event in forecast_ids]
+    rows = join_holdout(forecasts, venue_outcomes) if venue_outcomes else []
     domestic_events = phase["independently_settled_domestic"]
     performance = {
         "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",
