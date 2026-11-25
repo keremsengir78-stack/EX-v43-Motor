@@ -7,6 +7,7 @@ from ex_cross_verify import norm
 from ex_decision import assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
+from ex_leagues import APPROVED_LEAGUES, season_bounds
 from ex_ucl_baseline import cross_league_baseline
 from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index
 
@@ -26,11 +27,46 @@ def domestic_snapshot(root):
     return rows, coverage, names, leagues, fixtures
 
 
-def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False):
+DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league != "UCL"}
+
+
+def rolling_domestic(fixture, by_team, as_of):
+    """Join current domestic membership by ESPN club ID; never infer from a name."""
+    cutoff = as_of.date()
+    rows, leagues = [], []
+    for side in ("home", "away"):
+        club = fixture["team_ids"][side]
+        history = [row for row in by_team.get(club, ())
+                   if row["competition"] in DOMESTIC_BY_SLUG and row["kickoff"].date() < cutoff
+                   and row["finished"] <= row["captured_at"] < as_of]
+        current = {row["competition"] for row in history
+                   if row["kickoff"].date() >= season_bounds(DOMESTIC_BY_SLUG[row["competition"]], cutoff)[0]}
+        if len(current) != 1:
+            return None
+        competition, = current
+        league = DOMESTIC_BY_SLUG[competition]
+        leagues.append(league)
+        rows.extend({"date": row["kickoff"].date(), "league": league,
+                     "home": row["teams"]["home"], "away": row["teams"]["away"],
+                     "hg": row["score"][0], "ag": row["score"][1]} for row in history
+                    if row["competition"] == competition)
+    unique = {(r["league"], r["date"], r["home"], r["away"]): r for r in rows}
+    first, prior = season_bounds("UCL", cutoff)
+    return tuple(unique.values()), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
+
+
+def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
-    if fixture["league"] == "UCL" and snapshot:
+    if fixture["league"] == "UCL" and by_team:
+        inputs = rolling_domestic(fixture, by_team, as_of)
+        if inputs:
+            kwargs = {"cutoff_date": as_of.date().isoformat()}
+            baseline = cross_league_baseline(*inputs, **kwargs)
+            recomputed = baseline == cross_league_baseline(*inputs, **kwargs)
+            baseline["history_scope"] = "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+    if fixture["league"] == "UCL" and snapshot and not (baseline or {}).get("baseline"):
         rows, _, names, leagues, fixtures = snapshot
         home, away = (names.get(norm(fixture[side])) for side in ("home", "away"))
         kickoff = utc(fixture["kickoff_at"])
@@ -38,6 +74,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False):
             inputs = (rows, fixture, leagues[home], leagues[away], home, away, "2026-07-01", "2025-07-01")
             baseline = cross_league_baseline(*inputs)
             recomputed = baseline == cross_league_baseline(*inputs)
+            baseline["history_scope"] = "VERIFIED_MATCHDAY5_DOMESTIC_SNAPSHOT"
     values = baseline.get("baseline") if baseline else None
     if values:
         market_percentages = {market: 100 * values[key] for market, key in MARKET_KEYS.items()}

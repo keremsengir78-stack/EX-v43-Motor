@@ -153,6 +153,12 @@ def main():
         totals = {key: sum(row[key] for row in coverage.values()) for key in next(iter(coverage.values()))}
         fixtures = result["published_fixtures"]
         result["phase_totals"] = totals
+        measured_at = archive.clock()
+        opened = {event for event, row in result["fixtures"].items()
+                  if utc(row["kickoff"]) - dt.timedelta(hours=48) <= measured_at}
+        result["capture_window"] = {"measured_at": measured_at.isoformat(), "window_hours": 48,
+            "opened": len(opened), "not_due": fixtures - len(opened),
+            "prematch_coverage_of_due": totals["prematch_archived"] / len(opened) if opened else None}
         result["phase_share_of_published"] = {key: count / fixtures if fixtures else None
                                                for key, count in totals.items()}
     if args.examples:

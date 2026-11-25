@@ -17,6 +17,7 @@ from ex_history_sources import ESPN, match_detail, teams
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
+from ex_rolling_scoreboards import scoreboard_facts
 from ex_retrospective import observed_season, settled_facts, window, workload
 from run_ex_prematch_archive import prematch_fixtures, summary
 from run_ucl_matchday_inputs import market_quotes
@@ -46,10 +47,12 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
-    by_team = {}
+    by_team, domestic_teams = {}, {}
     for row in available:
         for club in row["teams"].values():
-            by_team.setdefault(club, []).append(row)
+            domestic_teams.setdefault(club, []).append(row)
+            if row.get("evidence_scope") != "ESPN_SCOREBOARD_RESEARCH":
+                by_team.setdefault(club, []).append(row)
     rows, skipped = [], []
     for league, report in manifest["reports"].items():
         competition = ESPN_LEAGUES[league]
@@ -102,7 +105,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                             "kickoff_at": kickoff.isoformat(), **players, "team_ids": fixture["teams"],
                             "season": season, "season_basis": season_basis,
                             "fixture_source": board_source["url"], "fixture_checked_at": board_at.isoformat()}
-                daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent))
+                daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent, by_team=domestic_teams))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -215,9 +218,9 @@ def alternate_context(manifest, cache_root):
 OFFICIAL_RESULT_HOSTS = {
     "de.1": {"www.bundesliga.com", "www.dfb.de"}, "de.2": {"www.bundesliga.com", "www.dfb.de"},
     "en.1": {"www.premierleague.com", "fantasy.premierleague.com"}, "en.2": {"www.efl.com"},
-    "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it", "en.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com"},
-    "nl.1": {"eredivisie.nl", "www.eredivisie.nl"},
-    "nl.2": {"keukenkampioendivisie.nl", "www.keukenkampioendivisie.nl"}, "pt.1": {"www.ligaportugal.pt", "ligaportugal.pt"},
+    "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it", "en.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com", "www.om.fr"},
+    "nl.1": {"eredivisie.nl", "www.eredivisie.nl", "www.knvb.nl"},
+    "nl.2": {"keukenkampioendivisie.nl", "www.keukenkampioendivisie.nl", "www.knvb.nl"}, "pt.1": {"www.ligaportugal.pt", "ligaportugal.pt"},
     "be.1": {"www.proleague.be", "proleague.be"}, "tr.1": {"www.tff.org", "tff.org"},
     "no.1": {"www.eliteserien.no", "eliteserien.no"}, "at.1": {"www.bundesliga.at", "bundesliga.at"},
     "gr.1": {"www.slgr.gr", "slgr.gr"}, "UCL": {"www.uefa.com"}, "cz.1": {"www.chanceliga.cz"}, "sk.1": {"www.nikeliga.sk"},
@@ -423,6 +426,7 @@ def main():
     parser.add_argument("--historical-facts", type=Path)
     parser.add_argument("--export-facts", type=Path)
     parser.add_argument("--prior-settlements", type=Path)
+    parser.add_argument("--weekly-scoreboards", type=Path)
     parser.add_argument("--forecast-ledger", type=Path)
     parser.add_argument("--sealed-at")
     parser.add_argument("--packs", type=Path, help="Directory containing individually verified GitHub artifact receipts")
@@ -471,6 +475,18 @@ def main():
             candidates = [path for path in receipts if utc(json.loads(path.read_text())["created_at"]) < cutoff]
             if candidates:
                 domestic = domestic_snapshot(candidates[-1].parent)
+        rolling = []
+        if args.weekly_scoreboards:
+            existing = {r["event_id"]: r for r in facts}
+            for row in scoreboard_facts(args.weekly_scoreboards, cutoff):
+                prior = existing.get(row["event_id"])
+                if prior and any(prior[key] != row[key] for key in ("teams", "competition", "kickoff")):
+                    raise ValueError("Historical source identity conflict")
+                if prior and prior["score"] is not None and prior["score"] != row["score"]:
+                    raise ValueError("Historical scoreboard score conflict")
+                if prior is None:
+                    rolling.append(row)
+            facts.extend(rolling)
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic)
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):
@@ -480,7 +496,7 @@ def main():
         atomic_write(args.output_dir / "official-fixture-context.json",
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
-                  "reused_verified_outcomes": reused, "skipped": skipped,
+                  "reused_verified_outcomes": reused, "rolling_scoreboard_matches": len(rolling), "skipped": skipped,
                   "daily_fixture_records": len(daily),
                   "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
@@ -504,7 +520,7 @@ def main():
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         tracked = read_tracked_fixtures(args.packs, {r["event_id"] for r in forecasts}) if args.packs else []
         official = json.loads(args.official.read_text()) if args.official else []
-        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked) + 3, fetch=paced_download(.75))
+        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked) + 12, fetch=paced_download(.75))
         official_errors = []
         if args.auto_official:
             found, official_errors = league_reviews(forecasts + tracked, result_archive)

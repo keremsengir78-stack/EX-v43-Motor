@@ -68,6 +68,8 @@ jobs:
           report = json.load(open("weekly/capacity.json"))
           print("## Weekly EX capacity (UTC)")
           print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91")
+          window = report["capture_window"]
+          print(f"\nCapture window opened: {window['opened']} | Not yet due: {window['not_due']}")
           print("\n| Competition | Published | Prematch | Venue5 | Domestic baseline | Full strength | Settled venue5 | Full model |")
           print("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
           for league, published in report["by_league"].items():
@@ -130,3 +132,19 @@ jobs:
             git -C "$root/store" -c user.name=ex-evidence-bot -c user.email=ex-evidence-bot@users.noreply.github.com commit -m "Preserve EX evidence artifacts $ARTIFACT_IDS"
             git -C "$root/store" push origin "HEAD:$ref"
           fi
+
+  persist-scheduled-inventory:
+    needs: inventory
+    if: github.event_name == 'schedule' && needs.inventory.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN_ID: ${{ github.run_id }}
+    steps:
+      - run: |
+          id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" --jq '.artifacts[] | select(.name == "ex-weekly-capacity") | .id')
+          test -n "$id"
+          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"             -f week_start="$(date -u -d '7 days ago' +%F)" -f artifact_ids="$id" -f preserve_only=true

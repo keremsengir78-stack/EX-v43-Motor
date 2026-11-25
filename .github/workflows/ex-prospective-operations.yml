@@ -22,7 +22,7 @@ on:
     inputs:
       mode:
         type: choice
-        options: [audit, capture, settle, cycle]
+        options: [audit, capture, settle, cycle, source-audit]
         required: true
       day:
         type: string
@@ -152,6 +152,20 @@ jobs:
               print(report["day"], {league: len(rows) for league, rows in context.items()})
           PY
 
+  official-source-probe:
+    if: inputs.mode == 'source-audit'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python ex_daily_official.py --output source-probe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-official-source-probe
+          path: source-probe/
   capture:
     if: github.event_name == 'schedule' || inputs.mode == 'capture' || inputs.mode == 'cycle'
     runs-on: ubuntu-latest
@@ -170,6 +184,7 @@ jobs:
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
             python ex_evidence_store.py --store durable-evidence restore --kind ucl-domestic-research --output domestic --limit 1
+            python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output weekly-boards
             python ex_evidence_store.py --store durable-evidence restore --kind historical-facts --output facts --limit 1
           fi
           facts=$(find facts -type f -name historical-facts.jsonl -print -quit 2>/dev/null || true)
@@ -198,7 +213,7 @@ jobs:
           fi
           python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}" \
             "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
-            --domestic-packs domestic --output-dir forecasts
+            --domestic-packs domestic --weekly-scoreboards weekly-boards --output-dir forecasts
       - uses: actions/upload-artifact@v4
         if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
         with:
