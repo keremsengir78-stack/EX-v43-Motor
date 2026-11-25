@@ -1,0 +1,42 @@
+{
+  "portugal-team": {
+    "source": {
+      "url": "https://www.ligaportugal.pt/equipa/157/fc-porto/resultados",
+      "retrieved_at": "2026-11-25T10:12:41.022408+00:00",
+      "sha256": "16ce6d065f9127bd96e63abce774ad4de3c905f4dcebea5107289792d677d103",
+      "size": 1623243
+    }
+  },
+  "portugal-match": {
+    "source": {
+      "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/11/9?tab=match_timeline",
+      "retrieved_at": "2026-11-25T10:12:43.536357+00:00",
+      "sha256": "d88a3a6615d0330d272e5765d78f80897a191c9b1f9226a5b437eadf4e8afa87",
+      "size": 1683506
+    }
+  },
+  "belgium-previous": {
+    "source": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweekId=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+      "retrieved_at": "2026-11-25T10:12:41.670056+00:00",
+      "sha256": "c475c7fd7c1f2cc9d776b59035aacbb51a525596bd71cc9d59f5eceb8aefd2a2",
+      "size": 239617
+    }
+  },
+  "belgium-week": {
+    "source": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results&gameweek=44d68a68-8e0e-4ef5-b98d-b540b1bb97d3",
+      "retrieved_at": "2026-11-25T10:12:40.914378+00:00",
+      "sha256": "d52071f2ef03aa5e94cea3131982b8d944e829b4b88772c5dc81289e02703067",
+      "size": 239607
+    }
+  },
+  "turkey-previous": {
+    "source": {
+      "url": "https://www.tff.org/default.aspx?pageID=198&hafta=13",
+      "retrieved_at": "2026-11-25T10:12:42.297582+00:00",
+      "sha256": "d793c23c7af9e22bcce9977678b82b16a5d38855cef36e6feeb28ef69b644382",
+      "size": 335696
+    }
+  }
+}
