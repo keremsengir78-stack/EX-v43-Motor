@@ -6,9 +6,11 @@ on:
       - .github/workflows/ex-official-source-probe.yml
       - run_ex_official_sources.py
       - ex_official_report_html.py
+      - run_ex_dfl_bulk.py
       - config/ex_official_sources.json
 permissions:
   contents: read
+  actions: read
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -65,3 +67,24 @@ jobs:
         with:
           name: ex-official-evidence
           path: official-evidence/
+
+  dfl-bulk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - run: python run_ex_dfl_bulk.py --ledger scores/score-evidence.json --output dfl-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-dfl-bulk-evidence
+          path: dfl-evidence/
