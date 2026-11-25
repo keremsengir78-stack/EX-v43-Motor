@@ -252,6 +252,7 @@ def settle(forecasts, archive, sealed_at, official):
             continue
         outcome = {"event_id": event_id, "kickoff": row["kickoff"], "teams": row["teams"],
                    "finished": facts["finished"].isoformat(), "settled_at": meta["retrieved_at"],
+                   "league": row["league"], "season": row["season"],
                    "score": facts["score"], "labels": market_labels(*facts["score"]), "source": meta}
         review = officer.get((row["league"], kickoff.date().isoformat(), row["names"]["home"], row["names"]["away"]))
         if review is None:
@@ -266,6 +267,47 @@ def settle(forecasts, archive, sealed_at, official):
         else:
             provisional.append(outcome)
     return corroborated, provisional, pending
+
+
+def archive_history(packs, facts, cutoff):
+    """Reuse verified final scores whose evidence was available at forecast time."""
+    history = {fact["event_id"]: fact for fact in facts}
+    reused = set()
+    for pack in sorted(packs.glob("*/receipt.json")):
+        ledger = pack.parent / "settlement/outcomes.jsonl"
+        if not ledger.is_file():
+            continue
+        store = HistoryArchive(pack.parent / "settlement-cache", 0)
+        sealed = utc(json.loads(pack.read_text())["created_at"])
+        for line in ledger.read_text().splitlines():
+            row = json.loads(line)
+            competition = ESPN_LEAGUES[row["league"]]
+            review = row["official_review"]
+            meta = row["source"]
+            source = urlsplit(review["source"])
+            available_at = max(utc(review["verified_at"]), utc(meta["retrieved_at"]), sealed)
+            if available_at >= cutoff:
+                continue
+            if (source.scheme != "https" or source.netloc not in OFFICIAL_RESULT_HOSTS.get(row["league"], ())
+                    or review["scope"] != "REVIEWED_OFFICIAL_RESULT"
+                    or review["league"] != row["league"] or review["score"] != row["score"]):
+                raise ValueError("Unverified official settlement evidence")
+            event = row["event_id"]
+            fixture = {"event_id": event, "kickoff_at": row["kickoff"], "teams": row["teams"],
+                       "competition": competition, "source_season": row["season"]}
+            raw, captured = store._load(meta, f"{ESPN}/{competition}/summary?event={event}")
+            match_detail(raw, captured, fixture)
+            fact = settled_facts(json.loads(raw), fixture, captured.isoformat())
+            if (fact["score"] != tuple(row["score"]) or not fact["finished"]
+                    or fact["finished"] > utc(review["verified_at"])):
+                raise ValueError("Archived settlement disagrees with source")
+            existing = history.get(event)
+            if existing and any(existing[key] != fact[key] for key in ("score", "kickoff", "teams", "competition")):
+                raise ValueError("Conflicting archived result")
+            if not existing or existing["captured_at"] > available_at:
+                history[event] = {**fact, "captured_at": available_at}
+                reused.add(event)
+    return list(history.values()), len(reused)
 
 
 def component_audit(rows):
@@ -307,6 +349,7 @@ def main():
     parser.add_argument("--capture", type=Path)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--history", type=Path)
+    parser.add_argument("--prior-settlements", type=Path)
     parser.add_argument("--forecast-ledger", type=Path)
     parser.add_argument("--sealed-at")
     parser.add_argument("--packs", type=Path, help="Directory containing individually verified GitHub artifact receipts")
@@ -325,14 +368,19 @@ def main():
         manifest = json.loads(args.capture.read_text())
         archive = HistoryArchive(args.cache, 0)
         # Establish the feature cutoff after archive integrity verification.
-        forecasts, skipped = forecast_rows(manifest, archive, facts, archive.clock())
+        cutoff = archive.clock()
+        reused = 0
+        if args.prior_settlements:
+            facts, reused = archive_history(args.prior_settlements, facts, cutoff)
+        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff)
         if any(archive.clock() >= utc(row["kickoff"]) for row in forecasts):
             raise ValueError("Forecast execution finished past kickoff")
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
         context, issues = alternate_context(manifest, args.cache)
         atomic_write(args.output_dir / "official-fixture-context.json",
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
-        report = {"forecasts": len(forecasts), "skipped": skipped,
+        report = {"forecasts": len(forecasts), "historical_matches": len(facts),
+                  "reused_verified_outcomes": reused, "skipped": skipped,
                   "alternate_fixtures": {league: len(rows) for league, rows in context.items()},
                   "alternate_calendar_issues": issues}
     else:

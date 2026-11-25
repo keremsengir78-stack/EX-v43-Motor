@@ -1,6 +1,7 @@
 """Measure observed EX evidence from existing archives without opening production gates."""
 
 import argparse
+import math
 from collections import Counter, defaultdict
 from datetime import date
 from statistics import mean
@@ -52,7 +53,7 @@ def audit(plan, examples, captures):
             "production_calibration_allowed": False, "ex_final_allowed": False}
 
 
-def calibration_sensitivity(examples):
+def calibration_sensitivity(examples, additional_rates=()):
     """Use archive variability for planning the strength study only."""
     scenarios = {}
     for market in ("2.5_UST", "KG_VAR", "MS1", "MS2"):
@@ -68,7 +69,23 @@ def calibration_sensitivity(examples):
             scenarios[market] = {"status": "PILOT_VARIANCE_UNAVAILABLE"}
             continue
         design = power_plan(pilot, .01, .05, .8, 10)
-        scenarios[market] = {**design, "archive_pilot_weeks": len(weekly),
+        pilot_matches = sum(map(len, weekly.values()))
+        typical = pilot_matches / len(weekly)
+        rates = sorted({10, 25, 50, *additional_rates} - {0})
+        # Equicorrelated losses within each week, independent weeks. Anchored
+        # to the observed weekly variance rather than to an iid match count.
+        sizing = {
+            str(rate): {
+                str(rho): max(2, math.ceil(design["required_weeks"]
+                                           * (rho + (1 - rho) / rate)
+                                           / (rho + (1 - rho) / typical)))
+                for rho in (0, .1, .25, .5, 1)
+            }
+            for rate in rates
+        }
+        scenarios[market] = {**design, "pilot_matches": pilot_matches,
+                             "pilot_mean_matches_per_week": typical,
+                             "weeks_by_matches_per_week_and_assumed_intraweek_correlation": sizing, "archive_pilot_weeks": len(weekly),
                              "missing_new_match_counts_if_eligible_per_week": {
                                  str(rate): rate * design["required_weeks"] for rate in (10, 25, 50)}}
     return {"scope": "RETROSPECTIVE_STRENGTH_VARIANCE_PROXY",

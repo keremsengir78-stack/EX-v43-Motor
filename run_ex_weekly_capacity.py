@@ -9,6 +9,8 @@ from pathlib import Path
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 from ex_leagues import APPROVED_LEAGUES
+from run_ex_production_coverage import calibration_sensitivity
+from run_ex_prospective_pipeline import combine_forecasts, read_forecast_pack
 
 
 def board(raw, slug, day):
@@ -53,15 +55,40 @@ def collect(archive, start):
             "fixtures": fixtures, "ex_final_allowed": False}
 
 
+def observed_coverage(fixtures, packs):
+    forecasts = combine_forecasts(read_forecast_pack(p) for p in packs.glob("*/receipt.json"))
+    by_league = {league: Counter() for league in APPROVED_LEAGUES}
+    for row in forecasts:
+        fixture = fixtures.get(row["event_id"])
+        if fixture is None:
+            continue
+        if (row["league"] != fixture["league"] or row["teams"] != fixture["teams"]
+                or utc(row["kickoff"]) != utc(fixture["kickoff"])):
+            raise ValueError("Archived forecast and weekly fixture identity disagree")
+        counts = by_league[row["league"]]
+        counts["sealed_research_forecasts"] += 1
+        counts["full_strength_window"] += row["strength"] is not None
+    columns = ("sealed_research_forecasts", "full_strength_window", "full_model_verified")
+    return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--week-start", type=dt.date.fromisoformat, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--packs", type=Path)
+    parser.add_argument("--examples", type=Path)
     args = parser.parse_args()
     if args.week_start.weekday() != 0:
         parser.error("Week starts on Monday UTC")
     archive = HistoryArchive(args.output / "cache", 7 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
     result = collect(archive, args.week_start)
+    if args.packs:
+        result["observed_coverage"] = observed_coverage(result["fixtures"], args.packs)
+    if args.examples:
+        examples = [json.loads(line) for line in args.examples.read_text().splitlines()]
+        rates = (result["published_fixtures"],)
+        result["retrospective_sizing"] = calibration_sensitivity(examples, rates)
     atomic_write(args.output / "capacity.json", (json.dumps(result, indent=2) + "\n").encode())
     print(json.dumps({k: result[k] for k in ("week_start", "published_fixtures", "boards_observed",
                                              "by_league", "board_failures")}))

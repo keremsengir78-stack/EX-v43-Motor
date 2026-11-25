@@ -171,8 +171,14 @@ jobs:
       - env:
           DAY: ${{ inputs.day }}
         run: |
-          python run_ex_prematch_archive.py --league all --day "$DAY" --cache pregame-cache --output capture.json
-          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache pregame-cache --output-dir forecasts
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
+          fi
+          python run_ex_prematch_archive.py --league approved --limit 25 --day "$DAY" --cache pregame-cache --output capture.json
+          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache pregame-cache --prior-settlements prior-outcomes --output-dir forecasts
       - uses: actions/upload-artifact@v4
         with:
           name: ex-prospective-forecasts
@@ -212,6 +218,7 @@ jobs:
             gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > "packs/$id/receipt.json"
             test "$(jq -r .name "packs/$id/receipt.json")" = ex-prospective-forecasts
             gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > forecasts.zip
+            test "sha256:$(sha256sum forecasts.zip | cut -d' ' -f1)" = "$(jq -r .digest "packs/$id/receipt.json")"
             unzip -q forecasts.zip -d "packs/$id"
           done
       - uses: actions/download-artifact@v4

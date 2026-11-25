@@ -2,7 +2,7 @@ name: EX weekly research evidence
 on:
   pull_request:
     branches: [ex-v43-development]
-    paths: [.github/workflows/ex-weekly-evidence.yml, run_ex_weekly_capacity.py]
+    paths: [.github/workflows/ex-weekly-evidence.yml, run_ex_weekly_capacity.py, ex_evidence_store.py, run_ex_production_coverage.py]
   workflow_dispatch:
     inputs:
       week_start:
@@ -17,6 +17,8 @@ permissions:
   contents: read
 jobs:
   inventory:
+    needs: preserve
+    if: always() && (needs.preserve.result == 'success' || needs.preserve.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -24,9 +26,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45567037197
+          name: ex-retrospective-results
+          path: pilot
       - env:
           WEEK_START: ${{ inputs.week_start || '2026-11-23' }}
-        run: python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly
+        run: |
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+          fi
+          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --examples pilot/retrospective-examples.jsonl
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          report = json.load(open("weekly/capacity.json"))
+          print("## Weekly EX capacity (UTC)")
+          print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91")
+          print("\n| Competition | Published | Sealed research | Full strength | Full model |")
+          print("| --- | ---: | ---: | ---: | ---: |")
+          for league, published in report["by_league"].items():
+              coverage = report["observed_coverage"][league]
+              print(f"| {league} | {published} | {coverage['sealed_research_forecasts']} | "
+                    f"{coverage['full_strength_window']} | {coverage['full_model_verified']} |")
+          for market, design in report["retrospective_sizing"]["markets"].items():
+              weeks = design.get("weeks_by_matches_per_week_and_assumed_intraweek_correlation", {})
+              print(f"\n- {market} strength, indicative weeks by intraweek correlation: "
+                    f"25/week {weeks.get('25')} | fixture ceiling {weeks.get(str(report['published_fixtures']))}")
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: ex-weekly-capacity

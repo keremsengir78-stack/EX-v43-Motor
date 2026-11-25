@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from ex_espn_provider import ESPN_LEAGUES
+from ex_leagues import APPROVED_LEAGUES
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 from run_ex_official_sources import ALTERNATE_CALENDARS, archive_alternate_calendars
@@ -68,30 +69,32 @@ def collect(archive, league, day, limit):
             "eligible": len(upcoming), "requests": archive.requests, "ex_final_allowed": False}
 
 
-def collect_registered(archive, day, limit):
+def collect_registered(archive, day, limit, leagues=ESPN_LEAGUES):
     reports, errors = {}, []
-    for league in ESPN_LEAGUES:
+    for league in leagues:
         try:
             reports[league] = collect(archive, league, day, limit)
         except (BudgetExhausted, OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
             errors.append({"league": league, **source_error("board", None, exc)})
     return {"kind": "REGISTERED_LEAGUE_CAPTURE", "day": day.isoformat(), "reports": reports,
-            "errors": errors, "registered_leagues": list(ESPN_LEAGUES), "requests": archive.requests,
+            "errors": errors, "registered_leagues": list(leagues), "requests": archive.requests,
             "ex_final_allowed": False}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--league", choices=(*ESPN_LEAGUES, "all"), required=True)
+    parser.add_argument("--league", choices=(*ESPN_LEAGUES, "all", "approved"), required=True)
     parser.add_argument("--day", type=dt.date.fromisoformat, required=True)
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--limit", type=int, choices=range(1, 26), default=18)
     args = parser.parse_args()
-    archive = HistoryArchive(args.cache, (args.limit + 1) * (len(ESPN_LEAGUES) if args.league == "all" else 1), fetch=paced_download(.75))
+    scopes = {"all": ESPN_LEAGUES, "approved": APPROVED_LEAGUES}
+    leagues = scopes.get(args.league, (args.league,))
+    archive = HistoryArchive(args.cache, (args.limit + 1) * len(leagues), fetch=paced_download(.75))
     if not archive.clock().date() <= args.day <= archive.clock().date() + dt.timedelta(days=2):
         parser.error("Choose an upcoming UTC date within two days")
-    report = (collect_registered(archive, args.day, args.limit) if args.league == "all"
+    report = (collect_registered(archive, args.day, args.limit, leagues) if args.league in scopes
               else collect(archive, args.league, args.day, args.limit))
     if args.league == "all":
         report["alternate_calendar_evidence"] = archive_alternate_calendars(

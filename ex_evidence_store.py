@@ -49,6 +49,17 @@ def seal(store, source, receipt):
     index = {"receipt": {k: meta[k] for k in ("id", "name", "created_at", "digest")}, "files": files}
     insert(store / "records" / kind / f"{asset}.json",
            (json.dumps(index, sort_keys=True, indent=2) + "\n").encode())
+    categories = ({"prematch": ("capture.json", "pregame-cache/"),
+                   "research-forecast": ("forecasts.jsonl", "forecasts/")}
+                  if kind == "prematch-and-research" else
+                  {"verified-outcome": ("outcomes.jsonl", "settlement/outcomes.jsonl", "settlement-cache/raw/")})
+    for category, prefixes in categories.items():
+        selected = {name: sha for name, sha in files.items()
+                    if any(name.startswith(key) if key.endswith("/") else name == key for key in prefixes)}
+        if selected:
+            typed = {**index, "files": selected}
+            insert(store / "records" / category / f"{asset}.json",
+                   (json.dumps(typed, sort_keys=True, indent=2) + "\n").encode())
 
 
 def restore(store, kind, destination, limit=None):
