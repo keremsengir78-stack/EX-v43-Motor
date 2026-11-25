@@ -31,7 +31,7 @@ TEAMS = {
 }
 
 
-def extract(page, source, captured_at):
+def extract(page, source, captured_at, *, require_finished=False, allow_named_teams=False):
     prefix = urlsplit(source).path + "/"
     captured = datetime.fromisoformat(captured_at)
     if captured.utcoffset() is None:
@@ -50,12 +50,15 @@ def extract(page, source, captured_at):
         day = kickoff.astimezone(ZoneInfo("Europe/Berlin")).date()
         if day >= captured.astimezone(ZoneInfo("Europe/Berlin")).date():
             continue
+        if require_finished and "match-finished" not in card:
+            continue
         scores = [plain(value) for value in re.findall(r'class="score">(.*?)</div>', card, re.S)]
         home, away = (event[side]["name"] for side in ("homeTeam", "awayTeam"))
-        if home not in TEAMS or away not in TEAMS or len(scores) != 2 or not all(s.isdecimal() for s in scores):
+        if ((not allow_named_teams and (home not in TEAMS or away not in TEAMS))
+                or len(scores) != 2 or not all(s.isdecimal() and int(s) <= 30 for s in scores)):
             skipped.append({"source": event["url"], "teams": [home, away], "scores": scores})
             continue
-        result.append({"date": day.isoformat(), "home": TEAMS[home], "away": TEAMS[away],
+        result.append({"date": day.isoformat(), "home": TEAMS.get(home, home), "away": TEAMS.get(away, away),
                        "official_score": list(map(int, scores)), "source": event["url"]})
     if not result:
         raise ValueError("No supported official score cards")

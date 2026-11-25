@@ -259,28 +259,43 @@ def combine_forecasts(packs):
 
 
 def read_tracked_fixtures(packs, forecast_ids):
-    """Take sealed fixture identities from daily analysis for result tracking only."""
+    """Track matches from sealed pregame boards even if summaries failed."""
     tracked = {}
     for receipt in sorted(packs.glob("*/receipt.json")):
-        ledger = receipt.parent / "forecasts/daily-analysis.json"
-        if not ledger.is_file():
+        candidates = [receipt.parent / name for name in ("forecasts/capture.json", "capture.json")]
+        manifest_file = next((path for path in candidates if path.is_file()), None)
+        if manifest_file is None:
             continue
         sealed = utc(json.loads(receipt.read_text())["created_at"])
-        for record in json.loads(ledger.read_text()):
-            fixture = record["fixture"]
-            event = fixture["event_id"]
-            kickoff = fixture["kickoff_at"]
-            if event in forecast_ids or not utc(record["as_of"]) <= sealed < utc(kickoff):
-                continue
-            row = {"event_id": event, "kickoff": kickoff, "league": fixture["league"],
-                   "teams": fixture["team_ids"], "season": fixture["season"],
-                   "names": {side: fixture[side] for side in ("home", "away")},
-                   "forecast_at": record["as_of"], "sealed_at": sealed.isoformat(),
-                   "kind": "PREMATCH_TRACKED_FIXTURE"}
-            old = tracked.get(event)
-            if old and any(row[field] != old[field] for field in ("kickoff", "league", "teams", "season")):
-                raise ValueError("Tracked fixture identity changed across archived packs")
-            tracked.setdefault(event, row)
+        manifest = json.loads(manifest_file.read_text())
+        cache = HistoryArchive(receipt.parent / "pregame-cache", 0)
+        day = dt.date.fromisoformat(manifest["day"])
+        for league, report in manifest["reports"].items():
+            competition = ESPN_LEAGUES[league]
+            url = f"{ESPN}/{competition}/scoreboard?dates={day:%Y%m%d}"
+            raw, captured = cache._load(report["board"], url)
+            pregame = {event: (kickoff, sides) for event, kickoff, sides in
+                       prematch_fixtures(raw, captured, day, competition, dt.timedelta(hours=48))}
+            for record in json.loads(raw)["events"]:
+                event = record["id"]
+                if event in forecast_ids or event not in pregame:
+                    continue
+                kickoff, sides = pregame[event]
+                if not captured <= sealed < kickoff:
+                    continue
+                season, _ = observed_season(competition, kickoff, record.get("season", {}).get("year"))
+                if type(season) is not int:
+                    continue
+                match, = record["competitions"]
+                row = {"event_id": event, "kickoff": kickoff.isoformat(), "league": league,
+                       "teams": sides, "season": season,
+                       "names": {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]},
+                       "forecast_at": captured.isoformat(), "sealed_at": sealed.isoformat(),
+                       "kind": "PREMATCH_TRACKED_FIXTURE"}
+                old = tracked.get(event)
+                if old and any(row[field] != old[field] for field in ("kickoff", "league", "teams", "season")):
+                    raise ValueError("Tracked fixture identity changed across archived packs")
+                tracked.setdefault(event, row)
     return list(tracked.values())
 
 
