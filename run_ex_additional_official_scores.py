@@ -48,7 +48,10 @@ def marseille_scores(html, captured_at):
     aliases = {"Paris Saint-Germain": "Paris SG", "Stade Rennais": "Rennes", "Le Havre AC": "Le Havre"}
     for marker in re.finditer(r'"name":"\d{4}/\d{4} LI1 J\d+ : ', body):
         item, _ = decoder.raw_decode(body, body.rfind("{", 0, marker.start()))
-        if item.get("competition", {}).get("name") != "Ligue 1" or not item.get("date"):
+        competition = item.get("competition")
+        if (not isinstance(competition, dict) or competition.get("name") != "Ligue 1"
+                or not item.get("date")
+                or not all(isinstance(item.get(side), dict) for side in ("homeClub", "awayClub"))):
             continue
         kickoff = utc(item["date"].removeprefix("$D"))
         if kickoff.date() >= utc(captured_at).date():

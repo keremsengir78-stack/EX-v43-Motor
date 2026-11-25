@@ -11,6 +11,7 @@ on:
         default: '2026-11-25'
 permissions:
   contents: read
+  actions: read
 jobs:
   approved-leagues:
     runs-on: ubuntu-latest
@@ -41,8 +42,17 @@ jobs:
                      for s in audit["sources"] if s["league"] in {"nl.2", "no.1"}), audit["sources"]
           assert not audit["ex_final_allowed"]
           PY
+      - uses: actions/download-artifact@v4
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45561565207
+          name: ex-approved-league-evidence
+          path: dutch-archive
       - run: |
-          python ex_engine.py --results approved-evidence/history/results.csv --backtest --output approved-evidence/baseline.json
+          results=approved-evidence/history/results.csv
+          if [ -f dutch-archive/history/results.csv ]; then results=dutch-archive/history/results.csv; fi
+          python ex_engine.py --results "$results" --backtest --output approved-evidence/baseline.json
           python - <<'PY'
           import json
           from pathlib import Path
@@ -59,4 +69,3 @@ jobs:
         with:
           name: ex-approved-league-evidence
           path: approved-evidence/
-
