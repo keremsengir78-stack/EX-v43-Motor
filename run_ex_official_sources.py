@@ -14,6 +14,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from ex_history_archive import MAX_BYTES, atomic_write
 from ex_official_report_html import slovak_minutes, ukrainian_minutes
+from ex_pfl_protocol import extract_minutes, pdf_layout
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
 
 
@@ -60,14 +61,18 @@ def capture(config, root):
     return rows
 
 
-def read_evidence(root, entry):
+def read_bytes(root, entry):
     digest = entry["sha256"]
     if not re.fullmatch(r"[a-f0-9]{64}", digest):
         raise ValueError("Malformed evidence digest")
     raw = (root / f"{digest}.html").read_bytes()
     if len(raw) != entry["bytes"] or sha256(raw).hexdigest() != digest:
         raise ValueError("Evidence bytes do not match manifest")
-    return raw.decode("utf-8")
+    return raw
+
+
+def read_evidence(root, entry):
+    return read_bytes(root, entry).decode("utf-8")
 
 
 def extract_czech_report(html, fixture, labels):
@@ -95,22 +100,27 @@ def parse_minutes_batch(root, fixtures):
             entry = manifest[label]
             source = urlsplit(fixture["source"])
             key = league, fixture["official_match_id"]
+            is_pdf = league == "az.1" and re.fullmatch(
+                r"/storage/games/files/[a-f0-9]+_\d+\.pdf", source.path) is not None
             if (source.hostname not in OFFICIAL_HOSTS[league] or key in seen
                     or not key[1].isascii() or not key[1].isdigit()
                     or not re.search(rf"(?<![0-9]){key[1]}(?![0-9])", source.path)
                     or entry["url"] != fixture["source"] or entry["final_url"] != fixture["source"]):
                 raise ValueError("Mismatch or duplicate official match identity")
             seen.add(key)
-            page = read_evidence(root, entry)
-            if league == "cz.1":
+            if is_pdf:
+                minutes = extract_minutes(pdf_layout(read_bytes(root, entry)), fixture["home"],
+                                          fixture["away"], fixture["match_date_label"])
+            elif league == "cz.1":
+                page = read_evidence(root, entry)
                 reviewed = extract_czech_report(page, fixture, fixture["labels"])
                 if reviewed["errors"]:
                     raise ValueError(str(reviewed["errors"]))
                 minutes = reviewed["minutes"][0]["minutes"]
             elif league == "ua.1":
-                minutes = ukrainian_minutes(page)
+                minutes = ukrainian_minutes(read_evidence(root, entry))
             elif league == "sk.1":
-                minutes = slovak_minutes(page)
+                minutes = slovak_minutes(read_evidence(root, entry))
             else:
                 raise ValueError("No supported PFL match document in the public HTML response")
             matches.append({"league": league, "official_match_id": key[1],

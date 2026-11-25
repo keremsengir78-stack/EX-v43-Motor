@@ -6,6 +6,7 @@ on:
       - .github/workflows/ex-official-source-probe.yml
       - run_ex_official_sources.py
       - ex_official_report_html.py
+      - ex_pfl_protocol.py
       - run_ex_dfl_bulk.py
       - config/ex_official_sources.json
       - config/ex_official_minutes_fixtures.json
@@ -21,6 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
       - run: python run_ex_official_sources.py --config config/ex_official_sources.json --output official-evidence --minutes-fixtures config/ex_official_minutes_fixtures.json
       - name: Compare official Czech report to reviewed timeline
         run: |
@@ -54,7 +56,11 @@ jobs:
 
           data = json.loads(Path("official-evidence/minutes.json").read_text())
           rows = {row["league"]: row["minutes"] for row in data["matches"]}
-          assert set(rows) == {"cz.1", "sk.1", "ua.1"}, data["errors"]
+          assert set(rows) == {"cz.1", "sk.1", "ua.1", "az.1"}, data["errors"]
+          pfl = {row["official_match_id"]: row["minutes"] for row in data["matches"] if row["league"] == "az.1"}
+          assert len(pfl) == 2, data["errors"]
+          assert pfl["1743269964"]["home"]["Silvanus Nimeli"] == 0
+          assert pfl["1793989279"]["away"]["Şahnur İsmayılov"] == 0
           assert "az-report" in data["errors"]
           reviewed = json.loads(Path("research/ucl/domestic-minutes-pilot.json").read_text())
           expected = normalize([reviewed])["minutes"][0]["minutes"]

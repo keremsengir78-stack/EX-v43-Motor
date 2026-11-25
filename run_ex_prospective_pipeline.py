@@ -13,6 +13,8 @@ from ex_historical_features import market_labels
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, match_detail, teams
 from ex_model_challengers import compare_calibration
+from ex_official_calendar import calendar_fixtures
+from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
 from ex_retrospective import settled_facts, window, workload
 from run_ex_prematch_archive import summary
 from run_ex_prospective_validation import evaluate, join_holdout, read_rows
@@ -76,6 +78,22 @@ def forecast_rows(manifest, cache, facts, now):
                                               "home_minutes": home[3], "away_minutes": away[3]},
                          "source": source, "kind": "PROSPECTIVE_VENUE5_RESEARCH"})
     return rows, skipped
+
+
+def alternate_context(manifest, cache_root):
+    root = cache_root / "alternate-calendars"
+    day = dt.date.fromisoformat(manifest["day"])
+    context, issues = {}, {}
+    for league, evidence in manifest.get("alternate_calendar_evidence", {}).items():
+        try:
+            expected = ALTERNATE_CALENDARS[league][0]
+            if evidence["url"] != expected or evidence["final_url"] != expected:
+                raise ValueError("Unexpected alternate calendar URL")
+            checked(expected)
+            context[league] = calendar_fixtures(league, read_evidence(root, evidence), evidence, day)
+        except (OSError, KeyError, ValueError) as exc:
+            issues[league] = str(exc)
+    return context, issues
 
 
 OFFICIAL_RESULT_HOSTS = {
@@ -218,7 +236,12 @@ def main():
         if any(archive.clock() >= utc(row["kickoff"]) for row in forecasts):
             raise ValueError("Forecast execution finished past kickoff")
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
-        report = {"forecasts": len(forecasts), "skipped": skipped}
+        context, issues = alternate_context(manifest, args.cache)
+        atomic_write(args.output_dir / "official-fixture-context.json",
+                     (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
+        report = {"forecasts": len(forecasts), "skipped": skipped,
+                  "alternate_fixtures": {league: len(rows) for league, rows in context.items()},
+                  "alternate_calendar_issues": issues}
     else:
         if args.packs:
             if args.forecast_ledger or args.sealed_at:
