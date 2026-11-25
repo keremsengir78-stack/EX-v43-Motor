@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/ex-prospective-operations.yml
       - ex_daily_research.py
+      - ex_daily_official.py
       - run_ex_prospective_pipeline.py
       - run_ex_prospective_validation.py
       - ex_official_calendar.py
@@ -221,6 +222,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Download forecast packs and verify exact artifact receipts
+        id: restore_forecasts
         env:
           GH_TOKEN: ${{ github.token }}
           ARTIFACTS: ${{ inputs.forecast_artifact_ids }}
@@ -230,7 +232,11 @@ jobs:
             git fetch origin "$ref"
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+            python ex_evidence_store.py --store durable-evidence restore --kind frozen-candidates --output frozen --limit 1
+            candidate=$(find frozen -name frozen-candidates.json -type f -print -quit 2>/dev/null || true)
+            if [ -n "$candidate" ]; then mkdir -p model; cp "$candidate" model/frozen-candidates.json; fi
           fi
+          if [ -f model/frozen-candidates.json ]; then echo "has_frozen=true" >> "$GITHUB_OUTPUT"; fi
           if [ -z "$ARTIFACTS" ]; then
             exit 0
           fi
@@ -260,6 +266,7 @@ jobs:
           name: official-outcomes
           path: reviewed
       - uses: actions/download-artifact@v4
+        if: steps.restore_forecasts.outputs.has_frozen != 'true'
         with:
           github-token: ${{ github.token }}
           run-id: 45475531307
@@ -274,7 +281,7 @@ jobs:
           official=()
           if [ -f reviewed/official.json ]; then official+=(--official reviewed/official.json); fi
           if [ -f design/design.json ]; then official+=(--design design/design.json); fi
-          python run_ex_prospective_pipeline.py --packs packs --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
+          python run_ex_prospective_pipeline.py --packs packs --auto-official --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
       - uses: actions/cache/save@v4
         if: always()
         with:

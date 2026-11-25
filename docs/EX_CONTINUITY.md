@@ -308,3 +308,30 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
   ileriye dönük veri koşulları ayrıca uygulanır. Tam üç bileşenli
   modelin süresi, uygun ileriye dönük pilot oluştuğunda hesaplanabilir.
 - Akışlar elle başlatılabilir. Yeni zamanlayıcı tanımlanmadı.
+
+### Paket 20 — günlük araştırma ve arşiv çalıştırma
+
+- `python run_ex_prospective_pipeline.py --daily-capture YYYY-MM-DD --historical-facts /path/to/historical-facts.jsonl --domestic-packs /path/to/restored-ucl-packs --prior-settlements /path/to/restored-settlements --cache pregame-cache --output-dir forecasts`
+  onaylı 13 müsabakayı tarar, ham kanıtı ve günlük dört pazar karar kaydını
+  yazar, hesaplanan başlangıçları Tur-2 ve Auto-Control üzerinden geçirir.
+  İlk çalıştırmada `--historical-facts` yerine `--plan` ve `--history`
+  ile doğrulanabilir ham özetler kullanılabilir.
+- UCL'nin maç günü 5 yurtiçi sonuç arşivi, yalnızca kayıtlı iki takım ve UTC
+  başlama saati eşleştiğinde kullanılır. Sonuçlar `daily-analysis.json`
+  dosyasında kalır. Dondurulan venue5 kalibrasyon defterinin örneklem
+  ölçütlerine dahil edilmez.
+- `mode=cycle`, kendisinin ürettiği arşivleri SHA-256 doğrulaması yapan
+  yazıcıya otomatik iletir. Geriye dönük özetlerden üretilen 6.820
+  normalleştirilmiş kayıt kaynak özetleriyle birlikte sayısal parmak
+  izlerini tutar. Ham dosya sağlama doğrulama ve yeni ham geçmiş
+  yükleme yolu açıktır.
+- Günlük ve haftalık arşiv iş akışlarında cron tanımları hazırdır.
+  GitHub Actions `schedule` olayı ancak varsayılan dalda bulunan akışta
+  çalışır. Bu depoda varsayılan dal `main` olduğundan PR üzerindeki
+  cron tanımları kendiliğinden çalışmaya başlamaz. Geliştirme dalında
+  `workflow_dispatch` ile aynı işler çalıştırılabilir.
+- `ex-evidence-archive` korumasını bir depo yöneticisi GitHub
+  Settings → Branches veya Rules → Rulesets altında bu dala özel
+  tanımlayabilir. Zorla gönderimi ve silmeyi engelle, normal hızlı ileri
+  Actions yazımını açık tut. REST kullanılıyorsa depo için
+  Administration: write yetkili fine-grained PAT veya GitHub App gerekir.

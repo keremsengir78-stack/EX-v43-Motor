@@ -1,7 +1,7 @@
 """Count unique published fixtures for the 13 approved competitions."""
 
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 import datetime as dt
 import json
 from pathlib import Path
@@ -55,7 +55,7 @@ def collect(archive, start):
             "fixtures": fixtures, "ex_final_allowed": False}
 
 
-def observed_coverage(fixtures, packs):
+def observed_coverage(fixtures, packs, settlements=None):
     forecasts = combine_forecasts(read_forecast_pack(p) for p in packs.glob("*/receipt.json"))
     by_league = {league: Counter() for league in APPROVED_LEAGUES}
     for row in forecasts:
@@ -68,7 +68,54 @@ def observed_coverage(fixtures, packs):
         counts = by_league[row["league"]]
         counts["sealed_research_forecasts"] += 1
         counts["full_strength_window"] += row["strength"] is not None
-    columns = ("sealed_research_forecasts", "full_strength_window", "full_model_verified")
+    phase = defaultdict(set)
+    for receipt in packs.glob("*/receipt.json"):
+        meta = json.loads(receipt.read_text())
+        sealed = utc(meta["created_at"])
+        for name in ("forecasts/capture.json", "capture.json"):
+            capture = receipt.parent / name
+            if not capture.is_file():
+                continue
+            for league, report in json.loads(capture.read_text())["reports"].items():
+                for row in report["records"]:
+                    event = row["event_id"]
+                    fixture = fixtures.get(event)
+                    if (fixture and fixture["league"] == league and row["teams"] == fixture["teams"]
+                            and utc(row["kickoff_at"]) == utc(fixture["kickoff"])
+                            and utc(row["source"]["retrieved_at"]) <= sealed < utc(fixture["kickoff"])):
+                        phase["prematch_archived"].add(event)
+        daily = receipt.parent / "forecasts/daily-analysis.json"
+        if not daily.is_file():
+            continue
+        for row in json.loads(daily.read_text()):
+            identity = row["fixture"]
+            event = identity["event_id"]
+            fixture = fixtures.get(event)
+            if (fixture and fixture["league"] == identity["league"] and fixture["teams"] == identity["team_ids"]
+                    and utc(fixture["kickoff"]) == utc(identity["kickoff_at"])
+                    and utc(row["as_of"]) <= sealed < utc(fixture["kickoff"])
+                    and (row["domestic_research"] or {}).get("baseline")):
+                phase["domestic_research_baselines"].add(event)
+    forecast_ids = {row["event_id"] for row in forecasts}
+    if settlements:
+        for receipt in settlements.glob("*/receipt.json"):
+            for name in ("settlement/outcomes.jsonl", "outcomes.jsonl"):
+                ledger = receipt.parent / name
+                if not ledger.is_file():
+                    continue
+                for line in ledger.read_text().splitlines():
+                    row = json.loads(line)
+                    event = row["event_id"]
+                    fixture = fixtures.get(event)
+                    if (fixture and event in forecast_ids and fixture["teams"] == row["teams"]
+                            and utc(fixture["kickoff"]) == utc(row["kickoff"])
+                            and row.get("official_review", {}).get("scope") == "REVIEWED_OFFICIAL_RESULT"):
+                        phase["independently_settled_venue5"].add(event)
+    for column, events in phase.items():
+        for event in events:
+            by_league[fixtures[event]["league"]][column] += 1
+    columns = ("prematch_archived", "sealed_research_forecasts", "domestic_research_baselines",
+               "full_strength_window", "independently_settled_venue5", "full_model_verified")
     return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}
 
 
@@ -77,6 +124,7 @@ def main():
     parser.add_argument("--week-start", type=dt.date.fromisoformat, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--packs", type=Path)
+    parser.add_argument("--settlements", type=Path)
     parser.add_argument("--examples", type=Path)
     args = parser.parse_args()
     if args.week_start.weekday() != 0:
@@ -84,7 +132,13 @@ def main():
     archive = HistoryArchive(args.output / "cache", 7 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
     result = collect(archive, args.week_start)
     if args.packs:
-        result["observed_coverage"] = observed_coverage(result["fixtures"], args.packs)
+        coverage = observed_coverage(result["fixtures"], args.packs, args.settlements)
+        result["observed_coverage"] = coverage
+        totals = {key: sum(row[key] for row in coverage.values()) for key in next(iter(coverage.values()))}
+        fixtures = result["published_fixtures"]
+        result["phase_totals"] = totals
+        result["phase_share_of_published"] = {key: count / fixtures if fixtures else None
+                                               for key, count in totals.items()}
     if args.examples:
         examples = [json.loads(line) for line in args.examples.read_text().splitlines()]
         rates = (result["published_fixtures"],)

@@ -26,7 +26,7 @@ def domestic_snapshot(root):
     return rows, coverage, names, leagues, fixtures
 
 
-def daily_analysis(fixture, window, snapshot, as_of):
+def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -39,12 +39,20 @@ def daily_analysis(fixture, window, snapshot, as_of):
             baseline = cross_league_baseline(*inputs)
             recomputed = baseline == cross_league_baseline(*inputs)
     values = baseline.get("baseline") if baseline else None
+    if values:
+        market_percentages = {market: 100 * values[key] for market, key in MARKET_KEYS.items()}
+    elif window is not None:
+        market_percentages = {market: 100 * value for market, value in window.items()}
+        market_percentages["MSX"] = max(0.0, 100 - market_percentages["MS1"] - market_percentages["MS2"])
+        recomputed = venue_recomputed
+    else:
+        market_percentages = None
     time = as_of.isoformat()
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time), "odds_lock": check_odds(None, time),
-            "market_baselines_pct": {m: 100 * values[k] for m, k in MARKET_KEYS.items()} if values else None,
+            "market_baselines_pct": market_percentages,
             "recompute_consistent": recomputed}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
             "domestic_research": baseline, "markets": assess_markets({}, as_of=time),
-            "tur2": recomputed if baseline else None, "auto_control": auto_control(gate),
+            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate),
             "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}

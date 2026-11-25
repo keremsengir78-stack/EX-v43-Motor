@@ -7,6 +7,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
+from ex_daily_official import league_reviews
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
@@ -45,6 +46,10 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
+    by_team = {}
+    for row in available:
+        for club in row["teams"].values():
+            by_team.setdefault(club, []).append(row)
     rows, skipped = [], []
     for league, report in manifest["reports"].items():
         competition = ESPN_LEAGUES[league]
@@ -73,8 +78,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
             teams_features = []
             for side in ("home", "away"):
                 club = fixture["teams"][side]
-                history = [{**row, "index_team": club} for row in available if club in row["teams"].values()
-                           and row["event_id"] != event_id and row["finished"] < now]
+                history = [{**row, "index_team": club} for row in by_team.get(club, ()) if row["event_id"] != event_id]
                 league_rows = [(row["kickoff"], "home" if row["teams"]["home"] == club else "away", row)
                                for row in history if row["competition"] == competition]
                 short, strength = window(sorted(league_rows, key=lambda row: row[0]), labels, side, season)
@@ -84,13 +88,25 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
             players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
             short = {m: mean((home[0][m], away[0][m])) for m in MARKETS} if home[0] and away[0] else None
             if daily is not None:
+                # Rebuild the venue windows from source rows when auditing this path.
+                replay = []
+                if short is not None:
+                    for side in ("home", "away"):
+                        club = fixture["teams"][side]
+                        samples = [(r["kickoff"], "home" if r["teams"]["home"] == club else "away", r)
+                                   for r in by_team.get(club, ()) if r["competition"] == competition
+                                   and r["event_id"] != event_id]
+                        replay.append(window(sorted(samples, key=lambda r: r[0]), labels, side, season)[0])
+                consistent = bool(replay) and all(short[m] == mean((replay[0][m], replay[1][m])) for m in MARKETS)
                 identity = {"event_id": event_id, "date": kickoff.date().isoformat(), "league": league,
                             "kickoff_at": kickoff.isoformat(), **players, "team_ids": fixture["teams"],
                             "season": season, "season_basis": season_basis,
                             "fixture_source": board_source["url"], "fixture_checked_at": board_at.isoformat()}
-                daily.append(daily_analysis(identity, short, domestic, now))
+                daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent))
             if short is None:
-                skipped.append({"event_id": event_id, "reason": "VENUE5_HISTORY_INCOMPLETE"})
+                skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
+                                "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
+                                                   if feature[0] is None], "reason": "VENUE5_HISTORY_INCOMPLETE"})
                 continue
             rows.append({"event_id": event_id, "kickoff": kickoff.isoformat(), "forecast_at": now.isoformat(),
                          "league": league, "season": season, "season_basis": season_basis, "teams": fixture["teams"], "names": players,
@@ -198,8 +214,8 @@ def alternate_context(manifest, cache_root):
 
 OFFICIAL_RESULT_HOSTS = {
     "de.1": {"www.bundesliga.com", "www.dfb.de"}, "de.2": {"www.bundesliga.com", "www.dfb.de"},
-    "en.1": {"www.premierleague.com"}, "en.2": {"www.efl.com"},
-    "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com"},
+    "en.1": {"www.premierleague.com", "fantasy.premierleague.com"}, "en.2": {"www.efl.com"},
+    "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it", "en.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com"},
     "nl.1": {"eredivisie.nl", "www.eredivisie.nl"},
     "nl.2": {"keukenkampioendivisie.nl", "www.keukenkampioendivisie.nl"}, "pt.1": {"www.ligaportugal.pt", "ligaportugal.pt"},
     "be.1": {"www.proleague.be", "proleague.be"}, "tr.1": {"www.tff.org", "tff.org"},
@@ -317,6 +333,8 @@ def archive_history(packs, facts, cutoff):
             event = row["event_id"]
             fixture = {"event_id": event, "kickoff_at": row["kickoff"], "teams": row["teams"],
                        "competition": competition, "source_season": row["season"]}
+            for evidence in review.get("evidence", []):
+                store._load(evidence, evidence["url"])
             raw, captured = store._load(meta, f"{ESPN}/{competition}/summary?event={event}")
             match_detail(raw, captured, fixture)
             fact = settled_facts(json.loads(raw), fixture, captured.isoformat())
@@ -381,6 +399,7 @@ def main():
     parser.add_argument("--sealed-at")
     parser.add_argument("--packs", type=Path, help="Directory containing individually verified GitHub artifact receipts")
     parser.add_argument("--official", type=Path)
+    parser.add_argument("--auto-official", action="store_true")
     parser.add_argument("--frozen-model", type=Path)
     parser.add_argument("--design", type=Path)
     args = parser.parse_args()
@@ -426,7 +445,7 @@ def main():
                 domestic = domestic_snapshot(candidates[-1].parent)
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic)
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
-        if any(archive.clock() >= utc(row["kickoff"]) for row in forecasts):
+        if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):
             raise ValueError("Forecast execution finished past kickoff")
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
         context, issues = alternate_context(manifest, args.cache)
@@ -435,6 +454,7 @@ def main():
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
                   "reused_verified_outcomes": reused, "skipped": skipped,
                   "daily_fixture_records": len(daily),
+                  "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or
                                                 bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
@@ -455,8 +475,14 @@ def main():
             raw = args.forecast_ledger.read_bytes()
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
         official = json.loads(args.official.read_text()) if args.official else []
+        result_archive = HistoryArchive(args.cache, len(forecasts) + 3, fetch=paced_download(.75))
+        official_errors = []
+        if args.auto_official:
+            found, official_errors = league_reviews(forecasts, result_archive)
+            known = {(r["league"], r["date"], r["home"], r["away"]) for r in official}
+            official.extend(r for r in found if (r["league"], r["date"], r["home"], r["away"]) not in known)
         corroborated, provisional, pending = settle(
-            forecasts, HistoryArchive(args.cache, len(forecasts), fetch=paced_download(.75)),
+            forecasts, result_archive,
             sealed, official,
         )
         atomic_write(args.output_dir / "outcomes.jsonl", jsonl(corroborated))
@@ -466,6 +492,7 @@ def main():
         design = json.loads(args.design.read_text()) if args.design else None
         cohort = select_evaluation_rows(model, rows, design) if model else []
         report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending,
+                  "official_source_errors": official_errors,
                   "eligible_evaluation_rows": len(cohort),
                   "components": component_audit(rows),
                   "evaluation": evaluate(model, cohort, design, evaluation_at=current) if cohort else {"status": "NO_ELIGIBLE_HOLDOUT"}}

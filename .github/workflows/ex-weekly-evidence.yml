@@ -40,6 +40,7 @@ jobs:
             git fetch origin "$ref"
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+            python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output settlements
             python ex_evidence_store.py --store durable-evidence restore --kind retrospective-research --output pilot --limit 1
           fi
           if ! find pilot -name retrospective-examples.jsonl -print -quit 2>/dev/null | grep -q .; then
@@ -61,18 +62,20 @@ jobs:
           fi
           examples=$(find pilot -name retrospective-examples.jsonl -type f -print -quit)
           test -n "$examples"
-          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --examples "$examples"
+          python run_ex_weekly_capacity.py --week-start "$WEEK_START" --output weekly --packs packs --settlements settlements --examples "$examples"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           report = json.load(open("weekly/capacity.json"))
           print("## Weekly EX capacity (UTC)")
           print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91")
-          print("\n| Competition | Published | Sealed research | Full strength | Full model |")
-          print("| --- | ---: | ---: | ---: | ---: |")
+          print("\n| Competition | Published | Prematch | Venue5 | Domestic baseline | Full strength | Settled venue5 | Full model |")
+          print("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
           for league, published in report["by_league"].items():
               coverage = report["observed_coverage"][league]
-              print(f"| {league} | {published} | {coverage['sealed_research_forecasts']} | "
-                    f"{coverage['full_strength_window']} | {coverage['full_model_verified']} |")
+              print(f"| {league} | {published} | {coverage['prematch_archived']} | "
+                    f"{coverage['sealed_research_forecasts']} | {coverage['domestic_research_baselines']} | "
+                    f"{coverage['full_strength_window']} | {coverage['independently_settled_venue5']} | "
+                    f"{coverage['full_model_verified']} |")
           for market, design in report["retrospective_sizing"]["markets"].items():
               weeks = design.get("weeks_by_matches_per_week_and_assumed_intraweek_correlation", {})
               print(f"\n- {market} strength, indicative weeks by intraweek correlation: "
