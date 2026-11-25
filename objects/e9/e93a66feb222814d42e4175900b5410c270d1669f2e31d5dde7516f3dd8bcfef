@@ -1,0 +1,3229 @@
+{
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Bodø/Glimt",
+        "away": "LASK",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "0d9001a92633f5811b2b4a742b0b6e7052c2a0a68a680605633b0b8896168ae7",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Galatasaray",
+        "away": "Aston Villa",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "a355f1eb92d59e92a2bf4ea73f7134a1807c141434e38bbdc7487925c37172d7",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Arsenal",
+        "away": "Borussia Dortmund",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "3c56d20768e196a7e3869edd0a3bf78b6f2162a58bc66eae16e6810d3ac53e65",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Como",
+        "away": "AEK Athens",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "1dfbea7097e9bc9a51eb27ccc78042624e71b0ed21074b61a80a0644ef5dc7ab",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Feyenoord",
+        "away": "Porto",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "2fc79ab00e6669bd0c3c8a8de53f9de8183828d05c999a4fc66dd71f98b07237",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Manchester City",
+        "away": "Napoli",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "e67dfeff002c9dacf6899fee233bf91dbe42dc744d73af75465da54c3d7caf4a",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Leipzig",
+        "away": "Lens",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "c828301bd098b7f8cd554e1a2ee8ea8ce797bee4d907870812e5876682873ce9",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Real Madrid",
+        "away": "PSV Eindhoven",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "f4954fe653932bc22914cc9951a9eaab3e910ea5f8e8ed34713c2a1149fd5e14",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Slovan Bratislava",
+        "away": "Real Betis",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "4f719f7208280093e0e69990f1bbaa41ea34908c818343c7ca6a0981a3887b52",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Sabah",
+        "away": "Barcelona",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "83a519e16a36b7256299ef2a0cb842a379d0187961420a66ca01c02b1bb552c4",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Slavia Praha",
+        "away": "Villarreal",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "e266e1d510c41957b51ccd05cf2f53147faa1cc8bb6c95bb257c81dd5c6f49c4",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Atlético de Madrid",
+        "away": "Viking",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "0fa037d9cf35ffef7606203a3e04f271a3d2f6227c92e807ee8e6a371cb244d6",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Club Brugge",
+        "away": "Liverpool",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "fa5da402f4b0a8af8731a8a68718cf0cbc7b16389aeeb09b3d793662310c5a86",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Inter",
+        "away": "Stuttgart",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "d4a265fd1c2ffb5cdb0a6b0167e62d9d1d185c3419e819ab62e2d508d3fa52a1",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Shakhtar Donetsk",
+        "away": "Fenerbahçe",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "92db57e9c6f48498c97c002025ffd4635602f7665980989b999a6b40b1395943",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Lille",
+        "away": "Bayern München",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "78972672f4afc8a5d230944f437c03dc7de219737340fd2f39234e0203c28429",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Paris Saint-Germain",
+        "away": "Roma",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "b579dd50b7eef463bacf4883d9799060b07f3e6378f790d8025f3781b041134e",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Sporting CP",
+        "away": "Manchester United",
+        "league": "UCL"
+      },
+      "decision_evidence": {
+        "markets": {
+          "2.5_UST": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "KG_VAR": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS1": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "MS2": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          }
+        },
+        "pup": {
+          "status": "NOT_REQUESTED",
+          "issues": [
+            "2.5_UST:calibrated_probability_missing",
+            "KG_VAR:calibrated_probability_missing",
+            "MS1:calibrated_probability_missing",
+            "MS2:calibrated_probability_missing"
+          ],
+          "markets_checked": [
+            "2.5_UST",
+            "KG_VAR",
+            "MS1",
+            "MS2"
+          ],
+          "pup_allowed": false,
+          "ex_final_allowed": false
+        },
+        "evidence_complete": false,
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "reason": "PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"
+      },
+      "tur2_recompute_consistent": true,
+      "fixture_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_source:missing",
+          "fixture_checked_at:missing",
+          "fixture_checked_at:invalid"
+        ],
+        "ex_final_allowed": false
+      },
+      "odds_lock": {
+        "status": "BLOCKED",
+        "issues": [
+          "odds:missing"
+        ],
+        "decision": "NO_FINAL",
+        "ex_final_allowed": false
+      },
+      "auto_control": {
+        "status": "BLOCKED",
+        "issues": [
+          "fixture_lock:blocked",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified",
+          "pup:unverified"
+        ],
+        "snapshot_sha256": "55a09cc4338e027a6658b510a74c7a841f43ce6427db8e9936ca2911cda84b78",
+        "ex_final_allowed": false
+      },
+      "ex_final_allowed": false
+    }
+  ],
+  "research_fixture_status": "FIXTURES_CORROBORATED",
+  "calibrated": false,
+  "ex_final_allowed": false
+}

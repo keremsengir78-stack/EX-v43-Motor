@@ -1,0 +1,257 @@
+{
+  "sources": [
+    {
+      "season": "2025-26",
+      "league": "tr.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/tr.1.json",
+      "sha256": "31236abf06ccb59fdcdd7105138810157e3312faa29070ec9fbebf6f87c29ea2",
+      "completed_before_cutoff": 99
+    },
+    {
+      "season": "2025-26",
+      "league": "en.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.1.json",
+      "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+      "completed_before_cutoff": 380
+    },
+    {
+      "season": "2025-26",
+      "league": "de.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/de.1.json",
+      "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
+      "completed_before_cutoff": 306
+    },
+    {
+      "season": "2025-26",
+      "league": "de.2",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/de.2.json",
+      "sha256": "af223a755f2a0d5b7e17e4644e8918f54f2eae4c02825d1e90c7434f6f7a6c13",
+      "completed_before_cutoff": 99
+    },
+    {
+      "season": "2025-26",
+      "league": "es.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/es.1.json",
+      "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
+      "completed_before_cutoff": 380
+    },
+    {
+      "season": "2025-26",
+      "league": "it.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/it.1.json",
+      "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
+      "completed_before_cutoff": 380
+    },
+    {
+      "season": "2025-26",
+      "league": "fr.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/fr.1.json",
+      "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
+      "completed_before_cutoff": 305
+    },
+    {
+      "season": "2025-26",
+      "league": "nl.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/nl.1.json",
+      "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
+      "completed_before_cutoff": 305
+    },
+    {
+      "season": "2025-26",
+      "league": "nl.2",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2025-26",
+      "league": "pt.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/pt.1.json",
+      "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
+      "completed_before_cutoff": 306
+    },
+    {
+      "season": "2025-26",
+      "league": "be.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/be.1.json",
+      "sha256": "12026263f17f5e34af3f618df2094734071d23e7460e97fdc8a5c948f0087ab5",
+      "completed_before_cutoff": 104
+    },
+    {
+      "season": "2025-26",
+      "league": "no.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2025-26",
+      "league": "en.2",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.2.json",
+      "sha256": "492a2fad47b787d694a33f06c6a9828fcb91f6351e2466385550c9a2d98a44ae",
+      "completed_before_cutoff": 557
+    },
+    {
+      "season": "2025-26",
+      "league": "at.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/at.1.json",
+      "sha256": "ccaad0330bda2f682fee0246293363cdc85bcd27398a44c636e66225e7f50c5e",
+      "completed_before_cutoff": 71
+    },
+    {
+      "season": "2025-26",
+      "league": "gr.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/gr.1.json",
+      "sha256": "efd9a83eb46ecaea5ba2acc719e7b724be57311cf96ff9587622209d475f7f62",
+      "completed_before_cutoff": 62
+    },
+    {
+      "season": "2025-26",
+      "league": "sk.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2025-26",
+      "league": "cz.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2025-26",
+      "league": "ua.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2025-26",
+      "league": "az.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "tr.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "en.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+      "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "completed_before_cutoff": 50
+    },
+    {
+      "season": "2026-27",
+      "league": "de.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/de.1.json",
+      "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
+      "completed_before_cutoff": 36
+    },
+    {
+      "season": "2026-27",
+      "league": "de.2",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "es.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/es.1.json",
+      "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
+      "completed_before_cutoff": 69
+    },
+    {
+      "season": "2026-27",
+      "league": "it.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/it.1.json",
+      "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
+      "completed_before_cutoff": 50
+    },
+    {
+      "season": "2026-27",
+      "league": "fr.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/fr.1.json",
+      "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
+      "completed_before_cutoff": 45
+    },
+    {
+      "season": "2026-27",
+      "league": "nl.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/nl.1.json",
+      "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
+      "completed_before_cutoff": 63
+    },
+    {
+      "season": "2026-27",
+      "league": "nl.2",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "pt.1",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/pt.1.json",
+      "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
+      "completed_before_cutoff": 62
+    },
+    {
+      "season": "2026-27",
+      "league": "be.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "no.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "en.2",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.2.json",
+      "sha256": "869f91d6f0c3d48e50c3a7c05d5a220e309077c47ff48a15f3848b78bc346d45",
+      "completed_before_cutoff": 95
+    },
+    {
+      "season": "2026-27",
+      "league": "at.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "gr.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "sk.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "cz.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "ua.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "season": "2026-27",
+      "league": "az.1",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "league": "sk.1",
+      "url": "https://www.football-data.co.uk/new/SVK.csv",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "league": "cz.1",
+      "url": "https://www.football-data.co.uk/new/CZE.csv",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "league": "ua.1",
+      "url": "https://www.football-data.co.uk/new/UKR.csv",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "league": "az.1",
+      "url": "https://www.football-data.co.uk/new/AZE.csv",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "ex_final_allowed": false
+}

@@ -1,0 +1,123 @@
+{
+  "markets": {
+    "2.5_UST": {
+      "n": 1142,
+      "brier": 0.24127,
+      "mean_prediction": 0.56635,
+      "observed_frequency": 0.60595,
+      "chronological_calibration": {
+        "status": "HOLDOUT_NOT_IMPROVED",
+        "train_n": 567,
+        "test_n": 575,
+        "holdout_start_date": "2026-10-09",
+        "baseline_brier": 0.24293665758225608,
+        "adjusted_brier": 0.2466616944410371,
+        "training_log_odds_intercept": 0.32186016057450995,
+        "calibration_certified": false,
+        "forecast_provenance": "RETROSPECTIVE_BASELINE"
+      }
+    },
+    "KG_VAR": {
+      "n": 1142,
+      "brier": 0.24514,
+      "mean_prediction": 0.5726,
+      "observed_frequency": 0.56217,
+      "chronological_calibration": {
+        "status": "HOLDOUT_NOT_IMPROVED",
+        "train_n": 567,
+        "test_n": 575,
+        "holdout_start_date": "2026-10-09",
+        "baseline_brier": 0.24742703512015637,
+        "adjusted_brier": 0.2508533478652071,
+        "training_log_odds_intercept": 0.11921422669566155,
+        "calibration_certified": false,
+        "forecast_provenance": "RETROSPECTIVE_BASELINE"
+      }
+    },
+    "MS1": {
+      "n": 1142,
+      "brier": 0.22351,
+      "mean_prediction": 0.43704,
+      "observed_frequency": 0.45271,
+      "chronological_calibration": {
+        "status": "HOLDOUT_IMPROVED",
+        "train_n": 567,
+        "test_n": 575,
+        "holdout_start_date": "2026-10-09",
+        "baseline_brier": 0.22273167892998433,
+        "adjusted_brier": 0.22239177894754597,
+        "training_log_odds_intercept": 0.03317759575429813,
+        "calibration_certified": false,
+        "forecast_provenance": "RETROSPECTIVE_BASELINE"
+      }
+    },
+    "MS2": {
+      "n": 1142,
+      "brier": 0.20237,
+      "mean_prediction": 0.32857,
+      "observed_frequency": 0.33713,
+      "chronological_calibration": {
+        "status": "HOLDOUT_NOT_IMPROVED",
+        "train_n": 567,
+        "test_n": 575,
+        "holdout_start_date": "2026-10-09",
+        "baseline_brier": 0.20404565490265272,
+        "adjusted_brier": 0.20439210004780217,
+        "training_log_odds_intercept": -0.025928640734866597,
+        "calibration_certified": false,
+        "forecast_provenance": "RETROSPECTIVE_BASELINE"
+      }
+    }
+  },
+  "calibrated": false,
+  "ex_final_allowed": false,
+  "n": 1142,
+  "brier": 0.24127,
+  "accuracy_at_70": 0.6387,
+  "n_at_70": 119,
+  "calibration_bins": [
+    {
+      "range": "0.2-0.3",
+      "n": 7,
+      "predicted": 0.266,
+      "observed": 0.571
+    },
+    {
+      "range": "0.3-0.4",
+      "n": 62,
+      "predicted": 0.364,
+      "observed": 0.468
+    },
+    {
+      "range": "0.4-0.5",
+      "n": 226,
+      "predicted": 0.456,
+      "observed": 0.544
+    },
+    {
+      "range": "0.5-0.6",
+      "n": 400,
+      "predicted": 0.551,
+      "observed": 0.61
+    },
+    {
+      "range": "0.6-0.7",
+      "n": 328,
+      "predicted": 0.643,
+      "observed": 0.659
+    },
+    {
+      "range": "0.7-0.8",
+      "n": 110,
+      "predicted": 0.733,
+      "observed": 0.645
+    },
+    {
+      "range": "0.8-0.9",
+      "n": 9,
+      "predicted": 0.818,
+      "observed": 0.556
+    }
+  ],
+  "status": "BASELINE_BACKTEST_ONLY"
+}

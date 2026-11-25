@@ -1,0 +1,703 @@
+{
+  "score_verification": {
+    "uefa_rows": 72,
+    "espn_rows": 72,
+    "exact_score_agreements": 72,
+    "missing_in_espn": [],
+    "missing_in_uefa": [],
+    "score_conflicts": []
+  },
+  "rows": [
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "AEK Athens",
+      "away": "LASK Linz",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "Club Brugge",
+      "away": "Aston Villa",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "FC Porto",
+      "away": "Manchester City",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "Lille",
+      "away": "Real Betis",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-09-08",
+      "league": "UCL",
+      "home": "Real Madrid",
+      "away": "Internazionale",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "Barcelona",
+      "away": "Feyenoord Rotterdam",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "VfB Stuttgart",
+      "away": "Viking FK",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "Liverpool",
+      "away": "Atlético Madrid",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "Napoli",
+      "away": "Arsenal",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "home_goals": 6,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-09",
+      "league": "UCL",
+      "home": "Sporting CP",
+      "away": "Galatasaray",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "Fenerbahce",
+      "away": "AS Roma",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "PSV Eindhoven",
+      "away": "Shakhtar Donetsk",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "Bayern Munich",
+      "away": "Bodo/Glimt",
+      "home_goals": 5,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "Como",
+      "away": "RB Leipzig",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "Manchester United",
+      "away": "Sabah FK",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-09-10",
+      "league": "UCL",
+      "home": "Slavia Prague",
+      "away": "Lens",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Lens",
+      "away": "Sporting CP",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Sabah FK",
+      "away": "Slavia Prague",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Arsenal",
+      "away": "Lille",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Atlético Madrid",
+      "away": "Manchester United",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Galatasaray",
+      "away": "Barcelona",
+      "home_goals": 1,
+      "away_goals": 4
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Internazionale",
+      "away": "Club Brugge",
+      "home_goals": 3,
+      "away_goals": 4
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "RB Leipzig",
+      "away": "PSV Eindhoven",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Viking FK",
+      "away": "Bayern Munich",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-10-13",
+      "league": "UCL",
+      "home": "Villarreal",
+      "away": "Napoli",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Feyenoord Rotterdam",
+      "away": "Como",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "LASK Linz",
+      "away": "Liverpool",
+      "home_goals": 3,
+      "away_goals": 6
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "AS Roma",
+      "away": "Real Madrid",
+      "home_goals": 3,
+      "away_goals": 4
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Aston Villa",
+      "away": "Fenerbahce",
+      "home_goals": 6,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Bodo/Glimt",
+      "away": "Borussia Dortmund",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Manchester City",
+      "away": "Paris Saint-Germain",
+      "home_goals": 2,
+      "away_goals": 4
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Real Betis",
+      "away": "FC Porto",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Shakhtar Donetsk",
+      "away": "AEK Athens",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-14",
+      "league": "UCL",
+      "home": "Slovan Bratislava",
+      "away": "VfB Stuttgart",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Fenerbahce",
+      "away": "Slavia Prague",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Sabah FK",
+      "away": "Borussia Dortmund",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "AS Roma",
+      "away": "Slovan Bratislava",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "FC Porto",
+      "away": "PSV Eindhoven",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Liverpool",
+      "away": "Villarreal",
+      "home_goals": 4,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Manchester City",
+      "away": "AEK Athens",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Napoli",
+      "away": "Bodo/Glimt",
+      "home_goals": 4,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "Paris Saint-Germain",
+      "away": "Barcelona",
+      "home_goals": 4,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-20",
+      "league": "UCL",
+      "home": "VfB Stuttgart",
+      "away": "Atlético Madrid",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Como",
+      "away": "Manchester United",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Lille",
+      "away": "Galatasaray",
+      "home_goals": 2,
+      "away_goals": 4
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Aston Villa",
+      "away": "Viking FK",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Bayern Munich",
+      "away": "Arsenal",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Club Brugge",
+      "away": "Lens",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Internazionale",
+      "away": "Shakhtar Donetsk",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Real Betis",
+      "away": "Feyenoord Rotterdam",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Real Madrid",
+      "away": "RB Leipzig",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-10-21",
+      "league": "UCL",
+      "home": "Sporting CP",
+      "away": "LASK Linz",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Galatasaray",
+      "away": "VfB Stuttgart",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Shakhtar Donetsk",
+      "away": "Sporting CP",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Atlético Madrid",
+      "away": "Bayern Munich",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Barcelona",
+      "away": "Aston Villa",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Bodo/Glimt",
+      "away": "Lille",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Feyenoord Rotterdam",
+      "away": "Internazionale",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "LASK Linz",
+      "away": "Slovan Bratislava",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Manchester United",
+      "away": "AS Roma",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-11-03",
+      "league": "UCL",
+      "home": "Villarreal",
+      "away": "Paris Saint-Germain",
+      "home_goals": 0,
+      "away_goals": 6
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "AEK Athens",
+      "away": "Real Madrid",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "Fenerbahce",
+      "away": "Liverpool",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "Borussia Dortmund",
+      "away": "Real Betis",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "FC Porto",
+      "away": "Napoli",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "Lens",
+      "away": "Como",
+      "home_goals": 1,
+      "away_goals": 9
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "PSV Eindhoven",
+      "away": "Club Brugge",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "RB Leipzig",
+      "away": "Manchester City",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "Slavia Prague",
+      "away": "Arsenal",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "date": "2026-11-04",
+      "league": "UCL",
+      "home": "Viking FK",
+      "away": "Sabah FK",
+      "home_goals": 4,
+      "away_goals": 1
+    }
+  ],
+  "requests": [
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260908",
+      "retrieved_at": "2026-11-25T07:48:55.682696+00:00",
+      "date": "2026-09-08",
+      "sha256": "efa9f4d79ea1513d1fdea13c947d01e01ce4127a97e5055e5d478d087491d5ae",
+      "raw_bytes": 71458
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260909",
+      "retrieved_at": "2026-11-25T07:48:55.671523+00:00",
+      "date": "2026-09-09",
+      "sha256": "f5b858ec92daef22e47a5abbf049d3a997104243ab9d5d3f5041acafa6df617b",
+      "raw_bytes": 68842
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260910",
+      "retrieved_at": "2026-11-25T07:48:55.664425+00:00",
+      "date": "2026-09-10",
+      "sha256": "27e4d4295a3fec5bedce205fa9fcd0268fe730c3a624a55f5d3ba4407dc7e379",
+      "raw_bytes": 72620
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261013",
+      "retrieved_at": "2026-11-25T07:48:55.658255+00:00",
+      "date": "2026-10-13",
+      "sha256": "bcd820916c5c08259429a333ddb5375e2a8a9e31500792e0c3e44ded672602d8",
+      "raw_bytes": 104239
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261014",
+      "retrieved_at": "2026-11-25T07:48:55.704904+00:00",
+      "date": "2026-10-14",
+      "sha256": "d6e8901fd6ece841cf41f703199642f59005459e86264d552a9180f808dce32a",
+      "raw_bytes": 110412
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261020",
+      "retrieved_at": "2026-11-25T07:48:55.708887+00:00",
+      "date": "2026-10-20",
+      "sha256": "0516b471054cf7b014e8df0452ddab19f564765c286011e93a26667789c6096e",
+      "raw_bytes": 101007
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261021",
+      "retrieved_at": "2026-11-25T07:48:55.716573+00:00",
+      "date": "2026-10-21",
+      "sha256": "728e2cbc00507a0a41049a802abe0bc863165cc297a6f70d8ff964efb718eda8",
+      "raw_bytes": 102859
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261103",
+      "retrieved_at": "2026-11-25T07:48:55.739772+00:00",
+      "date": "2026-11-03",
+      "sha256": "e27dd59755df9a20a46d48f7041ecc4ba0d0fbd4f6bb8eed20e67a28057a5339",
+      "raw_bytes": 100971
+    },
+    {
+      "provider": "ESPN",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261104",
+      "retrieved_at": "2026-11-25T07:48:55.746767+00:00",
+      "date": "2026-11-04",
+      "sha256": "7a3c9ce3de5e1034a78258ff30fa645877168ab6a06ad22d437191977d420c96",
+      "raw_bytes": 111820
+    }
+  ],
+  "errors": [],
+  "team_counts": {
+    "AEK Athens": 4,
+    "LASK Linz": 4,
+    "Club Brugge": 4,
+    "Aston Villa": 4,
+    "Borussia Dortmund": 4,
+    "Villarreal": 4,
+    "FC Porto": 4,
+    "Manchester City": 4,
+    "Lille": 4,
+    "Real Betis": 4,
+    "Real Madrid": 4,
+    "Internazionale": 4,
+    "Barcelona": 4,
+    "Feyenoord Rotterdam": 4,
+    "VfB Stuttgart": 4,
+    "Viking FK": 4,
+    "Liverpool": 4,
+    "Atlético Madrid": 4,
+    "Napoli": 4,
+    "Arsenal": 4,
+    "Paris Saint-Germain": 4,
+    "Slovan Bratislava": 4,
+    "Sporting CP": 4,
+    "Galatasaray": 4,
+    "Fenerbahce": 4,
+    "AS Roma": 4,
+    "PSV Eindhoven": 4,
+    "Shakhtar Donetsk": 4,
+    "Bayern Munich": 4,
+    "Bodo/Glimt": 4,
+    "Como": 4,
+    "RB Leipzig": 4,
+    "Manchester United": 4,
+    "Sabah FK": 4,
+    "Slavia Prague": 4,
+    "Lens": 4
+  },
+  "coverage_complete": true,
+  "ex_final_allowed": false
+}
