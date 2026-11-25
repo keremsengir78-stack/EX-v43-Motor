@@ -28,14 +28,14 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertEqual(len(ESPN_LEAGUES) - 1, len(result["reports"]))
         self.assertEqual("az.1", result["errors"][0]["league"])
 
-    def test_four_independently_calibrated_markets_still_need_registered_pup(self):
+    def test_four_independently_calibrated_markets_do_not_implicitly_run_pup(self):
         def mock_g(market, weighted):
             return {"status": "EX_G_AVAILABLE", "market": market, "probability": .6}
 
         with patch("ex_decision.ex_g_from_evidence", side_effect=mock_g):
             result = assess_markets({})
         self.assertEqual(list(MARKETS), result["pup"]["markets_checked"])
-        self.assertEqual(["pup:approved_executor_unavailable"], result["pup"]["issues"])
+        self.assertEqual("NOT_REQUESTED", result["pup"]["status"])
         self.assertFalse(result["pup_allowed"])
 
     def test_power_design_varies_with_effect_size_and_adjusts_family_error(self):

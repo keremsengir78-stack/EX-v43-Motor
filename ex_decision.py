@@ -7,7 +7,7 @@ import math
 import datetime as dt
 import re
 from ex_fixture_odds import check_odds
-from ex_pup_gate import gate_pup
+from ex_pup_gate import execute_pup, gate_pup
 
 WEIGHTS={"team_strength":0.50,"match_conditions":0.30,"external_factors":0.20}
 MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
@@ -122,3 +122,13 @@ def assess_markets(evidence_by_market, as_of=None):
     return {"markets":result,"pup":gate_pup(result, MARKETS),"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
             "pup_allowed":False,"ex_final_allowed":False,
             "reason":"PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"}
+
+
+def assess_pup(evidence_by_market, quotes, score_model, as_of, *, requested=False):
+    """Explicit PUP entry point; prices never participate in the EX-G pass."""
+    decision = assess_markets(evidence_by_market, as_of)
+    values = {market: assess_market_value(market, decision["markets"][market]["ex_g"],
+                                          quotes.get(market), as_of) for market in MARKETS}
+    return {"markets": decision["markets"], "values": values,
+            "pup": execute_pup(decision["markets"], MARKETS, values, score_model, requested=requested),
+            "ex_final_allowed": False}

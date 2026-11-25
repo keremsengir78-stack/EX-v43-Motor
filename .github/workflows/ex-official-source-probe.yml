@@ -1,0 +1,24 @@
+name: EX official evidence acquisition
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-official-source-probe.yml
+      - run_ex_official_sources.py
+      - config/ex_official_sources.json
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python run_ex_official_sources.py --config config/ex_official_sources.json --output official-evidence
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-official-evidence
+          path: official-evidence/
