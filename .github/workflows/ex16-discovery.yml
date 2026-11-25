@@ -12,13 +12,13 @@ jobs:
       - run: |
           python - <<'PY'
           import re
-          from urllib.request import urlopen
+          from urllib.request import urlopen,Request
           urls = {
               "pfl":"https://pfl.az/t%C9%99qvim/6807",
-              "pfl-www":"https://www.pfl.az/t%C9%99qvim/6807",
+              "pfl-www":"https://www.pfl.az/t%C9%99qvim",
               "sk":"https://www.nikeliga.sk/zapasy",
               "cz":"https://www.chanceliga.cz/zapasy",
-              "it":"https://www.legaseriea.it/en/serie-a/fixture-and-results",
+              "it":"https://en.legaseriea.it/team/roma/schedule",
               "fr":"https://ligue1.com/en/competitions/ligue1mcdonalds?tab=fixtures",
               "en":"https://www.premierleague.com/en/matches/premier-league/2026-27/matchweek-1",
           }
@@ -26,9 +26,22 @@ jobs:
           def probe(item):
               name, url = item
               try:
-                  with urlopen(url,timeout=12) as response:
+                  with urlopen(Request(url,headers={"User-Agent":"EX-v4.3 evidence audit"}),timeout=12) as response:
                       raw = response.read(3000000).decode(errors="replace")
-                      return name,response.geturl(),len(raw),re.findall(r'<script[^>]*(?:src|id)="[^"]+"[^>]*>',raw)[-16:],re.findall(r'href="[^"]*(?:pdf|id_round|/zapasy/)[^"]*"',raw)[:14]
+                      patterns={
+                        "pfl": [r'<script[^>]+src=[^>]+>',r'/storage/games/files/[^" ]+pdf'],
+                        "pfl-www": [r'<script[^>]+src=[^>]+>',r'/storage/games/files/[^" ]+pdf'],
+                        "sk": [r'<a[^>]+href="[^"]*id_round[^"]*"[^>]*>',r'<a[^>]+href="/zapas/[^"]+"[^>]*>'],
+                        "cz": [r'<a[^>]+href="/zapas/[^"]+"[^>]*>',r'<select[^>]*>'],
+                        "it": ["Match completed", "__NEXT_DATA__", "kickOff", "Parma"],
+                        "fr": ["__NEXT_DATA__", "fullTime", "fixtures", "homeTeam"],
+                        "en": ["application/json", "type=.module", "dataLayer"],
+                      }
+                      hits={}
+                      for pattern in patterns[name]:
+                          scan=list(re.finditer(pattern,raw,re.I))
+                          hits[pattern]=(len(scan),[raw[max(0,m.start()-35):m.end()+350] for m in scan[:2]])
+                      return name,response.geturl(),len(raw),hits
               except Exception as e:
                   return name,str(e)
           with ThreadPoolExecutor(max_workers=3) as pool:
