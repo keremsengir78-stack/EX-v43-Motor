@@ -207,13 +207,23 @@ def archive_candidates(league, archive, fixtures=()):
         return entries, evidence
     if league in GERMANY:
         return german_scores(league, fixtures, archive)
-    if league == "tr.1" and any(utc(row["kickoff"]).date().isoformat() == "2026-11-23" for row in fixtures):
-        rows, source = archive.get(TURKEY_DETAIL, turkey_detail_scores, max_age=ttl)
-        return rows, [source]
     if league in {"tr.1", "no.1"}:
         url, parse = (TURKEY, turkey_scores) if league == "tr.1" else (NORWAY, norway_scores)
-        rows, source = archive.get(url, parse, max_age=ttl)
-        return rows, [source]
+        queries = [(url, parse)]
+        if league == "tr.1" and any(utc(row["kickoff"]).date().isoformat() == "2026-11-23" for row in fixtures):
+            queries.append((TURKEY_DETAIL, turkey_detail_scores))
+        candidates, evidence, failures = [], [], []
+        for url, parse in queries:
+            try:
+                rows, source = archive.get(url, parse, max_age=ttl)
+            except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
+                failures.append(exc)
+                continue
+            candidates.extend(rows)
+            evidence.append(source)
+        if not evidence and failures:
+            raise failures[0]
+        return candidates, evidence
     if league in DUTCH:
         url = DUTCH[league]
         def parse(raw, stamp):
@@ -286,8 +296,8 @@ def league_reviews(forecasts, archive):
         if utc(row["kickoff"]) + dt.timedelta(minutes=90) <= archive.clock():
             by_league[row["league"]].append(row)
     reviews, errors = [], []
-    for league in OFFICIAL_LEAGUES:
-        if not by_league[league]:
+    for league in by_league:
+        if league not in OFFICIAL_LEAGUES:
             continue
         url = FPL + "fixtures/" if league == "en.1" else SERIE_A if league == "it.1" else DUTCH.get(league)
         try:
@@ -314,7 +324,8 @@ def league_reviews(forecasts, archive):
             day = utc(row["kickoff"]).date().isoformat()
             home, away = row["names"]["home"], row["names"]["away"]
             matches = identities[key(league, day, home, away)]
-            if len(matches) != 1:
+            fixture_scores = {(item["source_match_id"], tuple(item["official_score"])) for item in matches}
+            if len(fixture_scores) != 1:
                 continue
             match = matches[0]
             reviews.append({"league": league, "date": day, "home": home, "away": away,

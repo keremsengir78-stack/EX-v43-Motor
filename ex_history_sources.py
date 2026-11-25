@@ -141,6 +141,21 @@ def match_detail(raw, captured, event):
             "roster_identity_conflicts": identity_conflicts}
 
 
+def validated_team_minutes(detail, team_ids):
+    """Keep complete regulation totals for identity-consistent rosters only."""
+    totals = {}
+    if not detail["roster_identity_conflicts"]:
+        for team in team_ids:
+            minutes = {
+                r["athlete_id"]: (r["provider_minutes"] if r["provider_minutes"] is not None
+                                  else r["nominal_regulation_minutes"])
+                for r in detail["player_rows"] if r["team_id"] == team
+            }
+            if minutes and all(value is not None for value in minutes.values()) and sum(minutes.values()) == 990:
+                totals[team] = minutes
+    return totals
+
+
 def uefa_news(raw, captured, targets):
     news = {entry["uefa_match_id"]: (clubs, entry) for clubs, entry in parse_team_news(raw).items()}
     output = []

@@ -13,7 +13,7 @@ from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
 from ex_historical_features import market_labels
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
-from ex_history_sources import ESPN, match_detail, teams
+from ex_history_sources import ESPN, match_detail, teams, validated_team_minutes
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
@@ -400,7 +400,7 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None):
             for evidence in review.get("evidence", []):
                 store._load(evidence, evidence["url"])
             raw, captured = store._load(meta, f"{ESPN}/{competition}/summary?event={event}")
-            match_detail(raw, captured, fixture)
+            detail = match_detail(raw, captured, fixture)
             fact = settled_facts(json.loads(raw), fixture, captured.isoformat())
             if (fact["score"] != tuple(row["score"]) or not fact["finished"]
                     or fact["finished"] > utc(review["verified_at"])):
@@ -416,7 +416,9 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None):
                              or (existing["score"] is not None and existing["score"] != fact["score"])):
                 raise ValueError("Conflicting archived result")
             if not existing or existing["score"] is None or existing["captured_at"] > available_at:
-                history[event] = {**fact, "captured_at": available_at}
+                history[event] = {**fact, "captured_at": available_at,
+                                  "minutes": validated_team_minutes(detail, fact["teams"].values()),
+                                  "source_sha256": meta["sha256"]}
                 reused.add(event)
     return list(history.values()), len(reused)
 

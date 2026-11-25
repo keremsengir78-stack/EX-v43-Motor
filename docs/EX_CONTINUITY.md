@@ -404,3 +404,20 @@ yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
   tahmin veya kalibrasyon örneği üretilmez.
 - 13 müsabakanın uçtan uca senaryosu kontrollü kaynak girdileriyle
   sınanır. Gerçek kaynak erişim ve kapsam raporu bundan ayrı tutulur.
+
+### Paket 23 — arşiv aktarımını kurtarma
+
+1. `python run_ex_archive_dispatch.py --recover-since 2026-11-25`
+   çalıştır. Komut tamamlanan günlük ve haftalık akışların kayıtlarını
+   arşiv dalı indeksiyle karşılaştırır. Planlanan aktarımları ve süresi
+   dolan paketleri gösterir. Tarihi gerektiğinde değiştir.
+2. Çıktıyı kontrol ettikten sonra aynı komuta `--execute` ekle.
+   Arşiv yazıcısı en fazla dört paketi bir seferde işler, GitHub ZIP
+   özetini doğrular ve yalnızca arşiv dalına yazar. Bu işlem zamanlanmış
+   görev oluşturmaz. Tamamlanana kadar Actions arşiv yazıcısı sonucunu
+   kontrol et ve tekrar önizlemeyle eksik paketleri say.
+3. İlk kurulum için önceki dış zamanlayıcı ve dal koruması bölümünü
+   uygula. Önizleme Actions ve Contents okuma erişimi, tetikleme
+   **Actions: write** gerektirir. Dal kuralı **Administration: write**
+   yetkisiyle veya bir depo yöneticisi tarafından GitHub ekranında
+   ayarlanır. Koruma yalnızca `ex-evidence-archive` dalını hedefler.

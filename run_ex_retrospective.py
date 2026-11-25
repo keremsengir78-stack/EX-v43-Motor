@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 from ex_history_archive import HistoryArchive, atomic_write
-from ex_history_sources import ESPN, match_detail
+from ex_history_sources import ESPN, match_detail, validated_team_minutes
 from ex_model_challengers import date_partitions
 from ex_retrospective import EVIDENCE_CLASSES, build_examples, evaluate, settled_facts
 
@@ -29,16 +29,7 @@ def load_facts(plan, root):
         def parse(raw, captured):
             detail = match_detail(raw, captured, event)
             fact = settled_facts(json.loads(raw), event, meta["retrieved_at"])
-            totals = {}
-            if not detail["roster_identity_conflicts"]:
-                for team in event["teams"].values():
-                    minutes = {
-                        r["athlete_id"]: (r["provider_minutes"] if r["provider_minutes"] is not None
-                                          else r["nominal_regulation_minutes"])
-                        for r in detail["player_rows"] if r["team_id"] == team
-                    }
-                    if minutes and all(value is not None for value in minutes.values()) and sum(minutes.values()) == 990:
-                        totals[team] = minutes
+            totals = validated_team_minutes(detail, event["teams"].values())
             return {**fact, "minutes": totals, "source_sha256": meta["sha256"], "captured_at": captured}
         raw, captured = archive._load(meta, url)
         facts.append(parse(raw, captured))
