@@ -9,7 +9,7 @@ import re
 
 KINDS = {"ex-prospective-forecasts": "prematch-and-research",
          "ex-prospective-settlement": "settlement-and-performance",
-         "ex-weekly-capacity": "weekly-capacity", "ex-retrospective-results": "retrospective-research"}
+         "ex-weekly-capacity": "weekly-capacity", "ucl-research-evidence": "ucl-domestic-research", "ex-retrospective-results": "retrospective-research"}
 
 
 def digest(data):

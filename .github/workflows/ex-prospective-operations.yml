@@ -5,6 +5,7 @@ on:
     branches: [ex-v43-development]
     paths:
       - .github/workflows/ex-prospective-operations.yml
+      - ex_daily_research.py
       - run_ex_prospective_pipeline.py
       - run_ex_prospective_validation.py
       - ex_official_calendar.py
@@ -14,6 +15,8 @@ on:
       - ex_pup_gate.py
       - ex_prospective_power.py
       - tests/test_ex_prospective_operations.py
+  schedule:
+    - cron: '17 5,12,17 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -149,7 +152,7 @@ jobs:
           PY
 
   capture:
-    if: inputs.mode == 'capture' || inputs.mode == 'cycle'
+    if: github.event_name == 'schedule' || inputs.mode == 'capture' || inputs.mode == 'cycle'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -176,19 +179,18 @@ jobs:
             git fetch origin "$ref"
             git worktree add --detach durable-evidence FETCH_HEAD
             python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
+            python ex_evidence_store.py --store durable-evidence restore --kind ucl-domestic-research --output domestic --limit 1
           fi
-          python run_ex_prematch_archive.py --league approved --limit 25 --day "$DAY" --cache pregame-cache --output capture.json
-          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache pregame-cache --prior-settlements prior-outcomes --output-dir forecasts
+          python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}"             --plan plan.json --history history --cache pregame-cache --prior-settlements prior-outcomes             --domestic-packs domestic --output-dir forecasts
       - uses: actions/upload-artifact@v4
         with:
           name: ex-prospective-forecasts
           path: |
             forecasts/
-            capture.json
             pregame-cache/
 
   settle:
-    if: inputs.mode == 'settle' || inputs.mode == 'cycle'
+    if: github.event_name == 'schedule' || inputs.mode == 'settle' || inputs.mode == 'cycle'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -262,3 +264,22 @@ jobs:
           path: |
             settlement/
             settlement-cache/raw/
+
+  publish:
+    if: always() && (github.event_name == 'schedule' || inputs.mode == 'cycle') && (needs.capture.result == 'success' || needs.settle.result == 'success')
+    needs: [capture, settle]
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Send new evidence packs to the archive writer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          TARGET: ${{ github.ref_name }}
+        run: |
+          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select(.name == "ex-prospective-forecasts" or .name == "ex-prospective-settlement") | .id] | join(",")')
+          test -n "$ids"
+          monday=$(date -u -d "$(date -u +%F) - $(($(date -u +%u) - 1)) days" +%F)
+          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$TARGET"             -f week_start="$monday" -f artifact_ids="$ids"

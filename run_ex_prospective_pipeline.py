@@ -7,6 +7,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
+from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
 from ex_historical_features import market_labels
@@ -26,7 +27,7 @@ def jsonl(rows):
     return "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows).encode()
 
 
-def forecast_rows(manifest, cache, facts, now):
+def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
@@ -66,13 +67,20 @@ def forecast_rows(manifest, cache, facts, now):
                 context, minutes = workload(history, kickoff)
                 teams_features.append((short, strength, context, minutes))
             home, away = teams_features
-            if not home[0] or not away[0]:
+            players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
+            short = {m: mean((home[0][m], away[0][m])) for m in MARKETS} if home[0] and away[0] else None
+            if daily is not None:
+                identity = {"event_id": event_id, "date": kickoff.date().isoformat(), "league": league,
+                            "kickoff_at": kickoff.isoformat(), **players, "team_ids": fixture["teams"],
+                            "season": season, "season_basis": season_basis,
+                            "fixture_source": board_source["url"], "fixture_checked_at": board_at.isoformat()}
+                daily.append(daily_analysis(identity, short, domestic, now))
+            if short is None:
                 skipped.append({"event_id": event_id, "reason": "VENUE5_HISTORY_INCOMPLETE"})
                 continue
-            players = {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}
             rows.append({"event_id": event_id, "kickoff": kickoff.isoformat(), "forecast_at": now.isoformat(),
                          "league": league, "season": season, "season_basis": season_basis, "teams": fixture["teams"], "names": players,
-                         "short": {m: mean((home[0][m], away[0][m])) for m in MARKETS},
+                         "short": short,
                          "strength": {m: mean((home[1][m], away[1][m])) for m in MARKETS}
                          if home[1] and away[1] else None,
                          "observed_context": {"home": home[2], "away": away[2],
@@ -348,6 +356,8 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--capture", type=Path)
+    parser.add_argument("--daily-capture")
+    parser.add_argument("--domestic-packs", type=Path)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--history", type=Path)
     parser.add_argument("--prior-settlements", type=Path)
@@ -360,6 +370,17 @@ def main():
     args = parser.parse_args()
     current = dt.datetime.now(dt.timezone.utc)
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    if args.daily_capture:
+        from run_ex_prematch_archive import collect_registered
+        from ex_leagues import APPROVED_LEAGUES
+
+        day = dt.date.fromisoformat(args.daily_capture)
+        if not current.date() <= day <= current.date() + dt.timedelta(days=2):
+            parser.error("Choose an upcoming UTC date within two days")
+        args.capture = args.output_dir / "capture.json"
+        live = collect_registered(HistoryArchive(args.cache, 26 * len(APPROVED_LEAGUES),
+                                                 fetch=paced_download(.75)), day, 25, APPROVED_LEAGUES)
+        atomic_write(args.capture, json.dumps(live).encode())
     if args.capture:
         if not args.plan or not args.history or args.forecast_ledger:
             parser.error("Capture mode requires plan and history")
@@ -373,7 +394,15 @@ def main():
         reused = 0
         if args.prior_settlements:
             facts, reused = archive_history(args.prior_settlements, facts, cutoff)
-        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff)
+        daily = []
+        domestic = None
+        if args.domestic_packs:
+            receipts = sorted(args.domestic_packs.glob("*/receipt.json"), key=lambda path: int(path.parent.name))
+            candidates = [path for path in receipts if utc(json.loads(path.read_text())["created_at"]) < cutoff]
+            if candidates:
+                domestic = domestic_snapshot(candidates[-1].parent)
+        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic)
+        atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         if any(archive.clock() >= utc(row["kickoff"]) for row in forecasts):
             raise ValueError("Forecast execution finished past kickoff")
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
@@ -382,6 +411,11 @@ def main():
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
                   "reused_verified_outcomes": reused, "skipped": skipped,
+                  "daily_fixture_records": len(daily),
+                  "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
+                  "daily_research_covered": sum(row["venue5_research"] is not None or
+                                                bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
+                  "capture_source_errors": manifest.get("errors", []),
                   "alternate_fixtures": {league: len(rows) for league, rows in context.items()},
                   "alternate_calendar_issues": issues}
     else:
