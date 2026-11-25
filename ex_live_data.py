@@ -208,6 +208,7 @@ def run(
             try:
                 if espn:
                     from ex_espn_provider import parse_espn_scoreboard
+                    from ex_history_archive import download
                     from ex_history_sources import ESPN
                     start, end = season_range(league, season)
                     last_day = end - dt.timedelta(days=1)
@@ -215,7 +216,7 @@ def run(
                     url = f"{ESPN}/{slug}/scoreboard?dates={start:%Y%m%d}-{last_day:%Y%m%d}&limit=1000"
                 raw = (
                     local.read_bytes()
-                    if local else fetch(url)
+                    if local else (download(url) if espn else fetch(url))
                 )
 
                 digest = hashlib.sha256(
