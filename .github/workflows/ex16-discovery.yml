@@ -1,0 +1,37 @@
+name: EX public source discovery
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths: [.github/workflows/ex16-discovery.yml]
+permissions:
+  contents: read
+jobs:
+  public-documents:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          python - <<'PY'
+          import re
+          from urllib.request import urlopen
+          urls = {
+              "pfl":"https://pfl.az/t%C9%99qvim/6807",
+              "pfl-www":"https://www.pfl.az/t%C9%99qvim/6807",
+              "sk":"https://www.nikeliga.sk/zapasy",
+              "cz":"https://www.chanceliga.cz/zapasy",
+              "it":"https://www.legaseriea.it/en/serie-a/fixture-and-results",
+              "fr":"https://ligue1.com/en/competitions/ligue1mcdonalds?tab=fixtures",
+              "en":"https://www.premierleague.com/en/matches/premier-league/2026-27/matchweek-1",
+          }
+          from concurrent.futures import ThreadPoolExecutor
+          def probe(item):
+              name, url = item
+              try:
+                  with urlopen(url,timeout=12) as response:
+                      raw = response.read(3000000).decode(errors="replace")
+                      return name,response.geturl(),len(raw),re.findall(r'<script[^>]*(?:src|id)="[^"]+"[^>]*>',raw)[-16:],re.findall(r'href="[^"]*(?:pdf|id_round|/zapasy/)[^"]*"',raw)[:14]
+              except Exception as e:
+                  return name,str(e)
+          with ThreadPoolExecutor(max_workers=3) as pool:
+              for out in pool.map(probe,urls.items()):
+                  print(out)
+          PY
