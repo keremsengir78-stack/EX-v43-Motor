@@ -364,3 +364,22 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
   yapabilir. GitHub'da `Actions: write` yetkili GitHub App veya
   fine-grained PAT ile çalıştırılır. Bu pakette bir dış zamanlayıcı
   kurulmadı ve varsayılan dal ayarı değiştirilmedi.
+
+### Paket 21 — dış zamanlayıcı ve arşiv dalı yetkileri
+
+1. Dış zamanlayıcının çalışacağı ortamda Python ve GitHub CLI kurulu olmalı.
+   GitHub App kurulum token’ını veya yalnız bu depoya erişen fine-grained
+   PAT’i `GH_TOKEN` gizli değişkenine koy. **Actions: write** yetkisi ver.
+2. Geliştirme dalından `python run_ex_archive_dispatch.py` ve
+   `python run_ex_archive_dispatch.py --weekly` ile komutları önizle.
+   `--execute` doğrudan çalıştırır. Günlük komut UTC bugün, yarın ve
+   ertesi günün tahtalarını tarar. Maç önü 48 saat sınırı korunur.
+   Haftalık komut önceki haftayı raporlar ve arşiv yazıcısına gönderir.
+   Bu kurulum `main` içindeki yerleşik cron tanımına bağlı değildir.
+3. GitHub deposunda **Settings → Rules → Rulesets → New ruleset →
+   New branch ruleset** yolunu aç. Durumu **Active** yap.
+4. Hedef dal desenini yalnızca `ex-evidence-archive` olarak belirle.
+   **Restrict deletions** ve **Block force pushes** kurallarını etkinleştir.
+   Normal Actions yazımı için **Restrict updates** ve zorunlu pull request
+   seçeneklerini bu kuralda açma. Kaydet ve dal ekranındaki koruma durumunu
+   doğrula. REST ile işlem yapılıyorsa **Administration: write** gerekir.

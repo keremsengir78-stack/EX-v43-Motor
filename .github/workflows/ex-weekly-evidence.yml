@@ -11,6 +11,10 @@ on:
         description: Monday UTC for the seven-day published fixture inventory
         required: true
         type: string
+      persist_inventory:
+        description: Archive the generated weekly inventory
+        type: boolean
+        default: false
       preserve_only:
         description: Only persist evidence without refreshing the weekly fixture inventory
         type: boolean
@@ -136,7 +140,7 @@ jobs:
 
   persist-scheduled-inventory:
     needs: inventory
-    if: github.event_name == 'schedule' && needs.inventory.result == 'success'
+    if: (github.event_name == 'schedule' || inputs.persist_inventory) && needs.inventory.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -144,8 +148,9 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       RUN_ID: ${{ github.run_id }}
+      WEEK_START: ${{ inputs.week_start }}
     steps:
       - run: |
           id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" --jq '.artifacts[] | select(.name == "ex-weekly-capacity") | .id')
           test -n "$id"
-          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"             -f week_start="$(date -u -d '7 days ago' +%F)" -f artifact_ids="$id" -f preserve_only=true
+          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"             -f week_start="${WEEK_START:-$(date -u -d '7 days ago' +%F)}" -f artifact_ids="$id" -f preserve_only=true

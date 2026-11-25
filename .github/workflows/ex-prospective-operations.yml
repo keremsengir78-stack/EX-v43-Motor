@@ -5,6 +5,7 @@ on:
     branches: [ex-v43-development]
     paths:
       - .github/workflows/ex-prospective-operations.yml
+      - run_ex_official_queue_join.py
       - ex_daily_research.py
       - ex_daily_official.py
       - run_ex_prospective_pipeline.py
@@ -68,12 +69,17 @@ jobs:
       - run: |
           python run_ex_source_audit.py --ledger scores/score-evidence.json --dfl official/dfl-scores.json --output source-audit.json
           python run_ex_official_minutes_batch.py --input research/ucl/domestic-minutes*-pilot.json --output minutes.json
+          git fetch origin refs/heads/ex-evidence-archive
+          git worktree add --detach durable-evidence FETCH_HEAD
+          python ex_evidence_store.py --store durable-evidence restore --kind official-source-probe --output probes
+          python run_ex_official_queue_join.py --probe probes/15012525469 --ledger scores/score-evidence.json --output official-queue-join.json
       - uses: actions/upload-artifact@v4
         with:
           name: ex-technical-audit
           path: |
             source-audit.json
             minutes.json
+            official-queue-join.json
 
 
   archived-preflight:
@@ -315,7 +321,7 @@ jobs:
             settlement-cache/raw/
 
   publish:
-    if: always() && (github.event_name == 'schedule' || inputs.mode == 'cycle') && (needs.capture.result == 'success' || needs.settle.result == 'success')
+    if: always() && (github.event_name == 'schedule' || inputs.mode == 'cycle' || inputs.mode == 'capture') && (needs.capture.result == 'success' || needs.settle.result == 'success')
     needs: [capture, settle]
     runs-on: ubuntu-latest
     permissions:

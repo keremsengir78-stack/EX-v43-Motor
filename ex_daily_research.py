@@ -30,23 +30,24 @@ def domestic_snapshot(root):
 DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league != "UCL"}
 
 
-def rolling_domestic(fixture, by_team, as_of, *, retrospective=False):
+def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None):
     """Join current domestic membership by ESPN club ID; never infer from a name."""
+    catalog = DOMESTIC_BY_SLUG | (archive_leagues or {}) if retrospective else DOMESTIC_BY_SLUG
     cutoff = as_of.date()
     rows, leagues = [], []
     for side in ("home", "away"):
         club = fixture["team_ids"][side]
         history = [row for row in by_team.get(club, ())
-                   if row["competition"] in DOMESTIC_BY_SLUG and row["kickoff"].date() < cutoff
+                   if row["competition"] in catalog and row["kickoff"].date() < cutoff
                    and row["finished"] is not None and row["score"] is not None
                    and (row["finished"] < as_of if retrospective
                         else row["finished"] <= row["captured_at"] < as_of)]
         current = {row["competition"] for row in history
-                   if row["kickoff"].date() >= season_bounds(DOMESTIC_BY_SLUG[row["competition"]], cutoff)[0]}
+                   if row["kickoff"].date() >= season_bounds(catalog[row["competition"]], cutoff)[0]}
         if len(current) != 1:
             return None
         competition, = current
-        league = DOMESTIC_BY_SLUG[competition]
+        league = catalog[competition]
         leagues.append(league)
         rows.extend({"date": row["kickoff"].date(), "league": league,
                      "home": row["teams"]["home"], "away": row["teams"]["away"],

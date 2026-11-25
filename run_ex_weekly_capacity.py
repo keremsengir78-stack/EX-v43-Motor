@@ -31,7 +31,8 @@ def board(raw, slug, day):
         match, = event["competitions"]
         if match["id"] != event_id or utc(match["date"]) != kickoff or event_id in rows:
             raise ValueError("Invalid or duplicate fixture identity")
-        rows[event_id] = {"kickoff": kickoff.isoformat(), "teams": teams(match), "status": state}
+        rows[event_id] = {"kickoff": kickoff.isoformat(), "teams": teams(match), "status": state,
+                          "names": {side["homeAway"]: side["team"]["displayName"] for side in match["competitors"]}}
     return rows
 
 
@@ -59,7 +60,7 @@ def collect(archive, start):
             "fixtures": fixtures, "ex_final_allowed": False}
 
 
-def observed_coverage(fixtures, packs, settlements=None):
+def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None):
     forecasts = combine_forecasts(read_forecast_pack(p) for p in packs.glob("*/receipt.json"))
     by_league = {league: Counter() for league in APPROVED_LEAGUES}
     for row in forecasts:
@@ -124,6 +125,8 @@ def observed_coverage(fixtures, packs, settlements=None):
             by_league[fixtures[event]["league"]][column] += 1
     columns = ("prematch_archived", "sealed_research_forecasts", "domestic_research_baselines",
                "full_strength_window", "independently_settled_venue5", "full_model_verified")
+    if fixture_phases is not None:
+        fixture_phases.update(phase)
     rows = join_holdout(forecasts, list(joined_outcomes.values())) if joined_outcomes else []
     performance = {
         "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",
@@ -169,7 +172,9 @@ def main():
     result["network_requests"] = archive.requests
     result["cached_boards"] = archive.cache_hits
     if args.packs:
-        coverage, result["weekly_performance"] = observed_coverage(result["fixtures"], args.packs, args.settlements)
+        phases = {}
+        coverage, result["weekly_performance"] = observed_coverage(
+            result["fixtures"], args.packs, args.settlements, fixture_phases=phases)
         result["observed_coverage"] = coverage
         totals = {key: sum(row[key] for row in coverage.values()) for key in next(iter(coverage.values()))}
         fixtures = result["published_fixtures"]
@@ -180,6 +185,12 @@ def main():
         result["capture_window"] = {"measured_at": measured_at.isoformat(), "window_hours": 48,
             "opened": len(opened), "not_due": fixtures - len(opened),
             "prematch_coverage_of_due": totals["prematch_archived"] / len(opened) if opened else None}
+        prematch = phases.get("prematch_archived", set())
+        result["fixture_capture_status"] = {
+            event: ("PREMATCH_ARCHIVED" if event in prematch else
+                    "PREMATCH_WINDOW_CLOSED_WITHOUT_EVIDENCE" if utc(row["kickoff"]) <= measured_at else
+                    "PREMATCH_PENDING" if event in opened else "NOT_DUE")
+            for event, row in result["fixtures"].items()}
         result["phase_share_of_published"] = {key: count / fixtures if fixtures else None
                                                for key, count in totals.items()}
     if args.examples:
