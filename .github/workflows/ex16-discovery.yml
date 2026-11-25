@@ -126,3 +126,26 @@ jobs:
                       if p>=0: print(q,s[max(p-80,0):p+240])
               except OSError as e: print(str(e))
           PY
+      - run: |
+          python - <<'PY'
+          import json,re
+          from urllib.parse import urlencode
+          from urllib.request import Request,urlopen
+          targets=[
+              ("lfp-js", "https://1ereannonce.lfp.fr/js/dat.index.js", None),
+              ("lfp-results","https://1ereannonce.lfp.fr/index.asp",urlencode({"code_evt":"D1","code_jr_tr":"J12"}).encode()),
+              ("italy","https://en.legaseriea.it/serie-a",None),
+          ]
+          for name,url,data in targets:
+              try:
+                  with urlopen(Request(url,data=data),timeout=15) as h: s=h.read(5000000).decode(errors="replace")
+                  if not name=="italy": print(name,s[:4000]);
+                  else:
+                      chunks=[]
+                      for token in re.findall(r'<script>self\.__next_f\.push\((\[1,\s*".*?"\])\)</script>',s,re.S):
+                          chunks.append(json.loads(token)[1])
+                      body="".join(chunks)
+                      loc=body.find("serie-a::Football_Match::979e686")
+                      print("italy",len(chunks),body[loc-225:loc+3700])
+              except OSError as e: print(name,str(e))
+          PY
