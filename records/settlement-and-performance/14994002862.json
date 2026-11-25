@@ -1,0 +1,13 @@
+{
+  "files": {
+    "outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "provisional-outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.json": "308002967213eac0ad7ed808ac9087873db15670e8633c50d63f773f62ff5e28"
+  },
+  "receipt": {
+    "created_at": "2026-11-25T05:15:54Z",
+    "digest": "sha256:db45b0e9cfceddb776abe21d9c6b841bfeb4218033fa396ccfe5c12f3565ce71",
+    "id": 14994002862,
+    "name": "ex-prospective-settlement"
+  }
+}
