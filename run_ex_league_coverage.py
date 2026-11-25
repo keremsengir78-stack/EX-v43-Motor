@@ -5,22 +5,27 @@ from pathlib import Path
 
 from ex_espn_provider import ESPN_LEAGUES
 from ex_live_data import LEAGUES
+from ex_leagues import APPROVED_LEAGUES
+from ex_cross_verify import DIVISIONS
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS
 from run_ex_official_sources import ALTERNATE_CALENDARS
 from run_ex_prospective_pipeline import OFFICIAL_RESULT_HOSTS
 
-# Explicitly identified in the user-approved scope for this review.
-APPROVED_SCOPE_GAPS = {"nl.2": "Netherlands Eerste Divisie"}
-
-
 def coverage(config):
     history = config["leagues"]
     rows = {}
-    for league in sorted(set().union(LEAGUES, ESPN_LEAGUES, history, APPROVED_SCOPE_GAPS)):
+    for league in sorted(set().union(LEAGUES, ESPN_LEAGUES, history, APPROVED_LEAGUES)):
         league_config = history.get(league, {})
         seasons = sorted({team["season"] for team in league_config.get("teams", [])})
+        approved = APPROVED_LEAGUES.get(league)
         rows[league] = {
-            "league_name": LEAGUES.get(league, APPROVED_SCOPE_GAPS.get(league)),
+            "league_name": LEAGUES.get(league),
+            "approved_main_catalog": approved is not None,
+            "season_boundary_month": approved[2] if approved else None,
+            "historical_score_provider": approved[3] if approved else None,
+            "calendar_and_odds_adapter": ESPN_LEAGUES.get(league),
+            "secondary_score_adapter": DIVISIONS.get(league),
+            "baseline_engine": league in LEAGUES,
             "main_ingestion": league in LEAGUES,
             "espn_adapter": ESPN_LEAGUES.get(league),
             "history_seed_seasons": seasons,
@@ -30,7 +35,7 @@ def coverage(config):
             "official_minutes_host_registered": league in OFFICIAL_HOSTS,
             "official_result_hosts": sorted(OFFICIAL_RESULT_HOSTS.get(league, ())),
         }
-    return {"registered_leagues": rows, "approved_scope_gaps": APPROVED_SCOPE_GAPS,
+    return {"registered_leagues": rows, "approved_scope_gaps": sorted(set(APPROVED_LEAGUES) - set(LEAGUES)),
             "history_seed_seasons_scope": "EXPANSION_CONFIG_ONLY", "ex_final_allowed": False}
 
 

@@ -17,7 +17,7 @@ jobs:
       - run: |
           mkdir -p approved-evidence
           python run_ex_league_coverage.py > approved-evidence/coverage.json
-          python ex_live_data.py --seasons 2025-26 2026-27 --leagues nl.2 no.1 UCL --as-of 2026-11-25 --output-dir approved-evidence/history
+          python ex_live_data.py --seasons 2025-26 2026-27 --leagues nl.2 no.1 UCL --as-of 2026-11-25 --outdir approved-evidence/history
           python - <<'PY'
           import json
           from pathlib import Path
