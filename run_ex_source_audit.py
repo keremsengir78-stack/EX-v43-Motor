@@ -6,6 +6,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from ex_history_archive import atomic_write
+from ex_cross_verify import norm
 
 
 def audit(ledger, dfl=None):
@@ -34,12 +35,27 @@ def audit(ledger, dfl=None):
                     records[key]["scores"].add((row["home_goals"], row["away_goals"]))
                     records[key]["proof"].add(label)
 
+    normalized = defaultdict(list)
+    for league, day, home, away in records:
+        normalized[league, day, norm(home), norm(away)].append((league, day, home, away))
+    source_candidates = defaultdict(set)
     for item in (dfl or {}).get("fixtures", []):
-        key = item.get("league", "de.1"), item["date"], item["home"], item["away"]
-        if key in records:
-            row = records[key]
-            row["scores"].add(tuple(item["official_score"]))
-            row["proof"].add(item.get("proof", "dfl_official_result"))
+        league, day, home, away = item.get("league", "de.1"), item["date"], item["home"], item["away"]
+        identity = league, day, norm(home), norm(away)
+        source_candidates[identity].add((home, away))
+    for item in (dfl or {}).get("fixtures", []):
+        league, day, home, away = item.get("league", "de.1"), item["date"], item["home"], item["away"]
+        key = league, day, home, away
+        if key not in records:
+            identity = league, day, norm(home), norm(away)
+            candidates = normalized[identity]
+            if (not identity[2] or not identity[3] or identity[2] == identity[3]
+                    or len(candidates) != 1 or len(source_candidates[identity]) != 1):
+                continue
+            key = candidates[0]
+        row = records[key]
+        row["scores"].add(tuple(item["official_score"]))
+        row["proof"].add(item.get("proof", "dfl_official_result"))
 
     categories = {}
     by_league_season = defaultdict(Counter)
@@ -70,9 +86,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ledger", type=Path, required=True)
     parser.add_argument("--dfl", type=Path)
+    parser.add_argument("--official-results", type=Path, nargs="+", default=[])
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    report = audit(json.loads(args.ledger.read_text()), json.loads(args.dfl.read_text()) if args.dfl else None)
+    combined = json.loads(args.dfl.read_text()) if args.dfl else {"fixtures": []}
+    for path in args.official_results:
+        combined["fixtures"].extend(json.loads(path.read_text())["matches"])
+    report = audit(json.loads(args.ledger.read_text()), combined)
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
     print(json.dumps({"total": report["total"], "counts": report["counts"]}))
 

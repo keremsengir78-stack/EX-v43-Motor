@@ -2,7 +2,7 @@ name: EX production evidence coverage
 on:
   pull_request:
     branches: [ex-v43-development]
-    paths: [.github/workflows/ex-production-coverage.yml, run_ex_production_coverage.py, run_ex_dutch_reconcile.py]
+    paths: [.github/workflows/ex-production-coverage.yml, run_ex_production_coverage.py, run_ex_dutch_reconcile.py, run_ex_source_audit.py]
   workflow_dispatch:
 permissions:
   contents: read
@@ -45,7 +45,32 @@ jobs:
           run-id: 45561898364
           name: ex-prospective-forecasts
           path: day2
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555442252
+          name: ex-laliga-bulk-evidence
+          path: laliga
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45562034679
+          name: ex-expanded-official-score-evidence
+          path: expanded
       - run: |
+          python run_ex_source_audit.py --ledger scores/score-evidence.json --official-results dfl/results.json laliga/results.json expanded/results.json --output evidence/score-audit.json
           python run_ex_dutch_reconcile.py --primary dutch/history/results.csv --as-of 2026-11-25 --output evidence/dutch
           python run_ex_production_coverage.py --plan plan/plan.json --examples retrospectives/retrospective-examples.jsonl --capture day1/capture.json day2/capture.json --output evidence/coverage.json
       - uses: actions/upload-artifact@v4
