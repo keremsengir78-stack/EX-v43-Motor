@@ -193,11 +193,17 @@ def archive_candidates(league, archive, fixtures=()):
             if "2026-11-08" in days:
                 urls[PORTUGAL_SAMPLE] = None
             parse = portuguese_results
-        entries, evidence = [], []
+        entries, evidence, errors = [], [], []
         for url in list(urls)[:9]:
-            rows, source = archive.get(url, lambda raw, stamp: parse(raw, url, stamp), max_age=ttl)
+            try:
+                rows, source = archive.get(url, lambda raw, stamp: parse(raw, url, stamp), max_age=ttl)
+            except (BudgetExhausted, OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+                errors.append(exc)
+                continue
             entries.extend(rows)
             evidence.append(source)
+        if not evidence and errors:
+            raise errors[0]
         return entries, evidence
     if league in GERMANY:
         return german_scores(league, fixtures, archive)
