@@ -4,7 +4,7 @@ import json
 
 from ex_auto_control import auto_control
 from ex_cross_verify import norm
-from ex_decision import assess_markets
+from ex_decision import MARKETS, assess_market_value, assess_markets
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
 from ex_leagues import APPROVED_LEAGUES, season_bounds
@@ -58,7 +58,7 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
     return sorted(unique.values(), key=lambda row: row["date"]), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
 
 
-def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None):
+def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=()):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -88,11 +88,22 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
     else:
         market_percentages = None
     time = as_of.isoformat()
+    decisions = assess_markets({}, as_of=time)
+    values_by_market = {}
+    for market in MARKETS:
+        offers = [quote for quote in quotes if quote["market"] == market
+                  and check_odds(quote, time)["status"] == "VERIFIED_INPUT"]
+        unique = {(q["bookmaker"], q["decimal_odds"]): q for q in offers}
+        selected = next(iter(unique.values())) if len(unique) == 1 else None
+        value = assess_market_value(market, decisions["markets"][market]["ex_g"], selected, time)
+        values_by_market[market] = {**value, "observed_quotes": offers}
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time), "odds_lock": check_odds(None, time),
             "market_baselines_pct": market_percentages,
             "recompute_consistent": recomputed}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
-            "domestic_research": baseline, "markets": assess_markets({}, as_of=time),
+            "domestic_research": baseline, "markets": decisions, "market_values": values_by_market,
+            "observed_inputs": observations or {},
+            "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
             "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate),
             "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}

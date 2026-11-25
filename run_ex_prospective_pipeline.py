@@ -20,7 +20,7 @@ from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
 from ex_rolling_scoreboards import scoreboard_facts
 from ex_retrospective import observed_season, settled_facts, window, workload
 from run_ex_prematch_archive import prematch_fixtures, summary
-from run_ucl_matchday_inputs import market_quotes
+from run_ucl_matchday_inputs import market_quotes, observed_load
 from run_ex_prospective_validation import evaluate, join_holdout, read_rows
 from run_ex_retrospective import load_facts
 
@@ -74,7 +74,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
             if source["url"] != f"{ESPN}/{competition}/summary?event={event_id}":
                 raise ValueError("Summary URL does not match fixture")
             raw, captured = cache._load(source, source["url"])
-            summary(raw, captured, event_id, kickoff, fixture["teams"])
+            observed = summary(raw, captured, event_id, kickoff, fixture["teams"])
             season, season_basis = observed_season(competition, kickoff, event.get("season", {}).get("year"))
             if not max(captured, board_at) < now < kickoff or type(season) is not int:
                 skipped.append({"event_id": event_id, "reason": "TIME_OR_SEASON_UNAVAILABLE"})
@@ -106,7 +106,29 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None):
                             "kickoff_at": kickoff.isoformat(), **players, "team_ids": fixture["teams"],
                             "season": season, "season_basis": season_basis,
                             "fixture_source": board_source["url"], "fixture_checked_at": board_at.isoformat()}
-                daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent, by_team=domestic_teams))
+                payload = json.loads(raw)
+                workload_issue = None
+                try:
+                    source_load = observed_load({"lastFiveGames": payload.get("lastFiveGames") or []},
+                                                fixture["teams"].values(), now, kickoff)
+                except (ValueError, KeyError, TypeError, AttributeError) as exc:
+                    source_load = {}
+                    workload_issue = source_error("optional_recent_schedule", source["url"], exc)
+                side_load = {}
+                for side, feature in zip(("home", "away"), teams_features, strict=True):
+                    context, minutes = feature[2:]
+                    side_load[side] = {
+                        "completed_match_count_14d_archived": round(context[1] * 5) if context else None,
+                        "rest_hours_since_archived_full_time_capped_at_336": round(context[0] * 336, 2) if context else None,
+                        "validated_minutes_proxy_available": minutes is not None,
+                        "source_recent_schedule": source_load.get(fixture["teams"][side]),
+                    }
+                observations = {**observed, "workload": side_load, "summary_source": source,
+                                "confirmed_lineup_required": False, "individual_international_break_required": False,
+                                "recent_schedule_issue": workload_issue}
+                quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())
+                daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
+                                            by_team=domestic_teams, observations=observations, quotes=quotes))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -366,7 +388,7 @@ def settle(forecasts, archive, sealed_at, official, *, expected_kind="PROSPECTIV
     return corroborated, provisional, pending
 
 
-def archive_history(packs, facts, cutoff, *, verified_outcomes=None):
+def archive_history(packs, facts, cutoff, *, verified_outcomes=None, conflicts=None):
     """Reuse verified final scores whose evidence was available at forecast time."""
     history = {fact["event_id"]: fact for fact in facts}
     reused = set()
@@ -380,46 +402,56 @@ def archive_history(packs, facts, cutoff, *, verified_outcomes=None):
         lines = (line for path in ledgers if path.is_file() for line in path.read_text().splitlines())
         for line in lines:
             row = json.loads(line)
-            competition = ESPN_LEAGUES[row["league"]]
-            review = row["official_review"]
-            meta = row["source"]
-            source = urlsplit(review["source"])
-            if sealed >= cutoff:
+            event_id = row["event_id"]
+            if conflicts is not None and event_id in conflicts:
                 continue
-            evidence_times = [utc(item["retrieved_at"]) for item in review.get("evidence", [])]
-            if max(utc(review["verified_at"]), utc(meta["retrieved_at"]), *evidence_times) > sealed:
-                raise ValueError("Archived result evidence postdates the receipt")
-            available_at = sealed
-            if (source.scheme != "https" or source.netloc not in OFFICIAL_RESULT_HOSTS.get(row["league"], ())
-                    or review["scope"] != "REVIEWED_OFFICIAL_RESULT"
-                    or review["league"] != row["league"] or review["score"] != row["score"]):
-                raise ValueError("Unverified official settlement evidence")
-            event = row["event_id"]
-            fixture = {"event_id": event, "kickoff_at": row["kickoff"], "teams": row["teams"],
-                       "competition": competition, "source_season": row["season"]}
-            for evidence in review.get("evidence", []):
-                store._load(evidence, evidence["url"])
-            raw, captured = store._load(meta, f"{ESPN}/{competition}/summary?event={event}")
-            detail = match_detail(raw, captured, fixture)
-            fact = settled_facts(json.loads(raw), fixture, captured.isoformat())
-            if (fact["score"] != tuple(row["score"]) or not fact["finished"]
-                    or fact["finished"] > utc(review["verified_at"])):
-                raise ValueError("Archived settlement disagrees with source")
-            if row["labels"] != market_labels(*fact["score"]):
-                raise ValueError("Archived settlement labels disagree with source")
-            if verified_outcomes is not None:
-                old = verified_outcomes.get(event)
-                if old is None or available_at < old[0]:
-                    verified_outcomes[event] = (available_at, row, store)
-            existing = history.get(event)
-            if existing and (any(existing[key] != fact[key] for key in ("kickoff", "teams", "competition"))
-                             or (existing["score"] is not None and existing["score"] != fact["score"])):
-                raise ValueError("Conflicting archived result")
-            if not existing or existing["score"] is None or existing["captured_at"] > available_at:
-                history[event] = {**fact, "captured_at": available_at,
-                                  "minutes": validated_team_minutes(detail, fact["teams"].values()),
-                                  "source_sha256": meta["sha256"]}
-                reused.add(event)
+            try:
+                competition = ESPN_LEAGUES[row["league"]]
+                review = row["official_review"]
+                meta = row["source"]
+                source = urlsplit(review["source"])
+                if sealed >= cutoff:
+                    continue
+                evidence_times = [utc(item["retrieved_at"]) for item in review.get("evidence", [])]
+                if max(utc(review["verified_at"]), utc(meta["retrieved_at"]), *evidence_times) > sealed:
+                    raise ValueError("Archived result evidence postdates the receipt")
+                available_at = sealed
+                if (source.scheme != "https" or source.netloc not in OFFICIAL_RESULT_HOSTS.get(row["league"], ())
+                        or review["scope"] != "REVIEWED_OFFICIAL_RESULT"
+                        or review["league"] != row["league"] or review["score"] != row["score"]):
+                    raise ValueError("Unverified official settlement evidence")
+                event = row["event_id"]
+                fixture = {"event_id": event, "kickoff_at": row["kickoff"], "teams": row["teams"],
+                           "competition": competition, "source_season": row["season"]}
+                for evidence in review.get("evidence", []):
+                    store._load(evidence, evidence["url"])
+                raw, captured = store._load(meta, f"{ESPN}/{competition}/summary?event={event}")
+                detail = match_detail(raw, captured, fixture)
+                fact = settled_facts(json.loads(raw), fixture, captured.isoformat())
+                if (fact["score"] != tuple(row["score"]) or not fact["finished"]
+                        or fact["finished"] > utc(review["verified_at"])):
+                    raise ValueError("Archived settlement disagrees with source")
+                if row["labels"] != market_labels(*fact["score"]):
+                    raise ValueError("Archived settlement labels disagree with source")
+                if verified_outcomes is not None:
+                    old = verified_outcomes.get(event)
+                    if old is None or available_at < old[0]:
+                        verified_outcomes[event] = (available_at, row, store)
+                existing = history.get(event)
+                if existing and (any(existing[key] != fact[key] for key in ("kickoff", "teams", "competition"))
+                                 or (existing["score"] is not None and existing["score"] != fact["score"])):
+                    raise ValueError("Conflicting archived result")
+                if not existing or existing["score"] is None or existing["captured_at"] > available_at:
+                    history[event] = {**fact, "captured_at": available_at,
+                                      "minutes": validated_team_minutes(detail, fact["teams"].values()),
+                                      "source_sha256": meta["sha256"]}
+                    reused.add(event)
+            except (OSError, ValueError, KeyError, TypeError, AttributeError):
+                if conflicts is None:
+                    raise
+                conflicts.add(event_id)
+                history.pop(event_id, None)
+                reused.discard(event_id)
     return list(history.values()), len(reused)
 
 
@@ -518,8 +550,9 @@ def main():
         # Establish the feature cutoff after archive integrity verification.
         cutoff = archive.clock()
         reused = 0
+        history_conflicts = set()
         if args.prior_settlements:
-            facts, reused = archive_history(args.prior_settlements, facts, cutoff)
+            facts, reused = archive_history(args.prior_settlements, facts, cutoff, conflicts=history_conflicts)
         daily = []
         domestic = None
         if args.domestic_packs:
@@ -530,15 +563,15 @@ def main():
         rolling = []
         if args.weekly_scoreboards:
             existing = {r["event_id"]: r for r in facts}
-            for row in scoreboard_facts(args.weekly_scoreboards, cutoff):
-                prior = existing.get(row["event_id"])
-                if prior and any(prior[key] != row[key] for key in ("teams", "competition", "kickoff")):
-                    raise ValueError("Historical source identity conflict")
-                if prior and prior["score"] is not None and prior["score"] != row["score"]:
-                    raise ValueError("Historical scoreboard score conflict")
-                if prior is None:
+            for row in scoreboard_facts(args.weekly_scoreboards, cutoff, conflicts=history_conflicts):
+                event = row["event_id"]
+                prior = existing.get(event)
+                if prior and (any(prior[key] != row[key] for key in ("teams", "competition", "kickoff"))
+                              or (prior["score"] is not None and prior["score"] != row["score"])):
+                    history_conflicts.add(event)
+                elif prior is None:
                     rolling.append(row)
-            facts.extend(rolling)
+            facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic)
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         if any(archive.clock() >= utc(row["fixture"]["kickoff_at"]) for row in daily):
@@ -554,6 +587,7 @@ def main():
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or
                                                 bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
+                  "historical_events_quarantined": sorted(history_conflicts),
                   "capture_source_errors": manifest.get("errors", []),
                   "capture_cache_hits": manifest.get("cache_hits", 0),
                   "capture_network_requests": manifest.get("requests"),

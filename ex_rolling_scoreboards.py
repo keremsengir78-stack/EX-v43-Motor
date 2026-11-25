@@ -10,7 +10,7 @@ from ex_leagues import APPROVED_LEAGUES
 from ex_retrospective import observed_season
 
 
-def scoreboard_facts(packs, cutoff):
+def scoreboard_facts(packs, cutoff, *, conflicts=None):
     allowed = {data[1] for data in APPROVED_LEAGUES.values()}
     pattern = re.compile(re.escape(ESPN) + r"/([^/]+)/scoreboard\?dates=([0-9]{8})")
     by_event = {}
@@ -51,7 +51,10 @@ def scoreboard_facts(packs, cutoff):
                        "source_sha256": source["sha256"], "evidence_scope": "ESPN_SCOREBOARD_RESEARCH"}
                 old = by_event.get(row["event_id"])
                 if old and any(old[key] != row[key] for key in ("teams", "competition", "kickoff", "score")):
-                    raise ValueError("Conflicting weekly scoreboard results")
+                    if conflicts is None:
+                        raise ValueError("Conflicting weekly scoreboard results")
+                    conflicts.add(row["event_id"])
+                    continue
                 if not old or row["captured_at"] < old["captured_at"]:
                     by_event[row["event_id"]] = row
-    return list(by_event.values())
+    return [row for event, row in by_event.items() if conflicts is None or event not in conflicts]
