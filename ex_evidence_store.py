@@ -55,7 +55,8 @@ def seal(store, source, receipt):
                    "research-forecast": ("forecasts.jsonl", "forecasts/")}
                   if kind == "prematch-and-research" else {})
     if kind == "settlement-and-performance":
-        categories = {"verified-outcome": ("outcomes.jsonl", "settlement/outcomes.jsonl"),
+        categories = {"verified-outcome": ("outcomes.jsonl", "settlement/outcomes.jsonl",
+                                           "settlement/tracked-verified-outcomes.jsonl"),
                       "settlement-source": ("settlement-cache/raw/",)}
     for category, prefixes in categories.items():
         selected = {name: sha for name, sha in files.items()

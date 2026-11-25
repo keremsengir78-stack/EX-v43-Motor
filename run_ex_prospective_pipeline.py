@@ -255,7 +255,33 @@ def combine_forecasts(packs):
     return list(chosen.values())
 
 
-def settle(forecasts, archive, sealed_at, official):
+def read_tracked_fixtures(packs, forecast_ids):
+    """Take sealed fixture identities from daily analysis for result tracking only."""
+    tracked = {}
+    for receipt in sorted(packs.glob("*/receipt.json")):
+        ledger = receipt.parent / "forecasts/daily-analysis.json"
+        if not ledger.is_file():
+            continue
+        sealed = utc(json.loads(receipt.read_text())["created_at"])
+        for record in json.loads(ledger.read_text()):
+            fixture = record["fixture"]
+            event = fixture["event_id"]
+            kickoff = fixture["kickoff_at"]
+            if event in forecast_ids or not utc(record["as_of"]) <= sealed < utc(kickoff):
+                continue
+            row = {"event_id": event, "kickoff": kickoff, "league": fixture["league"],
+                   "teams": fixture["team_ids"], "season": fixture["season"],
+                   "names": {side: fixture[side] for side in ("home", "away")},
+                   "forecast_at": record["as_of"], "sealed_at": sealed.isoformat(),
+                   "kind": "PREMATCH_TRACKED_FIXTURE"}
+            old = tracked.get(event)
+            if old and any(row[field] != old[field] for field in ("kickoff", "league", "teams", "season")):
+                raise ValueError("Tracked fixture identity changed across archived packs")
+            tracked.setdefault(event, row)
+    return list(tracked.values())
+
+
+def settle(forecasts, archive, sealed_at, official, *, expected_kind="PROSPECTIVE_VENUE5_RESEARCH"):
     officer = {}
     for row in official:
         key = row["league"], row["date"], row["home"], row["away"]
@@ -266,7 +292,7 @@ def settle(forecasts, archive, sealed_at, official):
     for row in forecasts:
         event_id, kickoff = row["event_id"], utc(row["kickoff"])
         sealed = sealed_at if sealed_at is not None else utc(row["sealed_at"])
-        if row["kind"] != "PROSPECTIVE_VENUE5_RESEARCH" or not utc(row["forecast_at"]) <= sealed < kickoff:
+        if row["kind"] != expected_kind or not utc(row["forecast_at"]) <= sealed < kickoff:
             raise ValueError("Forecast artifact was not sealed before kickoff")
         if archive.clock() < kickoff + dt.timedelta(minutes=90):
             pending.append({"event_id": event_id, "reason": "AWAITING_FULL_TIME"})
@@ -312,12 +338,14 @@ def archive_history(packs, facts, cutoff):
     history = {fact["event_id"]: fact for fact in facts}
     reused = set()
     for pack in sorted(packs.glob("*/receipt.json")):
-        ledger = pack.parent / "settlement/outcomes.jsonl"
-        if not ledger.is_file():
+        ledgers = [pack.parent / "settlement" / name for name in
+                   ("outcomes.jsonl", "tracked-verified-outcomes.jsonl")]
+        if not any(path.is_file() for path in ledgers):
             continue
         store = HistoryArchive(pack.parent / "settlement-cache", 0)
         sealed = utc(json.loads(pack.read_text())["created_at"])
-        for line in ledger.read_text().splitlines():
+        lines = (line for path in ledgers if path.is_file() for line in path.read_text().splitlines())
+        for line in lines:
             row = json.loads(line)
             competition = ESPN_LEAGUES[row["league"]]
             review = row["official_review"]
@@ -474,17 +502,23 @@ def main():
                 parser.error("Settlement mode requires a forecast ledger and artifact creation time")
             raw = args.forecast_ledger.read_bytes()
             forecasts, sealed = (read_rows(raw) if raw.strip() else []), utc(args.sealed_at)
+        tracked = read_tracked_fixtures(args.packs, {r["event_id"] for r in forecasts}) if args.packs else []
         official = json.loads(args.official.read_text()) if args.official else []
-        result_archive = HistoryArchive(args.cache, len(forecasts) + 3, fetch=paced_download(.75))
+        result_archive = HistoryArchive(args.cache, len(forecasts) + len(tracked) + 3, fetch=paced_download(.75))
         official_errors = []
         if args.auto_official:
-            found, official_errors = league_reviews(forecasts, result_archive)
+            found, official_errors = league_reviews(forecasts + tracked, result_archive)
             known = {(r["league"], r["date"], r["home"], r["away"]) for r in official}
             official.extend(r for r in found if (r["league"], r["date"], r["home"], r["away"]) not in known)
         corroborated, provisional, pending = settle(
             forecasts, result_archive,
             sealed, official,
         )
+        verified_tracking, provisional_tracking, pending_tracking = settle(
+            tracked, result_archive, None, official, expected_kind="PREMATCH_TRACKED_FIXTURE",
+        )
+        atomic_write(args.output_dir / "tracked-verified-outcomes.jsonl", jsonl(verified_tracking))
+        atomic_write(args.output_dir / "tracked-provisional-outcomes.jsonl", jsonl(provisional_tracking))
         atomic_write(args.output_dir / "outcomes.jsonl", jsonl(corroborated))
         atomic_write(args.output_dir / "provisional-outcomes.jsonl", jsonl(provisional))
         rows = join_holdout(forecasts, corroborated) if corroborated else []
@@ -493,6 +527,9 @@ def main():
         cohort = select_evaluation_rows(model, rows, design) if model else []
         report = {"corroborated": len(rows), "provisional": len(provisional), "pending": pending,
                   "official_source_errors": official_errors,
+                  "fixture_result_tracking": {"verified": len(verified_tracking),
+                                              "provisional": len(provisional_tracking),
+                                              "pending": pending_tracking},
                   "eligible_evaluation_rows": len(cohort),
                   "components": component_audit(rows),
                   "evaluation": evaluate(model, cohort, design, evaluation_at=current) if cohort else {"status": "NO_ELIGIBLE_HOLDOUT"}}
