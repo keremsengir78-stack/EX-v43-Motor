@@ -302,9 +302,10 @@ def archive_history(packs, facts, cutoff):
                     or fact["finished"] > utc(review["verified_at"])):
                 raise ValueError("Archived settlement disagrees with source")
             existing = history.get(event)
-            if existing and any(existing[key] != fact[key] for key in ("score", "kickoff", "teams", "competition")):
+            if existing and (any(existing[key] != fact[key] for key in ("kickoff", "teams", "competition"))
+                             or (existing["score"] is not None and existing["score"] != fact["score"])):
                 raise ValueError("Conflicting archived result")
-            if not existing or existing["captured_at"] > available_at:
+            if not existing or existing["score"] is None or existing["captured_at"] > available_at:
                 history[event] = {**fact, "captured_at": available_at}
                 reused.add(event)
     return list(history.values()), len(reused)
