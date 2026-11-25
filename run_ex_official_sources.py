@@ -18,7 +18,8 @@ from ex_pfl_protocol import extract_minutes, pdf_layout
 from run_ex_official_minutes_batch import OFFICIAL_HOSTS, normalize
 
 
-ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az", "www.laliga.com"})
+ALLOWED = frozenset().union(*OFFICIAL_HOSTS.values(), {"www.bundesliga.com", "sabahfc.az", "www.laliga.com",
+                                                  "en.legaseriea.it", "fantasy.premierleague.com"})
 
 
 def checked(url):

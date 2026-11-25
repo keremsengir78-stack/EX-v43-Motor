@@ -10,6 +10,7 @@ on:
       - run_ex_dfl_bulk.py
       - run_ex_laliga_bulk.py
       - run_ex_source_audit.py
+      - run_ex_additional_official_scores.py
       - config/ex_official_sources.json
       - config/ex_official_minutes_fixtures.json
 permissions:
@@ -136,3 +137,36 @@ jobs:
         with:
           name: ex-laliga-bulk-evidence
           path: laliga-evidence/
+
+  score-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555442252
+          name: ex-laliga-bulk-evidence
+          path: laliga
+      - run: python run_ex_additional_official_scores.py --ledger scores/score-evidence.json --dfl dfl/results.json --laliga laliga/results.json --output score-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-expanded-official-score-evidence
+          path: score-evidence/
