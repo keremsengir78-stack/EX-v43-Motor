@@ -1,0 +1,859 @@
+{
+  "forecasts": 10,
+  "historical_matches": 7792,
+  "supplemental_scoreboard_records": 954,
+  "reused_verified_outcomes": 9,
+  "rolling_scoreboard_matches": 963,
+  "skipped": [
+    {
+      "event_id": "401885047",
+      "league": "de.2",
+      "teams": {
+        "home": "6418",
+        "away": "269"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401885045",
+      "league": "de.2",
+      "teams": {
+        "home": "121",
+        "away": "3812"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875834",
+      "league": "nl.2",
+      "teams": {
+        "home": "4426",
+        "away": "154"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875833",
+      "league": "nl.2",
+      "teams": {
+        "home": "10597",
+        "away": "3708"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875832",
+      "league": "nl.2",
+      "teams": {
+        "home": "18748",
+        "away": "3728"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875831",
+      "league": "nl.2",
+      "teams": {
+        "home": "18278",
+        "away": "5291"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875830",
+      "league": "nl.2",
+      "teams": {
+        "home": "3730",
+        "away": "9983"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875829",
+      "league": "nl.2",
+      "teams": {
+        "home": "141",
+        "away": "271"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401876061",
+      "league": "nl.2",
+      "teams": {
+        "home": "3731",
+        "away": "155"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 19,
+  "historical_sample_gaps": [
+    {
+      "fixture": {
+        "event_id": "401885047",
+        "date": "2026-11-27",
+        "league": "de.2",
+        "kickoff_at": "2026-11-27T17:30:00+00:00",
+        "home": "1. FC Heidenheim 1846",
+        "away": "1. FC N\u00fcrnberg",
+        "team_ids": {
+          "home": "6418",
+          "away": "269"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T10:50:43.914968+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "6418",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "1. FC Heidenheim 1846",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "269",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "1. FC N\u00fcrnberg",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875833",
+        "date": "2026-11-27",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "Jong Ajax",
+        "away": "Heracles Almelo",
+        "team_ids": {
+          "home": "10597",
+          "away": "3708"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T10:50:52.174341+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "10597",
+          "eligible_rows": 54,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.2"
+          ],
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 16,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Jong Ajax",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "3708",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 8,
+            "current_season": 16,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Heracles Almelo",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875829",
+        "date": "2026-11-27",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "NAC Breda",
+        "away": "FC Den Bosch",
+        "team_ids": {
+          "home": "141",
+          "away": "271"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T10:50:52.174341+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "141",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 7,
+            "current_season": 16,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "NAC Breda",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "271",
+          "eligible_rows": 54,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.2"
+          ],
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 16,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "FC Den Bosch",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    }
+  ],
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 11,
+  "daily_research_covered": 16,
+  "final_markets": 0,
+  "market_blockers": {
+    "ingestion:blocked": 76,
+    "second_source:unverified": 76,
+    "fixture_sources:unverified": 76,
+    "exg:uncalibrated": 76,
+    "context:unverified": 76,
+    "odds_lock:blocked": 29,
+    "historical_samples:incomplete": 12,
+    "market_baselines:missing": 12
+  },
+  "historical_events_quarantined": [],
+  "weather_sources_observed": 0,
+  "weather_errors": {
+    "401888241": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401888240": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401879225": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884720": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885047": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885045": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401882791": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875004": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876392": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875536": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875834": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875833": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875832": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875831": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875830": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875829": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876061": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885389": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878930": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    }
+  },
+  "capture_source_errors": [],
+  "cup_source_errors": {},
+  "cup_team_history_sources": [],
+  "cup_team_history_errors": [],
+  "capture_cache_hits": 0,
+  "capture_network_requests": 34,
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-26T10:50:38.601639+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
