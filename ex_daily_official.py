@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 from html import unescape
 from collections import defaultdict
+from zoneinfo import ZoneInfo
 
 from ex_benelux_results import (BELGIUM_CALENDAR, BELGIUM_SAMPLE, PORTUGAL_SAMPLE, belgian_matches,
                                 belgian_results, embedded, portuguese_related_links, portuguese_results)
@@ -56,8 +57,11 @@ def norway_scores(raw, stamp):
         home, sep, away = names.partition(" - ")
         values = list(map(int, score.groups()))
         if (day < stamp.date() and sep and home and away and max(values) <= 30):
+            clock = re.search(r'--date">.*?</span>\s+(\d\d:\d\d)', card, re.S)
+            kickoff = dt.datetime.combine(day, dt.time.fromisoformat(clock[1]), ZoneInfo("Europe/Oslo")) if clock else None
             rows.append({"date": day.isoformat(), "home": home, "away": away, "official_score": values,
-                         "source": NORWAY, "source_match_id": ref[1]})
+                         "source": NORWAY, "source_match_id": ref[1],
+                         "kickoff_at": kickoff.astimezone(dt.timezone.utc).isoformat() if kickoff else None})
     if not rows:
         raise ValueError("No completed Eliteserien results")
     return rows
@@ -78,8 +82,11 @@ def turkey_scores(raw, stamp):
         day = dt.datetime.strptime(date[1], "%d.%m.%Y").date()
         if day >= stamp.date() or any(not goal.isascii() or not goal.isdigit() or int(goal) > 30 for goal in goals):
             continue
+        clock = re.search(r'lblSaat">(\d\d:\d\d)</span>', card)
+        kickoff = dt.datetime.combine(day, dt.time.fromisoformat(clock[1]), ZoneInfo("Europe/Istanbul")) if clock else None
         rows.append({"date": day.isoformat(), "home": teams[0], "away": teams[1],
-                     "official_score": list(map(int, goals)), "source": TURKEY, "source_match_id": key[1]})
+                     "official_score": list(map(int, goals)), "source": TURKEY, "source_match_id": key[1],
+                     "kickoff_at": kickoff.astimezone(dt.timezone.utc).isoformat() if kickoff else None})
     return rows
 
 
@@ -179,7 +186,7 @@ def uefa_scores(raw, url, stamp, competition_path="uefachampionsleague"):
             home, hg, ag, away = match.groups()
             if max(int(hg), int(ag)) <= 30:
                 output.append({"date": when.date().isoformat(), "home": home, "away": away,
-                               "official_score": [int(hg), int(ag)], "source": url,
+                               "kickoff_at": when.astimezone(dt.timezone.utc).isoformat(), "official_score": [int(hg), int(ag)], "source": url,
                                "source_match_id": f"{when:%Y%m%d}:{norm(home)}:{norm(away)}"})
     return output
 

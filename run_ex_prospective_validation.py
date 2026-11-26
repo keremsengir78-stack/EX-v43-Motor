@@ -75,6 +75,7 @@ def join_holdout(forecasts, outcomes):
         if actual is None:
             continue
         if (utc(row["kickoff"]) != utc(actual["kickoff"]) or row["teams"] != actual["teams"]
+                or ("league" in row and "league" in actual and row["league"] != actual["league"])
                 or utc(actual["settled_at"]) < utc(actual["finished"])):
             raise ValueError("Outcome fixture identity or capture mismatch")
         result.append({**row, "finished": actual["finished"], "labels": actual["labels"]})

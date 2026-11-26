@@ -43,7 +43,7 @@ def belgian_results(raw, url, stamp):
         if kickoff >= stamp or any(type(goal) is not int or not 0 <= goal <= 30 for goal in scores):
             continue
         result = {"date": kickoff.date().isoformat(), "home": item["homeTeam"]["name"], "away": item["awayTeam"]["name"],
-                  "official_score": scores, "source": url, "source_match_id": item["id"]}
+                  "kickoff_at": kickoff.isoformat(), "official_score": scores, "source": url, "source_match_id": item["id"]}
         old = rows.setdefault(item["id"], result)
         if old != result:
             raise ValueError("Conflicting official Belgian score")

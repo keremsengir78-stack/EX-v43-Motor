@@ -1,7 +1,7 @@
 """Collect official LALIGA full-time scores with auditable matchday snapshots."""
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 import re
@@ -54,7 +54,7 @@ def extract(page, source, captured_at):
             continue
         home, away = map(TEAMS.__getitem__, slugs)
         results.append({"league": "es.1", "date": kickoff.date().isoformat(), "home": home, "away": away,
-                        "official_score": scores, "source_match_id": match["id"], "source": source,
+                        "kickoff_at": kickoff.astimezone(timezone.utc).isoformat(), "official_score": scores, "source_match_id": match["id"], "source": source,
                         "proof": "laliga_official_result"})
     return results, skipped
 

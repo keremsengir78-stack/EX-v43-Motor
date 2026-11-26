@@ -65,7 +65,7 @@ def marseille_scores(html, captured_at):
         home, away = [aliases.get(name, name) for name in names]
         key = item["slug"]
         row = {"league": "fr.1", "date": kickoff.date().isoformat(), "home": home, "away": away,
-               "official_score": final_score(scores), "source_match_id": key, "source": MARSEILLE,
+               "kickoff_at": kickoff.isoformat(), "official_score": final_score(scores), "source_match_id": key, "source": MARSEILLE,
                "proof": "marseille_official_club_result"}
         if key in result and result[key] != row:
             raise ValueError("Conflicting published Marseille score")
@@ -97,7 +97,7 @@ def italian_scores(html, source, captured_at):
             raise ValueError("Lega Serie A fixture URL does not match the embedded identity")
         home, away = [SCORES.get(name, name) for name in names]
         candidate = {"league": "it.1", "date": kickoff.date().isoformat(), "home": home, "away": away,
-                     "official_score": scores, "source_match_id": match_id, "source": urljoin(source, path),
+                     "kickoff_at": kickoff.isoformat(), "official_score": scores, "source_match_id": match_id, "source": urljoin(source, path),
                      "proof": "lega_serie_a_official_result"}
         if match_id in result and result[match_id] != candidate:
             raise ValueError("Conflicting Lega Serie A result")
@@ -122,7 +122,7 @@ def english_scores(games, catalog, captured_at):
         if match_id in result or home == away:
             raise ValueError("Duplicate or malformed Premier League result")
         result[match_id] = {"league": "en.1", "date": kickoff.date().isoformat(), "home": home, "away": away,
-                            "official_score": final_score([game["team_h_score"], game["team_a_score"]]),
+                            "kickoff_at": kickoff.isoformat(), "official_score": final_score([game["team_h_score"], game["team_a_score"]]),
                             "source_match_id": match_id, "source": FPL + "fixtures/",
                             "proof": "premier_league_official_fantasy_result"}
     return list(result.values())

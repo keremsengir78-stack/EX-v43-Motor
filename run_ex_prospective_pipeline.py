@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 from ex_evidence_store import artifact_base_name
 from ex_cup_team_history import collect_cup_history, reviewed_schedule_plan
 from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, UEFA_BRIEFINGS, cup_fixture_index, cup_briefing_index
+from ex_context_evidence import reviewed_context
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
@@ -241,7 +242,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                             weather=(weather or {}).get(event_id),
                                             cup_evidence=(cup_sources or {}).get(league),
                                             ingestion_review=reviews.get("ingestion"),
-                                            context_review=reviews.get("context"),
+                                            context_review=reviewed_context(reviews.get("context"), identity, side_load, now, cache._load),
                                             component_review=reviews.get("components"), verified_results=verified_results))
             if kickoff - LIVE_WINDOW > min(captured, board_at):
                 continue

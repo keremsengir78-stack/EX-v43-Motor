@@ -1,7 +1,7 @@
 """Collect official Bundesliga matchday score evidence and compare the EX ledger."""
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 import re
@@ -59,7 +59,7 @@ def extract(page, source, captured_at, *, require_finished=False, allow_named_te
             skipped.append({"source": event["url"], "teams": [home, away], "scores": scores})
             continue
         result.append({"date": day.isoformat(), "home": TEAMS.get(home, home), "away": TEAMS.get(away, away),
-                       "official_score": list(map(int, scores)), "source": event["url"]})
+                       "kickoff_at": kickoff.astimezone(timezone.utc).isoformat(), "official_score": list(map(int, scores)), "source": event["url"]})
     if not result:
         raise ValueError("No supported official score cards")
     return result, skipped
