@@ -74,6 +74,45 @@ def daily_selection(rows, verified_ids, *, pup_requested=False):
             "pup": pup, "production_allowed": False, "ex_final_allowed": False}
 
 
+def combined_research_selection(rows):
+    """Rank full paired models and choose evidence preferences inside the same top ten."""
+    signals, seen = [], set()
+    for row in rows:
+        fixture = row["fixture"]
+        event = fixture["event_id"]
+        if event in seen:
+            raise ValueError("Duplicate fixture in combined research selection")
+        seen.add(event)
+        if row["tur2"] is not True or check_fixture(fixture, row["as_of"])["status"] != "VERIFIED_INPUT":
+            continue
+        pair = row.get("performance_v1") or {}
+        baseline = (row.get("domestic_research") or {}).get("baseline") or {}
+        for market, key in KEYS.items():
+            ref = baseline.get(key)
+            candidate = pair.get(CANDIDATE, {}).get(key)
+            odds = row["market_values"][market]["odds_lock"]
+            if (not all(type(value) in (int, float) and 0 <= value <= 1 for value in (ref, candidate))
+                    or odds.get("decision") == "PASS_ODDS_1_19_OR_LOWER"):
+                continue
+            signals.append({"event_id": event, "market": market, REFERENCE: ref, CANDIDATE: candidate,
+                            "verified_price": odds["status"] == "VERIFIED_INPUT",
+                            "cross_verified_fixture": row["fixture_evidence"]["status"] == "FIXTURE_CROSS_VERIFIED"})
+    ordered = sorted(signals, key=lambda item: (-item[REFERENCE], item["event_id"]))
+
+    def take_unique(candidates, limit):
+        fixtures = {}
+        for item in candidates:
+            fixtures.setdefault(item["event_id"], item)
+        return list(fixtures.values())[:limit]
+
+    top = take_unique(ordered, 10)
+    top_ids = {item["event_id"] for item in top}
+    evidence = take_unique((item for item in ordered if item["event_id"] in top_ids
+                            and item["cross_verified_fixture"] and item["verified_price"]), 5)
+    return {"markets": {market: [item for item in ordered if item["market"] == market][:5]
+                        for market in MARKETS}, "combined": top, "evidence": evidence}
+
+
 def verified_fixture_ids(manifest, cache, cutoff, *, horizon=dt.timedelta(hours=48)):
     """Verify day, league, identity and kickoff against each raw fixture board."""
     from ex_espn_provider import ESPN_LEAGUES

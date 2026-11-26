@@ -119,20 +119,29 @@ def reviewed_fixture_source(fixture, board, as_of):
     if not review:
         return None
     url = urlsplit(review["url"])
-    reviewed = utc(review["reviewed_at"])
     if (url.scheme != "https" or not url.hostname or url.username or url.password
             or not re.fullmatch(r"[0-9a-f]{64}", board.get("sha256", ""))
-            or url.hostname == urlsplit(board["url"]).hostname
-            or not reviewed < as_of < utc(fixture["kickoff_at"])):
-        return None
-    wall_time = datetime.fromisoformat(f"{fixture['date']}T{review['official_local_time']}")
-    offset = timezone(timedelta(hours=review["official_utc_offset_hours"]))
-    if wall_time.replace(tzinfo=offset) != utc(fixture["kickoff_at"]):
+            or url.hostname == urlsplit(board["url"]).hostname):
         return None
     keys = ("event_id", "team_ids", "home", "away", "kickoff_at")
-    if sum(all(fixture.get(key) == match[key] for key in keys) for match in review["fixtures"]) != 1:
+    matches = [match for match in review["fixtures"]
+               if all(fixture.get(key) == match[key] for key in keys)]
+    if len(matches) != 1:
         return None
-    return {"url": review["url"], "reviewed_at": review["reviewed_at"],
+    reviewed = utc(matches[0].get("reviewed_at") or review["reviewed_at"])
+    if not reviewed < as_of < utc(fixture["kickoff_at"]):
+        return None
+    local_time = matches[0].get("official_local_time") or review.get("official_local_time")
+    if not isinstance(local_time, str) or not re.fullmatch(r"[0-2][0-9]:[0-5][0-9]", local_time):
+        return None
+    try:
+        wall_time = datetime.fromisoformat(f"{fixture['date']}T{local_time}")
+        offset = timezone(timedelta(hours=review["official_utc_offset_hours"]))
+    except (ValueError, OverflowError, TypeError):
+        return None
+    if wall_time.replace(tzinfo=offset) != utc(fixture["kickoff_at"]):
+        return None
+    return {"url": review["url"], "reviewed_at": reviewed.isoformat(),
             "kind": "REVIEWED_OFFICIAL_FIXTURE_CALENDAR"}
 
 

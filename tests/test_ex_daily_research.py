@@ -239,3 +239,20 @@ class DailyResearchTests(unittest.TestCase):
                        {"team_ids": dict(home=fixture["team_ids"]["away"], away=fixture["team_ids"]["home"])},
                        {"kickoff_at": (utc(fixture["kickoff_at"]) + dt.timedelta(minutes=1)).isoformat()}):
             self.assertEqual("UNVERIFIED", corroborated_fixture({**fixture, **change}, board, as_of)["status"])
+
+    def test_weekend_official_calendar_uses_each_fixtures_own_time(self):
+        from unittest.mock import patch
+        from ex_daily_research import reviewed_fixture_calendars, reviewed_fixture_source
+
+        day, league = "2026-11-28", "no.1"
+        review = reviewed_fixture_calendars()[day][league]
+        board = {"url": "https://site.api.espn.com/scoreboard", "sha256": "a" * 64}
+        as_of = utc(review["reviewed_at"]) + dt.timedelta(minutes=1)
+        self.assertGreater(len({row["official_local_time"] for row in review["fixtures"]}), 1)
+        for row in review["fixtures"]:
+            self.assertIsNotNone(reviewed_fixture_source({**row, "date": day, "league": league}, board, as_of))
+        first, second = review["fixtures"]
+        wrong = {**first, "official_local_time": second["official_local_time"]}
+        with patch("ex_daily_research.reviewed_fixture_calendars",
+                   return_value={day: {league: {**review, "fixtures": [wrong, second]}}}):
+            self.assertIsNone(reviewed_fixture_source({**first, "date": day, "league": league}, board, as_of))

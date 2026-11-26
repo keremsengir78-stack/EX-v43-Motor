@@ -760,9 +760,9 @@ def main():
         context, issues = alternate_context(manifest, args.cache)
         atomic_write(args.output_dir / "official-fixture-context.json",
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
-        history_gaps = []
+        history_gaps, paired_model_gaps = [], []
         for row in daily:
-            if row.get("performance_v1") or (row["domestic_research"] or {}).get("baseline") or row["venue5_research"]:
+            if row.get("performance_v1"):
                 continue
             fixture = row["fixture"]
             sides = {}
@@ -772,11 +772,15 @@ def main():
                             if error.get("club") == club or f"/teams/{club}/" in (error.get("url") or "")]
                 sides[side] = {**detail, "team": fixture[side], "source_errors": attempts,
                                "schedule_source_state": "CONFIGURED" if club in plan else "NO_REVIEWED_BINDING"}
-            history_gaps.append({"fixture": fixture, "teams": sides})
+            gap = {"fixture": fixture, "teams": sides}
+            paired_model_gaps.append(gap)
+            if not (row["domestic_research"] or {}).get("baseline") and row["venue5_research"] is None:
+                history_gaps.append(gap)
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
                   "supplemental_scoreboard_records": len(supplemental),
                   "reused_verified_outcomes": reused, "rolling_scoreboard_matches": len(rolling), "skipped": skipped,
                   "daily_fixture_records": len(daily), "historical_sample_gaps": history_gaps,
+                  "paired_model_gaps": paired_model_gaps,
                   "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or

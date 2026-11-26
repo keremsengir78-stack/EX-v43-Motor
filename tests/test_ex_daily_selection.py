@@ -31,3 +31,23 @@ class DailySelectionTests(unittest.TestCase):
         self.assertEqual(3, len(result["pup"]))
         self.assertTrue(all(p["status"] == "BLOCKED" for p in result["pup"]))
         self.assertFalse(result["ex_final_allowed"])
+
+    @patch("ex_daily_selection.check_fixture", return_value={"status": "VERIFIED_INPUT"})
+    def test_batch_evidence_is_selected_only_from_combined_top_ten(self, _):
+        from ex_daily_selection import combined_research_selection
+        from ex_performance_v1 import CANDIDATE, KEYS
+
+        rows = []
+        for rank in range(11):
+            probabilities = dict.fromkeys(KEYS.values(), .90 - rank / 100)
+            prices = {market: {"odds_lock": {"status": "BLOCKED"}} for market in MARKETS}
+            if rank in (4, 10):
+                prices["MS1"]["odds_lock"]["status"] = "VERIFIED_INPUT"
+            rows.append({"fixture": {"event_id": str(rank)}, "as_of": "", "tur2": True,
+                         "domestic_research": {"baseline": probabilities},
+                         "performance_v1": {CANDIDATE: probabilities}, "market_values": prices,
+                         "fixture_evidence": {"status": "FIXTURE_CROSS_VERIFIED"}})
+
+        result = combined_research_selection(rows)
+        self.assertEqual([str(rank) for rank in range(10)], [row["event_id"] for row in result["combined"]])
+        self.assertEqual([("4", "MS1")], [(row["event_id"], row["market"]) for row in result["evidence"]])

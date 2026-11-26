@@ -282,9 +282,8 @@
   "2026-11-28": {
     "de.2": {
       "url": "https://datencenter.dfb.de/en/competitions/3/seasons/current/current_matchweek",
-      "official_local_time": "13:00",
       "official_utc_offset_hours": 1,
-      "reviewed_at": "2026-11-26T12:25:36.078705+00:00",
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
       "fixtures": [
         {
           "event_id": "401885044",
@@ -294,7 +293,9 @@
           },
           "home": "Dynamo Dresden",
           "away": "St. Pauli",
-          "kickoff_at": "2026-11-28T12:00:00+00:00"
+          "kickoff_at": "2026-11-28T12:00:00+00:00",
+          "official_local_time": "13:00",
+          "reviewed_at": "2026-11-26T12:25:36.078705+00:00"
         },
         {
           "event_id": "401885046",
@@ -304,7 +305,9 @@
           },
           "home": "Hertha Berlin",
           "away": "Karlsruher SC",
-          "kickoff_at": "2026-11-28T12:00:00+00:00"
+          "kickoff_at": "2026-11-28T12:00:00+00:00",
+          "official_local_time": "13:00",
+          "reviewed_at": "2026-11-26T12:25:36.078705+00:00"
         },
         {
           "event_id": "401885043",
@@ -314,7 +317,881 @@
           },
           "home": "Holstein Kiel",
           "away": "Kaiserslautern",
-          "kickoff_at": "2026-11-28T12:00:00+00:00"
+          "kickoff_at": "2026-11-28T12:00:00+00:00",
+          "official_local_time": "13:00",
+          "reviewed_at": "2026-11-26T12:25:36.078705+00:00"
+        },
+        {
+          "event_id": "401885039",
+          "team_ids": {
+            "home": "7013",
+            "away": "2428"
+          },
+          "home": "VfL Osnabruck",
+          "away": "Hannover 96",
+          "kickoff_at": "2026-11-28T19:30:00+00:00",
+          "official_local_time": "20:30"
+        }
+      ]
+    },
+    "de.1": {
+      "url": "https://products.bundesliga.com/fixtures",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401884721",
+          "team_ids": {
+            "home": "122",
+            "away": "10388"
+          },
+          "home": "FC Cologne",
+          "away": "SV Elversberg",
+          "kickoff_at": "2026-11-28T14:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401884722",
+          "team_ids": {
+            "home": "127",
+            "away": "132"
+          },
+          "home": "Hamburg SV",
+          "away": "Bayern Munich",
+          "kickoff_at": "2026-11-28T14:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401884723",
+          "team_ids": {
+            "home": "2950",
+            "away": "598"
+          },
+          "home": "Mainz",
+          "away": "1. FC Union Berlin",
+          "kickoff_at": "2026-11-28T14:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401884719",
+          "team_ids": {
+            "home": "3307",
+            "away": "133"
+          },
+          "home": "SC Paderborn 07",
+          "away": "Schalke 04",
+          "kickoff_at": "2026-11-28T14:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401884726",
+          "team_ids": {
+            "home": "134",
+            "away": "125"
+          },
+          "home": "VfB Stuttgart",
+          "away": "Eintracht Frankfurt",
+          "kickoff_at": "2026-11-28T17:30:00+00:00",
+          "official_local_time": "18:30"
+        }
+      ]
+    },
+    "en.1": {
+      "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401879227",
+          "team_ids": {
+            "home": "357",
+            "away": "388"
+          },
+          "home": "Leeds United",
+          "away": "Coventry City",
+          "kickoff_at": "2026-11-28T15:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401879226",
+          "team_ids": {
+            "home": "360",
+            "away": "337"
+          },
+          "home": "Manchester United",
+          "away": "Brentford",
+          "kickoff_at": "2026-11-28T15:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401878752",
+          "team_ids": {
+            "home": "373",
+            "away": "362"
+          },
+          "home": "Ipswich Town",
+          "away": "Aston Villa",
+          "kickoff_at": "2026-11-28T17:30:00+00:00",
+          "official_local_time": "17:30"
+        }
+      ]
+    },
+    "es.1": {
+      "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-14",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401882796",
+          "team_ids": {
+            "home": "244",
+            "away": "101"
+          },
+          "home": "Real Betis",
+          "away": "Rayo Vallecano",
+          "kickoff_at": "2026-11-28T13:00:00+00:00",
+          "official_local_time": "13:00"
+        },
+        {
+          "event_id": "401882790",
+          "team_ids": {
+            "home": "99",
+            "away": "93"
+          },
+          "home": "Málaga",
+          "away": "Athletic Club",
+          "kickoff_at": "2026-11-28T15:15:00+00:00",
+          "official_local_time": "15:15"
+        },
+        {
+          "event_id": "401882793",
+          "team_ids": {
+            "home": "3751",
+            "away": "1068"
+          },
+          "home": "Elche",
+          "away": "Atlético Madrid",
+          "kickoff_at": "2026-11-28T17:30:00+00:00",
+          "official_local_time": "17:30"
+        },
+        {
+          "event_id": "401882789",
+          "team_ids": {
+            "home": "86",
+            "away": "96"
+          },
+          "home": "Real Madrid",
+          "away": "Alavés",
+          "kickoff_at": "2026-11-28T20:00:00+00:00",
+          "official_local_time": "20:00"
+        }
+      ]
+    },
+    "fr.1": {
+      "url": "https://ligue1.com/fr/articles/l1_article_5843-",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401876394",
+          "team_ids": {
+            "home": "7868",
+            "away": "175"
+          },
+          "home": "Angers",
+          "away": "Lens",
+          "kickoff_at": "2026-11-28T16:15:00+00:00",
+          "official_local_time": "17:15"
+        },
+        {
+          "event_id": "401876391",
+          "team_ids": {
+            "home": "3236",
+            "away": "180"
+          },
+          "home": "Le Havre AC",
+          "away": "Strasbourg",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "20:45"
+        },
+        {
+          "event_id": "401876390",
+          "team_ids": {
+            "home": "2697",
+            "away": "166"
+          },
+          "home": "Le Mans",
+          "away": "Lille",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "20:45"
+        },
+        {
+          "event_id": "401876388",
+          "team_ids": {
+            "home": "2502",
+            "away": "170"
+          },
+          "home": "Nice",
+          "away": "Troyes",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "20:45"
+        },
+        {
+          "event_id": "401876387",
+          "team_ids": {
+            "home": "160",
+            "away": "273"
+          },
+          "home": "Paris Saint-Germain",
+          "away": "Lorient",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "20:45"
+        }
+      ]
+    },
+    "it.1": {
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/j1pd6btxuklwhok7fstx.pdf",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875081",
+          "team_ids": {
+            "home": "4057",
+            "away": "115"
+          },
+          "home": "Frosinone",
+          "away": "Parma",
+          "kickoff_at": "2026-11-28T14:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401874826",
+          "team_ids": {
+            "home": "239",
+            "away": "112"
+          },
+          "home": "Torino",
+          "away": "Lazio",
+          "kickoff_at": "2026-11-28T17:00:00+00:00",
+          "official_local_time": "18:00"
+        },
+        {
+          "event_id": "401874977",
+          "team_ids": {
+            "home": "110",
+            "away": "3263"
+          },
+          "home": "Internazionale",
+          "away": "Genoa",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "20:45"
+        }
+      ]
+    },
+    "nl.1": {
+      "url": "https://www.knvb.nl/competities/eredivisie/programma",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875537",
+          "team_ids": {
+            "home": "2566",
+            "away": "3735"
+          },
+          "home": "Excelsior",
+          "away": "Telstar",
+          "kickoff_at": "2026-11-28T15:30:00+00:00",
+          "official_local_time": "16:30"
+        },
+        {
+          "event_id": "401875531",
+          "team_ids": {
+            "home": "148",
+            "away": "3706"
+          },
+          "home": "PSV Eindhoven",
+          "away": "Go Ahead Eagles",
+          "kickoff_at": "2026-11-28T17:45:00+00:00",
+          "official_local_time": "18:45"
+        },
+        {
+          "event_id": "401875530",
+          "team_ids": {
+            "home": "3736",
+            "away": "151"
+          },
+          "home": "SC Cambuur",
+          "away": "Sparta Rotterdam",
+          "kickoff_at": "2026-11-28T20:00:00+00:00",
+          "official_local_time": "21:00"
+        }
+      ]
+    },
+    "nl.2": {
+      "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/programma",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875828",
+          "team_ids": {
+            "home": "3707",
+            "away": "3775"
+          },
+          "home": "FC Emmen",
+          "away": "Helmond Sport",
+          "kickoff_at": "2026-11-28T15:30:00+00:00",
+          "official_local_time": "16:30"
+        }
+      ]
+    },
+    "no.1": {
+      "url": "https://www.eliteserien.no/terminliste",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401843492",
+          "team_ids": {
+            "home": "2980",
+            "away": "22165"
+          },
+          "home": "Bodo/Glimt",
+          "away": "KFUM Oslo",
+          "kickoff_at": "2026-11-28T15:00:00+00:00",
+          "official_local_time": "16:00"
+        },
+        {
+          "event_id": "401843497",
+          "team_ids": {
+            "home": "438",
+            "away": "2715"
+          },
+          "home": "Rosenborg",
+          "away": "Molde",
+          "kickoff_at": "2026-11-28T17:00:00+00:00",
+          "official_local_time": "18:00"
+        }
+      ]
+    },
+    "tr.1": {
+      "url": "https://www.tff.org/Default.aspx?hafta=11&hafta=8&kulupID=132&pageId=198",
+      "official_utc_offset_hours": 3,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401888236",
+          "team_ids": {
+            "home": "11429",
+            "away": "996"
+          },
+          "home": "Samsunspor",
+          "away": "Genclerbirligi",
+          "kickoff_at": "2026-11-28T13:00:00+00:00",
+          "official_local_time": "16:00"
+        },
+        {
+          "event_id": "401888368",
+          "team_ids": {
+            "home": "20070",
+            "away": "132335"
+          },
+          "home": "Gaziantep FK",
+          "away": "Amed SFK",
+          "kickoff_at": "2026-11-28T16:00:00+00:00",
+          "official_local_time": "19:00"
+        }
+      ]
+    }
+  },
+  "2026-11-29": {
+    "de.1": {
+      "url": "https://products.bundesliga.com/fixtures",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401884724",
+          "team_ids": {
+            "home": "126",
+            "away": "11420"
+          },
+          "home": "SC Freiburg",
+          "away": "RB Leipzig",
+          "kickoff_at": "2026-11-29T14:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401884725",
+          "team_ids": {
+            "home": "7911",
+            "away": "3841"
+          },
+          "home": "TSG Hoffenheim",
+          "away": "FC Augsburg",
+          "kickoff_at": "2026-11-29T16:30:00+00:00",
+          "official_local_time": "17:30"
+        },
+        {
+          "event_id": "401884727",
+          "team_ids": {
+            "home": "124",
+            "away": "131"
+          },
+          "home": "Borussia Dortmund",
+          "away": "Bayer Leverkusen",
+          "kickoff_at": "2026-11-29T18:30:00+00:00",
+          "official_local_time": "19:30"
+        }
+      ]
+    },
+    "de.2": {
+      "url": "https://datencenter.dfb.de/en/competitions/3/seasons/current/current_matchweek",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885042",
+          "team_ids": {
+            "home": "10382",
+            "away": "123"
+          },
+          "home": "1. FC Magdeburg",
+          "away": "Energie Cottbus",
+          "kickoff_at": "2026-11-29T12:30:00+00:00",
+          "official_local_time": "13:30"
+        },
+        {
+          "event_id": "401885040",
+          "team_ids": {
+            "home": "3070",
+            "away": "2506"
+          },
+          "home": "SpVgg Greuther Fürth",
+          "away": "Arminia Bielefeld",
+          "kickoff_at": "2026-11-29T12:30:00+00:00",
+          "official_local_time": "13:30"
+        },
+        {
+          "event_id": "401885041",
+          "team_ids": {
+            "home": "3067",
+            "away": "138"
+          },
+          "home": "TSV Eintracht Braunschweig",
+          "away": "VfL Wolfsburg",
+          "kickoff_at": "2026-11-29T12:30:00+00:00",
+          "official_local_time": "13:30"
+        }
+      ]
+    },
+    "en.1": {
+      "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401879229",
+          "team_ids": {
+            "home": "368",
+            "away": "364"
+          },
+          "home": "Everton",
+          "away": "Liverpool",
+          "kickoff_at": "2026-11-29T12:00:00+00:00",
+          "official_local_time": "12:00"
+        },
+        {
+          "event_id": "401879231",
+          "team_ids": {
+            "home": "331",
+            "away": "361"
+          },
+          "home": "Brighton & Hove Albion",
+          "away": "Newcastle United",
+          "kickoff_at": "2026-11-29T14:05:00+00:00",
+          "official_local_time": "14:05"
+        },
+        {
+          "event_id": "401879230",
+          "team_ids": {
+            "home": "384",
+            "away": "306"
+          },
+          "home": "Crystal Palace",
+          "away": "Hull City",
+          "kickoff_at": "2026-11-29T14:05:00+00:00",
+          "official_local_time": "14:05"
+        },
+        {
+          "event_id": "401879228",
+          "team_ids": {
+            "home": "370",
+            "away": "349"
+          },
+          "home": "Fulham",
+          "away": "AFC Bournemouth",
+          "kickoff_at": "2026-11-29T14:05:00+00:00",
+          "official_local_time": "14:05"
+        },
+        {
+          "event_id": "401879224",
+          "team_ids": {
+            "home": "366",
+            "away": "367"
+          },
+          "home": "Sunderland",
+          "away": "Tottenham Hotspur",
+          "kickoff_at": "2026-11-29T14:05:00+00:00",
+          "official_local_time": "14:05"
+        },
+        {
+          "event_id": "401878753",
+          "team_ids": {
+            "home": "359",
+            "away": "382"
+          },
+          "home": "Arsenal",
+          "away": "Manchester City",
+          "kickoff_at": "2026-11-29T16:30:00+00:00",
+          "official_local_time": "16:30"
+        }
+      ]
+    },
+    "es.1": {
+      "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-14",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401882787",
+          "team_ids": {
+            "home": "94",
+            "away": "97"
+          },
+          "home": "Valencia",
+          "away": "Osasuna",
+          "kickoff_at": "2026-11-29T13:00:00+00:00",
+          "official_local_time": "13:00"
+        },
+        {
+          "event_id": "401882794",
+          "team_ids": {
+            "home": "90",
+            "away": "83"
+          },
+          "home": "Deportivo",
+          "away": "Barcelona",
+          "kickoff_at": "2026-11-29T15:15:00+00:00",
+          "official_local_time": "15:15"
+        },
+        {
+          "event_id": "401882795",
+          "team_ids": {
+            "home": "85",
+            "away": "102"
+          },
+          "home": "Celta Vigo",
+          "away": "Villarreal",
+          "kickoff_at": "2026-11-29T17:30:00+00:00",
+          "official_local_time": "17:30"
+        },
+        {
+          "event_id": "401882788",
+          "team_ids": {
+            "home": "89",
+            "away": "243"
+          },
+          "home": "Real Sociedad",
+          "away": "Sevilla",
+          "kickoff_at": "2026-11-29T20:00:00+00:00",
+          "official_local_time": "20:00"
+        }
+      ]
+    },
+    "fr.1": {
+      "url": "https://ligue1.com/fr/articles/l1_article_5843-",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401876393",
+          "team_ids": {
+            "home": "172",
+            "away": "176"
+          },
+          "home": "AJ Auxerre",
+          "away": "Marseille",
+          "kickoff_at": "2026-11-29T14:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401876386",
+          "team_ids": {
+            "home": "179",
+            "away": "169"
+          },
+          "home": "Toulouse",
+          "away": "Stade Rennais",
+          "kickoff_at": "2026-11-29T16:15:00+00:00",
+          "official_local_time": "17:15"
+        },
+        {
+          "event_id": "401876389",
+          "team_ids": {
+            "home": "167",
+            "away": "174"
+          },
+          "home": "Lyon",
+          "away": "AS Monaco",
+          "kickoff_at": "2026-11-29T19:45:00+00:00",
+          "official_local_time": "20:45"
+        }
+      ]
+    },
+    "it.1": {
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/j1pd6btxuklwhok7fstx.pdf",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875031",
+          "team_ids": {
+            "home": "118",
+            "away": "109"
+          },
+          "home": "Udinese",
+          "away": "Fiorentina",
+          "kickoff_at": "2026-11-29T11:30:00+00:00",
+          "official_local_time": "12:30"
+        },
+        {
+          "event_id": "401874992",
+          "team_ids": {
+            "home": "3997",
+            "away": "114"
+          },
+          "home": "Sassuolo",
+          "away": "Napoli",
+          "kickoff_at": "2026-11-29T14:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401874769",
+          "team_ids": {
+            "home": "104",
+            "away": "4007"
+          },
+          "home": "AS Roma",
+          "away": "Monza",
+          "kickoff_at": "2026-11-29T17:00:00+00:00",
+          "official_local_time": "18:00"
+        },
+        {
+          "event_id": "401874994",
+          "team_ids": {
+            "home": "2572",
+            "away": "111"
+          },
+          "home": "Como",
+          "away": "Juventus",
+          "kickoff_at": "2026-11-29T19:45:00+00:00",
+          "official_local_time": "20:45"
+        }
+      ]
+    },
+    "nl.1": {
+      "url": "https://www.knvb.nl/competities/eredivisie/programma",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875538",
+          "team_ids": {
+            "home": "2726",
+            "away": "153"
+          },
+          "home": "ADO Den Haag",
+          "away": "FC Utrecht",
+          "kickoff_at": "2026-11-29T11:15:00+00:00",
+          "official_local_time": "12:15"
+        },
+        {
+          "event_id": "401875535",
+          "team_ids": {
+            "home": "142",
+            "away": "139"
+          },
+          "home": "Feyenoord Rotterdam",
+          "away": "Ajax Amsterdam",
+          "kickoff_at": "2026-11-29T13:30:00+00:00",
+          "official_local_time": "14:30"
+        },
+        {
+          "event_id": "401875534",
+          "team_ids": {
+            "home": "143",
+            "away": "146"
+          },
+          "home": "Fortuna Sittard",
+          "away": "Heerenveen",
+          "kickoff_at": "2026-11-29T13:30:00+00:00",
+          "official_local_time": "14:30"
+        },
+        {
+          "event_id": "401875532",
+          "team_ids": {
+            "home": "2565",
+            "away": "140"
+          },
+          "home": "PEC Zwolle",
+          "away": "AZ Alkmaar",
+          "kickoff_at": "2026-11-29T15:45:00+00:00",
+          "official_local_time": "16:45"
+        },
+        {
+          "event_id": "401875533",
+          "team_ids": {
+            "home": "147",
+            "away": "152"
+          },
+          "home": "NEC Nijmegen",
+          "away": "FC Twente",
+          "kickoff_at": "2026-11-29T19:00:00+00:00",
+          "official_local_time": "20:00"
+        }
+      ]
+    },
+    "nl.2": {
+      "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/programma",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401876062",
+          "team_ids": {
+            "home": "2727",
+            "away": "3732"
+          },
+          "home": "FC Volendam",
+          "away": "FC Eindhoven",
+          "kickoff_at": "2026-11-29T11:15:00+00:00",
+          "official_local_time": "12:15"
+        },
+        {
+          "event_id": "401876063",
+          "team_ids": {
+            "home": "149",
+            "away": "144"
+          },
+          "home": "Roda JC Kerkrade",
+          "away": "De Graafschap",
+          "kickoff_at": "2026-11-29T15:45:00+00:00",
+          "official_local_time": "16:45"
+        }
+      ]
+    },
+    "no.1": {
+      "url": "https://www.eliteserien.no/terminliste",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401843495",
+          "team_ids": {
+            "home": "3039",
+            "away": "3278"
+          },
+          "home": "Fredrikstad",
+          "away": "Aalesund",
+          "kickoff_at": "2026-11-29T13:30:00+00:00",
+          "official_local_time": "14:30"
+        },
+        {
+          "event_id": "401843491",
+          "team_ids": {
+            "home": "6750",
+            "away": "5002"
+          },
+          "home": "IK Start",
+          "away": "Sarpsborg FK",
+          "kickoff_at": "2026-11-29T16:00:00+00:00",
+          "official_local_time": "17:00"
+        },
+        {
+          "event_id": "401843498",
+          "team_ids": {
+            "home": "3279",
+            "away": "5270"
+          },
+          "home": "Sandefjord",
+          "away": "Tromso",
+          "kickoff_at": "2026-11-29T16:00:00+00:00",
+          "official_local_time": "17:00"
+        },
+        {
+          "event_id": "401843494",
+          "team_ids": {
+            "home": "620",
+            "away": "6672"
+          },
+          "home": "SK Brann",
+          "away": "Kristiansund BK",
+          "kickoff_at": "2026-11-29T16:00:00+00:00",
+          "official_local_time": "17:00"
+        },
+        {
+          "event_id": "401843493",
+          "team_ids": {
+            "home": "510",
+            "away": "2791"
+          },
+          "home": "Viking FK",
+          "away": "Vålerenga",
+          "kickoff_at": "2026-11-29T18:15:00+00:00",
+          "official_local_time": "19:15"
+        }
+      ]
+    },
+    "tr.1": {
+      "url": "https://www.tff.org/Default.aspx?hafta=11&hafta=8&kulupID=132&pageId=198",
+      "official_utc_offset_hours": 3,
+      "reviewed_at": "2026-11-26T12:49:36.382243+00:00",
+      "fixtures": [
+        {
+          "event_id": "401888367",
+          "team_ids": {
+            "home": "132334",
+            "away": "995"
+          },
+          "home": "Çorum FK",
+          "away": "Kocaelispor",
+          "kickoff_at": "2026-11-29T10:30:00+00:00",
+          "official_local_time": "13:30"
+        },
+        {
+          "event_id": "401888242",
+          "team_ids": {
+            "home": "20729",
+            "away": "7914"
+          },
+          "home": "Eyupspor",
+          "away": "Istanbul Basaksehir",
+          "kickoff_at": "2026-11-29T13:00:00+00:00",
+          "official_local_time": "16:00"
+        },
+        {
+          "event_id": "401888238",
+          "team_ids": {
+            "home": "436",
+            "away": "19267"
+          },
+          "home": "Fenerbahce",
+          "away": "Erzurum BB",
+          "kickoff_at": "2026-11-29T16:00:00+00:00",
+          "official_local_time": "19:00"
         }
       ]
     }
