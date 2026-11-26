@@ -150,14 +150,14 @@ def replay(facts, targets):
 
 def forecast(features, setting):
     h, a, margin = features
-    strength, shrink, dependence = setting
+    strength, shrink, dependence, total_scale = setting
     # Attenuate the opponent correction uniformly across the four fixed windows.
     left = [h[0][i] + shrink * (h[1][i] - h[0][i]) for i in range(2)]
     right = [a[0][i] + shrink * (a[1][i] - a[0][i]) for i in range(2)]
     shift = strength * (margin or 0.) / 2
     original = distribution(intensity((h[0][0] + a[0][1]) / 2), intensity((a[0][0] + h[0][1]) / 2))
-    adjusted = score_model(intensity((left[0] + right[1]) / 2 + shift),
-                           intensity((right[0] + left[1]) / 2 - shift), dependence)
+    adjusted = score_model(intensity(total_scale * (left[0] + right[1]) / 2 + shift),
+                           intensity(total_scale * (right[0] + left[1]) / 2 - shift), dependence)
     return original, adjusted
 
 
@@ -202,8 +202,13 @@ def experiment(facts):
                     (REFERENCE, CANDIDATE), forecast(f, setting), strict=True)))
                 for day, r, f in part]
 
-    settings = [(league, shrink, rho) for league in (0., .5, 1.) for shrink in (.5, 1.)
-                for rho in (0., -.08)]
+    # Estimate the total-goal scale on training labels only. Margin shifts and
+    # the low-score correction alone cannot materially change Over 2.5.
+    training_goals = sum(sum(r["score"]) for _, r, _ in train)
+    expected_goals = sum(sum(pair[0]) / 2 for _, _, features in train for pair in features[:2])
+    trained_scale = max(.8, min(1.2, training_goals / expected_goals)) if expected_goals else 1.
+    settings = [(league, shrink, rho, scale) for league in (0., .5, 1.) for shrink in (.5, 1.)
+                for rho in (0., -.08) for scale in sorted({1., trained_scale})]
     scores = {}
     for setting in settings:
         rows = records(valid, setting)
@@ -211,7 +216,7 @@ def experiment(facts):
                                for row in rows for market, key in KEYS.items())
     selected = min(scores, key=scores.get)
     margin_counts = [sum(f[2] is not None for _, _, f in part) for part in parts]
-    result.update(settings=selected, cross_league_by_split=margin_counts, splits=[len(p) for p in parts],
+    result.update(settings=selected, training_total_goal_scale=trained_scale, cross_league_by_split=margin_counts, splits=[len(p) for p in parts],
                   validation_brier={str(k): v for k, v in scores.items()},
                   test=measure(records(test, selected)),
                   test_europe=measure(records([r for r in test if r[1]["competition"] in EUROPE], selected)),
