@@ -7,12 +7,13 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
-from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS
+from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, cup_fixture_index
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
 from ex_historical_features import market_labels
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
+from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS
 from ex_history_sources import ESPN, match_detail, teams, validated_team_minutes
 from ex_model_challengers import compare_calibration
 from ex_official_calendar import calendar_fixtures
@@ -43,7 +44,7 @@ def portable_facts(path):
     return rows
 
 
-def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None):
+def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
@@ -162,7 +163,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
                                             board_evidence=board_source, component_model=component_model,
                                             strength=strength or archived_score_window, workload=(*home[2], *away[2]) if home[2] and away[2] else None,
-                                            weather=(weather or {}).get(event_id)))
+                                            weather=(weather or {}).get(event_id),
+                                            cup_evidence=(cup_sources or {}).get(league)))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -550,7 +552,6 @@ def main():
     args.output_dir.mkdir(parents=True, exist_ok=True)
     if args.daily_capture:
         from run_ex_prematch_archive import collect_registered, seed_recent_pregame
-        from ex_leagues import APPROVED_LEAGUES
 
         day = dt.date.fromisoformat(args.daily_capture)
         if not current.date() <= day <= current.date() + dt.timedelta(days=2):
@@ -610,6 +611,16 @@ def main():
                         weather[event] = {**item, "venue_source": registry[str(venue["id"])]["source"]}
                     except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
                         weather_errors[event] = source_error("research_weather", None, exc)
+        cup_sources, cup_source_errors = {}, {}
+        official_cups = HistoryArchive(args.cache, len(UEFA_NEW_CUPS), fetch=paced_download(.75))
+        for league, (path, url) in UEFA_NEW_CUPS.items():
+            if not manifest["reports"].get(league, {}).get("records"):
+                continue
+            try:
+                cup_sources[league] = official_cups.get(url, lambda raw, _: cup_fixture_index(raw, path),
+                                                       max_age=dt.timedelta(hours=1))
+            except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+                cup_source_errors[league] = source_error("uefa_cup_fixtures", url, exc)
         # Establish the cutoff after all source acquisition and integrity verification.
         cutoff = archive.clock()
         reused = 0
@@ -625,7 +636,11 @@ def main():
             if candidates:
                 pack = candidates[-1].parent
                 domestic = domestic_snapshot(pack)
-                supplemental = archived_domestic_boards(pack, cutoff)
+                domestic_leagues = tuple(league for league in APPROVED_LEAGUES if league not in UEFA_CUPS)
+                if any(manifest["reports"].get(key, {}).get("records") for key in UEFA_NEW_CUPS):
+                    supplemental = archived_domestic_boards(pack, cutoff, (*domestic_leagues, *CUP_HISTORY_SLUGS))
+                else:
+                    supplemental = archived_domestic_boards(pack, cutoff)
         rolling = []
         if args.weekly_scoreboards or supplemental:
             existing = {r["event_id"]: r for r in facts}
@@ -649,7 +664,7 @@ def main():
             model = audit(facts, as_of=cutoff, external_observations=archived_weather)
             atomic_write(args.output_dir / "component-research-audit.json",
                          (json.dumps(model, indent=2) + "\n").encode())
-        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather)
+        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather, cup_sources=cup_sources)
         if args.component_research:
             performance = experiment([r for r in facts if r["captured_at"] < cutoff])
             atomic_write(args.output_dir / "performance-v1-audit.json",
@@ -680,6 +695,7 @@ def main():
                   "historical_events_quarantined": sorted(history_conflicts),
                   "weather_sources_observed": len(weather), "weather_errors": weather_errors,
                   "capture_source_errors": manifest.get("errors", []),
+                  "cup_source_errors": cup_source_errors,
                   "capture_cache_hits": manifest.get("cache_hits", 0),
                   "capture_network_requests": manifest.get("requests"),
                   "alternate_fixtures": {league: len(rows) for league, rows in context.items()},

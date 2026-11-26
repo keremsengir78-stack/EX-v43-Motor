@@ -23,6 +23,9 @@ APPROVED_LEAGUES = {
 }
 
 UEFA_CUPS = frozenset(("UCL", "UEL", "UECL"))
+# Archived domestic histories used as inputs for the newly approved UEFA cups.
+# These leagues are not independently eligible for daily capture or prediction.
+CUP_HISTORY_SLUGS = {"en.2": "eng.2", "at.1": "aut.1", "gr.1": "gre.1", "cz.1": "cze.1"}
 
 # Existing ingestion clients may still explicitly request Championship.
 LEGACY_INGESTION = {"en.2": "England Championship"}

@@ -92,7 +92,7 @@ def uefa_match_entries(raw, matchday, competition_path="uefachampionsleague"):
             entries[match_id] = entry
         yield from entries.values()
         return
-    heading = re.search(rf"<h2>\s*Matchday {matchday}\s*</h2>", html)
+    heading = re.search(rf"<h2>\s*(?:<b>)?Matchday {matchday}(?:</b>)?\s*</h2>", html)
     if heading is None:
         raise ValueError(f"UEFA matchday {matchday} heading missing")
     text = re.split(r"<h2\b", html[heading.end():], maxsplit=1)[0]
@@ -104,11 +104,13 @@ def uefa_match_entries(raw, matchday, competition_path="uefachampionsleague"):
             yield when, " ".join(unescape(name).split()), clock
 
 
-def uefa_fixtures(raw, matchday):
+def uefa_fixtures(raw, matchday, competition_path="uefachampionsleague"):
     if b"Kick-offs are 21:00 unless stated; all times CET." not in raw:
         raise ValueError("UEFA kickoff convention missing")
     fixtures = []
-    for when, name, clock in uefa_match_entries(raw, matchday):
+    for when, name, clock in uefa_match_entries(raw, matchday, competition_path):
+        if " vs " not in name:
+            continue
         home, away = name.split(" vs ")
         kickoff = when.replace(
             hour=int((clock or "21:00")[:2]), minute=int((clock or "21:00")[3:]),

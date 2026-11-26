@@ -10,7 +10,7 @@ from ex_decision import MARKETS, assess_market_value
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
-from ex_leagues import APPROVED_LEAGUES, UEFA_CUPS, season_bounds
+from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
 from ex_ucl_baseline import cross_league_baseline
 from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index, verified_bytes
 from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
@@ -37,6 +37,8 @@ DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items()
 def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None):
     """Join current domestic membership by ESPN club ID; never infer from a name."""
     catalog = DOMESTIC_BY_SLUG | (archive_leagues or {}) if retrospective else DOMESTIC_BY_SLUG
+    if fixture["league"] in UEFA_CUPS - {"UCL"}:
+        catalog = catalog | {slug: league for league, slug in CUP_HISTORY_SLUGS.items()}
     cutoff = as_of.date()
     rows, leagues = [], []
     for side in ("home", "away"):
@@ -78,15 +80,19 @@ def official_ucl_index():
     return metadata, canonical, indexed
 
 
-def corroborated_fixture(fixture, board, as_of):
+def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
     result = {"status": "UNVERIFIED", "scope": "FIXTURE_IDENTITY_ONLY", "sources": []}
-    if fixture["league"] != "UCL" or not board:
+    if (fixture["league"] != "UCL" and cup_evidence is None) or not board:
         return result
     status = check_fixture(fixture, as_of.isoformat())
     if (status["status"] != "VERIFIED_INPUT" or board["url"] != fixture["fixture_source"]
             or utc(board["retrieved_at"]) != utc(fixture["fixture_checked_at"])):
         return result
-    metadata, aliases, index = official_ucl_index()
+    if cup_evidence:
+        index, metadata = cup_evidence
+        aliases = {}
+    else:
+        metadata, aliases, index = official_ucl_index()
     home, away = (aliases.get(norm(fixture[side]), norm(fixture[side])) for side in ("home", "away"))
     kickoff = utc(fixture["kickoff_at"])
     if utc(metadata["retrieved_at"]) < as_of < kickoff and (kickoff, home, away) in index:
@@ -115,7 +121,7 @@ def recent_domestic_scores(fixture, snapshot, as_of):
     }
 
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None, component_model=None,
-                   strength=None, workload=None, weather=None):
+                   strength=None, workload=None, weather=None, cup_evidence=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -159,7 +165,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
         selected = next(iter(unique.values())) if len(unique) == 1 else None
         value = assess_market_value(market, decisions["markets"][market]["ex_g"], selected, time)
         values_by_market[market] = {**value, "observed_quotes": offers}
-    evidence = corroborated_fixture(fixture, board_evidence, as_of)
+    evidence = corroborated_fixture(fixture, board_evidence, as_of, cup_evidence)
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time),
             "market_baselines_pct": market_percentages,

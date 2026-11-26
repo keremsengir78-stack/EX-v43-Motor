@@ -26,7 +26,7 @@ def main():
     with ThreadPoolExecutor(max_workers=8) as pool:
         results=list(pool.map(fetch,jobs))
     (out/"report.json").write_text(json.dumps({"sources":results,"ex_final_allowed":False},ensure_ascii=False),encoding="utf-8")
-    print("DOMESTIC_RESEARCH",json.dumps([{"league":league,"rows":sum(len(r["rows"]) for r in results if r["league"]==league),"errors":sum("error" in r for r in results if r["league"]==league),"truncated":sum(bool(r.get("potentially_truncated")) for r in results if r["league"]==league)} for league in ESPN_LEAGUES if league!="UCL"]))
+    print("DOMESTIC_RESEARCH",json.dumps([{"league":league,"rows":sum(len(r["rows"]) for r in results if r["league"]==league),"errors":sum("error" in r for r in results if r["league"]==league),"truncated":sum(bool(r.get("potentially_truncated")) for r in results if r["league"]==league)} for league in ESPN_LEAGUES if league not in UEFA_CUPS]))
     if any("error" in r or r.get("potentially_truncated") for r in results):
         raise SystemExit(1)
 if __name__=="__main__":

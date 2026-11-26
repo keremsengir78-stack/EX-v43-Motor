@@ -6,7 +6,7 @@ import re
 
 from ex_history_archive import HistoryArchive, utc
 from ex_history_sources import ESPN, teams
-from ex_leagues import APPROVED_LEAGUES
+from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS
 from ex_retrospective import observed_season
 from run_ucl_baselines import verified_bytes
 
@@ -78,7 +78,7 @@ def archived_domestic_boards(pack, cutoff, leagues=("de.2", "nl.2")):
         league = source.get("league")
         if league not in leagues or source.get("error") or source.get("potentially_truncated"):
             continue
-        slug = APPROVED_LEAGUES[league][1]
+        slug = APPROVED_LEAGUES[league][1] if league in APPROVED_LEAGUES else CUP_HISTORY_SLUGS[league]
         day = dt.date.fromisoformat(source["date"]).strftime("%Y%m%d")
         stamp = utc(source["retrieved_at"])
         digest = source["sha256"]

@@ -8,7 +8,7 @@ from statistics import mean
 from ex_engine import W, distribution, poisson, weighted_form
 from ex_historical_features import market_labels
 from ex_history_archive import utc
-from ex_leagues import APPROVED_LEAGUES, UEFA_CUPS, season_bounds
+from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
 from ex_model_challengers import date_partitions
 from ex_research_components import metrics
 from ex_ucl_strength import fit_league_margins
@@ -18,6 +18,7 @@ REFERENCE = "EX-V43-POISSON"
 CANDIDATE = "EX-V43-PERFORMANCE-V1"
 EUROPE = {"uefa.champions", "uefa.europa", "uefa.europa.conf", "uefa.europa.conference"}
 DOMESTIC = {record[1]: league for league, record in APPROVED_LEAGUES.items() if league not in UEFA_CUPS}
+SUPPORT = {slug: league for league, slug in CUP_HISTORY_SLUGS.items()}
 KEYS = {"2.5_UST": "over25", "KG_VAR": "btts", "MS1": "home_win", "MS2": "away_win"}
 
 
@@ -59,16 +60,16 @@ class History:
         self.europe = []
         self._league_fit = (0, {}, {})
 
-    def league(self, team, day):
+    def league(self, team, day, *, allow_support=False):
         active = [league for league, last in self.membership[team].items()
-                  if season_bounds(league, day)[0] <= last < day]
+                  if (allow_support or league in APPROVED_LEAGUES) and season_bounds(league, day)[0] <= last < day]
         return active[0] if len(active) == 1 else None
 
     def update(self, fact):
         home, away = (fact["teams"][side] for side in ("home", "away"))
         hg, ag = fact["score"]
         day = fact["kickoff"].date()
-        league = DOMESTIC.get(fact["competition"])
+        league = DOMESTIC.get(fact["competition"]) or SUPPORT.get(fact["competition"])
         if fact["competition"] in EUROPE:
             hl, al = self.league(home, day), self.league(away, day)
             if hl and al and hl != al:
@@ -118,7 +119,8 @@ class History:
         home, away = (fact["teams"][side] for side in ("home", "away"))
         day = fact["kickoff"].date()
         if fact["competition"] in EUROPE:
-            hl, al = self.league(home, day), self.league(away, day)
+            support = fact["competition"] != "uefa.champions"
+            hl, al = self.league(home, day, allow_support=support), self.league(away, day, allow_support=support)
         elif fact["competition"] in DOMESTIC:
             hl = al = DOMESTIC[fact["competition"]]
         else:

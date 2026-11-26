@@ -125,11 +125,20 @@ def german_scores(league, fixtures, archive):
     return results, evidence
 
 
+
+def cup_fixture_index(raw, competition_path):
+    from run_ucl_research import uefa_fixtures
+
+    headings = {int(n) for n in re.findall(rb"<h2>\s*(?:<b>)?Matchday (\d+)(?:</b>)?\s*</h2>", raw)}
+    if not headings:
+        raise ValueError("No UEFA matchday sections")
+    return {entry for day in headings for entry in uefa_fixtures(raw, day, competition_path)}
+
 def uefa_scores(raw, url, stamp, competition_path="uefachampionsleague"):
     from run_ucl_research import uefa_match_entries
 
     output = []
-    headings = {int(n) for n in re.findall(rb"<h2>\s*Matchday (\d+)\s*</h2>", raw)}
+    headings = {int(n) for n in re.findall(rb"<h2>\s*(?:<b>)?Matchday (\d+)(?:</b>)?\s*</h2>", raw)}
     if not headings:
         raise ValueError("No UEFA matchday sections")
     for number in sorted(headings):
