@@ -95,8 +95,8 @@ REVIEWED_ALIAS_EVIDENCE = (
 )
 REVIEWED_CUP_IDENTITIES = {
     ("UEL", "401915505", "147", "169"): (("necnijmegen", "staderennais"), ("necnijmegen", "rennes")),
-    ("UECL", "401915815", "139", "3024"): (("ajaxamsterdam", "fcthun"), ("ajax", "thun")),
-    ("UECL", "401915801", "126", "152"): (("scfreiburg", "fctwente"), ("freiburg", "twente")),
+    ("UECL", "401915815", "139", "3024"): (("ajaxamsterdam", "thun"), ("ajax", "thun")),
+    ("UECL", "401915801", "126", "152"): (("scfreiburg", "twente"), ("freiburg", "twente")),
 }
 
 

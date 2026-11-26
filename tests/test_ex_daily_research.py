@@ -119,6 +119,17 @@ class DailyResearchTests(unittest.TestCase):
             self.assertEqual("UNVERIFIED", corroborated_fixture(
                 {**fixture, **changed}, board, cutoff, evidence)["status"])
 
+    def test_reviewed_conference_names_use_the_same_normalization_as_scoreboards(self):
+        from ex_daily_research import REVIEWED_CUP_IDENTITIES
+
+        for event, ids, names in (
+            ("401915815", ("139", "3024"), ("Ajax Amsterdam", "FC Thun")),
+            ("401915801", ("126", "152"), ("SC Freiburg", "FC Twente")),
+        ):
+            with self.subTest(event=event):
+                expected, _ = REVIEWED_CUP_IDENTITIES[("UECL", event, *ids)]
+                self.assertEqual(expected, tuple(map(norm, names)))
+
     def test_quote_fallback_is_market_scoped_and_does_not_substitute_line(self):
         from run_ex_prospective_pipeline import market_quote_chain
 
