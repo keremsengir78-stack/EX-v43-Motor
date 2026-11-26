@@ -11,6 +11,7 @@ from ex_daily_research import MARKET_KEYS
 from ex_decision import MARKETS
 from ex_historical_features import market_labels
 
+from ex_performance_v1 import CANDIDATE, KEYS, REFERENCE, measure
 from ex_history_archive import HistoryArchive, atomic_write, paced_download, source_error, utc
 from ex_history_sources import ESPN, identifier, teams
 from ex_leagues import APPROVED_LEAGUES
@@ -76,7 +77,7 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
         counts["sealed_research_forecasts"] += 1
         counts["full_strength_window"] += row["strength"] is not None
     phase = defaultdict(set)
-    domestic = {}
+    domestic, candidates = {}, {}
     for receipt in packs.glob("*/receipt.json"):
         meta = json.loads(receipt.read_text())
         sealed = utc(meta["created_at"])
@@ -113,6 +114,14 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                     raise ValueError("Conflicting domestic forecasts sealed at the same instant")
                 if prior is None or sealed < prior[0]:
                     domestic[event] = sealed, probabilities
+                pair = row.get("performance_v1", {})
+                if all(type(pair.get(version, {}).get(key)) in (float, int)
+                       and 0 <= pair[version][key] <= 1 for version in (REFERENCE, CANDIDATE) for key in KEYS.values()):
+                    previous = candidates.get(event)
+                    if previous is None or sealed < previous[0]:
+                        candidates[event] = sealed, pair
+                    elif sealed == previous[0] and previous[1] != pair:
+                        raise ValueError("Conflicting paired forecasts sealed at the same instant")
     joined_outcomes = {}
     forecast_ids = {row["event_id"] for row in forecasts}
     if settlements:
@@ -150,6 +159,9 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
     venue_outcomes = [row for event, row in joined_outcomes.items() if event in forecast_ids]
     rows = join_holdout(forecasts, venue_outcomes) if venue_outcomes else []
     domestic_events = phase["independently_settled_domestic"]
+    paired = [{"date": utc(joined_outcomes[e]["kickoff"]).date(),
+               "labels": joined_outcomes[e]["labels"], **candidates[e][1]}
+              for e in sorted(joined_outcomes.keys() & candidates.keys())]
     performance = {
         "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",
         "matched": len(rows),
@@ -159,6 +171,7 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                               "brier": {m: mean((domestic[e][1][m] - joined_outcomes[e]["labels"][m]) ** 2
                                                 for e in sorted(domestic_events)) for m in MARKETS}
                               if domestic_events else {}},
+        "performance_v1": {"matched": len(paired), "markets": measure(paired)},
         "production_allowed": False,
     }
     return {league: {key: counts[key] for key in columns} for league, counts in by_league.items()}, performance

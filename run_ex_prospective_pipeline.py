@@ -640,7 +640,9 @@ def main():
                     rolling.append(row)
                     existing[event] = row
             facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
+        performance = {}
         if args.component_research:
+            from ex_performance_v1 import attach_daily, experiment
             from ex_research_components import archive_weather, audit
 
             archived_weather = archive_weather(args.component_archive, cutoff) if args.component_archive else {}
@@ -648,6 +650,11 @@ def main():
             atomic_write(args.output_dir / "component-research-audit.json",
                          (json.dumps(model, indent=2) + "\n").encode())
         forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather)
+        if args.component_research:
+            performance = experiment([r for r in facts if r["captured_at"] < cutoff])
+            atomic_write(args.output_dir / "performance-v1-audit.json",
+                         (json.dumps(performance, indent=2) + "\n").encode())
+            attach_daily(daily, facts, cutoff, performance)
         publication_check = archive.clock()
         elapsed = {row["fixture"]["event_id"] for row in daily
                    if publication_check >= utc(row["fixture"]["kickoff_at"])}
@@ -757,6 +764,10 @@ def main():
                   "eligible_evaluation_rows": len(cohort),
                   "components": component_audit(rows),
                   "evaluation": evaluate(model, cohort, design, evaluation_at=current) if cohort else {"status": "NO_ELIGIBLE_HOLDOUT"}}
+        if args.packs:
+            from ex_performance_v1 import settled_daily_pairs
+
+            report["performance_v1"] = settled_daily_pairs(args.packs, corroborated + verified_tracking)
     report.update({"generated_at": current.isoformat(), "production_allowed": False, "ex_final_allowed": False})
     atomic_write(args.output_dir / "report.json", (json.dumps(report, indent=2) + "\n").encode())
     print(json.dumps(report))
