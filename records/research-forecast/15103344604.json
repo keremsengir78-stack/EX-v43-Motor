@@ -1,0 +1,18 @@
+{
+  "files": {
+    "forecasts/capture.json": "488a33749e04db4cd3c0a6b167c298a094c7a40cd413515b0c6c0a345a459d74",
+    "forecasts/component-research-audit.json": "a956065f9ad51d847d78f220c5ee73755f3c7559d99a6daf65d03be013abbeac",
+    "forecasts/daily-analysis.json": "401e170dbd59913e892042ef8e5035e1e188dfa8954b51eb9ed23e3d39054eef",
+    "forecasts/daily-selection.json": "3a47eebbac8361499b09ab90d2e40c0fd26c13d04c069cf4bdbe063f14097ba2",
+    "forecasts/forecasts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "forecasts/official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "forecasts/performance-v1-audit.json": "38e357386873ccd11c7b55452220d9866cedcc0d0c4fa8cec19363ae47ee4267",
+    "forecasts/report.json": "d0e909a0c8c129ecfb944a25a63c0a70f185ae2ecabf94f27325a36f439f7a13"
+  },
+  "receipt": {
+    "created_at": "2026-11-26T09:49:37Z",
+    "digest": "sha256:dff6107358b2dfd33ac028789369fcc7d0d788b5efc3c6de7cc9cb3812e72f11",
+    "id": 15103344604,
+    "name": "ex-prospective-forecasts"
+  }
+}

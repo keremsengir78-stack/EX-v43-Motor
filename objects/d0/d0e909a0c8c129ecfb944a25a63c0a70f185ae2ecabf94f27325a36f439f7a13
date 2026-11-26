@@ -1,0 +1,2404 @@
+{
+  "forecasts": 0,
+  "historical_matches": 10415,
+  "supplemental_scoreboard_records": 6705,
+  "reused_verified_outcomes": 9,
+  "rolling_scoreboard_matches": 3586,
+  "skipped": [
+    {
+      "event_id": "401915506",
+      "league": "UEL",
+      "teams": {
+        "home": "1895",
+        "away": "13083"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915519",
+      "league": "UEL",
+      "teams": {
+        "home": "85",
+        "away": "349"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915517",
+      "league": "UEL",
+      "teams": {
+        "home": "597",
+        "away": "131"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915507",
+      "league": "UEL",
+      "teams": {
+        "home": "176",
+        "away": "490"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915521",
+      "league": "UEL",
+      "teams": {
+        "home": "435",
+        "away": "103"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915520",
+      "league": "UEL",
+      "teams": {
+        "home": "2790",
+        "away": "20024"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915508",
+      "league": "UEL",
+      "teams": {
+        "home": "5807",
+        "away": "2990"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915518",
+      "league": "UEL",
+      "teams": {
+        "home": "11706",
+        "away": "1929"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915504",
+      "league": "UEL",
+      "teams": {
+        "home": "384",
+        "away": "89"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915516",
+      "league": "UEL",
+      "teams": {
+        "home": "622",
+        "away": "3362"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915502",
+      "league": "UEL",
+      "teams": {
+        "home": "111",
+        "away": "617"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915501",
+      "league": "UEL",
+      "teams": {
+        "home": "167",
+        "away": "987"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915505",
+      "league": "UEL",
+      "teams": {
+        "home": "147",
+        "away": "169"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915503",
+      "league": "UEL",
+      "teams": {
+        "home": "1010",
+        "away": "441"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915514",
+      "league": "UEL",
+      "teams": {
+        "home": "433",
+        "away": "140"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915513",
+      "league": "UEL",
+      "teams": {
+        "home": "366",
+        "away": "11505"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915512",
+      "league": "UEL",
+      "teams": {
+        "home": "21615",
+        "away": "256"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915515",
+      "league": "UEL",
+      "teams": {
+        "home": "7911",
+        "away": "3746"
+      },
+      "missing_venue5": [
+        "home"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915816",
+      "league": "UECL",
+      "teams": {
+        "home": "2528",
+        "away": "20301"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915815",
+      "league": "UECL",
+      "teams": {
+        "home": "139",
+        "away": "3024"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915814",
+      "league": "UECL",
+      "teams": {
+        "home": "331",
+        "away": "8089"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915810",
+      "league": "UECL",
+      "teams": {
+        "home": "21943",
+        "away": "17856"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915811",
+      "league": "UECL",
+      "teams": {
+        "home": "262",
+        "away": "174"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915813",
+      "league": "UECL",
+      "teams": {
+        "home": "20025",
+        "away": "2922"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915812",
+      "league": "UECL",
+      "teams": {
+        "home": "7922",
+        "away": "7672"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915739",
+      "league": "UECL",
+      "teams": {
+        "home": "20028",
+        "away": "19246"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915809",
+      "league": "UECL",
+      "teams": {
+        "home": "22281",
+        "away": "572"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915808",
+      "league": "UECL",
+      "teams": {
+        "home": "620",
+        "away": "7853"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915806",
+      "league": "UECL",
+      "teams": {
+        "home": "20710",
+        "away": "105"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915802",
+      "league": "UECL",
+      "teams": {
+        "home": "2994",
+        "away": "8169"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915803",
+      "league": "UECL",
+      "teams": {
+        "home": "10834",
+        "away": "997"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915807",
+      "league": "UECL",
+      "teams": {
+        "home": "3101",
+        "away": "443"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915805",
+      "league": "UECL",
+      "teams": {
+        "home": "489",
+        "away": "936"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915738",
+      "league": "UECL",
+      "teams": {
+        "home": "20703",
+        "away": "909"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915804",
+      "league": "UECL",
+      "teams": {
+        "home": "3611",
+        "away": "2290"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915801",
+      "league": "UECL",
+      "teams": {
+        "home": "126",
+        "away": "152"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 36,
+  "historical_sample_gaps": [
+    {
+      "fixture": {
+        "event_id": "401915506",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Besiktas",
+        "away": "Hapoel Be'er",
+        "team_ids": {
+          "home": "1895",
+          "away": "13083"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "1895",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "tur.1"
+          ],
+          "archived_competitions": [
+            "tur.1"
+          ],
+          "league": "tr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Besiktas",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "13083",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Hapoel Be'er",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915517",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Dinamo Zagreb",
+        "away": "Bayer Leverkusen",
+        "team_ids": {
+          "home": "597",
+          "away": "131"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "597",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Dinamo Zagreb",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "131",
+          "eligible_rows": 44,
+          "current_competitions": [
+            "ger.1"
+          ],
+          "archived_competitions": [
+            "ger.1"
+          ],
+          "league": "de.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 10,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Bayer Leverkusen",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915507",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Marseille",
+        "away": "Levski Sofia",
+        "team_ids": {
+          "home": "176",
+          "away": "490"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "176",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Marseille",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "490",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Levski Sofia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915520",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "RB Salzburg",
+        "away": "Ararat-Armenia",
+        "team_ids": {
+          "home": "2790",
+          "away": "20024"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "2790",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "aut.1"
+          ],
+          "archived_competitions": [
+            "aut.1"
+          ],
+          "league": "at.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 16
+          },
+          "missing_samples": [],
+          "team": "RB Salzburg",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "20024",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Ararat-Armenia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915518",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Viktoria Plzen",
+        "away": "Benfica",
+        "team_ids": {
+          "home": "11706",
+          "away": "1929"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "11706",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Viktoria Plzen",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "1929",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "por.1"
+          ],
+          "archived_competitions": [
+            "por.1"
+          ],
+          "league": "pt.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Benfica",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915516",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Ferencvaros",
+        "away": "NK Celje",
+        "team_ids": {
+          "home": "622",
+          "away": "3362"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "622",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Ferencvaros",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "3362",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "NK Celje",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915502",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Juventus",
+        "away": "Omonia Nicosia",
+        "team_ids": {
+          "home": "111",
+          "away": "617"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "111",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Juventus",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "617",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Omonia Nicosia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915501",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Lyon",
+        "away": "Lillestrom",
+        "team_ids": {
+          "home": "167",
+          "away": "987"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "167",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Lyon",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "987",
+          "eligible_rows": 27,
+          "current_competitions": [
+            "nor.1"
+          ],
+          "archived_competitions": [
+            "nor.1"
+          ],
+          "league": "no.1",
+          "current_season_start": "2026-01-01",
+          "previous_season_start": "2025-01-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 27,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "previous_season_venue"
+          ],
+          "team": "Lillestrom",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915514",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Sparta Prague",
+        "away": "AZ Alkmaar",
+        "team_ids": {
+          "home": "433",
+          "away": "140"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "433",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Sparta Prague",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "140",
+          "eligible_rows": 47,
+          "current_competitions": [
+            "ned.1"
+          ],
+          "archived_competitions": [
+            "ned.1"
+          ],
+          "league": "nl.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "AZ Alkmaar",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915512",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Torreense",
+        "away": "Celtic",
+        "team_ids": {
+          "home": "21615",
+          "away": "256"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:33.861682+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "21615",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Torreense",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "256",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "sco.1"
+          ],
+          "archived_competitions": [
+            "sco.1"
+          ],
+          "league": "sco.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 14,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Celtic",
+          "source_errors": [],
+          "schedule_source_state": "CONFIGURED"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915816",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T15:30:00+00:00",
+        "home": "Kairat Almaty",
+        "away": "Mj\u00e4llby AIF",
+        "team_ids": {
+          "home": "2528",
+          "away": "20301"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "2528",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Kairat Almaty",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "20301",
+          "eligible_rows": 59,
+          "current_competitions": [
+            "swe.1"
+          ],
+          "archived_competitions": [
+            "swe.1"
+          ],
+          "league": "se.1",
+          "current_season_start": "2026-01-01",
+          "previous_season_start": "2025-01-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 29,
+            "previous_season_venue": 15
+          },
+          "missing_samples": [],
+          "team": "Mj\u00e4llby AIF",
+          "source_errors": [],
+          "schedule_source_state": "CONFIGURED"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915810",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Egnatia",
+        "away": "Lincoln Red Imps",
+        "team_ids": {
+          "home": "21943",
+          "away": "17856"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "21943",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Egnatia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "17856",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Lincoln Red Imps",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915813",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Iberia 1999",
+        "away": "Getafe",
+        "team_ids": {
+          "home": "20025",
+          "away": "2922"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "20025",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Iberia 1999",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "2922",
+          "eligible_rows": 51,
+          "current_competitions": [
+            "esp.1"
+          ],
+          "archived_competitions": [
+            "esp.1"
+          ],
+          "league": "es.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Getafe",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915812",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Jablonec",
+        "away": "FC Lugano",
+        "team_ids": {
+          "home": "7922",
+          "away": "7672"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "7922",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Jablonec",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "7672",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "sui.1"
+          ],
+          "archived_competitions": [
+            "sui.1"
+          ],
+          "league": "ch.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 14,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "FC Lugano",
+          "source_errors": [],
+          "schedule_source_state": "CONFIGURED"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915739",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Kauno Zalgiris",
+        "away": "Riga FC",
+        "team_ids": {
+          "home": "20028",
+          "away": "19246"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "20028",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Kauno Zalgiris",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "19246",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Riga FC",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915809",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Pafos",
+        "away": "FC Midtjylland",
+        "team_ids": {
+          "home": "22281",
+          "away": "572"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "22281",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Pafos",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "572",
+          "eligible_rows": 47,
+          "current_competitions": [
+            "den.1"
+          ],
+          "archived_competitions": [
+            "den.1"
+          ],
+          "league": "dk.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 15,
+            "previous_season_venue": 16
+          },
+          "missing_samples": [],
+          "team": "FC Midtjylland",
+          "source_errors": [],
+          "schedule_source_state": "CONFIGURED"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915806",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Borac Banja Luka",
+        "away": "Atalanta",
+        "team_ids": {
+          "home": "20710",
+          "away": "105"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "20710",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Borac Banja Luka",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "105",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Atalanta",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915803",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "CSKA Sofia",
+        "away": "Trabzonspor",
+        "team_ids": {
+          "home": "10834",
+          "away": "997"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "10834",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "CSKA Sofia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "997",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "tur.1"
+          ],
+          "archived_competitions": [
+            "tur.1"
+          ],
+          "league": "tr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Trabzonspor",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915805",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Hajduk Split",
+        "away": "Sint-Truidense",
+        "team_ids": {
+          "home": "489",
+          "away": "936"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "489",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Hajduk Split",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "936",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 20
+          },
+          "missing_samples": [],
+          "team": "Sint-Truidense",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915738",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Inter D'Escaldes",
+        "away": "F.C. K\u00f8benhavn",
+        "team_ids": {
+          "home": "20703",
+          "away": "909"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "20703",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Inter D'Escaldes",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "909",
+          "eligible_rows": 47,
+          "current_competitions": [
+            "den.1"
+          ],
+          "archived_competitions": [
+            "den.1"
+          ],
+          "league": "dk.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 15,
+            "previous_season_venue": 16
+          },
+          "missing_samples": [],
+          "team": "F.C. K\u00f8benhavn",
+          "source_errors": [],
+          "schedule_source_state": "CONFIGURED"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401915804",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "KAA Gent",
+        "away": "Red Star Belgrade",
+        "team_ids": {
+          "home": "3611",
+          "away": "2290"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:47:48.133972+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "3611",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 20
+          },
+          "missing_samples": [],
+          "team": "KAA Gent",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "2290",
+          "eligible_rows": 0,
+          "current_competitions": [],
+          "archived_competitions": [],
+          "reason": "NO_CURRENT_DOMESTIC_RECORDS",
+          "team": "Red Star Belgrade",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    }
+  ],
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 15,
+  "daily_research_covered": 15,
+  "final_markets": 0,
+  "market_blockers": {
+    "tur2:recompute_mismatch": 80,
+    "historical_samples:incomplete": 84,
+    "odds_lock:blocked": 57,
+    "market_baselines:missing": 84,
+    "ingestion:blocked": 144,
+    "second_source:unverified": 144,
+    "fixture_sources:unverified": 80,
+    "exg:uncalibrated": 144,
+    "context:unverified": 144,
+    "odds_lock:pass_1_19_or_lower": 5
+  },
+  "historical_events_quarantined": [],
+  "weather_sources_observed": 0,
+  "weather_errors": {
+    "401915506": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915519": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915517": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915507": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915521": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915520": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915508": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915518": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915504": {
+      "stage": "research_weather",
+      "url": null,
+      "category": "TRANSPORT",
+      "retry_deferred": false,
+      "error": "<urlopen error _ssl.c:1001: The handshake operation timed out>"
+    },
+    "401915516": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915502": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915501": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915505": {
+      "stage": "research_weather",
+      "url": null,
+      "category": "TRANSPORT",
+      "retry_deferred": false,
+      "error": "<urlopen error _ssl.c:1001: The handshake operation timed out>"
+    },
+    "401915503": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915514": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915513": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915512": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915515": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915816": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915815": {
+      "stage": "research_weather",
+      "url": null,
+      "category": "TRANSPORT",
+      "retry_deferred": false,
+      "error": "<urlopen error _ssl.c:1001: The handshake operation timed out>"
+    },
+    "401915814": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915810": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915811": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915813": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915812": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915739": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915809": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915808": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915806": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915802": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915803": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915807": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915805": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915738": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915804": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915801": {
+      "stage": "research_weather",
+      "url": null,
+      "category": "TRANSPORT",
+      "retry_deferred": false,
+      "error": "<urlopen error _ssl.c:1001: The handshake operation timed out>"
+    }
+  },
+  "capture_source_errors": [],
+  "cup_source_errors": {},
+  "cup_team_history_sources": [
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/126/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:03.391778+00:00",
+      "sha256": "839a45dc0241390b0cc3e1d242b18f5e1daab9577b52349c25ecc2787ed680fe",
+      "size": 91750,
+      "club": "126",
+      "league": "de.1",
+      "season": 2026,
+      "matches": 10
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/139/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:04.075190+00:00",
+      "sha256": "a4d0668e75f19164196f000484d0c2d709c8ab35433adeb738e7850e4ce7a68c",
+      "size": 123650,
+      "club": "139",
+      "league": "nl.1",
+      "season": 2026,
+      "matches": 13
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/147/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:04.833665+00:00",
+      "sha256": "17735a5d3b555cd8326c2a16cbacf37c03590fe116ec8bcd392b3538bca99785",
+      "size": 119136,
+      "club": "147",
+      "league": "nl.1",
+      "season": 2026,
+      "matches": 13
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/152/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:05.573965+00:00",
+      "sha256": "ea9a98b8a6a5c5bfd557e86e513498fdb623301a353399614bad94409b4e3a30",
+      "size": 118745,
+      "club": "152",
+      "league": "nl.1",
+      "season": 2026,
+      "matches": 13
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/169/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:06.341405+00:00",
+      "sha256": "5bc3e3b7ad4376bdcc5fb625e73cbce777287cd5e8bc412ef2230eaab2114ce7",
+      "size": 98846,
+      "club": "169",
+      "league": "fr.1",
+      "season": 2026,
+      "matches": 11
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams/20301/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:07.073948+00:00",
+      "sha256": "e85f62b37ae4082fd399b45c91af84c3ce13cc777d076b9be7a473b6dee509b2",
+      "size": 268277,
+      "club": "20301",
+      "league": "se.1",
+      "season": 2025,
+      "matches": 30
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams/20301/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:07.830335+00:00",
+      "sha256": "acc1b0c6f7b70b1ac0064638b95633e72ea21d3664d19b2ae2e8670a181fdd06",
+      "size": 260682,
+      "club": "20301",
+      "league": "se.1",
+      "season": 2026,
+      "matches": 29
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/256/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:08.600776+00:00",
+      "sha256": "6f8a752f0898107183d8fa08ce8ecadf0d34c0a65393352b70730c0c93d4689e",
+      "size": 338067,
+      "club": "256",
+      "league": "sco.1",
+      "season": 2025,
+      "matches": 38
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/256/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:09.372586+00:00",
+      "sha256": "6a62ae981e51af4e21c6ae530a9a59a7e62ce9e45a6660b3b02abd55df5231f8",
+      "size": 124882,
+      "club": "256",
+      "league": "sco.1",
+      "season": 2026,
+      "matches": 14
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/262/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:10.073954+00:00",
+      "sha256": "437991c8c8aa24bc6945c5189e5368f01141742fdbb1163f1626457cf94a75a5",
+      "size": 341322,
+      "club": "262",
+      "league": "sco.1",
+      "season": 2025,
+      "matches": 38
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/262/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:10.829607+00:00",
+      "sha256": "46a0172d4a2c0e7cafb35b06194904f6f33297e757ed1afee99cb2655ca95cbd",
+      "size": 117221,
+      "club": "262",
+      "league": "sco.1",
+      "season": 2026,
+      "matches": 13
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/3101/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:11.598358+00:00",
+      "sha256": "723fe582a214cda56d69eb95d1bb7a5e4963a533cab9f7fd366b7060d22ab38b",
+      "size": 285465,
+      "club": "3101",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/3101/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:12.335348+00:00",
+      "sha256": "698975898fdd2b27d085d3815a0f647b5ea9d3d5456abaabf5fa3090cc77efe8",
+      "size": 135954,
+      "club": "3101",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/572/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:13.077247+00:00",
+      "sha256": "db6d88601eb1200d953f8c30ca5a4351a3ab90ab1bb6d71a806268a924c654b6",
+      "size": 284375,
+      "club": "572",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/572/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:13.837063+00:00",
+      "sha256": "8cab290040994cf2073b65e89019d7b7515f23e10d735b0f7ec769f7d82f8439",
+      "size": 135542,
+      "club": "572",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/7853/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:14.588126+00:00",
+      "sha256": "f9c208e01fcb8e4fdc94064ff59ad7114d809e2000535ccea47ba8925ca0025b",
+      "size": 281822,
+      "club": "7853",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/7853/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:15.364368+00:00",
+      "sha256": "d7a19347f6c943749bd7014dea45e7bf0b710fee80a1a7419256fca6015bf67a",
+      "size": 134095,
+      "club": "7853",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/909/schedule?season=2025",
+      "retrieved_at": "2026-11-26T09:49:16.074607+00:00",
+      "sha256": "69b46867a4904a03efe549aa296e817d82cef2f302ccc8c4ba61399af273a33d",
+      "size": 290703,
+      "club": "909",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/909/schedule?season=2026",
+      "retrieved_at": "2026-11-26T09:49:16.839639+00:00",
+      "sha256": "c5817a944fd2b8a5a3cc162db7ede69b5d70bc5aa20d14cad741b4922b27f8a2",
+      "size": 135512,
+      "club": "909",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://football-data.co.uk/new/SWZ.csv",
+      "retrieved_at": "2026-11-26T09:49:18.979371+00:00",
+      "sha256": "fb5144c1be0784d1ca5b084e9a728ad4a7a51a0a1c5ab6a547aed5c7dbf43788",
+      "size": 367537,
+      "league": "ch.1",
+      "clubs": [
+        "3024",
+        "7672"
+      ],
+      "matches": 312,
+      "identity_evidence": {
+        "3024": "https://matchcenter-sfl.football.ch/Default.aspx?a=rr&lng=1&oid=2&v=877701",
+        "7672": "https://matchcenter-sfl.football.ch/Default.aspx?a=rr&lng=1&oid=2&v=877701"
+      }
+    },
+    {
+      "url": "https://football-data.co.uk/new/POL.csv",
+      "retrieved_at": "2026-11-26T09:49:20.457279+00:00",
+      "sha256": "b44dd15fe31290f0de52c30ac430727307ba75a27dc4d8b77e3513dbee632648",
+      "size": 563025,
+      "league": "pl.1",
+      "clubs": [
+        "11505",
+        "2990"
+      ],
+      "matches": 439,
+      "identity_evidence": {
+        "11505": "https://ekstraklasa.org/en/match/0ac80736-4d3f-49ed-8dbb-83f761fd833d/cracovia-jagiellonia-bialystok/live/",
+        "2990": "https://ekstraklasa.org/mecz/2143d594-ad18-427c-b526-2e43c2fd1ea3/gks-katowice-lech-poznan/przeglad/"
+      }
+    },
+    {
+      "url": "https://football-data.co.uk/new/FIN.csv",
+      "retrieved_at": "2026-11-26T09:49:21.639054+00:00",
+      "sha256": "ba7c6e03e4233f448c301afbc08edf384e052608c0c3d100a38f26e045d902c2",
+      "size": 331639,
+      "league": "fi.1",
+      "clubs": [
+        "8169"
+      ],
+      "matches": 356,
+      "identity_evidence": {
+        "8169": "https://www.veikkausliiga.com/joukkueet/kups/otteluohjelma"
+      }
+    },
+    {
+      "url": "https://football-data.co.uk/new/ROU.csv",
+      "retrieved_at": "2026-11-26T09:49:23.054274+00:00",
+      "sha256": "dcd31bcd1c6238e699332b646c368ef4e78e41c492e532a7cbc9686257f211ab",
+      "size": 577588,
+      "league": "ro.1",
+      "clubs": [
+        "8089"
+      ],
+      "matches": 449,
+      "identity_evidence": {
+        "8089": "https://www.superliga.ro/meci/superliga-26-27-regular-uta-ucv?sectiune=cronica"
+      }
+    }
+  ],
+  "cup_team_history_errors": [],
+  "capture_cache_hits": 0,
+  "capture_network_requests": 51,
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-26T09:47:24.068548+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

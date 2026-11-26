@@ -1,0 +1,1 @@
+{"error": "<urlopen error _ssl.c:1001: The handshake operation timed out>", "category": "TRANSPORT", "retry_after": "2026-11-26T09:53:46.979565+00:00", "content_schema": null, "failed_at": "2026-11-26T09:48:46.979565+00:00"}
