@@ -278,5 +278,45 @@
         }
       ]
     }
+  },
+  "2026-11-28": {
+    "de.2": {
+      "url": "https://datencenter.dfb.de/en/competitions/3/seasons/current/current_matchweek",
+      "official_local_time": "13:00",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T12:25:36.078705+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885044",
+          "team_ids": {
+            "home": "7017",
+            "away": "270"
+          },
+          "home": "Dynamo Dresden",
+          "away": "St. Pauli",
+          "kickoff_at": "2026-11-28T12:00:00+00:00"
+        },
+        {
+          "event_id": "401885046",
+          "team_ids": {
+            "home": "129",
+            "away": "4471"
+          },
+          "home": "Hertha Berlin",
+          "away": "Karlsruher SC",
+          "kickoff_at": "2026-11-28T12:00:00+00:00"
+        },
+        {
+          "event_id": "401885043",
+          "team_ids": {
+            "home": "7884",
+            "away": "130"
+          },
+          "home": "Holstein Kiel",
+          "away": "Kaiserslautern",
+          "kickoff_at": "2026-11-28T12:00:00+00:00"
+        }
+      ]
+    }
   }
 }
