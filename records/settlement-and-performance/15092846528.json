@@ -1,0 +1,29 @@
+{
+  "files": {
+    "settlement-cache/raw/1c27d39d2735b75f901cfddbaa289ff6a2fa0942c9ac8d28c712a8791f7541c4": "1c27d39d2735b75f901cfddbaa289ff6a2fa0942c9ac8d28c712a8791f7541c4",
+    "settlement-cache/raw/33c1eaa0bd951a5c0afc3b31813557da881bb2d9e2100d40dcfc863f63cca9d6": "33c1eaa0bd951a5c0afc3b31813557da881bb2d9e2100d40dcfc863f63cca9d6",
+    "settlement-cache/raw/3de35f4fc3afac67e73363e336deaab3f4f28d9834cd5faddfbede74ba3e3b7a": "3de35f4fc3afac67e73363e336deaab3f4f28d9834cd5faddfbede74ba3e3b7a",
+    "settlement-cache/raw/585e4493e582c242478b570f50dcdbae51884a26edca3f83a61952d4b62e4df0": "585e4493e582c242478b570f50dcdbae51884a26edca3f83a61952d4b62e4df0",
+    "settlement-cache/raw/591e999e911a667c48a2c985a0fffa67f9f764a517df20c021694c345c413675": "591e999e911a667c48a2c985a0fffa67f9f764a517df20c021694c345c413675",
+    "settlement-cache/raw/5d0cabdf24de07cb712987e4eff4ffec6b70598bf0c05d2f2a0c87f84be7799e": "5d0cabdf24de07cb712987e4eff4ffec6b70598bf0c05d2f2a0c87f84be7799e",
+    "settlement-cache/raw/5dbcf007e4718f741fc2b30bcafe968404e6c3188b253a43c168e52a552c74e9": "5dbcf007e4718f741fc2b30bcafe968404e6c3188b253a43c168e52a552c74e9",
+    "settlement-cache/raw/6c2b5ff23dbf3b29f4345997a572f5be3722f9f62dfce631e3a07a7cf66fae20": "6c2b5ff23dbf3b29f4345997a572f5be3722f9f62dfce631e3a07a7cf66fae20",
+    "settlement-cache/raw/6d068f7e07f5250d7b79319f95b208802624c5f5897f1d92c40f29aacf88f29e": "6d068f7e07f5250d7b79319f95b208802624c5f5897f1d92c40f29aacf88f29e",
+    "settlement-cache/raw/95f240429832b3eac1bde2a788533f8f2735e36dfe9e5ed302bdd4ff81a09202": "95f240429832b3eac1bde2a788533f8f2735e36dfe9e5ed302bdd4ff81a09202",
+    "settlement-cache/raw/b23084436f1dbe772d64264a993e0e3eed5c403a7d60b08612804295f3fa505b": "b23084436f1dbe772d64264a993e0e3eed5c403a7d60b08612804295f3fa505b",
+    "settlement-cache/raw/b6a239e8cb211a9a2078b51160f13a0e52ae34c77601871210f729f5bb68dd3a": "b6a239e8cb211a9a2078b51160f13a0e52ae34c77601871210f729f5bb68dd3a",
+    "settlement-cache/raw/dc5f40d511a6f7ca78b4ed08f60f46802ab1e4fc3dd875edbdf8415e77172b5d": "dc5f40d511a6f7ca78b4ed08f60f46802ab1e4fc3dd875edbdf8415e77172b5d",
+    "settlement-cache/raw/e509936063fc9235646f04c880b9bd484a6b7d66f04c7960cd2749d38eb5af6a": "e509936063fc9235646f04c880b9bd484a6b7d66f04c7960cd2749d38eb5af6a",
+    "settlement/outcomes.jsonl": "774ddb4e7d0af1fe999a9a409e6805783b3f5a248665368ea86d2988f2d3b88b",
+    "settlement/provisional-outcomes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "settlement/report.json": "20b8feb074577c7626a969a0849b6960935e372b2e833242be65363fcf4d021d",
+    "settlement/tracked-provisional-outcomes.jsonl": "7bf98633d768cc402f369cb8415934e27f1d65f6e8c5a37c9d79a1d7e7340efa",
+    "settlement/tracked-verified-outcomes.jsonl": "675f0d6ece92b5af8681ec93a4410e7a973676e64b48c2effc3c4b61219b7ddd"
+  },
+  "receipt": {
+    "created_at": "2026-11-26T06:25:48Z",
+    "digest": "sha256:c7eda4b4d5ecdbe53b6f81293ad892c5673615c81d6ee1dab3b4e5bdacd92238",
+    "id": 15092846528,
+    "name": "ex-prospective-settlement"
+  }
+}
