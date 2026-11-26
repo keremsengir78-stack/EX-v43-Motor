@@ -106,7 +106,7 @@ class ArchiveChainTests(unittest.TestCase):
             remaining, count = archive_history(root / "settled", [], cutoff, conflicts=conflicts,
                                                verified_outcomes=verified)
             self.assertNotIn(corrupt["event_id"], verified)
-            self.assertEqual(12, len(verified))
+            self.assertEqual(len(APPROVED_LEAGUES) - 1, len(verified))
             self.assertEqual({corrupt["event_id"]}, conflicts)
-            self.assertEqual(12, count)
-            self.assertEqual(12, len(remaining))
+            self.assertEqual(len(APPROVED_LEAGUES) - 1, count)
+            self.assertEqual(len(APPROVED_LEAGUES) - 1, len(remaining))

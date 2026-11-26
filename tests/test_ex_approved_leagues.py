@@ -15,9 +15,9 @@ class ApprovedLeaguesTests(unittest.TestCase):
         self.assertEqual((dt.date(2025, 7, 1), dt.date(2024, 7, 1)), season_bounds("nl.2", day))
         self.assertEqual((dt.date(2025, 1, 1), dt.date(2026, 1, 1)), season_range("no.1", "2025"))
 
-    def test_approved_scope_covers_all_13_competitions(self):
+    def test_approved_scope_covers_all_15_competitions(self):
         result = coverage({"leagues": {}})
-        self.assertEqual(13, len(APPROVED_LEAGUES))
+        self.assertEqual(15, len(APPROVED_LEAGUES))
         self.assertEqual([], result["approved_scope_gaps"])
         for code in APPROVED_LEAGUES:
             self.assertTrue(result["registered_leagues"][code]["main_ingestion"])

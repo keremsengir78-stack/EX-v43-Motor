@@ -1,3 +1,4 @@
+from ex_leagues import UEFA_CUPS
 """Parallel alternative domestic archive capture; research only."""
 import json, hashlib, urllib.request
 from pathlib import Path

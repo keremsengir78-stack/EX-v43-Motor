@@ -18,7 +18,11 @@ APPROVED_LEAGUES = {
     "be.1": ("Belgium Pro League", "bel.1", 7, "openfootball"),
     "no.1": ("Norway Eliteserien", "nor.1", 1, "espn"),
     "UCL": ("UEFA Champions League", "uefa.champions", 7, "espn"),
+    "UEL": ("UEFA Europa League", "uefa.europa", 7, "espn"),
+    "UECL": ("UEFA Conference League", "uefa.europa.conf", 7, "espn"),
 }
+
+UEFA_CUPS = frozenset(("UCL", "UEL", "UECL"))
 
 # Existing ingestion clients may still explicitly request Championship.
 LEGACY_INGESTION = {"en.2": "England Championship"}

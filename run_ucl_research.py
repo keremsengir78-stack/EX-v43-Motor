@@ -76,9 +76,9 @@ def capture_uefa(out, url):
     return raw, {**meta, "file": filename, "mode": "archived_excerpt", "live_http_status": live_status}
 
 
-def uefa_match_entries(raw, matchday):
+def uefa_match_entries(raw, matchday, competition_path="uefachampionsleague"):
     html = raw.decode("utf-8")
-    if b"fixtures-and-results-by-team/" in raw and "<pk-accordion-item" in html:
+    if competition_path == "uefachampionsleague" and b"fixtures-and-results-by-team/" in raw and "<pk-accordion-item" in html:
         anchors = (r'(\d{2}/\d{2}/\d{4})\s*<a href="[^"]*/uefachampionsleague/match/(\d+)--[^"]+"'
                    r'[^>]*>([^<]+)</a>\s*(?:\((\d{2}:\d{2})\))?')
         entries = {}
@@ -99,7 +99,7 @@ def uefa_match_entries(raw, matchday):
     days = re.split(r"<b>\w+ (\d+ [A-Za-z]+ \d{4})</b>", text)
     for day, section in zip(days[1::2], days[2::2]):
         when = dt.datetime.strptime(day, "%d %B %Y")
-        anchors = r'uefachampionsleague/match/[^"]+"[^>]*>([^<]+)</a>\s*(?:\((\d{2}:\d{2})\))?'
+        anchors = re.escape(competition_path) + r'/match/[^"]+"[^>]*>([^<]+)</a>\s*(?:\((\d{2}:\d{2})\))?'
         for name, clock in re.findall(anchors, section):
             yield when, " ".join(unescape(name).split()), clock
 

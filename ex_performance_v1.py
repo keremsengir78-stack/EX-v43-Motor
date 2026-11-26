@@ -8,7 +8,7 @@ from statistics import mean
 from ex_engine import W, distribution, poisson, weighted_form
 from ex_historical_features import market_labels
 from ex_history_archive import utc
-from ex_leagues import APPROVED_LEAGUES, season_bounds
+from ex_leagues import APPROVED_LEAGUES, UEFA_CUPS, season_bounds
 from ex_model_challengers import date_partitions
 from ex_research_components import metrics
 from ex_ucl_strength import fit_league_margins
@@ -17,7 +17,7 @@ from ex_component_experiment import weekly_interval
 REFERENCE = "EX-V43-POISSON"
 CANDIDATE = "EX-V43-PERFORMANCE-V1"
 EUROPE = {"uefa.champions", "uefa.europa", "uefa.europa.conf", "uefa.europa.conference"}
-DOMESTIC = {record[1]: league for league, record in APPROVED_LEAGUES.items() if league != "UCL"}
+DOMESTIC = {record[1]: league for league, record in APPROVED_LEAGUES.items() if league not in UEFA_CUPS}
 KEYS = {"2.5_UST": "over25", "KG_VAR": "btts", "MS1": "home_win", "MS2": "away_win"}
 
 

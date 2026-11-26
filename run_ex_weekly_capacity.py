@@ -1,4 +1,4 @@
-"""Count unique published fixtures for the 13 approved competitions."""
+"""Count unique published fixtures for approved competitions."""
 
 import argparse
 from collections import Counter, defaultdict
@@ -58,7 +58,7 @@ def collect(archive, start):
                 fixtures[event] = {"league": league, **info}
                 by_league[league] += 1
     return {"week_start": str(start), "by_league": {k: by_league[k] for k in APPROVED_LEAGUES},
-            "published_fixtures": len(fixtures), "boards_observed": len(sources),
+            "published_fixtures": len(fixtures), "boards_observed": len(sources), "boards_expected": 7 * len(APPROVED_LEAGUES),
             "board_failures": failures, "fixture_inventory_complete": not failures, "sources": sources,
             "fixtures": fixtures, "ex_final_allowed": False}
 

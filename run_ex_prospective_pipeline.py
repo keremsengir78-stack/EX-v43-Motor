@@ -7,7 +7,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
-from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews
+from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
@@ -272,7 +272,7 @@ def alternate_context(manifest, cache_root):
     return context, issues
 
 
-OFFICIAL_RESULT_HOSTS = {
+OFFICIAL_RESULT_HOSTS = {**{league: {"www.uefa.com"} for league in UEFA_NEW_CUPS},
     "de.1": {"www.bundesliga.com", "www.dfb.de"}, "de.2": {"www.bundesliga.com", "www.dfb.de"},
     "en.1": {"www.premierleague.com", "fantasy.premierleague.com"}, "en.2": {"www.efl.com"},
     "es.1": {"www.laliga.com"}, "it.1": {"www.legaseriea.it", "en.legaseriea.it"}, "fr.1": {"ligue1.com", "www.ligue1.com", "www.om.fr"},
@@ -591,7 +591,7 @@ def main():
 
             registry = json.loads(Path("config/ex_history_venues.json").read_text())
             registry.update(json.loads(Path("config/ex_pregame_venues.json").read_text()))
-            weather_archive = HistoryArchive(args.cache, 25, fetch=paced_download(.75))
+            weather_archive = HistoryArchive(args.cache, 25 * len(manifest["reports"]), fetch=paced_download(.75))
             for league, report in manifest["reports"].items():
                 for record in report["records"]:
                     event = record["event_id"]

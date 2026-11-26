@@ -1,3 +1,4 @@
+from ex_leagues import UEFA_CUPS
 """Capture domestic season scoreboards separately from UCL research."""
 import datetime as dt
 import json
@@ -13,7 +14,7 @@ def main():
     cutoff=dt.date.fromisoformat(CUTOFF)
     days = [(start_day + dt.timedelta(days=offset)).isoformat()
             for offset in range((cutoff - start_day).days)]
-    jobs = [(league, day) for league in ESPN_LEAGUES if league != "UCL"
+    jobs = [(league, day) for league in ESPN_LEAGUES if league not in UEFA_CUPS
             for day in days if league == "no.1" or day >= "2025-07-01"]
     def fetch(job):
         league,day=job

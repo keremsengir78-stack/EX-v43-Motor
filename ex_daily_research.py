@@ -10,7 +10,7 @@ from ex_decision import MARKETS, assess_market_value
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
-from ex_leagues import APPROVED_LEAGUES, season_bounds
+from ex_leagues import APPROVED_LEAGUES, UEFA_CUPS, season_bounds
 from ex_ucl_baseline import cross_league_baseline
 from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index, verified_bytes
 from run_ucl_research import UEFA_SNAPSHOT, uefa_fixtures
@@ -31,7 +31,7 @@ def domestic_snapshot(root):
     return rows, coverage, names, leagues, fixtures
 
 
-DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league != "UCL"}
+DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league not in UEFA_CUPS}
 
 
 def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None):
@@ -48,7 +48,7 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                         else row["finished"] <= row["captured_at"] < as_of)]
         current = {row["competition"] for row in history
                    if row["kickoff"].date() >= season_bounds(catalog[row["competition"]], cutoff)[0]}
-        if fixture["league"] != "UCL":
+        if fixture["league"] not in UEFA_CUPS:
             current.intersection_update({APPROVED_LEAGUES[fixture["league"]][1]})
         if len(current) != 1:
             return None
@@ -126,7 +126,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
             baseline = cross_league_baseline(*inputs, **kwargs)
             recomputed = baseline == cross_league_baseline(*inputs, **kwargs)
             baseline["history_scope"] = "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
-            if fixture["league"] != "UCL" and baseline.get("baseline"):
+            if fixture["league"] not in UEFA_CUPS and baseline.get("baseline"):
                 baseline["status"] = "UNCALIBRATED_SAME_LEAGUE_BASELINE"
     if fixture["league"] == "UCL" and snapshot and not (baseline or {}).get("baseline"):
         rows, _, names, leagues, fixtures = snapshot

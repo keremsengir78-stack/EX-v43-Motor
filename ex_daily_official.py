@@ -24,7 +24,11 @@ NORWAY = "https://www.eliteserien.no/resultater"
 TURKEY = "https://www.tff.org/default.aspx?pageID=198"
 TURKEY_DETAIL = "https://www.tff.org/Default.aspx?macID=317885&pageID=29"
 BELGIUM_EXTRA = "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupiler-pro-league-12-sv-zulte-waregem-vs-royal-antwerp-fc-703"
-OFFICIAL_LEAGUES = ("en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1", "be.1", "pt.1")
+UEFA_NEW_CUPS = {
+    "UEL": ("uefaeuropaleague", "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/"),
+    "UECL": ("uefaconferenceleague", "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/"),
+}
+OFFICIAL_LEAGUES = (*UEFA_NEW_CUPS, "en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1", "be.1", "pt.1")
 
 
 def norway_scores(raw, stamp):
@@ -121,7 +125,7 @@ def german_scores(league, fixtures, archive):
     return results, evidence
 
 
-def uefa_scores(raw, url, stamp):
+def uefa_scores(raw, url, stamp, competition_path="uefachampionsleague"):
     from run_ucl_research import uefa_match_entries
 
     output = []
@@ -129,7 +133,7 @@ def uefa_scores(raw, url, stamp):
     if not headings:
         raise ValueError("No UEFA matchday sections")
     for number in sorted(headings):
-        for when, text, _ in uefa_match_entries(raw, number):
+        for when, text, _ in uefa_match_entries(raw, number, competition_path):
             match = re.fullmatch(r"(.+?) (\d{1,2})-(\d{1,2}) (.+)", text)
             if not match or when.date() >= stamp.date():
                 continue
@@ -237,9 +241,10 @@ def archive_candidates(league, archive, fixtures=()):
         candidates, source = archive.get(MARSEILLE, lambda raw, stamp: marseille_scores(raw.decode(), stamp.isoformat()),
                                          max_age=ttl)
         return candidates, [source]
-    if league == "UCL":
-        url = json.loads(UEFA_CONFIG.read_text())["source"]
-        candidates, source = archive.get(url, lambda raw, stamp: uefa_scores(raw, url, stamp), max_age=ttl)
+    if league == "UCL" or league in UEFA_NEW_CUPS:
+        path, url = (UEFA_NEW_CUPS[league] if league in UEFA_NEW_CUPS else
+                     ("uefachampionsleague", json.loads(UEFA_CONFIG.read_text())["source"]))
+        candidates, source = archive.get(url, lambda raw, stamp: uefa_scores(raw, url, stamp, path), max_age=ttl)
         return candidates, [source]
     if league == "es.1":
         def discover(raw, stamp):

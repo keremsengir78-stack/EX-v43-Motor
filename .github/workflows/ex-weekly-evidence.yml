@@ -72,7 +72,7 @@ jobs:
           import json
           report = json.load(open("weekly/capacity.json"))
           print("## Weekly EX capacity (UTC)")
-          print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/91 | Reused: {report['cached_boards']} | Requests: {report['network_requests']}")
+          print(f"\nPublished: {report['published_fixtures']} | Boards: {report['boards_observed']}/{report['boards_expected']} | Reused: {report['cached_boards']} | Requests: {report['network_requests']}")
           window = report["capture_window"]
           print(f"\nCapture window opened: {window['opened']} | Not yet due: {window['not_due']}")
           print("\n| Competition | Published | Prematch | Venue5 | Domestic baseline | Full strength | Settled venue5 | Full model |")
