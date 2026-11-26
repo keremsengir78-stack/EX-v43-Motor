@@ -98,7 +98,7 @@ class DailyResearchTests(unittest.TestCase):
         rejected = daily_analysis(reversed_fixture, None, None, cutoff, board_evidence=board)
         self.assertEqual("UNVERIFIED", rejected["fixture_evidence"]["status"])
 
-    def test_cup_alias_requires_reviewed_event_ids_names_and_orientation(self):
+    def test_cup_alias_requires_reviewed_team_ids_names_and_orientation(self):
         from ex_daily_research import corroborated_fixture
 
         cutoff = utc("2026-11-26T09:00:00Z")
@@ -113,22 +113,25 @@ class DailyResearchTests(unittest.TestCase):
         evidence = ({(kickoff, "necnijmegen", "rennes")}, meta)
         result = corroborated_fixture(fixture, board, cutoff, evidence)
         self.assertEqual("FIXTURE_CROSS_VERIFIED", result["status"])
-        self.assertIn("identity_review", result)
-        for changed in ({"event_id": "401915504"}, {"team_ids": {"home": "169", "away": "147"}},
+        self.assertIn("identity_reviews", result)
+        self.assertEqual("FIXTURE_CROSS_VERIFIED", corroborated_fixture(
+            {**fixture, "event_id": "new-event"}, board, cutoff, evidence)["status"])
+        for changed in ({"team_ids": {"home": "169", "away": "147"}},
                         {"away": "Different Club"}, {"kickoff_at": "2026-11-26T19:00:00Z"}):
             self.assertEqual("UNVERIFIED", corroborated_fixture(
                 {**fixture, **changed}, board, cutoff, evidence)["status"])
 
     def test_reviewed_conference_names_use_the_same_normalization_as_scoreboards(self):
-        from ex_daily_research import REVIEWED_CUP_IDENTITIES
+        from ex_team_identity import team_identities
 
-        for event, ids, names in (
-            ("401915815", ("139", "3024"), ("Ajax Amsterdam", "FC Thun")),
-            ("401915801", ("126", "152"), ("SC Freiburg", "FC Twente")),
+        identities = team_identities()
+        for club, display, uefa in (
+            ("139", "Ajax Amsterdam", "Ajax"), ("3024", "FC Thun", "Thun"),
+            ("126", "SC Freiburg", "Freiburg"), ("152", "FC Twente", "Twente"),
         ):
-            with self.subTest(event=event):
-                expected, _ = REVIEWED_CUP_IDENTITIES[("UECL", event, *ids)]
-                self.assertEqual(expected, tuple(map(norm, names)))
+            with self.subTest(club=club):
+                self.assertEqual(norm(display), norm(identities[club]["espn_name"]))
+                self.assertEqual(norm(uefa), identities[club]["uefa_alias"])
 
     def test_quote_fallback_is_market_scoped_and_does_not_substitute_line(self):
         from run_ex_prospective_pipeline import market_quote_chain
@@ -144,6 +147,7 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual(["MS1", "2.5_UST"], [offer["market"] for offer in offers])
         self.assertNotIn("MS1", attempts[-1]["requested_markets"])
         self.assertEqual([], attempts[1]["found_markets"])
+        self.assertEqual("WRONG_TOTAL_LINE", attempts[1]["unresolved"]["2.5_UST"])
         self.assertEqual(["2.5_UST"], attempts[-1]["found_markets"])
 
     def test_official_briefing_fallback_rechecks_dated_fixture_and_records_failure(self):
@@ -166,3 +170,18 @@ class DailyResearchTests(unittest.TestCase):
         evidence, errors = cup_fixture_chain(FakeArchive(), "UEL", "2026-11-26", 2)
         self.assertIsNone(evidence)
         self.assertEqual(2, len(errors))
+
+    def test_quote_at_analysis_cutoff_cannot_prevent_valid_fallback(self):
+        from run_ex_prospective_pipeline import market_quote_chain
+
+        cutoff = utc("2026-11-26T09:00:00Z")
+        source = {"url": "https://site.api.espn.com/scoreboard",
+                  "retrieved_at": cutoff.isoformat(), "sha256": "1" * 64}
+        offer = [{"provider": {"name": "Example sportsbook"},
+                  "total": {"over": {"close": {"line": "o2.5", "odds": "+110"}}}}]
+        summary_source = {**source, "retrieved_at": "2026-11-26T08:59:00Z"}
+        quotes, attempts = market_quote_chain(offer, source, {"pickcenter": offer}, summary_source,
+                                             "2026-11-26T20:00:00Z", as_of=cutoff)
+        self.assertEqual([summary_source["retrieved_at"]], [q["observed_at"] for q in quotes])
+        self.assertEqual("TIMESTAMP_OUTSIDE_ANALYSIS", attempts[0]["unresolved"]["2.5_UST"])
+        self.assertEqual("EMPTY_PAYLOAD", attempts[1]["unresolved"]["2.5_UST"])

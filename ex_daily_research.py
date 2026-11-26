@@ -10,6 +10,7 @@ from ex_decision import MARKETS, assess_market_value
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
+from ex_team_identity import team_identities
 from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
 from ex_ucl_baseline import cross_league_baseline
 from run_ucl_baselines import CUTOFF, FIXTURE_CONFIG, captured_rows, select_rows, team_index, verified_bytes
@@ -88,18 +89,6 @@ def official_ucl_index():
     return metadata, canonical, indexed
 
 
-# Exact identities reviewed against ESPN and UEFA raw bodies in this archive record.
-REVIEWED_ALIAS_EVIDENCE = (
-    "https://github.com/keremsengir78-stack/EX-v43-Motor/blob/df9fc98/"
-    "records/manual-pregame-review/20261126T072324Z.json"
-)
-REVIEWED_CUP_IDENTITIES = {
-    ("UEL", "401915505", "147", "169"): (("necnijmegen", "staderennais"), ("necnijmegen", "rennes")),
-    ("UECL", "401915815", "139", "3024"): (("ajaxamsterdam", "thun"), ("ajax", "thun")),
-    ("UECL", "401915801", "126", "152"): (("scfreiburg", "twente"), ("freiburg", "twente")),
-}
-
-
 def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
     result = {"status": "UNVERIFIED", "scope": "FIXTURE_IDENTITY_ONLY", "sources": []}
     if (fixture["league"] != "UCL" and cup_evidence is None) or not board:
@@ -116,15 +105,31 @@ def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
     home, away = (aliases.get(norm(fixture[side]), norm(fixture[side])) for side in ("home", "away"))
     kickoff = utc(fixture["kickoff_at"])
     ids = fixture.get("team_ids") or {}
-    reviewed = REVIEWED_CUP_IDENTITIES.get((fixture["league"], fixture.get("event_id"),
-                                           ids.get("home"), ids.get("away"))) if cup_evidence else None
-    reviewed_match = reviewed and (home, away) == reviewed[0] and (kickoff, *reviewed[1]) in index
-    if reviewed_match:
-        home, away = reviewed[1]
+    reviews = set()
+    if cup_evidence:
+        mapped = []
+        registry = team_identities()
+        for side, name in (("home", home), ("away", away)):
+            record = registry.get(ids.get(side))
+            claimants = {club for club, entry in registry.items()
+                         if entry["observed"] < as_of and name == norm(entry["espn_name"])}
+            if claimants and ids.get(side) not in claimants:
+                return result
+            if record and record["observed"] < as_of:
+                if name != norm(record["espn_name"]):
+                    return result
+                if name != record["uefa_alias"]:
+                    reviews.add(record["review"])
+                name = record["uefa_alias"]
+            mapped.append(name)
+        if (kickoff, *mapped) in index:
+            home, away = mapped
+        else:
+            reviews.clear()
     if utc(metadata["retrieved_at"]) < as_of < kickoff and (kickoff, home, away) in index:
         result.update(status="FIXTURE_CROSS_VERIFIED", sources=[board, metadata])
-        if reviewed_match:
-            result["identity_review"] = REVIEWED_ALIAS_EVIDENCE
+        if reviews:
+            result["identity_reviews"] = sorted(reviews)
     return result
 
 

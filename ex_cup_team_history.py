@@ -8,7 +8,11 @@ import json
 from ex_history_archive import BudgetExhausted, source_error
 from ex_history_sources import ESPN, teams
 from ex_history_archive import utc
-from ex_leagues import CALENDAR_YEAR_LEAGUES, CUP_HISTORY_SLUGS, season_bounds
+from ex_leagues import APPROVED_LEAGUES, CALENDAR_YEAR_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
+from ex_team_identity import team_identities
+
+DOMESTIC_SLUGS = {key: value[1] for key, value in APPROVED_LEAGUES.items()
+                  if key not in UEFA_CUPS} | CUP_HISTORY_SLUGS
 
 # These ESPN IDs are the same IDs published in the cup fixture. A schedule
 # must still independently identify that club, league and requested season.
@@ -43,7 +47,7 @@ TEAM_LEAGUES.update({team: entry[0] for team, entry in CSV_CLUBS.items()})
 
 def csv_facts(raw, stamp, league, day, clubs):
     _, country, competition = CSV_LEAGUES[league]
-    slug = CUP_HISTORY_SLUGS[league]
+    slug = DOMESTIC_SLUGS[league]
     aliases = {CSV_CLUBS[club][1]: club for club in clubs}
     seasons = {(str(start.year) if league in CALENDAR_YEAR_LEAGUES else
                 f"{start.year}/{start.year+1}"): start.year for start in season_bounds(league, day)}
@@ -82,7 +86,7 @@ def csv_facts(raw, stamp, league, day, clubs):
 
 def schedule_facts(raw, stamp, club, league, season):
     payload = json.loads(raw)
-    slug = CUP_HISTORY_SLUGS[league]
+    slug = DOMESTIC_SLUGS[league]
     if payload["team"]["id"] != club or payload["requestedSeason"]["year"] != season:
         raise ValueError("Domestic schedule team or season mismatch")
     matches = {}
@@ -111,24 +115,43 @@ def schedule_facts(raw, stamp, club, league, season):
     return list(matches.values())
 
 
+def reviewed_schedule_plan(day, as_of):
+    plan = {club: {start.year: league for start in season_bounds(league, day)}
+            for club, league in TEAM_LEAGUES.items()}
+    for club, entry in team_identities().items():
+        if entry["observed"] >= as_of:
+            continue
+        for season, league in entry["memberships"].items():
+            if season in {start.year for start in season_bounds(league, day)}:
+                known = plan.setdefault(club, {}).get(season)
+                if known is not None and known != league:
+                    raise ValueError("Conflicting domestic source membership")
+                plan[club][season] = league
+    return plan
+
+
 def collect_cup_history(archive, manifest):
-    clubs = {club for league in ("UEL", "UECL")
+    clubs = {club for league in UEFA_CUPS
              for fixture in manifest["reports"].get(league, {}).get("records", [])
-             for club in fixture["teams"].values() if club in TEAM_LEAGUES}
+             for club in fixture["teams"].values()}
     facts, sources, issues = [], [], []
     day = utc(manifest["day"] + "T00:00:00Z").date()
-    for club in sorted(clubs - CSV_CLUBS.keys()):
-        league = TEAM_LEAGUES[club]
-        for start in season_bounds(league, day):
-            url = f"{ESPN}/{CUP_HISTORY_SLUGS[league]}/teams/{club}/schedule?season={start.year}"
+    plan = reviewed_schedule_plan(day, archive.clock())
+    for club in sorted((clubs & plan.keys()) - CSV_CLUBS.keys()):
+        for season, league in sorted(plan[club].items()):
+            url = f"{ESPN}/{DOMESTIC_SLUGS[league]}/teams/{club}/schedule?season={season}"
             try:
-                rows, source = archive.get(url, lambda raw, stamp: schedule_facts(raw, stamp, club, league, start.year),
+                rows, source = archive.get(url, lambda raw, stamp: schedule_facts(raw, stamp, club, league, season),
                                            max_age=timedelta(hours=20))
             except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
                 issues.append(source_error("cup_domestic_schedule", url, exc))
                 continue
+            if not rows:
+                issues.append({"category": "NO_FINALIZED_SEASON_MATCHES", "url": url, "club": club,
+                               "season": season, "league": league})
+                continue
             facts.extend(rows)
-            sources.append({**source, "club": club, "league": league, "season": start.year, "matches": len(rows)})
+            sources.append({**source, "club": club, "league": league, "season": season, "matches": len(rows)})
     for league, (file, _, _) in CSV_LEAGUES.items():
         selected = sorted(club for club in clubs if club in CSV_CLUBS and TEAM_LEAGUES[club] == league)
         if not selected:

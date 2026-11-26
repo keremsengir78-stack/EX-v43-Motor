@@ -54,3 +54,28 @@ class CupTeamHistoryTests(unittest.TestCase):
         value, audit = weighted_form([*current, previous], "987", "away", cutoff, "no.1", start, prior)
         self.assertIsNone(value)
         self.assertEqual([5, 10, 10, 0], audit["counts"])
+
+    def test_schedule_plan_does_not_backfill_review_across_seasons(self):
+        from ex_cup_team_history import reviewed_schedule_plan
+
+        day = date(2026, 11, 26)
+        earlier = utc("2026-11-26T07:20:00Z")
+        later = utc("2026-11-26T08:00:00Z")
+        self.assertNotIn("147", reviewed_schedule_plan(day, earlier))
+        plan = reviewed_schedule_plan(day, later)
+        self.assertEqual({2026: "nl.1"}, plan["147"])
+        self.assertEqual({2025: "se.1", 2026: "se.1"}, plan["20301"])
+
+    def test_identity_catalog_accepts_promotions_and_rejects_conflicting_membership(self):
+        from ex_team_identity import index_identities
+
+        memberships = [{"season": 2025, "league": "nl.2"}, {"season": 2026, "league": "nl.1"}]
+        row = {"espn_id": "42", "espn_name": "Alpha FC", "uefa_name": "Alpha",
+               "country": "NL", "evidence": "review", "domestic": memberships}
+        doc = {"evidence": {"review": {"source": "https://example.org/evidence",
+                                       "observed_at": "2026-11-26T07:20:00Z"}}, "teams": [row]}
+        self.assertEqual({2025: "nl.2", 2026: "nl.1"}, index_identities(doc)["42"]["memberships"])
+        with self.assertRaisesRegex(ValueError, "Ambiguous UEFA"):
+            index_identities({**doc, "teams": [row, {**row, "espn_id": "43"}]})
+        with self.assertRaisesRegex(ValueError, "conflicting domestic"):
+            index_identities({**doc, "teams": [{**row, "domestic": [*memberships, memberships[0]]}]})

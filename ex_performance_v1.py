@@ -194,7 +194,10 @@ def experiment(facts):
                 and r["finished"].date() == r["kickoff"].date()]
     examples = [(r["kickoff"].date(), r, f) for r, f in replay(facts, eligible)]
     parts = date_partitions(examples)
-    result = {"eligible": len(examples), "production_allowed": False}
+    result = {"eligible": len(examples), "production_allowed": False,
+              "cohort_flow": {"archive_records": len(facts),
+                              "excluded_missing_score_or_non_same_day_finish": len(facts) - len(eligible),
+                              "excluded_no_complete_prematch_replay": len(eligible) - len(examples)}}
     if not parts:
         return result
     train, valid, test = parts

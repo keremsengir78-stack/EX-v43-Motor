@@ -1,13 +1,14 @@
 """Create and settle a prospective research ledger using immutable archive inputs."""
 
 import argparse
+from collections import Counter
 import datetime as dt
 import json
 from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
-from ex_cup_team_history import collect_cup_history, TEAM_LEAGUES
+from ex_cup_team_history import collect_cup_history, reviewed_schedule_plan
 from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, UEFA_BRIEFINGS, cup_fixture_index, cup_briefing_index
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
@@ -69,7 +70,7 @@ def cup_fixture_chain(archive, league, day, cutoff_count):
     return None, errors
 
 
-def market_quote_chain(board_odds, board, payload, summary_source, kickoff):
+def market_quote_chain(board_odds, board, payload, summary_source, kickoff, *, as_of=None):
     """Try secondary quote payloads only for markets the earlier payload lacks."""
     quotes, attempts = [], []
     for field, values, source in (
@@ -80,10 +81,26 @@ def market_quote_chain(board_odds, board, payload, summary_source, kickoff):
         missing = set(MARKETS) - {quote["market"] for quote in quotes}
         if not missing:
             break
-        found = [quote for quote in market_quotes(values, source, kickoff) if quote["market"] in missing]
+        lines = set()
+        parsed = market_quotes(values, source, kickoff, observed_lines=lines)
+        found = [quote for quote in parsed if quote["market"] in missing
+                 and (as_of is None or utc(quote["observed_at"]) < as_of)]
+        reasons = {}
+        for market in sorted(missing - {quote["market"] for quote in found}):
+            if not values:
+                reason = "EMPTY_PAYLOAD"
+            elif market == "2.5_UST" and lines and "o2.5" not in lines:
+                reason = "WRONG_TOTAL_LINE"
+            elif any(quote["market"] == market for quote in parsed):
+                reason = "TIMESTAMP_OUTSIDE_ANALYSIS"
+            else:
+                reason = "NO_VALID_EXACT_MARKET"
+            reasons[market] = reason
         quotes.extend(found)
         attempts.append({"payload": field, "requested_markets": sorted(missing),
-                         "found_markets": sorted({quote["market"] for quote in found})})
+                         "found_markets": sorted({quote["market"] for quote in found}),
+                         "unresolved": reasons, "observed_total_lines": sorted(lines),
+                         "source": source["url"], "observed_at": source["retrieved_at"]})
     return quotes, attempts
 
 
@@ -198,7 +215,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                 "confirmed_lineup_required": False, "individual_international_break_required": False,
                                 "recent_schedule_issue": workload_issue}
                 quotes, observations["odds_source_attempts"] = market_quote_chain(
-                    match.get("odds") or event.get("odds"), board_source, payload, source, kickoff.isoformat())
+                    match.get("odds") or event.get("odds"), board_source, payload, source, kickoff.isoformat(),
+                    as_of=now)
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
                                             board_evidence=board_source, component_model=component_model,
@@ -663,8 +681,9 @@ def main():
                 cup_sources[league] = evidence
             if errors:
                 cup_source_errors[league] = errors
+        plan = reviewed_schedule_plan(dt.date.fromisoformat(manifest["day"]), archive.clock())
         team_history, team_sources, team_history_errors = collect_cup_history(
-            HistoryArchive(args.cache, 2 * len(TEAM_LEAGUES), fetch=paced_download(.75)), manifest)
+            HistoryArchive(args.cache, 2 * len(plan), fetch=paced_download(.75)), manifest)
         # Establish the cutoff after all source acquisition and integrity verification.
         cutoff = archive.clock()
         reused = 0
@@ -742,6 +761,9 @@ def main():
                                                 bool((row["domestic_research"] or {}).get("baseline")) or
                                                 any(p["components"]["team_strength"]["score"] is not None
                                                     for p in row["component_research"].values()) for row in daily),
+                  "market_blockers": dict(Counter(
+                      issue for row in daily for result in row["auto_control_by_market"].values()
+                      for issue in result["issues"])),
                   "historical_events_quarantined": sorted(history_conflicts),
                   "weather_sources_observed": len(weather), "weather_errors": weather_errors,
                   "capture_source_errors": manifest.get("errors", []),

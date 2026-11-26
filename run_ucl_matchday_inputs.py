@@ -26,7 +26,7 @@ def timestamp(value):
     return parsed
 
 
-def market_quotes(odds, metadata, kickoff):
+def market_quotes(odds, metadata, kickoff, *, observed_lines=None):
     def object_at(node, *keys):
         for key in keys:
             node = node.get(key) if isinstance(node, dict) else None
@@ -38,6 +38,8 @@ def market_quotes(odds, metadata, kickoff):
         home = object_at(quote, "moneyline", "home", "close")
         away = object_at(quote, "moneyline", "away", "close")
         over = object_at(quote, "total", "over", "close")
+        if observed_lines is not None and isinstance(over.get("line"), str):
+            observed_lines.add(over["line"])
         selections = {"MS1": home, "MS2": away}
         if over.get("line") == "o2.5":
             selections["2.5_UST"] = over
