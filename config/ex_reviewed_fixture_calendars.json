@@ -1,0 +1,282 @@
+{
+  "2026-11-27": {
+    "tr.1": {
+      "url": "https://www.tff.org/Default.aspx?hafta=11&hafta=8&kulupID=132&pageId=198",
+      "official_local_time": "20:00",
+      "official_utc_offset_hours": 3,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401888241",
+          "team_ids": {
+            "home": "9078",
+            "away": "7648"
+          },
+          "home": "Alanyaspor",
+          "away": "Konyaspor",
+          "kickoff_at": "2026-11-27T17:00:00+00:00"
+        },
+        {
+          "event_id": "401888240",
+          "team_ids": {
+            "home": "7656",
+            "away": "6870"
+          },
+          "home": "Caykur Rizespor",
+          "away": "Kasimpasa",
+          "kickoff_at": "2026-11-27T17:00:00+00:00"
+        }
+      ]
+    },
+    "en.1": {
+      "url": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
+      "official_local_time": "20:00",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401879225",
+          "team_ids": {
+            "home": "393",
+            "away": "363"
+          },
+          "home": "Nottingham Forest",
+          "away": "Chelsea",
+          "kickoff_at": "2026-11-27T20:00:00+00:00"
+        }
+      ]
+    },
+    "de.1": {
+      "url": "https://products.bundesliga.com/fixtures",
+      "official_local_time": "20:30",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401884720",
+          "team_ids": {
+            "home": "137",
+            "away": "268"
+          },
+          "home": "Werder Bremen",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_at": "2026-11-27T19:30:00+00:00"
+        }
+      ]
+    },
+    "de.2": {
+      "url": "https://datencenter.dfb.de/en/competitions/3/seasons/current/current_matchweek",
+      "official_local_time": "18:30",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885047",
+          "team_ids": {
+            "home": "6418",
+            "away": "269"
+          },
+          "home": "1. FC Heidenheim 1846",
+          "away": "1. FC Nürnberg",
+          "kickoff_at": "2026-11-27T17:30:00+00:00"
+        },
+        {
+          "event_id": "401885045",
+          "team_ids": {
+            "home": "121",
+            "away": "3812"
+          },
+          "home": "VfL Bochum",
+          "away": "SV Darmstadt 98",
+          "kickoff_at": "2026-11-27T17:30:00+00:00"
+        }
+      ]
+    },
+    "es.1": {
+      "url": "https://www.laliga.com/noticias/horarios-de-la-decimocuarta-jornada-de-laliga-ea-sports-2026-27",
+      "official_local_time": "21:00",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401882791",
+          "team_ids": {
+            "home": "1538",
+            "away": "87"
+          },
+          "home": "Levante",
+          "away": "Racing Santander",
+          "kickoff_at": "2026-11-27T20:00:00+00:00"
+        }
+      ]
+    },
+    "it.1": {
+      "url": "https://en.legaseriea.it/serie-a/fixtures-results",
+      "official_local_time": "19:45",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875004",
+          "team_ids": {
+            "home": "17530",
+            "away": "107"
+          },
+          "home": "Venezia",
+          "away": "Bologna",
+          "kickoff_at": "2026-11-27T19:45:00+00:00"
+        }
+      ]
+    },
+    "fr.1": {
+      "url": "https://parisfc.fr/match-center/men/118501/2026-11-27/brest-vs-paris-fc-ligue-1-mcdonalds/",
+      "official_local_time": "20:45",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401876392",
+          "team_ids": {
+            "home": "6997",
+            "away": "6851"
+          },
+          "home": "Brest",
+          "away": "Paris FC",
+          "kickoff_at": "2026-11-27T19:45:00+00:00"
+        }
+      ]
+    },
+    "nl.1": {
+      "url": "https://www.knvb.nl/competities/eredivisie/programma",
+      "official_local_time": "20:00",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875536",
+          "team_ids": {
+            "home": "145",
+            "away": "156"
+          },
+          "home": "FC Groningen",
+          "away": "Willem II",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        }
+      ]
+    },
+    "nl.2": {
+      "url": "https://www.knvb.nl/competities/keuken-kampioen-divisie/programma",
+      "official_local_time": "20:00",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401875834",
+          "team_ids": {
+            "home": "4426",
+            "away": "154"
+          },
+          "home": "FC Dordrecht",
+          "away": "Vitesse",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401875833",
+          "team_ids": {
+            "home": "10597",
+            "away": "3708"
+          },
+          "home": "Jong Ajax",
+          "away": "Heracles Almelo",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401875832",
+          "team_ids": {
+            "home": "18748",
+            "away": "3728"
+          },
+          "home": "Jong AZ",
+          "away": "TOP Oss",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401875831",
+          "team_ids": {
+            "home": "18278",
+            "away": "5291"
+          },
+          "home": "Jong FC Utrecht",
+          "away": "Almere City",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401875830",
+          "team_ids": {
+            "home": "3730",
+            "away": "9983"
+          },
+          "home": "MVV Maastricht",
+          "away": "Jong PSV",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401875829",
+          "team_ids": {
+            "home": "141",
+            "away": "271"
+          },
+          "home": "NAC Breda",
+          "away": "FC Den Bosch",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        },
+        {
+          "event_id": "401876061",
+          "team_ids": {
+            "home": "3731",
+            "away": "155"
+          },
+          "home": "VVV-Venlo",
+          "away": "RKC Waalwijk",
+          "kickoff_at": "2026-11-27T19:00:00+00:00"
+        }
+      ]
+    },
+    "pt.1": {
+      "url": "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/12/5",
+      "official_local_time": "20:15",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885389",
+          "team_ids": {
+            "home": "552",
+            "away": "3472"
+          },
+          "home": "Maritimo",
+          "away": "C.D. Nacional",
+          "kickoff_at": "2026-11-27T20:15:00+00:00"
+        }
+      ]
+    },
+    "be.1": {
+      "url": "https://www.kvk.be/nieuws/update-kalender-2627/",
+      "official_local_time": "20:45",
+      "official_utc_offset_hours": 1,
+      "reviewed_at": "2026-11-26T11:04:07.385604+00:00",
+      "fixtures": [
+        {
+          "event_id": "401878930",
+          "team_ids": {
+            "home": "5579",
+            "away": "5786"
+          },
+          "home": "OH Leuven",
+          "away": "KV Kortrijk",
+          "kickoff_at": "2026-11-27T19:45:00+00:00"
+        }
+      ]
+    }
+  }
+}

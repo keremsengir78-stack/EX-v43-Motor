@@ -1,8 +1,11 @@
 """Keep date-granular domestic UCL baselines outside the frozen holdout ledger."""
 
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 import json
+import re
 from functools import lru_cache
+from pathlib import Path
+from urllib.parse import urlsplit
 
 from ex_auto_control import auto_control
 from ex_cross_verify import norm
@@ -104,13 +107,49 @@ def official_ucl_index():
     return metadata, canonical, indexed
 
 
+@lru_cache(maxsize=1)
+def reviewed_fixture_calendars():
+    path = Path(__file__).with_name("config") / "ex_reviewed_fixture_calendars.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def reviewed_fixture_source(fixture, board, as_of):
+    """Join a source-owned calendar review to the exact provider-board identity."""
+    review = reviewed_fixture_calendars().get(fixture["date"], {}).get(fixture["league"])
+    if not review:
+        return None
+    url = urlsplit(review["url"])
+    reviewed = utc(review["reviewed_at"])
+    if (url.scheme != "https" or not url.hostname or url.username or url.password
+            or not re.fullmatch(r"[0-9a-f]{64}", board.get("sha256", ""))
+            or url.hostname == urlsplit(board["url"]).hostname
+            or not reviewed < as_of < utc(fixture["kickoff_at"])):
+        return None
+    wall_time = datetime.fromisoformat(f"{fixture['date']}T{review['official_local_time']}")
+    offset = timezone(timedelta(hours=review["official_utc_offset_hours"]))
+    if wall_time.replace(tzinfo=offset) != utc(fixture["kickoff_at"]):
+        return None
+    keys = ("event_id", "team_ids", "home", "away", "kickoff_at")
+    if sum(all(fixture.get(key) == match[key] for key in keys) for match in review["fixtures"]) != 1:
+        return None
+    return {"url": review["url"], "reviewed_at": review["reviewed_at"],
+            "kind": "REVIEWED_OFFICIAL_FIXTURE_CALENDAR"}
+
+
 def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
     result = {"status": "UNVERIFIED", "scope": "FIXTURE_IDENTITY_ONLY", "sources": []}
-    if (fixture["league"] != "UCL" and cup_evidence is None) or not board:
+    if not board:
         return result
     status = check_fixture(fixture, as_of.isoformat())
     if (status["status"] != "VERIFIED_INPUT" or board["url"] != fixture["fixture_source"]
             or utc(board["retrieved_at"]) != utc(fixture["fixture_checked_at"])):
+        return result
+    if fixture["league"] not in UEFA_CUPS and cup_evidence is None:
+        reviewed = reviewed_fixture_source(fixture, board, as_of)
+        if reviewed:
+            result.update(status="FIXTURE_CROSS_VERIFIED", sources=[board, reviewed])
+        return result
+    if fixture["league"] != "UCL" and cup_evidence is None:
         return result
     if cup_evidence:
         index, metadata = cup_evidence

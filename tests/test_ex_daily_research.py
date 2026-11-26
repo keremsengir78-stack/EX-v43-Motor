@@ -218,3 +218,24 @@ class DailyResearchTests(unittest.TestCase):
                                  ingestion_review=reversed_review, observations={"roster_payload_observed": True})
         self.assertIn("ingestion:blocked", blocked["auto_control"]["issues"])
         self.assertIn("context:unverified", blocked["auto_control"]["issues"])
+
+    def test_official_domestic_review_requires_exact_board_identity_and_preanalysis_review(self):
+        from ex_daily_research import corroborated_fixture, reviewed_fixture_calendars
+
+        review = reviewed_fixture_calendars()["2026-11-27"]["de.1"]
+        approved = utc(review["reviewed_at"])
+        board = {"url": "https://site.api.espn.com/scoreboard", "sha256": "a" * 64,
+                 "retrieved_at": (approved - dt.timedelta(minutes=1)).isoformat()}
+        fixture = {**review["fixtures"][0], "date": "2026-11-27", "league": "de.1",
+                   "fixture_source": board["url"], "fixture_checked_at": board["retrieved_at"]}
+        as_of = approved + dt.timedelta(minutes=1)
+        accepted = corroborated_fixture(fixture, board, as_of)
+        self.assertEqual("FIXTURE_CROSS_VERIFIED", accepted["status"])
+        self.assertEqual("FIXTURE_IDENTITY_ONLY", accepted["scope"])
+        self.assertEqual(review["url"], accepted["sources"][1]["url"])
+        self.assertEqual("UNVERIFIED", corroborated_fixture(fixture, board, approved)["status"])
+        self.assertEqual("UNVERIFIED", corroborated_fixture(fixture, dict(board, sha256=""), as_of)["status"])
+        for change in ({"event_id": "different"}, {"league": "de.2"}, {"home": fixture["away"]},
+                       {"team_ids": dict(home=fixture["team_ids"]["away"], away=fixture["team_ids"]["home"])},
+                       {"kickoff_at": (utc(fixture["kickoff_at"]) + dt.timedelta(minutes=1)).isoformat()}):
+            self.assertEqual("UNVERIFIED", corroborated_fixture({**fixture, **change}, board, as_of)["status"])
