@@ -1,0 +1,20 @@
+{
+  "mode": "NORMAL",
+  "verified_fixture_count": 0,
+  "limits": {
+    "per_market": 3,
+    "combined": 6,
+    "evidence": 3
+  },
+  "markets": {
+    "2.5_UST": [],
+    "KG_VAR": [],
+    "MS1": [],
+    "MS2": []
+  },
+  "combined": [],
+  "evidence": [],
+  "pup": [],
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
