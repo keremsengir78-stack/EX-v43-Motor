@@ -1,0 +1,501 @@
+{
+  "archive_matches": 8859,
+  "approved_matches": 5994,
+  "examples": 2322,
+  "by_league": {
+    "tr.1": 414,
+    "en.1": 490,
+    "de.1": 396,
+    "de.2": 414,
+    "es.1": 509,
+    "it.1": 500,
+    "fr.1": 404,
+    "nl.1": 425,
+    "nl.2": 540,
+    "pt.1": 404,
+    "be.1": 420,
+    "no.1": 456,
+    "UCL": 273,
+    "UEL": 225,
+    "UECL": 124
+  },
+  "components": {
+    "team_strength": {
+      "eligible": 503,
+      "markets": {
+        "2.5_UST": {
+          "candidate": {
+            "brier": 0.25919568602619175,
+            "ece_10_equal_width": 0.14867873848863616
+          },
+          "reference": {
+            "brier": 0.27462585034013604,
+            "ece_10_equal_width": 0.17891156462585037
+          },
+          "weekly_delta_brier_99pct": null,
+          "validation": {
+            "candidate": {
+              "brier": 0.247522146666751,
+              "ece_10_equal_width": 0.08893020484172075
+            },
+            "reference": {
+              "brier": 0.2613186813186813,
+              "ece_10_equal_width": 0.13846153846153844
+            },
+            "weekly_delta_brier_99pct": null
+          }
+        },
+        "KG_VAR": {
+          "candidate": {
+            "brier": 0.25946666046520744,
+            "ece_10_equal_width": 0.07528702363454687
+          },
+          "reference": {
+            "brier": 0.2768027210884354,
+            "ece_10_equal_width": 0.13265306122448983
+          },
+          "weekly_delta_brier_99pct": null,
+          "validation": {
+            "candidate": {
+              "brier": 0.26817918987151873,
+              "ece_10_equal_width": 0.13260011511352182
+            },
+            "reference": {
+              "brier": 0.2854945054945055,
+              "ece_10_equal_width": 0.17582417582417587
+            },
+            "weekly_delta_brier_99pct": null
+          }
+        },
+        "MS1": {
+          "candidate": {
+            "brier": 0.22634013820263252,
+            "ece_10_equal_width": 0.08262629119392878
+          },
+          "reference": {
+            "brier": 0.23496598639455782,
+            "ece_10_equal_width": 0.10476190476190476
+          },
+          "weekly_delta_brier_99pct": null,
+          "validation": {
+            "candidate": {
+              "brier": 0.2301932221795553,
+              "ece_10_equal_width": 0.0463614372874656
+            },
+            "reference": {
+              "brier": 0.24302197802197803,
+              "ece_10_equal_width": 0.10274725274725274
+            },
+            "weekly_delta_brier_99pct": null
+          }
+        },
+        "MS2": {
+          "candidate": {
+            "brier": 0.20836288514957133,
+            "ece_10_equal_width": 0.07236946483613571
+          },
+          "reference": {
+            "brier": 0.21823129251700682,
+            "ece_10_equal_width": 0.09931972789115648
+          },
+          "weekly_delta_brier_99pct": null,
+          "validation": {
+            "candidate": {
+              "brier": 0.2121962501075733,
+              "ece_10_equal_width": 0.037033560050200934
+            },
+            "reference": {
+              "brier": 0.22335164835164836,
+              "ece_10_equal_width": 0.08406593406593404
+            },
+            "weekly_delta_brier_99pct": null
+          }
+        }
+      },
+      "by_league": {
+        "nl.1": 73,
+        "pt.1": 71,
+        "es.1": 83,
+        "en.1": 72,
+        "fr.1": 71,
+        "it.1": 78,
+        "de.1": 55
+      },
+      "status": "RESEARCH_EVALUATED",
+      "splits": {
+        "train": 174,
+        "validation": 182,
+        "test": 147
+      },
+      "latest_training_finish": "2026-09-17T18:59:48+00:00"
+    },
+    "match_conditions": {
+      "eligible": 2019,
+      "markets": {
+        "2.5_UST": {
+          "candidate": {
+            "brier": 0.24489543061001798,
+            "ece_10_equal_width": 0.05850796619070094
+          },
+          "reference": {
+            "brier": 0.24176468531270745,
+            "ece_10_equal_width": 0.0510687742774735
+          },
+          "weekly_delta_brier_99pct": [
+            -0.006491342174149363,
+            0.017852062720503117
+          ],
+          "validation": {
+            "candidate": {
+              "brier": 0.24764897290133434,
+              "ece_10_equal_width": 0.021739168853706067
+            },
+            "reference": {
+              "brier": 0.2579342950832427,
+              "ece_10_equal_width": 0.08793158452977991
+            },
+            "weekly_delta_brier_99pct": [
+              -0.03462465737114548,
+              0.015338843984249518
+            ]
+          },
+          "strength_with_workload_offset": {
+            "validation": {
+              "reference": {
+                "brier": 0.2579342950832427,
+                "ece_10_equal_width": 0.08793158452977991
+              },
+              "candidate": {
+                "brier": 0.25861177512166067,
+                "ece_10_equal_width": 0.09826085776800829
+              },
+              "calibration_only": {
+                "brier": 0.2581636853699835,
+                "ece_10_equal_width": 0.09177840166075119
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.0006850772497498972,
+                0.0013403237356865827
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.0006386269457675298,
+                0.0021450417814874155
+              ]
+            },
+            "test": {
+              "reference": {
+                "brier": 0.24176468531270745,
+                "ece_10_equal_width": 0.0510687742774735
+              },
+              "candidate": {
+                "brier": 0.24260053645691493,
+                "ece_10_equal_width": 0.05711160636207359
+              },
+              "calibration_only": {
+                "brier": 0.24205406973967916,
+                "ece_10_equal_width": 0.056580922862030654
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.0014855763428858258,
+                0.002375320375094061
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.0019687478374030907,
+                0.002994456744957985
+              ]
+            },
+            "production_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "candidate": {
+            "brier": 0.24520468750249183,
+            "ece_10_equal_width": 0.036392391622532466
+          },
+          "reference": {
+            "brier": 0.2596748977306429,
+            "ece_10_equal_width": 0.09749001123961444
+          },
+          "weekly_delta_brier_99pct": [
+            -0.02896226295187667,
+            0.0071314741083164076
+          ],
+          "validation": {
+            "candidate": {
+              "brier": 0.24656226857133032,
+              "ece_10_equal_width": 0.03430842959755625
+            },
+            "reference": {
+              "brier": 0.2566136123068604,
+              "ece_10_equal_width": 0.10358849857271316
+            },
+            "weekly_delta_brier_99pct": [
+              -0.024802075402786398,
+              0.0015908465647715192
+            ]
+          },
+          "strength_with_workload_offset": {
+            "validation": {
+              "reference": {
+                "brier": 0.2566136123068604,
+                "ece_10_equal_width": 0.10358849857271316
+              },
+              "candidate": {
+                "brier": 0.25622762368802504,
+                "ece_10_equal_width": 0.10812892040634431
+              },
+              "calibration_only": {
+                "brier": 0.25682515239379333,
+                "ece_10_equal_width": 0.1029175180852415
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.005513836128459817,
+                0.004025084658903445
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.0052453593920281935,
+                0.004403386670016406
+              ]
+            },
+            "test": {
+              "reference": {
+                "brier": 0.2596748977306429,
+                "ece_10_equal_width": 0.09749001123961444
+              },
+              "candidate": {
+                "brier": 0.2588410250491646,
+                "ece_10_equal_width": 0.10389175490794018
+              },
+              "calibration_only": {
+                "brier": 0.25978311880493354,
+                "ece_10_equal_width": 0.10685222187525137
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.004396579635527534,
+                0.0028583186686530547
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.003983721829223998,
+                0.002630027784782239
+              ]
+            },
+            "production_allowed": false
+          }
+        },
+        "MS1": {
+          "candidate": {
+            "brier": 0.2349858506170065,
+            "ece_10_equal_width": 0.043977592366848284
+          },
+          "reference": {
+            "brier": 0.2165177243210524,
+            "ece_10_equal_width": 0.029574463756794588
+          },
+          "weekly_delta_brier_99pct": [
+            0.007042007137412199,
+            0.033404945382896366
+          ],
+          "validation": {
+            "candidate": {
+              "brier": 0.24505895429849345,
+              "ece_10_equal_width": 0.011964338995154256
+            },
+            "reference": {
+              "brier": 0.2417689656021862,
+              "ece_10_equal_width": 0.09278541210266807
+            },
+            "weekly_delta_brier_99pct": [
+              -0.016604559048014052,
+              0.023896345453898477
+            ]
+          },
+          "strength_with_workload_offset": {
+            "validation": {
+              "reference": {
+                "brier": 0.2417689656021862,
+                "ece_10_equal_width": 0.09278541210266807
+              },
+              "candidate": {
+                "brier": 0.24197577450314656,
+                "ece_10_equal_width": 0.06904988875508768
+              },
+              "calibration_only": {
+                "brier": 0.24173233262171717,
+                "ece_10_equal_width": 0.08917094316504394
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.0013538180658987193,
+                0.001752561343499728
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.001394216853523182,
+                0.0016947389229378911
+              ]
+            },
+            "test": {
+              "reference": {
+                "brier": 0.2165177243210524,
+                "ece_10_equal_width": 0.029574463756794588
+              },
+              "candidate": {
+                "brier": 0.21433848189597274,
+                "ece_10_equal_width": 0.029332975785159365
+              },
+              "calibration_only": {
+                "brier": 0.21653046654424316,
+                "ece_10_equal_width": 0.026261481683664645
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.004563898999287532,
+                0.0014926619384598775
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.004577525112642802,
+                0.0016772365923203812
+              ]
+            },
+            "production_allowed": false
+          }
+        },
+        "MS2": {
+          "candidate": {
+            "brier": 0.22829039387705574,
+            "ece_10_equal_width": 0.07438554950275059
+          },
+          "reference": {
+            "brier": 0.20767231437603378,
+            "ece_10_equal_width": 0.05059870764944345
+          },
+          "weekly_delta_brier_99pct": [
+            0.0063611628646027115,
+            0.0342025478733186
+          ],
+          "validation": {
+            "candidate": {
+              "brier": 0.21136236573424208,
+              "ece_10_equal_width": 0.0113147468592748
+            },
+            "reference": {
+              "brier": 0.2155445641877715,
+              "ece_10_equal_width": 0.07326609922208341
+            },
+            "weekly_delta_brier_99pct": [
+              -0.017872490208019315,
+              0.011365469549374943
+            ]
+          },
+          "strength_with_workload_offset": {
+            "validation": {
+              "reference": {
+                "brier": 0.2155445641877715,
+                "ece_10_equal_width": 0.07326609922208341
+              },
+              "candidate": {
+                "brier": 0.21549007990337993,
+                "ece_10_equal_width": 0.07060015907880868
+              },
+              "calibration_only": {
+                "brier": 0.21547956911790622,
+                "ece_10_equal_width": 0.07084783043973945
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.0008869902183635008,
+                0.0007644083721273697
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.0010888279792057069,
+                0.0007454668077384655
+              ]
+            },
+            "test": {
+              "reference": {
+                "brier": 0.20767231437603378,
+                "ece_10_equal_width": 0.05059870764944345
+              },
+              "candidate": {
+                "brier": 0.20561204450923642,
+                "ece_10_equal_width": 0.05245152036387824
+              },
+              "calibration_only": {
+                "brier": 0.2078211447143852,
+                "ece_10_equal_width": 0.05514140618957956
+              },
+              "weekly_delta_vs_calibration_99pct": [
+                -0.0042637453497000165,
+                -0.00021104956162965862
+              ],
+              "weekly_delta_brier_99pct": [
+                -0.003979798968323414,
+                -0.00015172803685854848
+              ]
+            },
+            "production_allowed": false
+          }
+        }
+      },
+      "by_league": {
+        "es.1": 330,
+        "nl.1": 253,
+        "fr.1": 246,
+        "it.1": 331,
+        "en.1": 330,
+        "pt.1": 251,
+        "de.1": 242,
+        "UCL": 20,
+        "UEL": 12,
+        "UECL": 4
+      },
+      "status": "RESEARCH_EVALUATED",
+      "splits": {
+        "train": 1129,
+        "validation": 456,
+        "test": 434
+      },
+      "latest_training_finish": "2026-04-08T20:55:28+00:00"
+    },
+    "external_factors": {
+      "eligible": 2,
+      "markets": {},
+      "by_league": {
+        "UCL": 2
+      },
+      "status": "INSUFFICIENT_TIMESTAMPED_INPUTS_OR_SAMPLE"
+    }
+  },
+  "coefficients": {
+    "team_strength": {},
+    "match_conditions": {
+      "2.5_UST": [
+        -0.07572491121170322,
+        0.2453127554676702,
+        0.03736690946924301,
+        -0.08797453599106125,
+        0.3435190829591171
+      ],
+      "KG_VAR": [
+        0.3514719511673053,
+        0.5249819958234025,
+        -0.35968800604386,
+        -0.6617296096516622,
+        -0.04943142059516441
+      ],
+      "MS1": [
+        -0.32773098620610286,
+        -0.42114224396331934,
+        0.9949161320572207,
+        0.4451407260537578,
+        -0.8503300243627512
+      ],
+      "MS2": [
+        -0.7580115178404336,
+        0.28648791463518913,
+        -1.060137428428734,
+        -0.23188484725582323,
+        0.8080878074986001
+      ]
+    }
+  },
+  "scope": "RETROSPECTIVE_RESEARCH",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

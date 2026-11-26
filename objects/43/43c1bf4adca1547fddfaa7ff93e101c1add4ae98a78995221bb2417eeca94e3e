@@ -1,0 +1,1174 @@
+{
+  "forecasts": 0,
+  "historical_matches": 8859,
+  "supplemental_scoreboard_records": 6705,
+  "reused_verified_outcomes": 9,
+  "rolling_scoreboard_matches": 2030,
+  "skipped": [
+    {
+      "event_id": "401915506",
+      "league": "UEL",
+      "teams": {
+        "home": "1895",
+        "away": "13083"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915519",
+      "league": "UEL",
+      "teams": {
+        "home": "85",
+        "away": "349"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915517",
+      "league": "UEL",
+      "teams": {
+        "home": "597",
+        "away": "131"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915507",
+      "league": "UEL",
+      "teams": {
+        "home": "176",
+        "away": "490"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915521",
+      "league": "UEL",
+      "teams": {
+        "home": "435",
+        "away": "103"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915520",
+      "league": "UEL",
+      "teams": {
+        "home": "2790",
+        "away": "20024"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915508",
+      "league": "UEL",
+      "teams": {
+        "home": "5807",
+        "away": "2990"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915518",
+      "league": "UEL",
+      "teams": {
+        "home": "11706",
+        "away": "1929"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915504",
+      "league": "UEL",
+      "teams": {
+        "home": "384",
+        "away": "89"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915516",
+      "league": "UEL",
+      "teams": {
+        "home": "622",
+        "away": "3362"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915502",
+      "league": "UEL",
+      "teams": {
+        "home": "111",
+        "away": "617"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915501",
+      "league": "UEL",
+      "teams": {
+        "home": "167",
+        "away": "987"
+      },
+      "missing_venue5": [
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915505",
+      "league": "UEL",
+      "teams": {
+        "home": "147",
+        "away": "169"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915503",
+      "league": "UEL",
+      "teams": {
+        "home": "1010",
+        "away": "441"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915514",
+      "league": "UEL",
+      "teams": {
+        "home": "433",
+        "away": "140"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915513",
+      "league": "UEL",
+      "teams": {
+        "home": "366",
+        "away": "11505"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915512",
+      "league": "UEL",
+      "teams": {
+        "home": "21615",
+        "away": "256"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915515",
+      "league": "UEL",
+      "teams": {
+        "home": "7911",
+        "away": "3746"
+      },
+      "missing_venue5": [
+        "home"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915816",
+      "league": "UECL",
+      "teams": {
+        "home": "2528",
+        "away": "20301"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915815",
+      "league": "UECL",
+      "teams": {
+        "home": "139",
+        "away": "3024"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915814",
+      "league": "UECL",
+      "teams": {
+        "home": "331",
+        "away": "8089"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915810",
+      "league": "UECL",
+      "teams": {
+        "home": "21943",
+        "away": "17856"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915811",
+      "league": "UECL",
+      "teams": {
+        "home": "262",
+        "away": "174"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915813",
+      "league": "UECL",
+      "teams": {
+        "home": "20025",
+        "away": "2922"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915812",
+      "league": "UECL",
+      "teams": {
+        "home": "7922",
+        "away": "7672"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915739",
+      "league": "UECL",
+      "teams": {
+        "home": "20028",
+        "away": "19246"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915809",
+      "league": "UECL",
+      "teams": {
+        "home": "22281",
+        "away": "572"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915808",
+      "league": "UECL",
+      "teams": {
+        "home": "620",
+        "away": "7853"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915806",
+      "league": "UECL",
+      "teams": {
+        "home": "20710",
+        "away": "105"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915802",
+      "league": "UECL",
+      "teams": {
+        "home": "2994",
+        "away": "8169"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915803",
+      "league": "UECL",
+      "teams": {
+        "home": "10834",
+        "away": "997"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915807",
+      "league": "UECL",
+      "teams": {
+        "home": "3101",
+        "away": "443"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915805",
+      "league": "UECL",
+      "teams": {
+        "home": "489",
+        "away": "936"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915738",
+      "league": "UECL",
+      "teams": {
+        "home": "20703",
+        "away": "909"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915804",
+      "league": "UECL",
+      "teams": {
+        "home": "3611",
+        "away": "2290"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401915801",
+      "league": "UECL",
+      "teams": {
+        "home": "126",
+        "away": "152"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 36,
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 10,
+  "daily_research_covered": 10,
+  "historical_events_quarantined": [],
+  "weather_sources_observed": 0,
+  "weather_errors": {
+    "401915506": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915519": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915517": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915507": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915521": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915520": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915508": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915518": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915504": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915516": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915502": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915501": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915505": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915503": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915514": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915513": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915512": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915515": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915816": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915815": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915814": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915810": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915811": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915813": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915812": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915739": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915809": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915808": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915806": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915802": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915803": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915807": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915805": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915738": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915804": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401915801": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    }
+  },
+  "capture_source_errors": [],
+  "cup_source_errors": {},
+  "cup_team_history_sources": [
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams/20301/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:40.494431+00:00",
+      "sha256": "7e616ca7f20df0006343ec3ea61f93789221b8539b4d70ebfaeed90fe60e30aa",
+      "size": 260682,
+      "club": "20301",
+      "league": "se.1",
+      "season": 2026,
+      "matches": 29
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams/20301/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:41.211333+00:00",
+      "sha256": "e69762993207eda76ade3383c6b13ee79b5a932856c07af49df143595d5b4d83",
+      "size": 268277,
+      "club": "20301",
+      "league": "se.1",
+      "season": 2025,
+      "matches": 30
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/256/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:41.949174+00:00",
+      "sha256": "493d59301295d9af038bad347a7f342129ce97a75cd140cd33602a5a20f8bb96",
+      "size": 124882,
+      "club": "256",
+      "league": "sco.1",
+      "season": 2026,
+      "matches": 14
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/256/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:42.700542+00:00",
+      "sha256": "aa9a76550d410b97863afb4f4ffbba539c29aa2d1bbbc3ca4dac12ebb516112e",
+      "size": 338067,
+      "club": "256",
+      "league": "sco.1",
+      "season": 2025,
+      "matches": 38
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/262/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:43.448295+00:00",
+      "sha256": "155cf63500fd0be4d5632ed6737d2f7457e04a58236766b6d7cc3b63a81e08a6",
+      "size": 117221,
+      "club": "262",
+      "league": "sco.1",
+      "season": 2026,
+      "matches": 13
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams/262/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:44.208772+00:00",
+      "sha256": "342ebde9144f44d3a3667f64bb8afe31903c63275553d80216c7efe665d7242e",
+      "size": 341322,
+      "club": "262",
+      "league": "sco.1",
+      "season": 2025,
+      "matches": 38
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/3101/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:44.953896+00:00",
+      "sha256": "6861dde559b034b4e92fa7fd6f9f4ce8d1ac6040ee4b750b76599afeab515195",
+      "size": 135954,
+      "club": "3101",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/3101/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:45.758818+00:00",
+      "sha256": "7eb6215f8ea8986d07e89613cd6a6933fc5569ca0bd627d9a132829916cca8c3",
+      "size": 285465,
+      "club": "3101",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/572/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:46.451598+00:00",
+      "sha256": "b673541acca272268fd3c74b0e64a816d46edc43533fb4f26660ca97b1d0e836",
+      "size": 135542,
+      "club": "572",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/572/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:47.201628+00:00",
+      "sha256": "47940690672d3e8ccdcf6fdfb850470554bef2a6f81b8859a5f2347c286a99e9",
+      "size": 284375,
+      "club": "572",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/7853/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:48.000487+00:00",
+      "sha256": "95a39b9f28182e1bd0d694de9ac8fe22f74a6a2d49efbbad5fdf88852b0490d5",
+      "size": 134095,
+      "club": "7853",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/7853/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:48.732662+00:00",
+      "sha256": "d48c5715d708774e13a188146e03bde2b66bf8e2dc38018363991f95fd1ecc8e",
+      "size": 281822,
+      "club": "7853",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/909/schedule?season=2026",
+      "retrieved_at": "2026-11-26T06:33:49.455404+00:00",
+      "sha256": "2355593953ac1ccb83fa2fc87a4b2ea4e7236f13a9d246261f0735ee773d2884",
+      "size": 135512,
+      "club": "909",
+      "league": "dk.1",
+      "season": 2026,
+      "matches": 15
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams/909/schedule?season=2025",
+      "retrieved_at": "2026-11-26T06:33:50.228098+00:00",
+      "sha256": "43de581dc7eab8077760e32b727849b8889be262568dbae4a377942f19182de7",
+      "size": 290703,
+      "club": "909",
+      "league": "dk.1",
+      "season": 2025,
+      "matches": 32
+    }
+  ],
+  "cup_team_history_errors": [],
+  "capture_cache_hits": 38,
+  "capture_network_requests": 13,
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-26T06:33:28.678222+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
