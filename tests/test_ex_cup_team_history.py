@@ -1,7 +1,8 @@
+from datetime import date
 import json
 import unittest
 
-from ex_cup_team_history import schedule_facts
+from ex_cup_team_history import csv_facts, schedule_facts
 from ex_history_archive import utc
 from ex_leagues import APPROVED_LEAGUES, season_bounds
 
@@ -28,3 +29,28 @@ class CupTeamHistoryTests(unittest.TestCase):
         self.assertNotIn("se.1", APPROVED_LEAGUES)
         self.assertEqual(1, season_bounds("se.1", now)[0].month)
         self.assertEqual(7, season_bounds("dk.1", now)[0].month)
+
+
+    def test_csv_requires_reviewed_anchor_and_exact_club_alias(self):
+        data = ("Country,League,Season,Date,Home,Away,HG,AG\n"
+                "Romania,Superliga,2026/2027,22/11/2026,UTA Arad,Univ. Craiova,2,6\n"
+                "Romania,Superliga,2025/2026,24/11/2025,UTA Arad,U Craiova 1948,2,1\n")
+        stamp = utc("2026-11-26T06:00:00Z")
+        rows = csv_facts(data.encode(), stamp, "ro.1", stamp.date(), ["8089"])
+        self.assertEqual("8089", rows[0]["teams"]["away"])
+        self.assertEqual("football-data:rou.1:U Craiova 1948", rows[1]["teams"]["away"])
+        self.assertEqual(stamp, rows[0]["captured_at"])
+        with self.assertRaisesRegex(ValueError, "anchor missing"):
+            csv_facts(data.replace(",2,6", ",2,5").encode(), stamp, "ro.1", stamp.date(), ["8089"])
+
+    def test_previous_window_keeps_competition_and_venue_after_promotion(self):
+        from ex_engine import weighted_form
+
+        cutoff = date(2026, 11, 26)
+        start, prior = season_bounds("no.1", cutoff)
+        current = [dict(date=date(2026, 10, day), league="no.1", home=str(day), away="987", hg=1, ag=2)
+                   for day in range(1, 11)]
+        previous = dict(date=date(2025, 10, 1), league="nor.2", home="other", away="987", hg=1, ag=3)
+        value, audit = weighted_form([*current, previous], "987", "away", cutoff, "no.1", start, prior)
+        self.assertIsNone(value)
+        self.assertEqual([5, 10, 10, 0], audit["counts"])

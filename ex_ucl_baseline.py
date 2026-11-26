@@ -1,11 +1,12 @@
 """Cross-league research baseline; not calibrated EX-G."""
 from ex_engine import weighted_form, distribution, date
+from ex_leagues import CALENDAR_YEAR_LEAGUES, season_bounds
 
 def cross_league_baseline(rows,fixture,home_league,away_league,home_name,away_name,season_start,previous_start, *, cutoff_date="2026-11-24"):
     cutoff=date(cutoff_date)
     ss,ps=date(season_start),date(previous_start)
     def bounds(league):
-        return (date(f"{cutoff.year}-01-01"),date(f"{cutoff.year-1}-01-01")) if league=="no.1" else (ss,ps)
+        return season_bounds(league, cutoff) if league in CALENDAR_YEAR_LEAGUES else (ss, ps)
     home,ha=weighted_form(rows,home_name,"home",cutoff,home_league,*bounds(home_league))
     away,aa=weighted_form(rows,away_name,"away",cutoff,away_league,*bounds(away_league))
     result = {

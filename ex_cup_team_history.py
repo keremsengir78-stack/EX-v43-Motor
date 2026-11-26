@@ -1,17 +1,83 @@
 """Fetch ID-bound domestic histories for cup opponents missing archive coverage."""
 
-from datetime import timedelta
+import csv
+from datetime import datetime, timedelta
+import io
 import json
 
 from ex_history_archive import BudgetExhausted, source_error
 from ex_history_sources import ESPN, teams
 from ex_history_archive import utc
-from ex_leagues import CUP_HISTORY_SLUGS, season_bounds
+from ex_leagues import CALENDAR_YEAR_LEAGUES, CUP_HISTORY_SLUGS, season_bounds
 
 # These ESPN IDs are the same IDs published in the cup fixture. A schedule
 # must still independently identify that club, league and requested season.
 TEAM_LEAGUES = {"20301": "se.1", "256": "sco.1", "262": "sco.1",
                 "572": "dk.1", "7853": "dk.1", "3101": "dk.1", "909": "dk.1"}
+
+
+# Explicit cross-provider bindings reviewed against the UEFA fixture/ESPN ID
+# and a matching domestic official result (date, teams, side and score).
+CSV_LEAGUES = {
+    "ch.1": ("SWZ", "Switzerland", "Super League"),
+    "pl.1": ("POL", "Poland", "Ekstraklasa"),
+    "fi.1": ("FIN", "Finland", "Veikkausliiga"),
+    "ro.1": ("ROU", "Romania", "Superliga"),
+}
+CSV_CLUBS = {
+    "3024": ("ch.1", "Thun", ("21/11/2026", "Young Boys", "Thun", "3", "2"),
+             "https://matchcenter-sfl.football.ch/Default.aspx?a=rr&lng=1&oid=2&v=877701"),
+    "7672": ("ch.1", "Lugano", ("21/11/2026", "Lugano", "Grasshoppers", "2", "1"),
+             "https://matchcenter-sfl.football.ch/Default.aspx?a=rr&lng=1&oid=2&v=877701"),
+    "2990": ("pl.1", "Lech Poznan", ("22/11/2026", "GKS Katowice", "Lech Poznan", "0", "1"),
+             "https://ekstraklasa.org/mecz/2143d594-ad18-427c-b526-2e43c2fd1ea3/gks-katowice-lech-poznan/przeglad/"),
+    "11505": ("pl.1", "Jagiellonia", ("21/11/2026", "Cracovia", "Jagiellonia", "3", "1"),
+              "https://ekstraklasa.org/en/match/0ac80736-4d3f-49ed-8dbb-83f761fd833d/cracovia-jagiellonia-bialystok/live/"),
+    "8169": ("fi.1", "KuPS", ("08/11/2026", "KuPS", "Inter Turku", "0", "2"),
+             "https://www.veikkausliiga.com/joukkueet/kups/otteluohjelma"),
+    "8089": ("ro.1", "Univ. Craiova", ("22/11/2026", "UTA Arad", "Univ. Craiova", "2", "6"),
+             "https://www.superliga.ro/meci/superliga-26-27-regular-uta-ucv?sectiune=cronica"),
+}
+TEAM_LEAGUES.update({team: entry[0] for team, entry in CSV_CLUBS.items()})
+
+
+def csv_facts(raw, stamp, league, day, clubs):
+    _, country, competition = CSV_LEAGUES[league]
+    slug = CUP_HISTORY_SLUGS[league]
+    aliases = {CSV_CLUBS[club][1]: club for club in clubs}
+    seasons = {(str(start.year) if league in CALENDAR_YEAR_LEAGUES else
+                f"{start.year}/{start.year+1}"): start.year for start in season_bounds(league, day)}
+    anchors = {CSV_CLUBS[club][2] for club in clubs}
+    seen, matches = set(), {}
+    for row in csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))):
+        year = seasons.get(row["Season"].strip())
+        if year is None:
+            continue
+        if (row["Country"].strip(), row["League"].strip()) != (country, competition):
+            continue
+        match_day = datetime.strptime(row["Date"], "%d/%m/%Y").date()
+        if season_bounds(league, match_day)[0].year != year:
+            raise ValueError("Domestic CSV season disagrees with the calendar")
+        if match_day >= min(day, stamp.date()):
+            continue
+        fields = tuple(row[key] for key in ("Date", "Home", "Away", "HG", "AG"))
+        if fields in anchors:
+            seen.add(fields)
+        _, home, away, hg, ag = fields
+        if not hg.isdecimal() or not ag.isdecimal() or max(int(hg), int(ag)) > 30:
+            continue
+        sides = {side: aliases.get(name, f"football-data:{slug}:{name}")
+                 for side, name in (("home", home), ("away", away))}
+        key = f"football-data:{slug}:{match_day}:{home}:{away}"
+        match = {"event_id": key, "teams": sides, "competition": slug, "season": year,
+                 "kickoff": utc(f"{match_day}T00:00:00Z"), "score": (int(hg), int(ag)),
+                 "finished": stamp, "captured_at": stamp, "date_precision": "DAY",
+                 "evidence_scope": "ESPN_SCOREBOARD_RESEARCH"}
+        if matches.setdefault(key, match) != match:
+            raise ValueError("Conflicting domestic CSV scores")
+    if seen != anchors:
+        raise ValueError("Reviewed domestic score anchor missing")
+    return list(matches.values())
 
 
 def schedule_facts(raw, stamp, club, league, season):
@@ -51,7 +117,7 @@ def collect_cup_history(archive, manifest):
              for club in fixture["teams"].values() if club in TEAM_LEAGUES}
     facts, sources, issues = [], [], []
     day = utc(manifest["day"] + "T00:00:00Z").date()
-    for club in sorted(clubs):
+    for club in sorted(clubs - CSV_CLUBS.keys()):
         league = TEAM_LEAGUES[club]
         for start in season_bounds(league, day):
             url = f"{ESPN}/{CUP_HISTORY_SLUGS[league]}/teams/{club}/schedule?season={start.year}"
@@ -63,4 +129,18 @@ def collect_cup_history(archive, manifest):
                 continue
             facts.extend(rows)
             sources.append({**source, "club": club, "league": league, "season": start.year, "matches": len(rows)})
+    for league, (file, _, _) in CSV_LEAGUES.items():
+        selected = sorted(club for club in clubs if club in CSV_CLUBS and TEAM_LEAGUES[club] == league)
+        if not selected:
+            continue
+        url = f"https://www.football-data.co.uk/new/{file}.csv"
+        try:
+            rows, source = archive.get(url, lambda raw, stamp: csv_facts(raw, stamp, league, day, selected),
+                                       max_age=timedelta(hours=20))
+        except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
+            issues.append(source_error("cup_domestic_csv", url, exc))
+            continue
+        facts.extend(rows)
+        sources.append({**source, "league": league, "clubs": selected, "matches": len(rows),
+                        "identity_evidence": {club: CSV_CLUBS[club][3] for club in selected}})
     return facts, sources, issues
