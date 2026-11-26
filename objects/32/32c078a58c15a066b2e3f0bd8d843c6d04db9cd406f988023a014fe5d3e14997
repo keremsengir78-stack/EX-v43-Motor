@@ -1,0 +1,1 @@
+{"retrieved_at": "2026-11-26T09:12:15.889204+00:00", "sha256": "a3a13a98b767026d9f3753e9eef022eef486218d1bfe505fb45aeeb8f9675dd6", "size": 1090, "url": "https://api.open-meteo.com/v1/forecast?latitude=51.398333&longitude=-0.085556&timezone=GMT&start_date=2026-11-26&end_date=2026-11-26&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m"}
