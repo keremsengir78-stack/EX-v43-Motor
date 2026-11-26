@@ -16,7 +16,7 @@ class PupExecutionTests(unittest.TestCase):
         }
 
     def run_pup(self, requested=True):
-        def calibrated(market, _):
+        def calibrated(market, _, **kwargs):
             return {"status": "EX_G_AVAILABLE", "market": market,
                     "probability": 0.9 if market == "MS1" else 0.5, "issues": []}
 

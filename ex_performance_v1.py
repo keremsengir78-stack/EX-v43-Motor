@@ -208,6 +208,9 @@ def experiment(facts):
               "cohort_flow": {"archive_records": len(facts),
                               "excluded_missing_score_or_finish": len(facts) - len(scored),
                               "excluded_non_same_day_finish": len(scored) - len(eligible),
+                              "non_same_day_completion_by_provenance": dict(Counter(
+                                  r.get("terminal_source") or r.get("evidence_scope") or "UNSPECIFIED"
+                                  for r in scored if r["finished"].date() != r["kickoff"].date())),
                               "excluded_no_complete_prematch_replay": len(eligible) - len(examples),
                               "replay_exclusions": dict(exclusions),
                               "overnight_provider_terminal_records": len(overnight),

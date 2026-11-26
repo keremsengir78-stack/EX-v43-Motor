@@ -6,7 +6,7 @@ from functools import lru_cache
 
 from ex_auto_control import auto_control
 from ex_cross_verify import norm
-from ex_decision import MARKETS, assess_market_value
+from ex_decision import MARKETS, assess_market_value, assess_markets
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
@@ -186,7 +186,7 @@ def fixture_acceptance(review, fixture, as_of):
 
 
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None, component_model=None,
-                   strength=None, workload=None, weather=None, cup_evidence=None, ingestion_review=None, context_review=None):
+                   strength=None, workload=None, weather=None, cup_evidence=None, ingestion_review=None, context_review=None, component_review=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -223,12 +223,22 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
         strength = {market: values[MARKET_KEYS[market]] for market in MARKETS}
     factors = weather_vector(weather, fixture["kickoff_at"], as_of)
     components, decisions = score_components(strength, workload, factors, component_model, as_of)
-    values_by_market = {}
+    certified = fixture_acceptance(component_review, fixture, as_of)
+    if certified and certified.get("status") == "COMPONENTS_CROSS_VERIFIED":
+        certified = certified.get("markets")
+    else:
+        certified = None
+    if isinstance(certified, dict):
+        decisions = assess_markets(certified, time, competition=fixture["league"])
+    else:
+        certified = {}
+    values_by_market, selected_quotes = {}, {}
     for market in MARKETS:
         offers = [quote for quote in quotes if quote["market"] == market
                   and check_odds(quote, time)["status"] == "VERIFIED_INPUT"]
         unique = {(q["bookmaker"], q["decimal_odds"]): q for q in offers}
         selected = next(iter(unique.values())) if len(unique) == 1 else None
+        selected_quotes[market] = selected
         value = assess_market_value(market, decisions["markets"][market]["ex_g"], selected, time)
         values_by_market[market] = {**value, "observed_quotes": offers}
     evidence = corroborated_fixture(fixture, board_evidence, as_of, cup_evidence)
@@ -239,19 +249,24 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time),
             "market_baselines_pct": market_percentages,
-            "recompute_consistent": recomputed}
+            "recompute_consistent": recomputed,
+            "league": fixture["league"], "as_of": time,
+            "full_historical_windows": bool(values)}
     gate_inputs = {"ingestion": ingestion, "context_evidence": context, "fixture_evidence": evidence,
                    "pup_requested": False}
     checks = {market: auto_control({**gate, "market": market, "odds_lock": value["odds_lock"]},
-                                   **gate_inputs)
+                                   **gate_inputs, market_evidence=certified.get(market),
+                                   quote=selected_quotes[market])
               for market, value in values_by_market.items()}
+    finals = [market for market, result in checks.items() if result["ex_final_allowed"]]
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
             "domestic_research": baseline, "domestic_diagnostics": domestic_diagnostics, "markets": decisions, "market_values": values_by_market,
             "observed_inputs": {**(observations or {}), "prematch_weather_forecast": weather,
                                 "dated_domestic_scores": recent_domestic_scores(fixture, snapshot, as_of)},
             "component_research": components,
-            "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
+            "ex_final_status": "FINAL" if finals else "BLOCKED_PENDING_REQUIRED_EVIDENCE",
+            "final_markets": finals,
             "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, **gate_inputs, require_odds=False),
             "auto_control_by_market": checks, "fixture_evidence": evidence,
             "ingestion_acceptance": ingestion, "context_acceptance": context,
-            "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}
+            "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": bool(finals)}

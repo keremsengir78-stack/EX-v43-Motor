@@ -7,6 +7,8 @@ import math
 import datetime as dt
 import re
 from ex_fixture_odds import check_odds
+from ex_calibrator_registry import mapping, validate_registration
+from ex_history_archive import utc
 from ex_pup_gate import execute_pup, gate_pup
 
 WEIGHTS={"team_strength":0.50,"match_conditions":0.30,"external_factors":0.20}
@@ -16,23 +18,30 @@ MARKETS=("2.5_UST","KG_VAR","MS1","MS2")
 _APPROVED_CALIBRATORS = {}
 
 
-def ex_g_from_evidence(market, weighted):
-    """Apply an approved market calibration independently of bookmaker inputs."""
+def approved_calibrator(market, competition, as_of):
+    entry = _APPROVED_CALIBRATORS.get(market)
+    if not entry or not validate_registration(entry, market):
+        return None
+    try:
+        if competition in entry["competitions"] and utc(entry["approved_at"]) < utc(as_of):
+            return entry
+    except (ValueError, TypeError, AttributeError):
+        pass
+    return None
+
+
+def ex_g_from_evidence(market, weighted, *, competition=None, as_of=None):
+    """Apply an independently accepted market map without bookmaker inputs."""
     issues = list(weighted["issues"])
-    calibrate = _APPROVED_CALIBRATORS.get(market)
-    if calibrate is None:
+    entry = approved_calibrator(market, competition, as_of)
+    if entry is None:
         issues.append("calibration:uncertified")
     probability = None
     if not issues and weighted["status"] == "EVIDENCE_COMPLETE_UNCALIBRATED":
-        value = calibrate(weighted["weighted_score"])
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 1:
-            issues.append("calibration:invalid_probability")
-        else:
-            probability = value
-    return {
-        "status": "EX_G_AVAILABLE" if probability is not None else "BLOCKED",
-        "market": market, "probability": probability, "issues": issues,
-    }
+        probability = mapping(weighted["weighted_score"], *entry["coefficients"])
+    return {"status": "EX_G_AVAILABLE" if probability is not None else "BLOCKED",
+            "market": market, "probability": probability, "issues": issues,
+            "calibrator_id": entry["id"] if probability is not None else None}
 
 
 def assess_market_value(market, ex_g, quote, as_of):
@@ -112,21 +121,21 @@ def weighted_evidence(features, as_of=None):
             "contributions":contributions,"issues":issues,
             "weights":WEIGHTS,"calibrated_probability":None,"ex_final_allowed":False}
 
-def assess_markets(evidence_by_market, as_of=None):
+def assess_markets(evidence_by_market, as_of=None, *, competition=None):
     if not isinstance(evidence_by_market,dict):
         evidence_by_market={}
     result={m:weighted_evidence(evidence_by_market.get(m,{}),as_of=as_of) for m in MARKETS}
     for market, record in result.items():
-        record["ex_g"] = ex_g_from_evidence(market, record)
+        record["ex_g"] = ex_g_from_evidence(market, record, competition=competition, as_of=as_of)
         record["calibrated_probability"] = record["ex_g"]["probability"]
     return {"markets":result,"pup":gate_pup(result, MARKETS),"evidence_complete":all(v["status"]=="EVIDENCE_COMPLETE_UNCALIBRATED" for v in result.values()),
             "pup_allowed":False,"ex_final_allowed":False,
             "reason":"PUP requires independently calibrated market probabilities; evidence weights alone are not probabilities"}
 
 
-def assess_pup(evidence_by_market, quotes, score_model, as_of, *, requested=False):
+def assess_pup(evidence_by_market, quotes, score_model, as_of, *, requested=False, competition=None):
     """Explicit PUP entry point; prices never participate in the EX-G pass."""
-    decision = assess_markets(evidence_by_market, as_of)
+    decision = assess_markets(evidence_by_market, as_of, competition=competition)
     quotes = quotes if isinstance(quotes, dict) else {}
     values = {market: assess_market_value(market, decision["markets"][market]["ex_g"],
                                           quotes.get(market), as_of) for market in MARKETS}

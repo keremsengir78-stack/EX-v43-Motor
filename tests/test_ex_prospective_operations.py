@@ -45,7 +45,7 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertEqual("az.1", result["errors"][0]["league"])
 
     def test_four_independently_calibrated_markets_do_not_implicitly_run_pup(self):
-        def mock_g(market, weighted):
+        def mock_g(market, weighted, **kwargs):
             return {"status": "EX_G_AVAILABLE", "market": market, "probability": .6}
 
         with patch("ex_decision.ex_g_from_evidence", side_effect=mock_g):

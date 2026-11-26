@@ -26,7 +26,7 @@ class DecisionMarketSafetyTests(unittest.TestCase):
         self.assertFalse(result["ex_final_allowed"])
 
     def test_ex_g_runs_without_odds_or_confirmed_lineup(self):
-        with patch.dict("ex_decision._APPROVED_CALIBRATORS", {"MS1": lambda score: score + .02}):
+        with patch("ex_decision.approved_calibrator", return_value={"id": "synthetic", "coefficients": [0.1672978603872037, 1]}):
             ex_g = assess_markets({"MS1": features()}, as_of="2026-11-22")["markets"]["MS1"]["ex_g"]
         self.assertAlmostEqual(ex_g["probability"], .70)
         unaudited_price = assess_market_value("MS1", ex_g, None, "2026-11-22T12:00:00Z")

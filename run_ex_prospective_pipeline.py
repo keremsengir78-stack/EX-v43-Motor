@@ -225,7 +225,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                             weather=(weather or {}).get(event_id),
                                             cup_evidence=(cup_sources or {}).get(league),
                                             ingestion_review=reviews.get("ingestion"),
-                                            context_review=reviews.get("context")))
+                                            context_review=reviews.get("context"),
+                                            component_review=reviews.get("components")))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -777,6 +778,7 @@ def main():
                                                 bool((row["domestic_research"] or {}).get("baseline")) or
                                                 any(p["components"]["team_strength"]["score"] is not None
                                                     for p in row["component_research"].values()) for row in daily),
+                  "final_markets": sum(len(row["final_markets"]) for row in daily),
                   "market_blockers": dict(Counter(
                       issue for row in daily for result in row["auto_control_by_market"].values()
                       for issue in result["issues"])),
@@ -873,7 +875,9 @@ def main():
             from ex_performance_v1 import settled_daily_pairs
 
             report["performance_v1"] = settled_daily_pairs(args.packs, corroborated + verified_tracking)
-    report.update({"generated_at": current.isoformat(), "production_allowed": False, "ex_final_allowed": False})
+    has_final = report.get("final_markets", 0) > 0
+    report.update({"generated_at": current.isoformat(), "production_allowed": has_final,
+                   "ex_final_allowed": has_final})
     atomic_write(args.output_dir / "report.json", (json.dumps(report, indent=2) + "\n").encode())
     print(json.dumps(report))
 
