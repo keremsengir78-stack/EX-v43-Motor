@@ -160,8 +160,8 @@ def main():
     def replay_book(cutoff):
         if cutoff in by_cutoff:
             return by_cutoff[cutoff]
-        primary, _ = archive_history(args.work / "settlement-and-performance", facts, cutoff, conflicts=set())
         collisions = set()
+        primary, _ = archive_history(args.work / "settlement-and-performance", facts, cutoff, conflicts=collisions)
         weekly = scoreboard_facts(args.work / "weekly-capacity", cutoff, conflicts=collisions)
         packs = sorted((args.work / "ucl-domestic-research").glob("*/receipt.json"), key=lambda p: int(p.parent.name))
         recent = [p.parent for p in packs if utc(json.loads(p.read_bytes())["created_at"]) < cutoff]
@@ -186,10 +186,13 @@ def main():
         baseline = row.get("domestic_research") or {}
         cutoff = utc(row["as_of"])
         diagnostics = {}
-        replay = rolling_domestic(row["fixture"], replay_book(cutoff), cutoff, diagnostics=diagnostics)
-        reproduced = (replay is not None and baseline.get("history_scope") == "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
-                      and json.dumps(cross_league_baseline(*replay, cutoff_date=cutoff.date().isoformat())["samples"],
-                                     sort_keys=True) == json.dumps(baseline.get("samples"), sort_keys=True))
+        book = replay_book(cutoff)
+        replay = rolling_domestic(row["fixture"], book, cutoff, diagnostics=diagnostics)
+        replayed = {}
+        if replay is not None and baseline.get("history_scope") == "ROLLING_DOMESTIC_PROVIDER_TEAM_ID":
+            recalculated = cross_league_baseline(*replay, cutoff_date=cutoff.date().isoformat())
+            if recalculated["domestic_leagues"] == baseline["domestic_leagues"]:
+                replayed = recalculated["samples"]
         for side, sample in baseline.get("samples", {}).items():
             days = {day for group in sample.get("match_dates", []) for day in group}
             if not days:
@@ -198,8 +201,18 @@ def main():
             for result in matched:
                 if (result["league"] == baseline["domestic_leagues"][side]
                         and club in result["team_ids"].values() and result["kickoff_at"][:10] in days):
-                    groups = [name for name, event_ids in diagnostics.get(side, {}).get("form_sample_event_ids", {}).items()
-                              if reproduced and result["event_id"] in event_ids]
+                    actual = replayed.get(side, {})
+                    groups = [name for i, (name, event_ids) in enumerate(
+                        diagnostics.get(side, {}).get("form_sample_event_ids", {}).items())
+                        if result["event_id"] in event_ids and actual.get("match_dates")
+                        and actual["match_dates"][i] == sample["match_dates"][i]
+                        and list(actual["rates"][i]) == sample["rates"][i]
+                        and any(fact["event_id"] == result["event_id"]
+                                and fact["teams"] == result["team_ids"]
+                                and fact["kickoff"] == utc(result["kickoff_at"])
+                                and fact["score"] == result["score"]
+                                and fact.get("source_sha256") == result["provider_sha256"]
+                                for fact in book[club])]
                     form_candidates.append({"target": row["fixture"]["event_id"], "target_fixture": row["fixture"],
                                             "decision_cutoff": row["as_of"], "side": side,
                                             "historical_event": result["event_id"], "historical_fixture": result,
