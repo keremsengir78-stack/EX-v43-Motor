@@ -34,13 +34,14 @@ def domestic_snapshot(root):
 DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league not in UEFA_CUPS}
 
 
-def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None):
+def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None, diagnostics=None):
     """Join current domestic membership by ESPN club ID; never infer from a name."""
     catalog = DOMESTIC_BY_SLUG | (archive_leagues or {}) if retrospective else DOMESTIC_BY_SLUG
     if fixture["league"] in UEFA_CUPS - {"UCL"}:
         catalog = catalog | {slug: league for league, slug in CUP_HISTORY_SLUGS.items()}
     cutoff = as_of.date()
     rows, leagues = [], []
+    ambiguous = False
     for side in ("home", "away"):
         club = fixture["team_ids"][side]
         history = [row for row in by_team.get(club, ())
@@ -52,8 +53,13 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                    if row["kickoff"].date() >= season_bounds(catalog[row["competition"]], cutoff)[0]}
         if fixture["league"] not in UEFA_CUPS:
             current.intersection_update({APPROVED_LEAGUES[fixture["league"]][1]})
+        if diagnostics is not None:
+            diagnostics[side] = {"team_id": club, "eligible_rows": len(history),
+                                 "current_competitions": sorted(current),
+                                 "archived_competitions": sorted({row["competition"] for row in history})}
         if len(current) != 1:
-            return None
+            ambiguous = True
+            continue
         competition, = current
         league = catalog[competition]
         leagues.append(league)
@@ -61,6 +67,8 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                      "home": row["teams"]["home"], "away": row["teams"]["away"],
                      "hg": row["score"][0], "ag": row["score"][1]} for row in history
                     if row["competition"] == competition)
+    if ambiguous:
+        return None
     unique = {(r["league"], r["date"], r["home"], r["away"]): r for r in rows}
     first, prior = season_bounds(fixture["league"], cutoff)
     return sorted(unique.values(), key=lambda row: row["date"]), fixture, *leagues, fixture["team_ids"]["home"], fixture["team_ids"]["away"], first.isoformat(), prior.isoformat()
@@ -80,6 +88,18 @@ def official_ucl_index():
     return metadata, canonical, indexed
 
 
+# Exact identities reviewed against ESPN and UEFA raw bodies in this archive record.
+REVIEWED_ALIAS_EVIDENCE = (
+    "https://github.com/keremsengir78-stack/EX-v43-Motor/blob/df9fc98/"
+    "records/manual-pregame-review/20261126T072324Z.json"
+)
+REVIEWED_CUP_IDENTITIES = {
+    ("UEL", "401915505", "147", "169"): (("necnijmegen", "staderennais"), ("necnijmegen", "rennes")),
+    ("UECL", "401915815", "139", "3024"): (("ajaxamsterdam", "fcthun"), ("ajax", "thun")),
+    ("UECL", "401915801", "126", "152"): (("scfreiburg", "fctwente"), ("freiburg", "twente")),
+}
+
+
 def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
     result = {"status": "UNVERIFIED", "scope": "FIXTURE_IDENTITY_ONLY", "sources": []}
     if (fixture["league"] != "UCL" and cup_evidence is None) or not board:
@@ -95,8 +115,16 @@ def corroborated_fixture(fixture, board, as_of, cup_evidence=None):
         metadata, aliases, index = official_ucl_index()
     home, away = (aliases.get(norm(fixture[side]), norm(fixture[side])) for side in ("home", "away"))
     kickoff = utc(fixture["kickoff_at"])
+    ids = fixture.get("team_ids") or {}
+    reviewed = REVIEWED_CUP_IDENTITIES.get((fixture["league"], fixture.get("event_id"),
+                                           ids.get("home"), ids.get("away"))) if cup_evidence else None
+    reviewed_match = reviewed and (home, away) == reviewed[0] and (kickoff, *reviewed[1]) in index
+    if reviewed_match:
+        home, away = reviewed[1]
     if utc(metadata["retrieved_at"]) < as_of < kickoff and (kickoff, home, away) in index:
         result.update(status="FIXTURE_CROSS_VERIFIED", sources=[board, metadata])
+        if reviewed_match:
+            result["identity_review"] = REVIEWED_ALIAS_EVIDENCE
     return result
 
 
@@ -125,8 +153,9 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
+    domestic_diagnostics = {}
     if fixture["league"] in APPROVED_LEAGUES and by_team:
-        inputs = rolling_domestic(fixture, by_team, as_of)
+        inputs = rolling_domestic(fixture, by_team, as_of, diagnostics=domestic_diagnostics)
         if inputs:
             kwargs = {"cutoff_date": as_of.date().isoformat()}
             baseline = cross_league_baseline(*inputs, **kwargs)
@@ -174,7 +203,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
                                    pup_requested=False, fixture_evidence=evidence)
               for market, value in values_by_market.items()}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
-            "domestic_research": baseline, "markets": decisions, "market_values": values_by_market,
+            "domestic_research": baseline, "domestic_diagnostics": domestic_diagnostics, "markets": decisions, "market_values": values_by_market,
             "observed_inputs": {**(observations or {}), "prematch_weather_forecast": weather,
                                 "dated_domestic_scores": recent_domestic_scores(fixture, snapshot, as_of)},
             "component_research": components,

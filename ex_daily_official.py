@@ -4,6 +4,7 @@ import datetime as dt
 import json
 import re
 from pathlib import Path
+from html import unescape
 from collections import defaultdict
 
 from ex_benelux_results import (BELGIUM_CALENDAR, BELGIUM_SAMPLE, PORTUGAL_SAMPLE, belgian_matches,
@@ -27,6 +28,11 @@ BELGIUM_EXTRA = "https://www.proleague.be/nl/wedstrijden/seizoen-2026-2027-jupil
 UEFA_NEW_CUPS = {
     "UEL": ("uefaeuropaleague", "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/"),
     "UECL": ("uefaconferenceleague", "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/"),
+}
+UEFA_BRIEFINGS = {
+    "2026-11-26": {
+        "UEL": "https://www.uefa.com/uefaeuropaleague/news/02ab-221b7fac106f-ef047ae48cd4-1000--europa-league-matchday-5-briefing-bournemouth-and-olympiac/",
+    },
 }
 OFFICIAL_LEAGUES = (*UEFA_NEW_CUPS, "en.1", "it.1", "es.1", "nl.1", "nl.2", "fr.1", "UCL", "de.1", "de.2", "no.1", "tr.1", "be.1", "pt.1")
 
@@ -133,6 +139,30 @@ def cup_fixture_index(raw, competition_path):
     if not headings:
         raise ValueError("No UEFA matchday sections")
     return {entry for day in headings for entry in uefa_fixtures(raw, day, competition_path)}
+
+def cup_briefing_index(raw, competition_path, day):
+    """Read only the dated fixture block, excluding editorial match links."""
+    page = raw.decode().replace("\ufeff", "")
+    if "All kick-offs 21:00 CET unless stated" not in page and "All times CET" not in page:
+        raise ValueError("UEFA briefing kickoff convention missing")
+    day = dt.date.fromisoformat(day)
+    heading = f"{day:%A} {day.day} {day:%B %Y}"
+    blocks = re.findall(rf"<p><b>{re.escape(heading)}(?:<br/>)?</b>(.*?)</p>", page, re.S)
+    if len(blocks) != 1:
+        raise ValueError("UEFA briefing date missing or ambiguous")
+    pattern = (rf'<a href="https://www\.uefa\.com/{re.escape(competition_path)}/match/'
+               r'(\d+)--[^"]+"[^>]*>([^<>]+) vs ([^<>]+)</a>(?:\s*\((\d{2}:\d{2})(?: CET)?\))?')
+    indexed = {}
+    for identifier, home, away, clock in re.findall(pattern, blocks[0]):
+        when = dt.datetime.combine(day, dt.time.fromisoformat(clock or "21:00"),
+                                   dt.timezone(dt.timedelta(hours=1))).astimezone(dt.timezone.utc)
+        entry = (when, norm(unescape(home)), norm(unescape(away)))
+        if indexed.setdefault(identifier, entry) != entry:
+            raise ValueError("Conflicting UEFA briefing fixture")
+    if not indexed:
+        raise ValueError("No dated UEFA briefing fixtures")
+    return set(indexed.values())
+
 
 def uefa_scores(raw, url, stamp, competition_path="uefachampionsleague"):
     from run_ucl_research import uefa_match_entries

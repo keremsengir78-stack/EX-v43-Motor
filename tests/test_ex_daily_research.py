@@ -97,3 +97,61 @@ class DailyResearchTests(unittest.TestCase):
         reversed_fixture = {**fixture, "home": "Barcelona", "away": "Sabah FK"}
         rejected = daily_analysis(reversed_fixture, None, None, cutoff, board_evidence=board)
         self.assertEqual("UNVERIFIED", rejected["fixture_evidence"]["status"])
+
+    def test_cup_alias_requires_reviewed_event_ids_names_and_orientation(self):
+        from ex_daily_research import corroborated_fixture
+
+        cutoff = utc("2026-11-26T09:00:00Z")
+        kickoff = utc("2026-11-26T20:00:00Z")
+        url = "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126"
+        board = {"url": url, "retrieved_at": "2026-11-26T08:59:00Z"}
+        fixture = {"league": "UEL", "event_id": "401915505", "home": "NEC Nijmegen",
+                   "away": "Stade Rennais", "team_ids": {"home": "147", "away": "169"},
+                   "date": "2026-11-26", "kickoff_at": kickoff.isoformat(),
+                   "fixture_source": url, "fixture_checked_at": board["retrieved_at"]}
+        meta = {"retrieved_at": "2026-11-26T08:58:00Z"}
+        evidence = ({(kickoff, "necnijmegen", "rennes")}, meta)
+        result = corroborated_fixture(fixture, board, cutoff, evidence)
+        self.assertEqual("FIXTURE_CROSS_VERIFIED", result["status"])
+        self.assertIn("identity_review", result)
+        for changed in ({"event_id": "401915504"}, {"team_ids": {"home": "169", "away": "147"}},
+                        {"away": "Different Club"}, {"kickoff_at": "2026-11-26T19:00:00Z"}):
+            self.assertEqual("UNVERIFIED", corroborated_fixture(
+                {**fixture, **changed}, board, cutoff, evidence)["status"])
+
+    def test_quote_fallback_is_market_scoped_and_does_not_substitute_line(self):
+        from run_ex_prospective_pipeline import market_quote_chain
+
+        source = {"url": "https://site.api.espn.com/scoreboard",
+                  "retrieved_at": "2026-11-26T08:59:00Z", "sha256": "1" * 64}
+        provider = {"name": "Example sportsbook"}
+        price = {"odds": "+110"}
+        board = [{"provider": provider, "moneyline": {"home": {"close": price}}}]
+        summary = {"odds": [{"provider": provider, "total": {"over": {"close": {**price, "line": "o3.5"}}}}],
+                   "pickcenter": [{"provider": provider, "total": {"over": {"close": {**price, "line": "o2.5"}}}}]}
+        offers, attempts = market_quote_chain(board, source, summary, source, "2026-11-26T20:00:00Z")
+        self.assertEqual(["MS1", "2.5_UST"], [offer["market"] for offer in offers])
+        self.assertNotIn("MS1", attempts[-1]["requested_markets"])
+        self.assertEqual([], attempts[1]["found_markets"])
+        self.assertEqual(["2.5_UST"], attempts[-1]["found_markets"])
+
+    def test_official_briefing_fallback_rechecks_dated_fixture_and_records_failure(self):
+        from run_ex_prospective_pipeline import cup_fixture_chain
+
+        class FakeArchive:
+            def get(self, url, parse, **kwargs):
+                if "briefing" not in url:
+                    return parse(b"bad primary page", None), {"url": url}
+                raw = (b'<p>All kick-offs 21:00 CET unless stated</p>'
+                       b'<p><b>Thursday 26 November 2026</b><br/>'
+                       b'<a href="https://www.uefa.com/uefaeuropaleague/match/123--home-vs-away/">'
+                       b'Home vs Away</a> (18:45 CET)</p>')
+                return parse(raw, None), {"url": url}
+
+        evidence, errors = cup_fixture_chain(FakeArchive(), "UEL", "2026-11-26", 1)
+        self.assertEqual({(utc("2026-11-26T17:45:00Z"), "home", "away")}, evidence[0])
+        self.assertIn("briefing", evidence[1]["url"])
+        self.assertEqual(1, len(errors))
+        evidence, errors = cup_fixture_chain(FakeArchive(), "UEL", "2026-11-26", 2)
+        self.assertIsNone(evidence)
+        self.assertEqual(2, len(errors))

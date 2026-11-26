@@ -8,7 +8,7 @@ from statistics import mean
 from urllib.parse import urlsplit
 
 from ex_cup_team_history import collect_cup_history, TEAM_LEAGUES
-from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, cup_fixture_index
+from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, UEFA_BRIEFINGS, cup_fixture_index, cup_briefing_index
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
@@ -43,6 +43,48 @@ def portable_facts(path):
         if row["score"] is not None:
             row["score"] = tuple(row["score"])
     return rows
+
+
+def cup_fixture_chain(archive, league, day, cutoff_count):
+    path, url = UEFA_NEW_CUPS[league]
+
+    def dated_index(index):
+        fixtures = {entry for entry in index if entry[0].date().isoformat() == day}
+        if len(fixtures) < cutoff_count:
+            raise ValueError("Incomplete dated UEFA fixture list")
+        return fixtures
+
+    sources = [(url, lambda raw: cup_fixture_index(raw, path))]
+    briefing = UEFA_BRIEFINGS.get(day, {}).get(league)
+    if briefing:
+        sources.append((briefing, lambda raw: cup_briefing_index(raw, path, day)))
+    errors = []
+    for source, parse in sources:
+        try:
+            evidence = archive.get(source, lambda raw, _: dated_index(parse(raw)),
+                                   max_age=dt.timedelta(hours=1), content_schema="dated-uefa-fixtures-v1")
+            return evidence, errors
+        except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
+            errors.append(source_error("uefa_cup_fixtures", source, exc))
+    return None, errors
+
+
+def market_quote_chain(board_odds, board, payload, summary_source, kickoff):
+    """Try secondary quote payloads only for markets the earlier payload lacks."""
+    quotes, attempts = [], []
+    for field, values, source in (
+        ("board", board_odds, board),
+        ("summary.odds", payload.get("odds"), summary_source),
+        ("summary.pickcenter", payload.get("pickcenter"), summary_source),
+    ):
+        missing = set(MARKETS) - {quote["market"] for quote in quotes}
+        if not missing:
+            break
+        found = [quote for quote in market_quotes(values, source, kickoff) if quote["market"] in missing]
+        quotes.extend(found)
+        attempts.append({"payload": field, "requested_markets": sorted(missing),
+                         "found_markets": sorted({quote["market"] for quote in found})})
+    return quotes, attempts
 
 
 def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None):
@@ -155,11 +197,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                 "provider_weather_observed": bool(game_info.get("weather")),
                                 "confirmed_lineup_required": False, "individual_international_break_required": False,
                                 "recent_schedule_issue": workload_issue}
-                quotes = market_quotes(match.get("odds") or event.get("odds"), board_source, kickoff.isoformat())
-                board_markets = {quote["market"] for quote in quotes}
-                summary_quotes = market_quotes(payload.get("odds") or payload.get("pickcenter"), source,
-                                               kickoff.isoformat())
-                quotes.extend(quote for quote in summary_quotes if quote["market"] not in board_markets)
+                quotes, observations["odds_source_attempts"] = market_quote_chain(
+                    match.get("odds") or event.get("odds"), board_source, payload, source, kickoff.isoformat())
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
                                             board_evidence=board_source, component_model=component_model,
@@ -614,15 +653,16 @@ def main():
                     except (OSError, ValueError, TypeError, KeyError, AttributeError, BudgetExhausted) as exc:
                         weather_errors[event] = source_error("research_weather", None, exc)
         cup_sources, cup_source_errors = {}, {}
-        official_cups = HistoryArchive(args.cache, len(UEFA_NEW_CUPS), fetch=paced_download(.75))
-        for league, (path, url) in UEFA_NEW_CUPS.items():
-            if not manifest["reports"].get(league, {}).get("records"):
+        official_cups = HistoryArchive(args.cache, 2 * len(UEFA_NEW_CUPS), fetch=paced_download(.75))
+        for league in UEFA_NEW_CUPS:
+            records = manifest["reports"].get(league, {}).get("records") or []
+            if not records:
                 continue
-            try:
-                cup_sources[league] = official_cups.get(url, lambda raw, _: cup_fixture_index(raw, path),
-                                                       max_age=dt.timedelta(hours=1))
-            except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
-                cup_source_errors[league] = source_error("uefa_cup_fixtures", url, exc)
+            evidence, errors = cup_fixture_chain(official_cups, league, manifest["day"], len(records))
+            if evidence:
+                cup_sources[league] = evidence
+            if errors:
+                cup_source_errors[league] = errors
         team_history, team_sources, team_history_errors = collect_cup_history(
             HistoryArchive(args.cache, 2 * len(TEAM_LEAGUES), fetch=paced_download(.75)), manifest)
         # Establish the cutoff after all source acquisition and integrity verification.
