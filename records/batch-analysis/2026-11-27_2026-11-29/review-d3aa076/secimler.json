@@ -1,0 +1,296 @@
+{
+  "markets": {
+    "2.5_UST": [
+      {
+        "event_id": "401843497",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.8292349682259048,
+        "EX-V43-PERFORMANCE-V1": 0.8292349682259046,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401878929",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.8066183501047525,
+        "EX-V43-PERFORMANCE-V1": 0.8066183501047529,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401875531",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7841071445426537,
+        "EX-V43-PERFORMANCE-V1": 0.7841071445426528,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401884725",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7790387310728757,
+        "EX-V43-PERFORMANCE-V1": 0.7790387310728756,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401875535",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7378111332293338,
+        "EX-V43-PERFORMANCE-V1": 0.7378111332293333,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      }
+    ],
+    "KG_VAR": [
+      {
+        "event_id": "401843497",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7944259296802417,
+        "EX-V43-PERFORMANCE-V1": 0.7944875291498624,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401878929",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7564788214451059,
+        "EX-V43-PERFORMANCE-V1": 0.7583496818018478,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401884725",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7517260932570794,
+        "EX-V43-PERFORMANCE-V1": 0.7506243871986596,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401875535",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7233318613962765,
+        "EX-V43-PERFORMANCE-V1": 0.7232218833344038,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401875831",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7149086125378297,
+        "EX-V43-PERFORMANCE-V1": 0.7145136490368525,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      }
+    ],
+    "MS1": [
+      {
+        "event_id": "401875531",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.7330241842432149,
+        "EX-V43-PERFORMANCE-V1": 0.7439950619924166,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401843493",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.7195588312736495,
+        "EX-V43-PERFORMANCE-V1": 0.7266608280984359,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401879231",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.6510333553128731,
+        "EX-V43-PERFORMANCE-V1": 0.6680754245386826,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401884720",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.6498571638156873,
+        "EX-V43-PERFORMANCE-V1": 0.6529978709851765,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401885046",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.6446429009324192,
+        "EX-V43-PERFORMANCE-V1": 0.6434880694892616,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      }
+    ],
+    "MS2": [
+      {
+        "event_id": "401875533",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.6099615968252998,
+        "EX-V43-PERFORMANCE-V1": 0.5960465237594085,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401882793",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5995191915743371,
+        "EX-V43-PERFORMANCE-V1": 0.584755512262833,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401874826",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5702787647852359,
+        "EX-V43-PERFORMANCE-V1": 0.5603577803322393,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401884722",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5638915269767804,
+        "EX-V43-PERFORMANCE-V1": 0.570097690436083,
+        "verified_price": false,
+        "cross_verified_fixture": true
+      },
+      {
+        "event_id": "401875532",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5244015799948573,
+        "EX-V43-PERFORMANCE-V1": 0.537162770148133,
+        "verified_price": true,
+        "cross_verified_fixture": true
+      }
+    ]
+  },
+  "combined": [
+    {
+      "event_id": "401843497",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.8292349682259048,
+      "EX-V43-PERFORMANCE-V1": 0.8292349682259046,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401878929",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.8066183501047525,
+      "EX-V43-PERFORMANCE-V1": 0.8066183501047529,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875531",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7841071445426537,
+      "EX-V43-PERFORMANCE-V1": 0.7841071445426528,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401884725",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7790387310728757,
+      "EX-V43-PERFORMANCE-V1": 0.7790387310728756,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875535",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7378111332293338,
+      "EX-V43-PERFORMANCE-V1": 0.7378111332293333,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401843493",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7308938841487794,
+      "EX-V43-PERFORMANCE-V1": 0.7308938841487793,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401884724",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7307230705358454,
+      "EX-V43-PERFORMANCE-V1": 0.730723070535845,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875831",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7270522055867222,
+      "EX-V43-PERFORMANCE-V1": 0.7270522055867219,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875533",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7267048089960697,
+      "EX-V43-PERFORMANCE-V1": 0.726704808996069,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875828",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.7072360279664418,
+      "EX-V43-PERFORMANCE-V1": 0.7072360279664412,
+      "verified_price": false,
+      "cross_verified_fixture": true
+    }
+  ],
+  "evidence": [
+    {
+      "event_id": "401878929",
+      "market": "2.5_UST",
+      "EX-V43-POISSON": 0.8066183501047525,
+      "EX-V43-PERFORMANCE-V1": 0.8066183501047529,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875531",
+      "market": "MS1",
+      "EX-V43-POISSON": 0.7330241842432149,
+      "EX-V43-PERFORMANCE-V1": 0.7439950619924166,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401843493",
+      "market": "MS1",
+      "EX-V43-POISSON": 0.7195588312736495,
+      "EX-V43-PERFORMANCE-V1": 0.7266608280984359,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401875533",
+      "market": "MS2",
+      "EX-V43-POISSON": 0.6099615968252998,
+      "EX-V43-PERFORMANCE-V1": 0.5960465237594085,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    },
+    {
+      "event_id": "401884724",
+      "market": "MS1",
+      "EX-V43-POISSON": 0.5384567199227727,
+      "EX-V43-PERFORMANCE-V1": 0.5369153602056852,
+      "verified_price": true,
+      "cross_verified_fixture": true
+    }
+  ]
+}
