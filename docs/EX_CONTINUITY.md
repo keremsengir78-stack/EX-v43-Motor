@@ -454,3 +454,11 @@ Manuel günlük ve haftalık komutlar ile isteğe bağlı dış zamanlayıcı ve
 Depo kökünde `python run_ex_archive_dispatch.py --offset 0 --execute` günün kalıcı arşiv, maç öncesi araştırma ve sonuçlandırma çevrimini başlatır. Komut UTC fikstür tarihini ve PR dalını kullanır. Kullanıcı hesabı veya dış işleyici bu depoda Actions çalıştırabilmelidir. Haftalık rapor için aynı komut `--offset 0` yerine `--weekly` ile çalıştırılır. Dış zamanlayıcı ve arşiv dalı koruması için Paket 21 adımları geçerlidir.
 
 Arşivden dönen bir skor çelişkisi ilgili fikstürü sonuçlandırma bekleme listesine alır. Aynı maçın önceki doğrulanmış kopyası da yeniden kullanım listesinden çıkarılır. Diğer maçlar sonuçlandırılabilir. %50/%30/%20 yönteminin sabit ağırlıkları farklı bileşen puanlarıyla regresyon testinde doğrulanır. Üretim kabulü mevcut sertifikalı kalibrasyon ve kaynak kapılarına bağlıdır.
+
+### Performans İyileştirme Modeli V1
+
+Arşivli skorlarla puanlanan rakip gücü, önceki maçların gol oranlarını düzeltir. Geçmiş pencere ağırlıkları korunur. Takımın sezon kalitesi ve güncel formu ayrı hesaplanır. Avrupa kupalarında yalnız maç öncesinde yerel lig kimliği belirlenebilen farklı lig takımları, düzenlileştirilmiş lig katsayısına veri sağlar. Yetersiz lig desteğinde düzeltme uygulanmaz. Düşük skor bağımlılığı araştırma adayı skor dağılımında denenir.
+
+Ayarlar kronolojik doğrulama diliminde seçilir. Bağımsız testte iki yöntem aynı fikstürlerde Brier, Log Loss, kalibrasyon hatası, yüzde 50 karar doğruluğu ve yüzde 65/70/75/80 üzeri isabet üzerinden karşılaştırılır. Önce tamamlanan maçların sonuçları ileri yürüyen geçmişe katılabilir. Sonuçlar tamamlanma zamanından önce kullanılamaz. Tarihsel tekrar ve gerçekten maç öncesi arşivlenen tahminler ayrı kanıt türleridir.
+
+Uygun ileri tarihli maçlarda `EX-V43-POISSON` ve `EX-V43-PERFORMANCE-V1` birlikte kaydedilir. Maç sonrası ve haftalık kayıtlar iki sürümü yalnız bağımsız doğrulanmış skorla eşleştirir. V1 araştırma adayıdır ve EX FINAL karar yoluna dahil edilmez.

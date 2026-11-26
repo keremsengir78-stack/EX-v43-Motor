@@ -160,7 +160,8 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
     rows = join_holdout(forecasts, venue_outcomes) if venue_outcomes else []
     domestic_events = phase["independently_settled_domestic"]
     paired = [{"date": utc(joined_outcomes[e]["kickoff"]).date(),
-               "labels": joined_outcomes[e]["labels"], **candidates[e][1]}
+               "labels": joined_outcomes[e]["labels"],
+               **{version: candidates[e][1][version] for version in (REFERENCE, CANDIDATE)}}
               for e in sorted(joined_outcomes.keys() & candidates.keys())]
     performance = {
         "status": "DESCRIPTIVE_ONLY" if rows else "NO_INDEPENDENT_OUTCOMES",

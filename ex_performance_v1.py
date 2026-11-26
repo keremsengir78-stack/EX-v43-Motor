@@ -282,7 +282,8 @@ def settled_daily_pairs(packs, outcomes):
             fixture = forecast["fixture"]
             event = fixture["event_id"]
             outcome = by_event.get(event)
-            if not pair or not outcome or ("official_review" not in outcome):
+            if (not pair or not outcome or
+                    outcome.get("official_review", {}).get("scope") != "REVIEWED_OFFICIAL_RESULT"):
                 continue
             kickoff = utc(fixture["kickoff_at"])
             if (fixture["league"] != outcome["league"] or fixture["team_ids"] != outcome["teams"]
@@ -291,7 +292,8 @@ def settled_daily_pairs(packs, outcomes):
                 continue
             previous = chosen.get(event)
             if previous is None or sealed < previous[0]:
-                chosen[event] = sealed, {"date": kickoff.date(), "labels": outcome["labels"], **pair}
+                chosen[event] = sealed, {"date": kickoff.date(), "labels": outcome["labels"],
+                                         **{version: pair[version] for version in (REFERENCE, CANDIDATE)}}
             elif sealed == previous[0] and any(previous[1][v] != pair[v] for v in (REFERENCE, CANDIDATE)):
                 raise ValueError("Conflicting paired forecasts sealed at the same instant")
     rows = [entry[1] for entry in chosen.values()]
