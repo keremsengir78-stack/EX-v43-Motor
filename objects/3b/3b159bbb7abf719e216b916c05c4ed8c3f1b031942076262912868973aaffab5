@@ -1,0 +1,915 @@
+{
+  "mode": "YOĞUN",
+  "verified_fixture_count": 36,
+  "limits": {
+    "per_market": 5,
+    "combined": 10,
+    "evidence": 5
+  },
+  "markets": {
+    "2.5_UST": [
+      {
+        "event_id": "401915815",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7846549553153246,
+        "EX-V43-PERFORMANCE-V1": 0.7846549553153246,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915505",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7634044607306252,
+        "EX-V43-PERFORMANCE-V1": 0.7634044607306241,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915504",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7222297449115802,
+        "EX-V43-PERFORMANCE-V1": 0.7222297449115792,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915801",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7190647499675631,
+        "EX-V43-PERFORMANCE-V1": 0.7190647499675631,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915811",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.6581405825921223,
+        "EX-V43-PERFORMANCE-V1": 0.6581405825921218,
+        "verified_price": true
+      }
+    ],
+    "KG_VAR": [
+      {
+        "event_id": "401915505",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7480084131780996,
+        "EX-V43-PERFORMANCE-V1": 0.7470993993272002,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915815",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7458010885296227,
+        "EX-V43-PERFORMANCE-V1": 0.7452507966612947,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915801",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7118696232071313,
+        "EX-V43-PERFORMANCE-V1": 0.7121269968108963,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915504",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7047387764916073,
+        "EX-V43-PERFORMANCE-V1": 0.7078591154214453,
+        "verified_price": false
+      },
+      {
+        "event_id": "401915811",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.6449699915641044,
+        "EX-V43-PERFORMANCE-V1": 0.6483922834394167,
+        "verified_price": false
+      }
+    ],
+    "MS1": [
+      {
+        "event_id": "401915503",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.5370553294747026,
+        "EX-V43-PERFORMANCE-V1": 0.5265108960089004,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915811",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.5319651932285644,
+        "EX-V43-PERFORMANCE-V1": 0.5198055620496885,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915508",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.5017246731000302,
+        "EX-V43-PERFORMANCE-V1": 0.4931953542962782,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915808",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.47377652801744097,
+        "EX-V43-PERFORMANCE-V1": 0.4731241898607933,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915521",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.46240962737705443,
+        "EX-V43-PERFORMANCE-V1": 0.4717095092687744,
+        "verified_price": true
+      }
+    ],
+    "MS2": [
+      {
+        "event_id": "401915504",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5037423654241261,
+        "EX-V43-PERFORMANCE-V1": 0.4874050160945624,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915801",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.4370632431729916,
+        "EX-V43-PERFORMANCE-V1": 0.4339082800249256,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915513",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.39615442222823805,
+        "EX-V43-PERFORMANCE-V1": 0.3871673171503972,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915505",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.3664979959751026,
+        "EX-V43-PERFORMANCE-V1": 0.35338788075301886,
+        "verified_price": true
+      },
+      {
+        "event_id": "401915802",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.3503327800591766,
+        "EX-V43-PERFORMANCE-V1": 0.37014424830999443,
+        "verified_price": true
+      }
+    ]
+  },
+  "combined": [
+    {
+      "event_id": "401915815",
+      "fixture": {
+        "event_id": "401915815",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Ajax Amsterdam",
+        "away": "FC Thun",
+        "team_ids": {
+          "home": "139",
+          "away": "3024"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915815",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7846549553153246,
+          "EX-V43-PERFORMANCE-V1": 0.7846549553153246,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915815",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7458010885296227,
+          "EX-V43-PERFORMANCE-V1": 0.7452507966612947,
+          "verified_price": false
+        },
+        "MS2": {
+          "event_id": "401915815",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.2571094435458709,
+          "EX-V43-PERFORMANCE-V1": 0.2553774733015964,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915505",
+      "fixture": {
+        "event_id": "401915505",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "NEC Nijmegen",
+        "away": "Stade Rennais",
+        "team_ids": {
+          "home": "147",
+          "away": "169"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915505",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7634044607306252,
+          "EX-V43-PERFORMANCE-V1": 0.7634044607306241,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915505",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7480084131780996,
+          "EX-V43-PERFORMANCE-V1": 0.7470993993272002,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915505",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.4273465563019892,
+          "EX-V43-PERFORMANCE-V1": 0.44105510951871607,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915505",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3664979959751026,
+          "EX-V43-PERFORMANCE-V1": 0.35338788075301886,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915504",
+      "fixture": {
+        "event_id": "401915504",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Crystal Palace",
+        "away": "Real Sociedad",
+        "team_ids": {
+          "home": "384",
+          "away": "89"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915504",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7222297449115802,
+          "EX-V43-PERFORMANCE-V1": 0.7222297449115792,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915504",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7047387764916073,
+          "EX-V43-PERFORMANCE-V1": 0.7078591154214453,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915504",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.28885472674872187,
+          "EX-V43-PERFORMANCE-V1": 0.30327160943035836,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915504",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.5037423654241261,
+          "EX-V43-PERFORMANCE-V1": 0.4874050160945624,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915801",
+      "fixture": {
+        "event_id": "401915801",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "SC Freiburg",
+        "away": "FC Twente",
+        "team_ids": {
+          "home": "126",
+          "away": "152"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915801",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7190647499675631,
+          "EX-V43-PERFORMANCE-V1": 0.7190647499675631,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915801",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7118696232071313,
+          "EX-V43-PERFORMANCE-V1": 0.7121269968108963,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915801",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.3489474313244045,
+          "EX-V43-PERFORMANCE-V1": 0.3519400923734742,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915801",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4370632431729916,
+          "EX-V43-PERFORMANCE-V1": 0.4339082800249256,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915811",
+      "fixture": {
+        "event_id": "401915811",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Heart of Midlothian",
+        "away": "AS Monaco",
+        "team_ids": {
+          "home": "262",
+          "away": "174"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915811",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6581405825921223,
+          "EX-V43-PERFORMANCE-V1": 0.6581405825921218,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915811",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6449699915641044,
+          "EX-V43-PERFORMANCE-V1": 0.6483922834394167,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915811",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5319651932285644,
+          "EX-V43-PERFORMANCE-V1": 0.5198055620496885,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915811",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.25382751803331827,
+          "EX-V43-PERFORMANCE-V1": 0.26401754997070903,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915515",
+      "fixture": {
+        "event_id": "401915515",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "TSG Hoffenheim",
+        "away": "SK Sturm Graz",
+        "team_ids": {
+          "home": "7911",
+          "away": "3746"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915515",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6020532022520676,
+          "EX-V43-PERFORMANCE-V1": 0.6020532022520678,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915515",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6188894455204084,
+          "EX-V43-PERFORMANCE-V1": 0.6184710946892893,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915515",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.442743857344856,
+          "EX-V43-PERFORMANCE-V1": 0.44581755015458135,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915515",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.32183789943750685,
+          "EX-V43-PERFORMANCE-V1": 0.3190095852082887,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915508",
+      "fixture": {
+        "event_id": "401915508",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Union St.-Gilloise",
+        "away": "Lech Poznan",
+        "team_ids": {
+          "home": "5807",
+          "away": "2990"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915508",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6136374264871136,
+          "EX-V43-PERFORMANCE-V1": 0.6136374264871126,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915508",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6168176005780126,
+          "EX-V43-PERFORMANCE-V1": 0.6188871498023567,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915508",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5017246731000302,
+          "EX-V43-PERFORMANCE-V1": 0.4931953542962782,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915508",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.27158406481626624,
+          "EX-V43-PERFORMANCE-V1": 0.27892492601910035,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915808",
+      "fixture": {
+        "event_id": "401915808",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "SK Brann",
+        "away": "AGF",
+        "team_ids": {
+          "home": "620",
+          "away": "7853"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915808",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.5899900968440984,
+          "EX-V43-PERFORMANCE-V1": 0.5899900968440986,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915808",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6040917476038521,
+          "EX-V43-PERFORMANCE-V1": 0.6042233630800654,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915808",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.47377652801744097,
+          "EX-V43-PERFORMANCE-V1": 0.4731241898607933,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915808",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.29153772285401747,
+          "EX-V43-PERFORMANCE-V1": 0.29211416600271317,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915814",
+      "fixture": {
+        "event_id": "401915814",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Brighton & Hove Albion",
+        "away": "CSU Craiova",
+        "team_ids": {
+          "home": "331",
+          "away": "8089"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915814",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.5626078014668685,
+          "EX-V43-PERFORMANCE-V1": 0.5626078014668678,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915814",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5885314220546095,
+          "EX-V43-PERFORMANCE-V1": 0.5863734113717144,
+          "verified_price": false
+        },
+        "MS2": {
+          "event_id": "401915814",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3198835658733498,
+          "EX-V43-PERFORMANCE-V1": 0.3065983657421059,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401915519",
+      "fixture": {
+        "event_id": "401915519",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Celta Vigo",
+        "away": "AFC Bournemouth",
+        "team_ids": {
+          "home": "85",
+          "away": "349"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915519",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.5157885800138036,
+          "EX-V43-PERFORMANCE-V1": 0.5157885800138036,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915519",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5504874078210864,
+          "EX-V43-PERFORMANCE-V1": 0.5528143800370052,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915519",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.44129080953349953,
+          "EX-V43-PERFORMANCE-V1": 0.4248010850499057,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915519",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.30587778386004827,
+          "EX-V43-PERFORMANCE-V1": 0.3210310398299754,
+          "verified_price": true
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "event_id": "401915503",
+      "fixture": {
+        "event_id": "401915503",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "OFI Crete",
+        "away": "Anderlecht",
+        "team_ids": {
+          "home": "1010",
+          "away": "441"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915503",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.46007239761553764,
+          "EX-V43-PERFORMANCE-V1": 0.4600723976155375,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915503",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.477423741179647,
+          "EX-V43-PERFORMANCE-V1": 0.4815408376011633,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915503",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5370553294747026,
+          "EX-V43-PERFORMANCE-V1": 0.5265108960089004,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915503",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.2132200598822186,
+          "EX-V43-PERFORMANCE-V1": 0.22153943533525958,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401915801",
+      "fixture": {
+        "event_id": "401915801",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "SC Freiburg",
+        "away": "FC Twente",
+        "team_ids": {
+          "home": "126",
+          "away": "152"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915801",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7190647499675631,
+          "EX-V43-PERFORMANCE-V1": 0.7190647499675631,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915801",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7118696232071313,
+          "EX-V43-PERFORMANCE-V1": 0.7121269968108963,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915801",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.3489474313244045,
+          "EX-V43-PERFORMANCE-V1": 0.3519400923734742,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915801",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4370632431729916,
+          "EX-V43-PERFORMANCE-V1": 0.4339082800249256,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401915504",
+      "fixture": {
+        "event_id": "401915504",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Crystal Palace",
+        "away": "Real Sociedad",
+        "team_ids": {
+          "home": "384",
+          "away": "89"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915504",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7222297449115802,
+          "EX-V43-PERFORMANCE-V1": 0.7222297449115792,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915504",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7047387764916073,
+          "EX-V43-PERFORMANCE-V1": 0.7078591154214453,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915504",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.28885472674872187,
+          "EX-V43-PERFORMANCE-V1": 0.30327160943035836,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915504",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.5037423654241261,
+          "EX-V43-PERFORMANCE-V1": 0.4874050160945624,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 4
+    },
+    {
+      "event_id": "401915505",
+      "fixture": {
+        "event_id": "401915505",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "NEC Nijmegen",
+        "away": "Stade Rennais",
+        "team_ids": {
+          "home": "147",
+          "away": "169"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:11:47.827228+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915505",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7634044607306252,
+          "EX-V43-PERFORMANCE-V1": 0.7634044607306241,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401915505",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7480084131780996,
+          "EX-V43-PERFORMANCE-V1": 0.7470993993272002,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915505",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.4273465563019892,
+          "EX-V43-PERFORMANCE-V1": 0.44105510951871607,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915505",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3664979959751026,
+          "EX-V43-PERFORMANCE-V1": 0.35338788075301886,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 4
+    },
+    {
+      "event_id": "401915807",
+      "fixture": {
+        "event_id": "401915807",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "FC Nordsjælland",
+        "away": "Panathinaikos",
+        "team_ids": {
+          "home": "3101",
+          "away": "443"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T09:12:02.091377+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401915807",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.44612587844505913,
+          "EX-V43-PERFORMANCE-V1": 0.4461258784450594,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401915807",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.4985855978195694,
+          "EX-V43-PERFORMANCE-V1": 0.49777042590029985,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401915807",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.4083469972296078,
+          "EX-V43-PERFORMANCE-V1": 0.4153171708249104,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401915807",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3205058312153348,
+          "EX-V43-PERFORMANCE-V1": 0.31400315950153623,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 3
+    }
+  ],
+  "pup": [],
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
