@@ -13,6 +13,10 @@ from run_ex_official_sources import ALTERNATE_CALENDARS, archive_alternate_calen
 from run_ex_pfl_discovery import prematch as pfl_prematch
 
 
+LIVE_WINDOW = dt.timedelta(hours=48)
+RESEARCH_WINDOW = dt.timedelta(hours=96)
+
+
 def prematch_fixtures(raw, captured, day, competition, horizon):
     payload = json.loads(raw)
     if {league["slug"] for league in payload["leagues"]} != {competition}:
@@ -68,7 +72,11 @@ def seed_recent_pregame(packs, archive, day):
                 if captured > seal:
                     raise ValueError("Archived pregame source postdates its receipt")
                 identity = meta["url"], captured, meta["sha256"]
-                if now - captured > dt.timedelta(minutes=20) or identity in seen:
+                crosses_live_window = any(
+                    captured < utc(row["kickoff_at"]) - LIVE_WINDOW <= now
+                    for row in report["records"]
+                )
+                if now - captured > dt.timedelta(minutes=20) or crosses_live_window or identity in seen:
                     continue
                 raw, _ = source._load(meta, meta["url"])
                 archive.import_capture(meta["url"], raw, captured, meta["sha256"])
@@ -76,12 +84,12 @@ def seed_recent_pregame(packs, archive, day):
     return len(seen)
 
 
-def collect(archive, league, day, limit):
+def collect(archive, league, day, limit, *, horizon=LIVE_WINDOW):
     competition = ESPN_LEAGUES[league]
     board_url = f"{ESPN}/{competition}/scoreboard?dates={day:%Y%m%d}"
     ttl = dt.timedelta(minutes=20)
     fixtures, source = archive.get(
-        board_url, lambda raw, stamp: prematch_fixtures(raw, stamp, day, competition, dt.timedelta(hours=48)),
+        board_url, lambda raw, stamp: prematch_fixtures(raw, stamp, day, competition, horizon),
         max_age=ttl)
     errors, records = [], []
     upcoming = [fixture for fixture in fixtures if archive.clock() < fixture[1]]
@@ -99,11 +107,11 @@ def collect(archive, league, day, limit):
             "eligible": len(upcoming), "requests": archive.requests, "ex_final_allowed": False}
 
 
-def collect_registered(archive, day, limit, leagues=ESPN_LEAGUES):
+def collect_registered(archive, day, limit, leagues=ESPN_LEAGUES, *, horizon=LIVE_WINDOW):
     reports, errors = {}, []
     for league in leagues:
         try:
-            reports[league] = collect(archive, league, day, limit)
+            reports[league] = collect(archive, league, day, limit, horizon=horizon)
         except (BudgetExhausted, OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
             errors.append({"league": league, **source_error("board", None, exc)})
     return {"kind": "REGISTERED_LEAGUE_CAPTURE", "day": day.isoformat(), "reports": reports,

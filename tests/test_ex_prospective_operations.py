@@ -33,7 +33,7 @@ class ProspectiveOperationsTests(unittest.TestCase):
         self.assertEqual("123", skipped[1]["event_id"])
 
     def test_registered_capture_covers_catalog_and_isolates_unavailable_sources(self):
-        def collect(_, league, day, limit):
+        def collect(_, league, day, limit, *, horizon):
             if league == "az.1":
                 raise OSError("unsupported feed")
             return {"eligible": 0, "records": []}

@@ -79,6 +79,29 @@ class ProductionFinalTests(unittest.TestCase):
         self.assertIn("exg:uncalibrated", run()["auto_control_by_market"]["MS1"]["issues"])
         with patch.dict("ex_decision._APPROVED_CALIBRATORS", {"MS1": registration()}, clear=True):
             self.assertEqual(["MS1"], run()["final_markets"])
+            early_quote = {**quote, "observed_at": (kickoff - timedelta(hours=49)).isoformat()}
+            self.assertIn("odds_lock:blocked",
+                          run(quotes=[early_quote])["auto_control_by_market"]["MS1"]["issues"])
+            early = kickoff - timedelta(hours=60)
+            early_stamp = (early - timedelta(minutes=10)).isoformat()
+            early_fixture = {**fixture, "fixture_checked_at": early_stamp}
+            early_inputs = {
+                **params,
+                "board_evidence": {**board, "retrieved_at": early_stamp},
+                "cup_evidence": ({(kickoff, "alpha", "beta")}, {"retrieved_at": early_stamp}),
+            }
+            for review in ("context_review", "ingestion_review", "component_review"):
+                early_inputs[review] = {**params[review], "fixture": early_fixture,
+                                        "accepted_at": (early - timedelta(minutes=5)).isoformat()}
+            research = daily_analysis(early_fixture, None, None, early, by_team=history,
+                                      quotes=[{**quote, "observed_at": early_stamp}], **early_inputs)
+            self.assertIsNotNone(research["domestic_research"]["baseline"])
+            self.assertTrue(research["tur2"])
+            self.assertFalse(research["live_evidence_window"])
+            self.assertIn("live_evidence:48h_pending", research["auto_control_by_market"]["MS1"]["issues"])
+            self.assertIsNone(research["markets"]["markets"]["MS1"]["ex_g"]["probability"])
+            self.assertEqual([], research["final_markets"])
+
             for changes, reason in (({"by_team": {}}, "historical_samples:incomplete"),
                                     ({"cup_evidence": None}, "second_source:unverified"),
                                     ({"context_review": None}, "context:unverified")):

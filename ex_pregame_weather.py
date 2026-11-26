@@ -1,5 +1,6 @@
 """Collect source-timestamped numerical forecasts for known stadiums."""
 
+import datetime as dt
 import json
 import math
 from urllib.parse import urlencode
@@ -30,7 +31,7 @@ def forecast(archive, point, kickoff, analysis_at):
             raise ValueError("Impossible forecast values")
         return values
 
-    values, source = archive.get("https://api.open-meteo.com/v1/forecast?" + query, parse)
+    values, source = archive.get("https://api.open-meteo.com/v1/forecast?" + query, parse, max_age=dt.timedelta(hours=1))
     if not utc(source["retrieved_at"]) < utc(analysis_at()) < stamp:
         raise ValueError("Forecast unavailable at analysis cutoff")
     return {"kind": "PREMATCH_NUMERICAL_FORECAST", "forecast_hour_utc": hour + ":00Z",

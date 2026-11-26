@@ -33,6 +33,9 @@ on:
       day:
         type: string
         description: UTC fixture date for capture
+      days:
+        type: string
+        description: 'Optional JSON array of UTC dates for one batch capture'
       pup:
         type: boolean
         description: Run post-analysis PUP checks
@@ -192,6 +195,10 @@ jobs:
           path: source-probe/
   capture:
     if: github.event_name == 'schedule' || inputs.mode == 'capture' || inputs.mode == 'cycle'
+    strategy:
+      fail-fast: false
+      matrix:
+        day: ${{ fromJSON(inputs.days || '[""]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -229,7 +236,7 @@ jobs:
           pattern: history-summary-evidence-1-*
           path: history
       - env:
-          DAY: ${{ inputs.day }}
+          DAY: ${{ matrix.day || inputs.day }}
           FACTS: ${{ steps.archive.outputs.facts }}
           RAW_OVERRIDE: ${{ inputs.history_run_id }}
           PUP: ${{ inputs.pup }}
@@ -246,12 +253,12 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
         with:
-          name: ex-historical-facts
+          name: ex-historical-facts${{ matrix.day && format('-{0}', matrix.day) || '' }}
           path: historical-facts.jsonl
           if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
-          name: ex-prospective-forecasts
+          name: ex-prospective-forecasts${{ matrix.day && format('-{0}', matrix.day) || '' }}
           path: |
             forecasts/
             pregame-cache/
@@ -353,7 +360,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           TARGET: ${{ github.ref_name }}
         run: |
-          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select(.name == "ex-prospective-forecasts" or .name == "ex-prospective-settlement" or .name == "ex-historical-facts") | .id] | join(",")')
+          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select((.name | test("^ex-(prospective-forecasts|prospective-settlement|historical-facts)(-[0-9]{4}-[0-9]{2}-[0-9]{2})?$"))) | .id] | join(",")')
           test -n "$ids"
           monday=$(date -u -d "$(date -u +%F) - $(($(date -u +%u) - 1)) days" +%F)
           gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$TARGET"             -f week_start="$monday" -f artifact_ids="$ids" -f preserve_only=true

@@ -262,7 +262,17 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
         strength = {market: values[MARKET_KEYS[market]] for market in MARKETS}
     factors = weather_vector(weather, fixture["kickoff_at"], as_of)
     components, decisions = score_components(strength, workload, factors, component_model, as_of)
-    certified = fixture_acceptance(component_review, fixture, as_of)
+    kickoff = utc(fixture["kickoff_at"])
+    live_start = kickoff - timedelta(hours=48)
+    live_window = live_start <= as_of < kickoff
+    if board_evidence:
+        live_window = live_window and utc(board_evidence["retrieved_at"]) >= live_start
+    summary_source = (observations or {}).get("summary_source")
+    if summary_source:
+        live_window = live_window and utc(summary_source["retrieved_at"]) >= live_start
+    certified = fixture_acceptance(component_review, fixture, as_of) if live_window else None
+    if certified and utc(certified["accepted_at"]) < live_start:
+        certified = None
     if certified and certified.get("status") == "COMPONENTS_CROSS_VERIFIED":
         certified = certified.get("markets")
     else:
@@ -283,14 +293,18 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
     evidence = corroborated_fixture(fixture, board_evidence, as_of, cup_evidence)
     ingestion = fixture_acceptance(ingestion_review, fixture, as_of)
     context = fixture_acceptance(context_review, fixture, as_of)
-    if evidence["status"] != "FIXTURE_CROSS_VERIFIED":
+    if not live_window or evidence["status"] != "FIXTURE_CROSS_VERIFIED" or (
+            ingestion and utc(ingestion["accepted_at"]) < live_start):
         ingestion = None
+    if not live_window or (context and utc(context["accepted_at"]) < live_start):
+        context = None
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time),
             "market_baselines_pct": market_percentages,
             "recompute_consistent": recomputed,
             "league": fixture["league"], "as_of": time,
-            "full_historical_windows": bool(values)}
+            "full_historical_windows": bool(values),
+            "live_evidence_window": live_window, "live_evidence_starts_at": live_start.isoformat()}
     gate_inputs = {"ingestion": ingestion, "context_evidence": context, "fixture_evidence": evidence,
                    "pup_requested": False}
     checks = {market: auto_control({**gate, "market": market, "odds_lock": value["odds_lock"]},
@@ -305,6 +319,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
             "component_research": components,
             "ex_final_status": "FINAL" if finals else "BLOCKED_PENDING_REQUIRED_EVIDENCE",
             "final_markets": finals,
+            "live_evidence_window": live_window, "live_evidence_starts_at": live_start.isoformat(),
             "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, **gate_inputs, require_odds=False),
             "auto_control_by_market": checks, "fixture_evidence": evidence,
             "ingestion_acceptance": ingestion, "context_acceptance": context,

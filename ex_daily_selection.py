@@ -74,7 +74,7 @@ def daily_selection(rows, verified_ids, *, pup_requested=False):
             "pup": pup, "production_allowed": False, "ex_final_allowed": False}
 
 
-def verified_fixture_ids(manifest, cache, cutoff):
+def verified_fixture_ids(manifest, cache, cutoff, *, horizon=dt.timedelta(hours=48)):
     """Verify day, league, identity and kickoff against each raw fixture board."""
     from ex_espn_provider import ESPN_LEAGUES
     from ex_history_sources import ESPN
@@ -87,11 +87,11 @@ def verified_fixture_ids(manifest, cache, cutoff):
         url = f"{ESPN}/{slug}/scoreboard?dates={day:%Y%m%d}"
         try:
             raw, captured = cache._load(report["board"], url)
-            fixtures = prematch_fixtures(raw, captured, day, slug, dt.timedelta(hours=48))
+            fixtures = prematch_fixtures(raw, captured, day, slug, horizon)
         except (OSError, ValueError, TypeError, KeyError, AttributeError):
             continue
         for event, kickoff, teams in fixtures:
-            if not captured < cutoff < kickoff:
+            if not captured < cutoff < kickoff <= cutoff + horizon:
                 continue
             identity = league, kickoff, teams
             if seen.setdefault(event, identity) != identity:

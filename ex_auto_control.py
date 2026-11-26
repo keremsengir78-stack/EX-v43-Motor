@@ -8,6 +8,7 @@ import math
 
 from ex_decision import ex_g_from_evidence, weighted_evidence
 from ex_fixture_odds import check_odds
+from ex_history_archive import utc
 
 MARKET_KEYS=("2.5_UST","KG_VAR","MS1","MSX","MS2")
 
@@ -47,6 +48,8 @@ def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=
         issues.append("second_source:unverified")
     if fixture_evidence is not None and fixture_evidence.get("status") != "FIXTURE_CROSS_VERIFIED":
         issues.append("fixture_sources:unverified")
+    if match.get("live_evidence_window") is False:
+        issues.append("live_evidence:48h_pending")
     as_of = match.get("as_of")
     selection = match.get("market")
     ex_g = ex_g_from_evidence(selection, weighted_evidence(market_evidence, as_of),
@@ -63,7 +66,9 @@ def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=
             issues.append("fixture_sources:unverified")
         if (not require_odds or not isinstance(quote, dict) or quote.get("market") != selection
                 or check_odds(quote, as_of)["status"] != "VERIFIED_INPUT"
-                or check_odds(quote, as_of) != match.get("odds_lock")):
+                or check_odds(quote, as_of) != match.get("odds_lock")
+                or ("live_evidence_starts_at" in match
+                    and utc(quote["observed_at"]) < utc(match["live_evidence_starts_at"]))):
             issues.append("odds_lock:blocked")
     if not isinstance(context_evidence, dict) or context_evidence.get("status") != "CONTEXT_CROSS_VERIFIED":
         issues.append("context:unverified")

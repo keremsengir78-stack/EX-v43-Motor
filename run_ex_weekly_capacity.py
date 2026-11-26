@@ -91,7 +91,8 @@ def observed_coverage(fixtures, packs, settlements=None, *, fixture_phases=None)
                     fixture = fixtures.get(event)
                     if (fixture and fixture["league"] == league and row["teams"] == fixture["teams"]
                             and utc(row["kickoff_at"]) == utc(fixture["kickoff"])
-                            and utc(row["source"]["retrieved_at"]) <= sealed < utc(fixture["kickoff"])):
+                            and utc(fixture["kickoff"]) - dt.timedelta(hours=48) <= utc(row["source"]["retrieved_at"])
+                            <= sealed < utc(fixture["kickoff"])):
                         phase["prematch_archived"].add(event)
         daily = receipt.parent / "forecasts/daily-analysis.json"
         if not daily.is_file():

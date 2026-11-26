@@ -52,6 +52,14 @@ class ArchiveChainTests(unittest.TestCase):
             pre = root / "packs/1"
             archive = HistoryArchive(pre / "pregame-cache", len(payloads),
                                      fetch=lambda url: payloads[url], clock=lambda: now)
+            from run_ex_prematch_archive import LIVE_WINDOW, RESEARCH_WINDOW, prematch_fixtures
+            slug = APPROVED_LEAGUES["de.2"][1]
+            raw = payloads[f"{ESPN}/{slug}/scoreboard?dates=20261125"]
+            for hours, live, research in ((48, True, True), (49, False, True),
+                                           (96, False, True), (97, False, False)):
+                stamp = kickoff - dt.timedelta(hours=hours)
+                self.assertEqual(live, bool(prematch_fixtures(raw, stamp, kickoff.date(), slug, LIVE_WINDOW)))
+                self.assertEqual(research, bool(prematch_fixtures(raw, stamp, kickoff.date(), slug, RESEARCH_WINDOW)))
             manifest = collect_registered(archive, kickoff.date(), 25, APPROVED_LEAGUES)
             as_of = now + dt.timedelta(minutes=1)
             archive.clock = lambda: as_of

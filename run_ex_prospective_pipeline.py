@@ -22,7 +22,7 @@ from ex_official_calendar import calendar_fixtures
 from run_ex_official_sources import ALTERNATE_CALENDARS, checked, read_evidence
 from ex_rolling_scoreboards import archived_domestic_boards, scoreboard_facts
 from ex_retrospective import observed_season, settled_facts, window, workload
-from run_ex_prematch_archive import prematch_fixtures, summary
+from run_ex_prematch_archive import LIVE_WINDOW, RESEARCH_WINDOW, prematch_fixtures, summary
 from run_ucl_matchday_inputs import market_quotes, observed_load
 from run_ex_prospective_validation import evaluate, join_holdout, read_rows
 from run_ex_retrospective import load_facts
@@ -227,6 +227,8 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                             ingestion_review=reviews.get("ingestion"),
                                             context_review=reviews.get("context"),
                                             component_review=reviews.get("components")))
+            if kickoff - LIVE_WINDOW > min(captured, board_at):
+                continue
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -617,13 +619,14 @@ def main():
         from run_ex_prematch_archive import collect_registered, seed_recent_pregame
 
         day = dt.date.fromisoformat(args.daily_capture)
-        if not current.date() <= day <= current.date() + dt.timedelta(days=2):
-            parser.error("Choose an upcoming UTC date within two days")
+        if not current.date() <= day <= (current + RESEARCH_WINDOW).date():
+            parser.error("Choose an upcoming UTC date within the 96-hour research horizon")
         args.capture = args.output_dir / "capture.json"
         daily_archive = HistoryArchive(args.cache, 26 * len(APPROVED_LEAGUES), fetch=paced_download(.75))
         if args.prior_pregame:
             seed_recent_pregame(args.prior_pregame, daily_archive, day)
-        live = collect_registered(daily_archive, day, 25, APPROVED_LEAGUES)
+        live = collect_registered(daily_archive, day, 25, APPROVED_LEAGUES, horizon=RESEARCH_WINDOW)
+        live["research_window_hours"] = 96
         live["cache_hits"] = daily_archive.cache_hits
         if live["reports"].get("be.1", {}).get("eligible"):
             calendar_cache = HistoryArchive(args.cache, 1, fetch=paced_download(.75))
@@ -746,7 +749,8 @@ def main():
             forecasts = [row for row in forecasts if row["event_id"] not in elapsed]
         from ex_daily_selection import daily_selection, verified_fixture_ids
 
-        selection = daily_selection(daily, verified_fixture_ids(manifest, archive, publication_check),
+        horizon = RESEARCH_WINDOW if manifest.get("research_window_hours") == 96 else LIVE_WINDOW
+        selection = daily_selection(daily, verified_fixture_ids(manifest, archive, publication_check, horizon=horizon),
                                     pup_requested=args.pup)
         atomic_write(args.output_dir / "daily-selection.json",
                      (json.dumps(selection, ensure_ascii=False, indent=2) + "\n").encode())
