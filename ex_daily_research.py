@@ -13,7 +13,7 @@ from ex_decision import MARKETS, assess_market_value, assess_markets
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
-from ex_engine import weighted_form
+from ex_engine import form_sample_rows, weighted_form
 from ex_team_identity import team_identities
 from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
 from ex_ucl_baseline import cross_league_baseline
@@ -39,7 +39,7 @@ def domestic_snapshot(root):
 DOMESTIC_BY_SLUG = {data[1]: league for league, data in APPROVED_LEAGUES.items() if league not in UEFA_CUPS}
 
 
-def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None, diagnostics=None):
+def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_leagues=None, diagnostics=None, verified_results=None):
     """Join current domestic membership by ESPN club ID; never infer from a name."""
     catalog = DOMESTIC_BY_SLUG | (archive_leagues or {}) if retrospective else DOMESTIC_BY_SLUG
     if fixture["league"] in UEFA_CUPS - {"UCL"}:
@@ -72,7 +72,7 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
         leagues.append(league)
         club_rows = [{"date": row["kickoff"].date(), "league": league,
                       "home": row["teams"]["home"], "away": row["teams"]["away"],
-                      "hg": row["score"][0], "ag": row["score"][1]} for row in history
+                      "hg": row["score"][0], "ag": row["score"][1], "event_id": row.get("event_id"), "kickoff": row["kickoff"]} for row in history
                      if row["competition"] == competition]
         rows.extend(club_rows)
         if diagnostics is not None:
@@ -81,6 +81,18 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
             _, audit = weighted_form(sorted(unique_rows.values(), key=lambda r: r["date"]),
                                      club, side, cutoff, league, current_start, previous_start)
             names = ("venue_last5", "venue_last10", "current_season", "previous_season_venue")
+            if verified_results is not None:
+                samples = form_sample_rows(sorted(unique_rows.values(), key=lambda r: r["date"]),
+                                           club, side, cutoff, league, current_start, previous_start)
+                diagnostic["independent_results"] = {
+                    name: {"sample_count": len(chunk), "confirmed_event_ids": [
+                        row["event_id"] for row in chunk
+                        if (item := verified_results.get(row["event_id"]))
+                        and item[0] < as_of and utc(item[1]["kickoff"]) == row["kickoff"]
+                        and tuple(item[1]["score"]) == (row["hg"], row["ag"])
+                        and item[1]["teams"] == {"home": row["home"], "away": row["away"]}
+                        and item[1]["league"] == league]}
+                    for name, chunk in zip(names, samples, strict=True)}
             counts = dict(zip(names, audit["counts"], strict=True))
             diagnostic.update(league=league, current_season_start=current_start.isoformat(),
                               previous_season_start=previous_start.isoformat(), sample_counts=counts,
@@ -234,13 +246,13 @@ def fixture_acceptance(review, fixture, as_of):
 
 
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None, component_model=None,
-                   strength=None, workload=None, weather=None, cup_evidence=None, ingestion_review=None, context_review=None, component_review=None):
+                   strength=None, workload=None, weather=None, cup_evidence=None, ingestion_review=None, context_review=None, component_review=None, verified_results=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
     domestic_diagnostics = {}
     if fixture["league"] in APPROVED_LEAGUES and by_team:
-        inputs = rolling_domestic(fixture, by_team, as_of, diagnostics=domestic_diagnostics)
+        inputs = rolling_domestic(fixture, by_team, as_of, diagnostics=domestic_diagnostics, verified_results=verified_results)
         if inputs:
             kwargs = {"cutoff_date": as_of.date().isoformat()}
             baseline = cross_league_baseline(*inputs, **kwargs)

@@ -9,7 +9,7 @@ from ex_engine import W, distribution, poisson, weighted_form
 from ex_historical_features import market_labels
 from ex_history_archive import utc
 from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
-from ex_model_challengers import date_partitions
+from ex_model_challengers import date_partitions, fit_offset, sigmoid
 from ex_research_components import metrics
 from ex_ucl_strength import fit_league_margins
 from ex_component_experiment import weekly_interval
@@ -195,6 +195,55 @@ def measure(rows):
     return output
 
 
+def calibration_candidates(train, validation, test):
+    """Fit research-probability mappings on training and select only on validation."""
+    report = {"scope": "RECONSTRUCTED_BASELINE_PROBABILITIES", "production_allowed": False,
+              "test_samples": len(test), "test_weeks": len({r["date"].isocalendar()[:2] for r in test}),
+              "markets": {}}
+    for market, key in KEYS.items():
+        report["markets"][market] = {}
+        for version in (REFERENCE, CANDIDATE):
+            def inputs(rows):
+                for row in rows:
+                    probability = min(1 - 1e-6, max(1e-6, row[version][key]))
+                    yield math.log(probability / (1 - probability)), row["labels"][market]
+
+            training = list(inputs(train))
+            if len({outcome for _, outcome in training}) < 2:
+                continue
+            fits = {"identity": (0., 0.)}
+            for method, dimensions in (("intercept", 1), ("platt", 2)):
+                offset = fit_offset([(logit, y, (1., logit)[:dimensions]) for logit, y in training], dimensions)
+                intercept, change = (*offset, 0.) if dimensions == 1 else offset
+                if 1 + change > 0:
+                    fits[method] = intercept, change
+
+            def calibrated(rows, method):
+                if method == "identity":
+                    return [row[version][key] for row in rows]
+                intercept, change = fits[method]
+                return [sigmoid(intercept + (1 + change) * logit) for logit, _ in inputs(rows)]
+
+            def evaluation(rows, method):
+                labels = [{"label": row["labels"][market]} for row in rows]
+                predictions = calibrated(rows, method)
+                result, losses = metrics(labels, predictions)
+                result["log_loss"] = -mean(math.log(max(1e-12, p if y["label"] else 1 - p))
+                                           for p, y in zip(predictions, labels, strict=True))
+                return result, losses
+
+            scores = {method: evaluation(validation, method)[0]["brier"] for method in fits}
+            selected = min(scores, key=scores.get)
+            reference, old = evaluation(test, "identity")
+            candidate, new = evaluation(test, selected)
+            report["markets"][market][version] = {
+                "selected_on_validation": selected, "validation_brier": scores,
+                "test_reference": reference, "test_candidate": candidate,
+                "paired_weekly_brier_delta_99pct": weekly_interval([(row["date"],) for row in test], old, new),
+            }
+    return report
+
+
 def experiment(facts):
     scored = [r for r in facts if r["score"] is not None and r["finished"] is not None]
     eligible = [r for r in scored if r["finished"].date() == r["kickoff"].date()]
@@ -244,6 +293,10 @@ def experiment(facts):
                   test_europe=measure(records([r for r in test if r[1]["competition"] in EUROPE], selected)),
                   test_cross_league=sum(r[2][2] is not None for r in test),
                   test_start=test[0][0].isoformat())
+    calibration_setting = (0., .5, 0., trained_scale)
+    result["research_calibration"] = calibration_candidates(
+        records(train, calibration_setting), records(valid, calibration_setting), records(test, calibration_setting))
+    result["research_calibration"]["candidate_settings"] = calibration_setting
     cross_valid = [r for r in valid if r[2][2] is not None]
     cross_test = [r for r in test if r[2][2] is not None]
     if cross_valid and cross_test:

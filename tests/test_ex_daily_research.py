@@ -55,10 +55,23 @@ class DailyResearchTests(unittest.TestCase):
                     teams = {side: team, "home" if side == "away" else "away": f"other{index}"}
                     games.append({"kickoff": kickoff, "finished": kickoff + dt.timedelta(hours=2),
                                   "captured_at": kickoff + dt.timedelta(hours=3),
+                                  "event_id": f"{team}-{year}-{index}",
                                   "competition": league, "teams": teams, "score": (2, 1)})
             games.append({**games[-1], "captured_at": cutoff, "score": (20, 20),
                           "kickoff": utc("2027-02-13T12:00:00Z")})
             by_team[team] = games
+        reviewed = by_team["123"][0]
+        proof = {"teams": reviewed["teams"], "league": "en.1",
+                 "kickoff": reviewed["kickoff"].isoformat(), "score": [2, 1]}
+        checks = {}
+        for sealed in (cutoff, cutoff - dt.timedelta(seconds=1)):
+            audited = daily_analysis(fixture, None, None, cutoff, by_team=by_team,
+                                     verified_results={reviewed["event_id"]: (sealed, proof)})
+            checks[sealed] = audited["domestic_diagnostics"]["home"]["independent_results"]["previous_season_venue"]
+            self.assertIn("second_source:unverified", audited["auto_control"]["issues"])
+        self.assertEqual([], checks[cutoff]["confirmed_event_ids"])
+        self.assertEqual([reviewed["event_id"]],
+                         checks[cutoff - dt.timedelta(seconds=1)]["confirmed_event_ids"])
         row = daily_analysis(fixture, None, None, cutoff, by_team=by_team)
         result = row["domestic_research"]
         self.assertEqual("ROLLING_DOMESTIC_PROVIDER_TEAM_ID", result["history_scope"])

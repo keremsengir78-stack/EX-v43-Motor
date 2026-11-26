@@ -16,6 +16,7 @@ from ex_decision import MARKETS, WEIGHTS, weighted_evidence
 from ex_espn_provider import ESPN_LEAGUES
 from ex_historical_features import market_labels
 from ex_history_archive import BudgetExhausted, HistoryArchive, atomic_write, paced_download, source_error, utc
+from ex_performance_v1 import EUROPE
 from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS
 from ex_history_sources import ESPN, match_detail, teams, validated_team_minutes
 from ex_model_challengers import compare_calibration
@@ -105,7 +106,7 @@ def market_quote_chain(board_odds, board, payload, summary_source, kickoff, *, a
     return quotes, attempts
 
 
-def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None, accepted_reviews=None):
+def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None, accepted_reviews=None, verified_results=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
@@ -204,11 +205,25 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                 side_load = {}
                 for side, feature in zip(("home", "away"), teams_features, strict=True):
                     context, minutes = feature[2:]
+                    recent = [row for row in by_team.get(fixture["teams"][side], ())
+                              if row["event_id"] != event_id
+                              and dt.timedelta() < kickoff - row["kickoff"] <= dt.timedelta(days=14)]
+                    timed = [{"event_id": row["event_id"], "competition": row["competition"],
+                              "kickoff_at": row["kickoff"].isoformat(),
+                              "completion_upper_bound": row["finished"].isoformat(),
+                              "completion_provenance": row.get("terminal_source"),
+                              "available_at": row["captured_at"].isoformat(),
+                              "source_sha256": row.get("source_sha256")}
+                             for row in sorted(recent, key=lambda row: row["kickoff"])]
                     side_load[side] = {
                         "completed_match_count_14d_archived": round(context[1] * 5) if context else None,
                         "rest_hours_since_archived_full_time_capped_at_336": round(context[0] * 336, 2) if context else None,
                         "validated_minutes_proxy_available": minutes is not None,
                         "source_recent_schedule": source_load.get(fixture["teams"][side]),
+                        "completion_observations": timed,
+                        "observed_european_matches_14d": sum(row["competition"] in EUROPE for row in timed),
+                        "important_absences": "NO_REVIEWED_EVIDENCE",
+                        "rotation": "NO_REVIEWED_EVIDENCE",
                     }
                 game_info = payload.get("gameInfo") or {}
                 observations = {**observed, "workload": side_load, "summary_source": source,
@@ -227,7 +242,7 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                                             cup_evidence=(cup_sources or {}).get(league),
                                             ingestion_review=reviews.get("ingestion"),
                                             context_review=reviews.get("context"),
-                                            component_review=reviews.get("components")))
+                                            component_review=reviews.get("components"), verified_results=verified_results))
             if kickoff - LIVE_WINDOW > min(captured, board_at):
                 continue
             if short is None:
@@ -695,9 +710,10 @@ def main():
         # Establish the cutoff after all source acquisition and integrity verification.
         cutoff = archive.clock()
         reused = 0
+        verified_results = {}
         history_conflicts = set()
         if args.prior_settlements:
-            facts, reused = archive_history(args.prior_settlements, facts, cutoff, conflicts=history_conflicts)
+            facts, reused = archive_history(args.prior_settlements, facts, cutoff, conflicts=history_conflicts, verified_outcomes=verified_results)
         daily = []
         domestic = None
         supplemental = []
@@ -722,10 +738,11 @@ def main():
                 if prior and (any(prior[key] != row[key] for key in ("teams", "competition", "kickoff"))
                               or (prior["score"] is not None and prior["score"] != row["score"])):
                     history_conflicts.add(event)
-                elif prior is None:
+                elif prior is None or prior["score"] is None and row["score"] is not None:
                     rolling.append(row)
                     existing[event] = row
-            facts = [row for row in facts + rolling if row["event_id"] not in history_conflicts]
+            facts = [row for event, row in existing.items() if event not in history_conflicts]
+        verified_results = {event: proof for event, proof in verified_results.items() if event not in history_conflicts}
         performance = {}
         if args.component_research:
             from ex_performance_v1 import attach_daily, experiment
@@ -735,7 +752,7 @@ def main():
             model = audit(facts, as_of=cutoff, external_observations=archived_weather)
             atomic_write(args.output_dir / "component-research-audit.json",
                          (json.dumps(model, indent=2) + "\n").encode())
-        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather, cup_sources=cup_sources)
+        forecasts, skipped = forecast_rows(manifest, archive, facts, cutoff, daily=daily, domestic=domestic, component_model=model, weather=weather, cup_sources=cup_sources, verified_results=verified_results)
         if args.component_research:
             performance = experiment([r for r in facts if r["captured_at"] < cutoff])
             atomic_write(args.output_dir / "performance-v1-audit.json",
@@ -781,6 +798,14 @@ def main():
                   "reused_verified_outcomes": reused, "rolling_scoreboard_matches": len(rolling), "skipped": skipped,
                   "daily_fixture_records": len(daily), "historical_sample_gaps": history_gaps,
                   "paired_model_gaps": paired_model_gaps,
+                  "archived_independent_results": len(verified_results),
+                  "fixtures_with_independent_performance_samples": sum(any(
+                      group["confirmed_event_ids"]
+                      for side in row["domestic_diagnostics"].values()
+                      for group in side.get("independent_results", {}).values()) for row in daily),
+                  "fixtures_with_timed_workload_both_sides": sum(all(
+                      value["completion_observations"]
+                      for value in row["observed_inputs"]["workload"].values()) for row in daily),
                   "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or

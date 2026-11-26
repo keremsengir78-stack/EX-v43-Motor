@@ -24,3 +24,29 @@ class PerformanceV1Tests(unittest.TestCase):
         with patch.object(History, "update") as update, patch.object(History, "features", return_value=True):
             self.assertEqual([(target, True)], list(replay([earlier, simultaneous, target], [target])))
         update.assert_called_once_with(earlier)
+
+    def test_calibration_selection_ignores_holdout_outcomes(self):
+        from datetime import date, timedelta
+        from ex_performance_v1 import CANDIDATE, KEYS, REFERENCE, calibration_candidates
+
+        start = date(2026, 1, 1)
+        rows = []
+        for i in range(24):
+            row = {version: dict.fromkeys(KEYS.values(), .3 + .4 * (i % 2))
+                   for version in (REFERENCE, CANDIDATE)}
+            rows.append({**row, "date": start + timedelta(weeks=i),
+                         "labels": dict.fromkeys(KEYS, i % 2)})
+        test = rows[16:]
+        changed = [{**row, "labels": {market: 1 - value for market, value in row["labels"].items()}}
+                   for row in test]
+        original = calibration_candidates(rows[:8], rows[8:16], test)
+        flipped = calibration_candidates(rows[:8], rows[8:16], changed)
+        self.assertEqual(8, original["test_weeks"])
+        self.assertFalse(original["production_allowed"])
+        for market in KEYS:
+            for version in (REFERENCE, CANDIDATE):
+                a, b = (item["markets"][market][version] for item in (original, flipped))
+                self.assertEqual(a["selected_on_validation"], b["selected_on_validation"])
+                self.assertEqual(a["validation_brier"], b["validation_brier"])
+                self.assertNotEqual(a["test_candidate"]["brier"], b["test_candidate"]["brier"])
+                self.assertIsNotNone(a["paired_weekly_brier_delta_99pct"])

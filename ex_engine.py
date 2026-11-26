@@ -25,11 +25,14 @@ def subset(rows,team,side,cutoff,league):
 def mean_goals(rows,side):
     if not rows:return None
     return (sum(r['hg'] if side=='home' else r['ag'] for r in rows)/len(rows),sum(r['ag'] if side=='home' else r['hg'] for r in rows)/len(rows))
-def weighted_form(rows,team,side,cutoff,league,season_start,previous_start):
+def form_sample_rows(rows,team,side,cutoff,league,season_start,previous_start):
     arr=subset(rows,team,side,cutoff,league)
     season=[r for r in rows if r['league']==league and r['date']<cutoff and r['date']>=season_start and (r['home']==team or r['away']==team)]
     prev=[r for r in arr if previous_start<=r['date']<season_start]
-    chunks=[arr[-5:],arr[-10:],season,prev]
+    return [arr[-5:],arr[-10:],season,prev]
+
+def weighted_form(rows,team,side,cutoff,league,season_start,previous_start):
+    chunks=form_sample_rows(rows,team,side,cutoff,league,season_start,previous_start)
     if any(not c for c in chunks):return None,{'counts':list(map(len,chunks)),'reason':'missing sample'}
     rates=[]
     for j,c in enumerate(chunks):
