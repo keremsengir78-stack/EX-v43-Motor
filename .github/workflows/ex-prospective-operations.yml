@@ -298,7 +298,7 @@ jobs:
             if [ -f "packs/$id/receipt.json" ]; then continue; fi
             mkdir -p "packs/$id"
             gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > "packs/$id/receipt.json"
-            test "$(jq -r .name "packs/$id/receipt.json")" = ex-prospective-forecasts
+            [[ "$(jq -r .name "packs/$id/receipt.json")" =~ ^ex-prospective-forecasts(-[0-9]{4}-[0-9]{2}-[0-9]{2})?$ ]]
             gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > forecasts.zip
             test "sha256:$(sha256sum forecasts.zip | cut -d' ' -f1)" = "$(jq -r .digest "packs/$id/receipt.json")"
             unzip -q forecasts.zip -d "packs/$id"

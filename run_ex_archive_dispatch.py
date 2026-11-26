@@ -5,7 +5,7 @@ import datetime as dt
 import json
 from urllib.parse import urlencode
 
-from ex_evidence_store import KINDS
+from ex_evidence_store import KINDS, artifact_base_name
 import subprocess
 
 REPO = "keremsengir78-stack/EX-v43-Motor"
@@ -68,7 +68,7 @@ def missing_artifacts(since, request=api):
                     continue
                 for result in request(f"{base}/actions/runs/{run['id']}/artifacts?per_page=100", pages=True):
                     for artifact in result["artifacts"]:
-                        name, asset = artifact["name"], artifact["id"]
+                        name, asset = artifact_base_name(artifact["name"]), artifact["id"]
                         if name not in names or f"{asset}.json" in by_kind.get(name, set()):
                             continue
                         if artifact["expired"]:

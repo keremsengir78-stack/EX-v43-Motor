@@ -15,7 +15,7 @@ class DurableEvidenceTests(unittest.TestCase):
             source, store = path / "payload", path / "store"
             source.mkdir()
             receipt = path / "receipt.json"
-            receipt.write_text(json.dumps({"id": 9, "name": "ex-prospective-forecasts",
+            receipt.write_text(json.dumps({"id": 9, "name": "ex-prospective-forecasts-2026-11-27",
                                            "created_at": "2026-11-25T08:00:00Z", "digest": "sha256:" + "0" * 64}))
             (source / "capture.json").write_text("{}")
             (source / "forecasts.jsonl").write_text("")

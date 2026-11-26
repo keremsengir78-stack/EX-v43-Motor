@@ -8,6 +8,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
+from ex_evidence_store import artifact_base_name
 from ex_cup_team_history import collect_cup_history, reviewed_schedule_plan
 from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, UEFA_BRIEFINGS, cup_fixture_index, cup_briefing_index
 from ex_daily_research import daily_analysis, domestic_snapshot
@@ -353,7 +354,7 @@ OFFICIAL_RESULT_HOSTS = {**{league: {"www.uefa.com"} for league in UEFA_NEW_CUPS
 
 def read_forecast_pack(receipt):
     metadata = json.loads(receipt.read_text())
-    if metadata.get("name") != "ex-prospective-forecasts":
+    if artifact_base_name(metadata.get("name")) != "ex-prospective-forecasts":
         raise ValueError("Unexpected artifact receipt")
     paths = [path for path in (receipt.parent / "forecasts.jsonl",
                                receipt.parent / "forecasts/forecasts.jsonl") if path.is_file()]

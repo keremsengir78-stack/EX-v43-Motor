@@ -13,6 +13,11 @@ KINDS = {"ex-prospective-forecasts": "prematch-and-research",
          "ex-weekly-capacity": "weekly-capacity", "ucl-research-evidence": "ucl-domestic-research", "ex-retrospective-results": "retrospective-research"}
 
 
+def artifact_base_name(name):
+    batch = re.fullmatch(r"(ex-prospective-forecasts|ex-historical-facts)-\d{4}-\d{2}-\d{2}", name or "")
+    return batch[1] if batch else name
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -29,7 +34,7 @@ def insert(path, data):
 
 def seal(store, source, receipt):
     meta = json.loads(receipt.read_bytes())
-    kind = KINDS[meta["name"]]
+    kind = KINDS[artifact_base_name(meta["name"])]
     asset = meta["id"]
     if type(asset) is not int or asset < 1:
         raise ValueError("Invalid artifact ID")
@@ -72,7 +77,7 @@ def restore(store, kind, destination, limit=None, *, files=None):
     for index in indexes[:limit]:
         record = json.loads(index.read_bytes())
         receipt = record["receipt"]
-        if str(receipt["id"]) != index.stem or KINDS.get(receipt["name"]) != kind:
+        if str(receipt["id"]) != index.stem or KINDS.get(artifact_base_name(receipt["name"])) != kind:
             raise ValueError("Evidence receipt does not match archive index")
         selected = {name: sha for name, sha in record["files"].items() if files is None or name in files}
         if not selected:
