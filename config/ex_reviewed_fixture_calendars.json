@@ -704,6 +704,108 @@
           "official_local_time": "19:00"
         }
       ]
+    },
+    "pt.1": {
+      "url": "https://www.ligaportugal.pt/noticias/28531/horarios-definidos-ate-a-12.a-jornada",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:52:07.231069+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885392",
+          "team_ids": {
+            "home": "15784",
+            "away": "3822"
+          },
+          "home": "Arouca",
+          "away": "Rio Ave",
+          "kickoff_at": "2026-11-28T15:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401885388",
+          "team_ids": {
+            "home": "3696",
+            "away": "12215"
+          },
+          "home": "Moreirense",
+          "away": "Santa Clara",
+          "kickoff_at": "2026-11-28T15:30:00+00:00",
+          "official_local_time": "15:30"
+        },
+        {
+          "event_id": "401885393",
+          "team_ids": {
+            "home": "21607",
+            "away": "21613"
+          },
+          "home": "Académico de Viseu",
+          "away": "Alverca",
+          "kickoff_at": "2026-11-28T18:00:00+00:00",
+          "official_local_time": "18:00"
+        },
+        {
+          "event_id": "401885385",
+          "team_ids": {
+            "home": "5309",
+            "away": "21610"
+          },
+          "home": "Vitória de Guimaraes",
+          "away": "Estrela",
+          "kickoff_at": "2026-11-28T20:30:00+00:00",
+          "official_local_time": "20:30"
+        }
+      ]
+    },
+    "be.1": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:52:07.231069+00:00",
+      "fixtures": [
+        {
+          "event_id": "401878929",
+          "team_ids": {
+            "home": "606",
+            "away": "131235"
+          },
+          "home": "KVC Westerlo",
+          "away": "RAAL La Louvière",
+          "kickoff_at": "2026-11-28T15:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401878932",
+          "team_ids": {
+            "home": "3610",
+            "away": "7879"
+          },
+          "home": "Cercle Brugge KSV",
+          "away": "KV Mechelen",
+          "kickoff_at": "2026-11-28T17:15:00+00:00",
+          "official_local_time": "17:15"
+        },
+        {
+          "event_id": "401878931",
+          "team_ids": {
+            "home": "22269",
+            "away": "4691"
+          },
+          "home": "Lommel SK",
+          "away": "Zulte-Waregem",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "19:45"
+        },
+        {
+          "event_id": "401878933",
+          "team_ids": {
+            "home": "3616",
+            "away": "13450"
+          },
+          "home": "Royal Charleroi SC",
+          "away": "Waasland-Beveren",
+          "kickoff_at": "2026-11-28T19:45:00+00:00",
+          "official_local_time": "19:45"
+        }
+      ]
     }
   },
   "2026-11-29": {
@@ -1192,6 +1294,86 @@
           "away": "Erzurum BB",
           "kickoff_at": "2026-11-29T16:00:00+00:00",
           "official_local_time": "19:00"
+        }
+      ]
+    },
+    "pt.1": {
+      "url": "https://www.ligaportugal.pt/noticias/28531/horarios-definidos-ate-a-12.a-jornada",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:52:07.231069+00:00",
+      "fixtures": [
+        {
+          "event_id": "401885390",
+          "team_ids": {
+            "home": "3699",
+            "away": "12216"
+          },
+          "home": "Gil Vicente",
+          "away": "Estoril",
+          "kickoff_at": "2026-11-29T18:00:00+00:00",
+          "official_local_time": "18:00"
+        },
+        {
+          "event_id": "401885387",
+          "team_ids": {
+            "home": "437",
+            "away": "2250"
+          },
+          "home": "FC Porto",
+          "away": "Sporting CP",
+          "kickoff_at": "2026-11-29T20:30:00+00:00",
+          "official_local_time": "20:30"
+        }
+      ]
+    },
+    "be.1": {
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results",
+      "official_utc_offset_hours": 0,
+      "reviewed_at": "2026-11-26T12:52:07.231069+00:00",
+      "fixtures": [
+        {
+          "event_id": "401878926",
+          "team_ids": {
+            "home": "936",
+            "away": "938"
+          },
+          "home": "Sint-Truidense",
+          "away": "Racing Genk",
+          "kickoff_at": "2026-11-29T12:30:00+00:00",
+          "official_local_time": "12:30"
+        },
+        {
+          "event_id": "401878928",
+          "team_ids": {
+            "home": "17544",
+            "away": "441"
+          },
+          "home": "Antwerp",
+          "away": "Anderlecht",
+          "kickoff_at": "2026-11-29T15:00:00+00:00",
+          "official_local_time": "15:00"
+        },
+        {
+          "event_id": "401878927",
+          "team_ids": {
+            "home": "559",
+            "away": "570"
+          },
+          "home": "Standard Liege",
+          "away": "Club Brugge",
+          "kickoff_at": "2026-11-29T17:30:00+00:00",
+          "official_local_time": "17:30"
+        },
+        {
+          "event_id": "401878925",
+          "team_ids": {
+            "home": "5807",
+            "away": "3611"
+          },
+          "home": "Union St.-Gilloise",
+          "away": "KAA Gent",
+          "kickoff_at": "2026-11-29T18:15:00+00:00",
+          "official_local_time": "18:15"
         }
       ]
     }
