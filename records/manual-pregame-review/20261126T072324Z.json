@@ -1,0 +1,790 @@
+{
+  "kind": "manual_pregame_review",
+  "recorded_at": "2026-11-26T07:23:24.775456+00:00",
+  "base_forecast_archive_id": 15093777523,
+  "raw_sources": {
+    "uefa_uel": {
+      "url": "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/",
+      "final_url": "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/",
+      "retrieved_at": "2026-11-26T07:03:51.804947+00:00",
+      "sha256": "cc31a0032e79f1c21a18b0a232404cf11d9368c7e7e8f12189e0c3e7bdbf7332",
+      "bytes": 116931
+    },
+    "uefa_uecl": {
+      "url": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
+      "final_url": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
+      "retrieved_at": "2026-11-26T07:03:51.556750+00:00",
+      "sha256": "1ee986d97b136879bc062628f499800efee850234d7b6b7ac172699da8dc92ae",
+      "bytes": 99825
+    },
+    "espn_nec": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915505",
+      "final_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915505",
+      "retrieved_at": "2026-11-26T07:03:51.554025+00:00",
+      "sha256": "51dbe81f5aa0f31b950100cd607e0a9e1d49bd0f330f3223d08a21ad5a37d317",
+      "bytes": 147982
+    },
+    "espn_ajax": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915815",
+      "final_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915815",
+      "retrieved_at": "2026-11-26T07:03:51.528948+00:00",
+      "sha256": "224db3e94e6753745069924e4eb678607054d04898663b0db730c5109a838e2a",
+      "bytes": 109509
+    },
+    "espn_freiburg": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915801",
+      "final_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915801",
+      "retrieved_at": "2026-11-26T07:03:51.556183+00:00",
+      "sha256": "d4ca51e9d7c864a1a9763672d1f1ca3a8f19541bc17665f25d67933a7297283f",
+      "bytes": 106744
+    },
+    "espn_palace": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915504",
+      "final_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915504",
+      "retrieved_at": "2026-11-26T07:03:51.583856+00:00",
+      "sha256": "81fd79b193416be9ae4ac03699b181eb65689844e4f4fa6433be96ad4e8ca3f9",
+      "bytes": 209575
+    },
+    "nec": {
+      "url": "https://www.nec-nijmegen.nl/nieuws/nieuws/voorbeschouwing-n.e.c.-stade-rennes.htm",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "twente": {
+      "url": "https://fctwente.nl/nieuws/selectie-voor-europees-duel-met-sc-freiburg",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "dfl": {
+      "url": "https://www.bundesliga.com/en/bundesliga/news/freiburg-twente-live-conference-league-blog-preview-report-scherhant-weghorst-40067",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "thun": {
+      "url": "https://matchcenter-sfl.football.ch/Default.aspx?a=rr&lng=1&oid=2&v=877701",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "ajax_news": {
+      "url": "https://www.sportsmole.co.uk/football/ajax/europa-conference-league/preview/ajax-vs-thun-prediction-team-news-lineups_609762.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "ajax_odds": {
+      "url": "https://news.bet365.nl/nl-nl/article/ajax-fc-thun-in-uefa-conference-league-blessures-opstellingen-tv-gids-vorm-h2h-voorspellingen-en-meer/2026112518014344334",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "nec_odds": {
+      "url": "https://www.pokerstars.fr/en/sports/soccer/1/uefa-europa-league/2005/nec-nijmegen-v-rennes/36313892/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "palace_odds": {
+      "url": "https://nilescore.com/football/crystal-palace-vs-real-sociedad-prediction-lineups-odds-1636252/?d=2026-11-26",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  },
+  "public_observations_not_ingested_as_odds": {
+    "Thun last domestic match and then-current absences": "https://www.fcthun.ch/de/news/2026/matchbericht-young-boys-fc-thun",
+    "Palace official team news listing": "https://www.cpfc.co.uk/news/news-hero-1/",
+    "Rennes official schedule": "https://www.staderennais.com/actualites/uefa-europa-league/programmation-des-matchs-deuropa-league",
+    "Ajax indicative Over 2.5 quote 1.25": "https://legalbet.rs/mec-centar/ajax-fc-thun-26-11-2026/",
+    "NEC indicative Over 2.5 quote 1.45": "https://www.pokerstars.fr/en/sports/soccer/1/uefa-europa-league/2005/nec-nijmegen-v-rennes/36313892/",
+    "Palace indicative Over 2.5 quote 1.57 and BTTS Yes 1.50": "https://nilescore.com/football/crystal-palace-vs-real-sociedad-prediction-lineups-odds-1636252/?d=2026-11-26"
+  },
+  "matches": {
+    "401915815": {
+      "fixture": {
+        "event_id": "401915815",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T17:45:00+00:00",
+        "home": "Ajax Amsterdam",
+        "away": "FC Thun",
+        "team_ids": {
+          "home": "139",
+          "away": "3024"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T06:45:39.729964+00:00"
+      },
+      "manual_uefa_espn_match": {
+        "uefa_names": [
+          "ajax",
+          "thun"
+        ],
+        "same_kickoff": true
+      },
+      "observed_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-575",
+          "decimal_odds": 1.1739130434782608,
+          "observed_at": "2026-11-26T07:03:51.528948+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915815",
+          "sha256": "224db3e94e6753745069924e4eb678607054d04898663b0db730c5109a838e2a",
+          "odds_gate": "PASS_ODDS_1_19_OR_LOWER"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+1200",
+          "decimal_odds": 13.0,
+          "observed_at": "2026-11-26T07:03:51.528948+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915815",
+          "sha256": "224db3e94e6753745069924e4eb678607054d04898663b0db730c5109a838e2a",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "archived_v1_scenarios": {
+        "1-1": 0.06491487492898235,
+        "2-0": 0.048114840694369186,
+        "0-2": 0.021895224665778493,
+        "3-0": 0.03985927199091135,
+        "0-3": 0.012235871085334792
+      },
+      "archived_one_side_three_plus": 0.10431903358301203,
+      "pup": {
+        "status": "BLOCKED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing",
+          "2.5_UST:verified_price_missing",
+          "KG_VAR:verified_price_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "market_reasons": {
+          "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+          "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+          "MS1": "PASS_ODDS_1_19_OR_LOWER",
+          "MS2": "CALIBRATED_EX_G_REQUIRED"
+        },
+        "score_scenarios": {
+          "model": "INDEPENDENT_POISSON_RESEARCH",
+          "result_probabilities": {
+            "home_win": 0.5555237806580403,
+            "draw": 0.18909874604036284,
+            "away_win": 0.2553774733015966
+          },
+          "exact_scores": {
+            "1-1": 0.06491487492898235,
+            "2-0": 0.048114840694369186,
+            "0-2": 0.021895224665778493,
+            "3-0": 0.03985927199091135,
+            "0-3": 0.012235871085334792,
+            "2-1": 0.0806651217808076,
+            "1-2": 0.05441529282819656,
+            "2-2": 0.06761803404114783
+          },
+          "home_only_three_plus": 0.08461015325184429,
+          "away_only_three_plus": 0.019708880331167765,
+          "over25_only": 0.10431903358301206,
+          "btts_only": 0.06491487492898235,
+          "both": 0.6803359217323126,
+          "neither": 0.150430169755693,
+          "exclusive_events": {
+            "1-1": {
+              "KG_VAR": true,
+              "2.5_UST": false
+            },
+            "2-0": {
+              "KG_VAR": false,
+              "2.5_UST": false
+            },
+            "3-0": {
+              "KG_VAR": false,
+              "2.5_UST": true
+            }
+          }
+        },
+        "eligible_markets": [],
+        "selection": null
+      },
+      "auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "aa6cac43a4290f46e7c9e55587829e84e788a2f502b3af990d9f8b8f80db4c79",
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "87aa3eb78b3d831d0c6aecda1b835b8b0cb7b6e0cbde784e8350f9d603073935",
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:pass_1_19_or_lower",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "ba94f3124b7c0fa6dfb4955df7731ce7fc3e2fca21018a92909bd9731d0a1b12",
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "1ac8f98094e37d64929edba80db40a8037d157e8fa807d05e9bb5245c0fe62fc",
+          "ex_final_allowed": false
+        }
+      },
+      "tur2": true
+    },
+    "401915505": {
+      "fixture": {
+        "event_id": "401915505",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "NEC Nijmegen",
+        "away": "Stade Rennais",
+        "team_ids": {
+          "home": "147",
+          "away": "169"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T06:45:25.675140+00:00"
+      },
+      "manual_uefa_espn_match": {
+        "uefa_names": [
+          "necnijmegen",
+          "rennes"
+        ],
+        "same_kickoff": true
+      },
+      "observed_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+210",
+          "decimal_odds": 3.1,
+          "observed_at": "2026-11-26T07:03:51.554025+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915505",
+          "sha256": "51dbe81f5aa0f31b950100cd607e0a9e1d49bd0f330f3223d08a21ad5a37d317",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+110",
+          "decimal_odds": 2.1,
+          "observed_at": "2026-11-26T07:03:51.554025+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915505",
+          "sha256": "51dbe81f5aa0f31b950100cd607e0a9e1d49bd0f330f3223d08a21ad5a37d317",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "archived_v1_scenarios": {
+        "1-1": 0.07264972391648555,
+        "2-0": 0.040702433240407586,
+        "0-2": 0.032418101111838585,
+        "3-0": 0.02875103729212772,
+        "0-3": 0.020436396387144274
+      },
+      "archived_one_side_three_plus": 0.0889547853199095,
+      "pup": {
+        "status": "BLOCKED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing",
+          "2.5_UST:verified_price_missing",
+          "KG_VAR:verified_price_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "market_reasons": {
+          "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+          "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+          "MS1": "CALIBRATED_EX_G_REQUIRED",
+          "MS2": "CALIBRATED_EX_G_REQUIRED"
+        },
+        "score_scenarios": {
+          "model": "INDEPENDENT_POISSON_RESEARCH",
+          "result_probabilities": {
+            "home_win": 0.4410551095187165,
+            "draw": 0.2055570097282645,
+            "away_win": 0.353387880753019
+          },
+          "exact_scores": {
+            "1-1": 0.07264972391648555,
+            "2-0": 0.040702433240407586,
+            "0-2": 0.032418101111838585,
+            "3-0": 0.02875103729212772,
+            "0-3": 0.020436396387144274,
+            "2-1": 0.07697653759107582,
+            "1-2": 0.06869766447386266,
+            "2-2": 0.0727891045789843
+          },
+          "home_only_three_plus": 0.05364562099863489,
+          "away_only_three_plus": 0.035309164321274594,
+          "over25_only": 0.08895478531990948,
+          "btts_only": 0.07264972391648555,
+          "both": 0.6744496754107157,
+          "neither": 0.1639458153528893,
+          "exclusive_events": {
+            "1-1": {
+              "KG_VAR": true,
+              "2.5_UST": false
+            },
+            "2-0": {
+              "KG_VAR": false,
+              "2.5_UST": false
+            },
+            "3-0": {
+              "KG_VAR": false,
+              "2.5_UST": true
+            }
+          }
+        },
+        "eligible_markets": [],
+        "selection": null
+      },
+      "auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "46251065a0df3ffda9355a091ee2beb4cab394eb5fda31fb89eef04dceeda094",
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "bb55385ea8fd727f398afbc837efa5c2ba23005629d7d63653bf931bf930e13a",
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "239201f6a94120f8203facfef970bb86b7ce473b713f1374899fbbd9dad035ae",
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "2198bda031dad9dd3fd82895208f87df406bdd1906fa91ba489281e611bff956",
+          "ex_final_allowed": false
+        }
+      },
+      "tur2": true
+    },
+    "401915504": {
+      "fixture": {
+        "event_id": "401915504",
+        "date": "2026-11-26",
+        "league": "UEL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "Crystal Palace",
+        "away": "Real Sociedad",
+        "team_ids": {
+          "home": "384",
+          "away": "89"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T06:45:25.675140+00:00"
+      },
+      "manual_uefa_espn_match": {
+        "uefa_names": [
+          "crystalpalace",
+          "realsociedad"
+        ],
+        "same_kickoff": true
+      },
+      "observed_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+105",
+          "decimal_odds": 2.05,
+          "observed_at": "2026-11-26T07:03:51.583856+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915504",
+          "sha256": "81fd79b193416be9ae4ac03699b181eb65689844e4f4fa6433be96ad4e8ca3f9",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+220",
+          "decimal_odds": 3.2,
+          "observed_at": "2026-11-26T07:03:51.583856+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915504",
+          "sha256": "81fd79b193416be9ae4ac03699b181eb65689844e4f4fa6433be96ad4e8ca3f9",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "archived_v1_scenarios": {
+        "1-1": 0.0815584957451774,
+        "2-0": 0.031747430133890364,
+        "0-2": 0.05238052497606207,
+        "3-0": 0.01735154148666394,
+        "0-3": 0.03677307681260184
+      },
+      "archived_one_side_three_plus": 0.09592912523531158,
+      "pup": {
+        "status": "BLOCKED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing",
+          "2.5_UST:verified_price_missing",
+          "KG_VAR:verified_price_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "market_reasons": {
+          "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+          "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+          "MS1": "CALIBRATED_EX_G_REQUIRED",
+          "MS2": "CALIBRATED_EX_G_REQUIRED"
+        },
+        "score_scenarios": {
+          "model": "INDEPENDENT_POISSON_RESEARCH",
+          "result_probabilities": {
+            "home_win": 0.30327160943035836,
+            "draw": 0.2093233744750788,
+            "away_win": 0.4874050160945629
+          },
+          "exact_scores": {
+            "1-1": 0.0815584957451774,
+            "2-0": 0.031747430133890364,
+            "0-2": 0.05238052497606207,
+            "3-0": 0.01735154148666394,
+            "0-3": 0.03677307681260184,
+            "2-1": 0.0668636303731083,
+            "1-2": 0.08588564633883351,
+            "2-2": 0.07041113324475251
+          },
+          "home_only_three_plus": 0.027620526224875635,
+          "away_only_three_plus": 0.06830859901043594,
+          "over25_only": 0.09592912523531158,
+          "btts_only": 0.0815584957451774,
+          "both": 0.6263006196762685,
+          "neither": 0.19621175934324256,
+          "exclusive_events": {
+            "1-1": {
+              "KG_VAR": true,
+              "2.5_UST": false
+            },
+            "2-0": {
+              "KG_VAR": false,
+              "2.5_UST": false
+            },
+            "3-0": {
+              "KG_VAR": false,
+              "2.5_UST": true
+            }
+          }
+        },
+        "eligible_markets": [],
+        "selection": null
+      },
+      "auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "e882a19fdfc6938dc5f3de1a93c546586ea0fe0036bb6298b7c8896800e4ce28",
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "90e97faf9151922e950912de535896ada7ae62a983fdd628b06781a2891c4219",
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "2b1a9a635c8b769fd096a1fa390d396ddd85141d823dab8dc4b9e9b197c0df28",
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "d5a4656ed595e819e5fe11863ef011040664ce6a63cecc334ab997872e8b3483",
+          "ex_final_allowed": false
+        }
+      },
+      "tur2": true
+    },
+    "401915801": {
+      "fixture": {
+        "event_id": "401915801",
+        "date": "2026-11-26",
+        "league": "UECL",
+        "kickoff_at": "2026-11-26T20:00:00+00:00",
+        "home": "SC Freiburg",
+        "away": "FC Twente",
+        "team_ids": {
+          "home": "126",
+          "away": "152"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20261126",
+        "fixture_checked_at": "2026-11-26T06:45:39.729964+00:00"
+      },
+      "manual_uefa_espn_match": {
+        "uefa_names": [
+          "freiburg",
+          "twente"
+        ],
+        "same_kickoff": true
+      },
+      "observed_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-110",
+          "decimal_odds": 1.9090909090909092,
+          "observed_at": "2026-11-26T07:03:51.556183+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915801",
+          "sha256": "d4ca51e9d7c864a1a9763672d1f1ca3a8f19541bc17665f25d67933a7297283f",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+265",
+          "decimal_odds": 3.65,
+          "observed_at": "2026-11-26T07:03:51.556183+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915801",
+          "sha256": "d4ca51e9d7c864a1a9763672d1f1ca3a8f19541bc17665f25d67933a7297283f",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "2.5_UST",
+          "bookmaker": "DraftKings",
+          "american_odds": "-160",
+          "decimal_odds": 1.625,
+          "observed_at": "2026-11-26T07:03:51.556183+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/summary?event=401915801",
+          "sha256": "d4ca51e9d7c864a1a9763672d1f1ca3a8f19541bc17665f25d67933a7297283f",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "archived_v1_scenarios": {
+        "1-1": 0.08332336139678266,
+        "2-0": 0.037298100502663106,
+        "0-2": 0.04653576496451296,
+        "3-0": 0.021886462687750217,
+        "0-3": 0.030501822527059432
+      },
+      "archived_one_side_three_plus": 0.09026111455344964,
+      "pup": {
+        "status": "BLOCKED",
+        "issues": [
+          "2.5_UST:calibrated_probability_missing",
+          "KG_VAR:calibrated_probability_missing",
+          "MS1:calibrated_probability_missing",
+          "MS2:calibrated_probability_missing",
+          "KG_VAR:verified_price_missing"
+        ],
+        "markets_checked": [
+          "2.5_UST",
+          "KG_VAR",
+          "MS1",
+          "MS2"
+        ],
+        "pup_allowed": false,
+        "ex_final_allowed": false,
+        "market_reasons": {
+          "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+          "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+          "MS1": "CALIBRATED_EX_G_REQUIRED",
+          "MS2": "CALIBRATED_EX_G_REQUIRED"
+        },
+        "score_scenarios": {
+          "model": "INDEPENDENT_POISSON_RESEARCH",
+          "result_probabilities": {
+            "home_win": 0.3519400923734745,
+            "draw": 0.21415162760159986,
+            "away_win": 0.4339082800249256
+          },
+          "exact_scores": {
+            "1-1": 0.08332336139678266,
+            "2-0": 0.037298100502663106,
+            "0-2": 0.04653576496451296,
+            "3-0": 0.021886462687750217,
+            "0-3": 0.030501822527059432,
+            "2-1": 0.07334101263809939,
+            "1-2": 0.08192132600444398,
+            "2-2": 0.07210694462038085
+          },
+          "home_only_three_plus": 0.036223280019598694,
+          "away_only_three_plus": 0.05403783453385096,
+          "over25_only": 0.09026111455344965,
+          "btts_only": 0.08332336139678266,
+          "both": 0.6288036354141135,
+          "neither": 0.1976118886356542,
+          "exclusive_events": {
+            "1-1": {
+              "KG_VAR": true,
+              "2.5_UST": false
+            },
+            "2-0": {
+              "KG_VAR": false,
+              "2.5_UST": false
+            },
+            "3-0": {
+              "KG_VAR": false,
+              "2.5_UST": true
+            }
+          }
+        },
+        "eligible_markets": [],
+        "selection": null
+      },
+      "auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4c6724b25f0c3c3d5e53dc6964c976f51f2fd91af35c39c0a4dbf38deae13ccd",
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "afb31eac69f1892327cf4d618827ea85b1f8adbadc6a24248d92e968d6c694f3",
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "664aa9783dbcd1158aee522d0da7e4aa557fa3513fc9d04f114a905af2250bef",
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "fixture_sources:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "7c0ec081c82b76070a6f0b2ed44d1bf687bf335054f625542c17718ea30b9bf9",
+          "ex_final_allowed": false
+        }
+      },
+      "tur2": true
+    }
+  },
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
