@@ -1,0 +1,1424 @@
+{
+  "archive_facts": 6820,
+  "targets_audited": 103,
+  "per_league": {
+    "tr.1": {
+      "distinct_official_rows": 1,
+      "kickoff_unavailable": 1
+    },
+    "en.1": {},
+    "de.1": {
+      "distinct_official_rows": 9,
+      "team_identity_unavailable_or_ambiguous": 4
+    },
+    "de.2": {
+      "distinct_official_rows": 9,
+      "team_identity_unavailable_or_ambiguous": 8,
+      "provider_fixture_unavailable_or_ambiguous": 1
+    },
+    "es.1": {
+      "distinct_official_rows": 10,
+      "team_identity_unavailable_or_ambiguous": 7
+    },
+    "it.1": {},
+    "fr.1": {
+      "distinct_official_rows": 11,
+      "team_identity_unavailable_or_ambiguous": 4
+    },
+    "nl.1": {
+      "distinct_official_rows": 117,
+      "kickoff_unavailable": 117
+    },
+    "nl.2": {
+      "distinct_official_rows": 154,
+      "kickoff_unavailable": 154
+    },
+    "pt.1": {
+      "distinct_official_rows": 2,
+      "kickoff_unavailable": 2
+    },
+    "be.1": {
+      "distinct_official_rows": 2,
+      "team_identity_unavailable_or_ambiguous": 2
+    },
+    "no.1": {
+      "distinct_official_rows": 216,
+      "team_identity_unavailable_or_ambiguous": 200
+    },
+    "UCL": {
+      "distinct_official_rows": 81,
+      "team_identity_unavailable_or_ambiguous": 62,
+      "provider_fixture_unavailable_or_ambiguous": 19
+    },
+    "UEL": {},
+    "UECL": {}
+  },
+  "official_score_matches": [
+    {
+      "event_id": "747016",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "598",
+        "away": "3841"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "15a41414083084963a0ea231eee696c44d807ffa3220b2197efdefa692466e73",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:10:53.978058+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "747018",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "268",
+        "away": "7911"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "f886b3c3ecb4641d0a44c1393801fd19aa5e8e56e3bfcc0391da4d0a5b9a954d",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:10:53.978058+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "747022",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "137",
+        "away": "124"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "ec5aa35accc514277f02d1bf1222cf9ec8b178fcb91c080e1368acf442bf4adf",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:10:53.978058+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "747019",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "126",
+        "away": "11420"
+      },
+      "score": [
+        4,
+        1
+      ],
+      "provider_sha256": "859a49f8f818e0b4a8f95f91bdae6b2cd7f800b85f9a359458149420cb4b08b6",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:10:53.978058+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "747023",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "125",
+        "away": "134"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "provider_sha256": "b4db5f3aeb2672e53a23113231530989eb3cb58a393fee126fedea4fdacbe0fa",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:10:53.978058+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401882876",
+      "league": "es.1",
+      "kickoff_at": "2026-09-15T18:00:00+00:00",
+      "team_ids": {
+        "home": "96",
+        "away": "94"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "provider_sha256": "a3c026944b2596de78f9ff27e7922f175a3b3dcdf73a14c9ec9e1f447329d5cd",
+      "official_match_id": 102299,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:10:54.219511+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401882872",
+      "league": "es.1",
+      "kickoff_at": "2026-09-15T19:30:00+00:00",
+      "team_ids": {
+        "home": "3751",
+        "away": "86"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "2699c84717fc522bb502dd8c26c92e6a5332d65a4fdf51ca387132541b51e8c4",
+      "official_match_id": 102303,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:10:54.219511+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401882869",
+      "league": "es.1",
+      "kickoff_at": "2026-09-17T19:30:00+00:00",
+      "team_ids": {
+        "home": "99",
+        "away": "102"
+      },
+      "score": [
+        1,
+        3
+      ],
+      "provider_sha256": "18e235439070e656b94001450a5603582a1e85f07b5024102d906c07000522c0",
+      "official_match_id": 102306,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:10:54.219511+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876489",
+      "league": "fr.1",
+      "kickoff_at": "2026-08-21T18:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "180"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "3071bd39eb5ed698b9f540a4497462ea5319a9491261728d37e6855d2dbfef42",
+      "official_match_id": "2026-2027-li1-j1-marseille-vs-strasbourg-2026-08-22",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876471",
+      "league": "fr.1",
+      "kickoff_at": "2026-09-06T18:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "6851"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "ef98b21c91bcdbdec4b9959aaa8b8bba37ab6cb48637d81a7879ac7a2e725ff2",
+      "official_match_id": "2026-2027-li1-j3-marseille-vs-paris-fc-2026-09-05",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876440",
+      "league": "fr.1",
+      "kickoff_at": "2026-10-11T18:45:00+00:00",
+      "team_ids": {
+        "home": "170",
+        "away": "176"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "7d708d3a75a9d94538c901e0b0829ad3ba8d69cbe1ed98f3a4c5f9d15b72af6a",
+      "official_match_id": "2026-2027-li1-j6-troyes-vs-marseille-2026-10-10",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876439",
+      "league": "fr.1",
+      "kickoff_at": "2026-10-18T13:00:00+00:00",
+      "team_ids": {
+        "home": "7868",
+        "away": "176"
+      },
+      "score": [
+        2,
+        5
+      ],
+      "provider_sha256": "c936a854c04c83d7d5b4a62c93a9d06d1c2cc0f8e5fda24a519fa1d742e84f3f",
+      "official_match_id": "2026-2027-li1-j7-angers-vs-marseille-2026-10-17",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876417",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-01T19:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "179"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "provider_sha256": "46ff3711a8cdafdd2a1327f899a2d6bf0d0a5be51823e4643c432e215c7b072e",
+      "official_match_id": "2026-2027-li1-j9-marseille-vs-toulouse-2026-10-31",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876404",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-08T19:45:00+00:00",
+      "team_ids": {
+        "home": "175",
+        "away": "176"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "provider_sha256": "9be5f959971f207bcffd6c8f0ab9d7ffcd2d9f3e72c69887c771e3750b36fcec",
+      "official_match_id": "2026-2027-li1-j10-lens-vs-marseille-2026-11-07",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401876400",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-22T19:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "2697"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "8d0892452521a387a85563596b58b10bc57568bb2d8db75cd9b2ff3ce4ff029b",
+      "official_match_id": "2026-2027-li1-j11-marseille-vs-le-mans-2026-11-21",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:10:54.330993+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843490",
+      "league": "no.1",
+      "kickoff_at": "2026-11-22T16:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "438"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "provider_sha256": "1200045db8460ac80d298c36dc25eeb358c4f864a6cdf25a0c0b592a3bfa963e",
+      "official_match_id": "8986344",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843473",
+      "league": "no.1",
+      "kickoff_at": "2026-10-31T15:00:00+00:00",
+      "team_ids": {
+        "home": "3039",
+        "away": "438"
+      },
+      "score": [
+        0,
+        3
+      ],
+      "provider_sha256": "b5562a10629c74612e995bac27f16f6b8a6f2e1ae9e290b0f6f88d7cf2974f38",
+      "official_match_id": "8986323",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843368",
+      "league": "no.1",
+      "kickoff_at": "2026-10-25T18:15:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "3039"
+      },
+      "score": [
+        5,
+        1
+      ],
+      "provider_sha256": "0c36337bb52f634c356be3dd7391dcd698c63834a810fa8a24619255b773d16a",
+      "official_match_id": "8986221",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843450",
+      "league": "no.1",
+      "kickoff_at": "2026-09-20T12:30:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "3039"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "provider_sha256": "2d0441ae263c018755d91e73d4b278918c9358db7d604c1ba188434928e48bc2",
+      "official_match_id": "8986304",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401873903",
+      "league": "no.1",
+      "kickoff_at": "2026-09-19T16:00:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "3278"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "provider_sha256": "814606c9ebe8f4cd9674a16deb0a3fc712785d6d4bd1cc6b7acf2cb3b2ff66c9",
+      "official_match_id": "8986299",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401873904",
+      "league": "no.1",
+      "kickoff_at": "2026-08-30T15:00:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "2715"
+      },
+      "score": [
+        3,
+        4
+      ],
+      "provider_sha256": "4cecca72ec75562a2ee06a59f33624c3ba496e5b23026cf0c7322c5adbef5861",
+      "official_match_id": "8986280",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843418",
+      "league": "no.1",
+      "kickoff_at": "2026-08-16T12:30:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "2791"
+      },
+      "score": [
+        5,
+        5
+      ],
+      "provider_sha256": "4a3bcc7bbefc6b0564006115274459d8cc3066fe122a7f82246dd1642a6d854f",
+      "official_match_id": "8986272",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401873927",
+      "league": "no.1",
+      "kickoff_at": "2026-07-27T17:00:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "3039"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "eb89e03e2c56f454d0e36dbb73dc2078a238e6276d8687a107274fa2f2cdfee3",
+      "official_match_id": "8986244",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401873893",
+      "league": "no.1",
+      "kickoff_at": "2026-07-16T17:00:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "3278"
+      },
+      "score": [
+        6,
+        1
+      ],
+      "provider_sha256": "984501df9bdee7a3430a7099a740f05abbc3ba03a4507395bf8c37d15a75e6bd",
+      "official_match_id": "8986240",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401873915",
+      "league": "no.1",
+      "kickoff_at": "2026-07-11T14:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "2715"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "provider_sha256": "25595e6de2bac04e80f5ae56540325ed19da8275775fd530030d39acc928198a",
+      "official_match_id": "8986232",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843345",
+      "league": "no.1",
+      "kickoff_at": "2026-05-16T14:00:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "3278"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "a5992161faa18a67583e208971a9ac47b6ac675a704888f35fdf001ded270a94",
+      "official_match_id": "8986198",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843318",
+      "league": "no.1",
+      "kickoff_at": "2026-04-26T12:30:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "2791"
+      },
+      "score": [
+        5,
+        1
+      ],
+      "provider_sha256": "3945abedd6bc7a1723f2123856cfc0d3a6f8c7a42454677ecb26f8e501253eb7",
+      "official_match_id": "8986173",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843304",
+      "league": "no.1",
+      "kickoff_at": "2026-04-12T15:00:00+00:00",
+      "team_ids": {
+        "home": "3039",
+        "away": "2791"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "provider_sha256": "6c7eafd3c7e87984f34321870be83952d6d75bb754717dc9195b37f55a3f7fc9",
+      "official_match_id": "8986154",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843297",
+      "league": "no.1",
+      "kickoff_at": "2026-04-07T17:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "3039"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "691d7568b65d5385b0ecb718b966e60a85e86a2e6416ea7ebb435f7c516524b1",
+      "official_match_id": "8986152",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843285",
+      "league": "no.1",
+      "kickoff_at": "2026-03-22T13:30:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "2791"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "4bb51a3090d688fcb102685d812a4a921b70f5f067dc2718241876d5299064a3",
+      "official_match_id": "8986141",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    },
+    {
+      "event_id": "401843276",
+      "league": "no.1",
+      "kickoff_at": "2026-03-14T17:00:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "438"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "provider_sha256": "f72e09404e9346e26e4513309565ca6a99c4aa623c3acc7e82a92623afc70a47",
+      "official_match_id": "8986132",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"
+    }
+  ],
+  "form_window_date_candidates": [
+    {
+      "target": "401884724",
+      "side": "home",
+      "historical_event": "747019",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401884724",
+      "side": "away",
+      "historical_event": "747019",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401884725",
+      "side": "away",
+      "historical_event": "747016",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401882787",
+      "side": "home",
+      "historical_event": "401882876",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401882795",
+      "side": "away",
+      "historical_event": "401882869",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876489",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876471",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876440",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876439",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876417",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876404",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876393",
+      "side": "away",
+      "historical_event": "401876400",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876386",
+      "side": "home",
+      "historical_event": "401876417",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401843473",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401843368",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401843450",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401873927",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401843304",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843495",
+      "side": "home",
+      "historical_event": "401843297",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401843450",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401873904",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401843418",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401873893",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401843318",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401843304",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843493",
+      "side": "away",
+      "historical_event": "401843285",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401884720",
+      "side": "home",
+      "historical_event": "747022",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876392",
+      "side": "away",
+      "historical_event": "401876471",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401882793",
+      "side": "home",
+      "historical_event": "401882872",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401882789",
+      "side": "home",
+      "historical_event": "401882872",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401882789",
+      "side": "away",
+      "historical_event": "401882876",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876394",
+      "side": "home",
+      "historical_event": "401876439",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876394",
+      "side": "away",
+      "historical_event": "401876404",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401876391",
+      "side": "away",
+      "historical_event": "401876489",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401843490",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401843473",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401873927",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401843345",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401843285",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "home",
+      "historical_event": "401843276",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401843368",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401873903",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401873904",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401873915",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401843318",
+      "official_observed_before_target_cutoff": true
+    },
+    {
+      "target": "401843497",
+      "side": "away",
+      "historical_event": "401843276",
+      "official_observed_before_target_cutoff": true
+    }
+  ],
+  "probe_errors": [
+    {
+      "id": "15012720346",
+      "reason": "'parsed_completed_rows'"
+    },
+    {
+      "id": "15010872359",
+      "reason": "Archived source replay count differs for de.2"
+    },
+    {
+      "id": "15013517358",
+      "reason": "'parsed_completed_rows'"
+    }
+  ],
+  "settlement_conflicts": 0,
+  "archived_independent_results": [
+    {
+      "event_id": "401915291",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "1068",
+        "away": "510"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401843493",
+          "league": "no.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "away"
+          }
+        },
+        {
+          "target": "401882793",
+          "league": "es.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "home"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915292",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "570",
+        "away": "364"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401879229",
+          "league": "en.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "away"
+          }
+        },
+        {
+          "target": "401878927",
+          "league": "be.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "home"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915293",
+      "league": "UCL",
+      "kickoff": "2026-11-25T17:45:00+00:00",
+      "teams": {
+        "home": "494",
+        "away": "102"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401882795",
+          "league": "es.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "away"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915373",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "2250",
+        "away": "360"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401885387",
+          "league": "pt.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "home"
+          }
+        },
+        {
+          "target": "401879226",
+          "league": "en.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "away"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915374",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "160",
+        "away": "104"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401874769",
+          "league": "it.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "away"
+          }
+        },
+        {
+          "target": "401876387",
+          "league": "fr.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "home"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915375",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "493",
+        "away": "436"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401888238",
+          "league": "tr.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "away"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915376",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "110",
+        "away": "134"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401884726",
+          "league": "de.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "away"
+          }
+        },
+        {
+          "target": "401874977",
+          "league": "it.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "home": "home"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915377",
+      "league": "UCL",
+      "kickoff": "2026-11-25T20:00:00+00:00",
+      "teams": {
+        "home": "166",
+        "away": "132"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401884722",
+          "league": "de.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "away"
+          }
+        },
+        {
+          "target": "401876390",
+          "league": "fr.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "home"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    },
+    {
+      "event_id": "401915378",
+      "league": "UCL",
+      "kickoff": "2026-11-25T17:45:00+00:00",
+      "teams": {
+        "home": "21922",
+        "away": "83"
+      },
+      "matched_historical_event_id": false,
+      "shared_team_targets": [
+        {
+          "target": "401882794",
+          "league": "es.1",
+          "same_league": false,
+          "available_at_target_cutoff": true,
+          "orientation": {
+            "away": "away"
+          }
+        }
+      ],
+      "sealed_at": "2026-11-26T06:04:04+00:00"
+    }
+  ],
+  "sealed_forecasts": 14,
+  "frozen_candidate_holdout_examples": 2,
+  "holdout_iso_weeks": [
+    [
+      2026,
+      48
+    ]
+  ],
+  "holdout_research_evaluation": {
+    "markets": {
+      "KG_VAR": {
+        "calibration": {
+          "n": 2,
+          "reference_brier": 0.20500000000000002,
+          "candidate_brier": 0.28318319242385437,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_components_research": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_strength": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        }
+      },
+      "2.5_UST": {
+        "calibration": {
+          "n": 2,
+          "reference_brier": 0.3400000000000001,
+          "candidate_brier": 0.2526721677953717,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_components_research": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_strength": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        }
+      },
+      "MS1": {
+        "calibration": "REFERENCE_ONLY",
+        "fixed_components_research": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_strength": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        }
+      },
+      "MS2": {
+        "calibration": "REFERENCE_ONLY",
+        "fixed_components_research": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        },
+        "fixed_strength": {
+          "n": 0,
+          "reference_brier": null,
+          "candidate_brier": null,
+          "weekly_delta_brier_99pct": null,
+          "design_verdict": {
+            "status": "NO_PREREGISTERED_POWER_DESIGN",
+            "research_supported": false
+          },
+          "supported": false
+        }
+      }
+    },
+    "test_n": 2,
+    "source_independence_certified": false,
+    "production_allowed": false,
+    "ex_final_allowed": false
+  },
+  "production_allowed": false
+}
