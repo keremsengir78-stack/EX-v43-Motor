@@ -1,0 +1,593 @@
+{
+  "run": 45825937760,
+  "head": "c4d280a257e8006b408b915fb1f9e6d0d6948789",
+  "artifacts": [
+    15120670577,
+    15120047712,
+    15120800827
+  ],
+  "before": {
+    "fixtures": 103,
+    "official_fixtures": 103,
+    "paired_models": 69,
+    "tur2": 95,
+    "inside_live_48h": 22,
+    "workload_trace_both": 0,
+    "fixture_independent_form_any": 0,
+    "ingestion_accepted": 0,
+    "second_source_accepted": 0,
+    "context_accepted": 0,
+    "exg": 0,
+    "final": 0,
+    "unique_independent_form_events": 0
+  },
+  "after": {
+    "fixtures": 103,
+    "official_fixtures": 103,
+    "paired_models": 69,
+    "tur2": 95,
+    "inside_live_48h": 24,
+    "workload_trace_both": 80,
+    "fixture_independent_form_any": 0,
+    "ingestion_accepted": 0,
+    "second_source_accepted": 0,
+    "context_accepted": 0,
+    "exg": 0,
+    "final": 0,
+    "unique_independent_form_events": 0
+  },
+  "by_day": {
+    "2026-11-27": {
+      "as_of": "2026-11-26T13:06:47.829779+00:00",
+      "independent_archive_results": 9,
+      "reused_verified_outcomes": 9,
+      "test_splits": [
+        240,
+        155,
+        164
+      ],
+      "calibration": {
+        "scope": "RECONSTRUCTED_BASELINE_PROBABILITIES",
+        "production_allowed": false,
+        "test_samples": 164,
+        "test_weeks": 4,
+        "markets": {
+          "2.5_UST": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2455625111064974,
+                "intercept": 0.2463217783912525,
+                "platt": 0.24600274588558607
+              },
+              "test_reference": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "test_candidate": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24553332813804307,
+                "intercept": 0.2470526871534466,
+                "platt": 0.24621633722434935
+              },
+              "test_reference": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "test_candidate": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "KG_VAR": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24090744752178073,
+                "intercept": 0.24437130766490478,
+                "platt": 0.24355518768957138
+              },
+              "test_reference": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "test_candidate": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "platt",
+              "validation_brier": {
+                "identity": 0.2442521475832325,
+                "intercept": 0.2447185513252834,
+                "platt": 0.2437121152685479
+              },
+              "test_reference": {
+                "brier": 0.2499975887314657,
+                "ece_10_equal_width": 0.09461465669972265,
+                "log_loss": 0.6938878547883105
+              },
+              "test_candidate": {
+                "brier": 0.2500906832939805,
+                "ece_10_equal_width": 0.09250852089319427,
+                "log_loss": 0.693623737947421
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS1": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2315899113106928,
+                "intercept": 0.23324416497513045,
+                "platt": 0.23582621471383527
+              },
+              "test_reference": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "test_candidate": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2321968056609201,
+                "intercept": 0.2340956471060816,
+                "platt": 0.23700927087715534
+              },
+              "test_reference": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "test_candidate": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS2": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2157969939510514,
+                "intercept": 0.2159307273830156,
+                "platt": 0.22028086180038872
+              },
+              "test_reference": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "test_candidate": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.21552074136429,
+                "intercept": 0.21567444031597924,
+                "platt": 0.21989178970171994
+              },
+              "test_reference": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "test_candidate": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          }
+        },
+        "candidate_settings": [
+          0.0,
+          0.5,
+          0.0,
+          1.0863101844437437
+        ]
+      }
+    },
+    "2026-11-28": {
+      "as_of": "2026-11-26T13:06:43.192588+00:00",
+      "independent_archive_results": 9,
+      "reused_verified_outcomes": 9,
+      "test_splits": [
+        240,
+        155,
+        164
+      ],
+      "calibration": {
+        "scope": "RECONSTRUCTED_BASELINE_PROBABILITIES",
+        "production_allowed": false,
+        "test_samples": 164,
+        "test_weeks": 4,
+        "markets": {
+          "2.5_UST": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2455625111064974,
+                "intercept": 0.2463217783912525,
+                "platt": 0.24600274588558607
+              },
+              "test_reference": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "test_candidate": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24553332813804307,
+                "intercept": 0.2470526871534466,
+                "platt": 0.24621633722434935
+              },
+              "test_reference": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "test_candidate": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "KG_VAR": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24090744752178073,
+                "intercept": 0.24437130766490478,
+                "platt": 0.24355518768957138
+              },
+              "test_reference": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "test_candidate": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "platt",
+              "validation_brier": {
+                "identity": 0.2442521475832325,
+                "intercept": 0.2447185513252834,
+                "platt": 0.2437121152685479
+              },
+              "test_reference": {
+                "brier": 0.2499975887314657,
+                "ece_10_equal_width": 0.09461465669972265,
+                "log_loss": 0.6938878547883105
+              },
+              "test_candidate": {
+                "brier": 0.2500906832939805,
+                "ece_10_equal_width": 0.09250852089319427,
+                "log_loss": 0.693623737947421
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS1": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2315899113106928,
+                "intercept": 0.23324416497513045,
+                "platt": 0.23582621471383527
+              },
+              "test_reference": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "test_candidate": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2321968056609201,
+                "intercept": 0.2340956471060816,
+                "platt": 0.23700927087715534
+              },
+              "test_reference": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "test_candidate": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS2": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2157969939510514,
+                "intercept": 0.2159307273830156,
+                "platt": 0.22028086180038872
+              },
+              "test_reference": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "test_candidate": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.21552074136429,
+                "intercept": 0.21567444031597924,
+                "platt": 0.21989178970171994
+              },
+              "test_reference": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "test_candidate": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          }
+        },
+        "candidate_settings": [
+          0.0,
+          0.5,
+          0.0,
+          1.0863101844437437
+        ]
+      }
+    },
+    "2026-11-29": {
+      "as_of": "2026-11-26T13:06:45.058371+00:00",
+      "independent_archive_results": 9,
+      "reused_verified_outcomes": 9,
+      "test_splits": [
+        240,
+        155,
+        164
+      ],
+      "calibration": {
+        "scope": "RECONSTRUCTED_BASELINE_PROBABILITIES",
+        "production_allowed": false,
+        "test_samples": 164,
+        "test_weeks": 4,
+        "markets": {
+          "2.5_UST": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2455625111064974,
+                "intercept": 0.2463217783912525,
+                "platt": 0.24600274588558607
+              },
+              "test_reference": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "test_candidate": {
+                "brier": 0.2502555487512781,
+                "ece_10_equal_width": 0.06894002036025569,
+                "log_loss": 0.6944817136559991
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24553332813804307,
+                "intercept": 0.2470526871534466,
+                "platt": 0.24621633722434935
+              },
+              "test_reference": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "test_candidate": {
+                "brier": 0.2588631341461901,
+                "ece_10_equal_width": 0.13451583589727376,
+                "log_loss": 0.7143967736366706
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "KG_VAR": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.24090744752178073,
+                "intercept": 0.24437130766490478,
+                "platt": 0.24355518768957138
+              },
+              "test_reference": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "test_candidate": {
+                "brier": 0.2432070011931225,
+                "ece_10_equal_width": 0.053216921547664935,
+                "log_loss": 0.6793901728767349
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "platt",
+              "validation_brier": {
+                "identity": 0.2442521475832325,
+                "intercept": 0.2447185513252834,
+                "platt": 0.2437121152685479
+              },
+              "test_reference": {
+                "brier": 0.2499975887314657,
+                "ece_10_equal_width": 0.09461465669972265,
+                "log_loss": 0.6938878547883105
+              },
+              "test_candidate": {
+                "brier": 0.2500906832939805,
+                "ece_10_equal_width": 0.09250852089319427,
+                "log_loss": 0.693623737947421
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS1": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2315899113106928,
+                "intercept": 0.23324416497513045,
+                "platt": 0.23582621471383527
+              },
+              "test_reference": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "test_candidate": {
+                "brier": 0.21507916800542798,
+                "ece_10_equal_width": 0.07164992318287604,
+                "log_loss": 0.6200787327909243
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2321968056609201,
+                "intercept": 0.2340956471060816,
+                "platt": 0.23700927087715534
+              },
+              "test_reference": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "test_candidate": {
+                "brier": 0.21513915047054746,
+                "ece_10_equal_width": 0.04687787833733393,
+                "log_loss": 0.6203911017943968
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          },
+          "MS2": {
+            "EX-V43-POISSON": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.2157969939510514,
+                "intercept": 0.2159307273830156,
+                "platt": 0.22028086180038872
+              },
+              "test_reference": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "test_candidate": {
+                "brier": 0.21026334114997874,
+                "ece_10_equal_width": 0.08493065221443093,
+                "log_loss": 0.6060986313024672
+              },
+              "paired_weekly_brier_delta_99pct": null
+            },
+            "EX-V43-PERFORMANCE-V1": {
+              "selected_on_validation": "identity",
+              "validation_brier": {
+                "identity": 0.21552074136429,
+                "intercept": 0.21567444031597924,
+                "platt": 0.21989178970171994
+              },
+              "test_reference": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "test_candidate": {
+                "brier": 0.20877713588070443,
+                "ece_10_equal_width": 0.07804742861309502,
+                "log_loss": 0.6025298853396165
+              },
+              "paired_weekly_brier_delta_99pct": null
+            }
+          }
+        },
+        "candidate_settings": [
+          0.0,
+          0.5,
+          0.0,
+          1.0863101844437437
+        ]
+      }
+    }
+  }
+}
