@@ -46,5 +46,29 @@
     "latitude": 38.76111,
     "longitude": -9.16083,
     "source": "https://ligaportugalstorage.blob.core.windows.net/backoffice/assets/Guia_do_Adepto_SCP_25_26_b1a533e853.pdf"
+  },
+  "48": {
+    "name": "Goffertstadion",
+    "latitude": 51.82248,
+    "longitude": 5.83716,
+    "source": "https://www.coordinatenbepalen.nl/coordinates/862749-goffertstadion"
+  },
+  "10356": {
+    "name": "Johan Cruijff Arena",
+    "latitude": 52.31431,
+    "longitude": 4.94154,
+    "source": "https://www.latlong.net/place/johan-cruijff-arena-amsterdam-netherlands-31688.html"
+  },
+  "135": {
+    "name": "Selhurst Park",
+    "latitude": 51.398333,
+    "longitude": -0.085556,
+    "source": "https://www.olympedia.org/venues/348"
+  },
+  "8842": {
+    "name": "Europa-Park Stadion",
+    "latitude": 48.0216,
+    "longitude": 7.8297,
+    "source": "https://en.wikipedia.org/wiki/Europa-Park_Stadion"
   }
 }
