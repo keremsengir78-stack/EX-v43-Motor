@@ -11,6 +11,7 @@ on:
       - run_ex_official_queue_join.py
       - run_ex_missed_prematch_audit.py
       - ex_daily_research.py
+      - ex_daily_selection.py
       - ex_daily_official.py
       - run_ex_prospective_pipeline.py
       - run_ex_prospective_validation.py
@@ -32,6 +33,10 @@ on:
       day:
         type: string
         description: UTC fixture date for capture
+      pup:
+        type: boolean
+        description: Run post-analysis PUP checks
+        default: false
       forecast_artifact_ids:
         type: string
         description: Optional forecast artifact IDs alongside durable archive records
@@ -227,12 +232,15 @@ jobs:
           DAY: ${{ inputs.day }}
           FACTS: ${{ steps.archive.outputs.facts }}
           RAW_OVERRIDE: ${{ inputs.history_run_id }}
+          PUP: ${{ inputs.pup }}
         run: |
           history=(--plan plan.json --history history --export-facts historical-facts.jsonl)
           if [ -n "$FACTS" ] && [ -z "$RAW_OVERRIDE" ]; then
             history=(--historical-facts "$FACTS")
           fi
-          python run_ex_prospective_pipeline.py --daily-capture "${DAY:-$(date -u +%F)}" \
+          pup=()
+          if [ "$PUP" = true ]; then pup=(--pup); fi
+          python run_ex_prospective_pipeline.py "${pup[@]}" --daily-capture "${DAY:-$(date -u +%F)}" \
             "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
             --domestic-packs domestic --weekly-scoreboards weekly-boards --prior-pregame prior-pregame --component-research --component-archive component-archive --output-dir forecasts
       - uses: actions/upload-artifact@v4

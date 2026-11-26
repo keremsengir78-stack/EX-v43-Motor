@@ -462,3 +462,14 @@ Arşivli skorlarla puanlanan rakip gücü, önceki maçların gol oranlarını d
 Ayarlar kronolojik doğrulama diliminde seçilir. Bağımsız testte iki yöntem aynı fikstürlerde Brier, Log Loss, kalibrasyon hatası, yüzde 50 karar doğruluğu ve yüzde 65/70/75/80 üzeri isabet üzerinden karşılaştırılır. Önce tamamlanan maçların sonuçları ileri yürüyen geçmişe katılabilir. Sonuçlar tamamlanma zamanından önce kullanılamaz. Tarihsel tekrar ve gerçekten maç öncesi arşivlenen tahminler ayrı kanıt türleridir.
 
 Uygun ileri tarihli maçlarda `EX-V43-POISSON` ve `EX-V43-PERFORMANCE-V1` birlikte kaydedilir. Maç sonrası ve haftalık kayıtlar iki sürümü yalnız bağımsız doğrulanmış skorla eşleştirir. V1 araştırma adayıdır ve EX FINAL karar yoluna dahil edilmez.
+
+### Günlük seçim kapasitesi
+
+Günlük mod, doğrulanmış ham fikstür tahtasındaki benzersiz maç sayısına göre seçilir. Bu sayı maç özeti veya model sonucu bulunmayan doğrulanmış fikstürleri de içerir. Bağımsız ikinci kaynak teyidi, veri desteği listesinde ayrıca aranır.
+
+| Mod | Doğrulanmış maç | Pazar başına | Birleşik farklı maç | Veri desteği |
+| --- | --- | --- | --- | --- |
+| NORMAL | 0–29 | 3 | 6 | 3 |
+| YOĞUN | 30 ve üzeri | 5 | 10 | 5 |
+
+Sınırlar üst kapasitedir. Araştırma sıralaması Tur-2'yi geçen ve pazar PASS kuralına takılmayan referans olasılıklarını kullanır. V1 varsa yanında gösterilir. Birleşik liste her maçı bir kez gösterir. Veri desteği listesi bağımsız fikstür teyidi ve doğrulanmış pazar oranı bulunan maçları, mevcut bileşen sayısı ve doğrulanmış oran kapsamına göre sıralar. Eksik oranlı kayıtlar araştırma listesinde işaretlenir. PUP açık talep edildiğinde bağımsız pazar analizlerinden sonra çalışır ve kendi kurallarını uygular. Günlük kapasite raporu `forecasts/daily-selection.json` dosyasında arşivlenir.

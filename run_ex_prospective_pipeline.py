@@ -532,6 +532,7 @@ def main():
     parser.add_argument("--capture", type=Path)
     parser.add_argument("--daily-capture")
     parser.add_argument("--component-research", action="store_true")
+    parser.add_argument("--pup", action="store_true", help="Run explicit post-analysis PUP checks")
     parser.add_argument("--prior-pregame", type=Path)
     parser.add_argument("--component-archive", type=Path)
     parser.add_argument("--domestic-packs", type=Path)
@@ -680,6 +681,12 @@ def main():
             skipped.extend({"event_id": event, "reason": "PUBLICATION_AFTER_KICKOFF"} for event in sorted(elapsed))
             daily = [row for row in daily if row["fixture"]["event_id"] not in elapsed]
             forecasts = [row for row in forecasts if row["event_id"] not in elapsed]
+        from ex_daily_selection import daily_selection, verified_fixture_ids
+
+        selection = daily_selection(daily, verified_fixture_ids(manifest, archive, publication_check),
+                                    pup_requested=args.pup)
+        atomic_write(args.output_dir / "daily-selection.json",
+                     (json.dumps(selection, ensure_ascii=False, indent=2) + "\n").encode())
         atomic_write(args.output_dir / "daily-analysis.json", (json.dumps(daily, indent=2) + "\n").encode())
         atomic_write(args.output_dir / "forecasts.jsonl", jsonl(forecasts))
         context, issues = alternate_context(manifest, args.cache)
