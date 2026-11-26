@@ -7,6 +7,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlsplit
 
+from ex_cup_team_history import collect_cup_history, TEAM_LEAGUES
 from ex_daily_official import BELGIUM_CALENDAR, belgian_links, belgian_match_hint, league_reviews, UEFA_NEW_CUPS, cup_fixture_index
 from ex_daily_research import daily_analysis, domestic_snapshot
 from ex_decision import MARKETS, WEIGHTS, weighted_evidence
@@ -621,6 +622,8 @@ def main():
                                                        max_age=dt.timedelta(hours=1))
             except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
                 cup_source_errors[league] = source_error("uefa_cup_fixtures", url, exc)
+        team_history, team_sources, team_history_errors = collect_cup_history(
+            HistoryArchive(args.cache, 2 * len(TEAM_LEAGUES), fetch=paced_download(.75)), manifest)
         # Establish the cutoff after all source acquisition and integrity verification.
         cutoff = archive.clock()
         reused = 0
@@ -642,10 +645,10 @@ def main():
                 else:
                     supplemental = archived_domestic_boards(pack, cutoff)
         rolling = []
-        if args.weekly_scoreboards or supplemental:
+        if args.weekly_scoreboards or supplemental or team_history:
             existing = {r["event_id"]: r for r in facts}
             weekly = scoreboard_facts(args.weekly_scoreboards, cutoff, conflicts=history_conflicts) if args.weekly_scoreboards else []
-            for row in weekly + supplemental:
+            for row in weekly + supplemental + team_history:
                 event = row["event_id"]
                 prior = existing.get(event)
                 if prior and (any(prior[key] != row[key] for key in ("teams", "competition", "kickoff"))
@@ -696,6 +699,7 @@ def main():
                   "weather_sources_observed": len(weather), "weather_errors": weather_errors,
                   "capture_source_errors": manifest.get("errors", []),
                   "cup_source_errors": cup_source_errors,
+                  "cup_team_history_sources": team_sources, "cup_team_history_errors": team_history_errors,
                   "capture_cache_hits": manifest.get("cache_hits", 0),
                   "capture_network_requests": manifest.get("requests"),
                   "alternate_fixtures": {league: len(rows) for league, rows in context.items()},

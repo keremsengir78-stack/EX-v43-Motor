@@ -7,6 +7,7 @@ on:
       - .github/workflows/ex-prospective-operations.yml
       - ex_research_components.py
       - ex_performance_v1.py
+      - ex_cup_team_history.py
       - run_ex_official_queue_join.py
       - run_ex_missed_prematch_audit.py
       - ex_daily_research.py

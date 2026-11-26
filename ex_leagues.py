@@ -25,14 +25,15 @@ APPROVED_LEAGUES = {
 UEFA_CUPS = frozenset(("UCL", "UEL", "UECL"))
 # Archived domestic histories used as inputs for the newly approved UEFA cups.
 # These leagues are not independently eligible for daily capture or prediction.
-CUP_HISTORY_SLUGS = {"en.2": "eng.2", "at.1": "aut.1", "gr.1": "gre.1", "cz.1": "cze.1"}
+CUP_HISTORY_SLUGS = {"en.2": "eng.2", "at.1": "aut.1", "gr.1": "gre.1", "cz.1": "cze.1",
+                     "sco.1": "sco.1", "dk.1": "den.1", "se.1": "swe.1"}
 
 # Existing ingestion clients may still explicitly request Championship.
 LEGACY_INGESTION = {"en.2": "England Championship"}
 
 
 def season_bounds(league, day):
-    month = APPROVED_LEAGUES[league][2] if league in APPROVED_LEAGUES else 7
+    month = APPROVED_LEAGUES[league][2] if league in APPROVED_LEAGUES else 1 if league == "se.1" else 7
     year = day.year - (day.month < month)
     return date(year, month, 1), date(year - 1, month, 1)
 
