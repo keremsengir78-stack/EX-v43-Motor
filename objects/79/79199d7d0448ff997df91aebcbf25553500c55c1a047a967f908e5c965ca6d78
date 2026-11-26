@@ -1,0 +1,3006 @@
+{
+  "mode": "YOĞUN",
+  "verified_fixture_count": 40,
+  "limits": {
+    "per_market": 5,
+    "combined": 10,
+    "evidence": 5
+  },
+  "markets": {
+    "2.5_UST": [
+      {
+        "event_id": "401875530",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 1,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": false
+      },
+      {
+        "event_id": "401843497",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.8292349682259048,
+        "EX-V43-PERFORMANCE-V1": 0.8292349682259046,
+        "verified_price": false
+      },
+      {
+        "event_id": "401878929",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.8066183501047525,
+        "EX-V43-PERFORMANCE-V1": 0.8066183501047529,
+        "verified_price": true
+      },
+      {
+        "event_id": "401878933",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.8,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": true
+      },
+      {
+        "event_id": "401875531",
+        "market": "2.5_UST",
+        "EX-V43-POISSON": 0.7841071445426537,
+        "EX-V43-PERFORMANCE-V1": 0.7841071445426528,
+        "verified_price": false
+      }
+    ],
+    "KG_VAR": [
+      {
+        "event_id": "401875530",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.8,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": false
+      },
+      {
+        "event_id": "401843497",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7944259296802417,
+        "EX-V43-PERFORMANCE-V1": 0.7944875291498624,
+        "verified_price": false
+      },
+      {
+        "event_id": "401878929",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7564788214451059,
+        "EX-V43-PERFORMANCE-V1": 0.7583496818018478,
+        "verified_price": false
+      },
+      {
+        "event_id": "401876390",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.7,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": false
+      },
+      {
+        "event_id": "401875828",
+        "market": "KG_VAR",
+        "EX-V43-POISSON": 0.6920054690410001,
+        "EX-V43-PERFORMANCE-V1": 0.6915755595606148,
+        "verified_price": false
+      }
+    ],
+    "MS1": [
+      {
+        "event_id": "401875081",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.9,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": true
+      },
+      {
+        "event_id": "401875531",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.7330241842432149,
+        "EX-V43-PERFORMANCE-V1": 0.7439950619924166,
+        "verified_price": true
+      },
+      {
+        "event_id": "401878933",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.7,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": true
+      },
+      {
+        "event_id": "401885046",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.6446429009324192,
+        "EX-V43-PERFORMANCE-V1": 0.6434880694892616,
+        "verified_price": true
+      },
+      {
+        "event_id": "401874977",
+        "market": "MS1",
+        "EX-V43-POISSON": 0.6047756044073128,
+        "EX-V43-PERFORMANCE-V1": 0.6118161088360331,
+        "verified_price": true
+      }
+    ],
+    "MS2": [
+      {
+        "event_id": "401882793",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5995191915743371,
+        "EX-V43-PERFORMANCE-V1": 0.584755512262833,
+        "verified_price": true
+      },
+      {
+        "event_id": "401874826",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5702787647852359,
+        "EX-V43-PERFORMANCE-V1": 0.5603577803322393,
+        "verified_price": true
+      },
+      {
+        "event_id": "401884722",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5638915269767804,
+        "EX-V43-PERFORMANCE-V1": 0.570097690436083,
+        "verified_price": false
+      },
+      {
+        "event_id": "401888368",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.5,
+        "EX-V43-PERFORMANCE-V1": null,
+        "verified_price": true
+      },
+      {
+        "event_id": "401875537",
+        "market": "MS2",
+        "EX-V43-POISSON": 0.4998971934439964,
+        "EX-V43-PERFORMANCE-V1": 0.5052803173523895,
+        "verified_price": true
+      }
+    ]
+  },
+  "combined": [
+    {
+      "event_id": "401875530",
+      "fixture": {
+        "event_id": "401875530",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "SC Cambuur",
+        "away": "Sparta Rotterdam",
+        "team_ids": {
+          "home": "3736",
+          "away": "151"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401875530",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 1,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401875530",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.8,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401875530",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401875530",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.30000000000000004,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401875081",
+      "fixture": {
+        "event_id": "401875081",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T14:00:00+00:00",
+        "home": "Frosinone",
+        "away": "Parma",
+        "team_ids": {
+          "home": "4057",
+          "away": "115"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401875081",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401875081",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401875081",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.9,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401875081",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.1,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401843497",
+      "fixture": {
+        "event_id": "401843497",
+        "date": "2026-11-28",
+        "league": "no.1",
+        "kickoff_at": "2026-11-28T17:00:00+00:00",
+        "home": "Rosenborg",
+        "away": "Molde",
+        "team_ids": {
+          "home": "438",
+          "away": "2715"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:54.393145+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401843497",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.8292349682259048,
+          "EX-V43-PERFORMANCE-V1": 0.8292349682259046,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401843497",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7944259296802417,
+          "EX-V43-PERFORMANCE-V1": 0.7944875291498624,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401843497",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5073699487365232,
+          "EX-V43-PERFORMANCE-V1": 0.5069788924944989,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401843497",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3048777643160006,
+          "EX-V43-PERFORMANCE-V1": 0.3052258239504114,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401878929",
+      "fixture": {
+        "event_id": "401878929",
+        "date": "2026-11-28",
+        "league": "be.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "KVC Westerlo",
+        "away": "RAAL La Louvière",
+        "team_ids": {
+          "home": "606",
+          "away": "131235"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:53.671727+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401878929",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.8066183501047525,
+          "EX-V43-PERFORMANCE-V1": 0.8066183501047529,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401878929",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7564788214451059,
+          "EX-V43-PERFORMANCE-V1": 0.7583496818018478,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401878929",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5848614260857252,
+          "EX-V43-PERFORMANCE-V1": 0.5786219623955198,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401878929",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.23499789961018325,
+          "EX-V43-PERFORMANCE-V1": 0.24006540083824343,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401878933",
+      "fixture": {
+        "event_id": "401878933",
+        "date": "2026-11-28",
+        "league": "be.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Royal Charleroi SC",
+        "away": "Waasland-Beveren",
+        "team_ids": {
+          "home": "3616",
+          "away": "13450"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:53.671727+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401878933",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.8,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401878933",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401878933",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.7,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401878933",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.1,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401875531",
+      "fixture": {
+        "event_id": "401875531",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T17:45:00+00:00",
+        "home": "PSV Eindhoven",
+        "away": "Go Ahead Eagles",
+        "team_ids": {
+          "home": "148",
+          "away": "3706"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401875531",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7841071445426537,
+          "EX-V43-PERFORMANCE-V1": 0.7841071445426528,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401875531",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6607547083049259,
+          "EX-V43-PERFORMANCE-V1": 0.6523211402816383,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401875531",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.7330241842432149,
+          "EX-V43-PERFORMANCE-V1": 0.7439950619924166,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401875531",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.12294104031094633,
+          "EX-V43-PERFORMANCE-V1": 0.11579412372879454,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401875828",
+      "fixture": {
+        "event_id": "401875828",
+        "date": "2026-11-28",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-28T15:30:00+00:00",
+        "home": "FC Emmen",
+        "away": "Helmond Sport",
+        "team_ids": {
+          "home": "3707",
+          "away": "3775"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:52.133160+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401875828",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.7072360279664418,
+          "EX-V43-PERFORMANCE-V1": 0.7072360279664412,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401875828",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6920054690410001,
+          "EX-V43-PERFORMANCE-V1": 0.6915755595606148,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401875828",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5057877853387763,
+          "EX-V43-PERFORMANCE-V1": 0.5077500933527169,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401875828",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.28447439534917973,
+          "EX-V43-PERFORMANCE-V1": 0.28277156324806474,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401843492",
+      "fixture": {
+        "event_id": "401843492",
+        "date": "2026-11-28",
+        "league": "no.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Bodo/Glimt",
+        "away": "KFUM Oslo",
+        "team_ids": {
+          "home": "2980",
+          "away": "22165"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:54.393145+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401843492",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.700648570918825,
+          "EX-V43-PERFORMANCE-V1": 0.7006485709188245,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401843492",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.645958460671754,
+          "EX-V43-PERFORMANCE-V1": 0.6465611353229721,
+          "verified_price": false
+        },
+        "MS2": {
+          "event_id": "401843492",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.18798650960492558,
+          "EX-V43-PERFORMANCE-V1": 0.18892623566940947,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401884723",
+      "fixture": {
+        "event_id": "401884723",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Mainz",
+        "away": "1. FC Union Berlin",
+        "team_ids": {
+          "home": "2950",
+          "away": "598"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401884723",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.70031378621232,
+          "EX-V43-PERFORMANCE-V1": 0.7003137862123193,
+          "verified_price": false
+        },
+        "KG_VAR": {
+          "event_id": "401884723",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6850200645268042,
+          "EX-V43-PERFORMANCE-V1": 0.6866139549127994,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401884723",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.5116199517355987,
+          "EX-V43-PERFORMANCE-V1": 0.5045331337783673,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401884723",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.2782357425017233,
+          "EX-V43-PERFORMANCE-V1": 0.28436656896748524,
+          "verified_price": true
+        }
+      }
+    },
+    {
+      "event_id": "401876390",
+      "fixture": {
+        "event_id": "401876390",
+        "date": "2026-11-28",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Le Mans",
+        "away": "Lille",
+        "team_ids": {
+          "home": "2697",
+          "away": "166"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:50.676135+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401876390",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6000000000000001,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401876390",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.7,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401876390",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.2,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401876390",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4,
+          "EX-V43-PERFORMANCE-V1": null,
+          "verified_price": true
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "event_id": "401874826",
+      "fixture": {
+        "event_id": "401874826",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T17:00:00+00:00",
+        "home": "Torino",
+        "away": "Lazio",
+        "team_ids": {
+          "home": "239",
+          "away": "112"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401874826",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.5916557552465465,
+          "EX-V43-PERFORMANCE-V1": 0.5916557552465457,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401874826",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5758207268552855,
+          "EX-V43-PERFORMANCE-V1": 0.5798379643675485,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401874826",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.21181613975507269,
+          "EX-V43-PERFORMANCE-V1": 0.2195727569176589,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401874826",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.5702787647852359,
+          "EX-V43-PERFORMANCE-V1": 0.5603577803322393,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401875537",
+      "fixture": {
+        "event_id": "401875537",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T15:30:00+00:00",
+        "home": "Excelsior",
+        "away": "Telstar",
+        "team_ids": {
+          "home": "2566",
+          "away": "3735"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401875537",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6369531249836129,
+          "EX-V43-PERFORMANCE-V1": 0.6369531249836113,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401875537",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6361685899232709,
+          "EX-V43-PERFORMANCE-V1": 0.6348600592957291,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401875537",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.27731111802496217,
+          "EX-V43-PERFORMANCE-V1": 0.27268523551638446,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401875537",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4998971934439964,
+          "EX-V43-PERFORMANCE-V1": 0.5052803173523895,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401876391",
+      "fixture": {
+        "event_id": "401876391",
+        "date": "2026-11-28",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Le Havre AC",
+        "away": "Strasbourg",
+        "team_ids": {
+          "home": "3236",
+          "away": "180"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:50.676135+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401876391",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6626420343452017,
+          "EX-V43-PERFORMANCE-V1": 0.6626420343452005,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401876391",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6614243297966278,
+          "EX-V43-PERFORMANCE-V1": 0.6603045369909741,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401876391",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.3009165360363202,
+          "EX-V43-PERFORMANCE-V1": 0.2956496239822635,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401876391",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4781902334246535,
+          "EX-V43-PERFORMANCE-V1": 0.4841229400730096,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401876394",
+      "fixture": {
+        "event_id": "401876394",
+        "date": "2026-11-28",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-28T16:15:00+00:00",
+        "home": "Angers",
+        "away": "Lens",
+        "team_ids": {
+          "home": "7868",
+          "away": "175"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:50.676135+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401876394",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.5465138248126544,
+          "EX-V43-PERFORMANCE-V1": 0.546513824812653,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401876394",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.5695995016036488,
+          "EX-V43-PERFORMANCE-V1": 0.5700264949865487,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401876394",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.28523565591894867,
+          "EX-V43-PERFORMANCE-V1": 0.2870046613892355,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401876394",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.4714269874377463,
+          "EX-V43-PERFORMANCE-V1": 0.46941470029852506,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    },
+    {
+      "event_id": "401879226",
+      "fixture": {
+        "event_id": "401879226",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Manchester United",
+        "away": "Brentford",
+        "team_ids": {
+          "home": "360",
+          "away": "337"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "markets": {
+        "2.5_UST": {
+          "event_id": "401879226",
+          "market": "2.5_UST",
+          "EX-V43-POISSON": 0.6341970189165433,
+          "EX-V43-PERFORMANCE-V1": 0.6341970189165425,
+          "verified_price": true
+        },
+        "KG_VAR": {
+          "event_id": "401879226",
+          "market": "KG_VAR",
+          "EX-V43-POISSON": 0.6475866510215689,
+          "EX-V43-PERFORMANCE-V1": 0.6477913328952161,
+          "verified_price": false
+        },
+        "MS1": {
+          "event_id": "401879226",
+          "market": "MS1",
+          "EX-V43-POISSON": 0.4000991430845162,
+          "EX-V43-PERFORMANCE-V1": 0.3920689761035097,
+          "verified_price": true
+        },
+        "MS2": {
+          "event_id": "401879226",
+          "market": "MS2",
+          "EX-V43-POISSON": 0.3685697972347002,
+          "EX-V43-PERFORMANCE-V1": 0.3764769694382474,
+          "verified_price": true
+        }
+      },
+      "verified_price_markets": [
+        "2.5_UST",
+        "MS1",
+        "MS2"
+      ],
+      "available_components": 6
+    }
+  ],
+  "pup": [
+    {
+      "event_id": "401888236",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "MS1:verified_price_missing",
+        "MS2:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "VERIFIED_PRICE_REQUIRED",
+        "MS2": "VERIFIED_PRICE_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.4528219853255311,
+          "draw": 0.24301335449380235,
+          "away_win": 0.30416466018066635
+        },
+        "exact_scores": {
+          "1-1": 0.11347213929098898,
+          "2-0": 0.07146471543827314,
+          "0-2": 0.045042949923990994,
+          "3-0": 0.038766104952937766,
+          "0-3": 0.019397908303867756,
+          "2-1": 0.09232960980838856,
+          "1-2": 0.07330077703807122,
+          "2-2": 0.05964311755171297
+        },
+        "home_only_three_plus": 0.06146673746030792,
+        "away_only_three_plus": 0.02770718992049181,
+        "over25_only": 0.08917392738079973,
+        "btts_only": 0.11347213929098898,
+        "both": 0.46931811048137917,
+        "neither": 0.32803582284683214,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401888368",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401879227",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401879226",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.4000991430845162,
+          "draw": 0.2313310596807831,
+          "away_win": 0.3685697972347002
+        },
+        "exact_scores": {
+          "1-1": 0.10160823769176361,
+          "2-0": 0.05317487117468983,
+          "0-2": 0.04853906431154675,
+          "3-0": 0.029626968893406935,
+          "0-3": 0.025838342583641788,
+          "2-1": 0.0849182338642122,
+          "1-2": 0.0811322331416064,
+          "2-2": 0.06780558451121718
+        },
+        "home_only_three_plus": 0.047644453924964233,
+        "away_only_three_plus": 0.04057415166177382,
+        "over25_only": 0.08821860558673805,
+        "btts_only": 0.10160823769176361,
+        "both": 0.5459784133298052,
+        "neither": 0.26419474339169297,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401878752",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401884721",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401884722",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "MS1:verified_price_missing",
+        "MS2:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "VERIFIED_PRICE_REQUIRED",
+        "MS2": "VERIFIED_PRICE_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.2253472997941897,
+          "draw": 0.2107611732290292,
+          "away_win": 0.5638915269767804
+        },
+        "exact_scores": {
+          "1-1": 0.09373653403205873,
+          "2-0": 0.028175605423542176,
+          "0-2": 0.07796228049284167,
+          "3-0": 0.011679064679483955,
+          "0-3": 0.05375575673589759,
+          "2-1": 0.05828206851287416,
+          "1-2": 0.09694838880109842,
+          "2-2": 0.060279086448682954
+        },
+        "home_only_three_plus": 0.01643926613202012,
+        "away_only_three_plus": 0.09858188431242847,
+        "over25_only": 0.11502115044444859,
+        "btts_only": 0.09373653403205873,
+        "both": 0.5279683890076681,
+        "neither": 0.26327392651582454,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401884723",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5116199517355987,
+          "draw": 0.21014430576267765,
+          "away_win": 0.2782357425017233
+        },
+        "exact_scores": {
+          "1-1": 0.08555379982810088,
+          "2-0": 0.05926210164586157,
+          "0-2": 0.03087745988476048,
+          "3-0": 0.04150090118199894,
+          "0-3": 0.015608253251551471,
+          "2-1": 0.08986923414295948,
+          "1-2": 0.06486991057554237,
+          "2-2": 0.06814202518251457
+        },
+        "home_only_three_plus": 0.07695301526996821,
+        "away_only_three_plus": 0.023894506243648427,
+        "over25_only": 0.10084752151361664,
+        "btts_only": 0.08555379982810088,
+        "both": 0.5994662646987033,
+        "neither": 0.21413241395957916,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401884719",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401884726",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5393087436644332,
+          "draw": 0.21174364391609715,
+          "away_win": 0.24894761241946914
+        },
+        "exact_scores": {
+          "1-1": 0.0912676809267452,
+          "2-0": 0.06965321387577889,
+          "0-2": 0.02989736265652331,
+          "3-0": 0.04806071757428743,
+          "0-3": 0.013515366589140099,
+          "2-1": 0.0944620497591813,
+          "1-2": 0.061887540699003256,
+          "2-2": 0.06405360462346839
+        },
+        "home_only_three_plus": 0.08818199019276232,
+        "away_only_three_plus": 0.019686741700171147,
+        "over25_only": 0.10786873189293347,
+        "btts_only": 0.0912676809267452,
+        "both": 0.5574135421153475,
+        "neither": 0.24345004506497386,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885044",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885046",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.6446429009324192,
+          "draw": 0.19756519994815347,
+          "away_win": 0.15779189911942806
+        },
+        "exact_scores": {
+          "1-1": 0.09268767063535027,
+          "2-0": 0.1038151451242072,
+          "0-2": 0.020688224915374018,
+          "3-0": 0.07393945336068536,
+          "0-3": 0.00657763856868215,
+          "2-1": 0.09902132812876586,
+          "1-2": 0.04420384056918249,
+          "2-2": 0.04722443634140996
+        },
+        "home_only_three_plus": 0.1387954681875088,
+        "away_only_three_plus": 0.008500235250418585,
+        "over25_only": 0.1472957034379274,
+        "btts_only": 0.09268767063535027,
+        "both": 0.4494791730254239,
+        "neither": 0.31053745290129847,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885043",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.387636482836492,
+          "draw": 0.3030797286328812,
+          "away_win": 0.30928378853062694
+        },
+        "exact_scores": {
+          "1-1": 0.1345256684499913,
+          "2-0": 0.07799426623481906,
+          "0-2": 0.05800796759030811,
+          "3-0": 0.028564762800445006,
+          "0-3": 0.01832179760654666,
+          "2-1": 0.07390339050583591,
+          "1-2": 0.0637348326259395,
+          "2-2": 0.035013542609750196
+        },
+        "home_only_three_plus": 0.038508163507051975,
+        "away_only_three_plus": 0.023634310992928544,
+        "over25_only": 0.06214247449998052,
+        "btts_only": 0.1345256684499913,
+        "both": 0.2737040479117394,
+        "neither": 0.5296278091382888,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885039",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401882796",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5641097580286009,
+          "draw": 0.214197919064746,
+          "away_win": 0.2216923229066524
+        },
+        "exact_scores": {
+          "1-1": 0.09717782857961058,
+          "2-0": 0.0821073628373069,
+          "0-2": 0.028753603943413187,
+          "3-0": 0.05516687704481141,
+          "0-3": 0.011432564860766681,
+          "2-1": 0.09793879261514796,
+          "1-2": 0.05795752580013718,
+          "2-2": 0.05841136998833598
+        },
+        "home_only_three_plus": 0.09937148879079892,
+        "away_only_three_plus": 0.015849076741605003,
+        "over25_only": 0.11522056553240392,
+        "btts_only": 0.09717782857961058,
+        "both": 0.5066416421581685,
+        "neither": 0.28095996372981696,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401882790",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401882793",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.17376289153607097,
+          "draw": 0.22671791688959178,
+          "away_win": 0.5995191915743371
+        },
+        "exact_scores": {
+          "1-1": 0.10765066215411459,
+          "2-0": 0.025465353640069414,
+          "0-2": 0.1137689390260882,
+          "3-0": 0.007277214520989067,
+          "0-3": 0.06871889572104797,
+          "2-1": 0.046144870373369506,
+          "1-2": 0.09753498657275023,
+          "2-2": 0.04180874712897313
+        },
+        "home_only_three_plus": 0.009147791673920843,
+        "away_only_three_plus": 0.11566997259441877,
+        "over25_only": 0.12481776426833961,
+        "btts_only": 0.10765066215411459,
+        "both": 0.37402555872871346,
+        "neither": 0.39350601484883235,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401882789",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "PASS_ODDS_1_19_OR_LOWER",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.6995956070597706,
+          "draw": 0.17932740670221775,
+          "away_win": 0.12107698623801118
+        },
+        "exact_scores": {
+          "1-1": 0.08491981040264292,
+          "2-0": 0.11666474541443454,
+          "0-2": 0.015453199193131272,
+          "3-0": 0.08817162489975533,
+          "0-3": 0.004250568231503395,
+          "2-1": 0.09626966967761154,
+          "1-2": 0.03503715740134956,
+          "2-2": 0.03972000824633762
+        },
+        "home_only_three_plus": 0.17319123531300204,
+        "away_only_three_plus": 0.0052946728079195215,
+        "over25_only": 0.17848590812092155,
+        "btts_only": 0.08491981040264292,
+        "both": 0.41872312820873553,
+        "neither": 0.3178711532677,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401875081",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401874826",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.21181613975507269,
+          "draw": 0.21790509545969167,
+          "away_win": 0.5702787647852359
+        },
+        "exact_scores": {
+          "1-1": 0.10116212982624136,
+          "2-0": 0.028710378488168396,
+          "0-2": 0.08911216997016143,
+          "3-0": 0.010627876949129004,
+          "0-3": 0.058115726286973104,
+          "2-1": 0.056171603666676125,
+          "1-2": 0.09896140980896875,
+          "2-2": 0.05494962492024318
+        },
+        "home_only_three_plus": 0.014377445121253106,
+        "away_only_three_plus": 0.10261971309624919,
+        "over25_only": 0.1169971582175023,
+        "btts_only": 0.10116212982624136,
+        "both": 0.47465859702904417,
+        "neither": 0.3071821149272123,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401874977",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.6047756044073128,
+          "draw": 0.2092972008519328,
+          "away_win": 0.1859271947407541
+        },
+        "exact_scores": {
+          "1-1": 0.09764847221447966,
+          "2-0": 0.09591404109166476,
+          "0-2": 0.024853566843016296,
+          "3-0": 0.06513741281856741,
+          "0-3": 0.008591921660379582,
+          "2-1": 0.09947295682690813,
+          "1-2": 0.05063587223648215,
+          "2-2": 0.05158196353353223
+        },
+        "home_only_three_plus": 0.11819650398158904,
+        "away_only_three_plus": 0.011375104669756643,
+        "over25_only": 0.12957160865134568,
+        "btts_only": 0.09764847221447966,
+        "both": 0.4637148080012345,
+        "neither": 0.30906511113294033,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401876394",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.28523565591894867,
+          "draw": 0.2433373566433048,
+          "away_win": 0.4714269874377463
+        },
+        "exact_scores": {
+          "1-1": 0.11435886162336913,
+          "2-0": 0.04263654553118417,
+          "0-2": 0.07668274404540897,
+          "3-0": 0.017408782743980476,
+          "0-3": 0.04198961166365274,
+          "2-1": 0.07004021615895438,
+          "1-2": 0.09393021043337638,
+          "2-2": 0.0575284866360139
+        },
+        "home_only_three_plus": 0.024367443105524297,
+        "away_only_three_plus": 0.06690574172685057,
+        "over25_only": 0.09127318483237487,
+        "btts_only": 0.11435886162336913,
+        "both": 0.4552406399802797,
+        "neither": 0.3391273135639764,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401876391",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.3009165360363202,
+          "draw": 0.22089323053902662,
+          "away_win": 0.4781902334246535
+        },
+        "exact_scores": {
+          "1-1": 0.09443319437825125,
+          "2-0": 0.036648012264450136,
+          "0-2": 0.06083295961682345,
+          "3-0": 0.018216217860859037,
+          "0-3": 0.03895749240060263,
+          "2-1": 0.07040827874966674,
+          "1-2": 0.09071267801685146,
+          "2-2": 0.06763430552138776
+        },
+        "home_only_three_plus": 0.027666838249992217,
+        "away_only_three_plus": 0.06798406067683287,
+        "over25_only": 0.09565089892682509,
+        "btts_only": 0.09443319437825125,
+        "both": 0.5669911354183765,
+        "neither": 0.24292477127654705,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401876390",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401876388",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401876387",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.4581637849432363,
+          "draw": 0.28428238517271753,
+          "away_win": 0.2575538298840461
+        },
+        "exact_scores": {
+          "1-1": 0.12968475744350555,
+          "2-0": 0.09387466105948176,
+          "0-2": 0.044788807020364085,
+          "3-0": 0.040558538944023524,
+          "0-3": 0.013366385153920423,
+          "2-1": 0.08404543184266546,
+          "1-2": 0.058053000243828076,
+          "2-2": 0.0376226903719226
+        },
+        "home_only_three_plus": 0.058005933596263326,
+        "away_only_three_plus": 0.01698521517409322,
+        "over25_only": 0.07499114877035655,
+        "btts_only": 0.12968475744350555,
+        "both": 0.29999994315635403,
+        "neither": 0.49532415062978385,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401875537",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.27731111802496217,
+          "draw": 0.222791688531041,
+          "away_win": 0.4998971934439964
+        },
+        "exact_scores": {
+          "1-1": 0.09846264073715853,
+          "2-0": 0.035486425809856566,
+          "0-2": 0.0683000006318045,
+          "3-0": 0.016261935628476127,
+          "0-3": 0.04342200869729829,
+          "2-1": 0.06768192719902079,
+          "1-2": 0.09389704837990046,
+          "2-2": 0.06454359892312954
+        },
+        "home_only_three_plus": 0.02382306463693791,
+        "away_only_three_plus": 0.07542411116056269,
+        "over25_only": 0.0992471757975006,
+        "btts_only": 0.09846264073715853,
+        "both": 0.5377059491861124,
+        "neither": 0.2645842342792284,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401875531",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.7330241842432149,
+          "draw": 0.14403477544583812,
+          "away_win": 0.12294104031094633
+        },
+        "exact_scores": {
+          "1-1": 0.05532835764482841,
+          "2-0": 0.06874913061005081,
+          "0-2": 0.011131875896138621,
+          "3-0": 0.06794083577882101,
+          "0-3": 0.0044267256108852905,
+          "2-1": 0.08201677957167375,
+          "1-2": 0.03300298980330093,
+          "2-2": 0.048922452339528924
+        },
+        "home_only_three_plus": 0.17254366378400118,
+        "away_only_three_plus": 0.006137130098554991,
+        "over25_only": 0.17868079388255617,
+        "btts_only": 0.05532835764482841,
+        "both": 0.6054263506600974,
+        "neither": 0.1605644978125179,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401875530",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401875828",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5057877853387763,
+          "draw": 0.20973781931204333,
+          "away_win": 0.28447439534917973
+        },
+        "exact_scores": {
+          "1-1": 0.08429203040040639,
+          "2-0": 0.05726893400411214,
+          "0-2": 0.031016582168758612,
+          "3-0": 0.04021635536578245,
+          "0-3": 0.01602931524975801,
+          "2-1": 0.08878945386453334,
+          "1-2": 0.06534296014526239,
+          "2-2": 0.0688293509793287
+        },
+        "home_only_three_plus": 0.0747200555367447,
+        "away_only_three_plus": 0.02480253378910325,
+        "over25_only": 0.09952258932584795,
+        "btts_only": 0.08429203040040639,
+        "both": 0.6077134386405938,
+        "neither": 0.20847194163315194,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885392",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5690400187727945,
+          "draw": 0.24488469820052858,
+          "away_win": 0.1860752830266761
+        },
+        "exact_scores": {
+          "1-1": 0.11477067794239591,
+          "2-0": 0.11488845856970281,
+          "0-2": 0.02866325451517292,
+          "3-0": 0.06292549415761094,
+          "0-3": 0.007841520475429882,
+          "2-1": 0.09429147689296866,
+          "1-2": 0.047097405874890946,
+          "2-2": 0.038693541219648034
+        },
+        "home_only_three_plus": 0.10027759022564792,
+        "away_only_three_plus": 0.00975538184792611,
+        "over25_only": 0.11003297207357403,
+        "btts_only": 0.11477067794239591,
+        "both": 0.33684799297141504,
+        "neither": 0.438348357012615,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885388",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.25847098399997737,
+          "draw": 0.2672775880843516,
+          "away_win": 0.4742514279156711
+        },
+        "exact_scores": {
+          "1-1": 0.12586898323069612,
+          "2-0": 0.043144858932800824,
+          "0-2": 0.09180120952652274,
+          "3-0": 0.014098601674796879,
+          "0-3": 0.04375775834837758,
+          "2-1": 0.061695994668051375,
+          "1-2": 0.0899946402695302,
+          "2-2": 0.04411181137489379
+        },
+        "home_only_three_plus": 0.018359666020634567,
+        "away_only_three_plus": 0.06520490501024873,
+        "over25_only": 0.0835645710308833,
+        "btts_only": 0.12586898323069612,
+        "both": 0.3494138805044928,
+        "neither": 0.4411525652339279,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885393",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401885385",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5062980356321993,
+          "draw": 0.23715803949056502,
+          "away_win": 0.25654392487723526
+        },
+        "exact_scores": {
+          "1-1": 0.11143233894154037,
+          "2-0": 0.08279965450890017,
+          "0-2": 0.03749160016316133,
+          "3-0": 0.04776403599317339,
+          "0-3": 0.014553223368147643,
+          "2-1": 0.09642174740176816,
+          "1-2": 0.06488252216471802,
+          "2-2": 0.05614246476723541
+        },
+        "home_only_three_plus": 0.07829044826287168,
+        "away_only_three_plus": 0.020005581702344167,
+        "over25_only": 0.09829602996521584,
+        "btts_only": 0.11143233894154037,
+        "both": 0.45460779507563875,
+        "neither": 0.3356638360176051,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401878929",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5848614260857252,
+          "draw": 0.18014067430409142,
+          "away_win": 0.23499789961018325
+        },
+        "exact_scores": {
+          "1-1": 0.05857576275016239,
+          "2-0": 0.046144737955123825,
+          "0-2": 0.018588901648439893,
+          "3-0": 0.04076118519369271,
+          "0-3": 0.010421833285305883,
+          "2-1": 0.07761288564396518,
+          "1-2": 0.04926058936836572,
+          "2-2": 0.0652702809130846
+        },
+        "home_only_three_plus": 0.09189901021471891,
+        "away_only_three_plus": 0.01681628119509,
+        "over25_only": 0.10871529140980891,
+        "btts_only": 0.05857576275016239,
+        "both": 0.6979030586949435,
+        "neither": 0.13480588714508515,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401878932",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.41837442771186617,
+          "draw": 0.2505583091230164,
+          "away_win": 0.3310672631651173
+        },
+        "exact_scores": {
+          "1-1": 0.11802087599936947,
+          "2-0": 0.06770460922063744,
+          "0-2": 0.0514327138580278,
+          "3-0": 0.033977683516282865,
+          "0-3": 0.022497050024566975,
+          "2-1": 0.08884349276619202,
+          "1-2": 0.07743480808625297,
+          "2-2": 0.05829120275381821
+        },
+        "home_only_three_plus": 0.051838262838519826,
+        "away_only_three_plus": 0.0323324739035593,
+        "over25_only": 0.08417073674207912,
+        "btts_only": 0.11802087599936947,
+        "both": 0.45060256450923974,
+        "neither": 0.34720582274931155,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401878931",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401878933",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "KG_VAR:verified_price_missing",
+        "pup:score_distribution_unavailable"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "CALIBRATED_EX_G_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": null,
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401843492",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "PASS_ODDS_1_19_OR_LOWER",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.6241018343825376,
+          "draw": 0.18791165601253645,
+          "away_win": 0.18798650960492558
+        },
+        "exact_scores": {
+          "1-1": 0.07925499392345713,
+          "2-0": 0.07548543416490984,
+          "0-2": 0.020803199091644013,
+          "3-0": 0.05971736569490647,
+          "0-3": 0.008639748363492648,
+          "2-1": 0.09404925945583581,
+          "1-2": 0.04937292584416847,
+          "2-2": 0.058589205335079934
+        },
+        "home_only_three_plus": 0.12177514161991165,
+        "away_only_three_plus": 0.012169962550616597,
+        "over25_only": 0.13394510417052824,
+        "btts_only": 0.07925499392345713,
+        "both": 0.5667034667482969,
+        "neither": 0.22009643515771782,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    },
+    {
+      "event_id": "401843497",
+      "status": "BLOCKED",
+      "issues": [
+        "2.5_UST:calibrated_probability_missing",
+        "KG_VAR:calibrated_probability_missing",
+        "MS1:calibrated_probability_missing",
+        "MS2:calibrated_probability_missing",
+        "2.5_UST:verified_price_missing",
+        "KG_VAR:verified_price_missing"
+      ],
+      "markets_checked": [
+        "2.5_UST",
+        "KG_VAR",
+        "MS1",
+        "MS2"
+      ],
+      "pup_allowed": false,
+      "ex_final_allowed": false,
+      "market_reasons": {
+        "2.5_UST": "VERIFIED_PRICE_REQUIRED",
+        "KG_VAR": "VERIFIED_PRICE_REQUIRED",
+        "MS1": "CALIBRATED_EX_G_REQUIRED",
+        "MS2": "CALIBRATED_EX_G_REQUIRED"
+      },
+      "score_scenarios": {
+        "model": "INDEPENDENT_POISSON_RESEARCH",
+        "result_probabilities": {
+          "home_win": 0.5073699487365232,
+          "draw": 0.18775228694747625,
+          "away_win": 0.3048777643160006
+        },
+        "exact_scores": {
+          "1-1": 0.05460349863198561,
+          "2-0": 0.035030825315942184,
+          "0-2": 0.021277988999422633,
+          "3-0": 0.02969619284344655,
+          "0-3": 0.014057920756840769,
+          "2-1": 0.06943239321417208,
+          "1-2": 0.05411307832019834,
+          "2-2": 0.06880878746030407
+        },
+        "home_only_three_plus": 0.06437555613538132,
+        "away_only_three_plus": 0.025036981042267387,
+        "over25_only": 0.0894125371776487,
+        "btts_only": 0.05460349863198561,
+        "both": 0.7398224310482561,
+        "neither": 0.11616153314210959,
+        "exclusive_events": {
+          "1-1": {
+            "KG_VAR": true,
+            "2.5_UST": false
+          },
+          "2-0": {
+            "KG_VAR": false,
+            "2.5_UST": false
+          },
+          "3-0": {
+            "KG_VAR": false,
+            "2.5_UST": true
+          }
+        }
+      },
+      "eligible_markets": [],
+      "selection": null
+    }
+  ],
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

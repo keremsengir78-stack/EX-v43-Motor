@@ -1,0 +1,1805 @@
+{
+  "forecasts": 0,
+  "historical_matches": 7792,
+  "supplemental_scoreboard_records": 954,
+  "reused_verified_outcomes": 9,
+  "rolling_scoreboard_matches": 963,
+  "skipped": [
+    {
+      "event_id": "401885044",
+      "league": "de.2",
+      "teams": {
+        "home": "7017",
+        "away": "270"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401885046",
+      "league": "de.2",
+      "teams": {
+        "home": "129",
+        "away": "4471"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401885043",
+      "league": "de.2",
+      "teams": {
+        "home": "7884",
+        "away": "130"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 40,
+  "historical_sample_gaps": [
+    {
+      "fixture": {
+        "event_id": "401885044",
+        "date": "2026-11-28",
+        "league": "de.2",
+        "kickoff_at": "2026-11-28T12:00:00+00:00",
+        "home": "Dynamo Dresden",
+        "away": "St. Pauli",
+        "team_ids": {
+          "home": "7017",
+          "away": "270"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:46.149211+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "7017",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Dynamo Dresden",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "270",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "St. Pauli",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885039",
+        "date": "2026-11-28",
+        "league": "de.2",
+        "kickoff_at": "2026-11-28T19:30:00+00:00",
+        "home": "VfL Osnabruck",
+        "away": "Hannover 96",
+        "team_ids": {
+          "home": "7013",
+          "away": "2428"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:46.149211+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "7013",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "VfL Osnabruck",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "2428",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Hannover 96",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    }
+  ],
+  "paired_model_gaps": [
+    {
+      "fixture": {
+        "event_id": "401888368",
+        "date": "2026-11-28",
+        "league": "tr.1",
+        "kickoff_at": "2026-11-28T16:00:00+00:00",
+        "home": "Gaziantep FK",
+        "away": "Amed SFK",
+        "team_ids": {
+          "home": "20070",
+          "away": "132335"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:43.945586+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "20070",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "tur.1"
+          ],
+          "archived_competitions": [
+            "tur.1"
+          ],
+          "league": "tr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Gaziantep FK",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "132335",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "tur.1"
+          ],
+          "archived_competitions": [
+            "tur.1"
+          ],
+          "league": "tr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Amed SFK",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401879227",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Leeds United",
+        "away": "Coventry City",
+        "team_ids": {
+          "home": "357",
+          "away": "388"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "357",
+          "eligible_rows": 49,
+          "current_competitions": [
+            "eng.1"
+          ],
+          "archived_competitions": [
+            "eng.1"
+          ],
+          "league": "en.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Leeds United",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "388",
+          "eligible_rows": 11,
+          "current_competitions": [
+            "eng.1"
+          ],
+          "archived_competitions": [
+            "eng.1"
+          ],
+          "league": "en.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 11,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Coventry City",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401878752",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Ipswich Town",
+        "away": "Aston Villa",
+        "team_ids": {
+          "home": "373",
+          "away": "362"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "373",
+          "eligible_rows": 11,
+          "current_competitions": [
+            "eng.1"
+          ],
+          "archived_competitions": [
+            "eng.1"
+          ],
+          "league": "en.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 11,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Ipswich Town",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "362",
+          "eligible_rows": 49,
+          "current_competitions": [
+            "eng.1"
+          ],
+          "archived_competitions": [
+            "eng.1"
+          ],
+          "league": "en.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Aston Villa",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884721",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "FC Cologne",
+        "away": "SV Elversberg",
+        "team_ids": {
+          "home": "122",
+          "away": "10388"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "122",
+          "eligible_rows": 44,
+          "current_competitions": [
+            "ger.1"
+          ],
+          "archived_competitions": [
+            "ger.1"
+          ],
+          "league": "de.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 10,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "FC Cologne",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "10388",
+          "eligible_rows": 44,
+          "current_competitions": [
+            "ger.1"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 10,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "SV Elversberg",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884719",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "SC Paderborn 07",
+        "away": "Schalke 04",
+        "team_ids": {
+          "home": "3307",
+          "away": "133"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "3307",
+          "eligible_rows": 44,
+          "current_competitions": [
+            "ger.1"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 10,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "SC Paderborn 07",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "133",
+          "eligible_rows": 44,
+          "current_competitions": [
+            "ger.1"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 10,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Schalke 04",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885044",
+        "date": "2026-11-28",
+        "league": "de.2",
+        "kickoff_at": "2026-11-28T12:00:00+00:00",
+        "home": "Dynamo Dresden",
+        "away": "St. Pauli",
+        "team_ids": {
+          "home": "7017",
+          "away": "270"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:46.149211+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "7017",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Dynamo Dresden",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "270",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "St. Pauli",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885039",
+        "date": "2026-11-28",
+        "league": "de.2",
+        "kickoff_at": "2026-11-28T19:30:00+00:00",
+        "home": "VfL Osnabruck",
+        "away": "Hannover 96",
+        "team_ids": {
+          "home": "7013",
+          "away": "2428"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:46.149211+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "7013",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "VfL Osnabruck",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "2428",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Hannover 96",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401882790",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T15:15:00+00:00",
+        "home": "M\u00e1laga",
+        "away": "Athletic Club",
+        "team_ids": {
+          "home": "99",
+          "away": "93"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.139352+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "99",
+          "eligible_rows": 13,
+          "current_competitions": [
+            "esp.1"
+          ],
+          "archived_competitions": [
+            "esp.1"
+          ],
+          "league": "es.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 13,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "M\u00e1laga",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "93",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "esp.1"
+          ],
+          "archived_competitions": [
+            "esp.1"
+          ],
+          "league": "es.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Athletic Club",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875081",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T14:00:00+00:00",
+        "home": "Frosinone",
+        "away": "Parma",
+        "team_ids": {
+          "home": "4057",
+          "away": "115"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "4057",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Frosinone",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "115",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Parma",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401876390",
+        "date": "2026-11-28",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Le Mans",
+        "away": "Lille",
+        "team_ids": {
+          "home": "2697",
+          "away": "166"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:50.676135+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "2697",
+          "eligible_rows": 11,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 11,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Le Mans",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "166",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Lille",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401876388",
+        "date": "2026-11-28",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Nice",
+        "away": "Troyes",
+        "team_ids": {
+          "home": "2502",
+          "away": "170"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:50.676135+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "2502",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Nice",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "170",
+          "eligible_rows": 11,
+          "current_competitions": [
+            "fra.1"
+          ],
+          "archived_competitions": [
+            "fra.1"
+          ],
+          "league": "fr.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 11,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Troyes",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875530",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "SC Cambuur",
+        "away": "Sparta Rotterdam",
+        "team_ids": {
+          "home": "3736",
+          "away": "151"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "3736",
+          "eligible_rows": 51,
+          "current_competitions": [
+            "ned.1"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "league": "nl.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 7,
+            "current_season": 13,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "SC Cambuur",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "151",
+          "eligible_rows": 47,
+          "current_competitions": [
+            "ned.1"
+          ],
+          "archived_competitions": [
+            "ned.1"
+          ],
+          "league": "nl.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Sparta Rotterdam",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885393",
+        "date": "2026-11-28",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-28T18:00:00+00:00",
+        "home": "Acad\u00e9mico de Viseu",
+        "away": "Alverca",
+        "team_ids": {
+          "home": "21607",
+          "away": "21613"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:52.910465+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "21607",
+          "eligible_rows": 11,
+          "current_competitions": [
+            "por.1"
+          ],
+          "archived_competitions": [
+            "por.1"
+          ],
+          "league": "pt.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 11,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Acad\u00e9mico de Viseu",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "21613",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "por.1"
+          ],
+          "archived_competitions": [
+            "por.1"
+          ],
+          "league": "pt.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "Alverca",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401878931",
+        "date": "2026-11-28",
+        "league": "be.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Lommel SK",
+        "away": "Zulte-Waregem",
+        "team_ids": {
+          "home": "22269",
+          "away": "4691"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:53.671727+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "22269",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Lommel SK",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "4691",
+          "eligible_rows": 48,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 18
+          },
+          "missing_samples": [],
+          "team": "Zulte-Waregem",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401878933",
+        "date": "2026-11-28",
+        "league": "be.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Royal Charleroi SC",
+        "away": "Waasland-Beveren",
+        "team_ids": {
+          "home": "3616",
+          "away": "13450"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:53.671727+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "3616",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 20
+          },
+          "missing_samples": [],
+          "team": "Royal Charleroi SC",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "13450",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Waasland-Beveren",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    }
+  ],
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 25,
+  "daily_research_covered": 38,
+  "final_markets": 0,
+  "market_blockers": {
+    "odds_lock:blocked": 61,
+    "ingestion:blocked": 160,
+    "second_source:unverified": 160,
+    "live_evidence:48h_pending": 148,
+    "exg:uncalibrated": 160,
+    "context:unverified": 160,
+    "historical_samples:incomplete": 8,
+    "market_baselines:missing": 8,
+    "odds_lock:pass_1_19_or_lower": 2,
+    "fixture_sources:unverified": 32
+  },
+  "historical_events_quarantined": [],
+  "weather_sources_observed": 5,
+  "weather_errors": {
+    "401888236": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401888368": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401879227": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878752": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884721": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884722": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884723": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884719": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884726": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885044": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885046": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885043": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885039": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401882796": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401882790": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401882793": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875081": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401874826": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876394": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876391": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876390": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876388": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875537": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875531": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875530": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875828": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885392": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885388": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885393": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885385": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878929": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878931": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878933": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401843492": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401843497": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    }
+  },
+  "capture_source_errors": [],
+  "cup_source_errors": {},
+  "cup_team_history_sources": [],
+  "cup_team_history_errors": [],
+  "capture_cache_hits": 37,
+  "capture_network_requests": 18,
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-26T12:50:43.805147+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}
