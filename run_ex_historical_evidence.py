@@ -7,6 +7,9 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from ex_daily_official import key
+from ex_daily_research import rolling_domestic
+from ex_ucl_baseline import cross_league_baseline
+from ex_rolling_scoreboards import archived_domestic_boards, scoreboard_facts
 from ex_evidence_store import restore
 from ex_espn_provider import ESPN_LEAGUES
 from ex_history_archive import atomic_write, utc
@@ -74,6 +77,7 @@ def compare_results(facts, fixtures, secondary):
         matched[event] = {"event_id": event, "league": league, "kickoff_at": kickoff.isoformat(),
                           "team_ids": fact["teams"], "score": fact["score"], "provider_sha256": fact["source_sha256"],
                           "official_match_id": row.get("source_match_id"), "official_source": evidence,
+                          "official_sealed_at": row.get("official_sealed_at"),
                           "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED"}
     return [row for event, row in matched.items() if event not in conflicts], stats
 
@@ -87,7 +91,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     for kind, files in {
-        "historical-facts": None, "frozen-candidates": None, "official-source-probe": None,
+        "historical-facts": None, "weekly-capacity": None, "ucl-domestic-research": None, "frozen-candidates": None, "official-source-probe": None,
         "prematch-and-research": {"forecasts/forecasts.jsonl", "forecasts/daily-analysis.json"},
         "settlement-and-performance": None,
     }.items():
@@ -113,11 +117,15 @@ def main():
     fixtures = [*forecasts, *({"league": f["league"], "names": {"home": f["home"], "away": f["away"]},
                                "teams": f["team_ids"]} for row in daily for f in [row["fixture"]])]
     secondary, probe_errors = [], []
-    for receipt in (args.work / "official-source-probe").glob("*/receipt.json"):
+    probes = (args.work / "official-source-probe").glob("*/receipt.json")
+    for receipt in sorted(probes, key=lambda path: json.loads(path.read_bytes())["created_at"]):
         if utc(json.loads(receipt.read_bytes())["created_at"]) >= args.cutoff:
             continue
         try:
-            secondary.extend(list(source_rows(receipt.parent)))
+            seal = utc(json.loads(receipt.read_bytes())["created_at"])
+            secondary.extend([{**row, "official_sealed_at": seal.isoformat()}
+                              for row in source_rows(receipt.parent)
+                              if utc(row["raw_evidence"]["retrieved_at"]) <= seal])
         except (OSError, ValueError, TypeError, KeyError) as exc:
             probe_errors.append({"id": receipt.parent.name, "reason": str(exc)})
     matched, counts = compare_results(facts, fixtures, secondary)
@@ -147,8 +155,41 @@ def main():
                               "teams": result["teams"], "matched_historical_event_id": primary is not None,
                               "shared_team_targets": related, "sealed_at": seal.isoformat()})
     form_candidates = []
+    by_cutoff = {}
+    primary_receipt = json.loads((facts_path.parent / "receipt.json").read_bytes())
+    def replay_book(cutoff):
+        if cutoff in by_cutoff:
+            return by_cutoff[cutoff]
+        primary, _ = archive_history(args.work / "settlement-and-performance", facts, cutoff, conflicts=set())
+        collisions = set()
+        weekly = scoreboard_facts(args.work / "weekly-capacity", cutoff, conflicts=collisions)
+        packs = sorted((args.work / "ucl-domestic-research").glob("*/receipt.json"), key=lambda p: int(p.parent.name))
+        recent = [p.parent for p in packs if utc(json.loads(p.read_bytes())["created_at"]) < cutoff]
+        supplemental = archived_domestic_boards(recent[-1], cutoff, tuple(APPROVED_LEAGUES)) if recent else []
+        indexed = {r["event_id"]: r for r in primary}
+        for sample in weekly + supplemental:
+            old = indexed.get(sample["event_id"])
+            if old and (any(old[k] != sample[k] for k in ("teams", "competition", "kickoff"))
+                        or (old["score"] is not None and old["score"] != sample["score"])):
+                collisions.add(sample["event_id"])
+            elif old is None or old["score"] is None:
+                indexed[sample["event_id"]] = sample
+        book = defaultdict(list)
+        for event, sample in indexed.items():
+            if event not in collisions:
+                for team in sample["teams"].values():
+                    book[team].append(sample)
+        by_cutoff[cutoff] = book
+        return book
+
     for row in checked_targets:
         baseline = row.get("domestic_research") or {}
+        cutoff = utc(row["as_of"])
+        diagnostics = {}
+        replay = rolling_domestic(row["fixture"], replay_book(cutoff), cutoff, diagnostics=diagnostics)
+        reproduced = (replay is not None and baseline.get("history_scope") == "ROLLING_DOMESTIC_PROVIDER_TEAM_ID"
+                      and json.dumps(cross_league_baseline(*replay, cutoff_date=cutoff.date().isoformat())["samples"],
+                                     sort_keys=True) == json.dumps(baseline.get("samples"), sort_keys=True))
         for side, sample in baseline.get("samples", {}).items():
             days = {day for group in sample.get("match_dates", []) for day in group}
             if not days:
@@ -157,16 +198,29 @@ def main():
             for result in matched:
                 if (result["league"] == baseline["domestic_leagues"][side]
                         and club in result["team_ids"].values() and result["kickoff_at"][:10] in days):
-                    form_candidates.append({"target": row["fixture"]["event_id"], "side": side,
-                                            "historical_event": result["event_id"],
+                    groups = [name for name, event_ids in diagnostics.get(side, {}).get("form_sample_event_ids", {}).items()
+                              if reproduced and result["event_id"] in event_ids]
+                    form_candidates.append({"target": row["fixture"]["event_id"], "target_fixture": row["fixture"],
+                                            "decision_cutoff": row["as_of"], "side": side,
+                                            "historical_event": result["event_id"], "historical_fixture": result,
+                                            "primary_archive_seal": primary_receipt["created_at"],
+                                            "reproduced_form_windows": groups,
                                             "official_observed_before_target_cutoff":
-                                                utc(result["official_source"]["retrieved_at"]) < utc(row["as_of"])})
+                                                utc(result["official_source"]["retrieved_at"]) < cutoff,
+                                            "official_sealed_before_target_cutoff":
+                                                utc(result["official_sealed_at"]) < cutoff,
+                                            "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN" if groups
+                                                      else "BLOCKED_FORM_MEMBERSHIP_UNVERIFIED"})
     report = {"archive_facts": len(facts), "targets_audited": len(checked_targets), "per_league": counts,
               "official_score_matches": matched, "form_window_date_candidates": form_candidates,
               "probe_errors": probe_errors, "settlement_conflicts": len(conflicts), "archived_independent_results": prior_results,
               "sealed_forecasts": len(forecasts), "frozen_candidate_holdout_examples": len(joined),
               "holdout_iso_weeks": sorted({utc(row["kickoff"]).date().isocalendar()[:2] for row in joined}),
               "holdout_research_evaluation": evaluate(model, joined) if joined else None,
+              "archived_acceptances": {blocker: sum(
+                  blocker not in market["issues"] for row in checked_targets
+                  for market in row["auto_control_by_market"].values())
+                  for blocker in ("ingestion:blocked", "second_source:unverified", "context:unverified")},
               "production_allowed": False}
     atomic_write(args.output, (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode())
 

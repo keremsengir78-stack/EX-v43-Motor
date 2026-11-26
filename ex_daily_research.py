@@ -81,9 +81,11 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
             _, audit = weighted_form(sorted(unique_rows.values(), key=lambda r: r["date"]),
                                      club, side, cutoff, league, current_start, previous_start)
             names = ("venue_last5", "venue_last10", "current_season", "previous_season_venue")
-            if verified_results is not None:
-                samples = form_sample_rows(sorted(unique_rows.values(), key=lambda r: r["date"]),
+            samples = form_sample_rows(sorted(unique_rows.values(), key=lambda r: r["date"]),
                                            club, side, cutoff, league, current_start, previous_start)
+            diagnostic["form_sample_event_ids"] = {name: [row["event_id"] for row in chunk]
+                                                   for name, chunk in zip(names, samples, strict=True)}
+            if verified_results is not None:
                 diagnostic["independent_results"] = {
                     name: {"sample_count": len(chunk), "confirmed_event_ids": [
                         row["event_id"] for row in chunk

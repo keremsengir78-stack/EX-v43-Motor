@@ -19,10 +19,23 @@ def source_rows(root):
     reports = json.loads((root / "report.json").read_text())
     for league, report in reports.items():
         archive = HistoryArchive(root / league, 0)
-        observed = 0
+        expected = report.get("parsed_completed_rows")
+        if expected is None and "sources" not in report:
+            # Discovery entries capture a page without making a result-count claim.
+            if "source" in report:
+                source = report["source"]
+                archive._load(source, source["url"])
+            elif report.get("scope") != "official_source_discovery" and not report.get("category"):
+                raise ValueError(f"Unrecognized archived probe entry for {league}")
+            continue
+        if type(expected) is not int or expected < 0:
+            raise ValueError(f"Invalid archived result count for {league}")
+        verified = []
         for source in report.get("sources", []):
             url = source["url"]
             raw, stamp = archive._load(source, url)
+            if expected == 0 and report.get("state") == "NO_RESULT_PARSER_OR_ROWS":
+                continue
             if league in GERMANY:
                 rows, _ = dfl_scores(raw.decode(), url, stamp.isoformat(),
                                      require_finished=True, allow_named_teams=True)
@@ -44,11 +57,10 @@ def source_rows(root):
                 rows = turkey_detail_scores(raw, stamp) if url == TURKEY_DETAIL else turkey_scores(raw, stamp)
             else:
                 raise ValueError(f"Unsupported league: {league}")
-            observed += len(rows)
-            for row in rows:
-                yield {**row, "league": league, "raw_evidence": source}
-        if observed != report["parsed_completed_rows"]:
+            verified.extend({**row, "league": league, "raw_evidence": source} for row in rows)
+        if len(verified) != expected:
             raise ValueError(f"Archived source replay count differs for {league}")
+        yield from verified
 
 
 def reconcile(ledger, official):

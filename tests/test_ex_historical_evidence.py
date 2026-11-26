@@ -44,3 +44,28 @@ class HistoricalEvidenceTests(unittest.TestCase):
         self.assertIsNone(reviewed_context(bundle, fixture, {"home": load}, cutoff, replay))
         replay.side_effect = OSError()
         self.assertIsNone(reviewed_context(bundle, fixture, workload, cutoff, replay))
+
+    def test_probe_replays_discovery_and_checks_claimed_counts_before_yielding(self):
+        import json
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from unittest.mock import patch
+
+        from run_ex_official_queue_join import source_rows
+
+        source = {"url": "https://www.bundesliga.com/results"}
+        replayed = (b"raw", utc("2026-11-26T10:00:00Z"))
+        with TemporaryDirectory() as tmp, patch("run_ex_official_queue_join.HistoryArchive") as archive, \
+                patch("run_ex_official_queue_join.dfl_scores", return_value=([{"date": "2026-11-25"}], [])) as parse:
+            root = Path(tmp)
+            archive.return_value._load.return_value = replayed
+            report = root / "report.json"
+            report.write_text(json.dumps({"discovery": {"source": source},
+                                          "de.2": {"parsed_completed_rows": 0, "sources": [source],
+                                                   "state": "NO_RESULT_PARSER_OR_ROWS"}}))
+            self.assertEqual([], list(source_rows(root)))
+            self.assertEqual(2, archive.return_value._load.call_count)
+            parse.assert_not_called()
+            report.write_text(json.dumps({"de.2": {"parsed_completed_rows": 2, "sources": [source]}}))
+            with self.assertRaisesRegex(ValueError, "replay count differs"):
+                next(source_rows(root))
