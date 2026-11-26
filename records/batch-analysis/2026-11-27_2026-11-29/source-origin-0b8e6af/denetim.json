@@ -1,0 +1,1760 @@
+{
+  "events": [
+    {
+      "event_id": "747019",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "126",
+        "away": "11420"
+      },
+      "score": [
+        4,
+        1
+      ],
+      "provider_sha256": "859a49f8f818e0b4a8f95f91bdae6b2cd7f800b85f9a359458149420cb4b08b6",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:07:33.309355+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=747019",
+        "observed_at": "2026-11-26T13:39:29.989547+00:00",
+        "sha256": "fee545295ff50cdc402ce9575da25aad1104ab67c4f9ec2e1ddbed7f75c73ba3",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://media.dfl.de/sites/2/2023/10/DFL_02-23_web150_ES.pdf",
+          "scope": "OFFICIAL_MATCH_DATA_PRODUCTION",
+          "finding": "DFL resmî maç verisini toplar ve Sportec Solutions üretim zincirinde görev alır. Genel açıklama bu üç ESPN skorunun hangi akıştan alındığını göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "747016",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "598",
+        "away": "3841"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "15a41414083084963a0ea231eee696c44d807ffa3220b2197efdefa692466e73",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:07:33.309355+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=747016",
+        "observed_at": "2026-11-26T13:39:29.721549+00:00",
+        "sha256": "c828ec6f827c45b3e2239a78fafe8122206fa6fef6bcd9679332c966c9e7872c",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://media.dfl.de/sites/2/2023/10/DFL_02-23_web150_ES.pdf",
+          "scope": "OFFICIAL_MATCH_DATA_PRODUCTION",
+          "finding": "DFL resmî maç verisini toplar ve Sportec Solutions üretim zincirinde görev alır. Genel açıklama bu üç ESPN skorunun hangi akıştan alındığını göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882876",
+      "league": "es.1",
+      "kickoff_at": "2026-09-15T18:00:00+00:00",
+      "team_ids": {
+        "home": "96",
+        "away": "94"
+      },
+      "score": [
+        0,
+        1
+      ],
+      "provider_sha256": "a3c026944b2596de78f9ff27e7922f175a3b3dcdf73a14c9ec9e1f447329d5cd",
+      "official_match_id": 102299,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:07:35.975037+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882876",
+        "observed_at": "2026-11-26T13:39:30.781542+00:00",
+        "sha256": "6c9bc03fbedd1de9a1de8418c8b84a4e1bb56d7026ed0eaa835490621d15e31c",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.laliga.com/en-ES/news/laliga-and-perform-group-create-laliga-official-data-centre?webview=2",
+          "scope": "HISTORICAL_SHARED_DISTRIBUTION_RISK",
+          "finding": "2017 duyurusu ortak LaLiga–Perform veri merkezini ve Opta/Mediacoach iş birliğini belgeler. Bu duyuru Eylül 2026'daki üç maçın ESPN skor alanına özgü kaynak atfı değildir."
+        },
+        {
+          "url": "https://www.laliga.com/en-CA/news/laliga-returns-to-espn-on-august-15-for-the-2026-27-season-after-leading-all-leagues-with-24-players-represented-in-the-world-cup-final",
+          "scope": "CURRENT_BROADCAST_RELATIONSHIP",
+          "finding": "2026/27 ESPN yayın ilişkisi belgeli. Yayın hakkı skor API akışının hangi veri sisteminden beslendiğini göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882869",
+      "league": "es.1",
+      "kickoff_at": "2026-09-17T19:30:00+00:00",
+      "team_ids": {
+        "home": "99",
+        "away": "102"
+      },
+      "score": [
+        1,
+        3
+      ],
+      "provider_sha256": "18e235439070e656b94001450a5603582a1e85f07b5024102d906c07000522c0",
+      "official_match_id": 102306,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:07:35.975037+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882869",
+        "observed_at": "2026-11-26T13:39:30.417545+00:00",
+        "sha256": "8a56698faaf91958b9cf0402ba70cd45d1270042ac6a59e7b5e21e532b44f6fc",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.laliga.com/en-ES/news/laliga-and-perform-group-create-laliga-official-data-centre?webview=2",
+          "scope": "HISTORICAL_SHARED_DISTRIBUTION_RISK",
+          "finding": "2017 duyurusu ortak LaLiga–Perform veri merkezini ve Opta/Mediacoach iş birliğini belgeler. Bu duyuru Eylül 2026'daki üç maçın ESPN skor alanına özgü kaynak atfı değildir."
+        },
+        {
+          "url": "https://www.laliga.com/en-CA/news/laliga-returns-to-espn-on-august-15-for-the-2026-27-season-after-leading-all-leagues-with-24-players-represented-in-the-world-cup-final",
+          "scope": "CURRENT_BROADCAST_RELATIONSHIP",
+          "finding": "2026/27 ESPN yayın ilişkisi belgeli. Yayın hakkı skor API akışının hangi veri sisteminden beslendiğini göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876489",
+      "league": "fr.1",
+      "kickoff_at": "2026-08-21T18:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "180"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "3071bd39eb5ed698b9f540a4497462ea5319a9491261728d37e6855d2dbfef42",
+      "official_match_id": "2026-2027-li1-j1-marseille-vs-strasbourg-2026-08-22",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876489",
+        "observed_at": "2026-11-26T13:39:32.321533+00:00",
+        "sha256": "1f4efce61eb42c28133064d7f2af456864c013a19f0708d689a738cbc680faef",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876471",
+      "league": "fr.1",
+      "kickoff_at": "2026-09-06T18:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "6851"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "ef98b21c91bcdbdec4b9959aaa8b8bba37ab6cb48637d81a7879ac7a2e725ff2",
+      "official_match_id": "2026-2027-li1-j3-marseille-vs-paris-fc-2026-09-05",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876471",
+        "observed_at": "2026-11-26T13:39:32.065535+00:00",
+        "sha256": "df140c96df8cb8b78ed34564fc604156625abcb2b54e421be8391de503cd9a89",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876440",
+      "league": "fr.1",
+      "kickoff_at": "2026-10-11T18:45:00+00:00",
+      "team_ids": {
+        "home": "170",
+        "away": "176"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "7d708d3a75a9d94538c901e0b0829ad3ba8d69cbe1ed98f3a4c5f9d15b72af6a",
+      "official_match_id": "2026-2027-li1-j6-troyes-vs-marseille-2026-10-10",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876440",
+        "observed_at": "2026-11-26T13:39:31.789536+00:00",
+        "sha256": "bfff3cb041688fdc5fbe70b4c1a98c000fb291bdf4128a432f20d3d8df56209b",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876439",
+      "league": "fr.1",
+      "kickoff_at": "2026-10-18T13:00:00+00:00",
+      "team_ids": {
+        "home": "7868",
+        "away": "176"
+      },
+      "score": [
+        2,
+        5
+      ],
+      "provider_sha256": "c936a854c04c83d7d5b4a62c93a9d06d1c2cc0f8e5fda24a519fa1d742e84f3f",
+      "official_match_id": "2026-2027-li1-j7-angers-vs-marseille-2026-10-17",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876439",
+        "observed_at": "2026-11-26T13:39:31.681537+00:00",
+        "sha256": "180592aba9f09c2a97dac0361054bdebb793cfa2a4f2822580cc72a8bd9b054d",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876417",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-01T19:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "179"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "provider_sha256": "46ff3711a8cdafdd2a1327f899a2d6bf0d0a5be51823e4643c432e215c7b072e",
+      "official_match_id": "2026-2027-li1-j9-marseille-vs-toulouse-2026-10-31",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876417",
+        "observed_at": "2026-11-26T13:39:31.441538+00:00",
+        "sha256": "cc856217bf21b3cab647d94cb76a3c78a3e379c1f6fbb1c9bc1865ea20f4d283",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876404",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-08T19:45:00+00:00",
+      "team_ids": {
+        "home": "175",
+        "away": "176"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "provider_sha256": "9be5f959971f207bcffd6c8f0ab9d7ffcd2d9f3e72c69887c771e3750b36fcec",
+      "official_match_id": "2026-2027-li1-j10-lens-vs-marseille-2026-11-07",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876404",
+        "observed_at": "2026-11-26T13:39:31.273539+00:00",
+        "sha256": "2ef8382b7c1af4ce7769066abd1989dc06b4be1e9c6931cc1eccbe25abac5f5a",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876400",
+      "league": "fr.1",
+      "kickoff_at": "2026-11-22T19:45:00+00:00",
+      "team_ids": {
+        "home": "176",
+        "away": "2697"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "8d0892452521a387a85563596b58b10bc57568bb2d8db75cd9b2ff3ce4ff029b",
+      "official_match_id": "2026-2027-li1-j11-marseille-vs-le-mans-2026-11-21",
+      "official_source": {
+        "url": "https://www.om.fr/fr/equipe/hommes/resultats",
+        "retrieved_at": "2026-11-25T10:07:35.877306+00:00",
+        "sha256": "08113c55aed03c9ab8cc6462c2fbc1b90cad28b3efa91901c825e37ed1a065b6",
+        "size": 349099
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876400",
+        "observed_at": "2026-11-26T13:39:31.117540+00:00",
+        "sha256": "15172b7e692e84bceb2ae14773870128379c13c37b05d24c9ada8207d9aa4cf8",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.om.fr/fr/mentions-legales",
+          "scope": "PUBLISHER_IDENTITY",
+          "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+        },
+        {
+          "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+          "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+          "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843473",
+      "league": "no.1",
+      "kickoff_at": "2026-10-31T15:00:00+00:00",
+      "team_ids": {
+        "home": "3039",
+        "away": "438"
+      },
+      "score": [
+        0,
+        3
+      ],
+      "provider_sha256": "b5562a10629c74612e995bac27f16f6b8a6f2e1ae9e290b0f6f88d7cf2974f38",
+      "official_match_id": "8986323",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843473",
+        "observed_at": "2026-11-26T13:39:34.389520+00:00",
+        "sha256": "53e9a89d986c16f6fe52de3d4b3d6245fa96ab3159c120b6e214a76a7e2f3cd8",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843368",
+      "league": "no.1",
+      "kickoff_at": "2026-10-25T18:15:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "3039"
+      },
+      "score": [
+        5,
+        1
+      ],
+      "provider_sha256": "0c36337bb52f634c356be3dd7391dcd698c63834a810fa8a24619255b773d16a",
+      "official_match_id": "8986221",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843368",
+        "observed_at": "2026-11-26T13:39:33.597525+00:00",
+        "sha256": "8d29d93a526d76a765140f5397417581a17b7a565a977559d0563539563727a0",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843450",
+      "league": "no.1",
+      "kickoff_at": "2026-09-20T12:30:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "3039"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "provider_sha256": "2d0441ae263c018755d91e73d4b278918c9358db7d604c1ba188434928e48bc2",
+      "official_match_id": "8986304",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843450",
+        "observed_at": "2026-11-26T13:39:34.241521+00:00",
+        "sha256": "98533434af72de3a15f95aac1973e133a1ed5162ea1bfb5e49d047230a7e0372",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873927",
+      "league": "no.1",
+      "kickoff_at": "2026-07-27T17:00:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "3039"
+      },
+      "score": [
+        4,
+        0
+      ],
+      "provider_sha256": "eb89e03e2c56f454d0e36dbb73dc2078a238e6276d8687a107274fa2f2cdfee3",
+      "official_match_id": "8986244",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401873927",
+        "observed_at": "2026-11-26T13:39:35.497514+00:00",
+        "sha256": "7dcbf80db50d063d8b43570cef18bc31b4eb082b9114533180039dad959db4b9",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843304",
+      "league": "no.1",
+      "kickoff_at": "2026-04-12T15:00:00+00:00",
+      "team_ids": {
+        "home": "3039",
+        "away": "2791"
+      },
+      "score": [
+        1,
+        1
+      ],
+      "provider_sha256": "6c7eafd3c7e87984f34321870be83952d6d75bb754717dc9195b37f55a3f7fc9",
+      "official_match_id": "8986154",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843304",
+        "observed_at": "2026-11-26T13:39:32.917529+00:00",
+        "sha256": "07a91b1603b6205734de9429ed293b9aea394f51352619dd5097a2c1c9efb374",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843297",
+      "league": "no.1",
+      "kickoff_at": "2026-04-07T17:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "3039"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "691d7568b65d5385b0ecb718b966e60a85e86a2e6416ea7ebb435f7c516524b1",
+      "official_match_id": "8986152",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843297",
+        "observed_at": "2026-11-26T13:39:32.749530+00:00",
+        "sha256": "ef0bab9c755d340c6aadb81203456d1bca3176a100b14ecf94d9cf7d1137048d",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873904",
+      "league": "no.1",
+      "kickoff_at": "2026-08-30T15:00:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "2715"
+      },
+      "score": [
+        3,
+        4
+      ],
+      "provider_sha256": "4cecca72ec75562a2ee06a59f33624c3ba496e5b23026cf0c7322c5adbef5861",
+      "official_match_id": "8986280",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401873904",
+        "observed_at": "2026-11-26T13:39:35.197515+00:00",
+        "sha256": "caaa11c07dc9d59b3b1b3885c4364bdc16557f829dd3b650a708b19f03e901f6",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843418",
+      "league": "no.1",
+      "kickoff_at": "2026-08-16T12:30:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "2791"
+      },
+      "score": [
+        5,
+        5
+      ],
+      "provider_sha256": "4a3bcc7bbefc6b0564006115274459d8cc3066fe122a7f82246dd1642a6d854f",
+      "official_match_id": "8986272",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843418",
+        "observed_at": "2026-11-26T13:39:33.885524+00:00",
+        "sha256": "ebc6271aa53af540844ff6e4189f69d89b7bffd08bbbb497f945d29c64b7bb36",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873893",
+      "league": "no.1",
+      "kickoff_at": "2026-07-16T17:00:00+00:00",
+      "team_ids": {
+        "home": "2791",
+        "away": "3278"
+      },
+      "score": [
+        6,
+        1
+      ],
+      "provider_sha256": "984501df9bdee7a3430a7099a740f05abbc3ba03a4507395bf8c37d15a75e6bd",
+      "official_match_id": "8986240",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401873893",
+        "observed_at": "2026-11-26T13:39:34.833518+00:00",
+        "sha256": "6d245c44b59e6b92b294d1e28562d175fd35342da88b69a4db62d892105d58f9",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843318",
+      "league": "no.1",
+      "kickoff_at": "2026-04-26T12:30:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "2791"
+      },
+      "score": [
+        5,
+        1
+      ],
+      "provider_sha256": "3945abedd6bc7a1723f2123856cfc0d3a6f8c7a42454677ecb26f8e501253eb7",
+      "official_match_id": "8986173",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843318",
+        "observed_at": "2026-11-26T13:39:33.169528+00:00",
+        "sha256": "ac12649521f3d2a66d82473ab3e870f35a1cae079b7f69ffe8293825625f4937",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843285",
+      "league": "no.1",
+      "kickoff_at": "2026-03-22T13:30:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "2791"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "4bb51a3090d688fcb102685d812a4a921b70f5f067dc2718241876d5299064a3",
+      "official_match_id": "8986141",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843285",
+        "observed_at": "2026-11-26T13:39:32.585531+00:00",
+        "sha256": "797054c2802c8a5a5b878ae9e534c77aed5baded3dce91fa4184778ad542c1d5",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "747022",
+      "league": "de.1",
+      "kickoff_at": "2026-05-16T13:30:00+00:00",
+      "team_ids": {
+        "home": "137",
+        "away": "124"
+      },
+      "score": [
+        0,
+        2
+      ],
+      "provider_sha256": "ec5aa35accc514277f02d1bf1222cf9ec8b178fcb91c080e1368acf442bf4adf",
+      "official_match_id": null,
+      "official_source": {
+        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2025-2026/34",
+        "retrieved_at": "2026-11-25T10:07:33.309355+00:00",
+        "sha256": "398119b99e09824b52a7d2aa12738d51fc556fc5af284e7eaeb7a4498bcc892f",
+        "size": 834878
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=747022",
+        "observed_at": "2026-11-26T13:39:30.161546+00:00",
+        "sha256": "929dfd65894267ceb86c6a9a6626007b0cb70be812532e7ed32b236d63600594",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://media.dfl.de/sites/2/2023/10/DFL_02-23_web150_ES.pdf",
+          "scope": "OFFICIAL_MATCH_DATA_PRODUCTION",
+          "finding": "DFL resmî maç verisini toplar ve Sportec Solutions üretim zincirinde görev alır. Genel açıklama bu üç ESPN skorunun hangi akıştan alındığını göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882872",
+      "league": "es.1",
+      "kickoff_at": "2026-09-15T19:30:00+00:00",
+      "team_ids": {
+        "home": "3751",
+        "away": "86"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "2699c84717fc522bb502dd8c26c92e6a5332d65a4fdf51ca387132541b51e8c4",
+      "official_match_id": 102303,
+      "official_source": {
+        "url": "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-6",
+        "retrieved_at": "2026-11-25T10:07:35.975037+00:00",
+        "sha256": "f66b9d48a7997e28e4c00884aa0f28854792ab0f7ec512f401969ea4138c91ee",
+        "size": 420476
+      },
+      "official_sealed_at": "2026-11-25T10:07:39+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882872",
+        "observed_at": "2026-11-26T13:39:30.641543+00:00",
+        "sha256": "e475d91252c5c6ff3af4ef768b88a88e3e193192d5d96144043c6ebe43783f96",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.laliga.com/en-ES/news/laliga-and-perform-group-create-laliga-official-data-centre?webview=2",
+          "scope": "HISTORICAL_SHARED_DISTRIBUTION_RISK",
+          "finding": "2017 duyurusu ortak LaLiga–Perform veri merkezini ve Opta/Mediacoach iş birliğini belgeler. Bu duyuru Eylül 2026'daki üç maçın ESPN skor alanına özgü kaynak atfı değildir."
+        },
+        {
+          "url": "https://www.laliga.com/en-CA/news/laliga-returns-to-espn-on-august-15-for-the-2026-27-season-after-leading-all-leagues-with-24-players-represented-in-the-world-cup-final",
+          "scope": "CURRENT_BROADCAST_RELATIONSHIP",
+          "finding": "2026/27 ESPN yayın ilişkisi belgeli. Yayın hakkı skor API akışının hangi veri sisteminden beslendiğini göstermez."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843490",
+      "league": "no.1",
+      "kickoff_at": "2026-11-22T16:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "438"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "provider_sha256": "1200045db8460ac80d298c36dc25eeb358c4f864a6cdf25a0c0b592a3bfa963e",
+      "official_match_id": "8986344",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843490",
+        "observed_at": "2026-11-26T13:39:34.561519+00:00",
+        "sha256": "ed08e055206909bf80428df4d650159edb4184aa63265734259ae3dd1cd3d9de",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843345",
+      "league": "no.1",
+      "kickoff_at": "2026-05-16T14:00:00+00:00",
+      "team_ids": {
+        "home": "438",
+        "away": "3278"
+      },
+      "score": [
+        2,
+        3
+      ],
+      "provider_sha256": "a5992161faa18a67583e208971a9ac47b6ac675a704888f35fdf001ded270a94",
+      "official_match_id": "8986198",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843345",
+        "observed_at": "2026-11-26T13:39:33.397527+00:00",
+        "sha256": "a15b37812e42f11d928171717728a8bb504b7488989ff5b92cd4e5748fe19ca0",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843276",
+      "league": "no.1",
+      "kickoff_at": "2026-03-14T17:00:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "438"
+      },
+      "score": [
+        2,
+        0
+      ],
+      "provider_sha256": "f72e09404e9346e26e4513309565ca6a99c4aa623c3acc7e82a92623afc70a47",
+      "official_match_id": "8986132",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843276",
+        "observed_at": "2026-11-26T13:39:32.457532+00:00",
+        "sha256": "a2959e497499d5770559d8ddc69f47fa7c0a1ab048c82add60f29f0ffa631a76",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873903",
+      "league": "no.1",
+      "kickoff_at": "2026-09-19T16:00:00+00:00",
+      "team_ids": {
+        "home": "2715",
+        "away": "3278"
+      },
+      "score": [
+        1,
+        2
+      ],
+      "provider_sha256": "814606c9ebe8f4cd9674a16deb0a3fc712785d6d4bd1cc6b7acf2cb3b2ff66c9",
+      "official_match_id": "8986299",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401873903",
+        "observed_at": "2026-11-26T13:39:34.997517+00:00",
+        "sha256": "8bedf0856d00af1c82457fc7994a293701f900dffdc5370ae0352681054dcc49",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873915",
+      "league": "no.1",
+      "kickoff_at": "2026-07-11T14:00:00+00:00",
+      "team_ids": {
+        "home": "3278",
+        "away": "2715"
+      },
+      "score": [
+        2,
+        2
+      ],
+      "provider_sha256": "25595e6de2bac04e80f5ae56540325ed19da8275775fd530030d39acc928198a",
+      "official_match_id": "8986232",
+      "official_source": {
+        "url": "https://www.eliteserien.no/resultater",
+        "retrieved_at": "2026-11-25T10:10:55.547955+00:00",
+        "sha256": "a10bc61cfa7389ad57acc514f21a4c454c102190d312edcb1371e3036b3e2fdc",
+        "size": 359880
+      },
+      "official_sealed_at": "2026-11-25T10:10:58+00:00",
+      "scope": "EXACT_OFFICIAL_SCORE_AGREEMENT_LINEAGE_UNCERTIFIED",
+      "primary_archive_seal": "2026-11-25T09:36:37Z",
+      "primary_recheck": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401873915",
+        "observed_at": "2026-11-26T13:39:35.353515+00:00",
+        "sha256": "9ad53404843f2390908021656d428b85ab76b9077be8ed9b67ae7a07b4796911",
+        "attribution_fields": {},
+        "same_bytes_as_historical_primary": false
+      },
+      "documentation": [
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+          "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+          "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+        },
+        {
+          "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+          "scope": "OFFICIAL_DATA_DISTRIBUTION",
+          "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+        }
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    }
+  ],
+  "form_uses": [
+    {
+      "event_id": "747019",
+      "target": "401884724",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last10",
+        "previous_season_venue"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "747019",
+      "target": "401884724",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last10",
+        "previous_season_venue"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "747016",
+      "target": "401884725",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "previous_season_venue"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882876",
+      "target": "401882787",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882869",
+      "target": "401882795",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876489",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876471",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876440",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876439",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876417",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876404",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876400",
+      "target": "401876393",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876417",
+      "target": "401876386",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843473",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843368",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843450",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873927",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843304",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843297",
+      "target": "401843495",
+      "side": "home",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843450",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873904",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843418",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873893",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843318",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843304",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843285",
+      "target": "401843493",
+      "side": "away",
+      "as_of": "2026-11-26T13:08:45.827408+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "747022",
+      "target": "401884720",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:13.043270+00:00",
+      "windows": [
+        "venue_last10",
+        "previous_season_venue"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876471",
+      "target": "401876392",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:13.043270+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882872",
+      "target": "401882793",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882872",
+      "target": "401882789",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401882876",
+      "target": "401882789",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876439",
+      "target": "401876394",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876404",
+      "target": "401876394",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401876489",
+      "target": "401876391",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843490",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843473",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873927",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843345",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843285",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843276",
+      "target": "401843497",
+      "side": "home",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843368",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873903",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873904",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last5",
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401873915",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "venue_last10",
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843318",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    },
+    {
+      "event_id": "401843276",
+      "target": "401843497",
+      "side": "away",
+      "as_of": "2026-11-26T13:07:16.077332+00:00",
+      "windows": [
+        "current_season"
+      ],
+      "status": "BLOCKED_SOURCE_LINEAGE_UNPROVEN"
+    }
+  ],
+  "unique_target_matches": 15,
+  "attribution_field_counts": {
+    "false": 29
+  },
+  "production_allowed": false
+}

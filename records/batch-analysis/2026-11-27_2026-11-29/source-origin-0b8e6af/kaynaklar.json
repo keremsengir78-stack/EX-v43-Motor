@@ -1,0 +1,45 @@
+{
+  "de.1": [
+    {
+      "url": "https://media.dfl.de/sites/2/2023/10/DFL_02-23_web150_ES.pdf",
+      "scope": "OFFICIAL_MATCH_DATA_PRODUCTION",
+      "finding": "DFL resmî maç verisini toplar ve Sportec Solutions üretim zincirinde görev alır. Genel açıklama bu üç ESPN skorunun hangi akıştan alındığını göstermez."
+    }
+  ],
+  "es.1": [
+    {
+      "url": "https://www.laliga.com/en-ES/news/laliga-and-perform-group-create-laliga-official-data-centre?webview=2",
+      "scope": "HISTORICAL_SHARED_DISTRIBUTION_RISK",
+      "finding": "2017 duyurusu ortak LaLiga–Perform veri merkezini ve Opta/Mediacoach iş birliğini belgeler. Bu duyuru Eylül 2026'daki üç maçın ESPN skor alanına özgü kaynak atfı değildir."
+    },
+    {
+      "url": "https://www.laliga.com/en-CA/news/laliga-returns-to-espn-on-august-15-for-the-2026-27-season-after-leading-all-leagues-with-24-players-represented-in-the-world-cup-final",
+      "scope": "CURRENT_BROADCAST_RELATIONSHIP",
+      "finding": "2026/27 ESPN yayın ilişkisi belgeli. Yayın hakkı skor API akışının hangi veri sisteminden beslendiğini göstermez."
+    }
+  ],
+  "fr.1": [
+    {
+      "url": "https://www.om.fr/fr/mentions-legales",
+      "scope": "PUBLISHER_IDENTITY",
+      "finding": "OM yayıncı kimliği belli. Kulüp sonuç sayfasındaki nihai skorun ilk üreticisi ve ESPN dağıtım zinciri olay düzeyinde açıklanmıyor."
+    },
+    {
+      "url": "https://www.sta.lfp.fr/data-protection-players-coachs-policy",
+      "scope": "LFP_CLUB_AND_PARTNER_DATA_DISTRIBUTION",
+      "finding": "LFP maç verilerini kulüplere ve üçüncü taraf ortaklara dağıttığını belgeliyor. OM sayfasındaki yedi nihai skorun hangi kanaldan geldiği belli değil."
+    }
+  ],
+  "no.1": [
+    {
+      "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/kamprapport-live2/",
+      "scope": "OFFICIAL_REFEREE_REPORT_PROCESS",
+      "finding": "NFF, hakemce onaylanan resmî rapor ve canlı dağıtımın FIKS kaydından beslendiğini açıklıyor. 16 resmî satırdaki FIKS tanımlayıcıları maç düzeyi ipucu. NFF maç raporu uç noktası bu çalışmada HTTP 403 döndürdü."
+    },
+    {
+      "url": "https://www.fotball.no/klubb-og-leder/fiks-info-og-support/eps-tilgang/",
+      "scope": "OFFICIAL_DATA_DISTRIBUTION",
+      "finding": "NFF, Fotballdata.no üzerinden resmî veri dağıtımını belgeliyor. ESPN'in bu zinciri kullanıp kullanmadığı belirsiz."
+    }
+  ]
+}
