@@ -16,7 +16,7 @@ from urllib.parse import urlsplit
 HOSTS = {"site.api.espn.com", "www.uefa.com", "archive-api.open-meteo.com", "api.open-meteo.com", "power.larc.nasa.gov", "api.openligadb.de"}
 HOSTS.update({
     "fantasy.premierleague.com", "en.legaseriea.it", "www.laliga.com", "www.bundesliga.com",
-    "www.football-data.co.uk", "www.knvb.nl", "www.om.fr", "www.tff.org", "www.ligaportugal.pt", "www.proleague.be", "www.eliteserien.no", "ligue1.com",
+    "football-data.co.uk", "www.knvb.nl", "www.om.fr", "www.tff.org", "www.ligaportugal.pt", "www.proleague.be", "www.eliteserien.no", "ligue1.com",
 })
 MAX_BYTES = 5_000_000
 

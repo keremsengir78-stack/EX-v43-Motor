@@ -133,7 +133,7 @@ def collect_cup_history(archive, manifest):
         selected = sorted(club for club in clubs if club in CSV_CLUBS and TEAM_LEAGUES[club] == league)
         if not selected:
             continue
-        url = f"https://www.football-data.co.uk/new/{file}.csv"
+        url = f"https://football-data.co.uk/new/{file}.csv"
         try:
             rows, source = archive.get(url, lambda raw, stamp: csv_facts(raw, stamp, league, day, selected),
                                        max_age=timedelta(hours=20))
