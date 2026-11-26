@@ -115,6 +115,8 @@ def audit(facts, *, as_of=None, external_observations=None):
                                        and row["finished"] < as_of and row["captured_at"] < as_of))]
     metadata = {row["event_id"]: row for row in approved}
     examples = build_examples(approved)
+    weather_archive = external_observations or {}
+    weather_flow = Counter(sealed_fixture_forecasts=len(weather_archive))
     reports, parameters = {}, {}
     for component in WEIGHTS:
         cohorts = []
@@ -124,11 +126,17 @@ def audit(facts, *, as_of=None, external_observations=None):
                 features = row["workload"]
             elif component == "external_factors":
                 kickoff = row["kickoff"]
-                observation = (external_observations or {}).get((row["event_id"], kickoff))
-                if observation:
-                    features = weather_vector(observation, kickoff.isoformat(), kickoff - timedelta(microseconds=1))
-                else:
+                observation = weather_archive.get((row["event_id"], kickoff))
+                if observation is None:
+                    weather_flow["examples_without_exact_fixture_weather"] += 1
                     features = None
+                else:
+                    weather_flow["examples_joined_to_weather"] += 1
+                    features = weather_vector(observation, kickoff.isoformat(), kickoff - timedelta(microseconds=1))
+                    if features is None:
+                        weather_flow["joined_invalid_weather"] += 1
+                    elif end is None or end.date() != kickoff.date():
+                        weather_flow["joined_no_same_day_finish"] += 1
             else:
                 features = None
             if (end is None or end.date() != row["kickoff"].date()
@@ -179,7 +187,7 @@ def audit(facts, *, as_of=None, external_observations=None):
     coverage = Counter(by_competition[row["competition"]] for row in approved)
     return {"archive_matches": len(facts), "approved_matches": len(approved), "examples": len(examples),
             "by_league": {league: coverage[league] for league in APPROVED_LEAGUES},
-            "components": reports, "coefficients": parameters,
+            "components": reports, "coefficients": parameters, "external_coverage": dict(weather_flow),
             "scope": "RETROSPECTIVE_RESEARCH", "production_allowed": False, "ex_final_allowed": False}
 
 

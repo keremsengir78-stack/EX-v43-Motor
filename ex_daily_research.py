@@ -10,6 +10,7 @@ from ex_decision import MARKETS, assess_market_value
 from ex_research_components import score_components, weather_vector
 from ex_fixture_odds import check_fixture, check_odds
 from ex_history_archive import utc
+from ex_engine import weighted_form
 from ex_team_identity import team_identities
 from ex_leagues import APPROVED_LEAGUES, CUP_HISTORY_SLUGS, UEFA_CUPS, season_bounds
 from ex_ucl_baseline import cross_league_baseline
@@ -54,20 +55,34 @@ def rolling_domestic(fixture, by_team, as_of, *, retrospective=False, archive_le
                    if row["kickoff"].date() >= season_bounds(catalog[row["competition"]], cutoff)[0]}
         if fixture["league"] not in UEFA_CUPS:
             current.intersection_update({APPROVED_LEAGUES[fixture["league"]][1]})
+        diagnostic = {"team_id": club, "eligible_rows": len(history),
+                      "current_competitions": sorted(current),
+                      "archived_competitions": sorted({row["competition"] for row in history})}
         if diagnostics is not None:
-            diagnostics[side] = {"team_id": club, "eligible_rows": len(history),
-                                 "current_competitions": sorted(current),
-                                 "archived_competitions": sorted({row["competition"] for row in history})}
+            diagnostics[side] = diagnostic
         if len(current) != 1:
+            diagnostic["reason"] = "NO_CURRENT_DOMESTIC_RECORDS" if not current else "AMBIGUOUS_DOMESTIC_LEAGUE"
             ambiguous = True
             continue
         competition, = current
         league = catalog[competition]
         leagues.append(league)
-        rows.extend({"date": row["kickoff"].date(), "league": league,
-                     "home": row["teams"]["home"], "away": row["teams"]["away"],
-                     "hg": row["score"][0], "ag": row["score"][1]} for row in history
-                    if row["competition"] == competition)
+        club_rows = [{"date": row["kickoff"].date(), "league": league,
+                      "home": row["teams"]["home"], "away": row["teams"]["away"],
+                      "hg": row["score"][0], "ag": row["score"][1]} for row in history
+                     if row["competition"] == competition]
+        rows.extend(club_rows)
+        if diagnostics is not None:
+            current_start, previous_start = season_bounds(league, cutoff)
+            unique_rows = {(r["date"], r["home"], r["away"]): r for r in club_rows}
+            _, audit = weighted_form(sorted(unique_rows.values(), key=lambda r: r["date"]),
+                                     club, side, cutoff, league, current_start, previous_start)
+            names = ("venue_last5", "venue_last10", "current_season", "previous_season_venue")
+            counts = dict(zip(names, audit["counts"], strict=True))
+            diagnostic.update(league=league, current_season_start=current_start.isoformat(),
+                              previous_season_start=previous_start.isoformat(), sample_counts=counts,
+                              missing_samples=[name for name, minimum in zip(names, (5, 10, 1, 1), strict=True)
+                                               if counts[name] < minimum])
     if ambiguous:
         return None
     unique = {(r["league"], r["date"], r["home"], r["away"]): r for r in rows}
@@ -153,8 +168,25 @@ def recent_domestic_scores(fixture, snapshot, as_of):
         if leagues.get(club) in {"az.1", "cz.1", "ua.1"}
     }
 
+def fixture_acceptance(review, fixture, as_of):
+    """Bind an upstream acceptance record to this exact, still-upcoming fixture."""
+    if not isinstance(review, dict) or not isinstance(review.get("fixture"), dict):
+        return None
+    scope = review["fixture"]
+    if any(not fixture.get(key) or scope.get(key) != fixture[key]
+           for key in ("event_id", "league", "team_ids")):
+        return None
+    try:
+        kickoff = utc(fixture["kickoff_at"])
+        if utc(scope["kickoff_at"]) == kickoff and utc(review["accepted_at"]) < as_of < kickoff:
+            return review
+    except (KeyError, TypeError, ValueError, AttributeError):
+        pass
+    return None
+
+
 def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, by_team=None, observations=None, quotes=(), board_evidence=None, component_model=None,
-                   strength=None, workload=None, weather=None, cup_evidence=None):
+                   strength=None, workload=None, weather=None, cup_evidence=None, ingestion_review=None, context_review=None):
     """Join the two models for display while leaving their evaluation cohorts separate."""
     baseline = None
     recomputed = False
@@ -200,12 +232,18 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
         value = assess_market_value(market, decisions["markets"][market]["ex_g"], selected, time)
         values_by_market[market] = {**value, "observed_quotes": offers}
     evidence = corroborated_fixture(fixture, board_evidence, as_of, cup_evidence)
+    ingestion = fixture_acceptance(ingestion_review, fixture, as_of)
+    context = fixture_acceptance(context_review, fixture, as_of)
+    if evidence["status"] != "FIXTURE_CROSS_VERIFIED":
+        ingestion = None
     gate = {"status": "BASELINE_ONLY" if values or window is not None else "INCOMPLETE",
             "fixture_lock": check_fixture(fixture, time),
             "market_baselines_pct": market_percentages,
             "recompute_consistent": recomputed}
+    gate_inputs = {"ingestion": ingestion, "context_evidence": context, "fixture_evidence": evidence,
+                   "pup_requested": False}
     checks = {market: auto_control({**gate, "market": market, "odds_lock": value["odds_lock"]},
-                                   pup_requested=False, fixture_evidence=evidence)
+                                   **gate_inputs)
               for market, value in values_by_market.items()}
     return {"fixture": fixture, "as_of": time, "venue5_research": window,
             "domestic_research": baseline, "domestic_diagnostics": domestic_diagnostics, "markets": decisions, "market_values": values_by_market,
@@ -213,6 +251,7 @@ def daily_analysis(fixture, window, snapshot, as_of, *, venue_recomputed=False, 
                                 "dated_domestic_scores": recent_domestic_scores(fixture, snapshot, as_of)},
             "component_research": components,
             "ex_final_status": "BLOCKED_PENDING_REQUIRED_EVIDENCE",
-            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, pup_requested=False, fixture_evidence=evidence, require_odds=False),
+            "tur2": recomputed if market_percentages else None, "auto_control": auto_control(gate, **gate_inputs, require_odds=False),
             "auto_control_by_market": checks, "fixture_evidence": evidence,
+            "ingestion_acceptance": ingestion, "context_acceptance": context,
             "calibration_cohort": "VENUE5_ONLY" if window else None, "ex_final_allowed": False}

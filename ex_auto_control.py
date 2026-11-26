@@ -12,7 +12,7 @@ def snapshot(data):
     raw=json.dumps(data,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
-def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=None, require_odds=True):
+def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=None, context_evidence=None, require_odds=True):
     issues=[]
     if not isinstance(match,dict):
         return {"status":"BLOCKED","issues":["match:invalid"],"ex_final_allowed":False}
@@ -45,7 +45,9 @@ def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=
     if fixture_evidence is not None and fixture_evidence.get("status") != "FIXTURE_CROSS_VERIFIED":
         issues.append("fixture_sources:unverified")
     # Explicitly unimplemented inputs cannot be silently treated as verified.
-    issues.extend(["exg:uncalibrated","context:unverified"])
+    issues.append("exg:uncalibrated")
+    if not isinstance(context_evidence, dict) or context_evidence.get("status") != "CONTEXT_CROSS_VERIFIED":
+        issues.append("context:unverified")
     if pup_requested is not False:
         issues.append("pup:unverified")
     try:

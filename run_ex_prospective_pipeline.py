@@ -104,7 +104,7 @@ def market_quote_chain(board_odds, board, payload, summary_source, kickoff, *, a
     return quotes, attempts
 
 
-def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None):
+def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, component_model=None, weather=None, cup_sources=None, accepted_reviews=None):
     available = [fact for fact in facts if fact["score"] is not None and fact["finished"]
                  and fact["finished"] <= fact["captured_at"] < now]
     labels = {row["event_id"]: market_labels(*row["score"]) for row in available}
@@ -217,12 +217,15 @@ def forecast_rows(manifest, cache, facts, now, *, daily=None, domestic=None, com
                 quotes, observations["odds_source_attempts"] = market_quote_chain(
                     match.get("odds") or event.get("odds"), board_source, payload, source, kickoff.isoformat(),
                     as_of=now)
+                reviews = (accepted_reviews or {}).get((league, event_id), {})
                 daily.append(daily_analysis(identity, short, domestic, now, venue_recomputed=consistent,
                                             by_team=domestic_teams, observations=observations, quotes=quotes,
                                             board_evidence=board_source, component_model=component_model,
                                             strength=strength or archived_score_window, workload=(*home[2], *away[2]) if home[2] and away[2] else None,
                                             weather=(weather or {}).get(event_id),
-                                            cup_evidence=(cup_sources or {}).get(league)))
+                                            cup_evidence=(cup_sources or {}).get(league),
+                                            ingestion_review=reviews.get("ingestion"),
+                                            context_review=reviews.get("context")))
             if short is None:
                 skipped.append({"event_id": event_id, "league": league, "teams": fixture["teams"],
                                 "missing_venue5": [s for s, feature in zip(("home", "away"), teams_features, strict=True)
@@ -751,10 +754,23 @@ def main():
         context, issues = alternate_context(manifest, args.cache)
         atomic_write(args.output_dir / "official-fixture-context.json",
                      (json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode())
+        history_gaps = []
+        for row in daily:
+            if row.get("performance_v1") or (row["domestic_research"] or {}).get("baseline") or row["venue5_research"]:
+                continue
+            fixture = row["fixture"]
+            sides = {}
+            for side, detail in row["domestic_diagnostics"].items():
+                club = detail["team_id"]
+                attempts = [error for error in team_history_errors
+                            if error.get("club") == club or f"/teams/{club}/" in (error.get("url") or "")]
+                sides[side] = {**detail, "team": fixture[side], "source_errors": attempts,
+                               "schedule_source_state": "CONFIGURED" if club in plan else "NO_REVIEWED_BINDING"}
+            history_gaps.append({"fixture": fixture, "teams": sides})
         report = {"forecasts": len(forecasts), "historical_matches": len(facts),
                   "supplemental_scoreboard_records": len(supplemental),
                   "reused_verified_outcomes": reused, "rolling_scoreboard_matches": len(rolling), "skipped": skipped,
-                  "daily_fixture_records": len(daily),
+                  "daily_fixture_records": len(daily), "historical_sample_gaps": history_gaps,
                   "domestic_source_coverage": domestic[1] if domestic else [],
                   "domestic_baselines": sum(bool((row["domestic_research"] or {}).get("baseline")) for row in daily),
                   "daily_research_covered": sum(row["venue5_research"] is not None or

@@ -115,7 +115,7 @@ class History:
         form = tuple(sum(w * rates[i] for w, rates in zip(W, adjusted, strict=True)) for i in range(2))
         return raw, form, quality
 
-    def features(self, fact):
+    def features(self, fact, exclusions=None):
         home, away = (fact["teams"][side] for side in ("home", "away"))
         day = fact["kickoff"].date()
         if fact["competition"] in EUROPE:
@@ -124,18 +124,24 @@ class History:
         elif fact["competition"] in DOMESTIC:
             hl = al = DOMESTIC[fact["competition"]]
         else:
+            if exclusions is not None:
+                exclusions["unsupported_target_competition"] += 1
             return None
         if not hl or not al:
+            if exclusions is not None:
+                exclusions["missing_or_ambiguous_domestic_league"] += 1
             return None
         h, a = self.form(home, "home", hl, day), self.form(away, "away", al, day)
         if not h or not a:
+            if exclusions is not None:
+                exclusions["incomplete_team_form_windows"] += 1
             return None
         ratings, counts = self.league_coefficients()
         margin = ratings[hl] - ratings[al] if hl != al and min(counts.get(hl, 0), counts.get(al, 0)) >= 3 else None
         return h, a, margin
 
 
-def replay(facts, targets):
+def replay(facts, targets, *, exclusions=None):
     history = History()
     settled = iter(sorted((r for r in facts if r["score"] is not None and r["finished"] is not None),
                           key=lambda row: (row["finished"], row["kickoff"], row["event_id"])))
@@ -145,7 +151,7 @@ def replay(facts, targets):
         while prior and prior["finished"] < cutoff:
             history.update(prior)
             prior = next(settled, None)
-        features = history.features(row)
+        features = history.features(row, exclusions)
         if features:
             yield row, features
 
@@ -190,14 +196,22 @@ def measure(rows):
 
 
 def experiment(facts):
-    eligible = [r for r in facts if r["score"] is not None and r["finished"] is not None
-                and r["finished"].date() == r["kickoff"].date()]
-    examples = [(r["kickoff"].date(), r, f) for r, f in replay(facts, eligible)]
+    scored = [r for r in facts if r["score"] is not None and r["finished"] is not None]
+    eligible = [r for r in scored if r["finished"].date() == r["kickoff"].date()]
+    overnight = [r for r in scored if r["finished"].date() > r["kickoff"].date()
+                 and r.get("terminal_source") == "PROVIDER_END_REGULAR_TIME"]
+    exclusions = Counter()
+    examples = [(r["kickoff"].date(), r, f) for r, f in replay(facts, eligible, exclusions=exclusions)]
     parts = date_partitions(examples)
+    overnight_examples = sum(1 for _ in replay(facts, overnight)) if overnight else 0
     result = {"eligible": len(examples), "production_allowed": False,
               "cohort_flow": {"archive_records": len(facts),
-                              "excluded_missing_score_or_non_same_day_finish": len(facts) - len(eligible),
-                              "excluded_no_complete_prematch_replay": len(eligible) - len(examples)}}
+                              "excluded_missing_score_or_finish": len(facts) - len(scored),
+                              "excluded_non_same_day_finish": len(scored) - len(eligible),
+                              "excluded_no_complete_prematch_replay": len(eligible) - len(examples),
+                              "replay_exclusions": dict(exclusions),
+                              "overnight_provider_terminal_records": len(overnight),
+                              "overnight_complete_replays_research_only": overnight_examples}}
     if not parts:
         return result
     train, valid, test = parts

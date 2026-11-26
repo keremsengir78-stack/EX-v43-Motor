@@ -185,3 +185,36 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual([summary_source["retrieved_at"]], [q["observed_at"] for q in quotes])
         self.assertEqual("TIMESTAMP_OUTSIDE_ANALYSIS", attempts[0]["unresolved"]["2.5_UST"])
         self.assertEqual("EMPTY_PAYLOAD", attempts[1]["unresolved"]["2.5_UST"])
+
+    def test_upstream_acceptance_is_bound_to_fixture_and_decision_cutoff(self):
+        cutoff = utc("2026-11-26T09:00:00Z")
+        kickoff = utc("2026-11-26T20:00:00Z")
+        url = "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20261126"
+        board = {"url": url, "retrieved_at": "2026-11-26T08:50:00Z"}
+        fixture = {"league": "UEL", "event_id": "event-a", "home": "Home", "away": "Away",
+                   "team_ids": {"home": "8001", "away": "8002"}, "date": "2026-11-26",
+                   "kickoff_at": kickoff.isoformat(), "fixture_source": url,
+                   "fixture_checked_at": board["retrieved_at"]}
+        evidence = ({(kickoff, "home", "away")}, {"retrieved_at": "2026-11-26T08:51:00Z"})
+        reviewed = {"fixture": fixture, "accepted_at": "2026-11-26T08:55:00Z"}
+        ingestion = {**reviewed, "status": "INGESTED_CROSS_VERIFIED", "independent_sources_confirmed": 2}
+        context = {**reviewed, "status": "CONTEXT_CROSS_VERIFIED"}
+        checked = daily_analysis(fixture, None, None, cutoff, board_evidence=board, cup_evidence=evidence,
+                                 ingestion_review=ingestion, context_review=context)
+        for issues in [checked["auto_control"]["issues"],
+                       *(item["issues"] for item in checked["auto_control_by_market"].values())]:
+            self.assertNotIn("ingestion:blocked", issues)
+            self.assertNotIn("second_source:unverified", issues)
+            self.assertNotIn("context:unverified", issues)
+            self.assertIn("exg:uncalibrated", issues)
+        self.assertFalse(checked["ex_final_allowed"])
+        blocked = daily_analysis(fixture, None, None, cutoff, board_evidence=board,
+                                 ingestion_review=ingestion,
+                                 context_review={**context, "accepted_at": cutoff.isoformat()})
+        for reason in ("fixture_sources:unverified", "ingestion:blocked", "context:unverified"):
+            self.assertIn(reason, blocked["auto_control"]["issues"])
+        reversed_review = {**ingestion, "fixture": {**fixture, "team_ids": {"home": "8002", "away": "8001"}}}
+        blocked = daily_analysis(fixture, None, None, cutoff, board_evidence=board, cup_evidence=evidence,
+                                 ingestion_review=reversed_review, observations={"roster_payload_observed": True})
+        self.assertIn("ingestion:blocked", blocked["auto_control"]["issues"])
+        self.assertIn("context:unverified", blocked["auto_control"]["issues"])
