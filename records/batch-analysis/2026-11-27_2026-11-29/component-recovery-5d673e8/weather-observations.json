@@ -1,0 +1,1329 @@
+{
+  "401888241": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10728",
+      "fullName": "Kirbiyik Holding Stadyumu",
+      "shortName": "Kirbiyik Holding Stadyumu",
+      "address": {
+        "city": "Antalya",
+        "country": "Türkiye"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888241",
+      "retrieved_at": "2026-11-26T13:06:48.696203+00:00",
+      "sha256": "90ded0e7397eab494924e089a23697878340fe6f59852872fd74702386933eba",
+      "size": 152450
+    }
+  },
+  "401888240": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10732",
+      "fullName": "Estadio Caykur Didi",
+      "shortName": "Estadio Caykur Didi",
+      "address": {
+        "city": "Rize",
+        "country": "Türkiye"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888240",
+      "retrieved_at": "2026-11-26T13:06:49.421689+00:00",
+      "sha256": "e0dfe4cebabf2a89be142945da0246713a72a702931c8dd7f0be4605a2320c18",
+      "size": 151562
+    }
+  },
+  "401879225": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "131",
+      "guid": "3ec8eb89-4aa6-3f37-9425-0c634051dc38",
+      "fullName": "The City Ground",
+      "shortName": "The City Ground",
+      "address": {
+        "city": "Nottingham",
+        "country": "England"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879225",
+      "retrieved_at": "2026-11-26T13:06:50.953095+00:00",
+      "sha256": "233993b0b02fc08e32b5a7540ea7282cac0b22a25e219bc8213a5ef6a3978a03",
+      "size": 199689
+    }
+  },
+  "401884720": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10021",
+      "fullName": "Weserstadion",
+      "shortName": "Weserstadion",
+      "address": {
+        "city": "Bremen",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884720",
+      "retrieved_at": "2026-11-26T13:06:52.392353+00:00",
+      "sha256": "d23591d4530f90d27f739ff3dfe85a6d76456269da230d23abdbe70c508dcb71",
+      "size": 194806
+    }
+  },
+  "401885045": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "2996",
+      "guid": "33ef461c-b2aa-3466-b963-152951cddaef",
+      "fullName": "Vonovia Ruhrstadion",
+      "shortName": "Vonovia Ruhrstadion",
+      "address": {
+        "city": "Bochum",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885045",
+      "retrieved_at": "2026-11-26T13:06:54.644048+00:00",
+      "sha256": "d87b997fe29a351d099dacec91568b87e1b6b46889d7354369b6d959dcffa884",
+      "size": 150220
+    }
+  },
+  "401876392": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4618",
+      "guid": "3e3f6c45-208a-386d-897d-9b8a3d90df70",
+      "fullName": "Stade Francis-Le Blé",
+      "shortName": "Stade Francis-Le Blé",
+      "address": {
+        "city": "Brest",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876392",
+      "retrieved_at": "2026-11-26T13:06:59.154718+00:00",
+      "sha256": "70635073dbe3becddc8ed4accce92e504213f51f5e9d33c6b885cb9b73a64ec7",
+      "size": 188935
+    }
+  },
+  "401875834": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "2475",
+      "guid": "22d04899-3926-34be-8343-eeee425e6c71",
+      "fullName": "M-Scores Stadion",
+      "shortName": "M-Scores Stadion",
+      "address": {
+        "city": "Dordrecht",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+      "retrieved_at": "2026-11-26T13:07:02.164386+00:00",
+      "sha256": "bc4a6e491492d47d016225004481371df69bed875da96bc2ae95460d18b5db32",
+      "size": 160307
+    }
+  },
+  "401875832": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "7267",
+      "guid": "acc21e3d-c60a-3fc5-8590-6bf28c277242",
+      "fullName": "AFAS Trainingscomplex",
+      "shortName": "AFAS Trainingscomplex",
+      "address": {
+        "city": "Den Haag",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875832",
+      "retrieved_at": "2026-11-26T13:07:03.684594+00:00",
+      "sha256": "f9723295661209e43405820600174eff1d893ae808144901ae8dea31878dee9c",
+      "size": 159424
+    }
+  },
+  "401875831": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "7366",
+      "guid": "f0cc068f-cfdf-37e0-a7b5-ebaaed8213c6",
+      "fullName": "Sportcomplex Zoudenbalch",
+      "shortName": "Sportcomplex Zoudenbalch",
+      "address": {
+        "city": "Utrecht",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875831",
+      "retrieved_at": "2026-11-26T13:07:04.433313+00:00",
+      "sha256": "19519dce71eefc6f1f786f02c8082c1f6f4ec528b3f7a8c98481fa340a1234ce",
+      "size": 159193
+    }
+  },
+  "401875830": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "2482",
+      "guid": "ee2a64e8-aafb-3aca-a3d7-601c16b0f8e9",
+      "fullName": "De Geusselt",
+      "address": {
+        "city": "Maastricht",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875830",
+      "retrieved_at": "2026-11-26T13:07:05.206274+00:00",
+      "sha256": "8d5971303d064de3cc454c4d7927451859d16f3282df5bbd2fa24ee817b6e305",
+      "size": 159518
+    }
+  },
+  "401876061": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10489",
+      "fullName": "Covebo Stadium - De Koel",
+      "shortName": "Covebo Stadium - De Koel",
+      "address": {
+        "city": "Venlo",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876061",
+      "retrieved_at": "2026-11-26T13:07:06.649676+00:00",
+      "sha256": "4ca02b28d9d173bfc5f238eec0d29fe4781b0f2d041dcd0ee1c1ae6a782db81d",
+      "size": 159128
+    }
+  },
+  "401888236": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10734",
+      "fullName": "Samsun 19 Mayis Stadium",
+      "shortName": "Samsun 19 Mayis Stadium",
+      "address": {
+        "city": "Samsun",
+        "country": "Türkiye"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888236",
+      "retrieved_at": "2026-11-26T13:06:44.139463+00:00",
+      "sha256": "91e67d1f87265226d5091ad4adba6a3e372901637b41eb6224e5fed5488600c9",
+      "size": 114378
+    }
+  },
+  "401879226": {
+    "status": "REUSED_ARCHIVED",
+    "observation": {
+      "kind": "PREMATCH_NUMERICAL_FORECAST",
+      "forecast_hour_utc": "2026-11-28T15:00:00Z",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=53.4631&longitude=-2.29139&timezone=GMT&start_date=2026-11-28&end_date=2026-11-28&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m",
+        "retrieved_at": "2026-11-26T13:07:13.110755+00:00",
+        "sha256": "00052fed0a2ac4cfcb35ac47484b9d41bdc7c6fd2335d78967354c5c7fa1984a",
+        "size": 1108
+      },
+      "values": {
+        "temperature_2m": 7.7,
+        "precipitation_probability": 51,
+        "wind_speed_10m": 12.2
+      },
+      "venue_source": "https://www.doogal.co.uk/FootballMap?stadium=Old+Trafford"
+    }
+  },
+  "401884722": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10662",
+      "fullName": "Volksparkstadion",
+      "shortName": "Volksparkstadion",
+      "address": {
+        "city": "Hamburg Norderstedt",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884722",
+      "retrieved_at": "2026-11-26T13:06:48.536285+00:00",
+      "sha256": "b6d2c6829a2e955425a186cb7a4e60fb4a24c2f54f6b401af256ec0223449e76",
+      "size": 155588
+    }
+  },
+  "401884723": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4450",
+      "guid": "9d480499-a02c-315f-9195-da746c89cb93",
+      "fullName": "MEWA ARENA",
+      "shortName": "MEWA ARENA",
+      "address": {
+        "city": "Mainz",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884723",
+      "retrieved_at": "2026-11-26T13:06:49.277008+00:00",
+      "sha256": "5f65cb0d5660f1c438ca2baa7037d3b94fc751a39809358a2c628b223575eae7",
+      "size": 188661
+    }
+  },
+  "401884726": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "9656",
+      "fullName": "MHPArena",
+      "shortName": "MHPArena",
+      "address": {
+        "city": "Stuttgart",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884726",
+      "retrieved_at": "2026-11-26T13:06:51.051954+00:00",
+      "sha256": "cdde7021b5eecbff67a8626c1f4d267e969272a9936815ce32dbc96590b189c4",
+      "size": 190140
+    }
+  },
+  "401885046": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10658",
+      "fullName": "Olympic Stadium Berlin",
+      "shortName": "Olympic Stadium Berlin",
+      "address": {
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "retrieved_at": "2026-11-26T12:50:47.665427+00:00",
+      "sha256": "6e38b6b5a68d438e2af1053b0147dbefafc224f8c32d707ea3dd3a6dd53e1bda",
+      "size": 147420,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885046"
+    }
+  },
+  "401885043": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3915",
+      "guid": "399dea97-89e3-3624-9646-c80dc111f01f",
+      "fullName": "Holstein-Stadion",
+      "shortName": "Holstein-Stadion",
+      "address": {
+        "city": "Kiel",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "retrieved_at": "2026-11-26T12:50:48.409352+00:00",
+      "sha256": "d12bb7064ac1f35ab1a0a0d2de56786d4f8f2166a338bd303e3f589b9f3310a3",
+      "size": 149394,
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885043"
+    }
+  },
+  "401882796": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "2781",
+      "guid": "bf6676d2-0fb0-334d-91bd-c1c3e62435db",
+      "fullName": "Estadio La Cartuja",
+      "shortName": "Estadio La Cartuja",
+      "address": {
+        "city": "Sevilla",
+        "country": "Spain"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882796",
+      "retrieved_at": "2026-11-26T13:06:53.051404+00:00",
+      "sha256": "beea79f0a2bdf6de91f80a8c722be255b1bc94bd7d87c9d4b6caa09091d20abb",
+      "size": 161961
+    }
+  },
+  "401882793": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3468",
+      "guid": "871b56b7-69b5-3ede-b4e1-07e2cd4bf3a9",
+      "fullName": "Estadio Martínez Valero",
+      "shortName": "Estadio Martínez Valero",
+      "address": {
+        "city": "Elche",
+        "country": "Spain"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882793",
+      "retrieved_at": "2026-11-26T13:06:54.547522+00:00",
+      "sha256": "34c4995750757cdf0a78f846f126ca139aa6fca2c59f7e5d9e72fcdc962238cf",
+      "size": 160566
+    }
+  },
+  "401882789": {
+    "status": "REUSED_ARCHIVED",
+    "observation": {
+      "kind": "PREMATCH_NUMERICAL_FORECAST",
+      "forecast_hour_utc": "2026-11-28T20:00:00Z",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=40.453053&longitude=-3.688344&timezone=GMT&start_date=2026-11-28&end_date=2026-11-28&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m",
+        "retrieved_at": "2026-11-26T13:07:13.867139+00:00",
+        "sha256": "502800a70fee5b06de6e05dfc49a99ed53c39d5c5411b222674e13c17e3578ec",
+        "size": 1073
+      },
+      "values": {
+        "temperature_2m": 7.4,
+        "precipitation_probability": 0,
+        "wind_speed_10m": 1.6
+      },
+      "venue_source": "https://www.latlong.net/place/santiago-bernab-u-stadium-madrid-spain-23243.html"
+    }
+  },
+  "401874826": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10716",
+      "fullName": "Stadio Olimpico Grande Torino",
+      "shortName": "Stadio Olimpico Grande Torino",
+      "address": {
+        "city": "Torino",
+        "country": "Italy"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401874826",
+      "retrieved_at": "2026-11-26T13:06:56.814871+00:00",
+      "sha256": "936c6c6117cdd7d44b0adc4f6c2383dfff000123d4a9f2faf53c10f54056bf46",
+      "size": 194159
+    }
+  },
+  "401874977": {
+    "status": "REUSED_ARCHIVED",
+    "observation": {
+      "kind": "PREMATCH_NUMERICAL_FORECAST",
+      "forecast_hour_utc": "2026-11-28T19:00:00Z",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=45.47820035&longitude=9.12396399334239&timezone=GMT&start_date=2026-11-28&end_date=2026-11-28&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m",
+        "retrieved_at": "2026-11-26T13:07:14.590672+00:00",
+        "sha256": "97c0179f6d3ff9a54ed6915afa75d8067612e6d5a0a0ce2f81ad98f34ee4d4a1",
+        "size": 1067
+      },
+      "values": {
+        "temperature_2m": 4.8,
+        "precipitation_probability": 0,
+        "wind_speed_10m": 3.4
+      },
+      "venue_source": "https://www.coordinatesfinder.com/coordinates/1158601"
+    }
+  },
+  "401876394": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3369",
+      "guid": "ad7086db-409d-3ca8-b89f-e5db83fd8f49",
+      "fullName": "Stade Raymond Kopa",
+      "shortName": "Stade Raymond Kopa",
+      "address": {
+        "city": "Angers",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876394",
+      "retrieved_at": "2026-11-26T13:06:58.282186+00:00",
+      "sha256": "238485633110d96e91eed7d9b3510fe214e7e90495aaf9670fc45baaa1b1e483",
+      "size": 189836
+    }
+  },
+  "401876391": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4844",
+      "guid": "a8ab9a5e-eb68-38c3-890b-9d930f6c7bfd",
+      "fullName": "Stade Océane",
+      "shortName": "Stade Océane",
+      "address": {
+        "city": "Le Havre",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876391",
+      "retrieved_at": "2026-11-26T13:06:59.040135+00:00",
+      "sha256": "f4dcc3d710d4fb214680b2e540da9cb815a67e76334e989705a1229590ec15c7",
+      "size": 193400
+    }
+  },
+  "401876387": {
+    "status": "REUSED_ARCHIVED",
+    "observation": {
+      "kind": "PREMATCH_NUMERICAL_FORECAST",
+      "forecast_hour_utc": "2026-11-28T19:00:00Z",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=48.84137&longitude=2.25305&timezone=GMT&start_date=2026-11-28&end_date=2026-11-28&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m",
+        "retrieved_at": "2026-11-26T13:07:15.340192+00:00",
+        "sha256": "0b744911d2c5cd743a016d1b773e943f1749ba85f0d9ee0801db3f458bf4befb",
+        "size": 1083
+      },
+      "values": {
+        "temperature_2m": 5.4,
+        "precipitation_probability": 16,
+        "wind_speed_10m": 9.9
+      },
+      "venue_source": "https://mapcarta.com/fr/25260180"
+    }
+  },
+  "401875537": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4377",
+      "guid": "c1009fc4-bf43-3c2b-8444-f1b06ec38b3f",
+      "fullName": "Stadion Woudestein",
+      "shortName": "Stadion Woudestein",
+      "address": {
+        "city": "Rotterdam",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875537",
+      "retrieved_at": "2026-11-26T13:07:02.035648+00:00",
+      "sha256": "6b6e617720c5d9e74a8b673e66a18ebdd91e70262ebec58d489e5d05bf7fc5a1",
+      "size": 161399
+    }
+  },
+  "401875531": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "5",
+      "guid": "f6de06ce-3700-319f-bdea-5dac5464b746",
+      "fullName": "Philips Stadion",
+      "address": {
+        "city": "Eindhoven",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875531",
+      "retrieved_at": "2026-11-26T13:07:02.791873+00:00",
+      "sha256": "916df3104025b808fe5345d841d9fe0a3974514a55e2612196bf4d4d245e8aca",
+      "size": 164119
+    }
+  },
+  "401875828": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4314",
+      "guid": "d467b9a6-0d1f-3426-85ee-335d4c9048da",
+      "fullName": "De Oude Meerdijk",
+      "shortName": "De Oude Meerdijk",
+      "address": {
+        "city": "Emmen",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875828",
+      "retrieved_at": "2026-11-26T13:07:04.290510+00:00",
+      "sha256": "131179e43cc4526a7ba2bf97156ebb9bc043bc8be3f21c9caa9b78d1c02a2c72",
+      "size": 157908
+    }
+  },
+  "401885392": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "5246",
+      "guid": "32d00fda-6eee-3bbe-a7e5-13f1ce2d48a6",
+      "fullName": "Estádio Municipal de Arouca",
+      "shortName": "Estádio Municipal de Arouca",
+      "address": {
+        "city": "Arouca",
+        "country": "Portugal"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885392",
+      "retrieved_at": "2026-11-26T13:07:05.040897+00:00",
+      "sha256": "d7d35cebbbbbcd47f4643f3837603d9bd0f35719a6b0388c9ca3ea4514254d47",
+      "size": 206147
+    }
+  },
+  "401885388": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4951",
+      "guid": "e5e15c5a-4b18-3ba4-ba19-7ac3ca347ed1",
+      "fullName": "Estádio Comendador Joaquim de Almeida Freitas",
+      "shortName": "Estádio Comendador Joaquim de Al",
+      "address": {
+        "city": "Moreira de Conegos",
+        "country": "Portugal"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885388",
+      "retrieved_at": "2026-11-26T13:07:05.789169+00:00",
+      "sha256": "49e791a087d6e973e88fb4beacd9295a9f3c86c8d2b837797ecb0e74cf331c69",
+      "size": 212278
+    }
+  },
+  "401885385": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4723",
+      "guid": "74abc090-2ad0-3eff-90a1-2783f97ef44b",
+      "fullName": "Estádio D. Afonso Henriques",
+      "shortName": "Estádio D. Afonso Henriques",
+      "address": {
+        "city": "Guimarães",
+        "country": "Portugal"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885385",
+      "retrieved_at": "2026-11-26T13:07:07.288008+00:00",
+      "sha256": "b2904817f9782a2dac16710b1871bb5c3f906e2d6cf75149f0bfb5dfe95582d5",
+      "size": 206901
+    }
+  },
+  "401878929": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "6654",
+      "guid": "a46a4ee4-4f46-372a-811e-bd36422953a5",
+      "fullName": "Het Kuipje",
+      "shortName": "Het Kuipje",
+      "address": {
+        "city": "Westerlo",
+        "country": "Belgium"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/summary?event=401878929",
+      "retrieved_at": "2026-11-26T13:07:08.050481+00:00",
+      "sha256": "74ed8bc29d7a6a11c8e3f05014aac402b36e4f79468b2352fb6e752a1430f79f",
+      "size": 147232
+    }
+  },
+  "401878932": {
+    "status": "REUSED_ARCHIVED",
+    "observation": {
+      "kind": "PREMATCH_NUMERICAL_FORECAST",
+      "forecast_hour_utc": "2026-11-28T17:00:00Z",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=51.1893&longitude=3.175&timezone=GMT&start_date=2026-11-28&end_date=2026-11-28&hourly=temperature_2m%2Cprecipitation_probability%2Cwind_speed_10m",
+        "retrieved_at": "2026-11-26T13:07:16.067755+00:00",
+        "sha256": "f38e8b5acba11209f12e6e2c26c8291972a8e1f33bb1201747bb040642088735",
+        "size": 1103
+      },
+      "values": {
+        "temperature_2m": 2.1,
+        "precipitation_probability": 14,
+        "wind_speed_10m": 20.5
+      },
+      "venue_source": "https://latitude.to/articles-by-country/be/belgium/14502/jan-breydel-stadium"
+    }
+  },
+  "401843492": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "1510",
+      "guid": "8cee05d8-d947-37bc-9db5-9e3c92651ee9",
+      "fullName": "Aspmyra Stadion",
+      "address": {
+        "city": "Bodø/Glimt",
+        "country": "Norway"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843492",
+      "retrieved_at": "2026-11-26T13:07:11.043542+00:00",
+      "sha256": "7b7a6a83326968aec45403d8838d5c52b811dc42160f33d5c2155322cbafca92",
+      "size": 144916
+    }
+  },
+  "401843497": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10878",
+      "fullName": "Lerkendal Stadion",
+      "shortName": "Lerkendal Stadion",
+      "address": {
+        "city": "Trondheim",
+        "country": "Norway"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843497",
+      "retrieved_at": "2026-11-26T13:07:11.786677+00:00",
+      "sha256": "98471edcd8e40491840b0bfe787934217849cd7b97128f88c9b5d42a6b39344d",
+      "size": 144926
+    }
+  },
+  "401888242": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "8452",
+      "guid": "ebee8ecc-30c3-3190-9c21-8385e6881cf9",
+      "fullName": "Esenyurt Necmi Kadioglu Stadi",
+      "shortName": "Esenyurt Necmi Kadioglu Stadi",
+      "address": {
+        "city": "Istanbul",
+        "country": "Türkiye"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888242",
+      "retrieved_at": "2026-11-26T13:06:46.792758+00:00",
+      "sha256": "f080dd8d7dec9a8a5a92aa156fc9e060db5bccf71a1cee379e3b28c20e7c0abf",
+      "size": 150199
+    }
+  },
+  "401879229": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10318",
+      "fullName": "Hill Dickinson Stadium",
+      "shortName": "Hill Dickinson Stadium",
+      "address": {
+        "city": "Liverpool",
+        "country": "England"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879229",
+      "retrieved_at": "2026-11-26T13:06:49.052220+00:00",
+      "sha256": "9add0488fcbbfebbd5c52bc613c35e2156cb8f2bc92e31e156179bc661797a1a",
+      "size": 199892
+    }
+  },
+  "401879231": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10378",
+      "fullName": "American Express Stadium",
+      "shortName": "American Express Stadium",
+      "address": {
+        "city": "Falmer",
+        "country": "England"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879231",
+      "retrieved_at": "2026-11-26T13:06:49.776965+00:00",
+      "sha256": "22e19037b5c3d09bd8512f3d49f04b922e2efe5d1cb2d4e66785cc8ae4970759",
+      "size": 203462
+    }
+  },
+  "401879228": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "279",
+      "guid": "59da7758-4202-39a7-9570-08915b63e08a",
+      "fullName": "Craven Cottage",
+      "address": {
+        "city": "London",
+        "country": "England"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879228",
+      "retrieved_at": "2026-11-26T13:06:51.353396+00:00",
+      "sha256": "02288c7f1daacf249a446b76e024bc0e15d9ad9e6b5cc026e257aa30455b2a71",
+      "size": 200993
+    }
+  },
+  "401879224": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "194",
+      "guid": "f0cabedc-7a4c-39a0-a3a4-bc75be739b2b",
+      "fullName": "Stadium of Light",
+      "address": {
+        "city": "Sunderland",
+        "country": "England"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879224",
+      "retrieved_at": "2026-11-26T13:06:52.045805+00:00",
+      "sha256": "12fba10d8748b8053d4751d27c854a754582cdff58b3094f876d2c313ddfe436",
+      "size": 205292
+    }
+  },
+  "401878753": {
+    "status": "SOURCE_FAILED",
+    "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "venue": {
+      "id": "2267",
+      "guid": "b4d3944a-10d2-3ebc-a3cb-0c0f4bca9547",
+      "fullName": "Emirates Stadium",
+      "address": {
+        "city": "London",
+        "country": "England"
+      },
+      "images": []
+    }
+  },
+  "401884724": {
+    "status": "SOURCE_FAILED",
+    "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "venue": {
+      "id": "8842",
+      "guid": "8b637a61-0a01-3c74-90ea-147acb683ac6",
+      "fullName": "Europa-Park Stadion",
+      "shortName": "Europa-Park Stadion",
+      "address": {
+        "city": "Freiburg im Breisgau",
+        "country": "Germany"
+      },
+      "images": []
+    }
+  },
+  "401884725": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3697",
+      "guid": "f1073747-ff58-3e7d-a7de-ab4429cf3883",
+      "fullName": "PreZero Arena",
+      "shortName": "PreZero Arena",
+      "address": {
+        "city": "Sinsheim",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884725",
+      "retrieved_at": "2026-11-26T13:06:55.104441+00:00",
+      "sha256": "77dd60b584308726ea6fe3ac941d9ac7ed888a5446702fbb2d1590966b6e568e",
+      "size": 191876
+    }
+  },
+  "401884727": {
+    "status": "SOURCE_FAILED",
+    "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "venue": {
+      "id": "10344",
+      "fullName": "Signal Iduna Park",
+      "shortName": "Signal Iduna Park",
+      "address": {
+        "city": "Aue",
+        "country": "Germany"
+      },
+      "images": []
+    }
+  },
+  "401885040": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10670",
+      "fullName": "Sportpark Ronhof - Thomas Sommer",
+      "shortName": "Sportpark Ronhof - Thomas Sommer",
+      "address": {
+        "city": "Fürth",
+        "country": "Germany"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885040",
+      "retrieved_at": "2026-11-26T13:06:58.011356+00:00",
+      "sha256": "0e9cf4a04832c7fb5e0206f9c26a27c789dfc423c364368a49dd4744cfd8fb3f",
+      "size": 150382
+    }
+  },
+  "401882787": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "9659",
+      "fullName": "Mestalla Stadium",
+      "shortName": "Mestalla Stadium",
+      "address": {
+        "city": "Manises",
+        "country": "Spain"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882787",
+      "retrieved_at": "2026-11-26T13:07:00.315458+00:00",
+      "sha256": "ba11e516a07890586da18055b294d44ee32df239a4e58106b01cbe2923927d5b",
+      "size": 159888
+    }
+  },
+  "401882795": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10627",
+      "fullName": "Balaidos",
+      "shortName": "Balaidos",
+      "address": {
+        "city": "Vigo",
+        "country": "Spain"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882795",
+      "retrieved_at": "2026-11-26T13:07:01.782189+00:00",
+      "sha256": "0ed6429943132e5f202859033376e68f0866dbf9293704325f9605f1d89bf3f8",
+      "size": 161183
+    }
+  },
+  "401882788": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10631",
+      "fullName": "Reale Arena",
+      "shortName": "Reale Arena",
+      "address": {
+        "city": "San Sebastian",
+        "country": "Spain"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882788",
+      "retrieved_at": "2026-11-26T13:07:02.693411+00:00",
+      "sha256": "cf4164fb972261d916d337f1639d9a27aceb1f4a78c15e7f05eb47b390d9c911",
+      "size": 163910
+    }
+  },
+  "401875031": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "7411",
+      "guid": "9c48b575-a7f6-349d-89af-477461caeb9f",
+      "fullName": "Stadio Friuli",
+      "shortName": "Stadio Friuli",
+      "address": {
+        "city": "Udine",
+        "country": "Italy"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401875031",
+      "retrieved_at": "2026-11-26T13:07:04.054604+00:00",
+      "sha256": "7e1a5811b741bf91a24bf6aea8e34bdcbce7c3660b7eba6ee475e6f96c5b17b0",
+      "size": 193880
+    }
+  },
+  "401874992": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "5275",
+      "guid": "73996a25-9a43-3b89-aa99-66f2eaac2b5e",
+      "fullName": "Mapei Stadium",
+      "shortName": "Mapei Stadium",
+      "address": {
+        "city": "Reggio Emilia",
+        "country": "Italy"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401874992",
+      "retrieved_at": "2026-11-26T13:07:04.814035+00:00",
+      "sha256": "abdbda1ad20be234cb9770a3fc59baede54b6fc5fbf484a520bda4b3439feb3b",
+      "size": 196424
+    }
+  },
+  "401874994": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "5934",
+      "guid": "067a84fc-b5bf-3976-8af2-4ff0ccc5c72f",
+      "fullName": "Giuseppe Sinigaglia",
+      "shortName": "Giuseppe Sinigaglia",
+      "address": {
+        "city": "Como",
+        "country": "Italy"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401874994",
+      "retrieved_at": "2026-11-26T13:07:06.256006+00:00",
+      "sha256": "67d3382c542d526d124337ca0fed6e8026cd779e741419380883ebe9a8ba6e73",
+      "size": 196784
+    }
+  },
+  "401876393": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4617",
+      "guid": "10737eb3-bb22-3ac4-8735-074ecc4db488",
+      "fullName": "Stade de l'Abbé-Deschamps",
+      "shortName": "Stade de l'Abbé-Deschamps",
+      "address": {
+        "city": "Auxerre",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876393",
+      "retrieved_at": "2026-11-26T13:07:07.816154+00:00",
+      "sha256": "778a7cb01b0de189c486d0e64c1439df7907a63624baa25fd52099db757ab034",
+      "size": 192181
+    }
+  },
+  "401876386": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10379",
+      "fullName": "Stadium Municipal de Toulouse",
+      "shortName": "Stadium Municipal de Toulouse",
+      "address": {
+        "city": "Toulouse",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876386",
+      "retrieved_at": "2026-11-26T13:07:08.510472+00:00",
+      "sha256": "6e762ae71b757dcd6b75e3690af8c55e5e829c31f6a29b18e65080c0b119f63e",
+      "size": 191913
+    }
+  },
+  "401876389": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "6499",
+      "guid": "f7e956d1-5008-32ff-aea8-96569010223f",
+      "fullName": "Groupama Stadium",
+      "shortName": "Groupama Stadium",
+      "address": {
+        "city": "Lyon",
+        "country": "France"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876389",
+      "retrieved_at": "2026-11-26T13:07:09.262535+00:00",
+      "sha256": "47469695247902d28a9ae1335dfb57865c28188f7e6de569ce2c5f908e16a5d8",
+      "size": 194073
+    }
+  },
+  "401875535": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10050",
+      "fullName": "De Kuip",
+      "shortName": "De Kuip",
+      "address": {
+        "city": "Rotterdam",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875535",
+      "retrieved_at": "2026-11-26T13:07:11.535882+00:00",
+      "sha256": "fd36a92167014d22348e8e5dc69cbafa3d9fca123464b83439634fdd3c7398ef",
+      "size": 163337
+    }
+  },
+  "401875534": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10428",
+      "fullName": "Fortuna Sittard Stadion",
+      "shortName": "Fortuna Sittard Stadion",
+      "address": {
+        "city": "Sittard",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875534",
+      "retrieved_at": "2026-11-26T13:07:12.253271+00:00",
+      "sha256": "5ad30f96c62280095681d2e61c555ed3040b845387be21721079a84912b987c4",
+      "size": 163835
+    }
+  },
+  "401875532": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4998",
+      "guid": "6df26915-ea7c-32db-8642-8de9194e865b",
+      "fullName": "MAC³PARK Stadion",
+      "shortName": "MAC³PARK Stadion",
+      "address": {
+        "city": "Zwolle",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875532",
+      "retrieved_at": "2026-11-26T13:07:13.070956+00:00",
+      "sha256": "d1d33aae91b7a7f9e76d9f40bc40e78469600a1aa57884765153ebe023d38363",
+      "size": 162283
+    }
+  },
+  "401875533": {
+    "status": "SOURCE_FAILED",
+    "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "venue": {
+      "id": "48",
+      "guid": "3bb9d9df-7033-3776-a160-dae57a05b7ae",
+      "fullName": "Goffertstadion",
+      "shortName": "Goffertstadion",
+      "address": {
+        "city": "Nijmegen",
+        "country": "Netherlands"
+      },
+      "images": []
+    }
+  },
+  "401876063": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "43",
+      "guid": "9c5f1bd8-a1d2-3b95-b474-0f57ad5e79ef",
+      "fullName": "Parkstad Limburg Stadion",
+      "address": {
+        "city": "Kerkrade",
+        "country": "Netherlands"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876063",
+      "retrieved_at": "2026-11-26T13:07:16.115027+00:00",
+      "sha256": "cb50a28e7c5ce67f556c24a21e589ab0d38c7980228281fec891f83eb50a6423",
+      "size": 158128
+    }
+  },
+  "401885390": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "4722",
+      "guid": "31f8a245-8500-3bcb-ae0e-1f163a512c7b",
+      "fullName": "Estádio Cidade de Barcelos",
+      "shortName": "Estádio Cidade de Barcelos",
+      "address": {
+        "city": "Barcelos",
+        "country": "Portugal"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885390",
+      "retrieved_at": "2026-11-26T13:07:17.532937+00:00",
+      "sha256": "e123bb00bac05bc3161052666c024b2851db968da60720adc7fb48b60a789b54",
+      "size": 209246
+    }
+  },
+  "401885387": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "1467",
+      "guid": "bb6610f6-eeb1-3193-ad28-e499de810098",
+      "fullName": "Estádio do Dragão",
+      "shortName": "Estádio do Dragão",
+      "address": {
+        "city": "Porto",
+        "country": "Portugal"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885387",
+      "retrieved_at": "2026-11-26T13:07:18.322854+00:00",
+      "sha256": "a1fc7e1be0f1d72e240b5298c856eae789b461dc80b7b806b98ef7f4aa886475",
+      "size": 207762
+    }
+  },
+  "401878926": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "2804",
+      "guid": "9f7e9195-4d6e-38a3-b993-4ba17d0813ff",
+      "fullName": "Daio Wasabi Stayen Stadium",
+      "shortName": "Daio Wasabi Stayen Stadium",
+      "address": {
+        "city": "Sint-Truiden",
+        "country": "Belgium"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/summary?event=401878926",
+      "retrieved_at": "2026-11-26T13:07:19.792883+00:00",
+      "sha256": "3e3f6752651adb89fb86fc0d9af195aa225f06dc0ec0fcd87608395fa6a362bd",
+      "size": 154771
+    }
+  },
+  "401878928": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "7268",
+      "guid": "3575ab57-6564-3d7a-a44e-a0640df18bf6",
+      "fullName": "Bosuilstadion",
+      "shortName": "Bosuilstadion",
+      "address": {
+        "city": "Antwerp",
+        "country": "Belgium"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/summary?event=401878928",
+      "retrieved_at": "2026-11-26T13:07:20.666395+00:00",
+      "sha256": "ab6b53f4f661720c95b5a0aa908e955b41e73e65eea3957c4e1c383cd9f37ae5",
+      "size": 154644
+    }
+  },
+  "401878927": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3938",
+      "guid": "496a73bd-d40a-376d-9981-27f46c6546aa",
+      "fullName": "Stade Maurice Dufrasne",
+      "shortName": "Stade Maurice Dufrasne",
+      "address": {
+        "city": "Liege",
+        "country": "Belgium"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/summary?event=401878927",
+      "retrieved_at": "2026-11-26T13:07:21.284571+00:00",
+      "sha256": "63f5e6a88e79aad70120df30929d43ec9c5c29ec35157475eb7a9006a449c31f",
+      "size": 155735
+    }
+  },
+  "401878925": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "7079",
+      "guid": "b26093a1-ecf1-3893-85db-e9145f0f3f32",
+      "fullName": "Stade Joseph Marien",
+      "shortName": "Stade Joseph Marien",
+      "address": {
+        "city": "Saint-Gilles, Brussels",
+        "country": "Belgium"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/summary?event=401878925",
+      "retrieved_at": "2026-11-26T13:07:21.995568+00:00",
+      "sha256": "0612ece5e1e184b519936860bd1643bd953fd3c9260861b7955fa854c680f56e",
+      "size": 156236
+    }
+  },
+  "401843498": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "3758",
+      "guid": "fe68a769-4480-3ac4-b4d7-3b8181690765",
+      "fullName": "Jotun Arena",
+      "shortName": "Jotun Arena",
+      "address": {
+        "city": "Sandefjord",
+        "country": "Norway"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843498",
+      "retrieved_at": "2026-11-26T13:07:25.174846+00:00",
+      "sha256": "d03b224f9543a4d25c2ba06773b938a3163255cae14f2baf4de02eef85e0774f",
+      "size": 142938
+    }
+  },
+  "401843494": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "6714",
+      "guid": "0bf9e6a1-77f3-3e5b-a0f4-30fe0ceb60b1",
+      "fullName": "Brann Stadium",
+      "shortName": "Brann Stadium",
+      "address": {
+        "city": "Bergen",
+        "country": "Norway"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843494",
+      "retrieved_at": "2026-11-26T13:07:25.769407+00:00",
+      "sha256": "f97a1b421f49a26481912f5d004fe6f68829028c66d1b99eca1032fefc81072a",
+      "size": 142820
+    }
+  },
+  "401843493": {
+    "status": "VENUE_COORDINATES_UNVERIFIED",
+    "venue": {
+      "id": "10880",
+      "fullName": "Viking Stadion",
+      "shortName": "Viking Stadion",
+      "address": {
+        "city": "Stavanger",
+        "country": "Norway"
+      },
+      "images": []
+    },
+    "source": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/summary?event=401843493",
+      "retrieved_at": "2026-11-26T13:07:26.510977+00:00",
+      "sha256": "73b85080863075238157e6ce866afcef0a9410f6e41bb674c392c77c17b17035",
+      "size": 144344
+    }
+  }
+}

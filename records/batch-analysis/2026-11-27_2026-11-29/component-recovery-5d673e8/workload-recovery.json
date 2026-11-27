@@ -1,0 +1,1392 @@
+{
+  "events": {
+    "401885055": {
+      "fact": {
+        "event_id": "401885055",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "270",
+          "away": "121"
+        },
+        "kickoff": "2026-11-21T19:30:00+00:00",
+        "score": [
+          2,
+          0
+        ],
+        "finished": "2026-11-27T06:36:43.878993+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:43.878993+00:00",
+        "sha256": "7038a090ec1080f43db4d5626932da0a527baf40c026953b6664afb261516fb8",
+        "size": 325543,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885055"
+      }
+    },
+    "401885053": {
+      "fact": {
+        "event_id": "401885053",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3812",
+          "away": "6418"
+        },
+        "kickoff": "2026-11-20T17:30:00+00:00",
+        "score": [
+          3,
+          1
+        ],
+        "finished": "2026-11-27T06:36:43.890151+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:43.890151+00:00",
+        "sha256": "e8959bdcf2b2a8ae8be4dfff617bf1c98982bd918787d6fb7f31909d4db2d51a",
+        "size": 328185,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885053"
+      }
+    },
+    "401875851": {
+      "fact": {
+        "event_id": "401875851",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "4426",
+          "away": "3708"
+        },
+        "kickoff": "2026-11-14T19:00:00+00:00",
+        "score": [
+          1,
+          2
+        ],
+        "finished": "2026-11-27T06:37:32.726634+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.726634+00:00",
+        "sha256": "7ac81c8a88b12a7e41a7871fe032509da3c06908824e2e8518381eff7627ece1",
+        "size": 310086,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875851"
+      }
+    },
+    "401875842": {
+      "fact": {
+        "event_id": "401875842",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3775",
+          "away": "4426"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          5,
+          1
+        ],
+        "finished": "2026-11-27T06:37:32.711882+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.711882+00:00",
+        "sha256": "d17c3e068da3cd82eccfd29580841e6dfde7567fc3bdbebb3b96d6b65df40c07",
+        "size": 317560,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875842"
+      }
+    },
+    "401875847": {
+      "fact": {
+        "event_id": "401875847",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3730",
+          "away": "154"
+        },
+        "kickoff": "2026-11-15T13:30:00+00:00",
+        "score": [
+          2,
+          1
+        ],
+        "finished": "2026-11-27T06:37:32.816073+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.816073+00:00",
+        "sha256": "8f22fe7732368a967d259905bbcd3c03fe49b9d83cbdbc29279ccee7425a432f",
+        "size": 309288,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875847"
+      }
+    },
+    "401875838": {
+      "fact": {
+        "event_id": "401875838",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "154",
+          "away": "18748"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          0,
+          3
+        ],
+        "finished": "2026-11-27T06:37:32.736597+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.736597+00:00",
+        "sha256": "3672fd3c2de77188a44d20b1a6b12bbb94cc847bd3be211ab36d02dba40ae170",
+        "size": 323026,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875838"
+      }
+    },
+    "401875856": {
+      "fact": {
+        "event_id": "401875856",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "154",
+          "away": "144"
+        },
+        "kickoff": "2026-11-23T19:00:00+00:00",
+        "score": [
+          0,
+          1
+        ],
+        "finished": "2026-11-27T06:37:32.974487+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.974487+00:00",
+        "sha256": "77fe7012b1e06b77f7bd5448bcf08f93edce42e23ee4f64773b03a462e5d9019",
+        "size": 324607,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875856"
+      }
+    },
+    "401875836": {
+      "fact": {
+        "event_id": "401875836",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "10597",
+          "away": "18748"
+        },
+        "kickoff": "2026-11-23T19:00:00+00:00",
+        "score": [
+          3,
+          0
+        ],
+        "finished": "2026-11-27T06:37:33.096843+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.096843+00:00",
+        "sha256": "b149b0e9c91907b4eb04670b08c236fa36bd12c9ed2152d03fc81b7ace548e7c",
+        "size": 312499,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875836"
+      }
+    },
+    "401875852": {
+      "fact": {
+        "event_id": "401875852",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "144",
+          "away": "3728"
+        },
+        "kickoff": "2026-11-14T19:00:00+00:00",
+        "score": [
+          1,
+          2
+        ],
+        "finished": "2026-11-27T06:37:32.958591+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.958591+00:00",
+        "sha256": "4a315e9e0b04df2edfd64e5f0f2eee4d55ee6a221f41a446d63a1a9efad303d3",
+        "size": 314296,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875852"
+      }
+    },
+    "401875839": {
+      "fact": {
+        "event_id": "401875839",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3728",
+          "away": "149"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          1,
+          0
+        ],
+        "finished": "2026-11-27T06:37:32.980405+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:32.980405+00:00",
+        "sha256": "d323ffb67d14b06008b664e0644318404d6ffc8a22edf422a87ff846bd8677af",
+        "size": 309303,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875839"
+      }
+    },
+    "401875840": {
+      "fact": {
+        "event_id": "401875840",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "18278",
+          "away": "3707"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          1,
+          0
+        ],
+        "finished": "2026-11-27T06:37:33.107820+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.107820+00:00",
+        "sha256": "253d1ad90aca8cf6fb811b6ed4bfb2a098b33bedcac39136374ca8493199cd92",
+        "size": 294770,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875840"
+      }
+    },
+    "401875835": {
+      "fact": {
+        "event_id": "401875835",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "9983",
+          "away": "18278"
+        },
+        "kickoff": "2026-11-23T19:00:00+00:00",
+        "score": [
+          3,
+          2
+        ],
+        "finished": "2026-11-27T06:37:33.182830+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.182830+00:00",
+        "sha256": "13f8426adf4f6b3ca61329a8cfbf2baa182b58c13d04b5d02ccfeca0270e3db9",
+        "size": 288021,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875835"
+      }
+    },
+    "401875853": {
+      "fact": {
+        "event_id": "401875853",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "5291",
+          "away": "3775"
+        },
+        "kickoff": "2026-11-14T19:00:00+00:00",
+        "score": [
+          6,
+          1
+        ],
+        "finished": "2026-11-27T06:37:33.149328+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.149328+00:00",
+        "sha256": "570df838aa6e292153621810c51fe779f5c6362818c4cdf48f0f43913bdfd326",
+        "size": 312892,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875853"
+      }
+    },
+    "401875846": {
+      "fact": {
+        "event_id": "401875846",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "5291",
+          "away": "141"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          1,
+          4
+        ],
+        "finished": "2026-11-27T06:37:33.253256+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.253256+00:00",
+        "sha256": "ad2796cb34c165534cce0892c162872fc72e27a8ed1c1c74420603c80b2d5a92",
+        "size": 328268,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875846"
+      }
+    },
+    "401875845": {
+      "fact": {
+        "event_id": "401875845",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "144",
+          "away": "3730"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          3,
+          0
+        ],
+        "finished": "2026-11-27T06:37:33.275821+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.275821+00:00",
+        "sha256": "9ff286bcb0c38423ec9cc76eca4b023f99b3b44c829a5af767a682f45f5a294e",
+        "size": 307348,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875845"
+      }
+    },
+    "401875841": {
+      "fact": {
+        "event_id": "401875841",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3708",
+          "away": "9983"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          2,
+          1
+        ],
+        "finished": "2026-11-27T06:37:33.348678+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.348678+00:00",
+        "sha256": "f339285c332be53798075365255434b897f16db4665ac9a899d0a2a0dd7d5ea5",
+        "size": 290692,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875841"
+      }
+    },
+    "401875848": {
+      "fact": {
+        "event_id": "401875848",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3731",
+          "away": "3732"
+        },
+        "kickoff": "2026-11-14T19:00:00+00:00",
+        "score": [
+          1,
+          2
+        ],
+        "finished": "2026-11-27T06:37:33.450454+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.450454+00:00",
+        "sha256": "32b7b0fbd871370394a83ded55e92f7807d079a1ee5148e3bd8c2fc9bdd73529",
+        "size": 316977,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875848"
+      }
+    },
+    "401875844": {
+      "fact": {
+        "event_id": "401875844",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "271",
+          "away": "3731"
+        },
+        "kickoff": "2026-11-20T19:00:00+00:00",
+        "score": [
+          1,
+          0
+        ],
+        "finished": "2026-11-27T06:37:33.414992+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.414992+00:00",
+        "sha256": "a18fb8874956add035cfdfc4ee50387e13d1da593d1dbe272168117340b836b1",
+        "size": 306487,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875844"
+      }
+    },
+    "401875850": {
+      "fact": {
+        "event_id": "401875850",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "155",
+          "away": "271"
+        },
+        "kickoff": "2026-11-14T19:00:00+00:00",
+        "score": [
+          4,
+          0
+        ],
+        "finished": "2026-11-27T06:37:33.390050+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.390050+00:00",
+        "sha256": "3f86479f04224d97f8e9b4ee46d8f65bfd22d5221f6bd9eb71b0ea9731fd774d",
+        "size": 309773,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875850"
+      }
+    },
+    "401875837": {
+      "fact": {
+        "event_id": "401875837",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "3732",
+          "away": "155"
+        },
+        "kickoff": "2026-11-21T15:30:00+00:00",
+        "score": [
+          3,
+          2
+        ],
+        "finished": "2026-11-27T06:37:33.485022+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.485022+00:00",
+        "sha256": "cbe0ec416d5ca07710f7cebeb905721437b6353b4688a1ddeff61f638c427ea7",
+        "size": 312026,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875837"
+      }
+    },
+    "401885048": {
+      "fact": {
+        "event_id": "401885048",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "123",
+          "away": "129"
+        },
+        "kickoff": "2026-11-22T12:30:00+00:00",
+        "score": [
+          0,
+          4
+        ],
+        "finished": "2026-11-27T06:36:44.051391+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.051391+00:00",
+        "sha256": "dfeb6348ad374f5f79d89f2fd0f83985dccbfc685618578f5c31d1bee7680abc",
+        "size": 331874,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885048"
+      }
+    },
+    "401885050": {
+      "fact": {
+        "event_id": "401885050",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "4471",
+          "away": "7013"
+        },
+        "kickoff": "2026-11-22T12:30:00+00:00",
+        "score": [
+          0,
+          0
+        ],
+        "finished": "2026-11-27T06:36:43.975774+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:43.975774+00:00",
+        "sha256": "03687e74d43e51a4c7547eebffbcba7482481aa075b87ebd3024ed08067d72d5",
+        "size": 313461,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885050"
+      }
+    },
+    "401885056": {
+      "fact": {
+        "event_id": "401885056",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "138",
+          "away": "7884"
+        },
+        "kickoff": "2026-11-21T12:00:00+00:00",
+        "score": [
+          3,
+          0
+        ],
+        "finished": "2026-11-27T06:36:44.228818+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.228818+00:00",
+        "sha256": "34202d53f40b5c160722f90b776f6839d69a445c28454310fef27cb66d3249e3",
+        "size": 330602,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885056"
+      }
+    },
+    "401885052": {
+      "fact": {
+        "event_id": "401885052",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "130",
+          "away": "7017"
+        },
+        "kickoff": "2026-11-22T12:30:00+00:00",
+        "score": [
+          2,
+          2
+        ],
+        "finished": "2026-11-27T06:36:44.173628+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.173628+00:00",
+        "sha256": "61239e42dd19b5e03b622683b4bd765295b3a79022b270faec242d241fa2370e",
+        "size": 320044,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885052"
+      }
+    },
+    "401875854": {
+      "fact": {
+        "event_id": "401875854",
+        "competition": "ned.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "141",
+          "away": "3707"
+        },
+        "kickoff": "2026-11-14T15:30:00+00:00",
+        "score": [
+          4,
+          2
+        ],
+        "finished": "2026-11-27T06:37:33.612084+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:37:33.612084+00:00",
+        "sha256": "1b8cb4985d900c94d4de7aec0ed986bb3682e6f07ffe07fe140b7b991a187a10",
+        "size": 312788,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875854"
+      }
+    },
+    "401885054": {
+      "fact": {
+        "event_id": "401885054",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "2428",
+          "away": "3070"
+        },
+        "kickoff": "2026-11-21T12:00:00+00:00",
+        "score": [
+          2,
+          1
+        ],
+        "finished": "2026-11-27T06:36:44.185340+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.185340+00:00",
+        "sha256": "1dbfca5ac16b667fbde40f61826fedff55d39132d6cfd318aa5eaed9507fc84c",
+        "size": 328376,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885054"
+      }
+    },
+    "401885049": {
+      "fact": {
+        "event_id": "401885049",
+        "competition": "ger.2",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "2506",
+          "away": "10382"
+        },
+        "kickoff": "2026-11-20T17:30:00+00:00",
+        "score": [
+          1,
+          2
+        ],
+        "finished": "2026-11-27T06:36:44.300042+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.300042+00:00",
+        "sha256": "c11546ca12cc7d88e90567081f4656e631dc288d410701cf82ce06939dfc84ec",
+        "size": 325939,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885049"
+      }
+    },
+    "401931821": {
+      "fact": {
+        "event_id": "401931821",
+        "competition": "por.taca.portugal",
+        "season": null,
+        "season_basis": "SEASON_UNAVAILABLE",
+        "teams": {
+          "home": "437",
+          "away": "21606"
+        },
+        "kickoff": "2026-11-20T20:45:00+00:00",
+        "score": null,
+        "finished": null,
+        "terminal_status": "STATUS_FINAL_PEN",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.431900+00:00",
+        "sha256": "925d0b0b3d7874dc2bbf4a3f2368ab40da6a7a3d49d185a421d18ce9ce6eb3c6",
+        "size": 77857,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.taca.portugal/summary?event=401931821"
+      }
+    },
+    "401915294": {
+      "fact": {
+        "event_id": "401915294",
+        "competition": "uefa.champions",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "142",
+          "away": "437"
+        },
+        "kickoff": "2026-11-24T20:00:00+00:00",
+        "score": [
+          0,
+          1
+        ],
+        "finished": "2026-11-24T21:56:35+00:00",
+        "terminal_source": "PROVIDER_END_REGULAR_TIME",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.328167+00:00",
+        "sha256": "9d8bd7121843ec53980aea3594b38d1aa6526facc507904228b4709da5fcceac",
+        "size": 450741,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915294"
+      }
+    },
+    "401931820": {
+      "fact": {
+        "event_id": "401931820",
+        "competition": "por.taca.portugal",
+        "season": null,
+        "season_basis": "SEASON_UNAVAILABLE",
+        "teams": {
+          "home": "2250",
+          "away": "132894"
+        },
+        "kickoff": "2026-11-21T18:00:00+00:00",
+        "score": [
+          4,
+          0
+        ],
+        "finished": "2026-11-27T06:36:44.400533+00:00",
+        "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.400533+00:00",
+        "sha256": "06c2b0bdfaeaac7993beb851e3adc1a2322ded93a4586d1ce90b8ac555f760f6",
+        "size": 82275,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.taca.portugal/summary?event=401931820"
+      }
+    },
+    "401915373": {
+      "fact": {
+        "event_id": "401915373",
+        "competition": "uefa.champions",
+        "season": 2026,
+        "season_basis": "APPROVED_COMPETITION_CALENDAR",
+        "teams": {
+          "home": "2250",
+          "away": "360"
+        },
+        "kickoff": "2026-11-25T20:00:00+00:00",
+        "score": [
+          2,
+          2
+        ],
+        "finished": "2026-11-25T21:54:59+00:00",
+        "terminal_source": "PROVIDER_END_REGULAR_TIME",
+        "terminal_status": "STATUS_FULL_TIME",
+        "provider_completed": true
+      },
+      "source": {
+        "retrieved_at": "2026-11-27T06:36:44.529521+00:00",
+        "sha256": "4695f0ec700195850615bfce3d73a66692437c811103960ece7928ea39f382db",
+        "size": 483706,
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915373"
+      }
+    }
+  },
+  "teams_by_target": {
+    "401885045": {
+      "121": [
+        {
+          "key": [
+            "ger.2",
+            "401885055"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885045",
+            "retrieved_at": "2026-11-27T05:40:10.196534+00:00",
+            "sha256": "7b031190d7776d6870c48e727b80b09d71e423d6520c9f4fd9d651d139dcdcde",
+            "size": 150218
+          }
+        }
+      ],
+      "3812": [
+        {
+          "key": [
+            "ger.2",
+            "401885053"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885045",
+            "retrieved_at": "2026-11-27T05:40:10.196534+00:00",
+            "sha256": "7b031190d7776d6870c48e727b80b09d71e423d6520c9f4fd9d651d139dcdcde",
+            "size": 150218
+          }
+        }
+      ]
+    },
+    "401875834": {
+      "4426": [
+        {
+          "key": [
+            "ned.2",
+            "401875851"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+            "retrieved_at": "2026-11-27T05:40:17.689431+00:00",
+            "sha256": "1761f0e1f95fdb99c244017e2ff9e0a2f151e3ee23d62b4ae33d0d3ec1b6bb60",
+            "size": 160305
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875842"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+            "retrieved_at": "2026-11-27T05:40:17.689431+00:00",
+            "sha256": "1761f0e1f95fdb99c244017e2ff9e0a2f151e3ee23d62b4ae33d0d3ec1b6bb60",
+            "size": 160305
+          }
+        }
+      ],
+      "154": [
+        {
+          "key": [
+            "ned.2",
+            "401875847"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+            "retrieved_at": "2026-11-27T05:40:17.689431+00:00",
+            "sha256": "1761f0e1f95fdb99c244017e2ff9e0a2f151e3ee23d62b4ae33d0d3ec1b6bb60",
+            "size": 160305
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875838"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+            "retrieved_at": "2026-11-27T05:40:17.689431+00:00",
+            "sha256": "1761f0e1f95fdb99c244017e2ff9e0a2f151e3ee23d62b4ae33d0d3ec1b6bb60",
+            "size": 160305
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875856"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875834",
+            "retrieved_at": "2026-11-27T05:40:17.689431+00:00",
+            "sha256": "1761f0e1f95fdb99c244017e2ff9e0a2f151e3ee23d62b4ae33d0d3ec1b6bb60",
+            "size": 160305
+          }
+        }
+      ]
+    },
+    "401875832": {
+      "18748": [
+        {
+          "key": [
+            "ned.2",
+            "401875838"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875832",
+            "retrieved_at": "2026-11-27T05:40:19.189096+00:00",
+            "sha256": "163714cf68ea9ce254bb0ed506cff4e13cffc3e9cc46304f2299e6d3a789e59d",
+            "size": 159422
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875836"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875832",
+            "retrieved_at": "2026-11-27T05:40:19.189096+00:00",
+            "sha256": "163714cf68ea9ce254bb0ed506cff4e13cffc3e9cc46304f2299e6d3a789e59d",
+            "size": 159422
+          }
+        }
+      ],
+      "3728": [
+        {
+          "key": [
+            "ned.2",
+            "401875852"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875832",
+            "retrieved_at": "2026-11-27T05:40:19.189096+00:00",
+            "sha256": "163714cf68ea9ce254bb0ed506cff4e13cffc3e9cc46304f2299e6d3a789e59d",
+            "size": 159422
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875839"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875832",
+            "retrieved_at": "2026-11-27T05:40:19.189096+00:00",
+            "sha256": "163714cf68ea9ce254bb0ed506cff4e13cffc3e9cc46304f2299e6d3a789e59d",
+            "size": 159422
+          }
+        }
+      ]
+    },
+    "401875831": {
+      "18278": [
+        {
+          "key": [
+            "ned.2",
+            "401875840"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875831",
+            "retrieved_at": "2026-11-27T05:40:19.931761+00:00",
+            "sha256": "ca5db2e5e88cf341544ceaa1b83797eb53358b0657cc0f25570ce1cb3051aad2",
+            "size": 159193
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875835"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875831",
+            "retrieved_at": "2026-11-27T05:40:19.931761+00:00",
+            "sha256": "ca5db2e5e88cf341544ceaa1b83797eb53358b0657cc0f25570ce1cb3051aad2",
+            "size": 159193
+          }
+        }
+      ],
+      "5291": [
+        {
+          "key": [
+            "ned.2",
+            "401875853"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875831",
+            "retrieved_at": "2026-11-27T05:40:19.931761+00:00",
+            "sha256": "ca5db2e5e88cf341544ceaa1b83797eb53358b0657cc0f25570ce1cb3051aad2",
+            "size": 159193
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875846"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875831",
+            "retrieved_at": "2026-11-27T05:40:19.931761+00:00",
+            "sha256": "ca5db2e5e88cf341544ceaa1b83797eb53358b0657cc0f25570ce1cb3051aad2",
+            "size": 159193
+          }
+        }
+      ]
+    },
+    "401875830": {
+      "3730": [
+        {
+          "key": [
+            "ned.2",
+            "401875847"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875830",
+            "retrieved_at": "2026-11-27T05:40:20.702141+00:00",
+            "sha256": "93bdead159ff3e9d830653c221f1dcf45bea8bb3314a0f5dba8875a85011dcee",
+            "size": 159518
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875845"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875830",
+            "retrieved_at": "2026-11-27T05:40:20.702141+00:00",
+            "sha256": "93bdead159ff3e9d830653c221f1dcf45bea8bb3314a0f5dba8875a85011dcee",
+            "size": 159518
+          }
+        }
+      ],
+      "9983": [
+        {
+          "key": [
+            "ned.2",
+            "401875841"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875830",
+            "retrieved_at": "2026-11-27T05:40:20.702141+00:00",
+            "sha256": "93bdead159ff3e9d830653c221f1dcf45bea8bb3314a0f5dba8875a85011dcee",
+            "size": 159518
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875835"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875830",
+            "retrieved_at": "2026-11-27T05:40:20.702141+00:00",
+            "sha256": "93bdead159ff3e9d830653c221f1dcf45bea8bb3314a0f5dba8875a85011dcee",
+            "size": 159518
+          }
+        }
+      ]
+    },
+    "401876061": {
+      "3731": [
+        {
+          "key": [
+            "ned.2",
+            "401875848"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876061",
+            "retrieved_at": "2026-11-27T05:40:22.213736+00:00",
+            "sha256": "a9e918fde9b8b74ec59baecc92ae843361a9329ff0ff4d1fbe8902ceb9266535",
+            "size": 159128
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875844"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876061",
+            "retrieved_at": "2026-11-27T05:40:22.213736+00:00",
+            "sha256": "a9e918fde9b8b74ec59baecc92ae843361a9329ff0ff4d1fbe8902ceb9266535",
+            "size": 159128
+          }
+        }
+      ],
+      "155": [
+        {
+          "key": [
+            "ned.2",
+            "401875850"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876061",
+            "retrieved_at": "2026-11-27T05:40:22.213736+00:00",
+            "sha256": "a9e918fde9b8b74ec59baecc92ae843361a9329ff0ff4d1fbe8902ceb9266535",
+            "size": 159128
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875837"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876061",
+            "retrieved_at": "2026-11-27T05:40:22.213736+00:00",
+            "sha256": "a9e918fde9b8b74ec59baecc92ae843361a9329ff0ff4d1fbe8902ceb9266535",
+            "size": 159128
+          }
+        }
+      ]
+    },
+    "401885046": {
+      "129": [
+        {
+          "key": [
+            "ger.2",
+            "401885048"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885046",
+            "retrieved_at": "2026-11-27T05:40:14.750861+00:00",
+            "sha256": "e0cc531b972c9045881d34be429672a705e172cf0f55e184d1a0d0c675a06306",
+            "size": 147418
+          }
+        }
+      ],
+      "4471": [
+        {
+          "key": [
+            "ger.2",
+            "401885050"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885046",
+            "retrieved_at": "2026-11-27T05:40:14.750861+00:00",
+            "sha256": "e0cc531b972c9045881d34be429672a705e172cf0f55e184d1a0d0c675a06306",
+            "size": 147418
+          }
+        }
+      ]
+    },
+    "401885043": {
+      "7884": [
+        {
+          "key": [
+            "ger.2",
+            "401885056"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885043",
+            "retrieved_at": "2026-11-27T05:40:15.445775+00:00",
+            "sha256": "1a940dfeddc44d734f5ae4d884a5bc13f286c6676ed7fec811f4fca9689f3dae",
+            "size": 149394
+          }
+        }
+      ],
+      "130": [
+        {
+          "key": [
+            "ger.2",
+            "401885052"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885043",
+            "retrieved_at": "2026-11-27T05:40:15.445775+00:00",
+            "sha256": "1a940dfeddc44d734f5ae4d884a5bc13f286c6676ed7fec811f4fca9689f3dae",
+            "size": 149394
+          }
+        }
+      ]
+    },
+    "401875828": {
+      "3707": [
+        {
+          "key": [
+            "ned.2",
+            "401875854"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875828",
+            "retrieved_at": "2026-11-27T05:40:31.933945+00:00",
+            "sha256": "d6e1cbc8fab9167e12f4fe1f9ea1d9174bad96ae241d19823897676b9f45af46",
+            "size": 157910
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875840"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875828",
+            "retrieved_at": "2026-11-27T05:40:31.933945+00:00",
+            "sha256": "d6e1cbc8fab9167e12f4fe1f9ea1d9174bad96ae241d19823897676b9f45af46",
+            "size": 157910
+          }
+        }
+      ],
+      "3775": [
+        {
+          "key": [
+            "ned.2",
+            "401875853"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875828",
+            "retrieved_at": "2026-11-27T05:40:31.933945+00:00",
+            "sha256": "d6e1cbc8fab9167e12f4fe1f9ea1d9174bad96ae241d19823897676b9f45af46",
+            "size": 157910
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875842"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401875828",
+            "retrieved_at": "2026-11-27T05:40:31.933945+00:00",
+            "sha256": "d6e1cbc8fab9167e12f4fe1f9ea1d9174bad96ae241d19823897676b9f45af46",
+            "size": 157910
+          }
+        }
+      ]
+    },
+    "401885040": {
+      "3070": [
+        {
+          "key": [
+            "ger.2",
+            "401885054"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885040",
+            "retrieved_at": "2026-11-26T13:06:58.011356+00:00",
+            "sha256": "0e9cf4a04832c7fb5e0206f9c26a27c789dfc423c364368a49dd4744cfd8fb3f",
+            "size": 150382
+          }
+        }
+      ],
+      "2506": [
+        {
+          "key": [
+            "ger.2",
+            "401885049"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885040",
+            "retrieved_at": "2026-11-26T13:06:58.011356+00:00",
+            "sha256": "0e9cf4a04832c7fb5e0206f9c26a27c789dfc423c364368a49dd4744cfd8fb3f",
+            "size": 150382
+          }
+        }
+      ]
+    },
+    "401876063": {
+      "149": [
+        {
+          "key": [
+            "ned.2",
+            "401875839"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876063",
+            "retrieved_at": "2026-11-26T13:07:16.115027+00:00",
+            "sha256": "cb50a28e7c5ce67f556c24a21e589ab0d38c7980228281fec891f83eb50a6423",
+            "size": 158128
+          }
+        }
+      ],
+      "144": [
+        {
+          "key": [
+            "ned.2",
+            "401875845"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876063",
+            "retrieved_at": "2026-11-26T13:07:16.115027+00:00",
+            "sha256": "cb50a28e7c5ce67f556c24a21e589ab0d38c7980228281fec891f83eb50a6423",
+            "size": 158128
+          }
+        },
+        {
+          "key": [
+            "ned.2",
+            "401875856"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/summary?event=401876063",
+            "retrieved_at": "2026-11-26T13:07:16.115027+00:00",
+            "sha256": "cb50a28e7c5ce67f556c24a21e589ab0d38c7980228281fec891f83eb50a6423",
+            "size": 158128
+          }
+        }
+      ]
+    },
+    "401885387": {
+      "437": [
+        {
+          "key": [
+            "por.taca.portugal",
+            "401931821"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885387",
+            "retrieved_at": "2026-11-26T13:07:18.322854+00:00",
+            "sha256": "a1fc7e1be0f1d72e240b5298c856eae789b461dc80b7b806b98ef7f4aa886475",
+            "size": 207762
+          }
+        },
+        {
+          "key": [
+            "uefa.champions",
+            "401915294"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885387",
+            "retrieved_at": "2026-11-26T13:07:18.322854+00:00",
+            "sha256": "a1fc7e1be0f1d72e240b5298c856eae789b461dc80b7b806b98ef7f4aa886475",
+            "size": 207762
+          }
+        }
+      ],
+      "2250": [
+        {
+          "key": [
+            "por.taca.portugal",
+            "401931820"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885387",
+            "retrieved_at": "2026-11-26T13:07:18.322854+00:00",
+            "sha256": "a1fc7e1be0f1d72e240b5298c856eae789b461dc80b7b806b98ef7f4aa886475",
+            "size": 207762
+          }
+        },
+        {
+          "key": [
+            "uefa.champions",
+            "401915373"
+          ],
+          "schedule_source": {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/summary?event=401885387",
+            "retrieved_at": "2026-11-26T13:07:18.322854+00:00",
+            "sha256": "a1fc7e1be0f1d72e240b5298c856eae789b461dc80b7b806b98ef7f4aa886475",
+            "size": 207762
+          }
+        }
+      ]
+    }
+  },
+  "unknown": []
+}
