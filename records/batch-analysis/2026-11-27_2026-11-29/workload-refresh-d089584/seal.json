@@ -1,0 +1,26 @@
+{
+  "research_calculated_at": "2026-11-27T12:50:23.578389+00:00",
+  "archived_at": "2026-11-27T12:51:10.070051+00:00",
+  "engine_commit": "d089584a9ea383a23c6247e0e15dafed49e55de8",
+  "scope": "RESEARCH_ONLY",
+  "original_audit": "5192337a",
+  "file_sha256": {
+    "raw-captures.tar.gz": "1e4e002f99ba58e607dd7ef847fdcad0ae3f438ce6fb94dc5fa100d77730b89e",
+    "settlement-results.json": "4b46934088181c8388cf16661568189bb37694e63a602ff1dfc0ad730e3878ce",
+    "decision-refresh.json": "ee33d64f6f7c1a0046fc7ac03bc6b0bbadece769324f43bd84e31755509f93e5",
+    "rankings.json": "b4747bac638c339a47ea95cd67f22ff22fb97ae6d46f22ff221ebf16920dc021",
+    "all-markets.csv": "6a8f1fd84b39c57f7ca704a86bd7796dd4b68c8e90801b0b9647b3cef8c89ac3",
+    "29/daily-analysis.json": "cf6ca2d329e010177272d3ab1e090c590efe632d24c5106823ba753b98d1f990",
+    "29/official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "29/report.json": "4229e24ade82dde7935dda2dd7370901063e3ae38407caca6d7a91a3632a0038",
+    "29/capture.json": "b2181b68c896b8d00c4beb9fe05974c7fc77d9ce1acc001cf92b3acf5fb4edaa",
+    "28/daily-analysis.json": "a1c78b2c694e3b07aaebea085ee4bd83cb2f82c0216c770bd32e1697d4e067e9",
+    "28/official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "28/report.json": "bf1906551db46bfb5e4e9e4470d76bd232c84201d41cb68fb9a65e81646594c2",
+    "28/capture.json": "53584ba6c87ddc8836c6c740ee9ffe5adfc47aaa65604585f535f0b31082c768",
+    "27/daily-analysis.json": "d4d1e006c2622943c4ba3bb6fd3d85e534f8c5e715bbcb9acef189ae16d04c6c",
+    "27/official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "27/report.json": "2275ac5a56e8f91cdc6f5ae328caa023d5829b380312d5d794713b0a23561377",
+    "27/capture.json": "32303bd0b26fbe91553d7e33ccb8b0740b1504ce2dd1fe9e9b90316c599e8c6f"
+  }
+}

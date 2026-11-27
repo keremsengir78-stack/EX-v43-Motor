@@ -1,0 +1,2184 @@
+{
+  "forecasts": 13,
+  "historical_matches": 7792,
+  "supplemental_scoreboard_records": 954,
+  "reused_verified_outcomes": 9,
+  "rolling_scoreboard_matches": 934,
+  "skipped": [
+    {
+      "event_id": "401885045",
+      "league": "de.2",
+      "teams": {
+        "home": "121",
+        "away": "3812"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875834",
+      "league": "nl.2",
+      "teams": {
+        "home": "4426",
+        "away": "154"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875832",
+      "league": "nl.2",
+      "teams": {
+        "home": "18748",
+        "away": "3728"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875831",
+      "league": "nl.2",
+      "teams": {
+        "home": "18278",
+        "away": "5291"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401875830",
+      "league": "nl.2",
+      "teams": {
+        "home": "3730",
+        "away": "9983"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    },
+    {
+      "event_id": "401876061",
+      "league": "nl.2",
+      "teams": {
+        "home": "3731",
+        "away": "155"
+      },
+      "missing_venue5": [
+        "home",
+        "away"
+      ],
+      "reason": "VENUE5_HISTORY_INCOMPLETE"
+    }
+  ],
+  "daily_fixture_records": 19,
+  "historical_sample_gaps": [],
+  "paired_model_gaps": [
+    {
+      "fixture": {
+        "event_id": "401885047",
+        "date": "2026-11-27",
+        "league": "de.2",
+        "kickoff_at": "2026-11-27T17:30:00+00:00",
+        "home": "1. FC Heidenheim 1846",
+        "away": "1. FC N\u00fcrnberg",
+        "team_ids": {
+          "home": "6418",
+          "away": "269"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:15.028133+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "6418",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.1",
+            "ger.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401885136",
+              "401885118",
+              "401885100",
+              "401885083",
+              "401885065"
+            ],
+            "venue_last10": [
+              "401885152",
+              "401885136",
+              "401885118",
+              "401885100",
+              "401885083",
+              "401885065"
+            ],
+            "current_season": [
+              "401885152",
+              "401885144",
+              "401885136",
+              "401885121",
+              "401885118",
+              "401885104",
+              "401885100",
+              "401885092",
+              "401885083",
+              "401885069",
+              "401885065",
+              "401885053"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 6,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "1. FC Heidenheim 1846",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "269",
+          "eligible_rows": 46,
+          "current_competitions": [
+            "ger.2"
+          ],
+          "archived_competitions": [
+            "ger.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401885139",
+              "401885123",
+              "401885107",
+              "401885084",
+              "401885073"
+            ],
+            "venue_last10": [
+              "747256",
+              "747271",
+              "747286",
+              "747305",
+              "747322",
+              "401885139",
+              "401885123",
+              "401885107",
+              "401885084",
+              "401885073"
+            ],
+            "current_season": [
+              "401885150",
+              "401885139",
+              "401885134",
+              "401885123",
+              "401885116",
+              "401885107",
+              "401885097",
+              "401885084",
+              "401885080",
+              "401885073",
+              "401885063",
+              "401885051"
+            ],
+            "previous_season_venue": [
+              "747030",
+              "747047",
+              "747063",
+              "747087",
+              "747105",
+              "747123",
+              "747148",
+              "747159",
+              "747186",
+              "747212",
+              "747230",
+              "747236",
+              "747256",
+              "747271",
+              "747286",
+              "747305",
+              "747322"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 17,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "de.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "1. FC N\u00fcrnberg",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401882791",
+        "date": "2026-11-27",
+        "league": "es.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Levante",
+        "away": "Racing Santander",
+        "team_ids": {
+          "home": "1538",
+          "away": "87"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:17.472617+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "1538",
+          "eligible_rows": 51,
+          "current_competitions": [
+            "esp.1"
+          ],
+          "archived_competitions": [
+            "esp.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401882883",
+              "401882852",
+              "401882870",
+              "401882820",
+              "401882802"
+            ],
+            "venue_last10": [
+              "748446",
+              "748473",
+              "748491",
+              "748510",
+              "401882902",
+              "401882883",
+              "401882852",
+              "401882870",
+              "401882820",
+              "401882802"
+            ],
+            "current_season": [
+              "401882922",
+              "401882909",
+              "401882902",
+              "401882890",
+              "401882883",
+              "401882857",
+              "401882852",
+              "401882844",
+              "401882870",
+              "401882829",
+              "401882820",
+              "401882815",
+              "401882802"
+            ],
+            "previous_season_venue": [
+              "748162",
+              "748175",
+              "748200",
+              "748230",
+              "748244",
+              "748278",
+              "748310",
+              "748328",
+              "748353",
+              "748357",
+              "748380",
+              "748302",
+              "748399",
+              "748407",
+              "748426",
+              "748446",
+              "748473",
+              "748491",
+              "748510"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 13,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 19,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "es.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Levante",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "87",
+          "eligible_rows": 13,
+          "current_competitions": [
+            "esp.1"
+          ],
+          "archived_competitions": [
+            "esp.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401882889",
+              "401882871",
+              "401882864",
+              "401882840",
+              "401882812"
+            ],
+            "venue_last10": [
+              "401882911",
+              "401882889",
+              "401882871",
+              "401882864",
+              "401882840",
+              "401882812"
+            ],
+            "current_season": [
+              "401882920",
+              "401882911",
+              "401882900",
+              "401882889",
+              "401882881",
+              "401882871",
+              "401882864",
+              "401882850",
+              "401882840",
+              "401882831",
+              "401882819",
+              "401882812",
+              "401882800"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 6,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 13,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "es.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 13,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Racing Santander",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875004",
+        "date": "2026-11-27",
+        "league": "it.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "Venezia",
+        "away": "Bologna",
+        "team_ids": {
+          "home": "17530",
+          "away": "107"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:18.776505+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "17530",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401874759",
+              "401874956",
+              "401874760",
+              "401874773",
+              "401874815"
+            ],
+            "venue_last10": [
+              "401874946",
+              "401874759",
+              "401874956",
+              "401874760",
+              "401874773",
+              "401874815"
+            ],
+            "current_season": [
+              "401874946",
+              "401874758",
+              "401874768",
+              "401874759",
+              "401874956",
+              "401875005",
+              "401874760",
+              "401874952",
+              "401874773",
+              "401875002",
+              "401874815",
+              "401875008"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 6,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Venezia",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "107",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ita.1"
+          ],
+          "archived_competitions": [
+            "ita.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401874792",
+              "401874776",
+              "401874958",
+              "401874993",
+              "401874974"
+            ],
+            "venue_last10": [
+              "737092",
+              "737112",
+              "737135",
+              "737144",
+              "401874970",
+              "401874792",
+              "401874776",
+              "401874958",
+              "401874993",
+              "401874974"
+            ],
+            "current_season": [
+              "401874927",
+              "401874970",
+              "401874751",
+              "401874792",
+              "401874767",
+              "401874776",
+              "401874953",
+              "401874958",
+              "401874993",
+              "401874798",
+              "401874974",
+              "401875047"
+            ],
+            "previous_season_venue": [
+              "736785",
+              "736806",
+              "736828",
+              "736851",
+              "736855",
+              "736874",
+              "736902",
+              "736923",
+              "736960",
+              "736976",
+              "736941",
+              "736997",
+              "737027",
+              "737047",
+              "737068",
+              "737092",
+              "737112",
+              "737135",
+              "737144"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 19,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "it.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Bologna",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875536",
+        "date": "2026-11-27",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "FC Groningen",
+        "away": "Willem II",
+        "team_ids": {
+          "home": "145",
+          "away": "156"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:21.842589+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "145",
+          "eligible_rows": 48,
+          "current_competitions": [
+            "ned.1"
+          ],
+          "archived_competitions": [
+            "ned.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875616",
+              "401875599",
+              "401875575",
+              "401875557",
+              "401875546"
+            ],
+            "venue_last10": [
+              "741239",
+              "741257",
+              "741270",
+              "401875649",
+              "401875630",
+              "401875616",
+              "401875599",
+              "401875575",
+              "401875557",
+              "401875546"
+            ],
+            "current_season": [
+              "401875649",
+              "401875641",
+              "401875632",
+              "401875630",
+              "401875616",
+              "401875609",
+              "401875599",
+              "401875584",
+              "401875575",
+              "401875569",
+              "401875557",
+              "401875548",
+              "401875546"
+            ],
+            "previous_season_venue": [
+              "740986",
+              "741002",
+              "741023",
+              "741031",
+              "741053",
+              "741072",
+              "741092",
+              "741119",
+              "741136",
+              "741154",
+              "741172",
+              "741180",
+              "741203",
+              "741219",
+              "741239",
+              "741257",
+              "741270"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 13,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 17,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 13,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "FC Groningen",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "156",
+          "eligible_rows": 51,
+          "current_competitions": [
+            "ned.1"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875602",
+              "401875587",
+              "401875579",
+              "401875564",
+              "401875545"
+            ],
+            "venue_last10": [
+              "401875653",
+              "401875611",
+              "401875602",
+              "401875587",
+              "401875579",
+              "401875564",
+              "401875545"
+            ],
+            "current_season": [
+              "401875653",
+              "401875645",
+              "401875625",
+              "401875617",
+              "401875611",
+              "401875602",
+              "401875597",
+              "401875587",
+              "401875579",
+              "401875572",
+              "401875564",
+              "401875556",
+              "401875545"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 7,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 13,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 7,
+            "current_season": 13,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Willem II",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875833",
+        "date": "2026-11-27",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "Jong Ajax",
+        "away": "Heracles Almelo",
+        "team_ids": {
+          "home": "10597",
+          "away": "3708"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:23.298915+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "10597",
+          "eligible_rows": 54,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875927",
+              "401875900",
+              "401875887",
+              "401875867",
+              "401875836"
+            ],
+            "venue_last10": [
+              "741641",
+              "741662",
+              "401875976",
+              "401875962",
+              "401875938",
+              "401875927",
+              "401875900",
+              "401875887",
+              "401875867",
+              "401875836"
+            ],
+            "current_season": [
+              "401875994",
+              "401875976",
+              "401875968",
+              "401875962",
+              "401875953",
+              "401875952",
+              "401875938",
+              "401875931",
+              "401875927",
+              "401875900",
+              "401875887",
+              "401875877",
+              "401875867",
+              "401875863",
+              "401875843",
+              "401875836"
+            ],
+            "previous_season_venue": [
+              "741301",
+              "741315",
+              "741337",
+              "741361",
+              "741380",
+              "741389",
+              "741404",
+              "741427",
+              "741438",
+              "758735",
+              "741492",
+              "741512",
+              "741530",
+              "741551",
+              "741572",
+              "741584",
+              "741602",
+              "741641",
+              "741662"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 16,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 19,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 16,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "Jong Ajax",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "3708",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875930",
+              "401875912",
+              "401875888",
+              "401875878",
+              "401875851"
+            ],
+            "venue_last10": [
+              "401875990",
+              "401875966",
+              "401875956",
+              "401875930",
+              "401875912",
+              "401875888",
+              "401875878",
+              "401875851"
+            ],
+            "current_season": [
+              "401875990",
+              "401875982",
+              "401875966",
+              "401875956",
+              "401875949",
+              "401875939",
+              "401875930",
+              "401875919",
+              "401875912",
+              "401875901",
+              "401875888",
+              "401875878",
+              "401875871",
+              "401875861",
+              "401875851",
+              "401875841"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 8,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 16,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 8,
+            "current_season": 16,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Heracles Almelo",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875829",
+        "date": "2026-11-27",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "NAC Breda",
+        "away": "FC Den Bosch",
+        "team_ids": {
+          "home": "141",
+          "away": "271"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:23.298915+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "141",
+          "eligible_rows": 50,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.1",
+            "ned.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875936",
+              "401875915",
+              "401875898",
+              "401875878",
+              "401875854"
+            ],
+            "venue_last10": [
+              "401875981",
+              "401875968",
+              "401875936",
+              "401875915",
+              "401875898",
+              "401875878",
+              "401875854"
+            ],
+            "current_season": [
+              "401875992",
+              "401875981",
+              "401875968",
+              "401875959",
+              "401875948",
+              "401875936",
+              "401875921",
+              "401875915",
+              "401875911",
+              "401875898",
+              "401875892",
+              "401875878",
+              "401875865",
+              "401875864",
+              "401875854",
+              "401875846"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 7,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 16,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 7,
+            "current_season": 16,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "NAC Breda",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "271",
+          "eligible_rows": 54,
+          "current_competitions": [
+            "ned.2"
+          ],
+          "archived_competitions": [
+            "ned.2"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401875933",
+              "401875913",
+              "401875899",
+              "401875874",
+              "401875850"
+            ],
+            "venue_last10": [
+              "741608",
+              "741627",
+              "741644",
+              "401875982",
+              "401875943",
+              "401875933",
+              "401875913",
+              "401875899",
+              "401875874",
+              "401875850"
+            ],
+            "current_season": [
+              "401875989",
+              "401875982",
+              "401875974",
+              "401875964",
+              "401875943",
+              "401875933",
+              "401875929",
+              "401875913",
+              "401875909",
+              "401875899",
+              "401875894",
+              "401875882",
+              "401875874",
+              "401875857",
+              "401875850",
+              "401875844"
+            ],
+            "previous_season_venue": [
+              "741314",
+              "741341",
+              "741351",
+              "741371",
+              "758727",
+              "741385",
+              "741411",
+              "741425",
+              "741448",
+              "741468",
+              "741518",
+              "741500",
+              "741534",
+              "741562",
+              "741580",
+              "741584",
+              "741608",
+              "741627",
+              "741644"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 16,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 19,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "nl.2",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 16,
+            "previous_season_venue": 19
+          },
+          "missing_samples": [],
+          "team": "FC Den Bosch",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885389",
+        "date": "2026-11-27",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-27T20:15:00+00:00",
+        "home": "Maritimo",
+        "away": "C.D. Nacional",
+        "team_ids": {
+          "home": "552",
+          "away": "3472"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:29.275287+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "552",
+          "eligible_rows": 10,
+          "current_competitions": [
+            "por.1"
+          ],
+          "archived_competitions": [
+            "por.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401885489",
+              "401885471",
+              "401885452",
+              "401885424",
+              "401885406"
+            ],
+            "venue_last10": [
+              "401885489",
+              "401885471",
+              "401885452",
+              "401885424",
+              "401885406"
+            ],
+            "current_season": [
+              "401885489",
+              "401885478",
+              "401885471",
+              "401885463",
+              "401885452",
+              "401885442",
+              "401885435",
+              "401885424",
+              "401885412",
+              "401885406"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "pt.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 5,
+            "current_season": 10,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "Maritimo",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "3472",
+          "eligible_rows": 45,
+          "current_competitions": [
+            "por.1"
+          ],
+          "archived_competitions": [
+            "por.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401885486",
+              "401885466",
+              "401885449",
+              "401885422",
+              "401885410"
+            ],
+            "venue_last10": [
+              "750467",
+              "750484",
+              "750500",
+              "750516",
+              "750538",
+              "401885486",
+              "401885466",
+              "401885449",
+              "401885422",
+              "401885410"
+            ],
+            "current_season": [
+              "401885486",
+              "401885477",
+              "401885466",
+              "401885459",
+              "401885449",
+              "401885441",
+              "401885434",
+              "401885422",
+              "401885416",
+              "401885410",
+              "401885398"
+            ],
+            "previous_season_venue": [
+              "750255",
+              "750274",
+              "750285",
+              "750304",
+              "750320",
+              "750342",
+              "750356",
+              "750376",
+              "750390",
+              "750402",
+              "750418",
+              "750451",
+              "750467",
+              "750484",
+              "750500",
+              "750516",
+              "750538"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 11,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 17,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "pt.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 11,
+            "previous_season_venue": 17
+          },
+          "missing_samples": [],
+          "team": "C.D. Nacional",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401878930",
+        "date": "2026-11-27",
+        "league": "be.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "OH Leuven",
+        "away": "KV Kortrijk",
+        "team_ids": {
+          "home": "5579",
+          "away": "5786"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-27T12:48:30.839755+00:00"
+      },
+      "teams": {
+        "home": {
+          "team_id": "5579",
+          "eligible_rows": 52,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401879011",
+              "401878993",
+              "401878986",
+              "401878969",
+              "401878949"
+            ],
+            "venue_last10": [
+              "401866286",
+              "401866292",
+              "401866315",
+              "401866327",
+              "401879029",
+              "401879011",
+              "401878993",
+              "401878986",
+              "401878969",
+              "401878949"
+            ],
+            "current_season": [
+              "401879040",
+              "401879029",
+              "401879011",
+              "401879020",
+              "401878997",
+              "401878993",
+              "401878986",
+              "401878975",
+              "401878969",
+              "401878952",
+              "401878949",
+              "401878941"
+            ],
+            "previous_season_venue": [
+              "742539",
+              "742558",
+              "742577",
+              "742596",
+              "742600",
+              "742614",
+              "742630",
+              "742652",
+              "742665",
+              "742684",
+              "742708",
+              "742712",
+              "742730",
+              "742753",
+              "742770",
+              "401866263",
+              "401866286",
+              "401866292",
+              "401866315",
+              "401866327"
+            ]
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 10,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 20,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 10,
+            "current_season": 12,
+            "previous_season_venue": 20
+          },
+          "missing_samples": [],
+          "team": "OH Leuven",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        },
+        "away": {
+          "team_id": "5786",
+          "eligible_rows": 12,
+          "current_competitions": [
+            "bel.1"
+          ],
+          "archived_competitions": [
+            "bel.1"
+          ],
+          "form_sample_event_ids": {
+            "venue_last5": [
+              "401879018",
+              "401878988",
+              "401878973",
+              "401878953",
+              "401878945"
+            ],
+            "venue_last10": [
+              "401879041",
+              "401879018",
+              "401878988",
+              "401878973",
+              "401878953",
+              "401878945"
+            ],
+            "current_season": [
+              "401879041",
+              "401879030",
+              "401879013",
+              "401879018",
+              "401878999",
+              "401878988",
+              "401878979",
+              "401878973",
+              "401878953",
+              "401878967",
+              "401878945",
+              "401878936"
+            ],
+            "previous_season_venue": []
+          },
+          "independent_results": {
+            "venue_last5": {
+              "sample_count": 5,
+              "confirmed_event_ids": []
+            },
+            "venue_last10": {
+              "sample_count": 6,
+              "confirmed_event_ids": []
+            },
+            "current_season": {
+              "sample_count": 12,
+              "confirmed_event_ids": []
+            },
+            "previous_season_venue": {
+              "sample_count": 0,
+              "confirmed_event_ids": []
+            }
+          },
+          "league": "be.1",
+          "current_season_start": "2026-07-01",
+          "previous_season_start": "2025-07-01",
+          "sample_counts": {
+            "venue_last5": 5,
+            "venue_last10": 6,
+            "current_season": 12,
+            "previous_season_venue": 0
+          },
+          "missing_samples": [
+            "venue_last10",
+            "previous_season_venue"
+          ],
+          "team": "KV Kortrijk",
+          "source_errors": [],
+          "schedule_source_state": "NO_REVIEWED_BINDING"
+        }
+      }
+    }
+  ],
+  "archived_independent_results": 9,
+  "fixtures_with_independent_performance_samples": 0,
+  "fixtures_with_timed_workload_both_sides": 11,
+  "domestic_source_coverage": [
+    {
+      "league": "at.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 71,
+        "ESPN": 195
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "at.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 78
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 33
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "az.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 11
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 104,
+        "ESPN": 313
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "be.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 34
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "cz.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 36,
+        "ESPN": 90
+      },
+      "exact_score_agreements": 13,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 58,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "de.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 380,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 110
+      },
+      "exact_score_agreements": 50,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 557,
+        "ESPN": 557
+      },
+      "exact_score_agreements": 556,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-12",
+          "home": "southampton",
+          "away": "middlesbrough",
+          "scores": {
+            "openfootball": [
+              0,
+              0
+            ],
+            "ESPN": [
+              2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "en.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 95,
+        "ESPN": 192
+      },
+      "exact_score_agreements": 95,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 72,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "es.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 69,
+        "ESPN": 129
+      },
+      "exact_score_agreements": 9,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 305
+      },
+      "exact_score_agreements": 109,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "fr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 45,
+        "ESPN": 99
+      },
+      "exact_score_agreements": 11,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 236
+      },
+      "exact_score_agreements": 14,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "gr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 76
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 380,
+        "ESPN": 380
+      },
+      "exact_score_agreements": 56,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "it.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 50,
+        "ESPN": 120
+      },
+      "exact_score_agreements": 7,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 305,
+        "ESPN": 309
+      },
+      "exact_score_agreements": 110,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 63,
+        "ESPN": 117
+      },
+      "exact_score_agreements": 19,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 380
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "nl.2",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 160
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 240
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "no.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 216
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 306,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 89,
+      "excluded_score_conflicts": [
+        {
+          "date": "2026-05-16",
+          "home": "moreirense",
+          "away": "avs",
+          "scores": {
+            "openfootball": [
+              0,
+              1
+            ],
+            "ESPN": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "league": "pt.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 62,
+        "ESPN": 98
+      },
+      "exact_score_agreements": 17,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 32
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "sk.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 15
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2025,
+      "provider": "ESPN",
+      "provider_rows": {
+        "openfootball": 99,
+        "ESPN": 306
+      },
+      "exact_score_agreements": 88,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "tr.1",
+      "season_start_year": 2026,
+      "provider": "ESPN",
+      "provider_rows": {
+        "ESPN": 108
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2025,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 30
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    },
+    {
+      "league": "ua.1",
+      "season_start_year": 2026,
+      "provider": "curated_club_results",
+      "provider_rows": {
+        "curated_club_results": 13
+      },
+      "exact_score_agreements": 0,
+      "excluded_score_conflicts": []
+    }
+  ],
+  "domestic_baselines": 11,
+  "daily_research_covered": 19,
+  "final_markets": 0,
+  "market_blockers": {
+    "ingestion:blocked": 76,
+    "second_source:unverified": 76,
+    "exg:uncalibrated": 76,
+    "context:unverified": 76,
+    "odds_lock:blocked": 38,
+    "historical_samples:incomplete": 32
+  },
+  "historical_events_quarantined": [],
+  "weather_sources_observed": 0,
+  "weather_errors": {
+    "401888241": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401888240": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401879225": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401884720": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885047": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885045": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401882791": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875004": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876392": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875536": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875834": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875833": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875832": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875831": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875830": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401875829": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401876061": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401885389": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    },
+    "401878930": {
+      "category": "VENUE_COORDINATES_UNVERIFIED"
+    }
+  },
+  "capture_source_errors": [
+    {
+      "league": "be.1",
+      "stage": "official_fixture_links",
+      "url": "https://www.proleague.be/jpl-kalender?activeTab=results",
+      "category": "ACCESS_DENIED",
+      "retry_deferred": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
+  "cup_source_errors": {},
+  "cup_team_history_sources": [],
+  "cup_team_history_errors": [],
+  "capture_cache_hits": 0,
+  "capture_network_requests": 34,
+  "alternate_fixtures": {},
+  "alternate_calendar_issues": {},
+  "generated_at": "2026-11-27T12:48:09.701248+00:00",
+  "production_allowed": false,
+  "ex_final_allowed": false
+}

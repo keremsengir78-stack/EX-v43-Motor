@@ -1,0 +1,619 @@
+{
+  "2026-11-27": {
+    "top7": [
+      {
+        "date": "2026-11-27",
+        "id": "401884720",
+        "TRT": "22:30",
+        "match": "Werder Bremen – Borussia Mönchengladbach",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6935694453783895,
+        "new": 0.6935694453783895,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875831",
+        "TRT": "22:00",
+        "match": "Jong FC Utrecht – Almere City",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6809450453313229,
+        "new": 0.6809450453313229,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875830",
+        "TRT": "22:00",
+        "match": "MVV Maastricht – Jong PSV",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6585518479004823,
+        "new": 0.6585518479004823,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401876061",
+        "TRT": "22:00",
+        "match": "VVV-Venlo – RKC Waalwijk",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6516493374343943,
+        "new": 0.6516493374343943,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401888240",
+        "TRT": "20:00",
+        "match": "Caykur Rizespor – Kasimpasa",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6353453916624987,
+        "new": 0.6353453916624987,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.6666666666666665,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875536",
+        "TRT": "22:00",
+        "match": "FC Groningen – Willem II",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.6335096190885567,
+        "new": 0.6335096190885567,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875832",
+        "TRT": "22:00",
+        "match": "Jong AZ – TOP Oss",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6317864182835042,
+        "new": 0.6317864182835042,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ],
+    "at_least_70": []
+  },
+  "2026-11-28": {
+    "top7": [
+      {
+        "date": "2026-11-28",
+        "id": "401843497",
+        "TRT": "20:00",
+        "match": "Rosenborg – Molde",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.704722606809071,
+        "new": 0.704722606809071,
+        "delta": 0.0,
+        "research_pup": "2.5_UST",
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401878929",
+        "TRT": "18:00",
+        "match": "KVC Westerlo – RAAL La Louvière",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.7039316757864538,
+        "new": 0.7039316757864538,
+        "delta": 0.0,
+        "research_pup": "2.5_UST",
+        "odds": 1.6451612903225805,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401875081",
+        "TRT": "17:00",
+        "match": "Frosinone – Parma",
+        "market": "MS1",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.7018429549483167,
+        "new": 0.7018429549483167,
+        "delta": 0.0,
+        "research_pup": "MS1",
+        "odds": 1.4651162790697674,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401876391",
+        "TRT": "22:45",
+        "match": "Le Havre AC – Strasbourg",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6810776927701586,
+        "new": 0.6810776927701586,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.6896551724137931,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401884723",
+        "TRT": "17:30",
+        "match": "Mainz – 1. FC Union Berlin",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6696011785022191,
+        "new": 0.6696011785022191,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401885046",
+        "TRT": "15:00",
+        "match": "Hertha Berlin – Karlsruher SC",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6653564821304678,
+        "new": 0.6653564821304678,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401875537",
+        "TRT": "18:30",
+        "match": "Excelsior – Telstar",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6651657198185537,
+        "new": 0.6651657198185537,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.6666666666666665,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ],
+    "at_least_70": [
+      {
+        "date": "2026-11-28",
+        "id": "401843497",
+        "TRT": "20:00",
+        "match": "Rosenborg – Molde",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.704722606809071,
+        "new": 0.704722606809071,
+        "delta": 0.0,
+        "research_pup": "2.5_UST",
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401878929",
+        "TRT": "18:00",
+        "match": "KVC Westerlo – RAAL La Louvière",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.7039316757864538,
+        "new": 0.7039316757864538,
+        "delta": 0.0,
+        "research_pup": "2.5_UST",
+        "odds": 1.6451612903225805,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-28",
+        "id": "401875081",
+        "TRT": "17:00",
+        "match": "Frosinone – Parma",
+        "market": "MS1",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.7018429549483167,
+        "new": 0.7018429549483167,
+        "delta": 0.0,
+        "research_pup": "MS1",
+        "odds": 1.4651162790697674,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ]
+  },
+  "2026-11-29": {
+    "top7": [
+      {
+        "date": "2026-11-29",
+        "id": "401884725",
+        "TRT": "19:30",
+        "match": "TSG Hoffenheim – FC Augsburg",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6335096190885567,
+        "new": 0.6912933123368615,
+        "delta": 0.05778369324830479,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875031",
+        "TRT": "14:30",
+        "match": "Udinese – Fiorentina",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6654636874910782,
+        "new": 0.6654636874910782,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.6896551724137931,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401876063",
+        "TRT": "18:45",
+        "match": "Roda JC Kerkrade – De Graafschap",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6651503493233447,
+        "new": 0.6651503493233447,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401843494",
+        "TRT": "19:00",
+        "match": "SK Brann – Kristiansund BK",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_WORKLOAD",
+        "old": 0.5971835789725873,
+        "new": 0.6644455853905559,
+        "delta": 0.06726200641796853,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875533",
+        "TRT": "22:00",
+        "match": "NEC Nijmegen – FC Twente",
+        "market": "KG_VAR",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_WORKLOAD",
+        "old": 0.581764751146754,
+        "new": 0.663288193968929,
+        "delta": 0.08152344282217505,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875534",
+        "TRT": "16:30",
+        "match": "Fortuna Sittard – Heerenveen",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.662938671559109,
+        "new": 0.662938671559109,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401879228",
+        "TRT": "17:05",
+        "match": "Fulham – AFC Bournemouth",
+        "market": "KG_VAR",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_WORKLOAD",
+        "old": 0.581764751146754,
+        "new": 0.6616059453200624,
+        "delta": 0.07984119417330848,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "live_evidence:48h_pending",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ],
+    "at_least_70": []
+  }
+}

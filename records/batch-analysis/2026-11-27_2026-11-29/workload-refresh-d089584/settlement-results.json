@@ -1,0 +1,189 @@
+{
+  "evaluated_at": "2026-11-27T12:50:25.152466+00:00",
+  "scope": "RESEARCH_PERFORMANCE_ONLY",
+  "matches_with_verified_results": 0,
+  "markets": {
+    "2.5_UST": {
+      "all_available_by_model": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_FORM": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_WORKLOAD": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_VENUE5": {
+          "n": 0,
+          "metrics": null
+        }
+      },
+      "same_matches_reference_v1_daily": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        }
+      }
+    },
+    "KG_VAR": {
+      "all_available_by_model": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_FORM": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_WORKLOAD": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_VENUE5": {
+          "n": 0,
+          "metrics": null
+        }
+      },
+      "same_matches_reference_v1_daily": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        }
+      }
+    },
+    "MS1": {
+      "all_available_by_model": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_FORM": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_WORKLOAD": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_VENUE5": {
+          "n": 0,
+          "metrics": null
+        }
+      },
+      "same_matches_reference_v1_daily": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        }
+      }
+    },
+    "MS2": {
+      "all_available_by_model": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_FORM": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_WORKLOAD": {
+          "n": 0,
+          "metrics": null
+        },
+        "STAT_VENUE5": {
+          "n": 0,
+          "metrics": null
+        },
+        "ELO_MS2": {
+          "n": 0,
+          "metrics": null
+        }
+      },
+      "same_matches_reference_v1_daily": {
+        "DAILY_RESEARCH": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "n": 0,
+          "metrics": null
+        }
+      },
+      "same_matches_elo_reference": {
+        "ELO_MS2": {
+          "n": 0,
+          "metrics": null
+        },
+        "EX-V43-POISSON": {
+          "n": 0,
+          "metrics": null
+        }
+      }
+    }
+  }
+}
