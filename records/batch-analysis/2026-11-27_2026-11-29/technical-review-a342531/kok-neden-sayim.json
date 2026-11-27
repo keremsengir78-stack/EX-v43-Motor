@@ -1,0 +1,46 @@
+{
+  "fixture_count": 103,
+  "market_count": 412,
+  "issues_before": {
+    "historical_samples:incomplete": 32,
+    "market_baselines:missing": 32,
+    "ingestion:blocked": 412,
+    "second_source:unverified": 412,
+    "context:unverified": 412,
+    "odds_lock:blocked": 154,
+    "exg:uncalibrated": 412
+  },
+  "issues_with_fixed_diagnostic": {
+    "historical_samples:incomplete": 136,
+    "market_baselines:missing": 32,
+    "ingestion:blocked": 412,
+    "second_source:unverified": 412,
+    "context:unverified": 412,
+    "odds_lock:blocked": 154,
+    "exg:uncalibrated": 412
+  },
+  "fixture_cross_verified": 103,
+  "full_research_form": 69,
+  "paired_models": 69,
+  "result_status": {
+    "BLOCKED": 410,
+    "PASS": 2
+  },
+  "price_observations": 258,
+  "pup_replay": {
+    "BLOCKED": 103
+  },
+  "approved_calibrators": 0,
+  "weights": {
+    "team_strength": 0.5,
+    "match_conditions": 0.3,
+    "external_factors": 0.2
+  },
+  "form_weights": [
+    0.4,
+    0.3,
+    0.2,
+    0.1
+  ],
+  "production_decisions_rewritten": 0
+}
