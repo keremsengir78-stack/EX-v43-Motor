@@ -82,6 +82,25 @@ def compare_results(facts, fixtures, secondary):
     return [row for event, row in matched.items() if event not in conflicts], stats
 
 
+def replay_archived_facts(work, facts, cutoff):
+    """Restore the inputs available at the original analysis cutoff."""
+    collisions = set()
+    primary, _ = archive_history(work / "settlement-and-performance", facts, cutoff, conflicts=collisions)
+    weekly = scoreboard_facts(work / "weekly-capacity", cutoff, conflicts=collisions)
+    packs = sorted((work / "ucl-domestic-research").glob("*/receipt.json"), key=lambda p: int(p.parent.name))
+    recent = [p.parent for p in packs if utc(json.loads(p.read_bytes())["created_at"]) < cutoff]
+    supplemental = archived_domestic_boards(recent[-1], cutoff, tuple(APPROVED_LEAGUES)) if recent else []
+    indexed = {r["event_id"]: r for r in primary}
+    for sample in weekly + supplemental:
+        old = indexed.get(sample["event_id"])
+        if old and (any(old[k] != sample[k] for k in ("teams", "competition", "kickoff"))
+                    or (old["score"] is not None and old["score"] != sample["score"])):
+            collisions.add(sample["event_id"])
+        elif old is None or old["score"] is None:
+            indexed[sample["event_id"]] = sample
+    return [sample for event, sample in indexed.items() if event not in collisions]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--store", type=Path, required=True)
@@ -160,25 +179,10 @@ def main():
     def replay_book(cutoff):
         if cutoff in by_cutoff:
             return by_cutoff[cutoff]
-        collisions = set()
-        primary, _ = archive_history(args.work / "settlement-and-performance", facts, cutoff, conflicts=collisions)
-        weekly = scoreboard_facts(args.work / "weekly-capacity", cutoff, conflicts=collisions)
-        packs = sorted((args.work / "ucl-domestic-research").glob("*/receipt.json"), key=lambda p: int(p.parent.name))
-        recent = [p.parent for p in packs if utc(json.loads(p.read_bytes())["created_at"]) < cutoff]
-        supplemental = archived_domestic_boards(recent[-1], cutoff, tuple(APPROVED_LEAGUES)) if recent else []
-        indexed = {r["event_id"]: r for r in primary}
-        for sample in weekly + supplemental:
-            old = indexed.get(sample["event_id"])
-            if old and (any(old[k] != sample[k] for k in ("teams", "competition", "kickoff"))
-                        or (old["score"] is not None and old["score"] != sample["score"])):
-                collisions.add(sample["event_id"])
-            elif old is None or old["score"] is None:
-                indexed[sample["event_id"]] = sample
         book = defaultdict(list)
-        for event, sample in indexed.items():
-            if event not in collisions:
-                for team in sample["teams"].values():
-                    book[team].append(sample)
+        for sample in replay_archived_facts(args.work, facts, cutoff):
+            for team in sample["teams"].values():
+                book[team].append(sample)
         by_cutoff[cutoff] = book
         return book
 
