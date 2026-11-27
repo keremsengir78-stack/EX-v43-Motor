@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pokerstars",
+    "source": "https://www.pokerstars.fr/en/sports/soccer/1/norwegian-eliteserien/11068551/rosenborg-v-molde/36351944/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "fonbet",
+    "source": "https://fonbet.com/sports/football/country/norway/11975/70175957",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "bundesliga",
+    "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

@@ -1,0 +1,602 @@
+{
+  "401885044": {
+    "fixture": {
+      "event_id": "401885044",
+      "date": "2026-11-28",
+      "league": "de.2",
+      "kickoff_at": "2026-11-28T12:00:00+00:00",
+      "home": "Dynamo Dresden",
+      "away": "St. Pauli",
+      "team_ids": {
+        "home": "7017",
+        "away": "270"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+      "fixture_checked_at": "2026-11-27T12:07:17.393992+00:00"
+    },
+    "sides": {
+      "home": [
+        [
+          {
+            "event_id": "401885143",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7017",
+              "away": "3812"
+            },
+            "kickoff": "2026-08-16 11:30:00+00:00",
+            "score": [
+              1,
+              0
+            ],
+            "finished": "2026-11-27 12:08:15.001135+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885143",
+            "retrieved_at": "2026-11-27T12:08:15.001135+00:00",
+            "sha256": "f89ad84c32d72c238761c6cb10f042a5478e5b660d69f757bbcf206022f1b86e",
+            "size": 320661
+          },
+          "7b54a936e76c5888a80105f576a0181d0dd0e8ab12d80aaaaf68eba9056c8508"
+        ],
+        [
+          {
+            "event_id": "401885124",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7017",
+              "away": "121"
+            },
+            "kickoff": "2026-09-05 18:30:00+00:00",
+            "score": [
+              1,
+              2
+            ],
+            "finished": "2026-11-27 12:08:15.126668+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885124",
+            "retrieved_at": "2026-11-27T12:08:15.126668+00:00",
+            "sha256": "4b4fa311aba5d3bba3175c81b7b690e55c82fcd30071a614ff9e0f14f4442e15",
+            "size": 332208
+          },
+          "8d7f4e158e0d132b27b4873ed7346d6b22995f78a408529de74a08ea0f586df9"
+        ],
+        [
+          {
+            "event_id": "401885106",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7017",
+              "away": "129"
+            },
+            "kickoff": "2026-09-19 18:30:00+00:00",
+            "score": [
+              1,
+              2
+            ],
+            "finished": "2026-11-27 12:08:15.318569+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885106",
+            "retrieved_at": "2026-11-27T12:08:15.318569+00:00",
+            "sha256": "da62944935cf0b58546835a330266e3eaa2ef9f57c8b9806572c7a567d273550",
+            "size": 329468
+          },
+          "cb1eee54bd01c224140a9f66fe77543eda802f71385b9eea88ab0a71c9a56645"
+        ],
+        [
+          {
+            "event_id": "401885088",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7017",
+              "away": "10382"
+            },
+            "kickoff": "2026-10-18 11:30:00+00:00",
+            "score": [
+              2,
+              0
+            ],
+            "finished": "2026-11-27 12:08:15.523788+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885088",
+            "retrieved_at": "2026-11-27T12:08:15.523788+00:00",
+            "sha256": "538b8e968a5d7dde91bc61276f5e467322be24f79301a14b6e4b5955611266df",
+            "size": 319448
+          },
+          "c9766f624f4373d462fed55f29f3b3840166e1687aefc834201fe3d959d3f681"
+        ],
+        [
+          {
+            "event_id": "401885061",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7017",
+              "away": "3070"
+            },
+            "kickoff": "2026-11-06 17:30:00+00:00",
+            "score": [
+              3,
+              0
+            ],
+            "finished": "2026-11-27 12:08:15.722113+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885061",
+            "retrieved_at": "2026-11-27T12:08:15.722113+00:00",
+            "sha256": "ad61a40635b937142bb207e24a78e3a7937b6e9c473b7af3b54183b09645542e",
+            "size": 319581
+          },
+          "6df8eb676ee95acff22cf17846a1b9aa2e55172b784428300999241a1080d8cf"
+        ]
+      ],
+      "away": [
+        [
+          {
+            "event_id": "401885122",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "2506",
+              "away": "270"
+            },
+            "kickoff": "2026-09-04 16:30:00+00:00",
+            "score": [
+              2,
+              2
+            ],
+            "finished": "2026-11-27 12:08:15.805609+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885122",
+            "retrieved_at": "2026-11-27T12:08:15.805609+00:00",
+            "sha256": "aa92c1e3fcb6e28ae868544ec0bacf5857c197251d5d27f2ea880fe61c7e34d6",
+            "size": 327391
+          },
+          "2cf62e806ad332aaef198b165b563a5461e1bdd02fd265ae986124507c71b577"
+        ],
+        [
+          {
+            "event_id": "401885102",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "123",
+              "away": "270"
+            },
+            "kickoff": "2026-09-20 11:30:00+00:00",
+            "score": [
+              1,
+              1
+            ],
+            "finished": "2026-11-27 12:08:15.928657+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885102",
+            "retrieved_at": "2026-11-27T12:08:15.928657+00:00",
+            "sha256": "c14f0b012c51422eea64efb55cfe83d99bc10610e27dc62a92d099a22ba84ab8",
+            "size": 296236
+          },
+          "fbc1fe9b32067578a7801810b45f046c4d57877a8f2d683bc14627349669bb09"
+        ],
+        [
+          {
+            "event_id": "401885091",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "2428",
+              "away": "270"
+            },
+            "kickoff": "2026-10-17 18:30:00+00:00",
+            "score": [
+              1,
+              1
+            ],
+            "finished": "2026-11-27 12:08:16.091078+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885091",
+            "retrieved_at": "2026-11-27T12:08:16.091078+00:00",
+            "sha256": "2b5f4d6907071df760138f50a296a47af641b63d14e9f8a0d2d7d7623a298f10",
+            "size": 326855
+          },
+          "2ec3273ccb4b5cad3cf6ab226602a2c0cb33ba84c05094893e72a5be1f4be8fa"
+        ],
+        [
+          {
+            "event_id": "401885082",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "3812",
+              "away": "270"
+            },
+            "kickoff": "2026-10-23 16:30:00+00:00",
+            "score": [
+              0,
+              0
+            ],
+            "finished": "2026-11-27 12:08:16.343070+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885082",
+            "retrieved_at": "2026-11-27T12:08:16.343070+00:00",
+            "sha256": "e035613437288f95bcfde1ce2a89bafa9882cc3d6cd90841a5ce8a48a5984773",
+            "size": 325472
+          },
+          "cbbc87fd022d9f18894e2fdbb707f4862dfa7752bc6ea254c2f9c2a837b31d2f"
+        ],
+        [
+          {
+            "event_id": "401885059",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "10382",
+              "away": "270"
+            },
+            "kickoff": "2026-11-08 12:30:00+00:00",
+            "score": [
+              4,
+              1
+            ],
+            "finished": "2026-11-27 12:08:16.465793+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885059",
+            "retrieved_at": "2026-11-27T12:08:16.465793+00:00",
+            "sha256": "f37f8f687acfebbf311bf826572f6e2e899895414b5c3a51d74d5a7f4b179404",
+            "size": 333576
+          },
+          "ac87875274be15ee69142844768d51cedf10e2d613439fbc2751533bbcb108d3"
+        ]
+      ]
+    },
+    "short_by_side": {
+      "home": {
+        "2.5_UST": 0.6,
+        "KG_VAR": 0.4,
+        "MS1": 0.6,
+        "MS2": 0.4
+      },
+      "away": {
+        "2.5_UST": 0.4,
+        "KG_VAR": 0.8,
+        "MS1": 0.2,
+        "MS2": 0
+      }
+    },
+    "issues": [],
+    "scope": "RESEARCH_SAME_PROVIDER_SCORE_CROSSCHECK"
+  },
+  "401885039": {
+    "fixture": {
+      "event_id": "401885039",
+      "date": "2026-11-28",
+      "league": "de.2",
+      "kickoff_at": "2026-11-28T19:30:00+00:00",
+      "home": "VfL Osnabruck",
+      "away": "Hannover 96",
+      "team_ids": {
+        "home": "7013",
+        "away": "2428"
+      },
+      "season": 2026,
+      "season_basis": "PROVIDER_SEASON",
+      "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261128",
+      "fixture_checked_at": "2026-11-27T12:07:17.393992+00:00"
+    },
+    "sides": {
+      "home": [
+        [
+          {
+            "event_id": "401885120",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7013",
+              "away": "3067"
+            },
+            "kickoff": "2026-09-06 11:30:00+00:00",
+            "score": [
+              3,
+              1
+            ],
+            "finished": "2026-11-27 12:08:16.554293+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885120",
+            "retrieved_at": "2026-11-27T12:08:16.554293+00:00",
+            "sha256": "ff82bef716cec3af1a0ccbb0c24c3366d182f6f9c662fcfe9d7021f7c2d9829e",
+            "size": 327017
+          },
+          "a91f6531d3f9cbc9e3aa9e1f6d9e8c37be34971bcc0e1c349728b4f549b22353"
+        ],
+        [
+          {
+            "event_id": "401885111",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7013",
+              "away": "129"
+            },
+            "kickoff": "2026-09-13 11:30:00+00:00",
+            "score": [
+              1,
+              3
+            ],
+            "finished": "2026-11-27 12:08:16.805862+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885111",
+            "retrieved_at": "2026-11-27T12:08:16.805862+00:00",
+            "sha256": "afee05bd23ed1ff791fbc0ca918cdd26195680f0ee038245865f5506e1f953e2",
+            "size": 329944
+          },
+          "75beeb29b74394ac0b3955f9b7eccb715bc161fafda097313bc810273a76ce5a"
+        ],
+        [
+          {
+            "event_id": "401885093",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7013",
+              "away": "7017"
+            },
+            "kickoff": "2026-10-10 11:00:00+00:00",
+            "score": [
+              1,
+              1
+            ],
+            "finished": "2026-11-27 12:08:16.920488+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885093",
+            "retrieved_at": "2026-11-27T12:08:16.920488+00:00",
+            "sha256": "595c6dd7279b6a931c1ab49e5e66d189690367c38fe0866a0d71d6070a8104a0",
+            "size": 323322
+          },
+          "b7347eebf8159dc2e19d8d3dafbb726acfe9526c384f0d969994213f5374773f"
+        ],
+        [
+          {
+            "event_id": "401885075",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7013",
+              "away": "3070"
+            },
+            "kickoff": "2026-10-25 12:30:00+00:00",
+            "score": [
+              3,
+              0
+            ],
+            "finished": "2026-11-27 12:08:17.110174+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885075",
+            "retrieved_at": "2026-11-27T12:08:17.110174+00:00",
+            "sha256": "38a6e5133aea8437190794cd800ea55ea51eba3e705fbf0caa6ca707d45c22bc",
+            "size": 323136
+          },
+          "03ce0d05e9ce3c44951e6571d082ae332750ce8e1584ed83a29cd3fb5ced4e37"
+        ],
+        [
+          {
+            "event_id": "401885057",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "7013",
+              "away": "130"
+            },
+            "kickoff": "2026-11-07 12:00:00+00:00",
+            "score": [
+              0,
+              1
+            ],
+            "finished": "2026-11-27 12:08:17.367614+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885057",
+            "retrieved_at": "2026-11-27T12:08:17.367614+00:00",
+            "sha256": "b4fdd526ecdd00b2db8262d71dead26f0c6c43c825e959df459103c8566b6eeb",
+            "size": 325250
+          },
+          "2b6776a05e03deb112932068f6798396c1ad2dbc139f84560955c8ac0fcb473e"
+        ]
+      ],
+      "away": [
+        [
+          {
+            "event_id": "401885135",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "3812",
+              "away": "2428"
+            },
+            "kickoff": "2026-08-30 11:30:00+00:00",
+            "score": [
+              0,
+              1
+            ],
+            "finished": "2026-11-27 12:08:17.495049+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885135",
+            "retrieved_at": "2026-11-27T12:08:17.495049+00:00",
+            "sha256": "ff1ab4d9058413488c217f67a72e1391d0e4bde63fba74f14b085f7afbaebbc4",
+            "size": 323302
+          },
+          "6160732bd9c4458e3d7f13d5f60a59203b345f5374d333204b39c56244103bec"
+        ],
+        [
+          {
+            "event_id": "401885116",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "269",
+              "away": "2428"
+            },
+            "kickoff": "2026-09-11 16:30:00+00:00",
+            "score": [
+              2,
+              1
+            ],
+            "finished": "2026-11-27 12:08:17.592033+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885116",
+            "retrieved_at": "2026-11-27T12:08:17.592033+00:00",
+            "sha256": "6b9171eaefab8783a8344220d66f33d0e89c14bf96119ef4d46dea1d57341319",
+            "size": 329858
+          },
+          "4b3a446a4b6803c39e6e0643a3066b362ba6c5480d7903be39a03d60af444b92"
+        ],
+        [
+          {
+            "event_id": "401885095",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "10382",
+              "away": "2428"
+            },
+            "kickoff": "2026-10-10 11:00:00+00:00",
+            "score": [
+              3,
+              0
+            ],
+            "finished": "2026-11-27 12:08:17.691595+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885095",
+            "retrieved_at": "2026-11-27T12:08:17.691595+00:00",
+            "sha256": "8f3871e5ce00e60fa12ca6130152bb55f5a12d08692b796cf5cfc5c77573272c",
+            "size": 329392
+          },
+          "b7347eebf8159dc2e19d8d3dafbb726acfe9526c384f0d969994213f5374773f"
+        ],
+        [
+          {
+            "event_id": "401885076",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "3067",
+              "away": "2428"
+            },
+            "kickoff": "2026-10-25 12:30:00+00:00",
+            "score": [
+              2,
+              0
+            ],
+            "finished": "2026-11-27 12:08:17.890288+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885076",
+            "retrieved_at": "2026-11-27T12:08:17.890288+00:00",
+            "sha256": "c4900ef335d059bff5a22cc0290aa6a8575eed318bc9d0d1ce07d8bdcc3d914f",
+            "size": 317647
+          },
+          "03ce0d05e9ce3c44951e6571d082ae332750ce8e1584ed83a29cd3fb5ced4e37"
+        ],
+        [
+          {
+            "event_id": "401885065",
+            "competition": "ger.2",
+            "season": 2026,
+            "season_basis": "PROVIDER_SEASON",
+            "teams": {
+              "home": "6418",
+              "away": "2428"
+            },
+            "kickoff": "2026-11-08 12:30:00+00:00",
+            "score": [
+              2,
+              2
+            ],
+            "finished": "2026-11-27 12:08:18.099364+00:00",
+            "terminal_source": "FINAL_STATUS_CAPTURE_UPPER_BOUND"
+          },
+          {
+            "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885065",
+            "retrieved_at": "2026-11-27T12:08:18.099364+00:00",
+            "sha256": "8597feefa2dd362e08d267284ce8830232a2c3ee0816cee14c719737a67de864",
+            "size": 327410
+          },
+          "ac87875274be15ee69142844768d51cedf10e2d613439fbc2751533bbcb108d3"
+        ]
+      ]
+    },
+    "short_by_side": {
+      "home": {
+        "2.5_UST": 0.6,
+        "KG_VAR": 0.6,
+        "MS1": 0.4,
+        "MS2": 0.4
+      },
+      "away": {
+        "2.5_UST": 0.6,
+        "KG_VAR": 0.4,
+        "MS1": 0.6,
+        "MS2": 0.2
+      }
+    },
+    "issues": [],
+    "scope": "RESEARCH_SAME_PROVIDER_SCORE_CROSSCHECK"
+  }
+}

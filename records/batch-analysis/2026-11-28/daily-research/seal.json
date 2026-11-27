@@ -1,0 +1,19 @@
+{
+  "sealed_at": "2026-11-27T12:09:44.164030+00:00",
+  "forecast_at": "2026-11-27T12:08:55.932888+00:00",
+  "engine_commit": "8f497fd952d754402fdbbc39ceee48180ffe0580",
+  "model_parameters_27_archive_commit": "36fae125",
+  "scope": "RESEARCH_ONLY",
+  "file_sha256": {
+    "pazar-siralama.csv": "73feb53a9a87a892efdf84c6c097c259a70de58e9a55cd403e73577d50dabaaa",
+    "daily-analysis.json": "3d08c44b2d56ef08d657555b799f1944e334e898cd32e778b6e2f3e7bdc63f4e",
+    "recovery.json": "fe645d94e1212293e048ea171b2a05feb78f57e51d2e4b7fee27ca66f68a36c3",
+    "official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "report.json": "9e86d62a60dbeec0817086c94521213f29b6f1382e065c6f4038fc677a976a2c",
+    "decision.json": "fbd206d694f6f664fce54821f8217f145c5c9620dfe8ee1e8e52bc61f5f1556e",
+    "selections.json": "df489a95bf2d48740ccf3e81bbe812b3707445e6812107a21a27e02d8ac1320a",
+    "raw-evidence.tar.gz": "fd0c74be4af8d578b8d8fa35fc76ce8fa66f84e063be82e7bc38f31c02dfc09a",
+    "alternative-source-attempts.json": "2a8c9614f1683b78aa395233e9bc17f800ef33cb96aacc8d31b9a70f62234eb5",
+    "capture.json": "b1c7d8584d415cb825dddde654c30b9ddf38b2b604f79a41a088578c2ab417e9"
+  }
+}
