@@ -1,0 +1,25 @@
+{
+  "cutoff_utc": "2026-11-27T05:54:59.286344+00:00",
+  "cutoff_trt": "2026-11-27T08:54:59.286344+03:00",
+  "first_29_nov_window_utc": "2026-11-27T10:30:00+00:00",
+  "first_29_nov_window_trt": "2026-11-27T13:30:00+03:00",
+  "first_fixture": {
+    "event": "401888367",
+    "home": "Çorum FK",
+    "away": "Kocaelispor"
+  },
+  "window_open": {
+    "2026-11-27": 19,
+    "2026-11-28": 40
+  },
+  "fixtures_29_nov": 44,
+  "newly_eligible_29_nov": 0,
+  "preserved_live_archives": 59,
+  "new_raw_quotes": 0,
+  "accepted_new_quotes": 0,
+  "accepted_context": 0,
+  "accepted_independent_sources": 0,
+  "ex_g": 0,
+  "ex_final": 0,
+  "decisions_changed": 0
+}
