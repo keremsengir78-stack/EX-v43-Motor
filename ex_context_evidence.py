@@ -22,9 +22,16 @@ def reviewed_context(bundle, fixture, workload, as_of, load_source):
             observations = load["completion_observations"]
             if not observations or load["rest_hours_since_archived_full_time_capped_at_336"] is None:
                 return None
+            if len({row["event_id"] for row in observations}) != len(observations):
+                return None
             if any(not re.fullmatch(r"[0-9a-f]{64}", row.get("source_sha256") or "")
-                   or not utc(row["kickoff_at"]) < utc(row["completion_upper_bound"])
+                   or not kickoff - timedelta(days=14) <= utc(row["kickoff_at"]) < utc(row["completion_upper_bound"])
                    <= utc(row["available_at"]) <= reviewed for row in observations):
+                return None
+            expected_rest = round(min(336, (kickoff - max(
+                utc(row["completion_upper_bound"]) for row in observations)).total_seconds() / 3600), 2)
+            if (load["rest_hours_since_archived_full_time_capped_at_336"] != expected_rest
+                    or load["completed_match_count_14d_archived"] != len(observations)):
                 return None
             for field in ("important_absences", "rotation"):
                 item = bundle["teams"][side][field]

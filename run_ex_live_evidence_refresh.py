@@ -11,7 +11,7 @@ from ex_history_sources import ESPN
 from ex_history_archive import HistoryArchive, atomic_write, utc
 from run_ex_prematch_archive import LIVE_WINDOW, prematch_fixtures, summary
 from run_ex_prospective_pipeline import market_quote_chain
-from run_ucl_matchday_inputs import observed_load
+from run_ucl_matchday_inputs import fractional_research_quotes, observed_load
 from ex_espn_provider import ESPN_LEAGUES
 
 
@@ -53,6 +53,7 @@ def review_capture(manifest, cache, targets, cutoff):
                 load = {}
             rows.append({"fixture": target, "board_source": board, "summary_source": source,
                          "observed_fields": values, "quotes": odds, "quote_attempts": attempts,
+                         "research_only_quotes": fractional_research_quotes(payload.get("pickcenter"), source),
                          "player_roster_entries_observed": sum(
                              len(block.get("roster") or []) for block in payload.get("rosters") or []),
                          "recent_schedule_observations": load,

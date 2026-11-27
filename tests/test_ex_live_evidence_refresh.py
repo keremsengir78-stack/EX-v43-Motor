@@ -34,3 +34,27 @@ class LiveEvidenceRefreshTests(TestCase):
             if rows:
                 self.assertEqual(0, rows[0]["player_roster_entries_observed"])
                 self.assertFalse(rows[0]["ex_final_allowed"])
+
+    def test_fractional_research_price_requires_exact_market_and_total(self):
+        from run_ucl_matchday_inputs import fractional_research_quotes
+
+        source = {"url": "https://site.api.espn.com/summary", "sha256": "a" * 64,
+                  "retrieved_at": "2026-11-27T12:00:00Z"}
+        team = {"preMatchFullTimeResultHome": {"value": "4/6"},
+                "preMatchGoalLineOver": {"value": "17/20"},
+                "preMatchDoubleChanceHomeOrDraw": {"value": "2/11"},
+                "preMatchOverUnderHandicap": {"value": "3"}}
+        quote = {"provider": {"name": "Bet 365"}, "bettingOdds": {"teamOdds": team}}
+        self.assertEqual(["MS1"], [r["market"] for r in fractional_research_quotes([quote], source)])
+        team["preMatchOverUnderHandicap"]["value"] = "2.5"
+        rows = fractional_research_quotes([quote], source)
+        self.assertEqual(["MS1", "2.5_UST"], [r["market"] for r in rows])
+        self.assertTrue(all(r["published_at"] is None for r in rows))
+
+    def test_short_window_is_explicitly_incomplete_even_without_calibration(self):
+        from ex_auto_control import auto_control
+
+        result = auto_control({"status": "BASELINE_ONLY", "full_historical_windows": False})
+        self.assertIn("historical_samples:incomplete", result["issues"])
+        self.assertIn("exg:uncalibrated", result["issues"])
+        self.assertFalse(result["ex_final_allowed"])

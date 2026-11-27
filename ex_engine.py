@@ -26,8 +26,10 @@ def mean_goals(rows,side):
     if not rows:return None
     return (sum(r['hg'] if side=='home' else r['ag'] for r in rows)/len(rows),sum(r['ag'] if side=='home' else r['hg'] for r in rows)/len(rows))
 def form_sample_rows(rows,team,side,cutoff,league,season_start,previous_start):
-    arr=subset(rows,team,side,cutoff,league)
-    season=[r for r in rows if r['league']==league and r['date']<cutoff and r['date']>=season_start and (r['home']==team or r['away']==team)]
+    ordered = sorted(rows, key=lambda row: (row["date"], str(row.get("kickoff", "")),
+                                            str(row.get("event_id") or "")))
+    arr=subset(ordered,team,side,cutoff,league)
+    season=[r for r in ordered if r['league']==league and r['date']<cutoff and r['date']>=season_start and (r['home']==team or r['away']==team)]
     prev=[r for r in arr if previous_start<=r['date']<season_start]
     return [arr[-5:],arr[-10:],season,prev]
 

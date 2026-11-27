@@ -33,9 +33,10 @@ class HistoricalEvidenceTests(unittest.TestCase):
         bundle = {"fixture": fixture, "accepted_at": "2026-11-27T17:00:00Z",
                   "teams": {side: {"team_id": club, "important_absences": entry, "rotation": entry}
                             for side, club in fixture["team_ids"].items()}}
-        load = {"completion_observations": [{"kickoff_at": "2026-11-25T20:00:00Z",
+        load = {"completion_observations": [{"event_id": "prior", "kickoff_at": "2026-11-25T20:00:00Z",
                 "completion_upper_bound": "2026-11-25T22:00:00Z", "available_at": "2026-11-26T07:00:00Z",
-                "source_sha256": "a" * 64}], "rest_hours_since_archived_full_time_capped_at_336": 46}
+                "source_sha256": "a" * 64}], "rest_hours_since_archived_full_time_capped_at_336": 46,
+                "completed_match_count_14d_archived": 1}
         workload = {"home": load, "away": load}
         cutoff = utc("2026-11-27T18:00:00Z")
         replay = Mock()

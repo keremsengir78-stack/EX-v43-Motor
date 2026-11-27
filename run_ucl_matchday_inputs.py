@@ -4,6 +4,7 @@ import datetime as dt
 import json
 import re
 from concurrent.futures import ThreadPoolExecutor
+from fractions import Fraction
 from pathlib import Path
 
 from ex_cross_verify import norm
@@ -60,6 +61,32 @@ def market_quotes(odds, metadata, kickoff, *, observed_lines=None):
             if checked["status"] == "VERIFIED_INPUT":
                 offers.append({**offer, "odds_gate": checked["decision"]})
     return offers
+
+
+def fractional_research_quotes(payload, source):
+    """Read Bet365's explicit ESPN pre-match market labels for research review."""
+    observations = []
+    for quote in payload if isinstance(payload, list) else ():
+        if not isinstance(quote, dict):
+            continue
+        bookmaker = (quote.get("provider") or {}).get("name")
+        if bookmaker != "Bet 365":
+            continue
+        team = (quote.get("bettingOdds") or {}).get("teamOdds") or {}
+        selections = {"MS1": "preMatchFullTimeResultHome", "MS2": "preMatchFullTimeResultAway"}
+        if (team.get("preMatchOverUnderHandicap") or {}).get("value") == "2.5":
+            selections["2.5_UST"] = "preMatchGoalLineOver"
+        for market, key in selections.items():
+            price = (team.get(key) or {}).get("value")
+            if not isinstance(price, str) or not re.fullmatch(r"[1-9][0-9]{0,5}/[1-9][0-9]{0,5}", price):
+                continue
+            observations.append({"market": market, "market_key": key, "bookmaker": bookmaker,
+                                 "fractional_odds": price, "decimal_odds": float(1 + Fraction(price)),
+                                 "goal_line": 2.5 if market == "2.5_UST" else None,
+                                 "observed_at": source["retrieved_at"], "published_at": None,
+                                 "source": source["url"], "sha256": source["sha256"],
+                                 "status": "RESEARCH_ONLY_PROVIDER_TIME_UNVERIFIED"})
+    return observations
 
 
 def observed_load(summary, team_ids, cutoff, kickoff):

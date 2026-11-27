@@ -22,7 +22,7 @@ def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=
         return {"status":"BLOCKED","issues":["match:invalid"],"ex_final_allowed":False}
     if match.get("recompute_consistent") is not True:
         issues.append("tur2:recompute_mismatch")
-    if match.get("status")!="BASELINE_ONLY":
+    if match.get("status")!="BASELINE_ONLY" or match.get("full_historical_windows") is False:
         issues.append("historical_samples:incomplete")
     for gate in (("fixture_lock","odds_lock") if require_odds else ("fixture_lock",)):
         if not isinstance(match.get(gate),dict) or match[gate].get("status")!="VERIFIED_INPUT":
