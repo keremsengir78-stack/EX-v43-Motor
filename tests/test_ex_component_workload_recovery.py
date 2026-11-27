@@ -37,3 +37,38 @@ class WorkloadRecoveryTests(unittest.TestCase):
                                                allow_kickoff_proxy=True)[1])
         self.assertEqual("COMPLETED_MATCH_PROOF_MISSING",
                          recover_team_workload(schedule, records, "1", kick, utc(captured))[1])
+
+    def test_hoffenheim_europa_completion_recovers_load_by_event_identity(self):
+        import json
+        from ex_component_workload_recovery import parse_completion
+
+        event = "401915515"
+        kickoff = utc("2026-11-29T16:30Z")
+        cutoff = utc("2026-11-27T12:31Z")
+        league_game = {"event_id": "401884734", "kickoff_at": "2026-11-21T14:30Z"}
+        europa_game = {"event_id": event, "kickoff_at": "2026-11-26T20:00Z",
+                       "teams": {"home": "7911", "away": "3746"}}
+        schedule = {"matches_shown": [
+            {"event_id": "older", "kickoff_at": "2026-11-08T18:30Z"}, league_game, europa_game]}
+        before = {league_game["event_id"]: {
+            "fact": {"kickoff": league_game["kickoff_at"], "teams": {"home": "7911"},
+                     "provider_completed": True, "terminal_status": "STATUS_FULL_TIME"},
+            "source": {"retrieved_at": "2026-11-24T17:32Z", "sha256": "a" * 64}}}
+        self.assertEqual("COMPLETED_MATCH_PROOF_MISSING",
+                         recover_team_workload(schedule, before, "7911", kickoff, cutoff,
+                                               allow_kickoff_proxy=True)[1])
+        payload = {"header": {"id": event, "league": {"slug": "uefa.europa"},
+                   "competitions": [{"id": event, "date": europa_game["kickoff_at"],
+                   "status": {"type": {"state": "post", "completed": True, "name": "STATUS_FULL_TIME"}},
+                   "competitors": [{"homeAway": side, "team": {"id": team}}
+                                   for side, team in europa_game["teams"].items()]}]}}
+        fetched = utc("2026-11-27T12:30Z")
+        raw = json.dumps(payload)
+        fact = parse_completion(raw, fetched, event, [("7911", europa_game)])
+        after = {**before, event: {"fact": fact, "source": {"retrieved_at": fetched.isoformat(), "sha256": "b" * 64}}}
+        result, issue = recover_team_workload(schedule, after, "7911", kickoff, cutoff, allow_kickoff_proxy=True)
+        self.assertIsNone(issue)
+        self.assertEqual((68.5, 2), (result["kickoff_gap_hours"], result["completed_match_count"]))
+        self.assertEqual("uefa.europa", fact["competition"])
+        with self.assertRaises(ValueError):
+            parse_completion(raw, fetched, event, [("unexpected", europa_game)])

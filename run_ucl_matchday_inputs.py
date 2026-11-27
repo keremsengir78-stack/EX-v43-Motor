@@ -104,6 +104,7 @@ def observed_load(summary, team_ids, cutoff, kickoff):
             games[game["id"]] = {
                 "event_id": game["id"], "kickoff_at": game["gameDate"],
                 "competition": game["competitionName"],
+                "teams": {"home": game["homeTeamId"], "away": game["awayTeamId"]},
             }
         recent = sorted(games.values(), key=lambda game: timestamp(game["kickoff_at"]), reverse=True)
         teams[team_id] = {

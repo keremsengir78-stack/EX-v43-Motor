@@ -8,9 +8,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from time import perf_counter
 
-from ex_component_workload_recovery import recover_team_workload
+from ex_component_workload_recovery import collect_completions, completion_tasks, recover_team_workload
 from ex_decision import MARKETS
-from ex_history_archive import utc
+from ex_history_archive import HistoryArchive, utc
 from ex_leagues import APPROVED_LEAGUES
 from ex_model_optimization import BLENDS, REQUIRED, evaluate, historical_rows, score
 from ex_pup_gate import execute_pup
@@ -33,31 +33,36 @@ def daily_workload(row, review, observations, cutoff):
         team = fixture["team_ids"][side]
         context = row["observed_inputs"]["workload"].get(side, {})
         recovery = (review or {}).get("teams", {}).get(side, {})
-        schedule = recovery.get("schedule") or context.get("source_recent_schedule")
-        schedule_source = recovery.get("schedule_source") or row["observed_inputs"].get("summary_source")
+        schedule = context.get("source_recent_schedule") or recovery.get("schedule")
+        schedule_source = (row["observed_inputs"].get("summary_source") if context.get("source_recent_schedule")
+                           else recovery.get("schedule_source"))
         if not schedule or not schedule_source or not schedule_source.get("retrieved_at"):
-            return None, None
-        if utc(schedule_source["retrieved_at"]) > cutoff:
-            return None, None
+            workload_evidence[side] = {"team_id": team, "issue": "DATED_SCHEDULE_UNAVAILABLE"}
+            continue
+        if utc(schedule_source["retrieved_at"]) >= cutoff:
+            workload_evidence[side] = {"team_id": team, "issue": "SCHEDULE_AFTER_CUTOFF"}
+            continue
         known = dict(observations)
         for entry in context.get("completion_observations", []):
             known.setdefault(entry["event_id"], {
-                "fact": {"provider_completed": True, "terminal_status": "STATUS_FULL_TIME",
+                "fact": {"event_id": entry["event_id"], "provider_completed": True, "terminal_status": "STATUS_FULL_TIME",
                          "teams": {side: team}, "kickoff": entry["kickoff_at"]},
                 "source": {"sha256": entry["source_sha256"], "retrieved_at": entry["available_at"]},
             })
         # Always use the same start-to-start feature as training, even when
         # exact full-time markers also happen to be available.
-        sample, _ = recover_team_workload(schedule, known, team, kickoff, cutoff, allow_kickoff_proxy=True)
+        sample, issue = recover_team_workload(schedule, known, team, kickoff, cutoff, allow_kickoff_proxy=True)
         if sample is None:
-            return None, None
+            workload_evidence[side] = {"team_id": team, "issue": issue, "schedule_source": schedule_source}
+            continue
         gap = (kickoff - utc(sample["matches"][-1]["fact"]["kickoff"])).total_seconds() / 3600
         result.extend((gap / 336, sample["completed_match_count"] / 5))
         workload_evidence[side] = {"kickoff_gap_hours": gap, "team_id": team,
                                    "completed_match_count": sample["completed_match_count"],
                                    "schedule_source": schedule_source,
-                                   "completed_event_sources": [match["source"] for match in sample["matches"]]}
-    return tuple(result), workload_evidence
+                                   "completed_event_sources": [{"event_id": match["fact"].get("event_id"), **match["source"]}
+                                                               for match in sample["matches"]]}
+    return (tuple(result) if len(result) == 4 else None), workload_evidence
 
 
 def replay(daily, reviews, observations, models, cutoff):
@@ -110,6 +115,7 @@ def main():
     parser.add_argument("--workload-observations", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--uncertainty", action="store_true")
+    parser.add_argument("--completion-cache", type=Path, help="Manually refresh recent-match completion evidence")
     args = parser.parse_args()
     cutoff = datetime.now(timezone.utc)
     start = perf_counter()
@@ -152,7 +158,17 @@ def main():
     if len({row["fixture"]["event_id"] for row, _ in daily}) != len(daily):
         raise ValueError("Duplicate replay event")
     reviews = {row["fixture"]["event_id"]: row for row in read(args.workload_review)}
-    output = replay(daily, reviews, read(args.workload_observations)["events"], models, cutoff)
+    observations = read(args.workload_observations)["events"]
+    completion_issues = {}
+    requests = 0
+    if args.completion_cache:
+        tasks = completion_tasks([row for row, _ in daily], observations, cutoff)
+        store = HistoryArchive(args.completion_cache, len(tasks))
+        completed, completion_issues = collect_completions(tasks, store)
+        observations.update(completed)
+        requests = store.requests
+        cutoff = datetime.now(timezone.utc)
+    output = replay(daily, reviews, observations, models, cutoff)
     counts = Counter(name for row in output for name in row["candidates"])
     inputs = [args.facts, args.workload_review, args.workload_observations, *args.daily, *daily_receipts]
     report = {"method": "EX_OPTIMIZATION_RESEARCH_V1", "cutoff": cutoff.isoformat(), "archive_facts": len(facts),
@@ -165,7 +181,7 @@ def main():
               "common_statistical_comparison": reference, "broad_single_model_evaluations": broad,
               "daily_candidates": dict(counts), "daily_fixtures": len(output),
               "daily_with_candidate": sum(bool(row["candidates"]) for row in output),
-              "daily": output, "seconds": perf_counter() - start, "network_requests": 0,
+              "daily": output, "seconds": perf_counter() - start, "network_requests": requests, "completion_issues": completion_issues,
               "inputs_sha256": {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in inputs},
               "production_allowed": False}
     with args.output.open("x") as handle:
