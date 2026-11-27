@@ -128,11 +128,22 @@ def build_examples(events):
         ) = sides
         if not home_short or not away_short:
             continue
+        # Use only matches admitted through the settled cursor. Start-to-start
+        # spacing is a distinct feature from observed post-match rest.
+        approximate = []
+        for side in ("home", "away"):
+            recent = [r for r in all_history[target["teams"][side]]
+                      if r.get("evidence_scope") != "ESPN_SCOREBOARD_RESEARCH"
+                      and timedelta() < kickoff - r["kickoff"] <= timedelta(days=14)]
+            if recent:
+                hours = (kickoff - max(r["kickoff"] for r in recent)).total_seconds() / 3600
+                approximate.extend((hours / 336, len(recent) / 5))
         examples.append({
             "event_id": target["event_id"], "kickoff": kickoff, "finished": target["finished"],
             "labels": labels[target["event_id"]], "short": {m: mean((home_short[m], away_short[m])) for m in home_short},
             "strength": {m: mean((home_weighted[m], away_weighted[m])) for m in home_short}
             if home_weighted and away_weighted else None,
+            "kickoff_workload": tuple(approximate) if len(approximate) == 4 else None,
             "workload": (*home_context, *away_context) if home_context and away_context else None,
             "minutes": (*home_minutes, *away_minutes) if home_minutes and away_minutes else None,
         })

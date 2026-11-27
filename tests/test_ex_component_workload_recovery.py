@@ -27,5 +27,13 @@ class WorkloadRecoveryTests(unittest.TestCase):
         latest["terminal_source"] = "FINAL_STATUS_CAPTURE_UPPER_BOUND"
         self.assertEqual("LATEST_MATCH_FINISH_UNVERIFIED",
                          recover_team_workload(schedule, records, "1", kick, cut)[1])
+        approximate, issue = recover_team_workload(schedule, records, "1", kick, cut, allow_kickoff_proxy=True)
+        self.assertIsNone(issue)
+        self.assertEqual("KICKOFF_TO_KICKOFF_PROXY", approximate["basis"])
+        self.assertEqual(96, approximate["kickoff_gap_hours"])
+        self.assertNotIn("rest_hours", approximate)
+        self.assertEqual("COMPLETED_MATCH_PROOF_MISSING",
+                         recover_team_workload(schedule, records, "1", kick, utc(captured),
+                                               allow_kickoff_proxy=True)[1])
         self.assertEqual("COMPLETED_MATCH_PROOF_MISSING",
                          recover_team_workload(schedule, records, "1", kick, utc(captured))[1])

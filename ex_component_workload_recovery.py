@@ -9,7 +9,7 @@ from ex_history_archive import utc
 COMPLETED = {"STATUS_FULL_TIME", "STATUS_FINAL_AET", "STATUS_FINAL_PEN"}
 
 
-def recover_team_workload(schedule, observations, team, kickoff, as_of):
+def recover_team_workload(schedule, observations, team, kickoff, as_of, *, allow_kickoff_proxy=False):
     """Use the prior match's explicit finish and count only completed events."""
     try:
         if not as_of < kickoff:
@@ -34,7 +34,14 @@ def recover_team_workload(schedule, observations, team, kickoff, as_of):
             completed.append(record)
         last = completed[-1]["fact"]
         if last.get("terminal_source") != "PROVIDER_END_REGULAR_TIME":
-            return None, "LATEST_MATCH_FINISH_UNVERIFIED"
+            if not allow_kickoff_proxy:
+                return None, "LATEST_MATCH_FINISH_UNVERIFIED"
+            return {
+                "kickoff_gap_hours": (kickoff - utc(last["kickoff"])).total_seconds() / 3600,
+                "completed_match_count": len(completed),
+                "basis": "KICKOFF_TO_KICKOFF_PROXY",
+                "matches": completed,
+            }, None
         finished = utc(last["finished"])
         if not utc(last["kickoff"]) < finished <= utc(completed[-1]["source"]["retrieved_at"]):
             return None, "LATEST_MATCH_FINISH_INVALID"
