@@ -1,0 +1,36 @@
+approved-leagues	pass	1m5s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184426/job/140343964944	
+archived-calendars	pass	11s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343965289	
+archived-preflight	pass	54s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343965278	
+audit	pass	13s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343964941	
+calendars	pass	10s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140343965214	
+capture	pass	9s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184485/job/140343964917	
+collect	pass	11s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184607/job/140343965902	
+coverage	pass	10s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344499242	
+coverage	pass	16s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184627/job/140343965752	
+dfl-bulk	pass	10s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184652/job/140343965856	
+freeze	pass	9s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184428/job/140343965053	
+inventory	pass	1m30s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184421/job/140343965110	
+laliga-bulk	pass	17s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184652/job/140343965874	
+minutes	pass	1m11s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184580/job/140343965220	
+official-scores	pass	11s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184428/job/140343964697	
+pregame	pass	14s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184428/job/140343965020	
+probe	pass	45s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184652/job/140343965638	
+regression	pass	7s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184435/job/140343964763	
+replay	pass	1m13s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184507/job/140343965098	
+persist-scheduled-inventory	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184421/job/140344480733	
+summaries (7)	pass	18s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036927	
+summaries (6)	pass	16s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036999	
+research	pass	3m37s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184514/job/140343965116	
+summaries (5)	pass	21s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036826	
+summaries (1)	pass	21s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036935	
+summaries (0)	pass	16s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036966	
+summaries (2)	pass	14s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036917	
+summaries (3)	pass	15s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036872	
+score-evidence	pass	29s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140343965245	
+summaries (4)	pass	19s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184419/job/140344036892	
+score-coverage	pass	11s	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184652/job/140343965915	
+capture	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343966872	
+official-source-probe	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343966296	
+preserve	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184421/job/140343965939	
+publish	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343966627	
+settle	skipping	0	https://github.com/keremsengir78-stack/EX-v43-Motor/actions/runs/45950184436/job/140343966802	
