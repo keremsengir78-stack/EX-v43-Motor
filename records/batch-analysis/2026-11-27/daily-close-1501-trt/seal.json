@@ -1,0 +1,21 @@
+{
+  "sealed_at": "2026-11-27T12:07:54.653643+00:00",
+  "forecast_at": "2026-11-27T12:01:11.654059+00:00",
+  "engine_commit": "8f497fd952d754402fdbbc39ceee48180ffe0580",
+  "optimization_archive_sha256": "1fd0a979dba3b6870b0d80423795fe90218ffe95bd5e2d66a4870330cd14c6a6",
+  "settlement_scope": "RESEARCH_PERFORMANCE_ONLY",
+  "file_sha256": {
+    "forecasts.jsonl": "4f8c2e673ee0663c624c6642ad978be481642b3dd98a4c5e4a12f5ea7348674a",
+    "daily-analysis.json": "1b0768f4c21c789b1368bf4d534b37ffa6679995b4de99dc2302302ac3adbb38",
+    "recovery.json": "44319d9795108c6cb0f6d0bd9dc6f9bd9ad97d9cd545aa754482e71b9e97644f",
+    "official-fixture-context.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "performance-v1-audit.json": "72679809e5eee73bbf95bc3ce4982cdec7f7ab7e35bb4a94bdeedc1814b342f1",
+    "report.json": "5a7b8deab8fb6edcae9520e3dab7614c73b8eab7d52876bd8e6612633e67b195",
+    "repeated-probabilities.json": "e46e9a89ee51476b7120eaaddf430b34516c92b8df47e6dd332079aaab5ddae6",
+    "decision.json": "93f98398ca2e7b6b840a236ff0391bac66482ab1a612023c629e580fdd19558d",
+    "research-ledger.jsonl": "fd78a373cf7c1fe4f1bf2e47bde1740556b230e1d2873992389fcc16358b49b8",
+    "raw-evidence.tar.gz": "b6ebd85af9bb97d633600c797fa580cf16e1467ae95b618df7197d30b3e61f04",
+    "model-parameters.json": "017966d3f5417ad6d7bfe6b5a0a2946ad679ba1343327ea259e313c46c3e4e4f",
+    "capture.json": "c1d2e029dac221cb71d3ee7595ccad3e3c0ab189f7945c9865c4c77c9424fc8e"
+  }
+}

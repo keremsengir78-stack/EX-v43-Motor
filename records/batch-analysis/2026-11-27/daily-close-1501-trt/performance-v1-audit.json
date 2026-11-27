@@ -1,0 +1,921 @@
+{
+  "eligible": 559,
+  "production_allowed": false,
+  "cohort_flow": {
+    "archive_records": 7792,
+    "excluded_missing_score_or_finish": 150,
+    "excluded_non_same_day_finish": 3319,
+    "non_same_day_completion_by_provenance": {
+      "FINAL_STATUS_CAPTURE_UPPER_BOUND": 2371,
+      "PROVIDER_END_REGULAR_TIME": 14,
+      "ESPN_SCOREBOARD_RESEARCH": 934
+    },
+    "excluded_no_complete_prematch_replay": 3764,
+    "replay_exclusions": {
+      "unsupported_target_competition": 585,
+      "incomplete_team_form_windows": 2788,
+      "missing_or_ambiguous_domestic_league": 391
+    },
+    "overnight_provider_terminal_records": 14,
+    "overnight_complete_replays_research_only": 0
+  },
+  "settings": [
+    0.0,
+    0.5,
+    0.0,
+    1.0
+  ],
+  "training_total_goal_scale": 1.0863101844437428,
+  "cross_league_by_split": [
+    12,
+    24,
+    18
+  ],
+  "splits": [
+    240,
+    155,
+    164
+  ],
+  "validation_brier": {
+    "(0.0, 0.5, 0.0, 1.0)": 0.23364312547143967,
+    "(0.0, 0.5, 0.0, 1.0863101844437428)": 0.23437575568662142,
+    "(0.0, 0.5, -0.08, 1.0)": 0.2339323439788784,
+    "(0.0, 0.5, -0.08, 1.0863101844437428)": 0.23475116451865327,
+    "(0.0, 1.0, 0.0, 1.0)": 0.23392867000963727,
+    "(0.0, 1.0, 0.0, 1.0863101844437428)": 0.23466825118607076,
+    "(0.0, 1.0, -0.08, 1.0)": 0.23421991213911858,
+    "(0.0, 1.0, -0.08, 1.0863101844437428)": 0.2350454240962474,
+    "(0.5, 0.5, 0.0, 1.0)": 0.2337455576098926,
+    "(0.5, 0.5, 0.0, 1.0863101844437428)": 0.23446813495603044,
+    "(0.5, 0.5, -0.08, 1.0)": 0.23403386351664987,
+    "(0.5, 0.5, -0.08, 1.0863101844437428)": 0.23484304793505825,
+    "(0.5, 1.0, 0.0, 1.0)": 0.23399913173121287,
+    "(0.5, 1.0, 0.0, 1.0863101844437428)": 0.23472904296575303,
+    "(0.5, 1.0, -0.08, 1.0)": 0.23428975067816118,
+    "(0.5, 1.0, -0.08, 1.0863101844437428)": 0.23510598574734132,
+    "(1.0, 0.5, 0.0, 1.0)": 0.2340874450241014,
+    "(1.0, 0.5, 0.0, 1.0863101844437428)": 0.23477289951112373,
+    "(1.0, 0.5, -0.08, 1.0)": 0.23436763619592874,
+    "(1.0, 0.5, -0.08, 1.0863101844437428)": 0.2351413603282426,
+    "(1.0, 1.0, 0.0, 1.0)": 0.234315184227036,
+    "(1.0, 1.0, 0.0, 1.0863101844437428)": 0.2350084867011592,
+    "(1.0, 1.0, -0.08, 1.0)": 0.23459796751404643,
+    "(1.0, 1.0, -0.08, 1.0863101844437428)": 0.2353792412369719
+  },
+  "test": {
+    "2.5_UST": {
+      "EX-V43-POISSON": {
+        "brier": 0.2502555487512781,
+        "ece_10_equal_width": 0.06894002036025569,
+        "log_loss": 0.6944817136559991,
+        "accuracy_at_half": 0.5426829268292683,
+        "thresholds": {
+          "0.65": {
+            "n": 50,
+            "hit_rate": 0.64
+          },
+          "0.7": {
+            "n": 22,
+            "hit_rate": 0.5909090909090909
+          },
+          "0.75": {
+            "n": 8,
+            "hit_rate": 0.75
+          },
+          "0.8": {
+            "n": 1,
+            "hit_rate": 0
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.2502555487512781,
+        "ece_10_equal_width": 0.06894002036025568,
+        "log_loss": 0.6944817136559991,
+        "accuracy_at_half": 0.5426829268292683,
+        "thresholds": {
+          "0.65": {
+            "n": 50,
+            "hit_rate": 0.64
+          },
+          "0.7": {
+            "n": 22,
+            "hit_rate": 0.5909090909090909
+          },
+          "0.75": {
+            "n": 8,
+            "hit_rate": 0.75
+          },
+          "0.8": {
+            "n": 1,
+            "hit_rate": 0
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "KG_VAR": {
+      "EX-V43-POISSON": {
+        "brier": 0.2432070011931225,
+        "ece_10_equal_width": 0.05321692154766493,
+        "log_loss": 0.6793901728767349,
+        "accuracy_at_half": 0.5609756097560976,
+        "thresholds": {
+          "0.65": {
+            "n": 42,
+            "hit_rate": 0.7142857142857143
+          },
+          "0.7": {
+            "n": 12,
+            "hit_rate": 0.5833333333333334
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.24380032130616078,
+        "ece_10_equal_width": 0.0536462865796512,
+        "log_loss": 0.6805976282311055,
+        "accuracy_at_half": 0.5670731707317073,
+        "thresholds": {
+          "0.65": {
+            "n": 41,
+            "hit_rate": 0.7073170731707317
+          },
+          "0.7": {
+            "n": 13,
+            "hit_rate": 0.6153846153846154
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "MS1": {
+      "EX-V43-POISSON": {
+        "brier": 0.21507916800542798,
+        "ece_10_equal_width": 0.07164992318287604,
+        "log_loss": 0.6200787327909243,
+        "accuracy_at_half": 0.6402439024390244,
+        "thresholds": {
+          "0.65": {
+            "n": 10,
+            "hit_rate": 0.8
+          },
+          "0.7": {
+            "n": 3,
+            "hit_rate": 0.6666666666666666
+          },
+          "0.75": {
+            "n": 1,
+            "hit_rate": 0
+          },
+          "0.8": {
+            "n": 1,
+            "hit_rate": 0
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.21522530738383064,
+        "ece_10_equal_width": 0.05657397628864339,
+        "log_loss": 0.6205388305035555,
+        "accuracy_at_half": 0.6524390243902439,
+        "thresholds": {
+          "0.65": {
+            "n": 10,
+            "hit_rate": 0.8
+          },
+          "0.7": {
+            "n": 2,
+            "hit_rate": 0.5
+          },
+          "0.75": {
+            "n": 1,
+            "hit_rate": 0
+          },
+          "0.8": {
+            "n": 1,
+            "hit_rate": 0
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "MS2": {
+      "EX-V43-POISSON": {
+        "brier": 0.21026334114997872,
+        "ece_10_equal_width": 0.08493065221443083,
+        "log_loss": 0.6060986313024671,
+        "accuracy_at_half": 0.6707317073170732,
+        "thresholds": {
+          "0.65": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.7": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.20986530372668802,
+        "ece_10_equal_width": 0.08057099045759525,
+        "log_loss": 0.6050086040803881,
+        "accuracy_at_half": 0.6646341463414634,
+        "thresholds": {
+          "0.65": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.7": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    }
+  },
+  "test_europe": {
+    "2.5_UST": {
+      "EX-V43-POISSON": {
+        "brier": 0.23158415779786026,
+        "ece_10_equal_width": 0.12420762228794904,
+        "log_loss": 0.6555378742642964,
+        "accuracy_at_half": 0.6,
+        "thresholds": {
+          "0.65": {
+            "n": 6,
+            "hit_rate": 0.6666666666666666
+          },
+          "0.7": {
+            "n": 2,
+            "hit_rate": 0.5
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.23158415779786026,
+        "ece_10_equal_width": 0.12420762228794902,
+        "log_loss": 0.6555378742642964,
+        "accuracy_at_half": 0.6,
+        "thresholds": {
+          "0.65": {
+            "n": 6,
+            "hit_rate": 0.6666666666666666
+          },
+          "0.7": {
+            "n": 2,
+            "hit_rate": 0.5
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "KG_VAR": {
+      "EX-V43-POISSON": {
+        "brier": 0.26993958471076096,
+        "ece_10_equal_width": 0.28077795553013984,
+        "log_loss": 0.7345411011345416,
+        "accuracy_at_half": 0.55,
+        "thresholds": {
+          "0.65": {
+            "n": 5,
+            "hit_rate": 0.6
+          },
+          "0.7": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.26897469848562455,
+        "ece_10_equal_width": 0.2801958504004952,
+        "log_loss": 0.7325510801251168,
+        "accuracy_at_half": 0.55,
+        "thresholds": {
+          "0.65": {
+            "n": 5,
+            "hit_rate": 0.6
+          },
+          "0.7": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "MS1": {
+      "EX-V43-POISSON": {
+        "brier": 0.22099274561386179,
+        "ece_10_equal_width": 0.20824811721372374,
+        "log_loss": 0.6356500242487689,
+        "accuracy_at_half": 0.7,
+        "thresholds": {
+          "0.65": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.7": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.2201481441856711,
+        "ece_10_equal_width": 0.20912995382182803,
+        "log_loss": 0.633906084254823,
+        "accuracy_at_half": 0.7,
+        "thresholds": {
+          "0.65": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.7": {
+            "n": 1,
+            "hit_rate": 1
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    },
+    "MS2": {
+      "EX-V43-POISSON": {
+        "brier": 0.25303113208239797,
+        "ece_10_equal_width": 0.1707528434339144,
+        "log_loss": 0.6964943471563928,
+        "accuracy_at_half": 0.55,
+        "thresholds": {
+          "0.65": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.7": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "EX-V43-PERFORMANCE-V1": {
+        "brier": 0.25333117604223376,
+        "ece_10_equal_width": 0.15281919966808571,
+        "log_loss": 0.6968201144040254,
+        "accuracy_at_half": 0.55,
+        "thresholds": {
+          "0.65": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.7": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.75": {
+            "n": 0,
+            "hit_rate": null
+          },
+          "0.8": {
+            "n": 0,
+            "hit_rate": null
+          }
+        }
+      },
+      "paired_weekly_brier_delta_99pct": null
+    }
+  },
+  "test_cross_league": 18,
+  "test_start": "2026-10-27",
+  "research_calibration": {
+    "scope": "RECONSTRUCTED_BASELINE_PROBABILITIES",
+    "production_allowed": false,
+    "test_samples": 164,
+    "test_weeks": 4,
+    "markets": {
+      "2.5_UST": {
+        "EX-V43-POISSON": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.24556251110649743,
+            "intercept": 0.2463217783912525,
+            "platt": 0.24600274588558607
+          },
+          "test_reference": {
+            "brier": 0.2502555487512781,
+            "ece_10_equal_width": 0.06894002036025569,
+            "log_loss": 0.6944817136559991
+          },
+          "test_candidate": {
+            "brier": 0.2502555487512781,
+            "ece_10_equal_width": 0.06894002036025569,
+            "log_loss": 0.6944817136559991
+          },
+          "paired_weekly_brier_delta_99pct": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.24553332813804304,
+            "intercept": 0.24705268715344658,
+            "platt": 0.24621633722434932
+          },
+          "test_reference": {
+            "brier": 0.2588631341461901,
+            "ece_10_equal_width": 0.13451583589727373,
+            "log_loss": 0.7143967736366706
+          },
+          "test_candidate": {
+            "brier": 0.2588631341461901,
+            "ece_10_equal_width": 0.13451583589727373,
+            "log_loss": 0.7143967736366706
+          },
+          "paired_weekly_brier_delta_99pct": null
+        }
+      },
+      "KG_VAR": {
+        "EX-V43-POISSON": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.24090744752178073,
+            "intercept": 0.24437130766490478,
+            "platt": 0.24355518768957138
+          },
+          "test_reference": {
+            "brier": 0.2432070011931225,
+            "ece_10_equal_width": 0.05321692154766493,
+            "log_loss": 0.6793901728767349
+          },
+          "test_candidate": {
+            "brier": 0.2432070011931225,
+            "ece_10_equal_width": 0.05321692154766493,
+            "log_loss": 0.6793901728767349
+          },
+          "paired_weekly_brier_delta_99pct": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "selected_on_validation": "platt",
+          "validation_brier": {
+            "identity": 0.2442521475832325,
+            "intercept": 0.24471855132528336,
+            "platt": 0.24371211526854789
+          },
+          "test_reference": {
+            "brier": 0.24999758873146566,
+            "ece_10_equal_width": 0.09461465669972263,
+            "log_loss": 0.6938878547883105
+          },
+          "test_candidate": {
+            "brier": 0.25009068329398043,
+            "ece_10_equal_width": 0.09250852089319427,
+            "log_loss": 0.6936237379474209
+          },
+          "paired_weekly_brier_delta_99pct": null
+        }
+      },
+      "MS1": {
+        "EX-V43-POISSON": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.23158991131069281,
+            "intercept": 0.23324416497513048,
+            "platt": 0.2358262147138353
+          },
+          "test_reference": {
+            "brier": 0.21507916800542798,
+            "ece_10_equal_width": 0.07164992318287604,
+            "log_loss": 0.6200787327909243
+          },
+          "test_candidate": {
+            "brier": 0.21507916800542798,
+            "ece_10_equal_width": 0.07164992318287604,
+            "log_loss": 0.6200787327909243
+          },
+          "paired_weekly_brier_delta_99pct": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.23219680566092013,
+            "intercept": 0.23409564710608163,
+            "platt": 0.2370092708771554
+          },
+          "test_reference": {
+            "brier": 0.21513915047054746,
+            "ece_10_equal_width": 0.04687787833733397,
+            "log_loss": 0.6203911017943968
+          },
+          "test_candidate": {
+            "brier": 0.21513915047054746,
+            "ece_10_equal_width": 0.04687787833733397,
+            "log_loss": 0.6203911017943968
+          },
+          "paired_weekly_brier_delta_99pct": null
+        }
+      },
+      "MS2": {
+        "EX-V43-POISSON": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.2157969939510514,
+            "intercept": 0.2159307273830156,
+            "platt": 0.22028086180038872
+          },
+          "test_reference": {
+            "brier": 0.21026334114997872,
+            "ece_10_equal_width": 0.08493065221443083,
+            "log_loss": 0.6060986313024671
+          },
+          "test_candidate": {
+            "brier": 0.21026334114997872,
+            "ece_10_equal_width": 0.08493065221443083,
+            "log_loss": 0.6060986313024671
+          },
+          "paired_weekly_brier_delta_99pct": null
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "selected_on_validation": "identity",
+          "validation_brier": {
+            "identity": 0.21552074136429003,
+            "intercept": 0.21567444031597927,
+            "platt": 0.21989178970171994
+          },
+          "test_reference": {
+            "brier": 0.2087771358807044,
+            "ece_10_equal_width": 0.07804742861309494,
+            "log_loss": 0.6025298853396164
+          },
+          "test_candidate": {
+            "brier": 0.2087771358807044,
+            "ece_10_equal_width": 0.07804742861309494,
+            "log_loss": 0.6025298853396164
+          },
+          "paired_weekly_brier_delta_99pct": null
+        }
+      }
+    },
+    "candidate_settings": [
+      0.0,
+      0.5,
+      0.0,
+      1.0863101844437428
+    ]
+  },
+  "league_ablation": {
+    "validation_n": 24,
+    "test_n": 18,
+    "selected_scale": 0.0,
+    "validation_brier": {
+      "0.0": 0.2476751302520483,
+      "0.5": 0.24833667114622343,
+      "1.0": 0.2505446940296553
+    },
+    "reference_scope": "SAME_CANDIDATE_WITHOUT_LEAGUE_COEFFICIENT",
+    "test": {
+      "2.5_UST": {
+        "EX-V43-POISSON": {
+          "brier": 0.22924162491185984,
+          "ece_10_equal_width": 0.11175898297015222,
+          "log_loss": 0.6508009009298881,
+          "accuracy_at_half": 0.6111111111111112,
+          "thresholds": {
+            "0.65": {
+              "n": 6,
+              "hit_rate": 0.6666666666666666
+            },
+            "0.7": {
+              "n": 2,
+              "hit_rate": 0.5
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "brier": 0.22924162491185984,
+          "ece_10_equal_width": 0.11175898297015222,
+          "log_loss": 0.6508009009298881,
+          "accuracy_at_half": 0.6111111111111112,
+          "thresholds": {
+            "0.65": {
+              "n": 6,
+              "hit_rate": 0.6666666666666666
+            },
+            "0.7": {
+              "n": 2,
+              "hit_rate": 0.5
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "paired_weekly_brier_delta_99pct": null
+      },
+      "KG_VAR": {
+        "EX-V43-POISSON": {
+          "brier": 0.2569105157029736,
+          "ece_10_equal_width": 0.24305643575783561,
+          "log_loss": 0.708046154910529,
+          "accuracy_at_half": 0.6111111111111112,
+          "thresholds": {
+            "0.65": {
+              "n": 5,
+              "hit_rate": 0.6
+            },
+            "0.7": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "brier": 0.2569105157029736,
+          "ece_10_equal_width": 0.24305643575783561,
+          "log_loss": 0.708046154910529,
+          "accuracy_at_half": 0.6111111111111112,
+          "thresholds": {
+            "0.65": {
+              "n": 5,
+              "hit_rate": 0.6
+            },
+            "0.7": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "paired_weekly_brier_delta_99pct": null
+      },
+      "MS1": {
+        "EX-V43-POISSON": {
+          "brier": 0.2140249928065921,
+          "ece_10_equal_width": 0.2561309936317042,
+          "log_loss": 0.6217049552040811,
+          "accuracy_at_half": 0.7777777777777778,
+          "thresholds": {
+            "0.65": {
+              "n": 1,
+              "hit_rate": 1
+            },
+            "0.7": {
+              "n": 1,
+              "hit_rate": 1
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "brier": 0.2140249928065921,
+          "ece_10_equal_width": 0.2561309936317042,
+          "log_loss": 0.6217049552040811,
+          "accuracy_at_half": 0.7777777777777778,
+          "thresholds": {
+            "0.65": {
+              "n": 1,
+              "hit_rate": 1
+            },
+            "0.7": {
+              "n": 1,
+              "hit_rate": 1
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "paired_weekly_brier_delta_99pct": null
+      },
+      "MS2": {
+        "EX-V43-POISSON": {
+          "brier": 0.2460812510722495,
+          "ece_10_equal_width": 0.14531289217289803,
+          "log_loss": 0.6796498827921998,
+          "accuracy_at_half": 0.5555555555555556,
+          "thresholds": {
+            "0.65": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.7": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "EX-V43-PERFORMANCE-V1": {
+          "brier": 0.2460812510722495,
+          "ece_10_equal_width": 0.14531289217289803,
+          "log_loss": 0.6796498827921998,
+          "accuracy_at_half": 0.5555555555555556,
+          "thresholds": {
+            "0.65": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.7": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.75": {
+              "n": 0,
+              "hit_rate": null
+            },
+            "0.8": {
+              "n": 0,
+              "hit_rate": null
+            }
+          }
+        },
+        "paired_weekly_brier_delta_99pct": null
+      }
+    }
+  },
+  "europe_rating_inputs": 212,
+  "league_ratings_goal_units": {
+    "tr.1": {
+      "rating": null,
+      "appearances": 0
+    },
+    "en.1": {
+      "rating": 0.4523918446918498,
+      "appearances": 88
+    },
+    "de.1": {
+      "rating": 0.008144864946278675,
+      "appearances": 66
+    },
+    "de.2": {
+      "rating": null,
+      "appearances": 0
+    },
+    "es.1": {
+      "rating": -3.378390528655991e-05,
+      "appearances": 78
+    },
+    "it.1": {
+      "rating": -0.06750512745392374,
+      "appearances": 57
+    },
+    "fr.1": {
+      "rating": 0.09281836825724238,
+      "appearances": 60
+    },
+    "nl.1": {
+      "rating": -0.6471864807350678,
+      "appearances": 36
+    },
+    "nl.2": {
+      "rating": null,
+      "appearances": 0
+    },
+    "pt.1": {
+      "rating": 0.16137026266307702,
+      "appearances": 39
+    },
+    "be.1": {
+      "rating": null,
+      "appearances": 0
+    },
+    "no.1": {
+      "rating": null,
+      "appearances": 0
+    }
+  }
+}
