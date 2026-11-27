@@ -58,3 +58,14 @@ class LiveEvidenceRefreshTests(TestCase):
         self.assertIn("historical_samples:incomplete", result["issues"])
         self.assertIn("exg:uncalibrated", result["issues"])
         self.assertFalse(result["ex_final_allowed"])
+
+    def test_venue_form_uses_chronology_even_when_archive_order_is_reversed(self):
+        from ex_engine import form_sample_rows
+
+        season = dt.date(2026, 8, 1)
+        fixtures = [{"date": season + dt.timedelta(days=i), "league": "en.1",
+                     "home": "10", "away": str(i), "event_id": str(i)} for i in range(12)]
+        chunks = form_sample_rows(reversed(fixtures), "10", "home", season + dt.timedelta(days=20),
+                                  "en.1", season, dt.date(2025, 8, 1))
+        self.assertEqual(fixtures[-5:], chunks[0])
+        self.assertEqual(fixtures[-10:], chunks[1])

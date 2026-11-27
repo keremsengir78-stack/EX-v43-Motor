@@ -43,6 +43,11 @@ class HistoricalEvidenceTests(unittest.TestCase):
         self.assertEqual("CONTEXT_CROSS_VERIFIED", reviewed_context(bundle, fixture, workload, cutoff, replay)["status"])
         self.assertEqual(4, replay.call_count)
         self.assertIsNone(reviewed_context(bundle, fixture, {"home": load}, cutoff, replay))
+        inflated = {**load, "rest_hours_since_archived_full_time_capped_at_336": 47}
+        self.assertIsNone(reviewed_context(bundle, fixture, {**workload, "home": inflated}, cutoff, replay))
+        duplicate = {**load, "completion_observations": load["completion_observations"] * 2,
+                     "completed_match_count_14d_archived": 2}
+        self.assertIsNone(reviewed_context(bundle, fixture, {**workload, "away": duplicate}, cutoff, replay))
         replay.side_effect = OSError()
         self.assertIsNone(reviewed_context(bundle, fixture, workload, cutoff, replay))
 

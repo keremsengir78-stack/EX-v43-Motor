@@ -53,7 +53,8 @@ def review_capture(manifest, cache, targets, cutoff):
                 load = {}
             rows.append({"fixture": target, "board_source": board, "summary_source": source,
                          "observed_fields": values, "quotes": odds, "quote_attempts": attempts,
-                         "research_only_quotes": fractional_research_quotes(payload.get("pickcenter"), source),
+                         "research_only_quotes": fractional_research_quotes(payload.get("odds"), source)
+                         + fractional_research_quotes(payload.get("pickcenter"), source),
                          "player_roster_entries_observed": sum(
                              len(block.get("roster") or []) for block in payload.get("rosters") or []),
                          "recent_schedule_observations": load,
