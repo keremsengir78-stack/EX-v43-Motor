@@ -1,0 +1,2324 @@
+{
+  "method": "EX_OPTIMIZATION_RESEARCH_V1",
+  "cutoff": "2026-11-27T11:47:46.991520+00:00",
+  "archive_facts": 6829,
+  "historical_examples": 2322,
+  "coverage": {
+    "kickoff_workload": 2047,
+    "strength": 504,
+    "external": 2
+  },
+  "historical_source_coverage": {
+    "usable_settled_matches": 7642,
+    "excluded_source_conflicts": 0,
+    "official_score_cross_checks": 9,
+    "cross_checks_are_not_producer_lineage_approval": true,
+    "by_competition": {
+      "esp.1": 509,
+      "eng.1": 490,
+      "ita.1": 500,
+      "tur.1": 414,
+      "gre.1": 312,
+      "por.taca.portugal": 51,
+      "fra.1": 404,
+      "bel.1": 420,
+      "nor.1": 456,
+      "ger.1": 396,
+      "aut.1": 273,
+      "ned.1": 425,
+      "club.friendly": 372,
+      "esp.copa_del_rey": 62,
+      "por.1": 404,
+      "uefa.europa.conf": 124,
+      "uefa.europa": 225,
+      "uefa.champions": 273,
+      "ned.cup": 42,
+      "eng.league_cup": 57,
+      "ger.dfb_pokal": 64,
+      "ita.coppa_italia": 45,
+      "uefa.europa.conf_qual": 114,
+      "uefa.europa_qual": 68,
+      "uefa.champions_qual": 50,
+      "ger.super_cup": 2,
+      "esp.joan_gamper": 2,
+      "fra.super_cup": 1,
+      "eng.charity": 1,
+      "uefa.super_cup": 1,
+      "ned.supercup": 2,
+      "fra.1.promotion.relegation": 2,
+      "por.1.promotion.relegation": 2,
+      "bel.promotion.relegation": 2,
+      "fra.coupe_de_france": 35,
+      "ger.playoff.relegation": 1,
+      "ned.playoff.relegation": 1,
+      "eng.fa": 34,
+      "esp.super_cup": 3,
+      "ita.super_cup": 2,
+      "nor.1.promotion.relegation": 2,
+      "friendly.emirates_cup": 1,
+      "jpn.world_challenge": 1,
+      "fifa.cwc": 43,
+      "ned.2": 540,
+      "ger.2": 414
+    }
+  },
+  "complete_case_comparison": {
+    "eligible": 0,
+    "status": "INSUFFICIENT_SAMPLE",
+    "models": {}
+  },
+  "common_statistical_comparison": {
+    "eligible": 427,
+    "status": "EVALUATED_RESEARCH_ONLY",
+    "models": {
+      "STAT_FORM": {
+        "model": {
+          "name": "STAT_FORM",
+          "parameters": {
+            "2.5_UST": [
+              -0.10472085639571813,
+              1.0416206625835038
+            ],
+            "KG_VAR": [
+              -0.12507794884539564,
+              1.0503278887961889
+            ],
+            "MS1": [
+              -1.636402837167733,
+              2.557428486937241
+            ],
+            "MS2": [
+              -1.2259521558955493,
+              2.2692266688465943
+            ]
+          },
+          "trained_through": "2026-09-15T21:27:22+00:00"
+        },
+        "markets": {
+          "2.5_UST": {
+            "validation": {
+              "brier": 0.23412330339387588,
+              "ece_10_equal_width": 0.04395535734136769,
+              "n": 133,
+              "log_loss": 0.6608275046244779,
+              "accuracy_at_50_pct": 0.6165413533834586,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2609095532246797,
+              "ece_10_equal_width": 0.12915294557854415,
+              "n": 124,
+              "log_loss": 0.7156397728399797,
+              "accuracy_at_50_pct": 0.5,
+              "predictions_at_least_70_pct": 1,
+              "hit_rate_at_least_70_pct": 1,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.24659192846510658,
+                "ece_10_equal_width": 0.05707718726650865,
+                "n": 15,
+                "log_loss": 0.6876021888521306,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.33343462403088764,
+                "ece_10_equal_width": 0.4406087052219107,
+                "n": 18,
+                "log_loss": 0.8633044166331442,
+                "accuracy_at_50_pct": 0.16666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.2889847345013753,
+                "ece_10_equal_width": 0.21761441548644944,
+                "n": 20,
+                "log_loss": 0.7730562334522921,
+                "accuracy_at_50_pct": 0.4,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.27124794212452136,
+                "ece_10_equal_width": 0.17923906340544826,
+                "n": 18,
+                "log_loss": 0.7369128697827482,
+                "accuracy_at_50_pct": 0.4444444444444444,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.21366438762665288,
+                "ece_10_equal_width": 0.09443316705095726,
+                "n": 24,
+                "log_loss": 0.6192971994428278,
+                "accuracy_at_50_pct": 0.7083333333333334,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.2009503601535795,
+                "ece_10_equal_width": 0.08349553870767433,
+                "n": 15,
+                "log_loss": 0.5918393387182423,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "pt.1": {
+                "brier": 0.27483743476538947,
+                "ece_10_equal_width": 0.1834576162930758,
+                "n": 14,
+                "log_loss": 0.7442528791030087,
+                "accuracy_at_50_pct": 0.42857142857142855,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "KG_VAR": {
+            "validation": {
+              "brier": 0.2552784843730628,
+              "ece_10_equal_width": 0.06178903446120688,
+              "n": 133,
+              "log_loss": 0.7049766589144036,
+              "accuracy_at_50_pct": 0.556390977443609,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2596548894593455,
+              "ece_10_equal_width": 0.10105861699226013,
+              "n": 124,
+              "log_loss": 0.7131268102589848,
+              "accuracy_at_50_pct": 0.5161290322580645,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.21143934903019213,
+                "ece_10_equal_width": 0.09498402812193926,
+                "n": 15,
+                "log_loss": 0.6151088465245353,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.3010550532178235,
+                "ece_10_equal_width": 0.2766841558345934,
+                "n": 18,
+                "log_loss": 0.7977507238274446,
+                "accuracy_at_50_pct": 0.3333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.30045964613793963,
+                "ece_10_equal_width": 0.2644428764133037,
+                "n": 20,
+                "log_loss": 0.7967441098770704,
+                "accuracy_at_50_pct": 0.35,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.27418205105209026,
+                "ece_10_equal_width": 0.17521177504360935,
+                "n": 18,
+                "log_loss": 0.7426170954079715,
+                "accuracy_at_50_pct": 0.4444444444444444,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.22857037211597164,
+                "ece_10_equal_width": 0.12301699108793945,
+                "n": 24,
+                "log_loss": 0.6497110887375563,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.20467993596569328,
+                "ece_10_equal_width": 0.09068991460115841,
+                "n": 15,
+                "log_loss": 0.6002251627794511,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.29330480625857147,
+                "ece_10_equal_width": 0.24028077676318982,
+                "n": 14,
+                "log_loss": 0.781653232791005,
+                "accuracy_at_50_pct": 0.35714285714285715,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "MS1": {
+            "validation": {
+              "brier": 0.2334750123672091,
+              "ece_10_equal_width": 0.0857479203925943,
+              "n": 133,
+              "log_loss": 0.6593365971413855,
+              "accuracy_at_50_pct": 0.5939849624060151,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.238789544605054,
+              "ece_10_equal_width": 0.08695302305116692,
+              "n": 124,
+              "log_loss": 0.6694450502109686,
+              "accuracy_at_50_pct": 0.5887096774193549,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.23470002407721172,
+                "ece_10_equal_width": 0.09375214945452455,
+                "n": 15,
+                "log_loss": 0.6585720785432316,
+                "accuracy_at_50_pct": 0.5333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.3043699891874466,
+                "ece_10_equal_width": 0.3049865379074713,
+                "n": 18,
+                "log_loss": 0.8125678740439773,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.22836222875377712,
+                "ece_10_equal_width": 0.1510162643947721,
+                "n": 20,
+                "log_loss": 0.6483655854632427,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.25067228551686577,
+                "ece_10_equal_width": 0.21737620472492158,
+                "n": 18,
+                "log_loss": 0.6900045444398449,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.2030918088452481,
+                "ece_10_equal_width": 0.10907256727608762,
+                "n": 24,
+                "log_loss": 0.5939498516044894,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.23295758172988792,
+                "ece_10_equal_width": 0.08114268317105268,
+                "n": 15,
+                "log_loss": 0.6599718185998611,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.2259164651343629,
+                "ece_10_equal_width": 0.16430956936773508,
+                "n": 14,
+                "log_loss": 0.6403297206094505,
+                "accuracy_at_50_pct": 0.6428571428571429,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "MS2": {
+            "validation": {
+              "brier": 0.22258561093152743,
+              "ece_10_equal_width": 0.07754282779939937,
+              "n": 133,
+              "log_loss": 0.6366292275254261,
+              "accuracy_at_50_pct": 0.6466165413533834,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2138821965880534,
+              "ece_10_equal_width": 0.1317791628582561,
+              "n": 124,
+              "log_loss": 0.6184861309397266,
+              "accuracy_at_50_pct": 0.6612903225806451,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.20873523475013034,
+                "ece_10_equal_width": 0.0864231746874332,
+                "n": 15,
+                "log_loss": 0.6082080083288302,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.18459150362625812,
+                "ece_10_equal_width": 0.1548474662486386,
+                "n": 18,
+                "log_loss": 0.5580658296997637,
+                "accuracy_at_50_pct": 0.7777777777777778,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.2039331534220495,
+                "ece_10_equal_width": 0.19906253896485135,
+                "n": 20,
+                "log_loss": 0.5966943641189557,
+                "accuracy_at_50_pct": 0.65,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2405938389379758,
+                "ece_10_equal_width": 0.2544834951725517,
+                "n": 18,
+                "log_loss": 0.6746572833281943,
+                "accuracy_at_50_pct": 0.5555555555555556,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.22451799917465518,
+                "ece_10_equal_width": 0.07891251256187755,
+                "n": 24,
+                "log_loss": 0.6402752215501979,
+                "accuracy_at_50_pct": 0.5833333333333334,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.255570611052991,
+                "ece_10_equal_width": 0.1406102927054283,
+                "n": 15,
+                "log_loss": 0.7060445587733134,
+                "accuracy_at_50_pct": 0.5333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.17402667679163397,
+                "ece_10_equal_width": 0.25252856433525206,
+                "n": 14,
+                "log_loss": 0.5349273639933458,
+                "accuracy_at_50_pct": 0.8571428571428571,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          }
+        },
+        "fit_n": 172,
+        "seconds": 0.07063054799800739
+      },
+      "STAT_WORKLOAD": {
+        "model": {
+          "name": "STAT_WORKLOAD",
+          "parameters": {
+            "2.5_UST": [
+              -0.04862040564432939,
+              1.0773290516637284,
+              0.08554611135137657,
+              -0.5627226650539933,
+              0.25474149662073803,
+              -0.07564237062407715
+            ],
+            "KG_VAR": [
+              -0.03772569737234328,
+              1.0317785965166122,
+              0.1391983150068632,
+              -0.3379921309874412,
+              0.02211494695962194,
+              -0.022971883132608884
+            ],
+            "MS1": [
+              -0.9894508141873001,
+              2.520325603043256,
+              -0.9754486907571566,
+              0.10041402901332554,
+              0.004232856037015279,
+              -0.7298952822437922
+            ],
+            "MS2": [
+              -0.7112460331574606,
+              2.271566480861615,
+              -0.02613414282029867,
+              -1.1955264803176746,
+              -0.6009636307580238,
+              0.432116050304615
+            ]
+          },
+          "trained_through": "2026-09-15T21:27:22+00:00"
+        },
+        "markets": {
+          "2.5_UST": {
+            "validation": {
+              "brier": 0.23747364227742096,
+              "ece_10_equal_width": 0.035988793109500636,
+              "n": 133,
+              "log_loss": 0.6682305773533737,
+              "accuracy_at_50_pct": 0.6165413533834586,
+              "predictions_at_least_70_pct": 1,
+              "hit_rate_at_least_70_pct": 0
+            },
+            "test": {
+              "brier": 0.2635486069038057,
+              "ece_10_equal_width": 0.12847625094398005,
+              "n": 124,
+              "log_loss": 0.7211014826691149,
+              "accuracy_at_50_pct": 0.49193548387096775,
+              "predictions_at_least_70_pct": 10,
+              "hit_rate_at_least_70_pct": 0.7,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.25470585157090203,
+                "ece_10_equal_width": 0.21543037589763614,
+                "n": 15,
+                "log_loss": 0.7074161584501502,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 3,
+                "hit_rate_at_least_70_pct": 0
+              },
+              "en.1": {
+                "brier": 0.33324344258348526,
+                "ece_10_equal_width": 0.43068207984425566,
+                "n": 18,
+                "log_loss": 0.8645577110399204,
+                "accuracy_at_50_pct": 0.16666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.28678247019127345,
+                "ece_10_equal_width": 0.2915620771505222,
+                "n": 20,
+                "log_loss": 0.7682839098587454,
+                "accuracy_at_50_pct": 0.35,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "fr.1": {
+                "brier": 0.27188258776302315,
+                "ece_10_equal_width": 0.22247989112801397,
+                "n": 18,
+                "log_loss": 0.73752007414284,
+                "accuracy_at_50_pct": 0.4444444444444444,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "it.1": {
+                "brier": 0.22599209411565502,
+                "ece_10_equal_width": 0.12217130289591366,
+                "n": 24,
+                "log_loss": 0.6444299489010057,
+                "accuracy_at_50_pct": 0.7083333333333334,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.19056091319845622,
+                "ece_10_equal_width": 0.21804753184712755,
+                "n": 15,
+                "log_loss": 0.5670423255663053,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 5,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "pt.1": {
+                "brier": 0.2820926839780852,
+                "ece_10_equal_width": 0.20044912934905318,
+                "n": 14,
+                "log_loss": 0.7593078204739061,
+                "accuracy_at_50_pct": 0.42857142857142855,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "KG_VAR": {
+            "validation": {
+              "brier": 0.2560890255451806,
+              "ece_10_equal_width": 0.09697552329772095,
+              "n": 133,
+              "log_loss": 0.7067887128342429,
+              "accuracy_at_50_pct": 0.556390977443609,
+              "predictions_at_least_70_pct": 1,
+              "hit_rate_at_least_70_pct": 0
+            },
+            "test": {
+              "brier": 0.26058892711880866,
+              "ece_10_equal_width": 0.11224953437855971,
+              "n": 124,
+              "log_loss": 0.7148986356992783,
+              "accuracy_at_50_pct": 0.5161290322580645,
+              "predictions_at_least_70_pct": 2,
+              "hit_rate_at_least_70_pct": 1,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.2075033837089635,
+                "ece_10_equal_width": 0.08380218204271303,
+                "n": 15,
+                "log_loss": 0.606671871924336,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "en.1": {
+                "brier": 0.3009811963494602,
+                "ece_10_equal_width": 0.27508698058142944,
+                "n": 18,
+                "log_loss": 0.7983745707019909,
+                "accuracy_at_50_pct": 0.3333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.3018501239089525,
+                "ece_10_equal_width": 0.2642332035691929,
+                "n": 20,
+                "log_loss": 0.7993391402033575,
+                "accuracy_at_50_pct": 0.35,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2757546311837338,
+                "ece_10_equal_width": 0.20712339905797117,
+                "n": 18,
+                "log_loss": 0.7455338269658369,
+                "accuracy_at_50_pct": 0.4444444444444444,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.23505454107943105,
+                "ece_10_equal_width": 0.07126651990081347,
+                "n": 24,
+                "log_loss": 0.663007287782694,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.2013778698736557,
+                "ece_10_equal_width": 0.081623412006218,
+                "n": 15,
+                "log_loss": 0.5924607973054906,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              },
+              "pt.1": {
+                "brier": 0.2943036999507215,
+                "ece_10_equal_width": 0.2500393842446066,
+                "n": 14,
+                "log_loss": 0.7836522799564569,
+                "accuracy_at_50_pct": 0.35714285714285715,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "MS1": {
+            "validation": {
+              "brier": 0.2260950503766114,
+              "ece_10_equal_width": 0.06801454179796682,
+              "n": 133,
+              "log_loss": 0.6439057763024585,
+              "accuracy_at_50_pct": 0.6466165413533834,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.23955049511951218,
+              "ece_10_equal_width": 0.10392808443449367,
+              "n": 124,
+              "log_loss": 0.6710305620868592,
+              "accuracy_at_50_pct": 0.6048387096774194,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.21500215196567019,
+                "ece_10_equal_width": 0.2153694772673487,
+                "n": 15,
+                "log_loss": 0.6171348912521951,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.29878512719318734,
+                "ece_10_equal_width": 0.20587639836501975,
+                "n": 18,
+                "log_loss": 0.806271630009819,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.23763844002203532,
+                "ece_10_equal_width": 0.08269766891238708,
+                "n": 20,
+                "log_loss": 0.6668564952055167,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2578778685297482,
+                "ece_10_equal_width": 0.20323552279023252,
+                "n": 18,
+                "log_loss": 0.7039970049499169,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.21337352077664887,
+                "ece_10_equal_width": 0.07770816356375392,
+                "n": 24,
+                "log_loss": 0.6125641371304651,
+                "accuracy_at_50_pct": 0.625,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.23622294746618136,
+                "ece_10_equal_width": 0.2909706652493348,
+                "n": 15,
+                "log_loss": 0.6706301262298923,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.2173012629463298,
+                "ece_10_equal_width": 0.18583670287215018,
+                "n": 14,
+                "log_loss": 0.6191292722873204,
+                "accuracy_at_50_pct": 0.6428571428571429,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "MS2": {
+            "validation": {
+              "brier": 0.2128712799307218,
+              "ece_10_equal_width": 0.06629638592878721,
+              "n": 133,
+              "log_loss": 0.615620979547974,
+              "accuracy_at_50_pct": 0.6992481203007519,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.21171875602613138,
+              "ece_10_equal_width": 0.05995356017415131,
+              "n": 124,
+              "log_loss": 0.6128488361467537,
+              "accuracy_at_50_pct": 0.6774193548387096,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.1948427870640266,
+                "ece_10_equal_width": 0.07729352268841347,
+                "n": 15,
+                "log_loss": 0.5794782073628044,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.18380326566726352,
+                "ece_10_equal_width": 0.2383137924945403,
+                "n": 18,
+                "log_loss": 0.550514210668825,
+                "accuracy_at_50_pct": 0.7222222222222222,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.19873572887450458,
+                "ece_10_equal_width": 0.1389156339763768,
+                "n": 20,
+                "log_loss": 0.5861623655096031,
+                "accuracy_at_50_pct": 0.65,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2564041927868571,
+                "ece_10_equal_width": 0.12102617931345952,
+                "n": 18,
+                "log_loss": 0.7077992080265157,
+                "accuracy_at_50_pct": 0.5555555555555556,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.22722971584667306,
+                "ece_10_equal_width": 0.059159714026714716,
+                "n": 24,
+                "log_loss": 0.6448946799173724,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.26118672534469684,
+                "ece_10_equal_width": 0.19731987284997352,
+                "n": 15,
+                "log_loss": 0.7178769437155076,
+                "accuracy_at_50_pct": 0.5333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.14719436079464462,
+                "ece_10_equal_width": 0.26973955786451753,
+                "n": 14,
+                "log_loss": 0.47732623223554577,
+                "accuracy_at_50_pct": 0.9285714285714286,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          }
+        },
+        "fit_n": 169,
+        "seconds": 0.3209841210009472
+      },
+      "STAT_VENUE5": {
+        "model": {
+          "name": "STAT_VENUE5",
+          "parameters": {
+            "2.5_UST": [
+              -0.22049342714847836,
+              0.7677963356586752
+            ],
+            "KG_VAR": [
+              -0.05523482643877798,
+              0.48157114286338953
+            ],
+            "MS1": [
+              -1.3992399108415845,
+              2.5059213715905195
+            ],
+            "MS2": [
+              -1.5265042320898818,
+              2.330260371121174
+            ]
+          },
+          "trained_through": "2026-09-15T21:27:22+00:00"
+        },
+        "markets": {
+          "2.5_UST": {
+            "validation": {
+              "brier": 0.23746631088301035,
+              "ece_10_equal_width": 0.057353574832691434,
+              "n": 133,
+              "log_loss": 0.6678854233302198,
+              "accuracy_at_50_pct": 0.5939849624060151,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2494746846193432,
+              "ece_10_equal_width": 0.06054936351955649,
+              "n": 124,
+              "log_loss": 0.6920843889414122,
+              "accuracy_at_50_pct": 0.5241935483870968,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.24637637807779053,
+                "ece_10_equal_width": 0.07695552515979681,
+                "n": 15,
+                "log_loss": 0.6860216984529252,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.2773313585109305,
+                "ece_10_equal_width": 0.3739755736656573,
+                "n": 18,
+                "log_loss": 0.7480639623718659,
+                "accuracy_at_50_pct": 0.16666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.26421213895125173,
+                "ece_10_equal_width": 0.1557693398045845,
+                "n": 20,
+                "log_loss": 0.7217160840452992,
+                "accuracy_at_50_pct": 0.45,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2580026906811039,
+                "ece_10_equal_width": 0.11613150498803816,
+                "n": 18,
+                "log_loss": 0.7095131386358733,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.22826175322490452,
+                "ece_10_equal_width": 0.2040050543388943,
+                "n": 24,
+                "log_loss": 0.6494723147516512,
+                "accuracy_at_50_pct": 0.7083333333333334,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.21907486111194116,
+                "ece_10_equal_width": 0.15012376866695124,
+                "n": 15,
+                "log_loss": 0.6303782264139431,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.25389675450522997,
+                "ece_10_equal_width": 0.12014553781031746,
+                "n": 14,
+                "log_loss": 0.7010300216176556,
+                "accuracy_at_50_pct": 0.5,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "KG_VAR": {
+            "validation": {
+              "brier": 0.24987118448722054,
+              "ece_10_equal_width": 0.01786784744311581,
+              "n": 133,
+              "log_loss": 0.6930032705256732,
+              "accuracy_at_50_pct": 0.556390977443609,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2516110640147232,
+              "ece_10_equal_width": 0.04641352848060351,
+              "n": 124,
+              "log_loss": 0.6964021332317588,
+              "accuracy_at_50_pct": 0.5161290322580645,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.22894765027415612,
+                "ece_10_equal_width": 0.1673069985365149,
+                "n": 15,
+                "log_loss": 0.6509231347221954,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.27166717781810146,
+                "ece_10_equal_width": 0.2188274582221555,
+                "n": 18,
+                "log_loss": 0.7367609883535753,
+                "accuracy_at_50_pct": 0.3333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.2698826121207489,
+                "ece_10_equal_width": 0.20275565620157027,
+                "n": 20,
+                "log_loss": 0.7331382451169653,
+                "accuracy_at_50_pct": 0.35,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.25751672733770287,
+                "ece_10_equal_width": 0.1136442677919616,
+                "n": 18,
+                "log_loss": 0.7082272372338758,
+                "accuracy_at_50_pct": 0.4444444444444444,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.23767632139453562,
+                "ece_10_equal_width": 0.11452431847982125,
+                "n": 24,
+                "log_loss": 0.6683973396049452,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.22413991509548914,
+                "ece_10_equal_width": 0.16341467813207725,
+                "n": 15,
+                "log_loss": 0.6410934879964,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.26973315775662066,
+                "ece_10_equal_width": 0.18821993465040485,
+                "n": 14,
+                "log_loss": 0.7328232904662176,
+                "accuracy_at_50_pct": 0.35714285714285715,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          },
+          "MS1": {
+            "validation": {
+              "brier": 0.2295831264008248,
+              "ece_10_equal_width": 0.03583057634368894,
+              "n": 133,
+              "log_loss": 0.6518319925566136,
+              "accuracy_at_50_pct": 0.631578947368421,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.2353049068197441,
+              "ece_10_equal_width": 0.07119731009411147,
+              "n": 124,
+              "log_loss": 0.6620339372695249,
+              "accuracy_at_50_pct": 0.6370967741935484,
+              "predictions_at_least_70_pct": 1,
+              "hit_rate_at_least_70_pct": 1,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.24208199856667795,
+                "ece_10_equal_width": 0.053189247418736436,
+                "n": 15,
+                "log_loss": 0.6744738733034371,
+                "accuracy_at_50_pct": 0.6,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.28747735211992126,
+                "ece_10_equal_width": 0.22547804629558044,
+                "n": 18,
+                "log_loss": 0.7720387055916308,
+                "accuracy_at_50_pct": 0.3888888888888889,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.22239387878576125,
+                "ece_10_equal_width": 0.3139679078072131,
+                "n": 20,
+                "log_loss": 0.6360135483943549,
+                "accuracy_at_50_pct": 0.8,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.23656245006314539,
+                "ece_10_equal_width": 0.11856182215504761,
+                "n": 18,
+                "log_loss": 0.6620634538660577,
+                "accuracy_at_50_pct": 0.5555555555555556,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.20450820682079934,
+                "ece_10_equal_width": 0.1581127725387572,
+                "n": 24,
+                "log_loss": 0.5972856724505285,
+                "accuracy_at_50_pct": 0.75,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.24274009107136094,
+                "ece_10_equal_width": 0.15421496593402823,
+                "n": 15,
+                "log_loss": 0.6807276883278144,
+                "accuracy_at_50_pct": 0.6666666666666666,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.22262043731200543,
+                "ece_10_equal_width": 0.14074040091559406,
+                "n": 14,
+                "log_loss": 0.6353727728581526,
+                "accuracy_at_50_pct": 0.6428571428571429,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1
+              }
+            }
+          },
+          "MS2": {
+            "validation": {
+              "brier": 0.22740204722122592,
+              "ece_10_equal_width": 0.05170061603948871,
+              "n": 133,
+              "log_loss": 0.6466244768186735,
+              "accuracy_at_50_pct": 0.6390977443609023,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null
+            },
+            "test": {
+              "brier": 0.21943497474716905,
+              "ece_10_equal_width": 0.0891026091751881,
+              "n": 124,
+              "log_loss": 0.6297830759821623,
+              "accuracy_at_50_pct": 0.6612903225806451,
+              "predictions_at_least_70_pct": 0,
+              "hit_rate_at_least_70_pct": null,
+              "weekly_uncertainty_95_pct": {
+                "weeks": 3,
+                "status": "INSUFFICIENT_WEEK_BLOCKS",
+                "intervals": null
+              }
+            },
+            "test_by_league": {
+              "de.1": {
+                "brier": 0.22219209778727006,
+                "ece_10_equal_width": 0.2861890014544686,
+                "n": 15,
+                "log_loss": 0.6433920020959731,
+                "accuracy_at_50_pct": 0.7333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "en.1": {
+                "brier": 0.1659511427434135,
+                "ece_10_equal_width": 0.14311212333210435,
+                "n": 18,
+                "log_loss": 0.5161804204247504,
+                "accuracy_at_50_pct": 0.8333333333333334,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "es.1": {
+                "brier": 0.1971624581505078,
+                "ece_10_equal_width": 0.19782106620461581,
+                "n": 20,
+                "log_loss": 0.5763694312101015,
+                "accuracy_at_50_pct": 0.65,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "fr.1": {
+                "brier": 0.2568314825688061,
+                "ece_10_equal_width": 0.1747461545967192,
+                "n": 18,
+                "log_loss": 0.7111153643755204,
+                "accuracy_at_50_pct": 0.5555555555555556,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "it.1": {
+                "brier": 0.23671736160398915,
+                "ece_10_equal_width": 0.10889937127205397,
+                "n": 24,
+                "log_loss": 0.6664812177185642,
+                "accuracy_at_50_pct": 0.625,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "nl.1": {
+                "brier": 0.2784968088438173,
+                "ece_10_equal_width": 0.13050949219730035,
+                "n": 15,
+                "log_loss": 0.7577001731676226,
+                "accuracy_at_50_pct": 0.5333333333333333,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "pt.1": {
+                "brier": 0.17607501228977163,
+                "ece_10_equal_width": 0.19865923612454015,
+                "n": 14,
+                "log_loss": 0.5330326297844108,
+                "accuracy_at_50_pct": 0.7142857142857143,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              }
+            }
+          }
+        },
+        "fit_n": 1942,
+        "seconds": 0.9373716769987368
+      }
+    },
+    "splits": [
+      169,
+      133,
+      124
+    ],
+    "split_starts": [
+      "2026-09-16T00:00:00+00:00",
+      "2026-10-26T00:00:00+00:00"
+    ],
+    "test_weeks": 3,
+    "selected": {
+      "2.5_UST": {
+        "validation_choice": "STAT_FORM",
+        "baseline": "STAT_FORM",
+        "weekly_delta_brier_99_pct": null,
+        "improvement_supported": false
+      },
+      "KG_VAR": {
+        "validation_choice": "STAT_VENUE5",
+        "baseline": "STAT_FORM",
+        "weekly_delta_brier_99_pct": null,
+        "improvement_supported": false
+      },
+      "MS1": {
+        "validation_choice": "STAT_WORKLOAD",
+        "baseline": "STAT_FORM",
+        "weekly_delta_brier_99_pct": null,
+        "improvement_supported": false
+      },
+      "MS2": {
+        "validation_choice": "STAT_WORKLOAD",
+        "baseline": "STAT_FORM",
+        "weekly_delta_brier_99_pct": null,
+        "improvement_supported": false
+      }
+    }
+  },
+  "broad_single_model_evaluations": {
+    "STAT_FORM": {
+      "eligible": 504,
+      "status": "EVALUATED_RESEARCH_ONLY",
+      "models": {
+        "STAT_FORM": {
+          "model": {
+            "name": "STAT_FORM",
+            "parameters": {
+              "2.5_UST": [
+                -0.13596652838158443,
+                1.0916595427225153
+              ],
+              "KG_VAR": [
+                -0.19269201206209838,
+                1.126379927031369
+              ],
+              "MS1": [
+                -1.6557643577027468,
+                2.6603162959049795
+              ],
+              "MS2": [
+                -1.2556184175712537,
+                2.312871473010391
+              ]
+            },
+            "trained_through": "2026-09-17T18:59:48+00:00"
+          },
+          "markets": {
+            "2.5_UST": {
+              "validation": {
+                "brier": 0.23538690027848194,
+                "ece_10_equal_width": 0.03603376361567023,
+                "n": 182,
+                "log_loss": 0.6636020040134792,
+                "accuracy_at_50_pct": 0.6153846153846154,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.2617586528684805,
+                "ece_10_equal_width": 0.12444797141670425,
+                "n": 147,
+                "log_loss": 0.7174920205279247,
+                "accuracy_at_50_pct": 0.5034013605442177,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 4,
+                  "status": "INSUFFICIENT_WEEK_BLOCKS",
+                  "intervals": null
+                }
+              },
+              "test_by_league": {
+                "de.1": {
+                  "brier": 0.24169988076001694,
+                  "ece_10_equal_width": 0.043229132732748865,
+                  "n": 18,
+                  "log_loss": 0.6773412985044603,
+                  "accuracy_at_50_pct": 0.6111111111111112,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.3032099784670236,
+                  "ece_10_equal_width": 0.2840867099536823,
+                  "n": 22,
+                  "log_loss": 0.8019226061899443,
+                  "accuracy_at_50_pct": 0.3181818181818182,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.29127190913753065,
+                  "ece_10_equal_width": 0.22360044873348064,
+                  "n": 23,
+                  "log_loss": 0.777739035903919,
+                  "accuracy_at_50_pct": 0.391304347826087,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.29073334052214056,
+                  "ece_10_equal_width": 0.23592214304360984,
+                  "n": 23,
+                  "log_loss": 0.777341774837617,
+                  "accuracy_at_50_pct": 0.391304347826087,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.22913093740259138,
+                  "ece_10_equal_width": 0.06985646904009578,
+                  "n": 28,
+                  "log_loss": 0.6508120357255666,
+                  "accuracy_at_50_pct": 0.6428571428571429,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.20475654576218494,
+                  "ece_10_equal_width": 0.07230990307530877,
+                  "n": 18,
+                  "log_loss": 0.5997955723217623,
+                  "accuracy_at_50_pct": 0.7222222222222222,
+                  "predictions_at_least_70_pct": 1,
+                  "hit_rate_at_least_70_pct": 1
+                },
+                "pt.1": {
+                  "brier": 0.2646599852364987,
+                  "ece_10_equal_width": 0.14627444443642793,
+                  "n": 15,
+                  "log_loss": 0.7233980239455311,
+                  "accuracy_at_50_pct": 0.4666666666666667,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "KG_VAR": {
+              "validation": {
+                "brier": 0.24746125805484512,
+                "ece_10_equal_width": 0.035312947119796975,
+                "n": 182,
+                "log_loss": 0.6887348448233747,
+                "accuracy_at_50_pct": 0.5824175824175825,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.2567484307464209,
+                "ece_10_equal_width": 0.09216390164886937,
+                "n": 147,
+                "log_loss": 0.7071483181164252,
+                "accuracy_at_50_pct": 0.5238095238095238,
+                "predictions_at_least_70_pct": 1,
+                "hit_rate_at_least_70_pct": 1,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 4,
+                  "status": "INSUFFICIENT_WEEK_BLOCKS",
+                  "intervals": null
+                }
+              },
+              "test_by_league": {
+                "de.1": {
+                  "brier": 0.2246966939570356,
+                  "ece_10_equal_width": 0.10202412341767661,
+                  "n": 18,
+                  "log_loss": 0.6419234014059019,
+                  "accuracy_at_50_pct": 0.6666666666666666,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.2904715386987456,
+                  "ece_10_equal_width": 0.23648871365944285,
+                  "n": 22,
+                  "log_loss": 0.7759167115307641,
+                  "accuracy_at_50_pct": 0.36363636363636365,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.2860207265680492,
+                  "ece_10_equal_width": 0.2173654444097651,
+                  "n": 23,
+                  "log_loss": 0.7669626661032073,
+                  "accuracy_at_50_pct": 0.391304347826087,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.26556646669981326,
+                  "ece_10_equal_width": 0.13979568535515122,
+                  "n": 23,
+                  "log_loss": 0.7250748698020567,
+                  "accuracy_at_50_pct": 0.4782608695652174,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.23431955386716372,
+                  "ece_10_equal_width": 0.04128847310399343,
+                  "n": 28,
+                  "log_loss": 0.6614148350726093,
+                  "accuracy_at_50_pct": 0.6428571428571429,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.21139892607702412,
+                  "ece_10_equal_width": 0.08287013451455115,
+                  "n": 18,
+                  "log_loss": 0.6145132712275737,
+                  "accuracy_at_50_pct": 0.7222222222222222,
+                  "predictions_at_least_70_pct": 1,
+                  "hit_rate_at_least_70_pct": 1
+                },
+                "pt.1": {
+                  "brier": 0.283631423619798,
+                  "ece_10_equal_width": 0.18854021985457267,
+                  "n": 15,
+                  "log_loss": 0.761886419612067,
+                  "accuracy_at_50_pct": 0.4,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "MS1": {
+              "validation": {
+                "brier": 0.23468073972757011,
+                "ece_10_equal_width": 0.06479934260237019,
+                "n": 182,
+                "log_loss": 0.6622332818118578,
+                "accuracy_at_50_pct": 0.5989010989010989,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.23018410540850376,
+                "ece_10_equal_width": 0.054116493416092024,
+                "n": 147,
+                "log_loss": 0.6516046342315959,
+                "accuracy_at_50_pct": 0.6054421768707483,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 4,
+                  "status": "INSUFFICIENT_WEEK_BLOCKS",
+                  "intervals": null
+                }
+              },
+              "test_by_league": {
+                "de.1": {
+                  "brier": 0.24140054529330585,
+                  "ece_10_equal_width": 0.13065558033943456,
+                  "n": 18,
+                  "log_loss": 0.6730889077077289,
+                  "accuracy_at_50_pct": 0.5,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.29948805433067605,
+                  "ece_10_equal_width": 0.31737045514422635,
+                  "n": 22,
+                  "log_loss": 0.8009707958723712,
+                  "accuracy_at_50_pct": 0.45454545454545453,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.21101711593503114,
+                  "ece_10_equal_width": 0.17173337047407422,
+                  "n": 23,
+                  "log_loss": 0.6123706237648822,
+                  "accuracy_at_50_pct": 0.6521739130434783,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.23505979866965984,
+                  "ece_10_equal_width": 0.11616739321598084,
+                  "n": 23,
+                  "log_loss": 0.6590885901539809,
+                  "accuracy_at_50_pct": 0.5652173913043478,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.20040281728425602,
+                  "ece_10_equal_width": 0.07727726775268477,
+                  "n": 28,
+                  "log_loss": 0.5885040712765149,
+                  "accuracy_at_50_pct": 0.6785714285714286,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.21076637080532373,
+                  "ece_10_equal_width": 0.08884875735985685,
+                  "n": 18,
+                  "log_loss": 0.6130222254949764,
+                  "accuracy_at_50_pct": 0.7222222222222222,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.21588492600885242,
+                  "ece_10_equal_width": 0.1719385037995007,
+                  "n": 15,
+                  "log_loss": 0.6195231606218314,
+                  "accuracy_at_50_pct": 0.6666666666666666,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "MS2": {
+              "validation": {
+                "brier": 0.21583781079693218,
+                "ece_10_equal_width": 0.05244794367132706,
+                "n": 182,
+                "log_loss": 0.6222713130532272,
+                "accuracy_at_50_pct": 0.6703296703296703,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.21602154835997586,
+                "ece_10_equal_width": 0.10574960856688156,
+                "n": 147,
+                "log_loss": 0.6226824785863225,
+                "accuracy_at_50_pct": 0.6530612244897959,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 4,
+                  "status": "INSUFFICIENT_WEEK_BLOCKS",
+                  "intervals": null
+                }
+              },
+              "test_by_league": {
+                "de.1": {
+                  "brier": 0.20505478124711232,
+                  "ece_10_equal_width": 0.19249166732609452,
+                  "n": 18,
+                  "log_loss": 0.6007193227992611,
+                  "accuracy_at_50_pct": 0.7777777777777778,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.19067651413681275,
+                  "ece_10_equal_width": 0.1466029009905239,
+                  "n": 22,
+                  "log_loss": 0.5699847027565976,
+                  "accuracy_at_50_pct": 0.7272727272727273,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.20376882580686753,
+                  "ece_10_equal_width": 0.19299294195748776,
+                  "n": 23,
+                  "log_loss": 0.5964526188755953,
+                  "accuracy_at_50_pct": 0.6521739130434783,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.2264066181391902,
+                  "ece_10_equal_width": 0.2658665916746158,
+                  "n": 23,
+                  "log_loss": 0.6447767261999051,
+                  "accuracy_at_50_pct": 0.6086956521739131,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.22341077801954876,
+                  "ece_10_equal_width": 0.02984763830787405,
+                  "n": 28,
+                  "log_loss": 0.638036421406672,
+                  "accuracy_at_50_pct": 0.6071428571428571,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.2765429376664589,
+                  "ece_10_equal_width": 0.15607876888067673,
+                  "n": 18,
+                  "log_loss": 0.7488717304052267,
+                  "accuracy_at_50_pct": 0.4444444444444444,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.18279922414370636,
+                  "ece_10_equal_width": 0.2714047825787912,
+                  "n": 15,
+                  "log_loss": 0.5525818131826769,
+                  "accuracy_at_50_pct": 0.8,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            }
+          },
+          "fit_n": 174,
+          "seconds": 0.08594862699828809
+        }
+      },
+      "splits": [
+        174,
+        182,
+        147
+      ],
+      "split_starts": [
+        "2026-09-18T00:00:00+00:00",
+        "2026-10-26T00:00:00+00:00"
+      ],
+      "test_weeks": 4,
+      "selected": {
+        "2.5_UST": {
+          "validation_choice": "STAT_FORM",
+          "baseline": "STAT_FORM",
+          "weekly_delta_brier_99_pct": null,
+          "improvement_supported": false
+        },
+        "KG_VAR": {
+          "validation_choice": "STAT_FORM",
+          "baseline": "STAT_FORM",
+          "weekly_delta_brier_99_pct": null,
+          "improvement_supported": false
+        },
+        "MS1": {
+          "validation_choice": "STAT_FORM",
+          "baseline": "STAT_FORM",
+          "weekly_delta_brier_99_pct": null,
+          "improvement_supported": false
+        },
+        "MS2": {
+          "validation_choice": "STAT_FORM",
+          "baseline": "STAT_FORM",
+          "weekly_delta_brier_99_pct": null,
+          "improvement_supported": false
+        }
+      }
+    },
+    "STAT_VENUE5": {
+      "eligible": 2322,
+      "status": "EVALUATED_RESEARCH_ONLY",
+      "models": {
+        "STAT_VENUE5": {
+          "model": {
+            "name": "STAT_VENUE5",
+            "parameters": {
+              "2.5_UST": [
+                -0.07147086772280942,
+                0.4194467951184687
+              ],
+              "KG_VAR": [
+                0.014250661482223976,
+                0.2642086311835323
+              ],
+              "MS1": [
+                -1.3008362278681491,
+                2.345312622992757
+              ],
+              "MS2": [
+                -1.5296639239697865,
+                2.280661740584236
+              ]
+            },
+            "trained_through": "2026-04-14T21:02:09+00:00"
+          },
+          "markets": {
+            "2.5_UST": {
+              "validation": {
+                "brier": 0.24610999589138383,
+                "ece_10_equal_width": 0.010583112388000514,
+                "n": 458,
+                "log_loss": 0.685340198990332,
+                "accuracy_at_50_pct": 0.5502183406113537,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.24123855539965589,
+                "ece_10_equal_width": 0.05978876037352256,
+                "n": 533,
+                "log_loss": 0.6755521114834183,
+                "accuracy_at_50_pct": 0.6022514071294559,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 11,
+                  "status": "DESCRIPTIVE_HISTORICAL_ONLY",
+                  "intervals": {
+                    "brier": [
+                      0.23804810858301748,
+                      0.24429797494805824
+                    ],
+                    "log_loss": [
+                      0.6691510357077902,
+                      0.6816807620079587
+                    ],
+                    "ece_10_equal_width": [
+                      0.022864301534525993,
+                      0.10137354402761088
+                    ],
+                    "accuracy_at_50_pct": [
+                      0.5669934640522876,
+                      0.6412825651302605
+                    ],
+                    "hit_rate_at_least_70_pct": null
+                  }
+                }
+              },
+              "test_by_league": {
+                "UCL": {
+                  "brier": 0.22092461627188895,
+                  "ece_10_equal_width": 0.2552474080945997,
+                  "n": 21,
+                  "log_loss": 0.634753431223199,
+                  "accuracy_at_50_pct": 0.8095238095238095,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "UEL": {
+                  "brier": 0.2070907098746903,
+                  "ece_10_equal_width": 0.4550722029246461,
+                  "n": 1,
+                  "log_loss": 0.6071019755260086,
+                  "accuracy_at_50_pct": 1,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "de.1": {
+                  "brier": 0.2276458272049312,
+                  "ece_10_equal_width": 0.1797319813552098,
+                  "n": 61,
+                  "log_loss": 0.6482427605715578,
+                  "accuracy_at_50_pct": 0.7377049180327869,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.25673823310447463,
+                  "ece_10_equal_width": 0.12641020474261508,
+                  "n": 75,
+                  "log_loss": 0.7066709429245045,
+                  "accuracy_at_50_pct": 0.41333333333333333,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.24532699094340651,
+                  "ece_10_equal_width": 0.02521662130992367,
+                  "n": 85,
+                  "log_loss": 0.683752779567356,
+                  "accuracy_at_50_pct": 0.5647058823529412,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.2435027737892008,
+                  "ece_10_equal_width": 0.043882155803723434,
+                  "n": 73,
+                  "log_loss": 0.680111022254689,
+                  "accuracy_at_50_pct": 0.5753424657534246,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.24107471502182332,
+                  "ece_10_equal_width": 0.0952471795078267,
+                  "n": 84,
+                  "log_loss": 0.6752467028667658,
+                  "accuracy_at_50_pct": 0.6309523809523809,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.22772093116355552,
+                  "ece_10_equal_width": 0.16948984598751757,
+                  "n": 73,
+                  "log_loss": 0.6483675425197424,
+                  "accuracy_at_50_pct": 0.726027397260274,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.2514913113420318,
+                  "ece_10_equal_width": 0.019184600359282156,
+                  "n": 60,
+                  "log_loss": 0.6961762957113138,
+                  "accuracy_at_50_pct": 0.5166666666666667,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "KG_VAR": {
+              "validation": {
+                "brier": 0.24609154069166966,
+                "ece_10_equal_width": 0.021030595155630695,
+                "n": 458,
+                "log_loss": 0.6853105237066566,
+                "accuracy_at_50_pct": 0.5611353711790393,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.24492173574104753,
+                "ece_10_equal_width": 0.0394333631249692,
+                "n": 533,
+                "log_loss": 0.6829687853376271,
+                "accuracy_at_50_pct": 0.5816135084427767,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 11,
+                  "status": "DESCRIPTIVE_HISTORICAL_ONLY",
+                  "intervals": {
+                    "brier": [
+                      0.24183649391383907,
+                      0.24796936139478795
+                    ],
+                    "log_loss": [
+                      0.6767805367366044,
+                      0.689079168669698
+                    ],
+                    "ece_10_equal_width": [
+                      0.005719222187907215,
+                      0.07029268725841868
+                    ],
+                    "accuracy_at_50_pct": [
+                      0.5482546201232033,
+                      0.6121673003802282
+                    ],
+                    "hit_rate_at_least_70_pct": null
+                  }
+                }
+              },
+              "test_by_league": {
+                "UCL": {
+                  "brier": 0.2363431955076343,
+                  "ece_10_equal_width": 0.17090716094932143,
+                  "n": 21,
+                  "log_loss": 0.6658014158406516,
+                  "accuracy_at_50_pct": 0.7142857142857143,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "UEL": {
+                  "brier": 0.21481039780683558,
+                  "ece_10_equal_width": 0.46347642637661257,
+                  "n": 1,
+                  "log_loss": 0.6226447782245355,
+                  "accuracy_at_50_pct": 1,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "de.1": {
+                  "brier": 0.23722107062340714,
+                  "ece_10_equal_width": 0.10675925524324939,
+                  "n": 61,
+                  "log_loss": 0.6675165900873731,
+                  "accuracy_at_50_pct": 0.6557377049180327,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.2558856008578588,
+                  "ece_10_equal_width": 0.0862343797228669,
+                  "n": 75,
+                  "log_loss": 0.7049616808407825,
+                  "accuracy_at_50_pct": 0.4533333333333333,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.24941765028149526,
+                  "ece_10_equal_width": 0.011806365126478091,
+                  "n": 85,
+                  "log_loss": 0.6919916994548463,
+                  "accuracy_at_50_pct": 0.5294117647058824,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.24026014108300353,
+                  "ece_10_equal_width": 0.08652975606058881,
+                  "n": 73,
+                  "log_loss": 0.6736155609822371,
+                  "accuracy_at_50_pct": 0.6301369863013698,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.24492017162710572,
+                  "ece_10_equal_width": 0.05818372129525072,
+                  "n": 84,
+                  "log_loss": 0.6829683087466205,
+                  "accuracy_at_50_pct": 0.5952380952380952,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.23306479235418642,
+                  "ece_10_equal_width": 0.1494607414245475,
+                  "n": 73,
+                  "log_loss": 0.6591690218907653,
+                  "accuracy_at_50_pct": 0.6986301369863014,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.25628079071041826,
+                  "ece_10_equal_width": 0.06984130367987249,
+                  "n": 60,
+                  "log_loss": 0.7057557179596894,
+                  "accuracy_at_50_pct": 0.4666666666666667,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "MS1": {
+              "validation": {
+                "brier": 0.23643140017196387,
+                "ece_10_equal_width": 0.04303943468102234,
+                "n": 458,
+                "log_loss": 0.6647926222852539,
+                "accuracy_at_50_pct": 0.574235807860262,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.22711689105374813,
+                "ece_10_equal_width": 0.03378474532300263,
+                "n": 533,
+                "log_loss": 0.6457450292557747,
+                "accuracy_at_50_pct": 0.6378986866791745,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 11,
+                  "status": "DESCRIPTIVE_HISTORICAL_ONLY",
+                  "intervals": {
+                    "brier": [
+                      0.21644687903610416,
+                      0.2397010286243798
+                    ],
+                    "log_loss": [
+                      0.6238231688006406,
+                      0.6716823659041697
+                    ],
+                    "ece_10_equal_width": [
+                      0.02565515916813709,
+                      0.08915772051239307
+                    ],
+                    "accuracy_at_50_pct": [
+                      0.5823970037453183,
+                      0.6868686868686869
+                    ],
+                    "hit_rate_at_least_70_pct": null
+                  }
+                }
+              },
+              "test_by_league": {
+                "UCL": {
+                  "brier": 0.21631670265318625,
+                  "ece_10_equal_width": 0.0441029080171918,
+                  "n": 21,
+                  "log_loss": 0.6219105135825642,
+                  "accuracy_at_50_pct": 0.6190476190476191,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "UEL": {
+                  "brier": 0.1683489004310592,
+                  "ece_10_equal_width": 0.4103034248346694,
+                  "n": 1,
+                  "log_loss": 0.5281471537501652,
+                  "accuracy_at_50_pct": 1,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "de.1": {
+                  "brier": 0.23335783684261444,
+                  "ece_10_equal_width": 0.09311796526040567,
+                  "n": 61,
+                  "log_loss": 0.657580263649069,
+                  "accuracy_at_50_pct": 0.6065573770491803,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.24500412380680583,
+                  "ece_10_equal_width": 0.09254580372741217,
+                  "n": 75,
+                  "log_loss": 0.6841336265197989,
+                  "accuracy_at_50_pct": 0.6133333333333333,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.220872513769064,
+                  "ece_10_equal_width": 0.09979377877710101,
+                  "n": 85,
+                  "log_loss": 0.6329375941014213,
+                  "accuracy_at_50_pct": 0.6823529411764706,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.24419804805964868,
+                  "ece_10_equal_width": 0.052610410194522166,
+                  "n": 73,
+                  "log_loss": 0.6829008642168833,
+                  "accuracy_at_50_pct": 0.589041095890411,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.2141308450997055,
+                  "ece_10_equal_width": 0.12471765358701166,
+                  "n": 84,
+                  "log_loss": 0.6178838367592845,
+                  "accuracy_at_50_pct": 0.6904761904761905,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.2221751140799896,
+                  "ece_10_equal_width": 0.053223701629130676,
+                  "n": 73,
+                  "log_loss": 0.6353202707041543,
+                  "accuracy_at_50_pct": 0.6301369863013698,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.21542950746084272,
+                  "ece_10_equal_width": 0.09075416863365988,
+                  "n": 60,
+                  "log_loss": 0.6206555657854889,
+                  "accuracy_at_50_pct": 0.6333333333333333,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            },
+            "MS2": {
+              "validation": {
+                "brier": 0.21200802710806538,
+                "ece_10_equal_width": 0.030588147835504734,
+                "n": 458,
+                "log_loss": 0.614720139955639,
+                "accuracy_at_50_pct": 0.6899563318777293,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null
+              },
+              "test": {
+                "brier": 0.21457464156698347,
+                "ece_10_equal_width": 0.04751822520790151,
+                "n": 533,
+                "log_loss": 0.6183003194010513,
+                "accuracy_at_50_pct": 0.6679174484052532,
+                "predictions_at_least_70_pct": 0,
+                "hit_rate_at_least_70_pct": null,
+                "weekly_uncertainty_95_pct": {
+                  "weeks": 11,
+                  "status": "DESCRIPTIVE_HISTORICAL_ONLY",
+                  "intervals": {
+                    "brier": [
+                      0.19800738263415957,
+                      0.23010057544949258
+                    ],
+                    "log_loss": [
+                      0.5828690952203162,
+                      0.6515672797890139
+                    ],
+                    "ece_10_equal_width": [
+                      0.03386295232055749,
+                      0.08990267698650878
+                    ],
+                    "accuracy_at_50_pct": [
+                      0.6257861635220126,
+                      0.7104247104247104
+                    ],
+                    "hit_rate_at_least_70_pct": null
+                  }
+                }
+              },
+              "test_by_league": {
+                "UCL": {
+                  "brier": 0.21642254050770068,
+                  "ece_10_equal_width": 0.1900631760549811,
+                  "n": 21,
+                  "log_loss": 0.6186984625902442,
+                  "accuracy_at_50_pct": 0.6190476190476191,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "UEL": {
+                  "brier": 0.35536160012639995,
+                  "ece_10_equal_width": 0.5961221352427705,
+                  "n": 1,
+                  "log_loss": 0.9066427616847184,
+                  "accuracy_at_50_pct": 0,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "de.1": {
+                  "brier": 0.1944405386594457,
+                  "ece_10_equal_width": 0.037638334649108394,
+                  "n": 61,
+                  "log_loss": 0.5755757663547734,
+                  "accuracy_at_50_pct": 0.7213114754098361,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "en.1": {
+                  "brier": 0.20764504915020385,
+                  "ece_10_equal_width": 0.0594820266887501,
+                  "n": 75,
+                  "log_loss": 0.6033264532084449,
+                  "accuracy_at_50_pct": 0.7066666666666667,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "es.1": {
+                  "brier": 0.21025215580101686,
+                  "ece_10_equal_width": 0.10443563933316986,
+                  "n": 85,
+                  "log_loss": 0.6081066651761263,
+                  "accuracy_at_50_pct": 0.6588235294117647,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "fr.1": {
+                  "brier": 0.21496230772684832,
+                  "ece_10_equal_width": 0.050445077799841066,
+                  "n": 73,
+                  "log_loss": 0.6216710266933426,
+                  "accuracy_at_50_pct": 0.6986301369863014,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "it.1": {
+                  "brier": 0.20640765037452807,
+                  "ece_10_equal_width": 0.09986772610577364,
+                  "n": 84,
+                  "log_loss": 0.599793304937818,
+                  "accuracy_at_50_pct": 0.6785714285714286,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "nl.1": {
+                  "brier": 0.2310971689602633,
+                  "ece_10_equal_width": 0.06601942675485259,
+                  "n": 73,
+                  "log_loss": 0.6543313700007932,
+                  "accuracy_at_50_pct": 0.6301369863013698,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                },
+                "pt.1": {
+                  "brier": 0.2376963297869442,
+                  "ece_10_equal_width": 0.15251101625800473,
+                  "n": 60,
+                  "log_loss": 0.6679212485497767,
+                  "accuracy_at_50_pct": 0.6,
+                  "predictions_at_least_70_pct": 0,
+                  "hit_rate_at_least_70_pct": null
+                }
+              }
+            }
+          },
+          "fit_n": 1330,
+          "seconds": 4.758076958998572
+        }
+      },
+      "splits": [
+        1330,
+        458,
+        533
+      ],
+      "split_starts": [
+        "2026-04-15T00:00:00+00:00",
+        "2026-08-28T00:00:00+00:00"
+      ],
+      "test_weeks": 11,
+      "selected": {
+        "2.5_UST": {
+          "validation_choice": "STAT_VENUE5",
+          "baseline": "STAT_VENUE5",
+          "weekly_delta_brier_99_pct": [
+            0.0,
+            0.0
+          ],
+          "improvement_supported": false
+        },
+        "KG_VAR": {
+          "validation_choice": "STAT_VENUE5",
+          "baseline": "STAT_VENUE5",
+          "weekly_delta_brier_99_pct": [
+            0.0,
+            0.0
+          ],
+          "improvement_supported": false
+        },
+        "MS1": {
+          "validation_choice": "STAT_VENUE5",
+          "baseline": "STAT_VENUE5",
+          "weekly_delta_brier_99_pct": [
+            0.0,
+            0.0
+          ],
+          "improvement_supported": false
+        },
+        "MS2": {
+          "validation_choice": "STAT_VENUE5",
+          "baseline": "STAT_VENUE5",
+          "weekly_delta_brier_99_pct": [
+            0.0,
+            0.0
+          ],
+          "improvement_supported": false
+        }
+      }
+    }
+  },
+  "seconds": 10.519457200000033,
+  "network_requests": 0,
+  "inputs_sha256": {
+    "/tmp/ex-model-opt/inputs/historical-facts/15008847334/historical-facts.jsonl": "78e80322891034a27a97661caf7f6afcfcd657097c262bb5c798ab210a12aa00",
+    "/tmp/ex1127-components/69-mac-bilesen-denetimi.json": "3c449a2a0956907555c3e6c91962fe0b24584f3ada27189e430c11a268cc3de6",
+    "/tmp/ex1127-components/workload-recovery.json": "b97d24053aa69e853aa94858280c3926458ce7f60c6fb32862b70ff0b780a159",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120670577/forecasts/daily-analysis.json": "c734b4129df24b23750822b63820a10398373d931ffbfbc86f49d47ef1aab193",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120047712/forecasts/daily-analysis.json": "02753de04dd616ea777b346fde3a5ded253bdad547da6f3e153adb6e165ae924",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120800827/forecasts/daily-analysis.json": "c6ffbb3837a00e8b4ec3dce778d404b88334b70bd05ce7fd054c88d25c8d2980",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120670577/receipt.json": "9cc15af954442e5b23bcfc3aeb72e55bb2d9c0636541fa95d73d56cc010b8863",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120047712/receipt.json": "fe05f08fc68ab034a3be9bebbe2f20e92b7770df2472c620ea65cd9b4370a20d",
+    "/tmp/ex-model-opt/inputs/prematch-and-research/15120800827/receipt.json": "67cbed42cc902dfe90097f907f94a7a8042ed0b2d229649f4ce869c9dca43a09"
+  },
+  "production_allowed": false
+}
