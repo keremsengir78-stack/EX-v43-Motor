@@ -63,7 +63,10 @@ def features(facts, targets, *, archived=False):
         for club, side in zip(clubs, ("home", "away"), strict=True):
             history = sorted(venue[comp, club, side])
             recent = history[-10:-5]
-            older_season = [r for r in history[:-10] if r[0].date() >= season]
+            # Keep season evidence disjoint from the ten same-venue games.
+            opposite = "away" if side == "home" else "home"
+            older_season = [r for r in (*history[:-10], *venue[comp, club, opposite])
+                            if r[0].date() >= season]
             long.append([tuple(mean(r[c] for r in rows) for c in (1, 2)) if rows else None
                          for rows in (recent, older_season)])
         # A venue-rate Poisson baseline with documented league-prior regularization.
