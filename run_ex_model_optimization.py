@@ -109,6 +109,7 @@ def main():
     parser.add_argument("--workload-review", required=True, type=Path)
     parser.add_argument("--workload-observations", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--uncertainty", action="store_true")
     args = parser.parse_args()
     cutoff = datetime.now(timezone.utc)
     start = perf_counter()
@@ -139,9 +140,9 @@ def main():
     leagues = {row["event_id"]: sources[row["competition"]] for row in eligible if row["competition"] in sources}
     rows, coverage = historical_rows([row for row in build_examples(eligible) if row["event_id"] in leagues],
                                      leagues, weather)
-    complete = evaluate(rows, ("STAT_FORM", *BLENDS))
-    reference = evaluate(rows, ("STAT_FORM", "STAT_WORKLOAD", "STAT_VENUE5"), rows)
-    broad = {name: evaluate(rows, (name,)) for name in ("STAT_FORM", "STAT_VENUE5")}
+    complete = evaluate(rows, ("STAT_FORM", *BLENDS), uncertainty=args.uncertainty)
+    reference = evaluate(rows, ("STAT_FORM", "STAT_WORKLOAD", "STAT_VENUE5"), rows, uncertainty=args.uncertainty)
+    broad = {name: evaluate(rows, (name,), uncertainty=args.uncertainty) for name in ("STAT_FORM", "STAT_VENUE5")}
     models = {name: result["model"] for report in (*broad.values(), reference, complete)
               for name, result in report["models"].items()}
     daily_receipts = [path.parent.parent / "receipt.json" for path in args.daily]

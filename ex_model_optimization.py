@@ -1,8 +1,9 @@
 """Offline candidates. Nothing here certifies an EX-G or changes selection gates."""
 
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from math import log, log1p
+from random import Random
 from statistics import mean
 from time import perf_counter
 
@@ -67,7 +68,32 @@ def measure(rows, prediction, market):
             "predictions_at_least_70_pct": len(high), "hit_rate_at_least_70_pct": mean(high) if high else None}, losses
 
 
-def evaluate(rows, names, training_universe=None):
+def block_uncertainty(rows, predictions, market):
+    """Descriptive 95% intervals resampling whole UTC ISO weeks."""
+    grouped = defaultdict(list)
+    for row, probability in zip(rows, predictions, strict=True):
+        grouped[row["kickoff"].isocalendar()[:2]].append((row, probability))
+    weeks = list(grouped.values())
+    if len(weeks) < 8:
+        return {"weeks": len(weeks), "status": "INSUFFICIENT_WEEK_BLOCKS", "intervals": None}
+    draws = defaultdict(list)
+    rng = Random(43)
+    for _ in range(1000):
+        pairs = [pair for block in rng.choices(weeks, k=len(weeks)) for pair in block]
+        sampled, p = zip(*pairs, strict=True)
+        values, _ = measure(sampled, p, market)
+        for key in ("brier", "log_loss", "ece_10_equal_width", "accuracy_at_50_pct", "hit_rate_at_least_70_pct"):
+            if values[key] is not None:
+                draws[key].append(values[key])
+    intervals = {}
+    for key, values in draws.items():
+        # Do not condition a high-confidence interval on draws that happened to contain an alert.
+        intervals[key] = [sorted(values)[25], sorted(values)[974]] if len(values) == 1000 else None
+    intervals.setdefault("hit_rate_at_least_70_pct", None)
+    return {"weeks": len(weeks), "status": "DESCRIPTIVE_HISTORICAL_ONLY", "intervals": intervals}
+
+
+def evaluate(rows, names, training_universe=None, *, uncertainty=False):
     """All candidates share the same validation and test events in each comparison."""
     cohort = sorted((row for row in rows if all(row.get(key) is not None
                      for name in names for key in REQUIRED[name])), key=lambda row: row["kickoff"])
@@ -103,6 +129,8 @@ def evaluate(rows, names, training_universe=None):
                 paired = [(row, p) for row, p in zip(test, predictions, strict=True) if row["league"] == league]
                 league_rows, league_predictions = zip(*paired, strict=True)
                 leagues[league] = measure(league_rows, league_predictions, market)[0]
+            if uncertainty:
+                test_result["weekly_uncertainty_95_pct"] = block_uncertainty(test, predictions, market)
             by_market[market] = {"validation": measure(validation, [score(model, row, market) for row in validation], market)[0],
                                  "test": test_result, "test_by_league": leagues}
         result["models"][name] = {"model": model, "markets": by_market, "fit_n": len(fitting),
