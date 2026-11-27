@@ -1,0 +1,73 @@
+{
+  "audited_at": "2026-11-27T12:31:23.244008+00:00",
+  "hash_manifest_entries_verified": {
+    "daily-close-1501-trt": 12,
+    "daily-research": 10,
+    "discrimination-3072f15": 9
+  },
+  "original_counts": {
+    "2026-11-27": 19,
+    "2026-11-28": 40,
+    "2026-11-29": 44
+  },
+  "source_status_counts": {
+    "pre": 103
+  },
+  "model_counts": {
+    "STAT_FORM": 69,
+    "STAT_WORKLOAD": 42,
+    "STAT_VENUE5": 92,
+    "EX-V43-POISSON": 69,
+    "EX-V43-PERFORMANCE-V1": 69
+  },
+  "elo_counts": {
+    "2026-11-27": 16,
+    "2026-11-28": 32,
+    "2026-11-29": 21
+  },
+  "original_premarket_forecast_count": 412,
+  "market_performance": {
+    "2.5_UST": {
+      "completed_verified": 0,
+      "eligible": 0,
+      "correct": null,
+      "brier": null,
+      "log_loss": null,
+      "calibration": null,
+      "uncertainty": null
+    },
+    "KG_VAR": {
+      "completed_verified": 0,
+      "eligible": 0,
+      "correct": null,
+      "brier": null,
+      "log_loss": null,
+      "calibration": null,
+      "uncertainty": null
+    },
+    "MS1": {
+      "completed_verified": 0,
+      "eligible": 0,
+      "correct": null,
+      "brier": null,
+      "log_loss": null,
+      "calibration": null,
+      "uncertainty": null
+    },
+    "MS2": {
+      "completed_verified": 0,
+      "eligible": 0,
+      "correct": null,
+      "brier": null,
+      "log_loss": null,
+      "calibration": null,
+      "uncertainty": null
+    }
+  },
+  "candidate_comparison_sha256": "e06a8a301921629cb7e43cd1d64ba90d027092af2830c3b2dd211cd35af1769a",
+  "raw_payload_hashes_verified": {
+    "36fae125": 30,
+    "a6618be6": 52,
+    "3e25493a": 56
+  }
+}

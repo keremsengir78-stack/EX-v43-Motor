@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-11-27T12:32:29.588703+00:00",
+  "scope": "PERFORMANCE_AUDIT_AND_ELO_RESEARCH_TRACKING",
+  "engine_commit": "3072f154",
+  "sources": [
+    "36fae125",
+    "a6618be6",
+    "3e25493a"
+  ],
+  "file_sha256": {
+    "original-prematch.csv": "4e6909838259a259c55a061bc85834a5f53165e1b4ef301076d6ac99ea0dac70",
+    "source-recheck.tar.gz": "d94b637b67d31eea2504f20bd2d7e60ee7374fbc4d57d568bd85d738548093b2",
+    "elo-ms2-tracking.jsonl": "639afddf8f304e209a9bc7591072424ab4fc48021345bd935cb9bd8ba8d2ac84",
+    "original-prematch.jsonl": "346db326c2d861479407e0956ed81f55a0ea687b48d42816846dad69cb610389",
+    "measure_settlements.py": "ee8d038c57de604c2b68ef5f8e95e41284f52cb7315df551fcec30325a86b1eb",
+    "audit.json": "5ed6af3af9d91824ac3df20a04167b15be90f40f547be4b4a5000edb790b3c3f",
+    "hoffenheim-cause.json": "9a2da212028663d2f5d12f99178362d4b71f53e383f80d0a5f7eb57eaddf337c"
+  }
+}

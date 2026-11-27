@@ -1,0 +1,109 @@
+{
+  "early_cutoff": "2026-11-27T06:55:23.781396+00:00",
+  "later_cutoff": "2026-11-27T12:17:25.550843+00:00",
+  "early_inputs": {
+    "strength": {
+      "2.5_UST": 0.8805882352941177,
+      "KG_VAR": 0.7847058823529413,
+      "MS1": 0.5838235294117647,
+      "MS2": 0.32941176470588235
+    },
+    "short": {
+      "2.5_UST": 1,
+      "KG_VAR": 0.8,
+      "MS1": 0.7,
+      "MS2": 0.30000000000000004
+    },
+    "kickoff_workload": [
+      0.5773809523809523,
+      0.2,
+      0.5059523809523809,
+      0.2
+    ],
+    "external": null
+  },
+  "later_inputs": {
+    "strength": {
+      "2.5_UST": 0.8805882352941177,
+      "KG_VAR": 0.7847058823529413,
+      "MS1": 0.5838235294117647,
+      "MS2": 0.32941176470588235
+    },
+    "short": {
+      "2.5_UST": 1,
+      "KG_VAR": 0.8,
+      "MS1": 0.7,
+      "MS2": 0.30000000000000004
+    },
+    "kickoff_workload": null,
+    "external": null
+  },
+  "early_models": {
+    "STAT_FORM": {
+      "2.5_UST": 0.6926458246438213,
+      "KG_VAR": 0.6679927521591106,
+      "MS1": 0.4642322220020139,
+      "MS2": 0.38262004575265673
+    },
+    "STAT_VENUE5": {
+      "2.5_UST": 0.6335096190885567,
+      "KG_VAR": 0.581764751146754,
+      "MS1": 0.5878065330611802,
+      "MS2": 0.3041895782986401
+    },
+    "STAT_WORKLOAD": {
+      "2.5_UST": 0.7212498276200123,
+      "KG_VAR": 0.6881069207440997,
+      "MS1": 0.44893230637758585,
+      "MS2": 0.3929817383592953
+    }
+  },
+  "later_models": {
+    "STAT_FORM": {
+      "2.5_UST": 0.6926458246438213,
+      "KG_VAR": 0.6679927521591106,
+      "MS1": 0.4642322220020139,
+      "MS2": 0.38262004575265673
+    },
+    "STAT_VENUE5": {
+      "2.5_UST": 0.6335096190885567,
+      "KG_VAR": 0.581764751146754,
+      "MS1": 0.5878065330611802,
+      "MS2": 0.3041895782986401
+    }
+  },
+  "newly_seen_prior_proof": {
+    "metadata": {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/summary?event=401915515",
+      "retrieved_at": "2026-11-27T12:30:33.274456+00:00",
+      "sha256": "facff53c661b76ea4ccdc2099cf9dc4341e8e97ad467c61c32a416e086b2e8be",
+      "size": 444680
+    },
+    "id": "401915515",
+    "kickoff": "2026-11-26T20:00Z",
+    "type": {
+      "id": "28",
+      "name": "STATUS_FULL_TIME",
+      "state": "post",
+      "completed": true,
+      "description": "Full Time",
+      "detail": "FT",
+      "shortDetail": "FT"
+    },
+    "teams": [
+      {
+        "id": "7911",
+        "homeAway": "home",
+        "score": "3",
+        "name": "TSG Hoffenheim"
+      },
+      {
+        "id": "3746",
+        "homeAway": "away",
+        "score": "1",
+        "name": "SK Sturm Graz"
+      }
+    ]
+  },
+  "counterfactual_not_original_prediction": 0.6912933123368615
+}
