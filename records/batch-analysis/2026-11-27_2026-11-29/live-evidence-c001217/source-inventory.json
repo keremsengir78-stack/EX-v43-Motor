@@ -1,0 +1,142 @@
+{
+  "tr.1": {
+    "competition": "Türkiye Süper Lig",
+    "official_publication_candidates": [
+      "https://www.tff.org/Default.aspx?hafta=11&hafta=8&kulupID=132&pageId=198"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "en.1": {
+    "competition": "England Premier League",
+    "official_publication_candidates": [
+      "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "de.1": {
+    "competition": "Germany Bundesliga",
+    "official_publication_candidates": [
+      "https://products.bundesliga.com/fixtures"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "de.2": {
+    "competition": "Germany Bundesliga 2",
+    "official_publication_candidates": [
+      "https://datencenter.dfb.de/en/competitions/3/seasons/current/current_matchweek"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "es.1": {
+    "competition": "Spain La Liga",
+    "official_publication_candidates": [
+      "https://www.laliga.com/en-GB/laliga-easports/results/2026-27/gameweek-14",
+      "https://www.laliga.com/noticias/horarios-de-la-decimocuarta-jornada-de-laliga-ea-sports-2026-27"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "it.1": {
+    "competition": "Italy Serie A",
+    "official_publication_candidates": [
+      "https://en.legaseriea.it/serie-a/fixtures-results",
+      "https://images.legaseriea.it/image/private/fl_attachment/prd/j1pd6btxuklwhok7fstx.pdf"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "fr.1": {
+    "competition": "France Ligue 1",
+    "official_publication_candidates": [
+      "https://ligue1.com/fr/articles/l1_article_5843-",
+      "https://parisfc.fr/match-center/men/118501/2026-11-27/brest-vs-paris-fc-ligue-1-mcdonalds/"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "nl.1": {
+    "competition": "Netherlands Eredivisie",
+    "official_publication_candidates": [
+      "https://www.knvb.nl/competities/eredivisie/programma"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "nl.2": {
+    "competition": "Netherlands Eerste Divisie",
+    "official_publication_candidates": [
+      "https://www.knvb.nl/competities/keuken-kampioen-divisie/programma"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard",
+    "additional_results_route": null,
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "pt.1": {
+    "competition": "Portugal Primeira Liga",
+    "official_publication_candidates": [
+      "https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/12/5",
+      "https://www.ligaportugal.pt/noticias/28531/horarios-definidos-ate-a-12.a-jornada"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "be.1": {
+    "competition": "Belgium Pro League",
+    "official_publication_candidates": [
+      "https://www.kvk.be/nieuws/update-kalender-2627/",
+      "https://www.proleague.be/jpl-kalender?activeTab=results"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard",
+    "additional_results_route": "https://github.com/openfootball",
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "no.1": {
+    "competition": "Norway Eliteserien",
+    "official_publication_candidates": [
+      "https://www.eliteserien.no/terminliste"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard",
+    "additional_results_route": null,
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "UCL": {
+    "competition": "UEFA Champions League",
+    "official_publication_candidates": [
+      "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase/"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard",
+    "additional_results_route": null,
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "UEL": {
+    "competition": "UEFA Europa League",
+    "official_publication_candidates": [
+      "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard",
+    "additional_results_route": null,
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  },
+  "UECL": {
+    "competition": "UEFA Conference League",
+    "official_publication_candidates": [
+      "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/"
+    ],
+    "separate_publication_channel": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard",
+    "additional_results_route": null,
+    "upstream_independence": "BLOCKED_UNPROVEN"
+  }
+}
