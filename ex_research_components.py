@@ -202,8 +202,13 @@ def score_components(strength, workload, weather, model, as_of):
                 vals = vector(supplied[name], FIELDS[name])
                 info = (model or {}).get("components", {}).get(name, {})
                 beta = vector((model or {}).get("coefficients", {}).get(name, {}).get(market), FIELDS[name] + 1)
-                if vals is not None and beta is not None and utc(info["latest_training_finish"]) < as_of:
-                    score = sigmoid(sum(b * v for b, v in zip(beta, (1., *vals), strict=True)))
+                if vals is not None and beta is not None:
+                    try:
+                        training_available = utc(info["latest_training_finish"]) < as_of
+                    except (KeyError, ValueError, TypeError, AttributeError):
+                        training_available = False
+                    if training_available:
+                        score = sigmoid(sum(b * v for b, v in zip(beta, (1., *vals), strict=True)))
             components[name] = {"score": score, "weight": weight,
                                 "status": "RESEARCH_ONLY" if score is not None else "MISSING_INPUTS_OR_MODEL"}
         complete = all(part["score"] is not None for part in components.values())

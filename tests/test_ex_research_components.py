@@ -34,6 +34,15 @@ class ResearchComponentTests(unittest.TestCase):
                                      utc("2026-11-24T22:00:00Z"))
         self.assertIsNone(scores["MS1"]["components"]["match_conditions"]["score"])
 
+    def test_missing_or_invalid_training_metadata_does_not_make_a_neutral_score(self):
+        as_of = utc("2026-11-25T13:00:00Z")
+        for info in ({}, {"latest_training_finish": "undated"}):
+            model = {"coefficients": {"match_conditions": {"MS1": [0] * 5}},
+                     "components": {"match_conditions": info}}
+            scores, _ = score_components({"MS1": .7}, (0, 0, 0, 0), None, model, as_of)
+            self.assertIsNone(scores["MS1"]["components"]["match_conditions"]["score"])
+            self.assertIsNone(scores["MS1"]["weighted_research_score"])
+
     def test_weather_requires_expected_hour_and_prematch_timestamp(self):
         item = {"kind": "PREMATCH_NUMERICAL_FORECAST", "forecast_hour_utc": "2026-11-25T20:00:00Z",
                 "source": {"retrieved_at": "2026-11-25T13:00:00Z", "sha256": "a" * 64,
