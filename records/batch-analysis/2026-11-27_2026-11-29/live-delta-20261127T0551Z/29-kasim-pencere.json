@@ -1,0 +1,885 @@
+{
+  "cutoff": "2026-11-27T05:51:37.050553+00:00",
+  "fixtures": [
+    {
+      "fixture": {
+        "event_id": "401888367",
+        "date": "2026-11-29",
+        "league": "tr.1",
+        "kickoff_at": "2026-11-29T10:30:00+00:00",
+        "home": "Çorum FK",
+        "away": "Kocaelispor",
+        "team_ids": {
+          "home": "132334",
+          "away": "995"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:45.328725+00:00"
+      },
+      "live_opens_at": "2026-11-27T10:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401888242",
+        "date": "2026-11-29",
+        "league": "tr.1",
+        "kickoff_at": "2026-11-29T13:00:00+00:00",
+        "home": "Eyupspor",
+        "away": "Istanbul Basaksehir",
+        "team_ids": {
+          "home": "20729",
+          "away": "7914"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:45.328725+00:00"
+      },
+      "live_opens_at": "2026-11-27T13:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401888238",
+        "date": "2026-11-29",
+        "league": "tr.1",
+        "kickoff_at": "2026-11-29T16:00:00+00:00",
+        "home": "Fenerbahce",
+        "away": "Erzurum BB",
+        "team_ids": {
+          "home": "436",
+          "away": "19267"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:45.328725+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401879229",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T12:00:00+00:00",
+        "home": "Everton",
+        "away": "Liverpool",
+        "team_ids": {
+          "home": "368",
+          "away": "364"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T12:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401879231",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T14:05:00+00:00",
+        "home": "Brighton & Hove Albion",
+        "away": "Newcastle United",
+        "team_ids": {
+          "home": "331",
+          "away": "361"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:05:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401879230",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T14:05:00+00:00",
+        "home": "Crystal Palace",
+        "away": "Hull City",
+        "team_ids": {
+          "home": "384",
+          "away": "306"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:05:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401879228",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T14:05:00+00:00",
+        "home": "Fulham",
+        "away": "AFC Bournemouth",
+        "team_ids": {
+          "home": "370",
+          "away": "349"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:05:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401879224",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T14:05:00+00:00",
+        "home": "Sunderland",
+        "away": "Tottenham Hotspur",
+        "team_ids": {
+          "home": "366",
+          "away": "367"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:05:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401878753",
+        "date": "2026-11-29",
+        "league": "en.1",
+        "kickoff_at": "2026-11-29T16:30:00+00:00",
+        "home": "Arsenal",
+        "away": "Manchester City",
+        "team_ids": {
+          "home": "359",
+          "away": "382"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:48.235255+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401884724",
+        "date": "2026-11-29",
+        "league": "de.1",
+        "kickoff_at": "2026-11-29T14:30:00+00:00",
+        "home": "SC Freiburg",
+        "away": "RB Leipzig",
+        "team_ids": {
+          "home": "126",
+          "away": "11420"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:53.467143+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401884725",
+        "date": "2026-11-29",
+        "league": "de.1",
+        "kickoff_at": "2026-11-29T16:30:00+00:00",
+        "home": "TSG Hoffenheim",
+        "away": "FC Augsburg",
+        "team_ids": {
+          "home": "7911",
+          "away": "3841"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:53.467143+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401884727",
+        "date": "2026-11-29",
+        "league": "de.1",
+        "kickoff_at": "2026-11-29T18:30:00+00:00",
+        "home": "Borussia Dortmund",
+        "away": "Bayer Leverkusen",
+        "team_ids": {
+          "home": "124",
+          "away": "131"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:53.467143+00:00"
+      },
+      "live_opens_at": "2026-11-27T18:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401885042",
+        "date": "2026-11-29",
+        "league": "de.2",
+        "kickoff_at": "2026-11-29T12:30:00+00:00",
+        "home": "1. FC Magdeburg",
+        "away": "Energie Cottbus",
+        "team_ids": {
+          "home": "10382",
+          "away": "123"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:56.539491+00:00"
+      },
+      "live_opens_at": "2026-11-27T12:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401885040",
+        "date": "2026-11-29",
+        "league": "de.2",
+        "kickoff_at": "2026-11-29T12:30:00+00:00",
+        "home": "SpVgg Greuther Fürth",
+        "away": "Arminia Bielefeld",
+        "team_ids": {
+          "home": "3070",
+          "away": "2506"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:56.539491+00:00"
+      },
+      "live_opens_at": "2026-11-27T12:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401885041",
+        "date": "2026-11-29",
+        "league": "de.2",
+        "kickoff_at": "2026-11-29T12:30:00+00:00",
+        "home": "TSV Eintracht Braunschweig",
+        "away": "VfL Wolfsburg",
+        "team_ids": {
+          "home": "3067",
+          "away": "138"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:56.539491+00:00"
+      },
+      "live_opens_at": "2026-11-27T12:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401882787",
+        "date": "2026-11-29",
+        "league": "es.1",
+        "kickoff_at": "2026-11-29T13:00:00+00:00",
+        "home": "Valencia",
+        "away": "Osasuna",
+        "team_ids": {
+          "home": "94",
+          "away": "97"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:59.450237+00:00"
+      },
+      "live_opens_at": "2026-11-27T13:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401882794",
+        "date": "2026-11-29",
+        "league": "es.1",
+        "kickoff_at": "2026-11-29T15:15:00+00:00",
+        "home": "Deportivo",
+        "away": "Barcelona",
+        "team_ids": {
+          "home": "90",
+          "away": "83"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:59.450237+00:00"
+      },
+      "live_opens_at": "2026-11-27T15:15:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401882795",
+        "date": "2026-11-29",
+        "league": "es.1",
+        "kickoff_at": "2026-11-29T17:30:00+00:00",
+        "home": "Celta Vigo",
+        "away": "Villarreal",
+        "team_ids": {
+          "home": "85",
+          "away": "102"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:59.450237+00:00"
+      },
+      "live_opens_at": "2026-11-27T17:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401882788",
+        "date": "2026-11-29",
+        "league": "es.1",
+        "kickoff_at": "2026-11-29T20:00:00+00:00",
+        "home": "Real Sociedad",
+        "away": "Sevilla",
+        "team_ids": {
+          "home": "89",
+          "away": "243"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:06:59.450237+00:00"
+      },
+      "live_opens_at": "2026-11-27T20:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875031",
+        "date": "2026-11-29",
+        "league": "it.1",
+        "kickoff_at": "2026-11-29T11:30:00+00:00",
+        "home": "Udinese",
+        "away": "Fiorentina",
+        "team_ids": {
+          "home": "118",
+          "away": "109"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:03.241767+00:00"
+      },
+      "live_opens_at": "2026-11-27T11:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401874992",
+        "date": "2026-11-29",
+        "league": "it.1",
+        "kickoff_at": "2026-11-29T14:00:00+00:00",
+        "home": "Sassuolo",
+        "away": "Napoli",
+        "team_ids": {
+          "home": "3997",
+          "away": "114"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:03.241767+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401874769",
+        "date": "2026-11-29",
+        "league": "it.1",
+        "kickoff_at": "2026-11-29T17:00:00+00:00",
+        "home": "AS Roma",
+        "away": "Monza",
+        "team_ids": {
+          "home": "104",
+          "away": "4007"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:03.241767+00:00"
+      },
+      "live_opens_at": "2026-11-27T17:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401874994",
+        "date": "2026-11-29",
+        "league": "it.1",
+        "kickoff_at": "2026-11-29T19:45:00+00:00",
+        "home": "Como",
+        "away": "Juventus",
+        "team_ids": {
+          "home": "2572",
+          "away": "111"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:03.241767+00:00"
+      },
+      "live_opens_at": "2026-11-27T19:45:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401876393",
+        "date": "2026-11-29",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-29T14:00:00+00:00",
+        "home": "AJ Auxerre",
+        "away": "Marseille",
+        "team_ids": {
+          "home": "172",
+          "away": "176"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:07.018137+00:00"
+      },
+      "live_opens_at": "2026-11-27T14:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401876386",
+        "date": "2026-11-29",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-29T16:15:00+00:00",
+        "home": "Toulouse",
+        "away": "Stade Rennais",
+        "team_ids": {
+          "home": "179",
+          "away": "169"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:07.018137+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:15:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401876389",
+        "date": "2026-11-29",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-29T19:45:00+00:00",
+        "home": "Lyon",
+        "away": "AS Monaco",
+        "team_ids": {
+          "home": "167",
+          "away": "174"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:07.018137+00:00"
+      },
+      "live_opens_at": "2026-11-27T19:45:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875538",
+        "date": "2026-11-29",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-29T11:15:00+00:00",
+        "home": "ADO Den Haag",
+        "away": "FC Utrecht",
+        "team_ids": {
+          "home": "2726",
+          "away": "153"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:09.993699+00:00"
+      },
+      "live_opens_at": "2026-11-27T11:15:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875535",
+        "date": "2026-11-29",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-29T13:30:00+00:00",
+        "home": "Feyenoord Rotterdam",
+        "away": "Ajax Amsterdam",
+        "team_ids": {
+          "home": "142",
+          "away": "139"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:09.993699+00:00"
+      },
+      "live_opens_at": "2026-11-27T13:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875534",
+        "date": "2026-11-29",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-29T13:30:00+00:00",
+        "home": "Fortuna Sittard",
+        "away": "Heerenveen",
+        "team_ids": {
+          "home": "143",
+          "away": "146"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:09.993699+00:00"
+      },
+      "live_opens_at": "2026-11-27T13:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875532",
+        "date": "2026-11-29",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-29T15:45:00+00:00",
+        "home": "PEC Zwolle",
+        "away": "AZ Alkmaar",
+        "team_ids": {
+          "home": "2565",
+          "away": "140"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:09.993699+00:00"
+      },
+      "live_opens_at": "2026-11-27T15:45:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401875533",
+        "date": "2026-11-29",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-29T19:00:00+00:00",
+        "home": "NEC Nijmegen",
+        "away": "FC Twente",
+        "team_ids": {
+          "home": "147",
+          "away": "152"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:09.993699+00:00"
+      },
+      "live_opens_at": "2026-11-27T19:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401876062",
+        "date": "2026-11-29",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-29T11:15:00+00:00",
+        "home": "FC Volendam",
+        "away": "FC Eindhoven",
+        "team_ids": {
+          "home": "2727",
+          "away": "3732"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:14.451121+00:00"
+      },
+      "live_opens_at": "2026-11-27T11:15:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401876063",
+        "date": "2026-11-29",
+        "league": "nl.2",
+        "kickoff_at": "2026-11-29T15:45:00+00:00",
+        "home": "Roda JC Kerkrade",
+        "away": "De Graafschap",
+        "team_ids": {
+          "home": "149",
+          "away": "144"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.2/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:14.451121+00:00"
+      },
+      "live_opens_at": "2026-11-27T15:45:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401885390",
+        "date": "2026-11-29",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-29T18:00:00+00:00",
+        "home": "Gil Vicente",
+        "away": "Estoril",
+        "team_ids": {
+          "home": "3699",
+          "away": "12216"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:16.744765+00:00"
+      },
+      "live_opens_at": "2026-11-27T18:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401885387",
+        "date": "2026-11-29",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-29T20:30:00+00:00",
+        "home": "FC Porto",
+        "away": "Sporting CP",
+        "team_ids": {
+          "home": "437",
+          "away": "2250"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:16.744765+00:00"
+      },
+      "live_opens_at": "2026-11-27T20:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401878926",
+        "date": "2026-11-29",
+        "league": "be.1",
+        "kickoff_at": "2026-11-29T12:30:00+00:00",
+        "home": "Sint-Truidense",
+        "away": "Racing Genk",
+        "team_ids": {
+          "home": "936",
+          "away": "938"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:18.996326+00:00"
+      },
+      "live_opens_at": "2026-11-27T12:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401878928",
+        "date": "2026-11-29",
+        "league": "be.1",
+        "kickoff_at": "2026-11-29T15:00:00+00:00",
+        "home": "Antwerp",
+        "away": "Anderlecht",
+        "team_ids": {
+          "home": "17544",
+          "away": "441"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:18.996326+00:00"
+      },
+      "live_opens_at": "2026-11-27T15:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401878927",
+        "date": "2026-11-29",
+        "league": "be.1",
+        "kickoff_at": "2026-11-29T17:30:00+00:00",
+        "home": "Standard Liege",
+        "away": "Club Brugge",
+        "team_ids": {
+          "home": "559",
+          "away": "570"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:18.996326+00:00"
+      },
+      "live_opens_at": "2026-11-27T17:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401878925",
+        "date": "2026-11-29",
+        "league": "be.1",
+        "kickoff_at": "2026-11-29T18:15:00+00:00",
+        "home": "Union St.-Gilloise",
+        "away": "KAA Gent",
+        "team_ids": {
+          "home": "5807",
+          "away": "3611"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:18.996326+00:00"
+      },
+      "live_opens_at": "2026-11-27T18:15:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401843495",
+        "date": "2026-11-29",
+        "league": "no.1",
+        "kickoff_at": "2026-11-29T13:30:00+00:00",
+        "home": "Fredrikstad",
+        "away": "Aalesund",
+        "team_ids": {
+          "home": "3039",
+          "away": "3278"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:22.883727+00:00"
+      },
+      "live_opens_at": "2026-11-27T13:30:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401843491",
+        "date": "2026-11-29",
+        "league": "no.1",
+        "kickoff_at": "2026-11-29T16:00:00+00:00",
+        "home": "IK Start",
+        "away": "Sarpsborg FK",
+        "team_ids": {
+          "home": "6750",
+          "away": "5002"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:22.883727+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401843498",
+        "date": "2026-11-29",
+        "league": "no.1",
+        "kickoff_at": "2026-11-29T16:00:00+00:00",
+        "home": "Sandefjord",
+        "away": "Tromso",
+        "team_ids": {
+          "home": "3279",
+          "away": "5270"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:22.883727+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401843494",
+        "date": "2026-11-29",
+        "league": "no.1",
+        "kickoff_at": "2026-11-29T16:00:00+00:00",
+        "home": "SK Brann",
+        "away": "Kristiansund BK",
+        "team_ids": {
+          "home": "620",
+          "away": "6672"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:22.883727+00:00"
+      },
+      "live_opens_at": "2026-11-27T16:00:00+00:00",
+      "eligible": false
+    },
+    {
+      "fixture": {
+        "event_id": "401843493",
+        "date": "2026-11-29",
+        "league": "no.1",
+        "kickoff_at": "2026-11-29T18:15:00+00:00",
+        "home": "Viking FK",
+        "away": "Vålerenga",
+        "team_ids": {
+          "home": "510",
+          "away": "2791"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20261129",
+        "fixture_checked_at": "2026-11-26T13:07:22.883727+00:00"
+      },
+      "live_opens_at": "2026-11-27T18:15:00+00:00",
+      "eligible": false
+    }
+  ]
+}

@@ -1,0 +1,2236 @@
+{
+  "daily_and_combined_rank_order_changed": false,
+  "reason": "NO_NEW_ADMISSIBLE_DECISION_INPUT",
+  "matches": [
+    {
+      "fixture": {
+        "event_id": "401874977",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Internazionale",
+        "away": "Genoa",
+        "team_ids": {
+          "home": "110",
+          "away": "3263"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "6752293b314a7bdba1367ddaddd0b32118b0d9d886d2a3c8c6c9d57050cafac0",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "3c4c1ee9f492c71838e0c2bce793a16d731e74c172f4fee79c5304d08dbaffad",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "aedd8c0c5b503538da7ff0a790f5613307411f89590eee17eb453a937370abba",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "444ac1024193214f649ce51c68f610bcdb6e2cd14e78f0cf510539f3574cef8d",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875004",
+        "date": "2026-11-27",
+        "league": "it.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "Venezia",
+        "away": "Bologna",
+        "team_ids": {
+          "home": "17530",
+          "away": "107"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:56.901306+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "a6e8e6189e5565657d4711e0e9f0f319b458a6d5b0c6e4a6d73ca0bb65c3b06b",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "af0520232fc1d0a7978a05eea1d577a38531b97f1eca1fdb321b19b44d1b325f",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "d3982f836b5f142a6fefd8dae34cf6787abcd83a19cb8eb620f4a823e1233239",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "81a83066233ad4d812b9007877dc9a37602b2271a424788c93cf756180aa386b",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875081",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T14:00:00+00:00",
+        "home": "Frosinone",
+        "away": "Parma",
+        "team_ids": {
+          "home": "4057",
+          "away": "115"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "7612f2c03ee1a31cec7675cf72be5432fedd9eaa8de3acd7879d2c1cdb57f0ff",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "078f2674ad7ad3cefe58ce5426f0fd5863346d79e19acd942999fb943f271951",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "7f5dde171f8707bae1eee2d764668d3e1476ddb30f88beab5d24c548731ca39f",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "294efbe714096885756171d327b03943d9de5d362db56e82f8333d116926d4db",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875530",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "SC Cambuur",
+        "away": "Sparta Rotterdam",
+        "team_ids": {
+          "home": "3736",
+          "away": "151"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "04428b7c8a140e7810b96cc7cd1ab1f8050705cb340a662c42af209f20a82f97",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "14858bfda14ea1e0e190162144b3acf246d067b604c03d5b90316ef84188b4ca",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4bc069b9cbd4bbb617120fd6e422b8d86aee42c4df57ec58157321a6b1ea8a9f",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "7632279ab6dcab5a46915853ba7dd72db31dc20fd64a78897d5b889606e13132",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875531",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T17:45:00+00:00",
+        "home": "PSV Eindhoven",
+        "away": "Go Ahead Eagles",
+        "team_ids": {
+          "home": "148",
+          "away": "3706"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "0fb695aea03d60cf9f919dcf7df6ea922728bb803e38e3bbc3c8e18af9031b64",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "0fac0d8732e39d3c217d3957c23fafe14766aaa7b9288a056f601556c65d13e6",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "ad6f23ae177064caa1549ebe58059c7a4e18c0705816209bd18181896293b8f5",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "ba7ef1c760546be743200255ac8592690c4477a1b4938726079fcb3a0f2ee008",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401875536",
+        "date": "2026-11-27",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "FC Groningen",
+        "away": "Willem II",
+        "team_ids": {
+          "home": "145",
+          "away": "156"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:59.881636+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "e62627ffe01f0eed9acabd5f3af910390a7c350b935f22aa0757f97cb23d78fc",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4422448f1ed4ec79cbe725f2d1569b3c8d9c384d29403e1b3e0b4c7dda739f25",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "bb2236e8893e13e2bdd59e9882e1e6d91ae36d858895964c6b0f424ae5a9bb00",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "5196aa6c87845cd21b1b43628be0d80e6994383b5ef8c7f239998f35194eb320",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401876392",
+        "date": "2026-11-27",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "Brest",
+        "away": "Paris FC",
+        "team_ids": {
+          "home": "6997",
+          "away": "6851"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:58.394812+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "c4bc58b09dc57510b5dce61bb110cf081c243f6c4ecc6dd6f0590fab5ee553c0",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "c996ea540cfbaceb38c1a0d8fbcb1f78de69ccb4f6e241af16171437a1bc9904",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "f7ef3da1c5d33921e1ce4acaa3d3881591c62639de42e64a8b656eda4ee50aa9",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "c03b891690a517f9dac70ce2d8c8252ba0b11a5e19cf42ed1e8c0dc80561fc9f",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401878752",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Ipswich Town",
+        "away": "Aston Villa",
+        "team_ids": {
+          "home": "373",
+          "away": "362"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "052c2225376480a4248801d7b8cf5b758da7b41cd0d2ab1ff004cfed8c9387fb",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4a57a80438766b6d499ff5562d811548f1b4ec4650bc5812762c1378ef7cf1dc",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "e541c2f5d83b9bb22cdbba1d6e6ab90f64adcf49f14f217b44db66c486f256a1",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "2ddde0db11e3bb897be02afe48b1e8bdfa48bd2f75d7acb59ba045c5628c3ce7",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401879225",
+        "date": "2026-11-27",
+        "league": "en.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Nottingham Forest",
+        "away": "Chelsea",
+        "team_ids": {
+          "home": "393",
+          "away": "363"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:50.177331+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "1b195ba6f295481970bb8683757798363cb87abf352dd883476811458d3f28ac",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "38e7348217461d61821fb146dc38525560f0ab9aeb7fd6f94edb809c55450be9",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "6040434ef0183494678c98ec3b5a6a62c34c0e90eabec267854a7f2e5679ccec",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "321ff0075f7217bef5abe5c7eb51adc39945ecc0d1a1ab95a5615451c3abe030",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401879226",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Manchester United",
+        "away": "Brentford",
+        "team_ids": {
+          "home": "360",
+          "away": "337"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "6366b834b0ad4849ac6e5710dce1064fa3e2eddfee3771083d4a87cc00ec3f41",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "3efb0151830b481103dd93b1d12adadd563be74fb894512083b0f2f6b541b189",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "42f21fbc822d34be48ec4078b549301acc71693afd5fea8ab0b07fb170d9f900",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "3633e83489ff6a8c761448724d950d53ed7bc4e6eb59f889ab7fb9e773d70686",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401879227",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Leeds United",
+        "away": "Coventry City",
+        "team_ids": {
+          "home": "357",
+          "away": "388"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "f85e4e0fb96df8847734e0f16dd4b9ae2bb02345c65a7b62a5cb7a0d3c040d68",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "f3dfe33a051f7e7e6f8c5c04e66105244c8db75582abc4b60737e2025b980fcd",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "c60bb2fab4f006e0e0c33031eca4412687bb8a754e0a899c08a4df058380fedc",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "5f5abd673b0d6a66d0d20bfa015622926885a6d539102522eee0644e7ca6d9a4",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401882789",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "Real Madrid",
+        "away": "Alavés",
+        "team_ids": {
+          "home": "86",
+          "away": "96"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T13:06:52.274397+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "a2a4b8a3a2ac9cdb3c2f98148f91d559bbed125d25dc653fdfc43993deceb1d6",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "bde8cd5f78d395a8f9d2a1e6c4088aa05840a8cdf4425db0151d9bb8d440a31e",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "PASS",
+          "issues": [
+            "odds_lock:pass_1_19_or_lower",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "81ba0e94b8d0e5253edd4e2cdfc521971b714d3f410a19786a96dcf8f00a5182",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "5eac1e1561b593a9c27c99d4869701b5307df7ad55bbf06962e4a8ea44b31258",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401882791",
+        "date": "2026-11-27",
+        "league": "es.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Levante",
+        "away": "Racing Santander",
+        "team_ids": {
+          "home": "1538",
+          "away": "87"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:55.393942+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "985740b3da57fb64fc7f0f8cbecaf8ab3148234c7a4c00fac526139208f19a6e",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "327c221fe20bf6ee0135b42a9a8c8dd93e4369bf1313c15ec6de4b5d7527d2ba",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4bbd5974362500576c48b449a820f02d1b7a59325b3196e9c3059ba5d47a80cd",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "a67f721e43f3d28904611044aea484614d1bd6b41faa4cc796771f617585450e",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401882793",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Elche",
+        "away": "Atlético Madrid",
+        "team_ids": {
+          "home": "3751",
+          "away": "1068"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T13:06:52.274397+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "3782b5bc0a3dfc86d835251b691a9c7641381418533943e20fac0e7664476f5d",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "fcf49641cb08ff7e784fc7636da0ed9a688f506fcd0b93fa692c20714fb602fd",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "0062cee56defd8856b8133e08ea179d3330668f35acaa7704dab5e5ae48e5589",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "e304df77afa3812129e0ad30e6ff33bf62f40b6d259625375176095fbb10bbc0",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884720",
+        "date": "2026-11-27",
+        "league": "de.1",
+        "kickoff_at": "2026-11-27T19:30:00+00:00",
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "team_ids": {
+          "home": "137",
+          "away": "268"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:51.657285+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "2029a8d692923b0784d989cc4ee902ab822804179e33d9e3cb6b8f24122d8bde",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "bf5b06789b8acb2d3e93b5f6adb8f564db9d396fc12ebb17301e8504d3aadba5",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "6fdc9819342809cb8933472f87ac0661a8c22c4afab28ec3690187759e3c8dde",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "509d4c474a6eb8801d92d92249fe62677dab066e5f55f544bee297e7cca5d7c2",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884722",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Hamburg SV",
+        "away": "Bayern Munich",
+        "team_ids": {
+          "home": "127",
+          "away": "132"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "3d7b19be83a5d7d9bd2b6ee5a5d724e34321126cd81c8b6c6f32af3492468f5a",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "fcf53cabd96cecb7333df2b220b32d063126ae3016d6cffda25d9ef1671058d7",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "09b907fdad35e7a37643a6ea8cf54ef156d0ae9e8f00107100f32ba1dc39bd85",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "67af514ec8709ed0ddce9ca65922e20543dbbffc45986b193e88b4a7cf760c74",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884723",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Mainz",
+        "away": "1. FC Union Berlin",
+        "team_ids": {
+          "home": "2950",
+          "away": "598"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "a73bc3608c8db6083b574831cb8e3323867f1b310792e9d9f7b7519db3ee4d44",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "4650c33843b75a82e6eab68503884a56c9be1ad0d39066e1ae9cfc3b6b995720",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "1491e80313464cf18afc757339e4dfd5fb17b7ae4a31f486a8ff4ecb0d93748f",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "e9ad051060fb0c3256e770e073ae9c1fafe1b491be3fc8d5cd9dbb2ffd8864a2",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401884726",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "VfB Stuttgart",
+        "away": "Eintracht Frankfurt",
+        "team_ids": {
+          "home": "134",
+          "away": "125"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "8eb19fa1522b3d559d0c1c533cea7c01ab19ebd8fd7216250810608ed2527159",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "995cc3a540c6cc9a3f62cbf883648755a0e0f2fc706d7296305db9c0c9270e2a",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "7bd880cfcb0ada8a2125ea1ef7b93d040da048a0991736da3575b77776902764",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "live_evidence:48h_pending",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "948da9913c41319d6dc3c9067ff47363d242671fbe12d9583dbbf94400c4c88c",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    },
+    {
+      "fixture": {
+        "event_id": "401885389",
+        "date": "2026-11-27",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-27T20:15:00+00:00",
+        "home": "Maritimo",
+        "away": "C.D. Nacional",
+        "team_ids": {
+          "home": "552",
+          "away": "3472"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:07:07.385588+00:00"
+      },
+      "archived_tur2": true,
+      "archived_auto_control": {
+        "2.5_UST": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "093e032bf1ca2cf013ae1e86690bf50f82e956af6ea6ac442febc6866b66ba2e",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "2.5_UST",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "KG_VAR": {
+          "status": "BLOCKED",
+          "issues": [
+            "odds_lock:blocked",
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "2160ab25788f43c18a430a339de042ed36419f9bb9f7d88e63857c6452be6033",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "KG_VAR",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS1": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "937b73d578b3a82c19369d6f2356c360c0c911b716b7ebdf9c6f3f1b15cb5929",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS1",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        },
+        "MS2": {
+          "status": "BLOCKED",
+          "issues": [
+            "ingestion:blocked",
+            "second_source:unverified",
+            "exg:uncalibrated",
+            "context:unverified"
+          ],
+          "snapshot_sha256": "fd878fcb4fafb3c94883bc2a31d4ff9a4da502ac3d6e3b07a7f856e37b68b1ec",
+          "ex_g": {
+            "status": "BLOCKED",
+            "market": "MS2",
+            "probability": null,
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing",
+              "calibration:uncertified"
+            ],
+            "calibrator_id": null
+          },
+          "ex_final_allowed": false
+        }
+      }
+    }
+  ]
+}

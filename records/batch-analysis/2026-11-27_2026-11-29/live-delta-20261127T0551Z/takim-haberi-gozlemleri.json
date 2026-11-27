@@ -1,0 +1,292 @@
+[
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401879225",
+        "date": "2026-11-27",
+        "league": "en.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Nottingham Forest",
+        "away": "Chelsea",
+        "team_ids": {
+          "home": "393",
+          "away": "363"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:50.177331+00:00"
+      },
+      "side": "home",
+      "source": "https://www.nottinghamforest.co.uk/news/2026/november/25/early-team-news-for-visit-of-chelsea/",
+      "publication_date": "2026-11-25",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Hudson-Odoi yeniden oynayabilir.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "cad00695ecdecdf4b13708dc8fe4576b24740c5f65682e58a38a5a086d0fa641"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401879225",
+        "date": "2026-11-27",
+        "league": "en.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Nottingham Forest",
+        "away": "Chelsea",
+        "team_ids": {
+          "home": "393",
+          "away": "363"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:50.177331+00:00"
+      },
+      "side": "away",
+      "source": "https://www.chelseafc.com/en/news/article/xabi-alonso-confirms-chelsea-team-news-for-nottingham-forest",
+      "publication_date": null,
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Xabi Alonso, Caicedo’nun antrenman yaptığını ve oynayabilecek durumda olduğunu söyledi.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "1db24a889a300d3525f889e791edd74cf428df8705e5d364266f6f25a68f681f"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884720",
+        "date": "2026-11-27",
+        "league": "de.1",
+        "kickoff_at": "2026-11-27T19:30:00+00:00",
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "team_ids": {
+          "home": "137",
+          "away": "268"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:51.657285+00:00"
+      },
+      "side": "home",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Grüll, Musah, Ndiaye, Stage ve Topp eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "fbc042099c183f92886d36a72249180d836149b40b2bd6d5c562c3450ce4fb87"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884720",
+        "date": "2026-11-27",
+        "league": "de.1",
+        "kickoff_at": "2026-11-27T19:30:00+00:00",
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "team_ids": {
+          "home": "137",
+          "away": "268"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:51.657285+00:00"
+      },
+      "side": "away",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Kleindienst, Leopold, Leszczyński ve Ullrich eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "a270923a8d1e45c26a390cccf7152d6f253002544d58bff553bb82bbb54b2f5c"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884723",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Mainz",
+        "away": "1. FC Union Berlin",
+        "team_ids": {
+          "home": "2950",
+          "away": "598"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "home",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Kohr eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "90199a0041499f5eea97f98c487af72fdf4f64ddb7080afb7e72271a7a1ba10c"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884723",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Mainz",
+        "away": "1. FC Union Berlin",
+        "team_ids": {
+          "home": "2950",
+          "away": "598"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "away",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Ven den Bosch cezalı. Markgraf, Nsoki ve Skov eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "cdb3676c16706dd439a5580ae803dabe242292756d914b95f338f54332083ec3"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884722",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Hamburg SV",
+        "away": "Bayern Munich",
+        "team_ids": {
+          "home": "127",
+          "away": "132"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "home",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Muheim, Nadir, Poulsen ve Remberg eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "a4da2cb5327a8eef66c63ae7529fc259626441fc3509914f868a18fbcb862b98"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884722",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T14:30:00+00:00",
+        "home": "Hamburg SV",
+        "away": "Bayern Munich",
+        "team_ids": {
+          "home": "127",
+          "away": "132"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "away",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Davies, Gnabry, Kane, Neuer ve Saibari eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "41f6de80314578b39ad8baa523512b820e015af2dbc9ba1d5b4e6363159ee985"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884726",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "VfB Stuttgart",
+        "away": "Eintracht Frankfurt",
+        "team_ids": {
+          "home": "134",
+          "away": "125"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "home",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Diehl, Jaquez ve Malanga eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "45b8955112dd75b3acf912cfba4411fe187a5b351209346b4460b62a88f79150"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884726",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "VfB Stuttgart",
+        "away": "Eintracht Frankfurt",
+        "team_ids": {
+          "home": "134",
+          "away": "125"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "side": "away",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/team-news-line-ups-2026-27-bayern-dortmund-fantasy-20707",
+      "publication_date": "2026-11-27",
+      "published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "finding": "Ngankam eksik listesinde. İlk 11 tahmini.",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "a6cc83aaf8204ece823f9ad8ba3e46347c3a67364ed9223b3cbe27585ba2dd4d"
+  }
+]

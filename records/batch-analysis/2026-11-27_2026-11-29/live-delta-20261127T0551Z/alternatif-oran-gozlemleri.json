@@ -1,0 +1,737 @@
+[
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401879225",
+        "date": "2026-11-27",
+        "league": "en.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Nottingham Forest",
+        "away": "Chelsea",
+        "team_ids": {
+          "home": "393",
+          "away": "363"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:50.177331+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Nottingham Forest v Chelsea",
+      "source_clock_utc": "20:00",
+      "fractional_price": "8/13",
+      "decimal_price": 1.6153846153846154,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "576abe9ba85e0460d2bf0a86976148b94c9cf41a9e5b066ea32a4d36ff9975c0"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884720",
+        "date": "2026-11-27",
+        "league": "de.1",
+        "kickoff_at": "2026-11-27T19:30:00+00:00",
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "team_ids": {
+          "home": "137",
+          "away": "268"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:51.657285+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Werder Bremen v Borussia Mgladbach",
+      "source_clock_utc": "19:30",
+      "fractional_price": "6/11",
+      "decimal_price": 1.5454545454545454,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "40d18304796e755144876fa196735a2253593724b307af22f4917551d5833c56"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401876392",
+        "date": "2026-11-27",
+        "league": "fr.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "Brest",
+        "away": "Paris FC",
+        "team_ids": {
+          "home": "6997",
+          "away": "6851"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:58.394812+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Brest v Paris FC",
+      "source_clock_utc": "19:45",
+      "fractional_price": "8/11",
+      "decimal_price": 1.7272727272727273,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "f1a04993df0c63a5e8058af08255753479202ce7e11149667f2fd351355b6644"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401875004",
+        "date": "2026-11-27",
+        "league": "it.1",
+        "kickoff_at": "2026-11-27T19:45:00+00:00",
+        "home": "Venezia",
+        "away": "Bologna",
+        "team_ids": {
+          "home": "17530",
+          "away": "107"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:56.901306+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Venezia v Bologna",
+      "source_clock_utc": "19:45",
+      "fractional_price": "10/11",
+      "decimal_price": 1.9090909090909092,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "fa4081cf727b323795609771bdf2e75a6a041fed8ab61e3856e5d45ad9add36d"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401885389",
+        "date": "2026-11-27",
+        "league": "pt.1",
+        "kickoff_at": "2026-11-27T20:15:00+00:00",
+        "home": "Maritimo",
+        "away": "C.D. Nacional",
+        "team_ids": {
+          "home": "552",
+          "away": "3472"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:07:07.385588+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Maritimo v Club Nacional de Football",
+      "source_clock_utc": "20:15",
+      "fractional_price": "10/11",
+      "decimal_price": 1.9090909090909092,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "6b30251353a81f0569019a4c325be1971c3df070bc2ed1d244a4c6d8a6408b47"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401882791",
+        "date": "2026-11-27",
+        "league": "es.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Levante",
+        "away": "Racing Santander",
+        "team_ids": {
+          "home": "1538",
+          "away": "87"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:55.393942+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Levante v Racing Santander",
+      "source_clock_utc": "20:00",
+      "fractional_price": "4/9",
+      "decimal_price": 1.4444444444444444,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "e9b9471efcfbba58655b50ca344420203d6b179709ef0af23ebade5d5e61df70"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401875536",
+        "date": "2026-11-27",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-27T19:00:00+00:00",
+        "home": "FC Groningen",
+        "away": "Willem II",
+        "team_ids": {
+          "home": "145",
+          "away": "156"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:59.881636+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Groningen v Willem II",
+      "source_clock_utc": "19:00",
+      "fractional_price": "4/6",
+      "decimal_price": 1.6666666666666667,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "9e6126f9a08420c0bf342ab5d47e3d644ffb655cd07a1709e7639ecbc8e9fbf1"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401879227",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Leeds United",
+        "away": "Coventry City",
+        "team_ids": {
+          "home": "357",
+          "away": "388"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Leeds v Coventry",
+      "source_clock_utc": "15:00",
+      "fractional_price": "9/10",
+      "decimal_price": 1.9,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "cc1bc25d096ee3a8a4e6785866172dc1c75a7d2cfd33def769904f7ebd90d8d2"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401879226",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T15:00:00+00:00",
+        "home": "Manchester United",
+        "away": "Brentford",
+        "team_ids": {
+          "home": "360",
+          "away": "337"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Man Utd v Brentford",
+      "source_clock_utc": "15:00",
+      "fractional_price": "1/2",
+      "decimal_price": 1.5,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "9f73c171fd53c25a91524e04fe1620def78e7c0f6343cd66ccd2fd3823e621c4"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401878752",
+        "date": "2026-11-28",
+        "league": "en.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Ipswich Town",
+        "away": "Aston Villa",
+        "team_ids": {
+          "home": "373",
+          "away": "362"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:44.647764+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Ipswich v Aston Villa",
+      "source_clock_utc": "17:30",
+      "fractional_price": "1/2",
+      "decimal_price": 1.5,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "46709701c5d8963e93f9ea1bc0d821562377778c97e66591f8d455e647645080"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884726",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "VfB Stuttgart",
+        "away": "Eintracht Frankfurt",
+        "team_ids": {
+          "home": "134",
+          "away": "125"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Vfb Stuttgart v Eintracht Frankfurt",
+      "source_clock_utc": "17:30",
+      "fractional_price": "1/3",
+      "decimal_price": 1.3333333333333333,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "a26565cbef2503d9a6898270a8ddbd352e101fcbc060a83f2d2ce29d630e7c69"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401882793",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Elche",
+        "away": "Atlético Madrid",
+        "team_ids": {
+          "home": "3751",
+          "away": "1068"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T13:06:52.274397+00:00"
+      },
+      "market": "KG_VAR",
+      "selection": "YES",
+      "goal_line": null,
+      "source_label": "Elche v Atletico Madrid",
+      "source_clock_utc": "17:30",
+      "fractional_price": "8/11",
+      "decimal_price": 1.7272727272727273,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/football/both-teams-to-score",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "5341fbe90cfdb2cafef7a5ab25ac9c832a5ccb1e1d5cd6bb4332717a707f85b7"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884720",
+        "date": "2026-11-27",
+        "league": "de.1",
+        "kickoff_at": "2026-11-27T19:30:00+00:00",
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "team_ids": {
+          "home": "137",
+          "away": "268"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:51.657285+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Werder Bremen v Borussia Mgladbach",
+      "source_clock_utc": "19:30",
+      "fractional_price": "8/15",
+      "decimal_price": 1.5333333333333334,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "5aa6dbfa8918abdfce11814d2bdc7a5ff8613eae73557bad99bc213a6c7a209d"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401882791",
+        "date": "2026-11-27",
+        "league": "es.1",
+        "kickoff_at": "2026-11-27T20:00:00+00:00",
+        "home": "Levante",
+        "away": "Racing Santander",
+        "team_ids": {
+          "home": "1538",
+          "away": "87"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+        "fixture_checked_at": "2026-11-26T13:06:55.393942+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Levante v Racing Santander",
+      "source_clock_utc": "20:00",
+      "fractional_price": "5/11",
+      "decimal_price": 1.4545454545454546,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "6f6e60b3c358353f476db2b17ee1025f6849105cab17e720a7576a9c57c5bfb1"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401884726",
+        "date": "2026-11-28",
+        "league": "de.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "VfB Stuttgart",
+        "away": "Eintracht Frankfurt",
+        "team_ids": {
+          "home": "134",
+          "away": "125"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:45.385711+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Vfb Stuttgart v Eintracht Frankfurt",
+      "source_clock_utc": "17:30",
+      "fractional_price": "3/10",
+      "decimal_price": 1.3,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "83b5504ee51d80e4144eb256f5985c37b98dc7a1caf8bd82ff41af1d54d251d0"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401875081",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T14:00:00+00:00",
+        "home": "Frosinone",
+        "away": "Parma",
+        "team_ids": {
+          "home": "4057",
+          "away": "115"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Frosinone v Parma",
+      "source_clock_utc": "14:00",
+      "fractional_price": "2/5",
+      "decimal_price": 1.4,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "2df92cc416aa18b4201bf282557591a6fba5c60216d25c7bcdb8d3d393ad6a01"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401874977",
+        "date": "2026-11-28",
+        "league": "it.1",
+        "kickoff_at": "2026-11-28T19:45:00+00:00",
+        "home": "Internazionale",
+        "away": "Genoa",
+        "team_ids": {
+          "home": "110",
+          "away": "3263"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:49.946305+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Inter Milan v Genoa",
+      "source_clock_utc": "19:45",
+      "fractional_price": "7/12",
+      "decimal_price": 1.5833333333333333,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "c6e51a48e14d61013ef6453c0344dfcf6296090c13d3ccca547c1a14eb12e305"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401882793",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T17:30:00+00:00",
+        "home": "Elche",
+        "away": "Atlético Madrid",
+        "team_ids": {
+          "home": "3751",
+          "away": "1068"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T13:06:52.274397+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Elche v Atletico Madrid",
+      "source_clock_utc": "17:30",
+      "fractional_price": "7/12",
+      "decimal_price": 1.5833333333333333,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "39418bf87527066bd656eef094c550c13b3a82258c73d54d5932e2e4e508bd29"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401882789",
+        "date": "2026-11-28",
+        "league": "es.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "Real Madrid",
+        "away": "Alavés",
+        "team_ids": {
+          "home": "86",
+          "away": "96"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T13:06:52.274397+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Real Madrid v Alaves",
+      "source_clock_utc": "20:00",
+      "fractional_price": "1/3",
+      "decimal_price": 1.3333333333333333,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "46ac4e496d8143a8b0aa6e8c1b572c92ccdcf0d72ac19790dd32eea402ae20f6"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401875531",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T17:45:00+00:00",
+        "home": "PSV Eindhoven",
+        "away": "Go Ahead Eagles",
+        "team_ids": {
+          "home": "148",
+          "away": "3706"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "PSV v Go Ahead Eagles",
+      "source_clock_utc": "17:45",
+      "fractional_price": "1/5",
+      "decimal_price": 1.2,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "f4ca9feb9ee0b38659d4b1a99afb478b350316b92e628667513072eb03de2de3"
+  },
+  {
+    "observation": {
+      "fixture": {
+        "event_id": "401875530",
+        "date": "2026-11-28",
+        "league": "nl.1",
+        "kickoff_at": "2026-11-28T20:00:00+00:00",
+        "home": "SC Cambuur",
+        "away": "Sparta Rotterdam",
+        "team_ids": {
+          "home": "3736",
+          "away": "151"
+        },
+        "season": 2026,
+        "season_basis": "PROVIDER_SEASON",
+        "fixture_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261128",
+        "fixture_checked_at": "2026-11-26T12:50:51.486754+00:00"
+      },
+      "market": "2.5_UST",
+      "selection": "OVER",
+      "goal_line": 2.5,
+      "source_label": "Cambuur Leeuwarden v Sparta Rotterdam",
+      "source_clock_utc": "20:00",
+      "fractional_price": "5/11",
+      "decimal_price": 1.4545454545454546,
+      "publisher": "Oddschecker",
+      "bookmaker": null,
+      "provider_published_at": null,
+      "observed_at": "2026-11-27T05:51:37.050553+00:00",
+      "source": "https://www.oddschecker.com/football/over-under-2.5",
+      "raw_source_sha256": null,
+      "status": "INDEX_OBSERVATION_ONLY"
+    },
+    "observation_sha256": "f5151ea79332513aafef51d88268bcf7f42a15249308ab2f88048e602ddf1759"
+  }
+]
