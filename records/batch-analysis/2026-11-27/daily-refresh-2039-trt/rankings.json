@@ -1,0 +1,184 @@
+{
+  "2026-11-27": {
+    "top7": [
+      {
+        "date": "2026-11-27",
+        "id": "401884720",
+        "TRT": "22:30",
+        "match": "Werder Bremen – Borussia Mönchengladbach",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6935694453783895,
+        "new": 0.6935694453783895,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875830",
+        "TRT": "22:00",
+        "match": "MVV Maastricht – Jong PSV",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6585518479004823,
+        "new": 0.6585518479004823,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875536",
+        "TRT": "22:00",
+        "match": "FC Groningen – Willem II",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.6335096190885567,
+        "new": 0.6335096190885567,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401876392",
+        "TRT": "22:45",
+        "match": "Brest – Paris FC",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6315373279123115,
+        "new": 0.6315373279123115,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401879225",
+        "TRT": "23:00",
+        "match": "Nottingham Forest – Chelsea",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6136129089898849,
+        "new": 0.6136129089898849,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.8,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401882791",
+        "TRT": "23:00",
+        "match": "Levante – Racing Santander",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.5785841799262865,
+        "new": 0.5785841799262865,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "id": "401875833",
+        "TRT": "22:00",
+        "match": "Jong Ajax – Heracles Almelo",
+        "market": "2.5_UST",
+        "old_model": "STAT_VENUE5",
+        "model": "STAT_VENUE5",
+        "old": 0.5597590849015929,
+        "new": 0.5597590849015929,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "historical_samples:incomplete",
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ],
+    "at_least_70": []
+  }
+}
