@@ -1,0 +1,9 @@
+{
+  "event_id": "401875828",
+  "status": "POSTPONED",
+  "knvb": {
+    "url": "https://www.knvb.nl/node/72609",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  "club": "https://fcemmen.nl/fc-emmen-helmond-sport-afgelast-2/"
+}

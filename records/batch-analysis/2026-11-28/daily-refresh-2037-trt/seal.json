@@ -1,0 +1,16 @@
+{
+  "calculated_at": "2026-11-27T17:37:30.738176+00:00",
+  "sealed_at": "2026-11-27T17:37:51.049910+00:00",
+  "engine_commit": "d089584a9ea383a23c6247e0e15dafed49e55de8",
+  "baseline_commit": "e5e5c314",
+  "scope": "RESEARCH_ONLY",
+  "file_sha256": {
+    "official-postponement.json": "687b2d84f9089c1f6805d65899eb181fb91cbbfed21db6831ffd9b3aea1ff3d4",
+    "raw-captures.tar.gz": "67433d2a2d502bb1e7f219e11e8abbbf79ab79370bc56eac65741723eb732da0",
+    "report.json": "b61637f2023fe2d4788ced0c00d88263885c32ca37b7d0f905273fa691667910",
+    "decision-refresh.json": "fec57854e26c79216cb033b9142d2c39934bb0a666d57f4c78f5a04027120afa",
+    "rankings.json": "bc813553fc647cf3b534ad88b07a51a3cc16104145eb29b7116c8c96fea38c7e",
+    "all-markets.csv": "bf02bc29f24ea7bc5d9b20a64229a1b2f5384ee6d960d1806a7046a9a0bb43ba",
+    "capture.json": "c9f38924e7bb26a5e057b2399ff2cd5e8e17eb6de4ead51f5ed35bd8dce439ec"
+  }
+}
