@@ -14,3 +14,5 @@ Porto–Sporting için iki takımın son maçlarının gerçek bitişi ve 14 gü
 31 ESPN özeti incelendi. Kalan 12 maç koşulu engeli ve dış etken eksikleri CSV tablosunda maç bazında yer alıyor. Hava için beş mevcut tahmin bulundu, dört yeni sorgu HTTP 403 döndürdü, 60 maçta doğrulanmış saha koordinatı eksikti. Oyuncu bazında seyahat, eksik ve rotasyon kanıtı üretim kabulü için yetersizdi.
 
 Arşivdeki 69 Tur-2 kontrolü uyumluydu. PUP 69 BLOCKED, Auto-Control 274 BLOCKED ve 2 PASS. Porto araştırma girdisi ayrı bir Tur-2 ve Auto-Control kaydıyla denendi. Doğrulanmış EX-G ve gerçek EX FINAL 0.
+
+Beş maç için on takım haberi dizin gözlemi arşive başvuru olarak alındı. Bunlar bağımsız maç bağlamı kabulü sağlamadı. Yerel 956 test ve 30 CI kontrolü başarılıydı. Altı CI işi atlandı.
