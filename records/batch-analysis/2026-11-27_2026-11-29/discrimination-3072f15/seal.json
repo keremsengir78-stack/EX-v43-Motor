@@ -1,0 +1,20 @@
+{
+  "archived_at": "2026-11-27T12:19:37.322130+00:00",
+  "engine_commit": "3072f154",
+  "scope": "RESEARCH_ONLY",
+  "prior_daily_archives": [
+    "36fae125",
+    "a6618be6"
+  ],
+  "file_sha256": {
+    "29-kasim-form-kurtarma.json": "e6494e82d47cfe2d494f4dbed2f1ae9a3e2cc4249b64e33b5139d555376f7dc3",
+    "29-kasim-karar.json": "ae3f9917b325e12daf143c50e3518fb1571d2be6017067142a73ef4d967c3c87",
+    "29-kasim-motor-raporu.json": "309b74f433f6361fa5b7d3be8c3d107e9373f18b3eeabe59be2597b01452fcae",
+    "test-pazar-lig.csv": "c0538cce54809e52b37cb3374e51eb3c2f363ec92bfca8316cb658f139ae5215",
+    "29-kasim-pazar-siralama.csv": "0374c5b89ce1d5674165c93149059b2917abfa63c2019b36fc61a199434e823b",
+    "29-kasim-capture.json": "cbec8558d9f25f667ac04c2f18279a229a795e9379a9de0fe70dd7359829ed13",
+    "comparison.json": "e06a8a301921629cb7e43cd1d64ba90d027092af2830c3b2dd211cd35af1769a",
+    "raw-evidence.tar.gz": "963af9dc7c9602fd4681f2c422552baf5b19f9fae6ffdc418598230b6d1beab9",
+    "29-kasim-fikstur.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  }
+}
