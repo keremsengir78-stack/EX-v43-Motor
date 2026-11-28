@@ -1,0 +1,181 @@
+{
+  "2026-11-29": {
+    "top7": [
+      {
+        "date": "2026-11-29",
+        "id": "401884725",
+        "TRT": "19:30",
+        "match": "TSG Hoffenheim – FC Augsburg",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6912933123368615,
+        "new": 0.6912933123368615,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875031",
+        "TRT": "14:30",
+        "match": "Udinese – Fiorentina",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6654636874910782,
+        "new": 0.6654636874910782,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": 1.6896551724137931,
+        "control": "BLOCKED",
+        "issues": [
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401876063",
+        "TRT": "18:45",
+        "match": "Roda JC Kerkrade – De Graafschap",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6651503493233447,
+        "new": 0.6651503493233447,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401843494",
+        "TRT": "19:00",
+        "match": "SK Brann – Kristiansund BK",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6644455853905559,
+        "new": 0.6644455853905559,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875533",
+        "TRT": "22:00",
+        "match": "NEC Nijmegen – FC Twente",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.663288193968929,
+        "new": 0.663288193968929,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401875534",
+        "TRT": "16:30",
+        "match": "Fortuna Sittard – Heerenveen",
+        "market": "2.5_UST",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.662938671559109,
+        "new": 0.662938671559109,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      },
+      {
+        "date": "2026-11-29",
+        "id": "401879228",
+        "TRT": "17:05",
+        "match": "Fulham – AFC Bournemouth",
+        "market": "KG_VAR",
+        "old_model": "STAT_WORKLOAD",
+        "model": "STAT_WORKLOAD",
+        "old": 0.6616059453200624,
+        "new": 0.6616059453200624,
+        "delta": 0.0,
+        "research_pup": null,
+        "odds": null,
+        "control": "BLOCKED",
+        "issues": [
+          "odds_lock:blocked",
+          "ingestion:blocked",
+          "second_source:unverified",
+          "exg:uncalibrated",
+          "context:unverified"
+        ],
+        "changes": [
+          "kickoff_workload"
+        ]
+      }
+    ],
+    "at_least_70": []
+  }
+}
