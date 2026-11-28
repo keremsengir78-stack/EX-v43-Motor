@@ -5,7 +5,8 @@ from pathlib import Path
 from ex_live_data import run as ingest
 from ex_engine import load, audit, backtest
 from ex_cross_verify import secondary_rows, verify, norm, secondary_only_after_cutoff, reconcile_staged_with_third, validate_third_provenance, validate_third_results
-from ex_decision import assess_markets
+from ex_decision import MARKETS, assess_market_value, assess_markets
+from ex_pup_gate import execute_pup
 from ex_fixture_odds import check_fixture, check_odds
 from ex_auto_control import auto_control
 from ex_espn_provider import fetch_espn_scoreboard
@@ -35,9 +36,17 @@ def main():
  p.add_argument('--third-source-provider',help='Name of independently identified third data provider')
  p.add_argument('--third-source-reference',help='Verifiable URL or reference for third-provider provenance')
  p.add_argument('--evidence',help='Verified market evidence JSON; remains uncalibrated')
+ p.add_argument('--history-plan',type=Path)
+ p.add_argument('--history-parts',type=Path)
+ p.add_argument('--history-at',help='Explicit UTC research cutoff for provider observations')
  p.add_argument('--odds',help='JSON list of timestamped odds snapshots matching fixtures by order')
- a=p.parse_args(); out=Path(a.outdir);out.mkdir(parents=True,exist_ok=True)
- ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days)
+ p.add_argument('--pup',action='store_true',help='Explicitly request a PUP review after four market analyses')
+ p.add_argument('--espn-day-limit',type=int)
+ a=p.parse_args()
+ if a.pup and not a.fixtures:
+  p.error('--pup requires --fixtures')
+ out=Path(a.outdir);out.mkdir(parents=True,exist_ok=True)
+ ing=ingest(a.seasons,a.leagues,str(out),a.as_of,a.aliases,a.offline,a.max_age_days,a.espn_day_limit)
  rows=load(out/'results.csv')
  secondary_audits=[]
  secondary_only_staged=[]
@@ -65,7 +74,8 @@ def main():
   raise ValueError('Choose ESPN or CSV third source, not both')
  if a.espn_third_source:
   third=[]; source_metadata=[]; errors=[]
-  dates=sorted({(r['league'],r['date']) for r in secondary_only_staged})
+  espn_primary={r['league'] for r in rows if r['source']=='ESPN'}
+  dates=sorted({(r['league'],r['date']) for r in secondary_only_staged if r['league'] not in espn_primary})
   from concurrent.futures import ThreadPoolExecutor
   def fetch_date(pair):
    league,day=pair
@@ -148,6 +158,15 @@ def main():
    if fixture['date'] < a.as_of: raise ValueError('Historical fixture supplied: cannot present retrospective prediction as pre-match')
   result['matches']=audit(rows,fixtures)
   odds=[]
+  history=None
+  if any((a.history_plan,a.history_parts,a.history_at)):
+   if not all((a.history_plan,a.history_parts,a.history_at)):
+    raise ValueError('Provide history plan, parts and UTC cutoff together')
+   from run_ex_history_merge import load_provider_history
+   from ex_history_archive import utc
+   if utc(a.history_at).date().isoformat()!=a.as_of:
+    raise ValueError('Provider history cutoff must be on the analysis day')
+   history=load_provider_history(a.history_plan,a.history_parts)
   if a.odds:
    odds=json.loads(Path(a.odds).read_text(encoding='utf-8'))
    if not isinstance(odds,list) or len(odds)!=len(fixtures):
@@ -155,9 +174,22 @@ def main():
   for i,match in enumerate(result['matches']):
    match['fixture_lock']=check_fixture(fixtures[i],a.as_of)
    kickoff=fixtures[i].get('kickoff_at','')
+   if history is not None and kickoff and all(fixtures[i].get(key) for key in ('home_espn_id','away_espn_id')):
+    match['provider_history']=history.fixture(
+       {side:fixtures[i][f'{side}_espn_id'] for side in ('home','away')},kickoff,a.history_at)
    match['odds_lock']=check_odds(odds[i] if odds else None,kickoff) if kickoff else {'status':'BLOCKED','issues':['kickoff_at:missing'],'decision':'NO_FINAL','ex_final_allowed':False}
    match['decision']='NO_FINAL'
    match['auto_control']=auto_control(match,ing)
+   if a.pup:
+    analysis=result.get('decision_evidence') or assess_markets({},as_of=evidence_cutoff(a.as_of))
+    quote=odds[i] if odds else None
+    if isinstance(quote,dict) and isinstance(quote.get('market'),str):
+     quote={quote['market']:quote}
+    quotes=quote if isinstance(quote,dict) else {}
+    values={market:assess_market_value(market,analysis['markets'][market]['ex_g'],
+                                      quotes.get(market),kickoff) for market in MARKETS}
+    match['market_values']=values
+    match['pup']=execute_pup(analysis['markets'],MARKETS,values,match.get('baseline'),requested=True)
 
   if ing['status']=='BLOCKED':result['reason']='Data integrity/freshness gate blocked; '+result['reason']
  (out/'full_report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str),encoding='utf-8')

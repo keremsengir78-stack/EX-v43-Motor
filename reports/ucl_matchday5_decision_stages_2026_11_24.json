@@ -1,0 +1,4386 @@
+{
+  "as_of": "2026-11-24T10:24:34Z",
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Bodø/Glimt",
+        "away": "LASK",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915380",
+        "file": "summary-401915380.raw",
+        "sha256": "a2f646c3ed95d9881b5d6dfa6c2a7f9b3fb794007614552029d1026da016efcb",
+        "retrieved_at": "2026-11-24T10:10:41.722593+00:00"
+      },
+      "uefa_match_id": "2049629",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 95.75,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 0,
+          "reported_out": "Evjen (cruciate ligament), Mikkelsen (groin)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-20",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 73.75,
+          "reported_out_count": 3,
+          "reported_doubtful_count": 0,
+          "reported_out": "Andrade (ankle), Bello (muscle), Flecker (calf)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "1510",
+            "fullName": "Aspmyra Stadion",
+            "address": {
+              "city": "Bodø/Glimt",
+              "country": "Norway"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "1510",
+        "fullName": "Aspmyra Stadion",
+        "address": {
+          "city": "Bodø/Glimt",
+          "country": "Norway"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.7644758023050306,
+        "btts": 0.7492865757554132,
+        "home_win": 0.4184079973613965,
+        "draw": 0.20622656048474788,
+        "away_win": 0.37536544215385553,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "2-1",
+            0.07490981576161977
+          ],
+          [
+            "2-2",
+            0.07314618046247424
+          ],
+          [
+            "1-1",
+            0.07256007604821027
+          ],
+          [
+            "1-2",
+            0.07085176172216072
+          ],
+          [
+            "3-1",
+            0.05155709864206359
+          ],
+          [
+            "3-2",
+            0.05034326680758111
+          ],
+          [
+            "2-3",
+            0.047616044812026
+          ],
+          [
+            "1-3",
+            0.04612244466960476
+          ]
+        ],
+        "lambda_home": 2.064766737891738,
+        "lambda_away": 1.9529131054131055,
+        "p_11": 0.07256007604821027,
+        "p_20": 0.038357987129065775,
+        "p_30": 0.026400098652191475
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7644758023050306
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7644758023050306
+          },
+          "team_strength_research_probability": 0.7644758023050306,
+          "research_weighted_team_strength_contribution": 0.3822379011525153,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2e04ccd894df212d6777ecfc2af05a8e9d65d3856ba6c37afd33d854e07238da",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7492865757554132
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7492865757554132
+          },
+          "team_strength_research_probability": 0.7492865757554132,
+          "research_weighted_team_strength_contribution": 0.3746432878777066,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2e04ccd894df212d6777ecfc2af05a8e9d65d3856ba6c37afd33d854e07238da",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4184079973613965
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4184079973613965
+          },
+          "team_strength_research_probability": 0.4184079973613965,
+          "research_weighted_team_strength_contribution": 0.20920399868069825,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.6923076923076923,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fcf5b68384f6bd4e13644077db0f86ac5a29b7019567dd87c111c836a3aca12c",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.37536544215385553
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.37536544215385553
+          },
+          "team_strength_research_probability": 0.37536544215385553,
+          "research_weighted_team_strength_contribution": 0.18768272107692777,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.16666666666666666,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fcf5b68384f6bd4e13644077db0f86ac5a29b7019567dd87c111c836a3aca12c",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 2.220446049250313e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Galatasaray",
+        "away": "Aston Villa",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915300",
+        "file": "summary-401915300.raw",
+        "sha256": "a46210c7c57708bb7fca4ef0b70807ed8c64165ba362772ec7b0a45c2b554c01",
+        "retrieved_at": "2026-11-24T10:10:41.753958+00:00"
+      },
+      "uefa_match_id": "2049631",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 76.75,
+          "reported_out_count": 3,
+          "reported_doubtful_count": 1,
+          "reported_out": "Osimhen (knee), Rafael Leão (hamstring), Sallai (hamstring)",
+          "reported_doubtful": "Jakobs (groin)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 74.75,
+          "reported_out_count": 1,
+          "reported_doubtful_count": 0,
+          "reported_out": "Cash (concussion)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "4987",
+            "fullName": "RAMS Park",
+            "address": {
+              "city": "Istanbul",
+              "country": "Türkiye"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "4987",
+        "fullName": "RAMS Park",
+        "address": {
+          "city": "Istanbul",
+          "country": "Türkiye"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.6712202806351402,
+        "btts": 0.6478876936836505,
+        "home_win": 0.5571045395989279,
+        "draw": 0.2074921125717544,
+        "away_win": 0.23540334782931754,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "2-1",
+            0.09484020808685235
+          ],
+          [
+            "1-1",
+            0.08915401534089812
+          ],
+          [
+            "2-0",
+            0.0713116213611233
+          ],
+          [
+            "3-1",
+            0.0672593753297935
+          ],
+          [
+            "1-0",
+            0.06703609695786054
+          ],
+          [
+            "2-2",
+            0.0630659133692131
+          ],
+          [
+            "1-2",
+            0.05928476456797264
+          ],
+          [
+            "3-0",
+            0.050573224197394295
+          ]
+        ],
+        "lambda_home": 2.1275588704381274,
+        "lambda_away": 1.329940425931138,
+        "p_11": 0.08915401534089812,
+        "p_20": 0.0713116213611233,
+        "p_30": 0.050573224197394295
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6712202806351402
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6712202806351402
+          },
+          "team_strength_research_probability": 0.6712202806351402,
+          "research_weighted_team_strength_contribution": 0.3356101403175701,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fb00e0f4c9297b39b177a203f3d7d8a441426f1e1ec3c8cf554c15d11e1d9127",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6478876936836505
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6478876936836505
+          },
+          "team_strength_research_probability": 0.6478876936836505,
+          "research_weighted_team_strength_contribution": 0.32394384684182526,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fb00e0f4c9297b39b177a203f3d7d8a441426f1e1ec3c8cf554c15d11e1d9127",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.5571045395989279
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.5571045395989279
+          },
+          "team_strength_research_probability": 0.5571045395989279,
+          "research_weighted_team_strength_contribution": 0.27855226979946396,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.3278688524590164,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "b584e42b3274e701cb8512ea679f7339d5199503391713afbf15e2171c7a2227",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.23540334782931754
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.23540334782931754
+          },
+          "team_strength_research_probability": 0.23540334782931754,
+          "research_weighted_team_strength_contribution": 0.11770167391465877,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.46511627906976744,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "b584e42b3274e701cb8512ea679f7339d5199503391713afbf15e2171c7a2227",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 2.220446049250313e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Arsenal",
+        "away": "Borussia Dortmund",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915295",
+        "file": "summary-401915295.raw",
+        "sha256": "432bdf01125ea4990a8800daa59262cb5abdac311e79ee85ca3eb4a4a1a0529b",
+        "retrieved_at": "2026-11-24T10:10:41.682753+00:00"
+      },
+      "uefa_match_id": "2049627",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 74.5,
+          "reported_out_count": 3,
+          "reported_doubtful_count": 0,
+          "reported_out": "Raya (shoulder), Saka (muscular), Zubimendi (hamstring)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 77.5,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 2,
+          "reported_out": "Inácio (meniscus), Kaba (shoulder)",
+          "reported_doubtful": "Chukwuemeka (muscular), Guirassy (thigh)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "2267",
+            "fullName": "Emirates Stadium",
+            "address": {
+              "city": "London",
+              "country": "England"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "2267",
+        "fullName": "Emirates Stadium",
+        "address": {
+          "city": "London",
+          "country": "England"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.40825266323562004,
+        "btts": 0.4605860271897893,
+        "home_win": 0.44839648115522013,
+        "draw": 0.2768489177553429,
+        "away_win": 0.27475460108943683,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "1-0",
+            0.13173229628091956
+          ],
+          [
+            "1-1",
+            0.12920554255405642
+          ],
+          [
+            "0-0",
+            0.09864769679406889
+          ],
+          [
+            "0-1",
+            0.09675553790397157
+          ],
+          [
+            "2-0",
+            0.0879564269993546
+          ],
+          [
+            "2-1",
+            0.08626933707534502
+          ],
+          [
+            "1-2",
+            0.06336362721214517
+          ],
+          [
+            "0-2",
+            0.047449836232008914
+          ]
+        ],
+        "lambda_home": 1.335381367858148,
+        "lambda_away": 0.9808190261750633,
+        "p_11": 0.12920554255405642,
+        "p_20": 0.0879564269993546,
+        "p_30": 0.0391517912661045
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.40825266323562004
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.40825266323562004
+          },
+          "team_strength_research_probability": 0.40825266323562004,
+          "research_weighted_team_strength_contribution": 0.20412633161781002,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.574468085106383,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "1f41306585a7c3d91bf491eb0def095351f5722959241c3c6e3dfb511156f0e4",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4605860271897893
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4605860271897893
+          },
+          "team_strength_research_probability": 0.4605860271897893,
+          "research_weighted_team_strength_contribution": 0.23029301359489465,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "d25b2704cf32e45fcdf3c541cd880882bb05f739c89ef78cad746dd9eb1e0656",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.44839648115522013
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.44839648115522013
+          },
+          "team_strength_research_probability": 0.44839648115522013,
+          "research_weighted_team_strength_contribution": 0.22419824057761006,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.6875,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "1f41306585a7c3d91bf491eb0def095351f5722959241c3c6e3dfb511156f0e4",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.27475460108943683
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.27475460108943683
+          },
+          "team_strength_research_probability": 0.27475460108943683,
+          "research_weighted_team_strength_contribution": 0.13737730054471842,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.14285714285714285,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "1f41306585a7c3d91bf491eb0def095351f5722959241c3c6e3dfb511156f0e4",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.6653345369377348e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Como",
+        "away": "AEK Athens",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915296",
+        "file": "summary-401915296.raw",
+        "sha256": "f097dd5323f39f643f16600b7661c096b2a5fbb6ed067a462f2023fee1be4ca6",
+        "retrieved_at": "2026-11-24T10:10:41.792403+00:00"
+      },
+      "uefa_match_id": "2049633",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 78.0,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 1,
+          "reported_out": "Kean (shin), Diao (thigh)",
+          "reported_doubtful": "Caqueret (muscular)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 74.5,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 0,
+          "reported_out": "Arriaga (collarbone), Koita (suspended)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "5934",
+            "fullName": "Giuseppe Sinigaglia",
+            "address": {
+              "city": "Como",
+              "country": "Italy"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "5934",
+        "fullName": "Giuseppe Sinigaglia",
+        "address": {
+          "city": "Como",
+          "country": "Italy"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.37687165675178,
+        "btts": 0.4361530927101558,
+        "home_win": 0.4370102876443968,
+        "draw": 0.2865161999684028,
+        "away_win": 0.2764735123872003,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "1-0",
+            0.13976106847619038
+          ],
+          [
+            "1-1",
+            0.13124361213199448
+          ],
+          [
+            "0-0",
+            0.1109745983703959
+          ],
+          [
+            "0-1",
+            0.10421147536883164
+          ],
+          [
+            "2-0",
+            0.08800733027395724
+          ],
+          [
+            "2-1",
+            0.08264390108905971
+          ],
+          [
+            "1-2",
+            0.06162261749017694
+          ],
+          [
+            "0-2",
+            0.04893025862685022
+          ]
+        ],
+        "lambda_home": 1.2593969298245615,
+        "lambda_away": 0.9390570175438597,
+        "p_11": 0.13124361213199448,
+        "p_20": 0.08800733027395724,
+        "p_30": 0.03694538718302598
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.37687165675178
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.37687165675178
+          },
+          "team_strength_research_probability": 0.37687165675178,
+          "research_weighted_team_strength_contribution": 0.18843582837589,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2cd9afc236740834abe2271c1e243b83074ffa27363ff1b51996ecd070ef72a4",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4361530927101558
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4361530927101558
+          },
+          "team_strength_research_probability": 0.4361530927101558,
+          "research_weighted_team_strength_contribution": 0.2180765463550779,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2cd9afc236740834abe2271c1e243b83074ffa27363ff1b51996ecd070ef72a4",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4370102876443968
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4370102876443968
+          },
+          "team_strength_research_probability": 0.4370102876443968,
+          "research_weighted_team_strength_contribution": 0.2185051438221984,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.7916666666666667,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "67d58f6750fa2c787c77b34202cc132feab2a86864bf2fe8087ffc15d41c1939",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.2764735123872003
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.2764735123872003
+          },
+          "team_strength_research_probability": 0.2764735123872003,
+          "research_weighted_team_strength_contribution": 0.13823675619360015,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.10526315789473684,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "67d58f6750fa2c787c77b34202cc132feab2a86864bf2fe8087ffc15d41c1939",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.1102230246251565e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Feyenoord",
+        "away": "Porto",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915294",
+        "file": "summary-401915294.raw",
+        "sha256": "e60f40129aa9d109cf221eccfb0182e2b8c6fb6e2b5f5181bcd2edc62f32f99a",
+        "retrieved_at": "2026-11-24T10:10:41.788245+00:00"
+      },
+      "uefa_match_id": "2049628",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 74.25,
+          "reported_out_count": 5,
+          "reported_doubtful_count": 0,
+          "reported_out": "Beelen (leg), Bos (knee), Moder (back), Nieuwkoop (knee), St. Juste (shin)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 95.25,
+          "reported_out_count": 1,
+          "reported_doubtful_count": 1,
+          "reported_out": "Smalling (knee)",
+          "reported_doubtful": "William Gomes (ankle)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-08",
+          "domestic_results_in_prior_14_calendar_days": 0
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "10050",
+            "fullName": "De Kuip",
+            "address": {
+              "city": "Rotterdam",
+              "country": "Netherlands"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "10050",
+        "fullName": "De Kuip",
+        "address": {
+          "city": "Rotterdam",
+          "country": "Netherlands"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.6469136773299536,
+        "btts": 0.6545759085557972,
+        "home_win": 0.33280833403929094,
+        "draw": 0.22714264205403117,
+        "away_win": 0.4400490239066778,
+        "probability_mass": 0.9999999999999999,
+        "top_scores": [
+          [
+            "1-1",
+            0.09856992149127855
+          ],
+          [
+            "1-2",
+            0.08841754395421818
+          ],
+          [
+            "2-1",
+            0.0757885515242383
+          ],
+          [
+            "2-2",
+            0.06798258012423979
+          ],
+          [
+            "0-1",
+            0.06409958514439669
+          ],
+          [
+            "0-2",
+            0.057497538815157796
+          ],
+          [
+            "1-0",
+            0.0549440133048012
+          ],
+          [
+            "1-3",
+            0.05287388526250582
+          ]
+        ],
+        "lambda_home": 1.5377622377622377,
+        "lambda_away": 1.7940065816536406,
+        "p_11": 0.09856992149127855,
+        "p_20": 0.04224541442561463,
+        "p_30": 0.02165446767410876
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6469136773299536
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6469136773299536
+          },
+          "team_strength_research_probability": 0.6469136773299536,
+          "research_weighted_team_strength_contribution": 0.3234568386649768,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.6153846153846154,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "67a106f41d59ec799fd7a01f260474dcdb90777c1c63ecee4208668d323ccf1f",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6545759085557972
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6545759085557972
+          },
+          "team_strength_research_probability": 0.6545759085557972,
+          "research_weighted_team_strength_contribution": 0.3272879542778986,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "8b1db6f04a8988281dba27e7c8a6870659001f2d1c11f6a02adf60e6c2259fda",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.33280833403929094
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.33280833403929094
+          },
+          "team_strength_research_probability": 0.33280833403929094,
+          "research_weighted_team_strength_contribution": 0.16640416701964547,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.31746031746031744,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "67a106f41d59ec799fd7a01f260474dcdb90777c1c63ecee4208668d323ccf1f",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4400490239066778
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4400490239066778
+          },
+          "team_strength_research_probability": 0.4400490239066778,
+          "research_weighted_team_strength_contribution": 0.2200245119533389,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.45454545454545453,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "67a106f41d59ec799fd7a01f260474dcdb90777c1c63ecee4208668d323ccf1f",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.1102230246251565e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Manchester City",
+        "away": "Napoli",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915379",
+        "file": "summary-401915379.raw",
+        "sha256": "243ffc1a16ed64596f8098c59432f44acb87f4434a89184cb1d1421992e15cb9",
+        "retrieved_at": "2026-11-24T10:10:41.905170+00:00"
+      },
+      "uefa_match_id": "2049626",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 79.5,
+          "reported_out_count": 1,
+          "reported_doubtful_count": 0,
+          "reported_out": "Semenyo (knee)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 72.25,
+          "reported_out_count": 7,
+          "reported_doubtful_count": 0,
+          "reported_out": "Badiashile (hamstring), Di Lorenzo (thigh), Lobotka (ankle), Rafa Marín (suspended), Meret (back), Vergera (thigh), Alisson Santos (thigh)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "4036",
+            "fullName": "Etihad Stadium",
+            "address": {
+              "city": "Manchester",
+              "country": "England"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "4036",
+        "fullName": "Etihad Stadium",
+        "address": {
+          "city": "Manchester",
+          "country": "England"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.5713423096914612,
+        "btts": 0.5931614319695522,
+        "home_win": 0.45207780767095274,
+        "draw": 0.24055590789404865,
+        "away_win": 0.3073662844349985,
+        "probability_mass": 1.0,
+        "top_scores": [
+          [
+            "1-1",
+            0.11154250631554746
+          ],
+          [
+            "2-1",
+            0.09215954973562647
+          ],
+          [
+            "1-0",
+            0.08429514320133097
+          ],
+          [
+            "1-2",
+            0.07379862138342924
+          ],
+          [
+            "2-0",
+            0.06964701349239794
+          ],
+          [
+            "0-1",
+            0.06750103896365012
+          ],
+          [
+            "2-2",
+            0.06097449252723861
+          ],
+          [
+            "0-0",
+            0.051012030602780166
+          ]
+        ],
+        "lambda_home": 1.6524561403508775,
+        "lambda_away": 1.323237639553429,
+        "p_11": 0.11154250631554746,
+        "p_20": 0.06964701349239794,
+        "p_30": 0.038362878367537795
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.5713423096914612
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.5713423096914612
+          },
+          "team_strength_research_probability": 0.5713423096914612,
+          "research_weighted_team_strength_contribution": 0.2856711548457306,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "057f7795c41d1b612e21a685a0b384329c23d27031f4b980d2fada300affe631",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.5931614319695522
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.5931614319695522
+          },
+          "team_strength_research_probability": 0.5931614319695522,
+          "research_weighted_team_strength_contribution": 0.2965807159847761,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "057f7795c41d1b612e21a685a0b384329c23d27031f4b980d2fada300affe631",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.45207780767095274
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.45207780767095274
+          },
+          "team_strength_research_probability": 0.45207780767095274,
+          "research_weighted_team_strength_contribution": 0.22603890383547637,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.7727272727272727,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "000300de3b8d1270f8a6400ac7a3e9bbadbe8d8487a05c5a6bc3015fd57bbe65",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.3073662844349985
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.3073662844349985
+          },
+          "team_strength_research_probability": 0.3073662844349985,
+          "research_weighted_team_strength_contribution": 0.15368314221749926,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.11764705882352941,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "000300de3b8d1270f8a6400ac7a3e9bbadbe8d8487a05c5a6bc3015fd57bbe65",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.1102230246251565e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Leipzig",
+        "away": "Lens",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915299",
+        "file": "summary-401915299.raw",
+        "sha256": "19f54a0ca0b91baa19f180553996994541299b1798f90ae81a7bed80823c9a5d",
+        "retrieved_at": "2026-11-24T10:10:41.897579+00:00"
+      },
+      "uefa_match_id": "2049630",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 2,
+          "max_hours_since_latest_match": 77.5,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 0,
+          "reported_out": "Lukeba (knee), Ouédraogo (shoulder)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 72.25,
+          "reported_out_count": 1,
+          "reported_doubtful_count": 3,
+          "reported_out": "Édouard (adductor)",
+          "reported_doubtful": "Bulatović (neck), Cuisance (illness), Ivanović (concussion)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "4237",
+            "fullName": "Red Bull Arena",
+            "address": {
+              "city": "Leipzig",
+              "country": "Germany"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "4237",
+        "fullName": "Red Bull Arena",
+        "address": {
+          "city": "Leipzig",
+          "country": "Germany"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.7329466920127247,
+        "btts": 0.6302712326135734,
+        "home_win": 0.7030731600252891,
+        "draw": 0.1604819780572259,
+        "away_win": 0.13644486191748506,
+        "probability_mass": 1.0,
+        "top_scores": [
+          [
+            "2-1",
+            0.08982847566624065
+          ],
+          [
+            "3-1",
+            0.08033083567668084
+          ],
+          [
+            "2-0",
+            0.07959027243887613
+          ],
+          [
+            "3-0",
+            0.07117512625400639
+          ],
+          [
+            "1-1",
+            0.0669660242964689
+          ],
+          [
+            "1-0",
+            0.05933356965454353
+          ],
+          [
+            "4-1",
+            0.05387804184018132
+          ],
+          [
+            "2-2",
+            0.05069184206347172
+          ]
+        ],
+        "lambda_home": 2.6828074866310163,
+        "lambda_away": 1.1286363636363637,
+        "p_11": 0.0669660242964689,
+        "p_20": 0.07959027243887613,
+        "p_30": 0.07117512625400639
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7329466920127247
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7329466920127247
+          },
+          "team_strength_research_probability": 0.7329466920127247,
+          "research_weighted_team_strength_contribution": 0.36647334600636233,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "a3409f0691dfcdf8e8239c49129b6fde251ea63d2ba7913e631df2c98aac268e",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6302712326135734
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6302712326135734
+          },
+          "team_strength_research_probability": 0.6302712326135734,
+          "research_weighted_team_strength_contribution": 0.3151356163067867,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "a3409f0691dfcdf8e8239c49129b6fde251ea63d2ba7913e631df2c98aac268e",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7030731600252891
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7030731600252891
+          },
+          "team_strength_research_probability": 0.7030731600252891,
+          "research_weighted_team_strength_contribution": 0.35153658001264454,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.7333333333333333,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2a4792d026880fdcd9178db9166c4d2aae3cc12995694ce0eb536d3dc9f56000",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.13644486191748506
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.13644486191748506
+          },
+          "team_strength_research_probability": 0.13644486191748506,
+          "research_weighted_team_strength_contribution": 0.06822243095874253,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.14285714285714285,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "2a4792d026880fdcd9178db9166c4d2aae3cc12995694ce0eb536d3dc9f56000",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 2.7755575615628914e-17,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Real Madrid",
+        "away": "PSV Eindhoven",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915298",
+        "file": "summary-401915298.raw",
+        "sha256": "1ee6fd327477e215e8df75c1aea0142d7f2d2bbde1ffb1daaf8f16c18b572e52",
+        "retrieved_at": "2026-11-24T10:10:41.856399+00:00"
+      },
+      "uefa_match_id": "2049625",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 72.0,
+          "reported_out_count": 3,
+          "reported_doubtful_count": 0,
+          "reported_out": "Endrick (thigh), Raúl Asencio (stress fracture), Rodrygo (ligaments)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 1,
+          "max_hours_since_latest_match": 76.5,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 0,
+          "reported_out": "Mauro Júnior (groin), Ouaissa (knee)",
+          "reported_doubtful": "None",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "10630",
+            "fullName": "Santiago Bernabéu",
+            "address": {
+              "city": "Madrid",
+              "country": "Spain"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "10630",
+        "fullName": "Santiago Bernabéu",
+        "address": {
+          "city": "Madrid",
+          "country": "Spain"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.7673945642873283,
+        "btts": 0.7500541039252939,
+        "home_win": 0.44456561181599574,
+        "draw": 0.20462402139196245,
+        "away_win": 0.3508103667920419,
+        "probability_mass": 1.0,
+        "top_scores": [
+          [
+            "2-1",
+            0.07667510285293948
+          ],
+          [
+            "2-2",
+            0.07271302327940443
+          ],
+          [
+            "1-1",
+            0.07161792877095963
+          ],
+          [
+            "1-2",
+            0.06791717165262173
+          ],
+          [
+            "3-1",
+            0.05472625359226858
+          ],
+          [
+            "3-2",
+            0.05189835035606557
+          ],
+          [
+            "2-3",
+            0.04597045244766409
+          ],
+          [
+            "1-3",
+            0.042938430683035954
+          ]
+        ],
+        "lambda_home": 2.1412264824958323,
+        "lambda_away": 1.896652774470112,
+        "p_11": 0.07161792877095963,
+        "p_20": 0.04042653662548276,
+        "p_30": 0.028854123606023796
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7673945642873283
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7673945642873283
+          },
+          "team_strength_research_probability": 0.7673945642873283,
+          "research_weighted_team_strength_contribution": 0.38369728214366416,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fccace89221db6296e7f3c5bc2b1438ace686980b77edb3fca4d3ad855ee4540",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.7500541039252939
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.7500541039252939
+          },
+          "team_strength_research_probability": 0.7500541039252939,
+          "research_weighted_team_strength_contribution": 0.37502705196264696,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "fccace89221db6296e7f3c5bc2b1438ace686980b77edb3fca4d3ad855ee4540",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.44456561181599574
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.44456561181599574
+          },
+          "team_strength_research_probability": 0.44456561181599574,
+          "research_weighted_team_strength_contribution": 0.22228280590799787,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "PASS_ODDS_1_19_OR_LOWER",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.875,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "60b42298677594a1ce13e0414eac22ba3586b562e5b4ffdfec1b32ad242392c9",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.3508103667920419
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.3508103667920419
+          },
+          "team_strength_research_probability": 0.3508103667920419,
+          "research_weighted_team_strength_contribution": 0.17540518339602096,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.06666666666666667,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "751536c154d5e5715da3db2ae85a4bbdfc7025ecec6a85f77829a48cb737d812",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.1102230246251565e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Slovan Bratislava",
+        "away": "Real Betis",
+        "league": "UCL"
+      },
+      "decision": "NO_FINAL",
+      "fixture_lock": {
+        "status": "VERIFIED_INPUT",
+        "issues": [],
+        "ex_final_allowed": false
+      },
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915297",
+        "file": "summary-401915297.raw",
+        "sha256": "9063e9ac4b7cb85333533da86d4242a0fe530f9d24fedf45844fdf2522d9bbf2",
+        "retrieved_at": "2026-11-24T10:10:41.942847+00:00"
+      },
+      "uefa_match_id": "2049632",
+      "measurements": {
+        "home": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 0,
+          "min_matches_in_last_14_days": 0,
+          "max_hours_since_latest_match": 504.0,
+          "reported_out_count": 2,
+          "reported_doubtful_count": 1,
+          "reported_out": "Suleiman Camara (ankle), Gajdoš (knee)",
+          "reported_doubtful": "Čerepkai (back)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        },
+        "away": {
+          "shown_completed_matches": 5,
+          "min_matches_in_last_7_days": 1,
+          "min_matches_in_last_14_days": 2,
+          "max_hours_since_latest_match": 74.5,
+          "reported_out_count": 3,
+          "reported_doubtful_count": 1,
+          "reported_out": "Dani Ceballos (hamstring), Lo Celso (knee), Morante (adductor)",
+          "reported_doubtful": "Cucho Hernández (calf)",
+          "predicted_lineup_slots": 11,
+          "confirmed_rotation_changes": null,
+          "absence_weighted_by_prior_minutes": null,
+          "latest_domestic_result_date": "2026-11-21",
+          "domestic_results_in_prior_14_calendar_days": 1
+        }
+      },
+      "context_inputs": {
+        "match_conditions": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "measurements": [
+            "observed_workload",
+            "reported_absences"
+          ],
+          "confirmed_lineup_required": false
+        },
+        "external_factors": {
+          "status": "OBSERVATIONS_AVAILABLE_SCORE_MISSING",
+          "venue": {
+            "id": "8451",
+            "fullName": "Národny Futbalovy Stadión",
+            "address": {
+              "city": "Bratislava",
+              "country": "Slovakia"
+            }
+          },
+          "neutral_site": false
+        }
+      },
+      "venue": {
+        "id": "8451",
+        "fullName": "Národny Futbalovy Stadión",
+        "address": {
+          "city": "Bratislava",
+          "country": "Slovakia"
+        }
+      },
+      "neutral_site": false,
+      "score_distribution": {
+        "over25": 0.6001548975841413,
+        "btts": 0.6174114838884228,
+        "home_win": 0.4425856452045931,
+        "draw": 0.23579470985862178,
+        "away_win": 0.3216196449367852,
+        "probability_mass": 1.0,
+        "top_scores": [
+          [
+            "1-1",
+            0.10711765622130737
+          ],
+          [
+            "2-1",
+            0.0906827395083039
+          ],
+          [
+            "1-0",
+            0.07581119905060839
+          ],
+          [
+            "1-2",
+            0.0756761033860347
+          ],
+          [
+            "2-0",
+            0.06417958960113056
+          ],
+          [
+            "2-2",
+            0.06406522148114549
+          ],
+          [
+            "0-1",
+            0.0632655802888238
+          ],
+          [
+            "3-1",
+            0.0511796065175366
+          ]
+        ],
+        "lambda_home": 1.6931427125506073,
+        "lambda_away": 1.4129529352226722,
+        "p_11": 0.10711765622130737,
+        "p_20": 0.06417958960113056,
+        "p_30": 0.03622173480921432
+      },
+      "markets": {
+        "2.5_UST": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6001548975841413
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6001548975841413
+          },
+          "team_strength_research_probability": 0.6001548975841413,
+          "research_weighted_team_strength_contribution": 0.30007744879207066,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "2.5_UST",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "b7481ed4a85530777bf8cc535b13a0f3a9be970eb03b07089685c2a82f748979",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "KG_VAR": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.6174114838884228
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.6174114838884228
+          },
+          "team_strength_research_probability": 0.6174114838884228,
+          "research_weighted_team_strength_contribution": 0.3087057419442114,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "KG_VAR",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds:missing"
+            ],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": null,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability",
+            "verified_market_quote"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "b7481ed4a85530777bf8cc535b13a0f3a9be970eb03b07089685c2a82f748979",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "odds_lock:blocked",
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS1": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.4425856452045931
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.4425856452045931
+          },
+          "team_strength_research_probability": 0.4425856452045931,
+          "research_weighted_team_strength_contribution": 0.22129282260229655,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS1",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.10526315789473684,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "0ca466c28e1fd6210f2ac6194ec4437b27424cfa249a53bc4e684bc85d98f801",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        },
+        "MS2": {
+          "baseline": {
+            "status": "AVAILABLE",
+            "probability": 0.3216196449367852
+          },
+          "research_probability": {
+            "status": "UNCALIBRATED",
+            "probability": 0.3216196449367852
+          },
+          "team_strength_research_probability": 0.3216196449367852,
+          "research_weighted_team_strength_contribution": 0.1608098224683926,
+          "weighted_evidence": {
+            "status": "BLOCKED",
+            "weighted_score": null,
+            "contributions": {},
+            "issues": [
+              "team_strength:missing",
+              "match_conditions:missing",
+              "external_factors:missing"
+            ],
+            "weights": {
+              "team_strength": 0.5,
+              "match_conditions": 0.3,
+              "external_factors": 0.2
+            },
+            "calibrated_probability": null,
+            "ex_final_allowed": false,
+            "ex_g": {
+              "status": "BLOCKED",
+              "market": "MS2",
+              "probability": null,
+              "issues": [
+                "team_strength:missing",
+                "match_conditions:missing",
+                "external_factors:missing",
+                "calibration:uncertified"
+              ]
+            }
+          },
+          "ex_g_status": "BLOCKED",
+          "ex_g_issues": [
+            "team_strength:missing",
+            "match_conditions:missing",
+            "external_factors:missing",
+            "calibration:uncertified"
+          ],
+          "ex_g": null,
+          "quote_replay_consistent": true,
+          "odds_lock": {
+            "status": "VERIFIED_INPUT",
+            "issues": [],
+            "decision": "NO_FINAL",
+            "ex_final_allowed": false
+          },
+          "bookmaker_implied_probability": 0.7916666666666667,
+          "ex_d_required_inputs": [
+            "certified_ex_g_probability"
+          ],
+          "ex_d": null,
+          "auto_control": {
+            "status": "BLOCKED",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "snapshot_sha256": "0ca466c28e1fd6210f2ac6194ec4437b27424cfa249a53bc4e684bc85d98f801",
+            "ex_final_allowed": false
+          },
+          "final": {
+            "status": "NO_FINAL",
+            "issues": [
+              "ingestion:blocked",
+              "second_source:unverified",
+              "exg:uncalibrated",
+              "context:unverified",
+              "pup:unverified"
+            ],
+            "ex_final_allowed": false
+          }
+        }
+      },
+      "tur2_recompute_consistent": true,
+      "tur2_score_grid_max_absolute_delta": 1.1102230246251565e-16,
+      "pup_allowed": false,
+      "ex_final_allowed": false
+    }
+  ],
+  "uefa_preview_source": {
+    "url": "https://www.uefa.com/uefachampionsleague/news/02ab-2223c67db015-c4f7874e074e-1000--champions-league-predicted-line-ups-matchday-5-team-news-/",
+    "file": "uefa-team-news.raw",
+    "sha256": "9d94b0a3f9c6f6c2cb1b15b96bb061bdff407443e3e931dabeaf42aa45cc032e",
+    "retrieved_at": "2026-11-24T10:10:41.600249+00:00"
+  },
+  "blocker_resolutions": {
+    "team_strength": "Validate the team-strength score for each market in the intended competition.",
+    "match_conditions": "Validate a market-specific score from prematch workload and reported material absences, with player minutes where needed. Use verified lineup-independent evidence when a starting XI is unavailable.",
+    "external_factors": "Obtain archived travel and venue-effect observations and validate their market effects.",
+    "calibration": "Validate frozen weighted-market forecasts on independent chronological outcomes.",
+    "source_independence": "Verify independent providers and complete the ingestion/source controls.",
+    "pup": "Run the approved PUP protocol after independent markets and mandatory calibration pass.",
+    "verified_market_quote": "Capture a bookmaker quote for the exact market before kickoff."
+  },
+  "pup_allowed": false,
+  "ex_final_allowed": false
+}

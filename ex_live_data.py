@@ -13,18 +13,10 @@ import urllib.request
 from pathlib import Path
 
 
-LEAGUES = {
-    "en.1": "England Premier League",
-    "en.2": "England Championship",
-    "de.1": "Germany Bundesliga",
-    "de.2": "Germany Bundesliga 2",
-    "es.1": "Spain La Liga",
-    "it.1": "Italy Serie A",
-    "fr.1": "France Ligue 1",
-    "nl.1": "Netherlands Eredivisie",
-    "pt.1": "Portugal Primeira Liga",
-    "be.1": "Belgium First Division",
-}
+from ex_leagues import APPROVED_LEAGUES, LEGACY_INGESTION, season_range
+
+
+LEAGUES = {league: entry[0] for league, entry in APPROVED_LEAGUES.items()} | LEGACY_INGESTION
 
 FIELDS = [
     "date", "league", "home", "away",
@@ -180,6 +172,7 @@ def run(
     alias_file=None,
     offline=None,
     max_age_days=4,
+    espn_day_limit=None,
 ):
     root = Path(outdir)
     root.mkdir(parents=True, exist_ok=True)
@@ -191,6 +184,8 @@ def run(
     rejected = []
 
     cutoff = dt.date.fromisoformat(as_of)
+    if espn_day_limit is not None and espn_day_limit < 1:
+        raise ValueError("ESPN day limit must be positive")
     if max_age_days < 0:
         raise ValueError('max_age_days must be nonnegative')
 
@@ -201,6 +196,7 @@ def run(
                     "unknown league " + league
                 )
 
+            espn = league in APPROVED_LEAGUES and APPROVED_LEAGUES[league][3] == "espn"
             url = (
                 "https://raw.githubusercontent.com/"
                 "openfootball/football.json/master/"
@@ -213,18 +209,36 @@ def run(
             )
 
             try:
-                raw = (
-                    local.read_bytes()
-                    if local else fetch(url)
-                )
-
-                digest = hashlib.sha256(
-                    raw
-                ).hexdigest()
-
-                data, errors, fixtures = read_openfootball(
-                    raw, league, season, alias
-                )
+                season_evidence = {}
+                if espn and not local:
+                    from ex_history_archive import HistoryArchive, paced_download
+                    from ex_espn_season import collect_season, daily_url
+                    start, end = season_range(league, season)
+                    url = daily_url(league, start + dt.timedelta(days=105))
+                    archive = HistoryArchive(root / "espn-cache", 368, fetch=paced_download(.75))
+                    data, errors, season_evidence = collect_season(
+                        archive, league, start, end, cutoff, espn_day_limit)
+                    digest = None
+                    fixtures = None
+                else:
+                    raw = local.read_bytes() if local else fetch(url)
+                    digest = hashlib.sha256(raw).hexdigest()
+                    if espn:
+                        from ex_espn_season import checked_board
+                        from ex_espn_provider import parse_espn_scoreboard
+                        start, end = season_range(league, season)
+                        payload = checked_board(raw, league)
+                        data = [row for row in parse_espn_scoreboard(payload, league, as_of)
+                                if start.isoformat() <= row["date"] < end.isoformat()]
+                        errors, fixtures = [], None
+                        season_evidence = {"coverage_partial": True}
+                    else:
+                        data, errors, fixtures = read_openfootball(raw, league, season, alias)
+                if espn:
+                    data = [row | {"source": "ESPN", "season": season,
+                                   "home": team(row["home"], league, alias),
+                                   "away": team(row["away"], league, alias)}
+                            for row in data]
 
                 for error in errors:
                     rejected.append({
@@ -264,6 +278,7 @@ def run(
                     "stale": stale,
                     "active_season": active_season,
                     "errors": len(errors),
+                    **season_evidence,
                     "retrieval": (
                         "local_fixture"
                         if local else "https"
@@ -336,7 +351,7 @@ def run(
         conflicts
         or rejected
         or any(
-            report.get("stale")
+            (report.get("stale") or report.get("coverage_partial"))
             for report in reports
         )
     )
@@ -358,8 +373,9 @@ def run(
         "freshness_policy": "Historical seasons are archives; newest requested season requires freshness.",
         "blocking_sources": [
             {"season": r["season"], "league": r["league"],
-             "reason": "stale" if r.get("stale") else "source_error"}
-            for r in reports if r.get("stale")
+             "reason": ("source_error" if r.get("error") else
+                        "stale" if r.get("stale") else "partial_season_coverage")}
+            for r in reports if r.get("stale") or r.get("coverage_partial")
         ],
         "ex_final_allowed": False,
         "warning": (
@@ -402,6 +418,7 @@ def main():
         "--max-age-days", type=int, default=4
     )
 
+    parser.add_argument("--espn-day-limit", type=int)
     args = parser.parse_args()
 
     report = run(
@@ -412,6 +429,7 @@ def main():
         args.aliases,
         args.offline,
         args.max_age_days,
+        args.espn_day_limit,
     )
 
     print(json.dumps({

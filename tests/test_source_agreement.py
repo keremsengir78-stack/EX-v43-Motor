@@ -218,5 +218,29 @@ class SourceAgreementTests(unittest.TestCase):
         self.assertIn("sources:insufficient", result["issues"])
 
 
+    def test_archived_pair_rejects_shared_upstream_and_late_review(self):
+        from datetime import datetime, timezone
+        from ex_source_agreement import verify_archived_score_pair
+
+        fixture = {"fixture_id": "1", "home_team": "2", "away_team": "3", "league": "en.1",
+                   "kickoff_at": "2026-11-25T20:00:00Z", "home_goals": 2, "away_goals": 1}
+        sources = [{"url": f"https://{host}/match", "sha256": value * 64}
+                   for host, value in (("example.com", "a"), ("example.org", "b"))]
+        observations = [{"source": source, "sealed_at": "2026-11-26T01:00:00Z"} for source in sources]
+        reviewed = {source["sha256"]: {"source_url": source["url"], "reviewed_at": "2026-11-26T02:00:00Z",
+                    "review_locator": source["url"], "producer_id": source["sha256"],
+                    "upstream_ids": [source["sha256"]], "parse_score": lambda *_: fixture} for source in sources}
+        def loader(source, url):
+            return url.encode(), datetime(2026, 11, 26, tzinfo=timezone.utc)
+        def status():
+            return verify_archived_score_pair(observations, fixture, "2026-11-26T03:00:00Z", loader, reviewed)["status"]
+        self.assertEqual("CROSS_VERIFIED_INPUT", status())
+        reviewed["b" * 64]["upstream_ids"] = ["A" * 64]
+        self.assertEqual("BLOCKED", status())
+        reviewed["b" * 64]["upstream_ids"] = ["b" * 64]
+        reviewed["b" * 64]["reviewed_at"] = "2026-11-26T03:00:00Z"
+        self.assertEqual("BLOCKED", status())
+
+
 if __name__ == "__main__":
     unittest.main()

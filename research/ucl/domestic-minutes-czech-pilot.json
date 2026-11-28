@@ -1,0 +1,20 @@
+{
+  "league": "cz.1",
+  "official_match_id": "8430",
+  "match_date": "2026-10-31",
+  "home": "FK Jablonec",
+  "away": "SK Slavia Praha",
+  "score": [0, 5],
+  "source": "https://www.chanceliga.cz/zapas/statistiky/8430-fk-jablonec-sk-slavia-praha",
+  "scope": "Reviewed official lineup and match summary. Nominal regulation minutes from published substitutions.",
+  "teams": {
+    "home": {
+      "starters": ["J. Hanuš", "M. Cedidla", "D. Pavlovič", "F. Novák", "J. Sláma", "N. Okeke", "R. Sedláček", "M. Polidar", "V. Čanturišvili", "A. Růsek", "G. Kuol"],
+      "substitutions": [[46, "M. Polidar", "S. Alioum"], [46, "A. Růsek", "D. Hollý"], [51, "J. Hanuš", "K. Mihelak"], [67, "N. Okeke", "S. Nebyla"], [77, "G. Kuol", "H. Ahl"]]
+    },
+    "away": {
+      "starters": ["N. Domčak", "A. N'Guessan", "T. Vlček", "D. Zima", "T. Holeš", "O. Kubiak", "M. Suleiman", "D. Moses", "E. Ayaosi", "M. Sadílek", "W. Nowak"],
+      "substitutions": [[71, "D. Zima", "M. Konečný"], [71, "A. N'Guessan", "Š. Chaloupek"], [71, "D. Moses", "M. Chytil"], [76, "E. Ayaosi", "D. Šturm"], [83, "M. Suleiman", "P. Kačor"]]
+    }
+  }
+}

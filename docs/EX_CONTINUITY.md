@@ -194,3 +194,282 @@ GitHub kodu + bu kayıt + commit SHA + CI + tarihli denetim kanıtı = devam iç
 - GitHub Actions CI 4/4 geçmiş olsa da en son okunan pipeline status `d9b5353...` çalışmasına aitti ve aday özet/benzersiz aday raporları henüz depoda yoktu. CI sonucu ile gerçek kaynak doğrulama ayrı tutuluyor.
 - `722078d1fdc6956c37766d92eb2019ab132fe3f1` workflow güncellemesi, kaynak aday/özet/benzersiz aday çıktıları yoksa açık hata verir; yayımlanan küçük özet ve benzersiz aday raporlarını son fail-closed aşamasında zorunlu kılar.
 - 1177 açık kayıt, bağımsız skor onayı 0. Yeni workflow çalışmasının sonucu henüz teyit edilmedi.
+
+## 2026-11-24: UCL 5. hafta araştırma doğrulaması
+
+- Başlangıç dalı `df9767a3b31547e99491cbde4845b60312961521`. Önceki kod, aynı yerel ESPN/OpenFootball ham verileriyle 18 maçta 7 başlangıç hesabı üretti. Yeni kod 5.004 benzersiz yerel maç satırıyla 14/18 kalibre edilmemiş araştırma hesabı üretti. Sadece OpenFootball kullanılan karşılaştırmada kapsama 1/18'den 9/18'e çıktı.
+- UEFA ve ESPN 18/18 fikstürün ev/deplasman ve UTC başlama saatinde örtüştü. İlk dört haftadaki 72/72 skor tarih ve saha yönüyle eşleşti. Ham dosyalar ve SHA-256 kayıtları araştırma çıktısında tutulur.
+- Yerel lig karşılaştırmasında 1.179 tam skor eşleşmesi bulundu. Portekiz'de 16 Mayıs 2026 Moreirense–AVS skor kaydı iki kaynakta farklı olduğu için örneklemden çıkarıldı. Diğer tek kaynaklı satırlar araştırma verisi olarak kaldı.
+- Slovan Bratislava–Real Betis, Sabah–Barcelona, Slavia Praha–Villarreal ve Shakhtar Donetsk–Fenerbahçe için ilk takımın yerel lig örneklemi eksik. ESPN istekleri 400/403 döndürdü. OpenFootball ve denenen Football-Data uzantıları 404 döndürdü. Alternatif kulüp/lig sayfalarına çalışma ortamından yapılan doğrudan istekler 403 ile engellendi.
+- Ligler arası güç düzeltmesi ve kalibrasyon bekliyor. Lig gücü katsayısı uygulanmadığı raporda açıkça işaretli. Ana motorun 75 adaylı denetiminde 75 inceleme açık ve 0 otomatik sertifikasyon var. EX FINAL kilitli.
+- Yerelde 829 unittest, Python derleme, beş depo denetimi ve 26 pipeline/entegrasyon smoke testi çalıştı. Başlangıç commit'i `a2375c7` için GitHub status 11/11 başarılı. Önceki araştırma çalışması `45356418996` başarılı.
+
+## 2026-11-24: PR #2 kaynak tekrar oynatma ve dört pazarlı denetim
+
+- `20f34fa` UEFA 403 durumunda URL ve SHA-256 kontrollü tarihli HTML maç kesitini tekrar işler. Ham yanıt ve kesit hash'leri ayrıdır. Arsenal–Dortmund dahil 18 fikstür ve ilk dört haftanın 72 skoru ESPN karşılaştırmasından geçer. Kaynak modu raporda belirtilir. Bu commit'in GitHub araştırma ve regresyon işleri başarılıdır.
+- UEFA'nın takım bazlı resmi sayfası canlı alternatif olarak eklendi. Bu sayfanın 90 kaydı yerelde maç günü sayfasıyla aynı çıktı. Çelişkili yinelenen maç kimlikleri kabul edilmez.
+- Git commit kimliğine sabitlenmiş OpenFootball Çekya ve Soccerway Ukrayna kaynakları karantina raporuna eklendi. Yerelde Slavia Praha için 9, Shakhtar Donetsk için 13 güncel sezon adayı var. Eksik önceki sezon ve bağımsız eşleşme nedeniyle motor veri setine aktarılmadılar. Dört açık maçla araştırma kapsamı 14/18.
+- Lig gücü deneyi, 54 teyitli maçla rakip ve saha etkisini göz önüne alarak 18 ileri tarihli maçı sınadı. Kare hata 10,98568 ve saha avantajı referansı 10,76166. Düzeltme uygulanmadı.
+- Ana motorun Tur-2 karşılaştırması artık tüm hesap izini denetler. Geriye dönük temel model denetimi dört pazarda Brier ve gerçekleşme sıklığını çıkarır. Yerel çalışmada pazar başına 1.063 maç incelendi. Kalibre EX-G kabulü için bağımsız, işlem zamanında dondurulmuş tahmin kanıtı bekliyor.
+- 18 UCL kaydı üretim karar ağırlıkları, Tur-2 ve Auto-Control üzerinden denetlendi. 18/18 yeniden hesap uyuştu ve 18/18 Auto-Control kilitli kaldı. Doğrulanmış maç koşulları, dış etken, oran, bağımsız yerel lig kanıtı ve kalibrasyon olmadan PUP ve EX FINAL kapalı.
+
+## 2026-11-24: PR #2 maç önü veri paketi ve skor karşılaştırması
+
+- Shakhtar Donetsk için 13 güncel UPL maçının saha, tarih ve skorunu Soccerway dosyasıyla kulübün sonuç kaydı arasında eşleştirdik. Önceki sezonun 15 iç saha maçı Terrikon ile RSSSF ve iki kulüp maç raporundan kontrol edildi. Kaynak URL ve kayıt konumları `research/ucl/shakhtar-domestic.json` içinde. Shakhtar–Fenerbahçe örneklemi 5/10/13/15, genel başlangıç hesabı 15/18. Önceki sezon deplasman verisi bu pakette eklenmedi.
+- 18 maçın UEFA kadro tahminleri, bildirilen eksikleri ve şüpheli oyuncuları ile ESPN stadyum ve son maç örnekleri toplandı. Son maç sayısı gösterilen örneklemle sınırlı. Tahmini kadro, doğrulanmış rotasyon veya yorgunluk puanı kabul edilmez. `reports/ucl_matchday5_prematch_2026_11_24.json` oranları, ham kaynak URL ve özetlerini içerir.
+- DraftKings/ESPN gözleminde MS1 ve MS2 için 18'er, tam 2.5 ÜST için 4 oran var. KG VAR ve diğer 14 tam 2.5 ÜST oranı açık. Real Madrid MS1, Atlético MS1 ve Barcelona MS2 1,19 veya altında kaldı (PASS). EX-G ve EX-D hesaplanmadı.
+- Bekleyen 75 tarihsel skor ESPN ham içeriklerinde tarih, ev/deplasman ve skorla 75/75 eşleşti. Sağlayıcı üst veri zinciri sertifikasyonu açık. `reports/external_2627_espn_content_reconciliation.json` kayıt başına kaynak işaretçisi içeriyor.
+- Dört pazarın temeli 1.063 geçmiş maçtan hesaplandı. 4 Eylül 2026 öncesinde 368 eğitim, aynı gün ve sonrasında 695 holdout maçı kullanıldı. MS1 düzeltmesi iyileşmedi. KG VAR farkı yaklaşık 0,000006, 2.5 ÜST ve MS2 farkları da sınırlı. Deneme, geçmişe dönük üretilmiş başlangıç tahminidir. Kalibre EX-G sertifikası veya üretim katsayısı verilmedi.
+- Lig gücü alternatifi eğitim maçlarının küçültülmüş gol farklarını kullandı. Holdout MSE 10,96943 ve saha avantajı referansı 10,76166. Sonuçlara uygulanmadı. EX FINAL kilitli.
+
+- Slovan Bratislava için 15 güncel lig ve 16 önceki sezon iç saha lig skoru ikinci kaynakla eşleşti. Ev/deplasman ve skor için BeSoccer kullanıldı. Bir günlük gösterim farklarında yerel kulüp takvimi veya Eurofotbal tarihi korundu. Slovan–Betis eklendi, kapsama 16/18 ve 24 Kasım fikstüründe 9/9 oldu.
+- Sabah için Terrikon/Trivela ile 11 güncel, Terrikon/BeSoccer ile 17 önceki iç saha skoru teyit edildi. Slavia için kulüp kaydı/BeSoccer ile 15 güncel ve 17 önceki iç saha skoru teyit edildi. 9 Mayıs 2026 Sparta maçı idari 0:3 olduğu için oynanmış gol örneklemine alınmadı. Son kapsam **18/18**, 5.123 lig satırı. Yeni kulüplerin önceki sezon deplasman kayıtları bu fikstürlerde kullanılan iç saha örnekleminin dışında. Fikstür başına başlangıç hesabı, eksik fiyat ve karar ayrımı `reports/ucl_matchday5_research_status_2026_11_24.json` içinde.
+- Dört yerel lig arşivi önceki sezonun deplasman skorlarıyla da tamamlandı. Slovan 15 güncel/32 önceki, Sabah 11/33, Slavia 15/34 oynanmış, Shakhtar 13/30. Motor 5.187 lig satırıyla yine 18/18 başlangıç hesabı üretti. Genişletilmiş arşiv geri testte üç maç daha açtı. İstenen 1.063 maçlık deney ve güncel 1.066 maçlık deney aynı raporda duruyor.
+- İkinci piyasa kaynağı MatchPulse, 18 fikstürün tamamında tam 2.5 ÜST ve KG VAR için bookmaker adıyla fiyat gösterdi. `reports/ucl_matchday5_market_comparator_2026_11_24.json` içinde derlendi. Bookmaker son güncelleme zamanı ve doğrudan kaynak teyidi eksik olduğu için bu fiyatlar üretim odds lock'a aktarılmadı.
+
+## 2026-11-24: PR #2 matematiksel modelleme ve maç önü tekrar oynatma
+
+- `run_ucl_model_integration.py` bugünkü 9 maçın mevcut kayıtlarını ağ erişimi olmadan tekrar oynatır. ESPN ve UEFA ham kayıtlarının SHA-256 özetleri kontrol edilir. Fikstür ve oran kapıları çalıştırılır. Skor dağılımı ve dört pazarı, bağımsız Poisson skor ızgarası dahil Tur-2 ile tekrar hesaplanır. Kaynaklar `ucl_research_output` altında saklanan önceki arşivdir.
+- 18 takım için 7/14 günlük gözlenen asgari maç sayısı, son görülen başlama saatinden geçen sürenin üst sınırı, son teyitli yerel maç tarihi ve UEFA'nın bildirdiği eksik/şüpheli sayıları çıkarıldı. Örneğin Slovan’ın ESPN özetinde son görülen maç 504 saat önce, yerel kayıt ise 21 Kasım. Rotasyon ve oyuncu önem ağırlığı için oyuncu kimliği, iki teyitli ilk 11 ve önceki dakika verisi gerekli.
+- 1.066 yerel maçta 204 eğitim, 245 doğrulama ve 617 ileri tarihli test ayrıldı. Dört pazarda referans, logit sabit düzeltme, Platt ve yük özellikli Platt karşılaştırıldı. Platt 2.5 ÜST ve KG VAR’da seçildi ve 54 sonraki UCL maçında da Brier hatasını düşürdü. Yerel testte haftalık bootstrap aralıkları sıfırı içeriyor. MS1/MS2’de referans seçildi. Maç yükü eklenen yöntem seçilmedi ve üretim parametresi yayımlanmadı.
+- Lig gücü için 36/18/18 kronolojik ayrımda standart ridge, yüksek ceza ve uç gol farkı kırpılmış ridge, saha avantajı referansıyla karşılaştırıldı. Doğrulama referansı seçti. Lig katsayısı uygulanmadı.
+- Dokuz maçta Tur-2 tutarlı, fikstür kilidi doğrulanmış, 20 fiyat kapısı geçerli. KG VAR için 9, tam 2.5 ÜST için 7 doğrudan fiyat eksik. %50/%30/%20 bileşimi için doğrulanmış pazar bazlı bağlam ve takım gücü ölçeği bekliyor. Araştırma takım gücü katkısı, maç başı engel ve çözüm ile EX-D önkoşulları `reports/ucl_matchday5_model_integration_2026_11_24.json` içinde. EX-G/EX-D boş, PUP/EX FINAL kapalı.
+
+## 2026-11-24: EX-G, piyasa değeri ve FINAL kapılarının ayrılması
+
+- Onaylı pazar kalibrasyonu `ex_decision.assess_markets` içinde yalnız %50/%30/%20 kanıt skorunu tüketir. Piyasa fiyatı EX-D tarafında ayrıca değerlendirilir. Kalibrasyon kaydı bu sürümde boş. Test, onaylı eşleme yerine geçici bir test eşlemesi kullanarak fiyat ve kesin kadro olmadan EX-G hesaplandığını gösterir. EX-D için aynı pazarın geçerli oranı gerekir. 1,19 ve altı PASS kuralı ile 1,20 ve üzerinde negatif EX-D'nin tek başına PASS oluşturmaması korunur.
+- Bugünkü dokuz maçın yeni raporu başlangıç hesabı, kalibre edilmemiş araştırma olasılığı, EX-G ve FINAL durumlarını ayırır. Kesin ilk 11 önkoşul değildir. Gözlenen maç yükü, bildirilen eksikler ve saha bilgisi mevcut. Pazar bazlı doğrulanmış takım gücü, maç koşulu ve dış etki puanları ile onaylı kalibrasyon eksik. Oran replay uyuşmazlığı yalnız ilgili piyasa kontrolünü etkiler. Auto-Control ve PUP/FINAL yetki sınırları korunur.
+- Varsayılan tekrar oynatma mevcut deneyleri çalıştırmaz. Önceki model deneyleri ayrı raporda kalır. Karar katmanlarının raporu `reports/ucl_matchday5_decision_stages_2026_11_24.json`.
+
+## 2026-11-24: Ortak tarihsel özellikler ve bileşen testi
+
+- 5.187 maçlık tarihli arşivden iki takımın da önceki yerel maç tarihi 4.982 kayıtta, iki takımın 10 maçlık ilgili saha penceresi 2.515 kayıtta çıkarıldı. Ana motor ve UCL aynı özellik çıkarıcıyı kullanır. Hedef maçın günü ve sonraki skorlar girdiye girmez.
+- Dört pazar için saha gerçekleşme sıklıkları, son 5–10 maç gol farkı değişimi, dinlenme ve yerel fikstür yükü ayrı adaylar olarak sınandı. Birleşik aday da denendi. Karşılaştırma, aynı 979 maçta 173 eğitim, 271 doğrulama, 535 kronolojik test ve 54 UCL aktarım maçıyla yapıldı. Referans kimlik ve Platt arasından doğrulama döneminde seçildi.
+- MS1 saha sıklığı hem yerel Brier (0,22009 → 0,21979) hem UCL Brier (0,29264 → 0,29159) değerini sayısal olarak düşürdü. Yerel %99 haftalık blok aralığı sıfırı içeriyor. 2.5 ÜST yük adayı iki testte kötüleşti, MS2 form adayı UCL'de kötüleşti ve KG VAR mevcut referansta kaldı.
+- Arşivde seyahat, hava, saha değişikliği, zaman damgalı oyuncu durumu ve tüm müsabaka takvimi için yeterli tarihsel kanıt yok. Adayların hiçbiri üretimde doğrulanmış puan ya da kalibrasyon olarak kaydedilmedi. EX FINAL ve PUP sınırları korundu. Ayrıntılı rapor `reports/ex_component_experiment_2026_11_24.json`.
+
+## 2026-11-24: Tarihsel kaynak toplama altyapısı
+
+- Python ve GitHub Actions, birden çok takım/sezonun ESPN takvimini ve maç özetlerini bütçeli olarak toplar. UEFA maç önü eksik kaydı SHA-256 doğrulamalı eski yakalamadan tekrar oynatılabilir. Arşiv, geçmiş ve yeni yakalamaları ayrı tutar.
+- Arsenal ve Dortmund pilotu 44 farklı takvim maçı gösterdi. Seçilen tarih aralığında beş müsabakadan 14 maçın özeti ve 579 oyuncu satırı alındı. 539 satırda nominal normal süre çıkarıldı. ESPN doğrudan dakika vermedi. 14 özet saha verisi sağladı. Hava ve seyahat kanıtı bulunmadı.
+- Bütçe duraklaması 8 istek, devam 9 yeni istek ve 8 önbellek okuması, tamamlanmış tekrar 0 istek ve 17 önbellek okuması ile doğrulandı. Son kayıtlar önceki model araştırmalarını değiştirmez. Bağımsız maç önü ve sonuç kapsamı henüz %50/%30/%20 model doğrulaması için yetersiz.
+- Çalıştırma bilgileri `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_collection_pilot_2026_11_24.json` içinde.
+
+## 2026-11-24 — Toplu tarihsel veri çalışması
+
+- 36 UCL takımı için 72/72 takım-sezon takvimi alındı. Beş ana EX ligiyle birlikte 222/222 takım-sezon yanıtı ve tekil 4.177 tamamlanmış maç gözlendi. Aynı planın tekrarında 223 önbellek kaydı kullanıldı ve yeni ağ isteği yapılmadı.
+- Yerel sekiz bölümlü toplamada 462 özet doğrulandı ve 3.715 özet sonraki bütçeye kaldı. Özetlerin 208'i 2025, 254'ü 2026 sağlayıcı sezonuna ait. Nominal süre aritmetiğine uygun 819 takım toplamının tamamı 990 dakika verdi.
+- Ortak özellik çıkarıcı, kaynağın analiz kesiminden önce gözlendiğini kontrol ederek fikstür aralıklarını, 14 günlük görünür maç yükünü ve oyuncu sürelerini çıkarır. Open-Meteo 403 döndürdü. Kayıtlı sahalarda bir coğrafi mesafe hesaplanabildi. Bağımsız model kalibrasyonu için kanıt yetersiz.
+- Toplu çalıştırma `.github/workflows/ex-history-bulk.yml`, yöntem ve devam talimatları `docs/EX_HISTORY_COLLECTION.md`, ölçümler `reports/ex_history_bulk_2026_11_24.json` içindedir.
+
+## 2026-11-24 — Toplu tarihsel toplamayı sürdürme
+
+- Korunan önbellekten ilk devam turunda 654 eski ve 320 yeni özet doğrulandı. Toplam 974/4.177, kalan 3.203. Nominal süreye uygun 1.723 takım toplamının tamamı 990 dakikaydı.
+- Sekiz bölümde en çok iki eşzamanlı işi koruyarak bölüm başına bütçe 100'e çıkarıldı. Kaynak hataları ve bekleme kayıtları sınıflandırılıyor. NASA POWER hava alternatifi, diğer 11 lig için genişleme yapılandırması ve ana motorun iki skor kuyruğu için günlük kanıt toplayıcısı eklendi.
+
+## 2026-11-24 — Onuncu çalışma paketi
+
+- Özet, hava ve skor önbellekleri aynı bölüm anahtarlarıyla korunarak genişletilmiş profil çalıştırıldı. Sezon tabloları doğrulanabilen ek liglerin katılımcıları planla birleştirildi. ESPN kapsamı bulunmayan ligler için mevcut iki kaynak bağlantılı kulüp listeleri ayrı kısmi kanıt olarak eklendi.
+- EX ve UCL girişleri, takım kimliği ile eşleşen dakika, yük, dinlenme ve saha gözlemlerini aynı zamana duyarlı özellik çıkarıcıdan alır. Dokuz UCL tekrarı ve dört pazarın Tur-2 ve Auto-Control doğrulaması çalıştırıldı. Sonradan edinilen tarihsel arşiv, maç önü kalibrasyon girdisi sayılmaz.
+- Ayrı Bundesliga skor adaptörü, daha geniş hava örneklemi ve kulüp yayınlarına dayanan dört belgelenmiş seyahat gözlemi eklendi. OpenLigaDB ve ESPN içerik eşleşmeleri kaynak bağımsızlığı onayı vermez.
+
+## 2026-11-24 — On birinci çalışma paketi
+
+- Ham 6.820 özet, skor defteri ve plan Actions'ta ağsız olarak tekrar işlendi. Tamamlanmış maçlardan elde edilebilen veriler ve gerçek maç önü yakalama gerektiren veriler ayrı tutuldu. Kronolojik pazar deneyleri ve skor kaynakları arasındaki tekil fikstür kapsamı araştırma çıktısına eklendi.
+- Maç öncesi ESPN yakalama işi, zamanı doğrulanmış ham kayıtları gelecekteki değerlendirmeler için saklıyor. Dört ek ligde resmî oyuncu ve kadro kaynakları dokümante edildi.
+
+### Kalıcı arşiv ve haftalık doğrulama
+
+- `EX prospective operations` iş akışını maçlar başlamadan önce `mode=capture`
+  ve UTC fikstür tarihiyle çalıştır. Onaylı 13 müsabaka sorgulanır. Arşivlenen
+  araştırma tahminleri EX-G ve EX FINAL alanlarını doldurmaz.
+- Haftalık envanter için `EX weekly research evidence` akışına UTC pazartesi
+  tarihini ver. `artifact_ids` alanına kalıcı hale getirilecek arşiv paketlerini
+  virgülle ayırarak yaz. Kaynak GitHub makbuzu, ZIP özeti ve her dosyanın SHA-256
+  özeti doğrulanır. Maç önü veri, araştırma tahmini, doğrulanmış sonuç ve
+  sonuç kaynağı ayrı indekslenir. Aynı paketin tekrar yazımı etkisizdir ve
+  içerik değişikliği reddedilir. Depo yöneticisi yetkileri için Git dalına
+  ayrıca koruma uygulanması gerekir.
+- `mode=settle` kalıcı tahmin paketlerini kendisi okur. Bağımsız resmî
+  kontroller varsa `official_run_id` ver. Resmî kanıtı bulunmayan sonuçlar
+  geçici defterde tutulur ve ileriye dönük ölçüme katılmaz. Yeni sonuç
+  paketinin kimliğini sonraki hafta kalıcı arşiv çalışmasına ekle.
+  Yeni günlük analiz, ham kaynağıyla arşivlenmiş ve tahmin kesiminden
+  önce doğrulanmış sonuçları geçmiş hesaplarına ekler.
+- Haftalık rapor yayımlanmış fikstürü, mühürlenmiş araştırma tahminini ve
+  tam takım gücü penceresini ayrı sayar. Fikstür envanterinde başarısız
+  kaynak günleri ayrıca listelenir. 23–29 Kasım 2026 UTC örneğinde 91/91
+  sorgudan 128 fikstür görüldü. Bu sayı lig ve kupa takvimine göre değişir.
+- Süre senaryoları, 2.317 geriye dönük satır içindeki uygun 503 satırın
+  13 haftalık eşleştirilmiş Brier farkını kullanır. Hafta içi örneklem
+  büyüklüğü `m` ve varsayımsal korelasyon `rho` için göreli varyans
+  `rho + (1 - rho) / m` ile ölçeklenir. Haftalar arası bağımsızlık
+  planlama varsayımıdır. Kesin kabul testinin haftalık güven sınırı ve
+  ileriye dönük veri koşulları ayrıca uygulanır. Tam üç bileşenli
+  modelin süresi, uygun ileriye dönük pilot oluştuğunda hesaplanabilir.
+- Akışlar elle başlatılabilir. Yeni zamanlayıcı tanımlanmadı.
+
+### Paket 20 — günlük araştırma ve arşiv çalıştırma
+
+- `python run_ex_prospective_pipeline.py --daily-capture YYYY-MM-DD --historical-facts /path/to/historical-facts.jsonl --domestic-packs /path/to/restored-ucl-packs --prior-settlements /path/to/restored-settlements --cache pregame-cache --output-dir forecasts`
+  onaylı 13 müsabakayı tarar, ham kanıtı ve günlük dört pazar karar kaydını
+  yazar, hesaplanan başlangıçları Tur-2 ve Auto-Control üzerinden geçirir.
+  İlk çalıştırmada `--historical-facts` yerine `--plan` ve `--history`
+  ile doğrulanabilir ham özetler kullanılabilir.
+- UCL'nin maç günü 5 yurtiçi sonuç arşivi, yalnızca kayıtlı iki takım ve UTC
+  başlama saati eşleştiğinde kullanılır. Sonuçlar `daily-analysis.json`
+  dosyasında kalır. Dondurulan venue5 kalibrasyon defterinin örneklem
+  ölçütlerine dahil edilmez.
+- `mode=cycle`, kendisinin ürettiği arşivleri SHA-256 doğrulaması yapan
+  yazıcıya otomatik iletir. Geriye dönük özetlerden üretilen 6.820
+  normalleştirilmiş kayıt kaynak özetleriyle birlikte sayısal parmak
+  izlerini tutar. Ham dosya sağlama doğrulama ve yeni ham geçmiş
+  yükleme yolu açıktır.
+- Günlük ve haftalık arşiv iş akışlarında cron tanımları hazırdır.
+  GitHub Actions `schedule` olayı ancak varsayılan dalda bulunan akışta
+  çalışır. Bu depoda varsayılan dal `main` olduğundan PR üzerindeki
+  cron tanımları kendiliğinden çalışmaya başlamaz. Geliştirme dalında
+  `workflow_dispatch` ile aynı işler çalıştırılabilir.
+- `ex-evidence-archive` korumasını bir depo yöneticisi GitHub
+  Settings → Branches veya Rules → Rulesets altında bu dala özel
+  tanımlayabilir. Zorla gönderimi ve silmeyi engelle, normal hızlı ileri
+  Actions yazımını açık tut. REST kullanılıyorsa depo için
+  Administration: write yetkili fine-grained PAT veya GitHub App gerekir.
+
+### Birleştirilmiş paket — kayan arşiv ve bağımsız skorlar
+
+- UCL günlük araştırması takım adından lig tahmin etmez. Maç önü ESPN
+  takım kimliği, ilgili sezonun yerel lig kayıtları ve doğru saha yönüyle
+  eşleşir. Birden fazla güncel lig veya eksik pencere başlangıç hesabını
+  engeller. 5. maç günü arşivi yalnızca doğrulanan fikstürlere geri dönüş
+  sağlar. Mühürlenmiş haftalık skor tablolarından alınan yeni sonuçlar
+  yalnızca araştırma takım gücü geçmişine girer.
+- `run_ex_rolling_validation.py --facts ... --examples ... --output ...`
+  kalıcı arşivden 6.820 özet ve 2.317 referans satırıyla kronolojik
+  karşılaştırma yapar. Bu arşivdeki 255 bitmiş UCL maçının 34'ünde kayan
+  yerel lig başlangıcı, sekizinde karşılaştırılabilir venue5 referansı
+  bulundu. Son test dilimindeki üç maç üretim kararı için yetersiz.
+- Haftalık rapor 48 saatlik maç önü penceresi henüz açılmayan maçları
+  erişim paydasından ayırır. Maç özeti erişilemese bile mühürlü maç önü
+  fikstür tablosu sonuç takibini başlatabilir. Haftalık cron raporu
+  arşiv yazıcısına kendisi iletir.
+- `mode=source-audit` gerçek resmî sayfaları toplar ve ham kanıtı
+  saklar. DFL, LaLiga, KNVB, Eliteserien ve UEFA kaynakları ile
+  Fransa'da Marsilya arşivi desteklenir. Belçika güncel hafta ve
+  bilinen maç belgeleriyle, Portekiz eşleştirilmiş maç belgesiyle
+  sınırlıdır. TFF güncel hafta sayfası boş veya gelecek skorları
+  kabul etmez.
+- Varsayılan dalı değiştirmeden otomatik çalışma için yetkili bir dış
+  zamanlayıcı aynı `gh workflow run` çağrılarını PR dalı ref'iyle
+  yapabilir. GitHub'da `Actions: write` yetkili GitHub App veya
+  fine-grained PAT ile çalıştırılır. Bu pakette bir dış zamanlayıcı
+  kurulmadı ve varsayılan dal ayarı değiştirilmedi.
+
+### Paket 21 — dış zamanlayıcı ve arşiv dalı yetkileri
+
+1. Dış zamanlayıcının çalışacağı ortamda Python ve GitHub CLI kurulu olmalı.
+   GitHub App kurulum token’ını veya yalnız bu depoya erişen fine-grained
+   PAT’i `GH_TOKEN` gizli değişkenine koy. **Actions: write** yetkisi ver.
+2. Geliştirme dalından `python run_ex_archive_dispatch.py` ve
+   `python run_ex_archive_dispatch.py --weekly` ile komutları önizle.
+   `--execute` doğrudan çalıştırır. Günlük komut UTC bugün, yarın ve
+   ertesi günün tahtalarını tarar. Maç önü 48 saat sınırı korunur.
+   Haftalık komut önceki haftayı raporlar ve arşiv yazıcısına gönderir.
+   Bu kurulum `main` içindeki yerleşik cron tanımına bağlı değildir.
+3. GitHub deposunda **Settings → Rules → Rulesets → New ruleset →
+   New branch ruleset** yolunu aç. Durumu **Active** yap.
+4. Hedef dal desenini yalnızca `ex-evidence-archive` olarak belirle.
+   **Restrict deletions** ve **Block force pushes** kurallarını etkinleştir.
+   Normal Actions yazımı için **Restrict updates** ve zorunlu pull request
+   seçeneklerini bu kuralda açma. Kaydet ve dal ekranındaki koruma durumunu
+   doğrula. REST ile işlem yapılıyorsa **Administration: write** gerekir.
+
+Ortak arşiv yazıcısının kuyruğunu doldurmamak için üç günlük çağrıyı
+`--offset 0`, `--offset 1`, `--offset 2` ile ayrı zaman aralıklarına
+yay. `--weekly --execute` ayrı bir haftalık çağrıdır.
+
+### Paket 22 — haftalık işletim ve kanıt sınırları
+
+- Önceki bölümdeki dış zamanlayıcı ve GitHub dal koruması adımları birlikte
+  uygulanır. Kurulumdan önce `run_ex_archive_dispatch.py` komutlarını
+  `--execute` olmadan kontrol et. Bir günlük ve bir haftalık Actions
+  çalıştırmasında arşiv yazıcısının başarılı olduğunu doğrula.
+- Günlük analiz ve sonuçlandırma `ex-evidence-archive` dalındaki mühürlü
+  kayıtlardan başlar. Önceden doğrulanmış skorların ham kaynağı yeniden
+  doğrulanır ve sonuç tablosu tekrar sorgulanmaz. Çelişkili skor veya
+  maç kimliği arşivden tekrar kullanımı durdurur.
+- `run_ex_missed_prematch_audit.py` eski fikstürlerde zamanında çekilmiş
+  maç önü özetini arar. UEFA arşivinden doğrulanabilen fikstür kimliği
+  ayrı gösterilir. Başlama saati sonrası bir kayıttan geriye dönük
+  tahmin veya kalibrasyon örneği üretilmez.
+- 13 müsabakanın uçtan uca senaryosu kontrollü kaynak girdileriyle
+  sınanır. Gerçek kaynak erişim ve kapsam raporu bundan ayrı tutulur.
+
+### Paket 23 — arşiv aktarımını kurtarma
+
+1. `python run_ex_archive_dispatch.py --recover-since 2026-11-25`
+   çalıştır. Komut tamamlanan günlük ve haftalık akışların kayıtlarını
+   arşiv dalı indeksiyle karşılaştırır. Planlanan aktarımları ve süresi
+   dolan paketleri gösterir. Tarihi gerektiğinde değiştir.
+2. Çıktıyı kontrol ettikten sonra aynı komuta `--execute` ekle.
+   Arşiv yazıcısı en fazla dört paketi bir seferde işler, GitHub ZIP
+   özetini doğrular ve yalnızca arşiv dalına yazar. Bu işlem zamanlanmış
+   görev oluşturmaz. Tamamlanana kadar Actions arşiv yazıcısı sonucunu
+   kontrol et ve tekrar önizlemeyle eksik paketleri say.
+3. İlk kurulum için önceki dış zamanlayıcı ve dal koruması bölümünü
+   uygula. Önizleme Actions ve Contents okuma erişimi, tetikleme
+   **Actions: write** gerektirir. Dal kuralı **Administration: write**
+   yetkisiyle veya bir depo yöneticisi tarafından GitHub ekranında
+   ayarlanır. Koruma yalnızca `ex-evidence-archive` dalını hedefler.
+
+### Paket 24–25 — günlük karar kanıtı
+
+- `daily-analysis.json` dört bağımsız pazarın kaynak fiyatlarını ve
+  EX-D giriş durumunu, kalibre edilmemiş skor dağılımından ve EX-G
+  kanıtından ayrı tutar. Kaynak çalışma yükü ve hava gözlemi varsa
+  kaydedilir. Doğrulanmış bileşen puanlarına dönüştürülmez.
+- Açık PUP isteği olmayan günlük çalıştırmada Auto-Control PUP
+  eksikliği yazmaz. Kesin ilk 11 ve kişisel millî ara etkisi zorunlu
+  tutulmaz. Diğer veri, bağımsız kaynak ve kalibrasyon kapıları korunur.
+- Günlük araştırmada çelişkili tarihsel maç kendi kimliğiyle
+  örneklem dışına alınır. Sonuçlandırma, arşiv bütünlüğü ve FINAL
+  kontrolleri katı kalır.
+
+### Paket 27 — Pazar bazında araştırma bileşenleri
+
+Günlük araştırma motoru her pazarda takım gücünü %50, maç koşullarını %30 ve dış etkenleri %20 ağırlıkla değerlendirir. Dört saha ve sezon penceresi %40/%30/%20/%10 ağırlıklarıyla hesaplanır. Karma lig karşılaşmalarında yerel saha ve sezon gol ortalamalarıyla Poisson araştırma tabanı kullanılabilir. Maç koşulları, önceki tamamlanmış maçlardan hesaplanan dinlenme ve 14 günlük maç yükünü pazar bazında düzenlileştirilmiş lojistik modelle puanlar. Dış etken adayı stadyum konumundaki zaman damgalı maç öncesi sıcaklığı, yağış olasılığını ve rüzgârı kullanır.
+
+Kronolojik denetim, kalıcı arşivdeki tarihsel maçları ve doğrulanmış sonuçları kullanır. Hava örnekleri, maç başlamadan önce mühürlenmiş günlük kayıtlardan fikstür kimliği ve kesin başlama saatiyle eşleştirilir. Eğitim, doğrulama ve test günleri ayrıdır. Doğrulama ve test raporları Brier kaybını, on aralıklı kalibrasyon hatasını ve yeterli takvim haftası varsa eşleştirilmiş Brier farkı aralığını gösterir. Üç bileşen de mevcut olduğunda birleşik araştırma puanı hesaplanır. Üretim kabulü ve EX FINAL onaylı kanıt kapılarına bağlıdır.
+
+### Paket 29 — Günlük kullanım ve FINAL kabulü
+
+Günlük araştırma yolu, onaylı yerel lig karşılaşmalarında yeterli arşiv olduğunda aynı lig gol dağılımı da üretir. Geçersiz fikstür tahtası yalnız ilgili ligi, doğrulanamayan maç özeti yalnız ilgili fikstürü etkiler. Yayın öncesi başlama saati dolmuş kayıtlar çıkarılır. Arşiv mühürleme zamanının başlama saatinden önce olması sonuç eşleştirmesinde ayrıca denetlenir.
+
+FINAL kabulünde yazılım tarafında sertifikalı bağlamın, pazar kalibrasyonunun ve bağımsız kanıtın günlük araştırma yoluna bağlanması gerekiyor. Veri tarafında sabit pencereler, pazar oranı ve bağlam kanıtı bulunmalı. İstatistiksel tarafta dört pazarın kalibrasyon ve bağımsız test kanıtı tamamlanmalı. Fikstür kimliği doğrulaması ayrı kapsam taşır. Auto-Control'deki alım durumu ve bağımsız kaynak sayısı ayrı kanıt şartlarıdır. Aynı eksik belge iki kodu tetikleyebilir. Kullanıcı bu kodların arayüzde gruplanmasını değerlendirebilir. Kabul şartları için değişiklik önerilmedi.
+
+Manuel günlük ve haftalık komutlar ile isteğe bağlı dış zamanlayıcı ve arşiv dalı kuralları Paket 21 bölümünde yer alır. Dış zamanlayıcı için depo kapsamlı Actions yazma yetkisi, dal kuralı için depo yönetim yetkisi gerekir.
+
+### Paket 30 — Günlük başlangıç ve arşiv sonuçlandırma
+
+Depo kökünde `python run_ex_archive_dispatch.py --offset 0 --execute` günün kalıcı arşiv, maç öncesi araştırma ve sonuçlandırma çevrimini başlatır. Komut UTC fikstür tarihini ve PR dalını kullanır. Kullanıcı hesabı veya dış işleyici bu depoda Actions çalıştırabilmelidir. Haftalık rapor için aynı komut `--offset 0` yerine `--weekly` ile çalıştırılır. Dış zamanlayıcı ve arşiv dalı koruması için Paket 21 adımları geçerlidir.
+
+Arşivden dönen bir skor çelişkisi ilgili fikstürü sonuçlandırma bekleme listesine alır. Aynı maçın önceki doğrulanmış kopyası da yeniden kullanım listesinden çıkarılır. Diğer maçlar sonuçlandırılabilir. %50/%30/%20 yönteminin sabit ağırlıkları farklı bileşen puanlarıyla regresyon testinde doğrulanır. Üretim kabulü mevcut sertifikalı kalibrasyon ve kaynak kapılarına bağlıdır.
+
+### Performans İyileştirme Modeli V1
+
+Arşivli skorlarla puanlanan rakip gücü, önceki maçların gol oranlarını düzeltir. Geçmiş pencere ağırlıkları korunur. Takımın sezon kalitesi ve güncel formu ayrı hesaplanır. Avrupa kupalarında yalnız maç öncesinde yerel lig kimliği belirlenebilen farklı lig takımları, düzenlileştirilmiş lig katsayısına veri sağlar. Yetersiz lig desteğinde düzeltme uygulanmaz. Düşük skor bağımlılığı araştırma adayı skor dağılımında denenir.
+
+Ayarlar kronolojik doğrulama diliminde seçilir. Bağımsız testte iki yöntem aynı fikstürlerde Brier, Log Loss, kalibrasyon hatası, yüzde 50 karar doğruluğu ve yüzde 65/70/75/80 üzeri isabet üzerinden karşılaştırılır. Önce tamamlanan maçların sonuçları ileri yürüyen geçmişe katılabilir. Sonuçlar tamamlanma zamanından önce kullanılamaz. Tarihsel tekrar ve gerçekten maç öncesi arşivlenen tahminler ayrı kanıt türleridir.
+
+Uygun ileri tarihli maçlarda `EX-V43-POISSON` ve `EX-V43-PERFORMANCE-V1` birlikte kaydedilir. Maç sonrası ve haftalık kayıtlar iki sürümü yalnız bağımsız doğrulanmış skorla eşleştirir. V1 araştırma adayıdır ve EX FINAL karar yoluna dahil edilmez.
+
+### Günlük seçim kapasitesi
+
+Günlük mod, doğrulanmış ham fikstür tahtasındaki benzersiz maç sayısına göre seçilir. Bu sayı maç özeti veya model sonucu bulunmayan doğrulanmış fikstürleri de içerir. Bağımsız ikinci kaynak teyidi, veri desteği listesinde ayrıca aranır.
+
+| Mod | Doğrulanmış maç | Pazar başına | Birleşik farklı maç | Veri desteği |
+| --- | --- | --- | --- | --- |
+| NORMAL | 0–29 | 3 | 6 | 3 |
+| YOĞUN | 30 ve üzeri | 5 | 10 | 5 |
+
+Sınırlar üst kapasitedir. Araştırma sıralaması Tur-2'yi geçen ve pazar PASS kuralına takılmayan referans olasılıklarını kullanır. V1 varsa yanında gösterilir. Birleşik liste her maçı bir kez gösterir. Veri desteği listesi bağımsız fikstür teyidi ve doğrulanmış pazar oranı bulunan maçları, mevcut bileşen sayısı ve doğrulanmış oran kapsamına göre sıralar. Eksik oranlı kayıtlar araştırma listesinde işaretlenir. PUP açık talep edildiğinde bağımsız pazar analizlerinden sonra çalışır ve kendi kurallarını uygular. Günlük kapasite raporu `forecasts/daily-selection.json` dosyasında arşivlenir.

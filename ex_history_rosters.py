@@ -1,0 +1,89 @@
+"""Season participant evidence from explicit ESPN standings responses."""
+
+import json
+from urllib.parse import urlsplit
+
+from ex_history_archive import BudgetExhausted, source_error
+from ex_history_sources import identifier, league_slug
+
+
+def standing_teams(raw, expected_uid, year):
+    data = json.loads(raw)
+    if data["season"]["year"] != year or data["uid"] != expected_uid:
+        raise ValueError("Standings competition or season mismatch")
+    rows = [entry for group in data["children"] for entry in group["standings"]["entries"]]
+    teams = sorted({identifier(row["team"]["id"]) for row in rows}, key=int)
+    if len(teams) < 8:
+        raise ValueError("Insufficient standings participant evidence")
+    return teams
+
+
+def expand_rosters(leagues, seasons, archive):
+    roster, errors = [], []
+    for league, config in leagues.items():
+        competition = league_slug(config["espn_competition"])
+        expected_uid = config.get("standings_uid")
+        for season in seasons:
+            url = f"https://site.api.espn.com/apis/v2/sports/soccer/{competition}/standings?season={season}"
+            observed = {item["espn_team_id"] for item in config["teams"] if item["season"] == season}
+            if not expected_uid:
+                reviewed = config.get("reviewed_standings", {}).get(str(season))
+                record = {"league": league, "season": season, "status": "NO_VALIDATED_STANDINGS_ADAPTER",
+                          "observed_seed_count": len(observed)}
+                if reviewed:
+                    names = reviewed["teams"]
+                    url = urlsplit(reviewed["source"])
+                    if (url.scheme != "https" or not url.hostname or len(names) != len(set(names))
+                            or len(names) < 8 or any(not name.strip() for name in names)):
+                        raise ValueError("Invalid reviewed standings catalog")
+                    record.update(status="REVIEWED_EXTERNAL_STANDINGS", participant_count=len(names),
+                                  participant_names=names, source={"url": reviewed["source"],
+                                  "reviewed_on": reviewed["reviewed_on"]}, summary_coverage_certified=False)
+                roster.append(record)
+                continue
+            try:
+                teams, source = archive.get(
+                    url, lambda raw, _: standing_teams(raw, expected_uid, season),
+                    content_schema="espn-standing-v1",
+                )
+            except BudgetExhausted:
+                roster.append({"league": league, "season": season, "status": "DEFERRED"})
+            except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+                errors.append(source_error("standings", url, exc))
+                roster.append({"league": league, "season": season, "status": "UNVERIFIED",
+                               "observed_seed_count": len(observed)})
+            else:
+                roster.append({"league": league, "season": season, "status": "PROVIDER_STANDINGS_OBSERVED",
+                               "observed_seed_count": len(observed), "participant_count": len(teams),
+                               "missing_seed_ids": sorted(set(teams) - observed, key=int),
+                               "additional_seed_ids": sorted(observed - set(teams), key=int),
+                               "team_ids": teams, "source": source})
+    return roster, errors
+
+
+def observed_alternative_participants(root, leagues):
+    """Summarize the existing dual-source domestic coverage by club and season."""
+    from collections import defaultdict
+    from datetime import date
+
+    reports = []
+    for path in sorted(root.glob("*-domestic.json")):
+        dataset = json.loads(path.read_text())
+        league, club = dataset["league"], dataset["club"]
+        if league not in leagues:
+            raise ValueError("Unexpected alternate domestic league")
+        by_season = defaultdict(list)
+        for row in dataset["fixtures"]:
+            day = date.fromisoformat(row["date"])
+            domains = {item["url"].split("/")[2].removeprefix("www.") for item in row["sources"]
+                       if item["url"].startswith("https://")}
+            if club not in (row["home"], row["away"]) or len(domains) < 2:
+                raise ValueError("Alternate participant evidence lacks two linked sources")
+            by_season[day.year if day.month >= 7 else day.year - 1].append(row)
+        for season, rows in sorted(by_season.items()):
+            participants = sorted({row[side] for row in rows for side in ("home", "away")})
+            reports.append({"league": league, "season": season, "status": "PARTIAL_CLUB_FIXTURES",
+                            "club": club, "fixtures_observed": len(rows),
+                            "observed_participants": participants, "evidence_file": path.as_posix(),
+                            "roster_complete": False})
+    return reports

@@ -1,0 +1,150 @@
+name: EX production readiness research
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-production-research.yml
+      - run_ex_ucl_pregame.py
+      - run_ex_prospective_validation.py
+      - tests/test_ex_production_research.py
+      - run_ex_official_score_review.py
+      - research/ucl/dfl-score-review.json
+      - config/ex_pregame_venues.json
+      - ex_pregame_weather.py
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  pregame:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422037
+          name: ex-prematch-archive
+          path: prematch
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471421974
+          name: ucl-research-evidence
+          path: history
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+          path: provider-history
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-part-1-*
+          path: provider-history/parts
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-calendar-evidence-1
+          path: calendar-evidence
+      - uses: actions/cache/restore@v4
+        with:
+          path: forecast-cache
+          key: ex-ucl-forecast-v1-${{ github.ref }}-${{ github.run_id }}
+          restore-keys: ex-ucl-forecast-v1-${{ github.ref }}-
+      - name: Record research before the first kickoff
+        id: record
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d '2026-11-25 17:45 UTC' +%s)" ]; then
+            echo "Expired prematch window"
+            exit 0
+          fi
+          python run_ex_ucl_pregame.py --manifest prematch/prematch.json --archive prematch/prematch-cache --historical history --history-plan provider-history/plan.json --history-parts provider-history/parts --weather-cache forecast-cache --uefa-cache calendar-evidence --day 2026-11-25 --output ucl-pregame-research.json
+      - name: Verify PUP against the archived research inputs
+        if: ${{ hashFiles('ucl-pregame-research.json') != '' }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from ex_decision import MARKETS
+          from ex_pup_gate import execute_pup
+
+          report = json.loads(Path("ucl-pregame-research.json").read_text())
+          observations = []
+          for fixture in report["fixtures"]:
+              markets = fixture["markets"]
+              before = json.dumps(markets, sort_keys=True)
+              assert fixture["pup"]["status"] == "NOT_REQUESTED"
+              result = execute_pup({market: value["evidence"] for market, value in markets.items()},
+                                   MARKETS, markets, fixture["score_distribution"], requested=True)
+              assert result["status"] == "BLOCKED" and result["selection"] is None
+              assert result["score_scenarios"] and not result["ex_final_allowed"]
+              assert json.dumps(markets, sort_keys=True) == before
+              observations.append({"fixture": fixture["fixture"], "pup": result})
+          assert len(observations) == 9
+          Path("pup-observations.json").write_text(json.dumps(observations, ensure_ascii=False, indent=2))
+          print("PUP research replay:", len(observations), "fixtures without a market selection")
+          PY
+      - uses: actions/cache/save@v4
+        if: ${{ hashFiles('forecast-cache/index/*.json') != '' }}
+        with:
+          path: forecast-cache
+          key: ex-ucl-forecast-v1-${{ github.ref }}-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ hashFiles('ucl-pregame-research.json') != '' }}
+        with:
+          name: ex-ucl-pregame-research
+          path: |
+            ucl-pregame-research.json
+            pup-observations.json
+            forecast-cache/
+
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422307
+          name: ex-retrospective-results
+      - run: python run_ex_prospective_validation.py --examples retrospective-examples.jsonl --output frozen-candidates.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-frozen-research-candidates
+          path: frozen-candidates.json
+
+  official-scores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: archived
+      - run: |
+          python run_ex_official_score_review.py --staged archived/score_input/secondary_only_unverified.json --ledger archived/score-evidence.json --output dfl-scores.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-dfl-score-review
+          path: dfl-scores.json

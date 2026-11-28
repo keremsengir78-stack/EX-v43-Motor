@@ -1,0 +1,1271 @@
+{
+  "start": "2025-01-01T00:00:00Z",
+  "as_of": "2026-11-24T10:24:34Z",
+  "teams": [
+    {
+      "espn_team_id": "102",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "102",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "104",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "104",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "1068",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "1068",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "110",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "110",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "114",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "114",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "11420",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "11420",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "124",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "124",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "132",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "132",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "134",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "134",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "142",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "142",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "148",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "148",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "160",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "160",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "166",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "166",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "175",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "175",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "21922",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "21922",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "2250",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "2250",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "244",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "244",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "2572",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "2572",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "2980",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "2980",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "359",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "359",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "360",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "360",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "362",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "362",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "364",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "364",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "382",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "382",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "432",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "432",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "436",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "436",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "437",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "437",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "4411",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "4411",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "493",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "493",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "494",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "494",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "510",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "510",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "521",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "521",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "570",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "570",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "83",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "83",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "86",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "86",
+      "season": 2026
+    },
+    {
+      "espn_team_id": "887",
+      "season": 2025
+    },
+    {
+      "espn_team_id": "887",
+      "season": 2026
+    }
+  ],
+  "uefa_articles": [
+    {
+      "url": "https://www.uefa.com/uefachampionsleague/news/02ab-2223c67db015-c4f7874e074e-1000--champions-league-predicted-line-ups-matchday-5-team-news-/",
+      "fixtures": [
+        {
+          "uefa_match_id": "2049627",
+          "kickoff_at": "2026-11-24T20:00:00Z",
+          "normalized_teams": [
+            "arsenal",
+            "borussiadortmund"
+          ]
+        }
+      ]
+    }
+  ],
+  "main_teams": [
+    {
+      "espn_team_id": "11420",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "122",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "124",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "125",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "126",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "127",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "131",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "132",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "134",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "137",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "138",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "268",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "270",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "2950",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "3841",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "598",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "6418",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "7911",
+      "season": 2025,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "331",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "337",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "349",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "357",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "359",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "360",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "361",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "362",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "363",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "364",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "366",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "367",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "368",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "370",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "371",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "379",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "380",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "382",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "384",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "393",
+      "season": 2025,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "101",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "102",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "1068",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "1538",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "243",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "244",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "2922",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "3751",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "83",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "84",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "85",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "86",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "88",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "89",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "92",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "93",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "94",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "96",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "97",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "9812",
+      "season": 2025,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "160",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "165",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "166",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "167",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "169",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "172",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "174",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "175",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "176",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "177",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "179",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "180",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "2502",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "273",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "3236",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "6851",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "6997",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "7868",
+      "season": 2025,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "103",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "104",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "105",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "107",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "109",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "110",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "111",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "112",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "113",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "114",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "115",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "118",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "119",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "239",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "2572",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "2925",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "3263",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "3956",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "3997",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "4050",
+      "season": 2025,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "10388",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "11420",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "122",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "124",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "125",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "126",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "127",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "131",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "132",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "133",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "134",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "137",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "268",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "2950",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "3307",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "3841",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "598",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "7911",
+      "season": 2026,
+      "league": "de.1"
+    },
+    {
+      "espn_team_id": "306",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "331",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "337",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "349",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "357",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "359",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "360",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "361",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "362",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "363",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "364",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "366",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "367",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "368",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "370",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "373",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "382",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "384",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "388",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "393",
+      "season": 2026,
+      "league": "en.1"
+    },
+    {
+      "espn_team_id": "101",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "102",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "1068",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "1538",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "243",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "244",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "2922",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "3751",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "83",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "85",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "86",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "87",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "88",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "89",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "90",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "93",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "94",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "96",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "97",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "99",
+      "season": 2026,
+      "league": "es.1"
+    },
+    {
+      "espn_team_id": "160",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "166",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "167",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "169",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "170",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "172",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "174",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "175",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "176",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "179",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "180",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "2502",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "2697",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "273",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "3236",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "6851",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "6997",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "7868",
+      "season": 2026,
+      "league": "fr.1"
+    },
+    {
+      "espn_team_id": "103",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "104",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "105",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "107",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "109",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "110",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "111",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "112",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "113",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "114",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "115",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "118",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "17530",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "239",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "2572",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "2925",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "3263",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "3997",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "4007",
+      "season": 2026,
+      "league": "it.1"
+    },
+    {
+      "espn_team_id": "4057",
+      "season": 2026,
+      "league": "it.1"
+    }
+  ]
+}

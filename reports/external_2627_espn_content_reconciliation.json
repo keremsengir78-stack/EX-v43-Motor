@@ -1,0 +1,1959 @@
+{
+  "counts": {
+    "ESPN_SCORE_MATCH": 75
+  },
+  "fixtures": [
+    {
+      "index": 780,
+      "league": "es.1",
+      "date": "2026-08-15",
+      "home": "Deportivo Alavés",
+      "away": "Getafe CF",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-15",
+        "league": "es.1",
+        "home": "Alavés",
+        "away": "Getafe",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "3afa992d7e252bffed1e13fb7ceb92abfb9867360d672ee4b562178087c5c3d2",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260815",
+        "retrieved_at": "2026-11-24T09:40:35.056178+00:00"
+      }
+    },
+    {
+      "index": 781,
+      "league": "es.1",
+      "date": "2026-08-16",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-16",
+        "league": "es.1",
+        "home": "Espanyol",
+        "away": "Levante",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "46126856ff882f04be92747832dc1d92d98aabbfbe8899c79bf56a9a796c031f",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260816",
+        "retrieved_at": "2026-11-24T09:40:34.995891+00:00"
+      }
+    },
+    {
+      "index": 784,
+      "league": "es.1",
+      "date": "2026-08-19",
+      "home": "Club Atlético de Madrid",
+      "away": "Málaga CF",
+      "reference_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-19",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Málaga",
+        "home_goals": 2,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "12809041c563b326e6c09b986f6c3ae5d00de32232c79e3d5c5699126d0bd37a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260819",
+        "retrieved_at": "2026-11-24T09:40:35.032186+00:00"
+      }
+    },
+    {
+      "index": 325,
+      "league": "es.1",
+      "date": "2026-08-22",
+      "home": "Athletic Club",
+      "away": "Sevilla FC",
+      "reference_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Sevilla",
+        "home_goals": 1,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "58bd54672d2031b0f8246e32f2853df624f43305a53034300c33433b8b798ea7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:35.082166+00:00"
+      }
+    },
+    {
+      "index": 787,
+      "league": "es.1",
+      "date": "2026-08-22",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        1,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "es.1",
+        "home": "Espanyol",
+        "away": "Real Madrid",
+        "home_goals": 1,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "58bd54672d2031b0f8246e32f2853df624f43305a53034300c33433b8b798ea7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:35.082166+00:00"
+      }
+    },
+    {
+      "index": 789,
+      "league": "es.1",
+      "date": "2026-08-23",
+      "home": "Club Atlético de Madrid",
+      "away": "Villarreal CF",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Villarreal",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "e0f3c9afc89fd8ac71af898f05c08199952571a5dd1953eedcecd72e6418afcb",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:35.079819+00:00"
+      }
+    },
+    {
+      "index": 326,
+      "league": "es.1",
+      "date": "2026-08-23",
+      "home": "Elche CF",
+      "away": "FC Barcelona",
+      "reference_score": [
+        0,
+        5
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "es.1",
+        "home": "Elche",
+        "away": "Barcelona",
+        "home_goals": 0,
+        "away_goals": 5
+      },
+      "espn_source": {
+        "sha256": "e0f3c9afc89fd8ac71af898f05c08199952571a5dd1953eedcecd72e6418afcb",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:35.079819+00:00"
+      }
+    },
+    {
+      "index": 791,
+      "league": "es.1",
+      "date": "2026-08-24",
+      "home": "CA Osasuna",
+      "away": "Levante UD",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-24",
+        "league": "es.1",
+        "home": "Osasuna",
+        "away": "Levante",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "84b03ffd2af81665233be1fa5c5b26a0647005f3ed707edc03dab634f50c81b0",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260824",
+        "retrieved_at": "2026-11-24T09:40:35.118140+00:00"
+      }
+    },
+    {
+      "index": 327,
+      "league": "es.1",
+      "date": "2026-08-27",
+      "home": "FC Barcelona",
+      "away": "Athletic Club",
+      "reference_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-27",
+        "league": "es.1",
+        "home": "Barcelona",
+        "away": "Athletic Club",
+        "home_goals": 2,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "e9c2a6c6fa989937b855bb930027245a4993e0ea592e82124adb377a186509f2",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260827",
+        "retrieved_at": "2026-11-24T09:40:35.187431+00:00"
+      }
+    },
+    {
+      "index": 796,
+      "league": "es.1",
+      "date": "2026-08-28",
+      "home": "Deportivo Alavés",
+      "away": "Villarreal CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-28",
+        "league": "es.1",
+        "home": "Alavés",
+        "away": "Villarreal",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "23932380313caa17f8621d81cebbd3d320a8f4244607c5bb535f61934f21dd6e",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260828",
+        "retrieved_at": "2026-11-24T09:40:35.250825+00:00"
+      }
+    },
+    {
+      "index": 328,
+      "league": "es.1",
+      "date": "2026-08-29",
+      "home": "Sevilla FC",
+      "away": "Club Atlético de Madrid",
+      "reference_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-29",
+        "league": "es.1",
+        "home": "Sevilla",
+        "away": "Atlético Madrid",
+        "home_goals": 1,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "e3a1df9450bb7e2aad185226a0e0edef2f0391c7f11f4e0904f367348cd79897",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260829",
+        "retrieved_at": "2026-11-24T09:40:35.163878+00:00"
+      }
+    },
+    {
+      "index": 802,
+      "league": "es.1",
+      "date": "2026-08-30",
+      "home": "Real Madrid CF",
+      "away": "Málaga CF",
+      "reference_score": [
+        4,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-30",
+        "league": "es.1",
+        "home": "Real Madrid",
+        "away": "Málaga",
+        "home_goals": 4,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "83cc77564b7950e8f3cc1d16852355b4ee34b8b36ade2945cc4474a9d3e1494a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260830",
+        "retrieved_at": "2026-11-24T09:40:35.169389+00:00"
+      }
+    },
+    {
+      "index": 803,
+      "league": "es.1",
+      "date": "2026-08-31",
+      "home": "CA Osasuna",
+      "away": "Getafe CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-31",
+        "league": "es.1",
+        "home": "Osasuna",
+        "away": "Getafe",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "88a85c76eec7dfd9f3216cd428f945dcfe13bf90a855f4e6d8e7d53d16f4d7b2",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260831",
+        "retrieved_at": "2026-11-24T09:40:35.163597+00:00"
+      }
+    },
+    {
+      "index": 806,
+      "league": "es.1",
+      "date": "2026-09-05",
+      "home": "Athletic Club",
+      "away": "Club Atlético de Madrid",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Atlético Madrid",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "ea773bd8fc40a03c1b6c136b20b47342c79423b6935575c61bd117e2e012f14f",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:35.313472+00:00"
+      }
+    },
+    {
+      "index": 331,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Valencia CF",
+      "away": "FC Barcelona",
+      "reference_score": [
+        0,
+        5
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "es.1",
+        "home": "Valencia",
+        "away": "Barcelona",
+        "home_goals": 0,
+        "away_goals": 5
+      },
+      "espn_source": {
+        "sha256": "ad6f4653b912c93427fc452bb692176cd5cd547bba76efbf9e15de17e3963f83",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:35.251423+00:00"
+      }
+    },
+    {
+      "index": 809,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Deportivo Alavés",
+      "away": "CA Osasuna",
+      "reference_score": [
+        5,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "es.1",
+        "home": "Alavés",
+        "away": "Osasuna",
+        "home_goals": 5,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "ad6f4653b912c93427fc452bb692176cd5cd547bba76efbf9e15de17e3963f83",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:35.251423+00:00"
+      }
+    },
+    {
+      "index": 810,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "Málaga CF",
+      "away": "Levante UD",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "es.1",
+        "home": "Málaga",
+        "away": "Levante",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "ad6f4653b912c93427fc452bb692176cd5cd547bba76efbf9e15de17e3963f83",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:35.251423+00:00"
+      }
+    },
+    {
+      "index": 330,
+      "league": "es.1",
+      "date": "2026-09-06",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Sevilla FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "es.1",
+        "home": "Espanyol",
+        "away": "Sevilla",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "ad6f4653b912c93427fc452bb692176cd5cd547bba76efbf9e15de17e3963f83",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:35.251423+00:00"
+      }
+    },
+    {
+      "index": 332,
+      "league": "es.1",
+      "date": "2026-09-11",
+      "home": "Sevilla FC",
+      "away": "Valencia CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-11",
+        "league": "es.1",
+        "home": "Sevilla",
+        "away": "Valencia",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "def5eead0301086bdda6ad911628ea46f758fcd9ce86105b1969415f2b90630a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260911",
+        "retrieved_at": "2026-11-24T09:40:35.376479+00:00"
+      }
+    },
+    {
+      "index": 814,
+      "league": "es.1",
+      "date": "2026-09-12",
+      "home": "CA Osasuna",
+      "away": "RCD Espanyol de Barcelona",
+      "reference_score": [
+        0,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "es.1",
+        "home": "Osasuna",
+        "away": "Espanyol",
+        "home_goals": 0,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "686f674cd351dffa006021b8a1e3e38d6b72c42661c02931cc1422294621147a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:35.340583+00:00"
+      }
+    },
+    {
+      "index": 813,
+      "league": "es.1",
+      "date": "2026-09-12",
+      "home": "Athletic Club",
+      "away": "Elche CF",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Elche",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "686f674cd351dffa006021b8a1e3e38d6b72c42661c02931cc1422294621147a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:35.340583+00:00"
+      }
+    },
+    {
+      "index": 333,
+      "league": "es.1",
+      "date": "2026-09-13",
+      "home": "Levante UD",
+      "away": "FC Barcelona",
+      "reference_score": [
+        2,
+        4
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-13",
+        "league": "es.1",
+        "home": "Levante",
+        "away": "Barcelona",
+        "home_goals": 2,
+        "away_goals": 4
+      },
+      "espn_source": {
+        "sha256": "62d9712fb906c1ef2f55bfb30523a31a7ba2a56692c1b8e0fe1f2451fbe0106b",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260913",
+        "retrieved_at": "2026-11-24T09:40:35.418228+00:00"
+      }
+    },
+    {
+      "index": 821,
+      "league": "es.1",
+      "date": "2026-09-15",
+      "home": "Deportivo Alavés",
+      "away": "Valencia CF",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-15",
+        "league": "es.1",
+        "home": "Alavés",
+        "away": "Valencia",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "920b42910de3800178329d773590448f5ac34a72c482c1dd45645439b1c8e3d7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260915",
+        "retrieved_at": "2026-11-24T09:40:35.383053+00:00"
+      }
+    },
+    {
+      "index": 822,
+      "league": "es.1",
+      "date": "2026-09-15",
+      "home": "Elche CF",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-15",
+        "league": "es.1",
+        "home": "Elche",
+        "away": "Real Madrid",
+        "home_goals": 2,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "920b42910de3800178329d773590448f5ac34a72c482c1dd45645439b1c8e3d7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260915",
+        "retrieved_at": "2026-11-24T09:40:35.383053+00:00"
+      }
+    },
+    {
+      "index": 824,
+      "league": "es.1",
+      "date": "2026-09-16",
+      "home": "Club Atlético de Madrid",
+      "away": "CA Osasuna",
+      "reference_score": [
+        4,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-16",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "home_goals": 4,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "3597f606dde5b33a75d6fe57498b910d36b0bf31e2f10d3ec9e3ef300b3affc6",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260916",
+        "retrieved_at": "2026-11-24T09:40:35.398033+00:00"
+      }
+    },
+    {
+      "index": 825,
+      "league": "es.1",
+      "date": "2026-09-17",
+      "home": "Málaga CF",
+      "away": "Villarreal CF",
+      "reference_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-17",
+        "league": "es.1",
+        "home": "Málaga",
+        "away": "Villarreal",
+        "home_goals": 1,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "72ecbb0d936dad15a9505d7443b9763b5fe57c0f412fa0d35d63a82207aaff65",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260917",
+        "retrieved_at": "2026-11-24T09:40:35.409488+00:00"
+      }
+    },
+    {
+      "index": 827,
+      "league": "es.1",
+      "date": "2026-09-18",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Elche CF",
+      "reference_score": [
+        1,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-18",
+        "league": "es.1",
+        "home": "Espanyol",
+        "away": "Elche",
+        "home_goals": 1,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "495bb90c00fef8a80990d4d21b42f57b26f0cacc00983c885bf79e5f2113a81d",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260918",
+        "retrieved_at": "2026-11-24T09:40:35.416929+00:00"
+      }
+    },
+    {
+      "index": 828,
+      "league": "es.1",
+      "date": "2026-09-19",
+      "home": "Athletic Club",
+      "away": "Deportivo Alavés",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Alavés",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "eed739d45b792f91632ec4eb920a23268e2e5056f0fec9a126744ebd8d549f31",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:35.552653+00:00"
+      }
+    },
+    {
+      "index": 832,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Getafe CF",
+      "away": "Málaga CF",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "es.1",
+        "home": "Getafe",
+        "away": "Málaga",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "de88022c6baf723f94746592c96f29af7d6c6f9e50a0297f47faa3792c529745",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:35.463127+00:00"
+      }
+    },
+    {
+      "index": 831,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Club Atlético de Madrid",
+      "away": "Real Madrid CF",
+      "reference_score": [
+        2,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Real Madrid",
+        "home_goals": 2,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "de88022c6baf723f94746592c96f29af7d6c6f9e50a0297f47faa3792c529745",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:35.463127+00:00"
+      }
+    },
+    {
+      "index": 835,
+      "league": "es.1",
+      "date": "2026-09-20",
+      "home": "Villarreal CF",
+      "away": "Levante UD",
+      "reference_score": [
+        3,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "es.1",
+        "home": "Villarreal",
+        "away": "Levante",
+        "home_goals": 3,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "de88022c6baf723f94746592c96f29af7d6c6f9e50a0297f47faa3792c529745",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:35.463127+00:00"
+      }
+    },
+    {
+      "index": 408,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Frosinone Calcio",
+      "away": "Juventus FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "it.1",
+        "home": "Frosinone",
+        "away": "Juventus",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "5e551664ec1c7bca7f0f4753e6f2da2e56db993553514c3169928526b767a5ae",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:41.525882+00:00"
+      }
+    },
+    {
+      "index": 409,
+      "league": "it.1",
+      "date": "2026-08-23",
+      "home": "Torino FC",
+      "away": "AC Milan",
+      "reference_score": [
+        1,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "it.1",
+        "home": "Torino",
+        "away": "AC Milan",
+        "home_goals": 1,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "5e551664ec1c7bca7f0f4753e6f2da2e56db993553514c3169928526b767a5ae",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:41.525882+00:00"
+      }
+    },
+    {
+      "index": 411,
+      "league": "it.1",
+      "date": "2026-08-28",
+      "home": "AC Milan",
+      "away": "Venezia FC",
+      "reference_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-28",
+        "league": "it.1",
+        "home": "AC Milan",
+        "away": "Venezia",
+        "home_goals": 2,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "0337d3ef662ba9446df38cb19ce56a7c20e3de76f9950e4a4db2cef7ffbb43ef",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260828",
+        "retrieved_at": "2026-11-24T09:40:41.610595+00:00"
+      }
+    },
+    {
+      "index": 1149,
+      "league": "it.1",
+      "date": "2026-08-29",
+      "home": "AC Monza",
+      "away": "Udinese Calcio",
+      "reference_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-29",
+        "league": "it.1",
+        "home": "Monza",
+        "away": "Udinese",
+        "home_goals": 2,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "7e0b31c10c8fbf89279f1cbbe5fc29a85ef50123f9703916425279713dbee4d3",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260829",
+        "retrieved_at": "2026-11-24T09:40:41.616966+00:00"
+      }
+    },
+    {
+      "index": 415,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Frosinone Calcio",
+      "away": "Venezia FC",
+      "reference_score": [
+        3,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "it.1",
+        "home": "Frosinone",
+        "away": "Venezia",
+        "home_goals": 3,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "756adf1e48b5023eaac8c0fdf5dcfd9d38cf5d3690d84aa6e8036979024fcf5b",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:41.707605+00:00"
+      }
+    },
+    {
+      "index": 416,
+      "league": "it.1",
+      "date": "2026-09-06",
+      "home": "Juventus FC",
+      "away": "AC Milan",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "it.1",
+        "home": "Juventus",
+        "away": "AC Milan",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "756adf1e48b5023eaac8c0fdf5dcfd9d38cf5d3690d84aa6e8036979024fcf5b",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:41.707605+00:00"
+      }
+    },
+    {
+      "index": 1172,
+      "league": "it.1",
+      "date": "2026-09-19",
+      "home": "Udinese Calcio",
+      "away": "Cagliari Calcio",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "it.1",
+        "home": "Udinese",
+        "away": "Cagliari",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "a0b7014dd85c9d0ab5994b5b48760100297182b01838ec28c79221ad72a7bc6f",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:41.915277+00:00"
+      }
+    },
+    {
+      "index": 198,
+      "league": "en.1",
+      "date": "2026-08-21",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-21",
+        "league": "en.1",
+        "home": "Arsenal",
+        "away": "Coventry City",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "7424df12e2fbcc6c3592c3078b0fcdb304307a3a6fb7e42e0ac25818e93b131a",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260821",
+        "retrieved_at": "2026-11-24T09:40:22.327486+00:00"
+      }
+    },
+    {
+      "index": 199,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Brentford FC",
+      "away": "Tottenham Hotspur FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "en.1",
+        "home": "Brentford",
+        "away": "Tottenham Hotspur",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "47e87153f075addf9156cf850e6664898b20d1dc0ada73ec673893a2acfd27e5",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:22.361348+00:00"
+      }
+    },
+    {
+      "index": 200,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Ipswich Town FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "en.1",
+        "home": "Ipswich Town",
+        "away": "Sunderland",
+        "home_goals": 2,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "47e87153f075addf9156cf850e6664898b20d1dc0ada73ec673893a2acfd27e5",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:22.361348+00:00"
+      }
+    },
+    {
+      "index": 201,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        4,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "en.1",
+        "home": "Brighton & Hove Albion",
+        "away": "Aston Villa",
+        "home_goals": 4,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "43adbc3cbfa7e1842aaaec5bbabc728ca27cae883a81f0237b0b3a0841218683",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:22.411471+00:00"
+      }
+    },
+    {
+      "index": 202,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Manchester City FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "en.1",
+        "home": "Manchester City",
+        "away": "AFC Bournemouth",
+        "home_goals": 2,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "43adbc3cbfa7e1842aaaec5bbabc728ca27cae883a81f0237b0b3a0841218683",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:22.411471+00:00"
+      }
+    },
+    {
+      "index": 203,
+      "league": "en.1",
+      "date": "2026-08-23",
+      "home": "Newcastle United FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-23",
+        "league": "en.1",
+        "home": "Newcastle United",
+        "away": "Liverpool",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "43adbc3cbfa7e1842aaaec5bbabc728ca27cae883a81f0237b0b3a0841218683",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260823",
+        "retrieved_at": "2026-11-24T09:40:22.411471+00:00"
+      }
+    },
+    {
+      "index": 204,
+      "league": "en.1",
+      "date": "2026-08-28",
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        1,
+        4
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-28",
+        "league": "en.1",
+        "home": "Crystal Palace",
+        "away": "Manchester City",
+        "home_goals": 1,
+        "away_goals": 4
+      },
+      "espn_source": {
+        "sha256": "52e3dfb151b2a4186a348e6034f8a98e66035623fff27e9d27ebb3dbc7dec510",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260828",
+        "retrieved_at": "2026-11-24T09:40:22.477068+00:00"
+      }
+    },
+    {
+      "index": 205,
+      "league": "en.1",
+      "date": "2026-08-29",
+      "home": "Liverpool FC",
+      "away": "Nottingham Forest FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-29",
+        "league": "en.1",
+        "home": "Liverpool",
+        "away": "Nottingham Forest",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "ea82447dd7079017be72f568b230dc78852e6aa53a92b28030f70860f2e37fd7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260829",
+        "retrieved_at": "2026-11-24T09:40:22.439057+00:00"
+      }
+    },
+    {
+      "index": 206,
+      "league": "en.1",
+      "date": "2026-08-30",
+      "home": "Chelsea FC",
+      "away": "Brighton & Hove Albion FC",
+      "reference_score": [
+        4,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-30",
+        "league": "en.1",
+        "home": "Chelsea",
+        "away": "Brighton & Hove Albion",
+        "home_goals": 4,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "28ef8da30cf5197915529c4bfddcd01561d34c247dab061341af2a8f43a901fa",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260830",
+        "retrieved_at": "2026-11-24T09:40:22.576058+00:00"
+      }
+    },
+    {
+      "index": 207,
+      "league": "en.1",
+      "date": "2026-08-30",
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-30",
+        "league": "en.1",
+        "home": "Leeds United",
+        "away": "Brentford",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "28ef8da30cf5197915529c4bfddcd01561d34c247dab061341af2a8f43a901fa",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260830",
+        "retrieved_at": "2026-11-24T09:40:22.576058+00:00"
+      }
+    },
+    {
+      "index": 208,
+      "league": "en.1",
+      "date": "2026-09-04",
+      "home": "Ipswich Town FC",
+      "away": "Liverpool FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-04",
+        "league": "en.1",
+        "home": "Ipswich Town",
+        "away": "Liverpool",
+        "home_goals": 0,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "ff61c3c677cebe18c1e14b83681d9fc6019dc69e042bb5ec0c4508f1d9555ef8",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260904",
+        "retrieved_at": "2026-11-24T09:40:22.553671+00:00"
+      }
+    },
+    {
+      "index": 209,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Hull City AFC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "en.1",
+        "home": "Hull City",
+        "away": "Aston Villa",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "7c5592ef80d116897c0869604adc98e96c123d40596e35ceef9d3da34bcb1218",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:22.532750+00:00"
+      }
+    },
+    {
+      "index": 210,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Newcastle United FC",
+      "away": "AFC Bournemouth",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "en.1",
+        "home": "Newcastle United",
+        "away": "AFC Bournemouth",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "7c5592ef80d116897c0869604adc98e96c123d40596e35ceef9d3da34bcb1218",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:22.532750+00:00"
+      }
+    },
+    {
+      "index": 211,
+      "league": "en.1",
+      "date": "2026-09-06",
+      "home": "Everton FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-06",
+        "league": "en.1",
+        "home": "Everton",
+        "away": "Manchester United",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "4268e5181febecc6bf2e6d6d5fd9a25820c4873665b9d60b7ea1815f3edae03b",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260906",
+        "retrieved_at": "2026-11-24T09:40:22.542756+00:00"
+      }
+    },
+    {
+      "index": 212,
+      "league": "en.1",
+      "date": "2026-09-12",
+      "home": "Aston Villa FC",
+      "away": "Nottingham Forest FC",
+      "reference_score": [
+        1,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "en.1",
+        "home": "Aston Villa",
+        "away": "Nottingham Forest",
+        "home_goals": 1,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "252bf0a8ec3a60321ed3a0bd24d45e88757540234bffabe9769e778076b6b006",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:22.638585+00:00"
+      }
+    },
+    {
+      "index": 213,
+      "league": "en.1",
+      "date": "2026-09-12",
+      "home": "Chelsea FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "en.1",
+        "home": "Chelsea",
+        "away": "Hull City",
+        "home_goals": 2,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "252bf0a8ec3a60321ed3a0bd24d45e88757540234bffabe9769e778076b6b006",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:22.638585+00:00"
+      }
+    },
+    {
+      "index": 214,
+      "league": "en.1",
+      "date": "2026-09-12",
+      "home": "Crystal Palace FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "en.1",
+        "home": "Crystal Palace",
+        "away": "Ipswich Town",
+        "home_goals": 2,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "252bf0a8ec3a60321ed3a0bd24d45e88757540234bffabe9769e778076b6b006",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:22.638585+00:00"
+      }
+    },
+    {
+      "index": 215,
+      "league": "en.1",
+      "date": "2026-09-12",
+      "home": "Tottenham Hotspur FC",
+      "away": "Everton FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-12",
+        "league": "en.1",
+        "home": "Tottenham Hotspur",
+        "away": "Everton",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "252bf0a8ec3a60321ed3a0bd24d45e88757540234bffabe9769e778076b6b006",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260912",
+        "retrieved_at": "2026-11-24T09:40:22.638585+00:00"
+      }
+    },
+    {
+      "index": 216,
+      "league": "en.1",
+      "date": "2026-09-19",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Arsenal FC",
+      "reference_score": [
+        3,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "en.1",
+        "home": "Brighton & Hove Albion",
+        "away": "Arsenal",
+        "home_goals": 3,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "361f82e464ba68b0eeba468b23ea3c97e83a0d021aea57ea51617b324319c266",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:22.742567+00:00"
+      }
+    },
+    {
+      "index": 217,
+      "league": "en.1",
+      "date": "2026-09-19",
+      "home": "Everton FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "en.1",
+        "home": "Everton",
+        "away": "Ipswich Town",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "361f82e464ba68b0eeba468b23ea3c97e83a0d021aea57ea51617b324319c266",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:22.742567+00:00"
+      }
+    },
+    {
+      "index": 218,
+      "league": "en.1",
+      "date": "2026-09-19",
+      "home": "Tottenham Hotspur FC",
+      "away": "Aston Villa FC",
+      "reference_score": [
+        2,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "en.1",
+        "home": "Tottenham Hotspur",
+        "away": "Aston Villa",
+        "home_goals": 2,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "361f82e464ba68b0eeba468b23ea3c97e83a0d021aea57ea51617b324319c266",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:22.742567+00:00"
+      }
+    },
+    {
+      "index": 219,
+      "league": "en.1",
+      "date": "2026-09-20",
+      "home": "Fulham FC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "en.1",
+        "home": "Fulham",
+        "away": "Manchester United",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "26dda44d469846c87c85f1497abea39dd2e09587acedea7e31b6796cae3c582e",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:22.813766+00:00"
+      }
+    },
+    {
+      "index": 220,
+      "league": "en.1",
+      "date": "2026-09-20",
+      "home": "Leeds United FC",
+      "away": "Crystal Palace FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "en.1",
+        "home": "Leeds United",
+        "away": "Crystal Palace",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "26dda44d469846c87c85f1497abea39dd2e09587acedea7e31b6796cae3c582e",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:22.813766+00:00"
+      }
+    },
+    {
+      "index": 221,
+      "league": "en.1",
+      "date": "2026-09-20",
+      "home": "Manchester City FC",
+      "away": "Sunderland AFC",
+      "reference_score": [
+        5,
+        3
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-20",
+        "league": "en.1",
+        "home": "Manchester City",
+        "away": "Sunderland",
+        "home_goals": 5,
+        "away_goals": 3
+      },
+      "espn_source": {
+        "sha256": "26dda44d469846c87c85f1497abea39dd2e09587acedea7e31b6796cae3c582e",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260920",
+        "retrieved_at": "2026-11-24T09:40:22.813766+00:00"
+      }
+    },
+    {
+      "index": 495,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Hull City AFC",
+      "away": "Manchester United FC",
+      "reference_score": [
+        2,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "en.1",
+        "home": "Hull City",
+        "away": "Manchester United",
+        "home_goals": 2,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "47e87153f075addf9156cf850e6664898b20d1dc0ada73ec673893a2acfd27e5",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:22.361348+00:00"
+      }
+    },
+    {
+      "index": 496,
+      "league": "en.1",
+      "date": "2026-08-22",
+      "home": "Nottingham Forest FC",
+      "away": "Leeds United FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-22",
+        "league": "en.1",
+        "home": "Nottingham Forest",
+        "away": "Leeds United",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "47e87153f075addf9156cf850e6664898b20d1dc0ada73ec673893a2acfd27e5",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260822",
+        "retrieved_at": "2026-11-24T09:40:22.361348+00:00"
+      }
+    },
+    {
+      "index": 497,
+      "league": "en.1",
+      "date": "2026-08-29",
+      "home": "Coventry City FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-29",
+        "league": "en.1",
+        "home": "Coventry City",
+        "away": "Hull City",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "ea82447dd7079017be72f568b230dc78852e6aa53a92b28030f70860f2e37fd7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260829",
+        "retrieved_at": "2026-11-24T09:40:22.439057+00:00"
+      }
+    },
+    {
+      "index": 498,
+      "league": "en.1",
+      "date": "2026-08-29",
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        0,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-29",
+        "league": "en.1",
+        "home": "Tottenham Hotspur",
+        "away": "Newcastle United",
+        "home_goals": 0,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "ea82447dd7079017be72f568b230dc78852e6aa53a92b28030f70860f2e37fd7",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260829",
+        "retrieved_at": "2026-11-24T09:40:22.439057+00:00"
+      }
+    },
+    {
+      "index": 499,
+      "league": "en.1",
+      "date": "2026-08-30",
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
+      "reference_score": [
+        5,
+        2
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-08-30",
+        "league": "en.1",
+        "home": "Manchester United",
+        "away": "Ipswich Town",
+        "home_goals": 5,
+        "away_goals": 2
+      },
+      "espn_source": {
+        "sha256": "28ef8da30cf5197915529c4bfddcd01561d34c247dab061341af2a8f43a901fa",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260830",
+        "retrieved_at": "2026-11-24T09:40:22.576058+00:00"
+      }
+    },
+    {
+      "index": 500,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Leeds United FC",
+      "reference_score": [
+        1,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "en.1",
+        "home": "Brighton & Hove Albion",
+        "away": "Leeds United",
+        "home_goals": 1,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "7c5592ef80d116897c0869604adc98e96c123d40596e35ceef9d3da34bcb1218",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:22.532750+00:00"
+      }
+    },
+    {
+      "index": 501,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Manchester City FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        1,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "en.1",
+        "home": "Manchester City",
+        "away": "Coventry City",
+        "home_goals": 1,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "7c5592ef80d116897c0869604adc98e96c123d40596e35ceef9d3da34bcb1218",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:22.532750+00:00"
+      }
+    },
+    {
+      "index": 502,
+      "league": "en.1",
+      "date": "2026-09-05",
+      "home": "Nottingham Forest FC",
+      "away": "Tottenham Hotspur FC",
+      "reference_score": [
+        0,
+        0
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-05",
+        "league": "en.1",
+        "home": "Nottingham Forest",
+        "away": "Tottenham Hotspur",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "espn_source": {
+        "sha256": "7c5592ef80d116897c0869604adc98e96c123d40596e35ceef9d3da34bcb1218",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+        "retrieved_at": "2026-11-24T09:40:22.532750+00:00"
+      }
+    },
+    {
+      "index": 503,
+      "league": "en.1",
+      "date": "2026-09-13",
+      "home": "Coventry City FC",
+      "away": "Brighton & Hove Albion FC",
+      "reference_score": [
+        0,
+        5
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-13",
+        "league": "en.1",
+        "home": "Coventry City",
+        "away": "Brighton & Hove Albion",
+        "home_goals": 0,
+        "away_goals": 5
+      },
+      "espn_source": {
+        "sha256": "518e89b47c160f32ebe8cb5c1ef6bf31dfe9ccd700d27272ffe7b6479ef7a5ab",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260913",
+        "retrieved_at": "2026-11-24T09:40:22.661590+00:00"
+      }
+    },
+    {
+      "index": 504,
+      "league": "en.1",
+      "date": "2026-09-13",
+      "home": "Manchester United FC",
+      "away": "Manchester City FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-13",
+        "league": "en.1",
+        "home": "Manchester United",
+        "away": "Manchester City",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "518e89b47c160f32ebe8cb5c1ef6bf31dfe9ccd700d27272ffe7b6479ef7a5ab",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260913",
+        "retrieved_at": "2026-11-24T09:40:22.661590+00:00"
+      }
+    },
+    {
+      "index": 505,
+      "league": "en.1",
+      "date": "2026-09-14",
+      "home": "Leeds United FC",
+      "away": "Newcastle United FC",
+      "reference_score": [
+        4,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-14",
+        "league": "en.1",
+        "home": "Leeds United",
+        "away": "Newcastle United",
+        "home_goals": 4,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "475ba352a3a4f17e3f9e152c4c5f891e9437990f40b02583f6cfe6eab86e4236",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260914",
+        "retrieved_at": "2026-11-24T09:40:22.673553+00:00"
+      }
+    },
+    {
+      "index": 506,
+      "league": "en.1",
+      "date": "2026-09-19",
+      "home": "Newcastle United FC",
+      "away": "Hull City AFC",
+      "reference_score": [
+        2,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "en.1",
+        "home": "Newcastle United",
+        "away": "Hull City",
+        "home_goals": 2,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "361f82e464ba68b0eeba468b23ea3c97e83a0d021aea57ea51617b324319c266",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:22.742567+00:00"
+      }
+    },
+    {
+      "index": 507,
+      "league": "en.1",
+      "date": "2026-09-19",
+      "home": "Nottingham Forest FC",
+      "away": "Coventry City FC",
+      "reference_score": [
+        0,
+        1
+      ],
+      "provider": "fixturedl",
+      "status": "ESPN_SCORE_MATCH",
+      "espn": {
+        "date": "2026-09-19",
+        "league": "en.1",
+        "home": "Nottingham Forest",
+        "away": "Coventry City",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "espn_source": {
+        "sha256": "361f82e464ba68b0eeba468b23ea3c97e83a0d021aea57ea51617b324319c266",
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+        "retrieved_at": "2026-11-24T09:40:22.742567+00:00"
+      }
+    }
+  ],
+  "upstream_independence_certified": false,
+  "ex_final_allowed": false
+}

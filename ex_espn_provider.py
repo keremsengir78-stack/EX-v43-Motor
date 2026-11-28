@@ -7,7 +7,12 @@ import math
 
 MAX_SCOREBOARD_BYTES=2_000_000
 
-ESPN_LEAGUES={"en.1":"eng.1","de.1":"ger.1","es.1":"esp.1","it.1":"ita.1","fr.1":"fra.1","UCL":"uefa.champions","tr.1":"tur.1","nl.1":"ned.1","pt.1":"por.1","be.1":"bel.1","no.1":"nor.1","at.1":"aut.1","gr.1":"gre.1","sk.1":"svk.1","cz.1":"cze.1","ua.1":"ukr.1","az.1":"aze.1"}
+from ex_leagues import APPROVED_LEAGUES
+
+ESPN_LEAGUES = {league: entry[1] for league, entry in APPROVED_LEAGUES.items()}
+ESPN_LEAGUES.update({"en.2": "eng.2", "at.1": "aut.1", "gr.1": "gre.1", "sk.1": "svk.1",
+                     "cz.1": "cze.1", "ua.1": "ukr.1", "az.1": "aze.1"})
+
 
 def parse_espn_scoreboard(payload,league,as_of,requested_day=None):
     if league not in ESPN_LEAGUES:

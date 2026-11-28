@@ -1,0 +1,62 @@
+{
+  "2267": {
+    "name": "Emirates Stadium",
+    "latitude": 51.555,
+    "longitude": -0.10833,
+    "source": "https://en.wikipedia.org/wiki/Emirates_Stadium"
+  },
+  "152": {
+    "name": "St. James' Park",
+    "latitude": 54.975556,
+    "longitude": -1.621667,
+    "source": "https://www.olympedia.org/venues/876"
+  },
+  "192": {
+    "name": "Anfield",
+    "latitude": 53.430801,
+    "longitude": -2.96096,
+    "source": "https://www.doogal.co.uk/FootballMap?stadium=Anfield"
+  },
+  "250": {
+    "name": "Old Trafford",
+    "latitude": 53.4631,
+    "longitude": -2.29139,
+    "source": "https://www.doogal.co.uk/FootballMap?stadium=Old+Trafford"
+  },
+  "249": {
+    "name": "Stamford Bridge",
+    "latitude": 51.481602,
+    "longitude": -0.191034,
+    "source": "https://www.doogal.co.uk/FootballMap?stadium=Stamford+Bridge"
+  },
+  "4036": {
+    "name": "Etihad Stadium",
+    "latitude": 53.483002,
+    "longitude": -2.20024,
+    "source": "https://www.doogal.co.uk/FootballMap?stadium=Etihad+Stadium"
+  },
+  "307": {
+    "name": "Villa Park",
+    "latitude": 52.509201,
+    "longitude": -1.88508,
+    "source": "https://www.doogal.co.uk/FootballMap?stadium=Villa+Park"
+  },
+  "10630": {
+    "name": "Santiago Bernabéu",
+    "latitude": 40.453053,
+    "longitude": -3.688344,
+    "source": "https://www.latlong.net/place/santiago-bernab-u-stadium-madrid-spain-23243.html"
+  },
+  "10344": {
+    "name": "Signal Iduna Park",
+    "latitude": 51.4925888,
+    "longitude": 7.4518574,
+    "source": "https://www.bundesliga-reisefuehrer.de/de/node/11534"
+  },
+  "1935": {
+    "name": "Allianz Arena",
+    "latitude": 48.218967,
+    "longitude": 11.623746,
+    "source": "https://www.latlong.net/place/allianz-arena-munich-germany-31644.html"
+  }
+}

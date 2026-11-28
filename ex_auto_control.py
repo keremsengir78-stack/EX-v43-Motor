@@ -6,23 +6,30 @@ import hashlib
 import json
 import math
 
+from ex_decision import ex_g_from_evidence, weighted_evidence
+from ex_fixture_odds import check_odds
+from ex_history_archive import utc
+
 MARKET_KEYS=("2.5_UST","KG_VAR","MS1","MSX","MS2")
 
 def snapshot(data):
     raw=json.dumps(data,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
-def auto_control(match, ingestion=None):
+def auto_control(match, ingestion=None, *, pup_requested=None, fixture_evidence=None, context_evidence=None, require_odds=True, market_evidence=None, quote=None):
     issues=[]
     if not isinstance(match,dict):
         return {"status":"BLOCKED","issues":["match:invalid"],"ex_final_allowed":False}
     if match.get("recompute_consistent") is not True:
         issues.append("tur2:recompute_mismatch")
-    if match.get("status")!="BASELINE_ONLY":
+    if match.get("status")!="BASELINE_ONLY" or match.get("full_historical_windows") is False:
         issues.append("historical_samples:incomplete")
-    for gate in ("fixture_lock","odds_lock"):
+    for gate in (("fixture_lock","odds_lock") if require_odds else ("fixture_lock",)):
         if not isinstance(match.get(gate),dict) or match[gate].get("status")!="VERIFIED_INPUT":
             issues.append(gate+":blocked")
+    if (match.get("market") in MARKET_KEYS and
+            (match.get("odds_lock") or {}).get("decision") == "PASS_ODDS_1_19_OR_LOWER"):
+        issues.append("odds_lock:pass_1_19_or_lower")
     market=match.get("market_baselines_pct")
     if not isinstance(market,dict) or any(k not in market for k in MARKET_KEYS):
         issues.append("market_baselines:missing")
@@ -39,13 +46,41 @@ def auto_control(match, ingestion=None):
             not isinstance(ingestion.get("independent_sources_confirmed"),int) or
             ingestion.get("independent_sources_confirmed",0)<2):
         issues.append("second_source:unverified")
-    # Explicitly unimplemented inputs cannot be silently treated as verified.
-    issues.extend(["exg:uncalibrated","context:unverified","pup:unverified"])
+    if fixture_evidence is not None and fixture_evidence.get("status") != "FIXTURE_CROSS_VERIFIED":
+        issues.append("fixture_sources:unverified")
+    if match.get("live_evidence_window") is False:
+        issues.append("live_evidence:48h_pending")
+    as_of = match.get("as_of")
+    selection = match.get("market")
+    ex_g = ex_g_from_evidence(selection, weighted_evidence(market_evidence, as_of),
+                              competition=match.get("league"), as_of=as_of)
+    if ex_g["status"] != "EX_G_AVAILABLE":
+        issues.append("exg:uncalibrated")
+    else:
+        if ex_g["probability"] < .70:
+            issues.append("exg:below_70_percent")
+        if match.get("full_historical_windows") is not True:
+            issues.append("historical_samples:full_windows_required")
+        if (not isinstance(fixture_evidence, dict)
+                or fixture_evidence.get("status") != "FIXTURE_CROSS_VERIFIED"):
+            issues.append("fixture_sources:unverified")
+        if (not require_odds or not isinstance(quote, dict) or quote.get("market") != selection
+                or check_odds(quote, as_of)["status"] != "VERIFIED_INPUT"
+                or check_odds(quote, as_of) != match.get("odds_lock")
+                or ("live_evidence_starts_at" in match
+                    and utc(quote["observed_at"]) < utc(match["live_evidence_starts_at"]))):
+            issues.append("odds_lock:blocked")
+    if not isinstance(context_evidence, dict) or context_evidence.get("status") != "CONTEXT_CROSS_VERIFIED":
+        issues.append("context:unverified")
+    if pup_requested is not False:
+        issues.append("pup:unverified")
     try:
         digest=snapshot(match)
     except (ValueError,TypeError,OverflowError):
         issues.append("snapshot:invalid")
         digest=None
-    return {"status":"BLOCKED" if issues else "CHECKS_PASSED",
-            "issues":issues,"snapshot_sha256":digest,
-            "ex_final_allowed":False}
+    passed_price = "odds_lock:pass_1_19_or_lower" in issues and (match.get("odds_lock") or {}).get("status") == "VERIFIED_INPUT"
+    allowed = not issues
+    return {"status": "PASS" if passed_price else "FINAL" if allowed else "BLOCKED",
+            "issues": list(dict.fromkeys(issues)), "snapshot_sha256": digest,
+            "ex_g": ex_g, "ex_final_allowed": allowed}

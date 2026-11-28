@@ -2,6 +2,9 @@
 """EX v4.3 auditable offline goals model. Standard library only."""
 import argparse,csv,datetime as dt,json,math,hashlib,statistics
 from pathlib import Path
+from ex_baseline_calibration import chronological_intercept
+from ex_historical_features import HistoricalFeatures
+from ex_leagues import season_bounds
 W=(.4,.3,.2,.1)
 REQUIRED=('date','league','home','away','home_goals','away_goals')
 def date(s): return dt.date.fromisoformat(s)
@@ -22,11 +25,16 @@ def subset(rows,team,side,cutoff,league):
 def mean_goals(rows,side):
     if not rows:return None
     return (sum(r['hg'] if side=='home' else r['ag'] for r in rows)/len(rows),sum(r['ag'] if side=='home' else r['hg'] for r in rows)/len(rows))
-def weighted_form(rows,team,side,cutoff,league,season_start,previous_start):
-    arr=subset(rows,team,side,cutoff,league)
-    season=[r for r in rows if r['league']==league and r['date']<cutoff and r['date']>=season_start and (r['home']==team or r['away']==team)]
+def form_sample_rows(rows,team,side,cutoff,league,season_start,previous_start):
+    ordered = sorted(rows, key=lambda row: (row["date"], str(row.get("kickoff", "")),
+                                            str(row.get("event_id") or "")))
+    arr=subset(ordered,team,side,cutoff,league)
+    season=[r for r in ordered if r['league']==league and r['date']<cutoff and r['date']>=season_start and (r['home']==team or r['away']==team)]
     prev=[r for r in arr if previous_start<=r['date']<season_start]
-    chunks=[arr[-5:],arr[-10:],season,prev]
+    return [arr[-5:],arr[-10:],season,prev]
+
+def weighted_form(rows,team,side,cutoff,league,season_start,previous_start):
+    chunks=form_sample_rows(rows,team,side,cutoff,league,season_start,previous_start)
     if any(not c for c in chunks):return None,{'counts':list(map(len,chunks)),'reason':'missing sample'}
     rates=[]
     for j,c in enumerate(chunks):
@@ -54,7 +62,10 @@ def distribution(lh,la):
             'probability_mass':sum(p for h,a,p in grid),
             'top_scores':scores,'lambda_home':lh,'lambda_away':la,'p_11':poisson(1,lh)*poisson(1,la),'p_20':poisson(2,lh)*poisson(0,la),'p_30':poisson(3,lh)*poisson(0,la)}
 def calculate(rows,fixture,threshold=.70):
-    league=fixture['league']; cutoff=date(fixture['date']); ss=date(fixture['season_start']); ps=date(fixture['previous_start'])
+    league=fixture['league']; cutoff=date(fixture['date'])
+    ss, ps = season_bounds(league, cutoff)
+    if fixture.get('season_start') or fixture.get('previous_start'):
+        ss, ps = date(fixture['season_start']), date(fixture['previous_start'])
     if not ps<ss<=cutoff:raise ValueError('season bounds inconsistent')
     home,ha=weighted_form(rows,fixture['home'],'home',cutoff,league,ss,ps)
     away,aa=weighted_form(rows,fixture['away'],'away',cutoff,league,ss,ps)
@@ -75,31 +86,63 @@ def calculate(rows,fixture,threshold=.70):
     return base
 def audit(rows,fixtures):
     out=[]
+    history=HistoricalFeatures(rows)
     for f in fixtures:
         try: r=calculate(rows,f)
         except Exception as e:r={'fixture':f,'status':'ERROR','decision':'NO_FINAL','error':str(e)}
         # deterministic second pass with equality, not independent data-source validation
         try:
-            r2=calculate(rows,f);r['recompute_consistent']=r.get('baseline_over25_pct')==r2.get('baseline_over25_pct') and r['status']==r2['status']
+            r2=calculate(rows,f)
+            r['recompute_consistent']=r==r2
         except Exception:r['recompute_consistent']=False
+        if r['status']=='BASELINE_ONLY' and r['recompute_consistent']:
+            r['historical_features']=history.fixture(f['league'],f['league'],f['home'],f['away'],date(f['date']))
         out.append(r)
     return out
+def baseline_backtest_observations(rows, min_train=30):
+    """Yield retrospective predictions from fixtures strictly earlier by date."""
+    for r in rows:
+        ss, ps = season_bounds(r['league'], r['date'])
+        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(ps)}
+        if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
+        p=calculate(rows,f)
+        if p['status']=='BASELINE_ONLY':
+            yield r,p['baseline']
+
+
 def backtest(rows,min_train=30):
     # strict chronological prediction: prior results only, no random leakage
     preds=[]
-    for r in rows:
-        ss=dt.date(r['date'].year if r['date'].month>=7 else r['date'].year-1,7,1)
-        f={'date':str(r['date']),'league':r['league'],'home':r['home'],'away':r['away'],'season_start':str(ss),'previous_start':str(dt.date(ss.year-1,7,1))}
-        if sum(z['league']==r['league'] and z['date']<r['date'] for z in rows)<min_train:continue
-        p=calculate(rows,f)
-        if p['status']=='BASELINE_ONLY':preds.append((r['date'],p['baseline']['over25'],int(r['hg']+r['ag']>=3)))
+    markets = {
+        '2.5_UST': ('over25', lambda h, a: h+a>=3),
+        'KG_VAR': ('btts', lambda h, a: h>0 and a>0),
+        'MS1': ('home_win', lambda h, a: h>a),
+        'MS2': ('away_win', lambda h, a: a>h),
+    }
+    market_predictions = {market: [] for market in markets}
+    for r, baseline in baseline_backtest_observations(rows, min_train):
+        for market, (metric, settled) in markets.items():
+            market_predictions[market].append(
+                (r['date'], baseline[metric], int(settled(r['hg'], r['ag'])))
+            )
+        preds.append(market_predictions['2.5_UST'][-1])
     if not preds:return {'n':0,'status':'INSUFFICIENT_DATA'}
     n=len(preds);brier=sum((p-y)**2 for _,p,y in preds)/n
     bins=[]
     for lo in (0,.1,.2,.3,.4,.5,.6,.7,.8,.9):
         sample=[(p,y) for _,p,y in preds if lo<=p<lo+.1 or (lo==.9 and p==1)]
         if sample:bins.append({'range':f'{lo:.1f}-{lo+.1:.1f}','n':len(sample),'predicted':round(statistics.mean(p for p,y in sample),3),'observed':round(statistics.mean(y for p,y in sample),3)})
-    return {'n':n,'brier':round(brier,5),'accuracy_at_70':round(sum(y for _,p,y in preds if p>=.7)/max(1,sum(p>=.7 for _,p,y in preds)),4),'n_at_70':sum(p>=.7 for _,p,y in preds),'calibration_bins':bins,'status':'BASELINE_BACKTEST_ONLY'}
+    market_audit = {
+        market: {
+            'n': len(values),
+            'brier': round(statistics.mean((p-y)**2 for _,p,y in values), 5),
+            'mean_prediction': round(statistics.mean(p for _,p,_ in values), 5),
+            'observed_frequency': round(statistics.mean(y for _,_,y in values), 5),
+            'chronological_calibration': chronological_intercept(values),
+        }
+        for market, values in market_predictions.items()
+    }
+    return {'markets':market_audit,'calibrated':False,'ex_final_allowed':False,'n':n,'brier':round(brier,5),'accuracy_at_70':round(sum(y for _,p,y in preds if p>=.7)/max(1,sum(p>=.7 for _,p,y in preds)),4),'n_at_70':sum(p>=.7 for _,p,y in preds),'calibration_bins':bins,'status':'BASELINE_BACKTEST_ONLY'}
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--results',required=True);ap.add_argument('--fixtures');ap.add_argument('--output',default='report.json');ap.add_argument('--backtest',action='store_true');args=ap.parse_args()
     rows=load(args.results);report={'version':'EX v4.3 research engine 0.2','results_rows':len(rows),'source_sha256':hashlib.sha256(Path(args.results).read_bytes()).hexdigest(),'disclaimer':'No EX FINAL without independently specified EX-G formula, verified conditions, odds and source validation.'}

@@ -1,0 +1,100 @@
+name: EX production evidence coverage
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths: [.github/workflows/ex-production-coverage.yml, run_ex_production_coverage.py, run_ex_dutch_reconcile.py, run_ex_source_audit.py]
+  workflow_dispatch:
+    inputs:
+      vi_daily_limit:
+        description: Maximum additional published VI results dates
+        type: number
+        default: 120
+      resume_run_id:
+        description: Earlier coverage run that contains verified Dutch raw snapshots
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45561565207
+          name: ex-approved-league-evidence
+          path: dutch
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+          path: plan
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45471422307
+          name: ex-retrospective-results
+          path: retrospectives
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555434697
+          name: ex-prospective-forecasts
+          path: day1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45561898364
+          name: ex-prospective-forecasts
+          path: day2
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555442252
+          name: ex-laliga-bulk-evidence
+          path: laliga
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45562034679
+          name: ex-expanded-official-score-evidence
+          path: expanded
+      - uses: actions/download-artifact@v4
+        if: inputs.resume_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.resume_run_id }}
+          name: ex-production-coverage-evidence
+          path: evidence
+      - env:
+          VI_DAILY_LIMIT: ${{ inputs.vi_daily_limit }}
+        run: |
+          vi=()
+          if [ -n "$VI_DAILY_LIMIT" ]; then vi+=(--vi-daily-limit "$VI_DAILY_LIMIT"); fi
+          python run_ex_source_audit.py --ledger scores/score-evidence.json --official-results dfl/results.json laliga/results.json expanded/results.json --output evidence/score-audit.json
+          python run_ex_dutch_reconcile.py --primary dutch/history/results.csv --as-of 2026-11-25 --output evidence/dutch "${vi[@]}"
+          python run_ex_production_coverage.py --plan plan/plan.json --examples retrospectives/retrospective-examples.jsonl --capture day1/capture.json day2/capture.json --dutch-ingestion dutch/history/audit.json --retrospective-report retrospectives/retrospective.json --output evidence/coverage.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-production-coverage-evidence
+          path: evidence/

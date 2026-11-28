@@ -1,0 +1,289 @@
+{
+  "domestic_baseline": {
+    "markets": {
+      "2.5_UST": {
+        "n": 1066,
+        "brier": 0.23736,
+        "mean_prediction": 0.56933,
+        "observed_frequency": 0.61257,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 698,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.23787446416025815,
+          "adjusted_brier": 0.23667142079089,
+          "training_log_odds_intercept": 0.25172045653148534,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "KG_VAR": {
+        "n": 1066,
+        "brier": 0.24318,
+        "mean_prediction": 0.57259,
+        "observed_frequency": 0.56473,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 698,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.24404444852749557,
+          "adjusted_brier": 0.24403901836470626,
+          "training_log_odds_intercept": -0.0009604406296483299,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "MS1": {
+        "n": 1066,
+        "brier": 0.21776,
+        "mean_prediction": 0.43758,
+        "observed_frequency": 0.44841,
+        "chronological_calibration": {
+          "status": "HOLDOUT_NOT_IMPROVED",
+          "train_n": 368,
+          "test_n": 698,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.2170731096184991,
+          "adjusted_brier": 0.2183521586783454,
+          "training_log_odds_intercept": 0.14846136170249472,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "MS2": {
+        "n": 1066,
+        "brier": 0.20147,
+        "mean_prediction": 0.3299,
+        "observed_frequency": 0.34522,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 698,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.2056433221429601,
+          "adjusted_brier": 0.20524269618618873,
+          "training_log_odds_intercept": 0.059985111620156545,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      }
+    },
+    "calibrated": false,
+    "ex_final_allowed": false,
+    "n": 1066,
+    "brier": 0.23736,
+    "accuracy_at_70": 0.6542,
+    "n_at_70": 107,
+    "calibration_bins": [
+      {
+        "range": "0.2-0.3",
+        "n": 7,
+        "predicted": 0.266,
+        "observed": 0.571
+      },
+      {
+        "range": "0.3-0.4",
+        "n": 57,
+        "predicted": 0.365,
+        "observed": 0.404
+      },
+      {
+        "range": "0.4-0.5",
+        "n": 199,
+        "predicted": 0.457,
+        "observed": 0.538
+      },
+      {
+        "range": "0.5-0.6",
+        "n": 372,
+        "predicted": 0.553,
+        "observed": 0.624
+      },
+      {
+        "range": "0.6-0.7",
+        "n": 324,
+        "predicted": 0.644,
+        "observed": 0.67
+      },
+      {
+        "range": "0.7-0.8",
+        "n": 98,
+        "predicted": 0.732,
+        "observed": 0.653
+      },
+      {
+        "range": "0.8-0.9",
+        "n": 9,
+        "predicted": 0.815,
+        "observed": 0.667
+      }
+    ],
+    "status": "BASELINE_BACKTEST_ONLY"
+  },
+  "ucl_league_strength": {
+    "status": "BLOCKED_NO_HOLDOUT_IMPROVEMENT",
+    "train_matches": 54,
+    "holdout_matches": 18,
+    "goal_unit_penalty": 4,
+    "calibrated": false,
+    "ex_final_allowed": false,
+    "evaluated_matches": 18,
+    "pooled_residual_challenger": {
+      "model_mse": 10.969432529800539,
+      "better_than_reference": false,
+      "method": "signed league residuals shrunk by twelve zero-margin observations"
+    },
+    "null_mse": 10.761659807956105,
+    "model_mse": 10.985682541023348,
+    "training_cross_league_appearances": {
+      "gr.1": 3,
+      "at.1": 3,
+      "be.1": 3,
+      "en.1": 15,
+      "de.1": 12,
+      "es.1": 15,
+      "pt.1": 6,
+      "fr.1": 9,
+      "it.1": 12,
+      "nl.1": 6,
+      "no.1": 6,
+      "sk.1": 3,
+      "tr.1": 6,
+      "ua.1": 3,
+      "az.1": 3,
+      "cz.1": 3
+    },
+    "training_matchdays": [
+      1,
+      2,
+      3
+    ],
+    "holdout_matchday": 4
+  },
+  "ex_final_allowed": false,
+  "domestic_baseline_before_full_club_archive": {
+    "markets": {
+      "2.5_UST": {
+        "n": 1063,
+        "brier": 0.23723,
+        "mean_prediction": 0.56926,
+        "observed_frequency": 0.61242,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 695,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.23766909243717949,
+          "adjusted_brier": 0.2364998477302424,
+          "training_log_odds_intercept": 0.25172045653148534,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "KG_VAR": {
+        "n": 1063,
+        "brier": 0.24308,
+        "mean_prediction": 0.57262,
+        "observed_frequency": 0.56444,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 695,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.2438931336773367,
+          "adjusted_brier": 0.24388743892571868,
+          "training_log_odds_intercept": -0.0009604406296483299,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "MS1": {
+        "n": 1063,
+        "brier": 0.21821,
+        "mean_prediction": 0.43819,
+        "observed_frequency": 0.44967,
+        "chronological_calibration": {
+          "status": "HOLDOUT_NOT_IMPROVED",
+          "train_n": 368,
+          "test_n": 695,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.21775396789517373,
+          "adjusted_brier": 0.21898142253178204,
+          "training_log_odds_intercept": 0.14846136170249472,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      },
+      "MS2": {
+        "n": 1063,
+        "brier": 0.20168,
+        "mean_prediction": 0.32922,
+        "observed_frequency": 0.34431,
+        "chronological_calibration": {
+          "status": "HOLDOUT_IMPROVED",
+          "train_n": 368,
+          "test_n": 695,
+          "holdout_start_date": "2026-09-04",
+          "baseline_brier": 0.20598431485008808,
+          "adjusted_brier": 0.20559108355142972,
+          "training_log_odds_intercept": 0.059985111620156545,
+          "calibration_certified": false,
+          "forecast_provenance": "RETROSPECTIVE_BASELINE"
+        }
+      }
+    },
+    "calibrated": false,
+    "ex_final_allowed": false,
+    "n": 1063,
+    "brier": 0.23723,
+    "accuracy_at_70": 0.6542,
+    "n_at_70": 107,
+    "calibration_bins": [
+      {
+        "range": "0.2-0.3",
+        "n": 7,
+        "predicted": 0.266,
+        "observed": 0.571
+      },
+      {
+        "range": "0.3-0.4",
+        "n": 57,
+        "predicted": 0.365,
+        "observed": 0.404
+      },
+      {
+        "range": "0.4-0.5",
+        "n": 199,
+        "predicted": 0.457,
+        "observed": 0.538
+      },
+      {
+        "range": "0.5-0.6",
+        "n": 370,
+        "predicted": 0.553,
+        "observed": 0.622
+      },
+      {
+        "range": "0.6-0.7",
+        "n": 323,
+        "predicted": 0.644,
+        "observed": 0.672
+      },
+      {
+        "range": "0.7-0.8",
+        "n": 98,
+        "predicted": 0.732,
+        "observed": 0.653
+      },
+      {
+        "range": "0.8-0.9",
+        "n": 9,
+        "predicted": 0.815,
+        "observed": 0.667
+      }
+    ],
+    "status": "BASELINE_BACKTEST_ONLY"
+  }
+}

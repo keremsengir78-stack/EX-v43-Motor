@@ -98,3 +98,44 @@ def verify_fixture_sources(observations, cutoff, require_evidence_locator=False)
             "issues": issues, "independent_sources_confirmed": len(provider_groups) if not issues else 0,
             "agreed_fixture": dict(zip(FIELDS, values[0])) if values and not issues else None,
             "ex_final_allowed": False}
+
+
+def verify_archived_score_pair(observations, expected, cutoff, load_source, approved_lineages):
+    """Validate fixture-bound score parses against a trusted, digest-keyed lineage review."""
+    try:
+        if len(observations) != 2:
+            raise ValueError("Exactly two reviewed observations are required")
+        normalized = []
+        receipts, upstream = set(), []
+        boundary = dt.datetime.fromisoformat(cutoff.replace("Z", "+00:00"))
+        for observation in observations:
+            source = observation["source"]
+            digest = source["sha256"]
+            lineage = approved_lineages[digest]
+            sealed = dt.datetime.fromisoformat(observation["sealed_at"].replace("Z", "+00:00"))
+            reviewed = dt.datetime.fromisoformat(lineage["reviewed_at"].replace("Z", "+00:00"))
+            if sealed.utcoffset() != dt.timedelta(0) or reviewed.utcoffset() != dt.timedelta(0):
+                raise ValueError("Source times must be UTC")
+            if (digest in receipts or not isinstance(lineage["upstream_ids"], (tuple, list))
+                    or not lineage["upstream_ids"] or not lineage["review_locator"]
+                    or any(not isinstance(item, str) or not item.strip() for item in lineage["upstream_ids"])):
+                raise ValueError("Distinct, documented upstream sources are required")
+            raw, captured = load_source(source, source["url"])
+            if not captured <= sealed < boundary or not captured <= reviewed < boundary:
+                raise ValueError("Sources or reviews postdate the decision")
+            if lineage["source_url"] != source["url"] or not raw:
+                raise ValueError("Lineage must refer to the preserved source")
+            parsed = lineage["parse_score"](raw, captured)
+            if not all(key in expected and parsed.get(key) == expected[key] for key in (*FIELDS, "league")):
+                raise ValueError("Parsed score or fixture identity disagrees")
+            upstream.append({item.strip().casefold() for item in (*lineage["upstream_ids"], lineage["producer_id"])})
+            receipts.add(digest)
+            normalized.append({**parsed, "source_id": digest, "provider_group": lineage["producer_id"],
+                               "evidence_url": source["url"], "verified": True,
+                               "retrieved_at": captured.isoformat().replace("+00:00", "Z")})
+        if upstream[0] & upstream[1]:
+            raise ValueError("Shared upstream source")
+        return verify_fixture_sources(normalized, cutoff, require_evidence_locator=True)
+    except (KeyError, TypeError, ValueError, AttributeError, OSError, OverflowError):
+        return {"status": "BLOCKED", "issues": ["sources:archived_lineage_or_identity_unverified"],
+                "independent_sources_confirmed": 0, "agreed_fixture": None, "ex_final_allowed": False}

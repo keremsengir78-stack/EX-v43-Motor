@@ -1,0 +1,366 @@
+name: EX prospective operations
+
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-prospective-operations.yml
+      - ex_research_components.py
+      - ex_performance_v1.py
+      - ex_cup_team_history.py
+      - run_ex_official_queue_join.py
+      - run_ex_missed_prematch_audit.py
+      - ex_daily_research.py
+      - ex_daily_selection.py
+      - ex_daily_official.py
+      - run_ex_prospective_pipeline.py
+      - run_ex_prospective_validation.py
+      - ex_official_calendar.py
+      - run_ex_source_audit.py
+      - run_ex_official_minutes_batch.py
+      - run_ex_power_design.py
+      - ex_pup_gate.py
+      - ex_prospective_power.py
+      - tests/test_ex_prospective_operations.py
+  schedule:
+    - cron: '17 5,12,17 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [audit, capture, settle, cycle, source-audit, source-discovery]
+        required: true
+      day:
+        type: string
+        description: UTC fixture date for capture
+      days:
+        type: string
+        description: 'Optional JSON array of UTC dates for one batch capture'
+      pup:
+        type: boolean
+        description: Run post-analysis PUP checks
+        default: false
+      forecast_artifact_ids:
+        type: string
+        description: Optional forecast artifact IDs alongside durable archive records
+      history_run_id:
+        type: string
+        description: Optional bulk history run ID for fresh capture history
+      design_run_id:
+        type: string
+        description: Optional run with preregistered ex-power-design artifact
+      official_run_id:
+        type: string
+        description: Optional run containing separately reviewed official-outcomes artifact
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    if: github.event_name == 'pull_request' || inputs.mode == 'audit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531307
+          name: ex-dfl-score-review
+          path: official
+      - run: |
+          python run_ex_source_audit.py --ledger scores/score-evidence.json --dfl official/dfl-scores.json --output source-audit.json
+          python run_ex_official_minutes_batch.py --input research/ucl/domestic-minutes*-pilot.json --output minutes.json
+          git fetch origin refs/heads/ex-evidence-archive
+          git worktree add --detach durable-evidence FETCH_HEAD
+          python ex_evidence_store.py --store durable-evidence restore --kind official-source-probe --output probes
+          python run_ex_official_queue_join.py --probe probes/15012525469 --ledger scores/score-evidence.json --output official-queue-join.json
+          python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output weeks
+          python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output captures
+          python run_ex_missed_prematch_audit.py --inventory weeks/15012941747/capacity.json --packs captures --output missed-prematch.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-technical-audit
+          path: |
+            source-audit.json
+            minutes.json
+            official-queue-join.json
+            missed-prematch.json
+
+
+  archived-preflight:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531617
+          name: ex-prematch-archive
+          path: previous
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          pattern: history-summary-evidence-1-*
+          path: history
+      - name: Exercise the prospective feature generator with archived sources
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("previous/prematch.json").read_text())
+          Path("capture.json").write_text(json.dumps({"day": "2026-11-25", "reports": {"UCL": report}}))
+          PY
+          python run_ex_prospective_pipeline.py --capture capture.json --plan plan.json --history history --cache previous/prematch-cache --output-dir forecasts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-forecasts
+          path: forecasts/
+
+  archived-calendars:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45552936337
+          name: ex-prospective-forecasts
+          path: archived
+      - run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          from pathlib import Path
+          from ex_official_calendar import PARSERS
+          from run_ex_official_sources import read_evidence
+          from run_ex_prospective_pipeline import alternate_context
+          root = Path("archived")
+          report = json.loads((root / "capture.json").read_text())
+          cache = root / "pregame-cache"
+          for league, source in report["alternate_calendar_evidence"].items():
+              rows = list(PARSERS[league](read_evidence(cache / "alternate-calendars", source)))
+              assert rows, league
+              print(league, len(rows))
+          for day in range(25, 31):
+              report["day"] = dt.date(2026, 11, day).isoformat()
+              context, issues = alternate_context(report, cache)
+              assert not issues, issues
+              print(report["day"], {league: len(rows) for league, rows in context.items()})
+          PY
+
+  official-source-probe:
+    if: inputs.mode == 'source-audit' || inputs.mode == 'source-discovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - env:
+          MODE: ${{ inputs.mode }}
+        run: |
+          flags=()
+          if [ "$MODE" = source-discovery ]; then flags+=(--discover); fi
+          python ex_daily_official.py --output source-probe "${flags[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-official-source-probe
+          path: source-probe/
+  capture:
+    if: github.event_name == 'schedule' || inputs.mode == 'capture' || inputs.mode == 'cycle'
+    strategy:
+      fail-fast: false
+      matrix:
+        day: ${{ fromJSON(inputs.days || '[""]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore durable capture inputs
+        id: archive
+        run: |
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
+            python ex_evidence_store.py --store durable-evidence restore --kind ucl-domestic-research --output domestic --limit 1
+            python ex_evidence_store.py --store durable-evidence restore --kind weekly-capacity --output weekly-boards
+            python ex_evidence_store.py --store durable-evidence restore --kind historical-facts --output facts --limit 1
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output prior-pregame --limit 6
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output component-archive --file forecasts/daily-analysis.json
+          fi
+          facts=$(find facts -type f -name historical-facts.jsonl -print -quit 2>/dev/null || true)
+          echo "facts=$facts" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
+          name: history-plan-1
+      - uses: actions/download-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.history_run_id || '45469007220' }}
+          pattern: history-summary-evidence-1-*
+          path: history
+      - env:
+          DAY: ${{ matrix.day || inputs.day }}
+          FACTS: ${{ steps.archive.outputs.facts }}
+          RAW_OVERRIDE: ${{ inputs.history_run_id }}
+          PUP: ${{ inputs.pup }}
+        run: |
+          history=(--plan plan.json --history history --export-facts historical-facts.jsonl)
+          if [ -n "$FACTS" ] && [ -z "$RAW_OVERRIDE" ]; then
+            history=(--historical-facts "$FACTS")
+          fi
+          pup=()
+          if [ "$PUP" = true ]; then pup=(--pup); fi
+          python run_ex_prospective_pipeline.py "${pup[@]}" --daily-capture "${DAY:-$(date -u +%F)}" \
+            "${history[@]}" --cache pregame-cache --prior-settlements prior-outcomes \
+            --domestic-packs domestic --weekly-scoreboards weekly-boards --prior-pregame prior-pregame --component-research --component-archive component-archive --output-dir forecasts
+      - uses: actions/upload-artifact@v4
+        if: steps.archive.outputs.facts == '' || inputs.history_run_id != ''
+        with:
+          name: ex-historical-facts${{ matrix.day && format('-{0}', matrix.day) || '' }}
+          path: historical-facts.jsonl
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-forecasts${{ matrix.day && format('-{0}', matrix.day) || '' }}
+          path: |
+            forecasts/
+            pregame-cache/
+
+  settle:
+    if: github.event_name == 'schedule' || inputs.mode == 'settle' || inputs.mode == 'cycle'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download forecast packs and verify exact artifact receipts
+        id: restore_forecasts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACTS: ${{ inputs.forecast_artifact_ids }}
+        run: |
+          ref=refs/heads/ex-evidence-archive
+          if [ -n "$(git ls-remote origin "$ref")" ]; then
+            git fetch origin "$ref"
+            git worktree add --detach durable-evidence FETCH_HEAD
+            python ex_evidence_store.py --store durable-evidence restore --kind prematch-and-research --output packs
+            python ex_evidence_store.py --store durable-evidence restore --kind settlement-and-performance --output prior-outcomes
+            python ex_evidence_store.py --store durable-evidence restore --kind frozen-candidates --output frozen --limit 1
+            candidate=$(find frozen -name frozen-candidates.json -type f -print -quit 2>/dev/null || true)
+            if [ -n "$candidate" ]; then mkdir -p model; cp "$candidate" model/frozen-candidates.json; fi
+          fi
+          if [ -f model/frozen-candidates.json ]; then echo "has_frozen=true" >> "$GITHUB_OUTPUT"; fi
+          if [ -z "$ARTIFACTS" ]; then
+            exit 0
+          fi
+          [[ "$ARTIFACTS" =~ ^[0-9]+(,[0-9]+)*$ ]]
+          IFS=, read -r -a ids <<< "$ARTIFACTS"
+          for id in "${ids[@]}"; do
+            if [ -f "packs/$id/receipt.json" ]; then continue; fi
+            mkdir -p "packs/$id"
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > "packs/$id/receipt.json"
+            [[ "$(jq -r .name "packs/$id/receipt.json")" =~ ^ex-prospective-forecasts(-[0-9]{4}-[0-9]{2}-[0-9]{2})?$ ]]
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > forecasts.zip
+            test "sha256:$(sha256sum forecasts.zip | cut -d' ' -f1)" = "$(jq -r .digest "packs/$id/receipt.json")"
+            unzip -q forecasts.zip -d "packs/$id"
+          done
+      - uses: actions/download-artifact@v4
+        if: inputs.design_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.design_run_id }}
+          name: ex-power-design
+          path: design
+      - uses: actions/download-artifact@v4
+        if: inputs.official_run_id != ''
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.official_run_id }}
+          name: official-outcomes
+          path: reviewed
+      - uses: actions/download-artifact@v4
+        if: steps.restore_forecasts.outputs.has_frozen != 'true'
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45475531307
+          name: ex-frozen-research-candidates
+          path: model
+      - uses: actions/cache/restore@v4
+        with:
+          path: settlement-cache
+          key: ex-settlement-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ex-settlement-${{ github.ref }}-
+      - run: |
+          official=()
+          if [ -f reviewed/official.json ]; then official+=(--official reviewed/official.json); fi
+          if [ -f design/design.json ]; then official+=(--design design/design.json); fi
+          python run_ex_prospective_pipeline.py --packs packs --prior-settlements prior-outcomes --auto-official --frozen-model model/frozen-candidates.json --cache settlement-cache --output-dir settlement "${official[@]}"
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: settlement-cache
+          key: ex-settlement-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ex-prospective-settlement
+          path: |
+            settlement/
+            settlement-cache/raw/
+
+  publish:
+    if: always() && (github.event_name == 'schedule' || inputs.mode == 'cycle' || inputs.mode == 'capture') && (needs.capture.result == 'success' || needs.settle.result == 'success')
+    needs: [capture, settle]
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Send new evidence packs to the archive writer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          TARGET: ${{ github.ref_name }}
+        run: |
+          ids=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts"             --jq '[.artifacts[] | select((.name | test("^ex-(prospective-forecasts|prospective-settlement|historical-facts)(-[0-9]{4}-[0-9]{2}-[0-9]{2})?$"))) | .id] | join(",")')
+          test -n "$ids"
+          monday=$(date -u -d "$(date -u +%F) - $(($(date -u +%u) - 1)) days" +%F)
+          gh workflow run ex-weekly-evidence.yml --repo "$GITHUB_REPOSITORY" --ref "$TARGET"             -f week_start="$monday" -f artifact_ids="$ids" -f preserve_only=true

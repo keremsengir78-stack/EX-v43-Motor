@@ -1,0 +1,940 @@
+{
+  "league": "cz.1",
+  "club": "Slavia Praha",
+  "scope": "15 current-season league results and 34 played previous-season league results, compared with the club's archive. The administrative 0:3 against Sparta Praha on 2026-05-09 is excluded from played-goal history.",
+  "captured_on": "2026-11-24",
+  "fixtures": [
+    {
+      "date": "2025-07-20",
+      "home": "Slavia Praha",
+      "away": "Hradec Králové",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-07-20 FC Hradec Králové Hradec Králové"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-07-20 round 1 Slavia Praha–Hradec Králové"
+        }
+      ]
+    },
+    {
+      "date": "2025-07-26",
+      "home": "Bohemians 1905",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-07-26 Bohemians 1905 Bohemians 1905"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-07-26 round 2 Bohemians 1905–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-03",
+      "home": "Slovácko",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-08-03 1.FC Slovácko Slovácko"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-08-03 round 3 Slovácko–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-09",
+      "home": "Slavia Praha",
+      "away": "Teplice",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-08-09 FK Teplice Teplice"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-08-09 round 4 Slavia Praha–Teplice"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-16",
+      "home": "Jablonec",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-08-16 FK Jablonec Jablonec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-08-16 round 5 Jablonec–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-23",
+      "home": "Slavia Praha",
+      "away": "Pardubice",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-08-23 FK Pardubice Pardubice"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-08-23 round 6 Slavia Praha–Pardubice"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-30",
+      "home": "Mladá Boleslav",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-08-30 FK Mladá Boleslav Mladá Boleslav"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-08-30 round 7 Mladá Boleslav–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-13",
+      "home": "Slavia Praha",
+      "away": "Karviná",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-09-13 MFK Karviná Karviná"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-09-13 round 8 Slavia Praha–Karviná"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-21",
+      "home": "Slovan Liberec",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-09-21 FC Slovan Liberec Liberec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-09-21 round 9 Slovan Liberec–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-26",
+      "home": "Slavia Praha",
+      "away": "FK Dukla Praha",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-09-26 FK Dukla Praha Dukla Praha"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-09-26 round 10 Slavia Praha–FK Dukla Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "home": "Sparta Praha",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-10-05 AC Sparta Praha Sparta"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-10-05 round 11 Sparta Praha–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-18",
+      "home": "Slavia Praha",
+      "away": "FC Zlín",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-10-18 FC Zlín Zlín"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-10-18 round 12 Slavia Praha–FC Zlín"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "home": "Sigma Olomouc",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-10-26 SK Sigma Olomouc Olomouc"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-10-26 round 13 Sigma Olomouc–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "home": "Slavia Praha",
+      "away": "Baník Ostrava",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-11-01 FC Baník Ostrava Ostrava"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-11-01 round 14 Slavia Praha–Baník Ostrava"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "home": "Viktoria Plzeň",
+      "away": "Slavia Praha",
+      "score": [
+        3,
+        5
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-11-09 FC Viktoria Plzeň Plzeň"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-11-09 round 15 Viktoria Plzeň–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "home": "Slavia Praha",
+      "away": "Bohemians 1905",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-11-22 Bohemians 1905 Bohemians 1905"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-11-22 round 16 Slavia Praha–Bohemians 1905"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-29",
+      "home": "Slavia Praha",
+      "away": "Slovácko",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-11-29 1.FC Slovácko Slovácko"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-11-29 round 17 Slavia Praha–Slovácko"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-05",
+      "home": "Teplice",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-12-05 FK Teplice Teplice"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-12-05 round 18 Teplice–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-13",
+      "home": "Slavia Praha",
+      "away": "Jablonec",
+      "score": [
+        4,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2025-12-13 FK Jablonec Jablonec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2025-12-13 round 19 Slavia Praha–Jablonec"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "home": "Pardubice",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-02-01 FK Pardubice Pardubice"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-02-01 round 20 Pardubice–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-07",
+      "home": "Slavia Praha",
+      "away": "Mladá Boleslav",
+      "score": [
+        4,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-02-07 FK Mladá Boleslav Mladá Boleslav"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-02-07 round 21 Slavia Praha–Mladá Boleslav"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-14",
+      "home": "Karviná",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-02-14 MFK Karviná Karviná"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-02-14 round 22 Karviná–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-21",
+      "home": "Slavia Praha",
+      "away": "Slovan Liberec",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-02-21 FC Slovan Liberec Liberec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-02-21 round 23 Slavia Praha–Slovan Liberec"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-27",
+      "home": "FK Dukla Praha",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-02-27 FK Dukla Praha Dukla Praha"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-02-27 round 24 FK Dukla Praha–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-08",
+      "home": "Slavia Praha",
+      "away": "Sparta Praha",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-03-08 AC Sparta Praha Sparta"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-03-08 round 25 Slavia Praha–Sparta Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "home": "FC Zlín",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-03-14 FC Zlín Zlín"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-03-14 round 26 FC Zlín–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "home": "Baník Ostrava",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-04-05 FC Baník Ostrava Ostrava"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-04-05 round 28 Baník Ostrava–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "home": "Slavia Praha",
+      "away": "Viktoria Plzeň",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-04-12 FC Viktoria Plzeň Plzeň"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-04-12 round 29 Slavia Praha–Viktoria Plzeň"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "home": "Hradec Králové",
+      "away": "Slavia Praha",
+      "score": [
+        2,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-04-19 FC Hradec Králové Hradec Králové"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-04-19 round 30 Hradec Králové–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-25",
+      "home": "Slavia Praha",
+      "away": "Sigma Olomouc",
+      "score": [
+        2,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-04-25 SK Sigma Olomouc Olomouc"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-04-25 round 27 Slavia Praha–Sigma Olomouc"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "home": "Slovan Liberec",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-05-02 FC Slovan Liberec Liberec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-05-02 round 1 Slovan Liberec–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-13",
+      "home": "Slavia Praha",
+      "away": "Jablonec",
+      "score": [
+        5,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-05-13 FK Jablonec Jablonec"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-05-13 round 3 Slavia Praha–Jablonec"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "home": "Hradec Králové",
+      "away": "Slavia Praha",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-05-17 FC Hradec Králové Hradec Králové"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-05-17 round 4 Hradec Králové–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "home": "Slavia Praha",
+      "away": "Viktoria Plzeň",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://en.slavia.cz/zapasy.asp",
+          "locator": "2026-05-24 FC Viktoria Plzeň Plzeň"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-05-24 round 5 Slavia Praha–Viktoria Plzeň"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "home": "Slavia Praha",
+      "away": "Slovácko",
+      "score": [
+        5,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-07-26 round 1"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-07-26 round 1 Slavia Praha–Slovácko"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "home": "Baník Ostrava",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        4
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-08-01 round 2 Ostrava–Slavia"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-08-01 round 2 Baník Ostrava–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "home": "Slavia Praha",
+      "away": "Pardubice",
+      "score": [
+        2,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-08-09 round 3"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-08-09 round 3 Slavia Praha–Pardubice"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-16",
+      "home": "Slovan Liberec",
+      "away": "Slavia Praha",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-08-16 round 4"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-08-16 round 4 Slovan Liberec–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Slavia Praha",
+      "away": "Bohemians 1905",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-08-22 round 5"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-08-22 round 5 Slavia Praha–Bohemians 1905"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Sparta Praha",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-08-30 round 6"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-08-30 round 6 Sparta Praha–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Slavia Praha",
+      "away": "Zbrojovka Brno",
+      "score": [
+        4,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-09-05 round 7"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-09-05 round 7 Slavia Praha–Zbrojovka Brno"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Teplice",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-09-13 round 8"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-09-13 round 8 Teplice–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Slavia Praha",
+      "away": "Viktoria Plzeň",
+      "score": [
+        2,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-09-20 round 9"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-09-20 round 9 Slavia Praha–Viktoria Plzeň"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "home": "FC Zlín",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-10-09 round 10"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-10-09 round 10 FC Zlín–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "home": "Slavia Praha",
+      "away": "Hradec Králové",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-10-17 round 11"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-10-17 round 11 Slavia Praha–Hradec Králové"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Slavia Praha",
+      "away": "Mladá Boleslav",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-10-24 round 12"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-10-24 round 12 Slavia Praha–Mladá Boleslav"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Jablonec",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        5
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-10-31 round 13"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-10-31 round 13 Jablonec–Slavia Praha"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Slavia Praha",
+      "away": "Artis Brno",
+      "score": [
+        4,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-11-08 round 14"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-11-08 round 14 Slavia Praha–Artis Brno"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Sigma Olomouc",
+      "away": "Slavia Praha",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://www.slavia.cz/cze/matches/1?competition=382&season=2027&type=played",
+          "locator": "2026-11-21 round 15"
+        },
+        {
+          "url": "https://www.besoccer.com/team/matches/slavia-praha",
+          "locator": "2026-11-21 round 15 Sigma Olomouc–Slavia Praha"
+        }
+      ]
+    }
+  ],
+  "ex_final_allowed": false
+}

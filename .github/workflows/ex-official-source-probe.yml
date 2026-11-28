@@ -1,0 +1,178 @@
+name: EX official evidence acquisition
+on:
+  pull_request:
+    branches: [ex-v43-development]
+    paths:
+      - .github/workflows/ex-official-source-probe.yml
+      - run_ex_official_sources.py
+      - ex_official_report_html.py
+      - ex_pfl_protocol.py
+      - run_ex_dfl_bulk.py
+      - run_ex_laliga_bulk.py
+      - run_ex_source_audit.py
+      - run_ex_additional_official_scores.py
+      - config/ex_official_sources.json
+      - config/ex_official_minutes_fixtures.json
+permissions:
+  contents: read
+  actions: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - run: python run_ex_official_sources.py --config config/ex_official_sources.json --output official-evidence --minutes-fixtures config/ex_official_minutes_fixtures.json
+      - name: Compare official Czech report to reviewed timeline
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from run_ex_official_sources import extract_czech_report, read_evidence
+          from run_ex_official_minutes_batch import normalize
+
+          root = Path("official-evidence")
+          entry = json.loads((root / "manifest.json").read_text())["cz-report"]
+          fixture = json.loads(Path("research/ucl/domestic-minutes-czech-pilot.json").read_text())
+          assert entry["url"] == entry["final_url"] == fixture["source"]
+          labels = {"home": "Jablonec", "away": "Slavia"}
+          parsed = extract_czech_report(read_evidence(root, entry), fixture, labels)
+          assert not parsed["errors"], parsed["errors"]
+          reviewed = normalize([fixture])
+          for side in labels:
+              actual = parsed["minutes"][0]["minutes"][side]
+              expected = reviewed["minutes"][0]["minutes"][side]
+              assert actual == {name.split(maxsplit=1)[1]: minutes
+                                for name, minutes in expected.items()}, (actual, expected)
+          print("Official Czech report: 32 player minute totals agree with reviewed timeline")
+          PY
+      - name: Verify the official minutes batch
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from run_ex_official_minutes_batch import normalize
+
+          data = json.loads(Path("official-evidence/minutes.json").read_text())
+          rows = {row["league"]: row["minutes"] for row in data["matches"]}
+          assert set(rows) == {"cz.1", "sk.1", "ua.1", "az.1"}, data["errors"]
+          pfl = {row["official_document_id"]: row["minutes"] for row in data["matches"] if row["league"] == "az.1"}
+          assert len(pfl) == 2, data["errors"]
+          assert pfl["1743269964"]["home"]["Silvanus Nimeli"] == 0
+          assert pfl["1793989279"]["away"]["Şahnur İsmayılov"] == 0
+          assert "az-report" in data["errors"]
+          reviewed = json.loads(Path("research/ucl/domestic-minutes-pilot.json").read_text())
+          expected = normalize([reviewed])["minutes"][0]["minutes"]
+          for side, observed in rows["ua.1"].items():
+              assert sorted(observed.values()) == sorted(expected[side].values())
+          print("Official minutes batch:", {league: [len(side) for side in minutes.values()]
+                                             for league, minutes in rows.items()})
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-official-evidence
+          path: official-evidence/
+
+  dfl-bulk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45552742440
+          name: ex-dfl-bulk-evidence
+          path: dfl-evidence
+      - run: python run_ex_dfl_bulk.py --ledger scores/score-evidence.json --output dfl-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-dfl-bulk-evidence
+          path: dfl-evidence/
+
+  laliga-bulk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555048786
+          name: ex-laliga-bulk-evidence
+          path: laliga-evidence
+      - run: python run_ex_laliga_bulk.py --ledger scores/score-evidence.json --dfl dfl/results.json --output laliga-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-laliga-bulk-evidence
+          path: laliga-evidence/
+
+  score-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45469007220
+          name: history-score-evidence-1
+          path: scores
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45553019000
+          name: ex-dfl-bulk-evidence
+          path: dfl
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45555442252
+          name: ex-laliga-bulk-evidence
+          path: laliga
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45558254066
+          name: ex-expanded-official-score-evidence
+          path: score-evidence
+      - run: python run_ex_additional_official_scores.py --ledger scores/score-evidence.json --dfl dfl/results.json --laliga laliga/results.json --output score-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ex-expanded-official-score-evidence
+          path: score-evidence/

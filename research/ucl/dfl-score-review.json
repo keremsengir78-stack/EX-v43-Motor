@@ -1,0 +1,18 @@
+{
+  "source": "https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/10",
+  "reviewed_on": "2026-11-24",
+  "season": "2026-27",
+  "matchday": 10,
+  "league": "de.1",
+  "fixtures": [
+    ["2026-11-20", "Bayern Munich", "FC Koln", 1, 1],
+    ["2026-11-21", "Elversberg", "Freiburg", 0, 1],
+    ["2026-11-21", "M'gladbach", "Dortmund", 0, 1],
+    ["2026-11-21", "Union Berlin", "RB Leipzig", 1, 5],
+    ["2026-11-21", "Ein Frankfurt", "Hoffenheim", 1, 0],
+    ["2026-11-21", "Leverkusen", "Paderborn", 4, 0],
+    ["2026-11-21", "Schalke 04", "Stuttgart", 0, 0],
+    ["2026-11-22", "Augsburg", "Mainz", 3, 1],
+    ["2026-11-22", "Werder Bremen", "Hamburg", 4, 0]
+  ]
+}

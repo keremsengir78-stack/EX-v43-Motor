@@ -1,0 +1,16 @@
+{
+  "evidence": {
+    "uefa-20261126": {
+      "source": "https://github.com/keremsengir78-stack/EX-v43-Motor/blob/df9fc98/records/manual-pregame-review/20261126T072324Z.json",
+      "observed_at": "2026-11-26T07:23:24Z"
+    }
+  },
+  "teams": [
+    {"espn_id":"147","espn_name":"NEC Nijmegen","uefa_name":"N.E.C. Nijmegen","country":"NL","domestic":[{"league":"nl.1","season":2026}],"evidence":"uefa-20261126"},
+    {"espn_id":"169","espn_name":"Stade Rennais","uefa_name":"Rennes","country":"FR","domestic":[{"league":"fr.1","season":2026}],"evidence":"uefa-20261126"},
+    {"espn_id":"139","espn_name":"Ajax Amsterdam","uefa_name":"Ajax","country":"NL","domestic":[{"league":"nl.1","season":2026}],"evidence":"uefa-20261126"},
+    {"espn_id":"3024","espn_name":"FC Thun","uefa_name":"Thun","country":"CH","domestic":[{"league":"ch.1","season":2026}],"evidence":"uefa-20261126"},
+    {"espn_id":"126","espn_name":"SC Freiburg","uefa_name":"Freiburg","country":"DE","domestic":[{"league":"de.1","season":2026}],"evidence":"uefa-20261126"},
+    {"espn_id":"152","espn_name":"FC Twente","uefa_name":"Twente","country":"NL","domestic":[{"league":"nl.1","season":2026}],"evidence":"uefa-20261126"}
+  ]
+}

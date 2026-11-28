@@ -3,7 +3,18 @@ on:
   workflow_dispatch:
   push:
     branches: [ex-v43-development]
-    paths: ['run_ucl_research.py', 'run_ucl_domestic.py', 'run_ucl_archive.py', 'run_ucl_baselines.py', 'ex_ucl_baseline.py', 'ex_espn_provider.py', '.github/workflows/ex-ucl-research.yml']
+    paths: &ucl_paths
+      - 'run_ucl_*.py'
+      - 'ex_ucl_baseline.py'
+      - 'ex_ucl_strength.py'
+      - 'ex_espn_provider.py'
+      - 'config/ucl_matchday5_2026_research.json'
+      - 'research/ucl/**'
+      - 'tests/test_ucl_research.py'
+      - '.github/workflows/ex-ucl-research.yml'
+  pull_request:
+    branches: [ex-v43-development]
+    paths: *ucl_paths
 jobs:
   research:
     runs-on: ubuntu-latest
@@ -14,17 +25,23 @@ jobs:
         with:
           python-version: '3.11'
       - run: python run_ucl_research.py
+        id: ucl-source-check
+        continue-on-error: true
       - run: python run_ucl_archive.py
       - run: python run_ucl_baselines.py
       - uses: actions/upload-artifact@v4
         with:
           name: ucl-archive-baselines
           path: ucl_research_output/
+      - run: python run_ucl_domestic_candidates.py
       - run: python run_ucl_domestic.py
         continue-on-error: true
-      - run: python run_ucl_baselines.py
+      - run: python run_ucl_baselines.py --backtest
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ucl-research-evidence
           path: ucl_research_output/
+      - name: Require corroborated UCL fixture and historical scores
+        if: always() && steps.ucl-source-check.outcome != 'success'
+        run: exit 1

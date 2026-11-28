@@ -1,0 +1,46 @@
+{
+  "cz-report": {
+    "league": "cz.1",
+    "official_match_id": "8430",
+    "match_date": "2026-10-31",
+    "home": "FK Jablonec",
+    "away": "SK Slavia Praha",
+    "source": "https://www.chanceliga.cz/zapas/statistiky/8430-fk-jablonec-sk-slavia-praha",
+    "scope": "Reviewed official report identity",
+    "labels": {
+      "home": "Jablonec",
+      "away": "Slavia"
+    }
+  },
+  "ua-report": {
+    "league": "ua.1",
+    "official_match_id": "15927",
+    "source": "https://upl.ua/en/report/view/15927/report"
+  },
+  "sk-report": {
+    "league": "sk.1",
+    "official_match_id": "2839",
+    "source": "https://www.nikeliga.sk/zapas/2839-slo-mic"
+  },
+  "az-report": {
+    "league": "az.1",
+    "official_match_id": "6807",
+    "source": "https://pfl.az/t%C9%99qvim/6807"
+  },
+  "az-pfl-sabah": {
+    "league": "az.1",
+    "source": "https://pfl.az/storage/games/files/67e8304cee9af_1743269964.pdf",
+    "home": "Sumqayıt",
+    "away": "Sabah",
+    "match_date_label": "29 mart 2025",
+    "official_document_id": "1743269964"
+  },
+  "az-pfl-neftci": {
+    "league": "az.1",
+    "source": "https://pfl.az/storage/games/files/6aee1a9f33881_1793989279.pdf",
+    "home": "Neftçi",
+    "away": "Kəpəz",
+    "match_date_label": "6 noyabr 2026",
+    "official_document_id": "1793989279"
+  }
+}

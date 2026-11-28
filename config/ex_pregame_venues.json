@@ -1,0 +1,74 @@
+{
+  "6477": {
+    "name": "Baku Olympic Stadium",
+    "latitude": 40.4298,
+    "longitude": 49.9198,
+    "source": "https://en.wikipedia.org/wiki/Baku_Olympic_Stadium"
+  },
+  "4626": {
+    "name": "Fortuna Arena",
+    "latitude": 50.0675,
+    "longitude": 14.47167,
+    "source": "https://en.wikipedia.org/wiki/Fortuna_Arena"
+  },
+  "10633": {
+    "name": "Riyadh Air Metropolitano",
+    "latitude": 40.43611,
+    "longitude": -3.59944,
+    "source": "https://en.wikipedia.org/wiki/Metropolitano_Stadium"
+  },
+  "600": {
+    "name": "Jan Breydel Stadium",
+    "latitude": 51.1893,
+    "longitude": 3.175,
+    "source": "https://latitude.to/articles-by-country/be/belgium/14502/jan-breydel-stadium"
+  },
+  "26": {
+    "name": "San Siro",
+    "latitude": 45.47820035,
+    "longitude": 9.12396399334239,
+    "source": "https://www.coordinatesfinder.com/coordinates/1158601"
+  },
+  "4947": {
+    "name": "Decathlon Arena - Stade Pierre-Mauroy",
+    "latitude": 50.611944,
+    "longitude": 3.130556,
+    "source": "https://fr.wikipedia.org/wiki/Stade_Pierre-Mauroy"
+  },
+  "2271": {
+    "name": "Parc des Princes",
+    "latitude": 48.84137,
+    "longitude": 2.25305,
+    "source": "https://mapcarta.com/fr/25260180"
+  },
+  "2352": {
+    "name": "Estádio José Alvalade",
+    "latitude": 38.76111,
+    "longitude": -9.16083,
+    "source": "https://ligaportugalstorage.blob.core.windows.net/backoffice/assets/Guia_do_Adepto_SCP_25_26_b1a533e853.pdf"
+  },
+  "48": {
+    "name": "Goffertstadion",
+    "latitude": 51.82248,
+    "longitude": 5.83716,
+    "source": "https://www.coordinatenbepalen.nl/coordinates/862749-goffertstadion"
+  },
+  "10356": {
+    "name": "Johan Cruijff Arena",
+    "latitude": 52.31431,
+    "longitude": 4.94154,
+    "source": "https://www.latlong.net/place/johan-cruijff-arena-amsterdam-netherlands-31688.html"
+  },
+  "135": {
+    "name": "Selhurst Park",
+    "latitude": 51.398333,
+    "longitude": -0.085556,
+    "source": "https://www.olympedia.org/venues/348"
+  },
+  "8842": {
+    "name": "Europa-Park Stadion",
+    "latitude": 48.0216,
+    "longitude": 7.8297,
+    "source": "https://en.wikipedia.org/wiki/Europa-Park_Stadion"
+  }
+}

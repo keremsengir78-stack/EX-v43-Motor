@@ -1,0 +1,2590 @@
+{
+  "uefa_preview_source": {
+    "url": "https://www.uefa.com/uefachampionsleague/news/02ab-2223c67db015-c4f7874e074e-1000--champions-league-predicted-line-ups-matchday-5-team-news-/",
+    "file": "uefa-team-news.raw",
+    "sha256": "9d94b0a3f9c6f6c2cb1b15b96bb061bdff407443e3e931dabeaf42aa45cc032e",
+    "retrieved_at": "2026-11-24T10:10:41.600249+00:00"
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Bodø/Glimt",
+        "away": "LASK",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049629",
+        "home": {
+          "reported_team": "Bodø/Glimt",
+          "predicted_lineup": "Haikin, Sjøvold, Bjørtuft, Gundersen, Bjørkan; Auklend, Berg, Brunstad Fet; Blomberg, Helmersen, Hauge",
+          "out": "Evjen (cruciate ligament), Mikkelsen (groin)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "LASK",
+          "predicted_lineup": "Jungwirth; Mbuywamba, Verhaeghe, Alemao; Jørgensen, Ljubicic, Bogarde, Horvarth, Dibango; Usor, Kalajdzic",
+          "out": "Andrade (ankle), Bello (muscle), Flecker (calf)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-225",
+          "decimal_odds": 1.4444444444444444,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+500",
+          "decimal_odds": 6.0,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "1510",
+        "fullName": "Aspmyra Stadion",
+        "address": {
+          "city": "Bodø/Glimt",
+          "country": "Norway"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401843486",
+              "kickoff_at": "2026-11-20T18:00Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401843476",
+              "kickoff_at": "2026-11-08T13:30Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401915384",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401843468",
+              "kickoff_at": "2026-10-30T18:00Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401843372",
+              "kickoff_at": "2026-10-24T14:00Z",
+              "competition": "2026 Eliteserien"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 95.75
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401881749",
+              "kickoff_at": "2026-11-21T16:00Z",
+              "competition": "2026-27 Austrian Bundesliga"
+            },
+            {
+              "event_id": "401881752",
+              "kickoff_at": "2026-11-07T18:30Z",
+              "competition": "2026-27 Austrian Bundesliga"
+            },
+            {
+              "event_id": "401915385",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401881760",
+              "kickoff_at": "2026-10-31T18:30Z",
+              "competition": "2026-27 Austrian Bundesliga"
+            },
+            {
+              "event_id": "401881766",
+              "kickoff_at": "2026-10-25T16:00Z",
+              "competition": "2026-27 Austrian Bundesliga"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 73.75
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915380",
+        "file": "summary-401915380.raw",
+        "sha256": "a2f646c3ed95d9881b5d6dfa6c2a7f9b3fb794007614552029d1026da016efcb",
+        "retrieved_at": "2026-11-24T10:10:41.722593+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T17:45:00Z",
+        "home": "Galatasaray",
+        "away": "Aston Villa",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049631",
+        "home": {
+          "reported_team": "Galatasaray",
+          "predicted_lineup": "Uğurcan Çakır; Singo, Sánchez, Abdülkerim Bardakçı, Eren Elmalı; Torreira, Gabriel Sara; Sané, Batrakov, Yunus Akgün; Barış Alper Yılmaz",
+          "out": "Osimhen (knee), Rafael Leão (hamstring), Sallai (hamstring)",
+          "doubtful": "Jakobs (groin)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Aston Villa",
+          "predicted_lineup": "Suzuki; Wan-Bissaka, Lindelöf, Pau Torres, Maatsen; Kamara, João Gomes; McGinn, Buendía, Manzambi; Jackson",
+          "out": "Cash (concussion)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+205",
+          "decimal_odds": 3.05,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+115",
+          "decimal_odds": 2.15,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "4987",
+        "fullName": "RAMS Park",
+        "address": {
+          "city": "Istanbul",
+          "country": "Türkiye"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401888245",
+              "kickoff_at": "2026-11-21T13:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401888371",
+              "kickoff_at": "2026-11-07T16:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401915311",
+              "kickoff_at": "2026-11-03T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401888259",
+              "kickoff_at": "2026-10-30T17:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401888265",
+              "kickoff_at": "2026-10-26T18:30Z",
+              "competition": "2026-27 Turkish Super Lig"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 76.75
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401878756",
+              "kickoff_at": "2026-11-21T15:00Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401879240",
+              "kickoff_at": "2026-11-08T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401915387",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401879250",
+              "kickoff_at": "2026-10-31T20:00Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401921840",
+              "kickoff_at": "2026-10-28T19:45Z",
+              "competition": "2026-27 English Carabao Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 74.75
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915300",
+        "file": "summary-401915300.raw",
+        "sha256": "a46210c7c57708bb7fca4ef0b70807ed8c64165ba362772ec7b0a45c2b554c01",
+        "retrieved_at": "2026-11-24T10:10:41.753958+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Arsenal",
+        "away": "Borussia Dortmund",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049627",
+        "home": {
+          "reported_team": "Arsenal",
+          "predicted_lineup": "Arrizabalaga; White, Konsa, Gabriel, Calafiori; Rice, Lewis-Skelly, Ødegaard; Madueke, Havertz, Tzolis",
+          "out": "Raya (shoulder), Saka (muscular), Zubimendi (hamstring)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Dortmund",
+          "predicted_lineup": "Kobel; Gadou, Anton, Schlotterbeck; Ryerson, Veerman, Svensson, Nmecha; Bellingham, Fábio Silva; Beier",
+          "out": "Inácio (meniscus), Kaba (shoulder)",
+          "doubtful": "Chukwuemeka (muscular), Guirassy (thigh)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-220",
+          "decimal_odds": 1.4545454545454546,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+600",
+          "decimal_odds": 7.0,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "2.5_UST",
+          "bookmaker": "DraftKings",
+          "american_odds": "-135",
+          "decimal_odds": 1.7407407407407407,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "2267",
+        "fullName": "Emirates Stadium",
+        "address": {
+          "city": "London",
+          "country": "England"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401879232",
+              "kickoff_at": "2026-11-21T17:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401878760",
+              "kickoff_at": "2026-11-07T15:00Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401915381",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401879246",
+              "kickoff_at": "2026-11-01T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401921835",
+              "kickoff_at": "2026-10-27T20:00Z",
+              "competition": "2026-27 English Carabao Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 74.5
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401884731",
+              "kickoff_at": "2026-11-21T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401884745",
+              "kickoff_at": "2026-11-07T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401915304",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401884754",
+              "kickoff_at": "2026-10-31T17:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401917030",
+              "kickoff_at": "2026-10-27T19:45Z",
+              "competition": "2026-27 German Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 77.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915295",
+        "file": "summary-401915295.raw",
+        "sha256": "432bdf01125ea4990a8800daa59262cb5abdac311e79ee85ca3eb4a4a1a0529b",
+        "retrieved_at": "2026-11-24T10:10:41.682753+00:00"
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Como",
+        "away": "AEK Athens",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049633",
+        "home": {
+          "reported_team": "Como",
+          "predicted_lineup": "Butez; Yan Couto, Ramón, Chalobah, Valle; Milla, Perrone; Da Cunha, Nico Paz, Baturina; Douvikas",
+          "out": "Kean (shin), Diao (thigh)",
+          "doubtful": "Caqueret (muscular)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "AEK Athens",
+          "predicted_lineup": "Strakosha; Rota, Moukoudi, Relvas, Pilios; Majer, Kairinen, Marin, Mantalos; Jović, Varga.",
+          "out": "Arriaga (collarbone), Koita (suspended)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-380",
+          "decimal_odds": 1.263157894736842,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+850",
+          "decimal_odds": 9.5,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "5934",
+        "fullName": "Giuseppe Sinigaglia",
+        "address": {
+          "city": "Como",
+          "country": "Italy"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401875056",
+              "kickoff_at": "2026-11-21T14:00Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874808",
+              "kickoff_at": "2026-11-08T17:00Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401915305",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401875002",
+              "kickoff_at": "2026-11-01T11:30Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874786",
+              "kickoff_at": "2026-10-27T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 78.0
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401896810",
+              "kickoff_at": "2026-11-21T17:30Z",
+              "competition": "2026-27 Greek Super League"
+            },
+            {
+              "event_id": "401896733",
+              "kickoff_at": "2026-11-08T15:00Z",
+              "competition": "2026-27 Greek Super League"
+            },
+            {
+              "event_id": "401915383",
+              "kickoff_at": "2026-11-04T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401896736",
+              "kickoff_at": "2026-11-01T17:30Z",
+              "competition": "2026-27 Greek Super League"
+            },
+            {
+              "event_id": "401896744",
+              "kickoff_at": "2026-10-24T17:00Z",
+              "competition": "2026-27 Greek Super League"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 74.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915296",
+        "file": "summary-401915296.raw",
+        "sha256": "f097dd5323f39f643f16600b7661c096b2a5fbb6ed067a462f2023fee1be4ca6",
+        "retrieved_at": "2026-11-24T10:10:41.792403+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Feyenoord",
+        "away": "Porto",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049628",
+        "home": {
+          "reported_team": "Feyenoord",
+          "predicted_lineup": "Ernst; Read, Watanabe, Kraaijeveld, Mármol; Zechiël, Vanhoutte, Targhalline; Hadj Moussa, Ferri, Valente",
+          "out": "Beelen (leg), Bos (knee), Moder (back), Nieuwkoop (knee), St. Juste (shin)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Porto",
+          "predicted_lineup": "Diogo Costa; Alberto Costa, Bednarek, Kiwior, Martim Fernandes; Froholdt, Pablo Rosario, Gabriel Veiga; Pepê, André Silva, Borja Sainz",
+          "out": "Smalling (knee)",
+          "doubtful": "William Gomes (ankle)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+215",
+          "decimal_odds": 3.15,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+120",
+          "decimal_odds": 2.2,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "2.5_UST",
+          "bookmaker": "DraftKings",
+          "american_odds": "-160",
+          "decimal_odds": 1.625,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "10050",
+        "fullName": "De Kuip",
+        "address": {
+          "city": "Rotterdam",
+          "country": "Netherlands"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401875543",
+              "kickoff_at": "2026-11-21T17:45Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401875551",
+              "kickoff_at": "2026-11-08T11:15Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401915307",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401875565",
+              "kickoff_at": "2026-10-31T15:30Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401875568",
+              "kickoff_at": "2026-10-25T13:30Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 74.25
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401931821",
+              "kickoff_at": "2026-11-20T20:45Z",
+              "competition": "2026-27 Taca de Portugal"
+            },
+            {
+              "event_id": "401885394",
+              "kickoff_at": "2026-11-08T18:00Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            },
+            {
+              "event_id": "401915301",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401885404",
+              "kickoff_at": "2026-10-31T20:30Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            },
+            {
+              "event_id": "401885417",
+              "kickoff_at": "2026-10-24T19:30Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 95.25
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915294",
+        "file": "summary-401915294.raw",
+        "sha256": "e60f40129aa9d109cf221eccfb0182e2b8c6fb6e2b5f5181bcd2edc62f32f99a",
+        "retrieved_at": "2026-11-24T10:10:41.788245+00:00"
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Manchester City",
+        "away": "Napoli",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049626",
+        "home": {
+          "reported_team": "Manchester City",
+          "predicted_lineup": "Donnarumma; Khusanov, Rúben Dias, Guéhi, Gvardiol; Anderson, Fernández; Ndiaye, Foden, Cherki; Haaland",
+          "out": "Semenyo (knee)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Napoli",
+          "predicted_lineup": "Milinković-Savić; Politano, Rrahmani, Beukema, Spinazzola; Anguissa, Gilmour, McTominay; De Bruyne; Højlund, Lang",
+          "out": "Badiashile (hamstring), Di Lorenzo (thigh), Lobotka (ankle), Rafa Marín (suspended), Meret (back), Vergera (thigh), Alisson Santos (thigh)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-340",
+          "decimal_odds": 1.2941176470588236,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+750",
+          "decimal_odds": 8.5,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "4036",
+        "fullName": "Etihad Stadium",
+        "address": {
+          "city": "Manchester",
+          "country": "England"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401879233",
+              "kickoff_at": "2026-11-21T12:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401878757",
+              "kickoff_at": "2026-11-07T17:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401915306",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401879245",
+              "kickoff_at": "2026-10-31T15:00Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401921834",
+              "kickoff_at": "2026-10-28T19:30Z",
+              "competition": "2026-27 English Carabao Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 79.5
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401875067",
+              "kickoff_at": "2026-11-21T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874810",
+              "kickoff_at": "2026-11-08T11:30Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401915301",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401874949",
+              "kickoff_at": "2026-11-01T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874799",
+              "kickoff_at": "2026-10-28T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 72.25
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915379",
+        "file": "summary-401915379.raw",
+        "sha256": "243ffc1a16ed64596f8098c59432f44acb87f4434a89184cb1d1421992e15cb9",
+        "retrieved_at": "2026-11-24T10:10:41.905170+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Leipzig",
+        "away": "Lens",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049630",
+        "home": {
+          "reported_team": "Leipzig",
+          "predicted_lineup": "Vandevoordt; Baku, Orbán, Estève, Raum; El Aynaoui, Baumgartner, Banzuzi; Gruda, Cardoso, Nusa",
+          "out": "Lukeba (knee), Ouédraogo (shoulder)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Lens",
+          "predicted_lineup": "Risser; Aguilar, Todibo, Baidoo; Abdulhamid, Mesloub, Haidara, Udol; Thauvin, Hazard; Sima",
+          "out": "Édouard (adductor)",
+          "doubtful": "Bulatović (neck), Cuisance (illness), Ivanović (concussion)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-275",
+          "decimal_odds": 1.3636363636363638,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+600",
+          "decimal_odds": 7.0,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "4237",
+        "fullName": "Red Bull Arena",
+        "address": {
+          "city": "Leipzig",
+          "country": "Germany"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401884732",
+              "kickoff_at": "2026-11-21T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401933396",
+              "kickoff_at": "2026-11-12T10:00Z",
+              "competition": "2026 Club Friendly"
+            },
+            {
+              "event_id": "401884744",
+              "kickoff_at": "2026-11-07T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401915306",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401884747",
+              "kickoff_at": "2026-10-31T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            }
+          ],
+          "observed_matches_previous_14_days": 2,
+          "hours_since_last_observed_kickoff": 77.5
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401876403",
+              "kickoff_at": "2026-11-21T19:45Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876404",
+              "kickoff_at": "2026-11-08T19:45Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401915305",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401876420",
+              "kickoff_at": "2026-10-30T20:05Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876427",
+              "kickoff_at": "2026-10-24T18:45Z",
+              "competition": "2026-27 Ligue 1"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 72.25
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915299",
+        "file": "summary-401915299.raw",
+        "sha256": "19f54a0ca0b91baa19f180553996994541299b1798f90ae81a7bed80823c9a5d",
+        "retrieved_at": "2026-11-24T10:10:41.897579+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Real Madrid",
+        "away": "PSV Eindhoven",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049625",
+        "home": {
+          "reported_team": "Real Madrid",
+          "predicted_lineup": "Courtois; Valverde, Konaté, Huijsen, Cucurella; Bernardo Silva, Tchouaméni; Vinícius Júnior, Bellingham, Arda Güler; Mbappé",
+          "out": "Endrick (thigh), Raúl Asencio (stress fracture), Rodrygo (ligaments)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "PSV",
+          "predicted_lineup": "Kovář; Dest, Geertruida, Obispo, Kostić; Wanner, Sano; Perišić, Mijnans, Van Bommel; Til",
+          "out": "Mauro Júnior (groin), Ouaissa (knee)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-700",
+          "decimal_odds": 1.1428571428571428,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "PASS_ODDS_1_19_OR_LOWER"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+1400",
+          "decimal_odds": 15.0,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "10630",
+        "fullName": "Santiago Bernabéu",
+        "address": {
+          "city": "Madrid",
+          "country": "Spain"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401882798",
+              "kickoff_at": "2026-11-21T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882808",
+              "kickoff_at": "2026-11-07T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401915383",
+              "kickoff_at": "2026-11-04T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401882819",
+              "kickoff_at": "2026-11-01T15:15Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882832",
+              "kickoff_at": "2026-10-25T20:00Z",
+              "competition": "2026-27 LALIGA"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 72.0
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401875541",
+              "kickoff_at": "2026-11-21T15:30Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401875553",
+              "kickoff_at": "2026-11-08T15:45Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401915303",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401875564",
+              "kickoff_at": "2026-10-31T17:45Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            },
+            {
+              "event_id": "401875568",
+              "kickoff_at": "2026-10-25T13:30Z",
+              "competition": "2026-27 Dutch Eredivisie"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 76.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915298",
+        "file": "summary-401915298.raw",
+        "sha256": "1ee6fd327477e215e8df75c1aea0142d7f2d2bbde1ffb1daaf8f16c18b572e52",
+        "retrieved_at": "2026-11-24T10:10:41.856399+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-24",
+        "kickoff_at": "2026-11-24T20:00:00Z",
+        "home": "Slovan Bratislava",
+        "away": "Real Betis",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049632",
+        "home": {
+          "reported_team": "Slovan Bratislava",
+          "predicted_lineup": "Takáč; Blackman, Bajrić, Marković, Sandro Cruz; Martínez, Pokorný, Ibrahim; Barseghyan, Šporar, Marcelli",
+          "out": "Suleiman Camara (ankle), Gajdoš (knee)",
+          "doubtful": "Čerepkai (back)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Real Betis",
+          "predicted_lineup": "Álvaro Vallés; Ángel Ortiz, Diego Llorente, Natan, Valentín Gómez; Deossa, Bernal; Antony, Isco, Abde Ezzalzouli; Parrott",
+          "out": "Dani Ceballos (hamstring), Lo Celso (knee), Morante (adductor)",
+          "doubtful": "Cucho Hernández (calf)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+850",
+          "decimal_odds": 9.5,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "-380",
+          "decimal_odds": 1.263157894736842,
+          "observed_at": "2026-11-24T10:10:41.207953+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+          "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261124",
+        "file": "scoreboard-2026-11-24.raw",
+        "sha256": "1fd39c9c474edcdd236354500513466b0fd118db430f2bc3eb4481eea749bc50",
+        "retrieved_at": "2026-11-24T10:10:41.207953+00:00"
+      },
+      "venue": {
+        "id": "8451",
+        "fullName": "Národny Futbalovy Stadión",
+        "address": {
+          "city": "Bratislava",
+          "country": "Slovakia"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401915385",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915402",
+              "kickoff_at": "2026-10-20T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915405",
+              "kickoff_at": "2026-10-14T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915445",
+              "kickoff_at": "2026-09-09T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401909194",
+              "kickoff_at": "2026-08-26T19:00Z",
+              "competition": "2026-27 UEFA Champions League Qualifying"
+            }
+          ],
+          "observed_matches_previous_14_days": 0,
+          "hours_since_last_observed_kickoff": 504.0
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401882797",
+              "kickoff_at": "2026-11-21T17:30Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401928551",
+              "kickoff_at": "2026-11-12T18:00Z",
+              "competition": "2026-27 Spanish Copa del Rey"
+            },
+            {
+              "event_id": "401882814",
+              "kickoff_at": "2026-11-08T13:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401915304",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401882825",
+              "kickoff_at": "2026-10-31T17:30Z",
+              "competition": "2026-27 LALIGA"
+            }
+          ],
+          "observed_matches_previous_14_days": 2,
+          "hours_since_last_observed_kickoff": 74.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915297",
+        "file": "summary-401915297.raw",
+        "sha256": "9063e9ac4b7cb85333533da86d4242a0fe530f9d24fedf45844fdf2522d9bbf2",
+        "retrieved_at": "2026-11-24T10:10:41.942847+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Sabah",
+        "away": "Barcelona",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049642",
+        "home": {
+          "reported_team": "Sabah",
+          "predicted_lineup": "Pokatilov; Zedadka, Dashdamirov, Solvet, Puchacz; Lepinjica, Rakhmonaliev, Du Queiroz; Parris, Nwachukwu; Mickels",
+          "out": "McCarthy (suspended)",
+          "doubtful": "Khaibulaev (knock)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Barcelona",
+          "predicted_lineup": "Joan García; Koundé, De Jong, Gerard Martín, João Cancelo; Bernal, Pedri; Adeyemi, Fermín López, Gordon; Raphinha",
+          "out": "Christensen (muscular), Espart (ankle), Rodri (hamstring), Yamal (ankle)",
+          "doubtful": "Cubarsí (muscular)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+2000",
+          "decimal_odds": 21.0,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "-1200",
+          "decimal_odds": 1.0833333333333333,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "PASS_ODDS_1_19_OR_LOWER"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "6477",
+        "fullName": "Baku Olympic Stadium",
+        "address": {
+          "city": "Baku",
+          "country": "Azerbaijan"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401915302",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915404",
+              "kickoff_at": "2026-10-20T16:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915436",
+              "kickoff_at": "2026-10-13T16:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915442",
+              "kickoff_at": "2026-09-10T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401909192",
+              "kickoff_at": "2026-08-25T16:45Z",
+              "competition": "2026-27 UEFA Champions League Qualifying"
+            }
+          ],
+          "observed_matches_previous_14_days": 0,
+          "hours_since_last_observed_kickoff": 501.75
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401882804",
+              "kickoff_at": "2026-11-22T13:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882816",
+              "kickoff_at": "2026-11-08T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401915387",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401882822",
+              "kickoff_at": "2026-10-31T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882832",
+              "kickoff_at": "2026-10-25T20:00Z",
+              "competition": "2026-27 LALIGA"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 76.75
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915378",
+        "file": "summary-401915378.raw",
+        "sha256": "1907c7fe0c95912981068e61d70307febd27f84766cfe294e6c18115c801e38e",
+        "retrieved_at": "2026-11-24T10:10:41.966493+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T17:45:00Z",
+        "home": "Slavia Praha",
+        "away": "Villarreal",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049641",
+        "home": {
+          "reported_team": "Slavia Praha",
+          "predicted_lineup": "Markovič; Holeš, Zima, N’Guessan; Vlček, Sadílek, Nowak, Jurásek; Ayaosi, Suleiman; Chytil",
+          "out": "Chaloupek (hamstring), Moses (muscular), Ouanda (muscular), Piták (ankle), Šturm (muscular)",
+          "doubtful": "Provod (tendon)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Villarreal",
+          "predicted_lineup": "Gulácsi; Mouriño, Logan Costa, Renato Veiga, Carlos Romero; Saliba, Gueye; Buchanan, Alberto Moleiro, Oluwaseyi; Mikautadze",
+          "out": "Akhomach (muscular), Alassane (hamstring), Foyth (muscular), Gerard Moreno (muscular)",
+          "doubtful": "None",
+          "suspension_risk": "Mouriño"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+210",
+          "decimal_odds": 3.1,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+115",
+          "decimal_odds": 2.15,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "4626",
+        "fullName": "Fortuna Arena",
+        "address": {
+          "city": "Prague",
+          "country": "Czechia"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401915381",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915403",
+              "kickoff_at": "2026-10-20T16:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915436",
+              "kickoff_at": "2026-10-13T16:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915440",
+              "kickoff_at": "2026-09-10T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "757794",
+              "kickoff_at": "2026-01-28T20:00Z",
+              "competition": "2025-26 UEFA Champions League"
+            }
+          ],
+          "observed_matches_previous_14_days": 0,
+          "hours_since_last_observed_kickoff": 501.75
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401882804",
+              "kickoff_at": "2026-11-22T13:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882807",
+              "kickoff_at": "2026-11-08T17:30Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401915309",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401882817",
+              "kickoff_at": "2026-10-30T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401928522",
+              "kickoff_at": "2026-10-27T20:00Z",
+              "competition": "2026-27 Spanish Copa del Rey"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 76.75
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915293",
+        "file": "summary-401915293.raw",
+        "sha256": "081433b0632694ca78194ac886d6e4efc1c8073dcddad4bcdbe99f70e284af16",
+        "retrieved_at": "2026-11-24T10:10:41.999100+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Atlético de Madrid",
+        "away": "Viking",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049636",
+        "home": {
+          "reported_team": "Atleti",
+          "predicted_lineup": "Oblak; Llorente, Le Normand, Hancko, Grimaldo; Simeone, Barrios, Cardoso, Álex Baena; Sørloth, Alvarez",
+          "out": "Lookman (knee), Marc Pubill (ankle), Romero (muscular)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Viking",
+          "predicted_lineup": "Østbø; Heggheim, Stensness, Falchener, Auklend; Bjørdal, Bell, Askildsen; Christiansen, Botheim, Tripić",
+          "out": "Baertelsen (foot), Bjørshol (knee), D'Agostino (leg), Roseth (muscular)",
+          "doubtful": "Berisha (unspecified), K Haugen (unspecified)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-1000",
+          "decimal_odds": 1.1,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "PASS_ODDS_1_19_OR_LOWER"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+2000",
+          "decimal_odds": 21.0,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "10633",
+        "fullName": "Riyadh Air Metropolitano",
+        "address": {
+          "city": "Madrid",
+          "country": "Spain"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401882803",
+              "kickoff_at": "2026-11-22T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882816",
+              "kickoff_at": "2026-11-08T20:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401915386",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401882820",
+              "kickoff_at": "2026-10-31T13:00Z",
+              "competition": "2026-27 LALIGA"
+            },
+            {
+              "event_id": "401882834",
+              "kickoff_at": "2026-10-24T19:00Z",
+              "competition": "2026-27 LALIGA"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 72.0
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401843483",
+              "kickoff_at": "2026-11-21T13:00Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401843482",
+              "kickoff_at": "2026-11-08T16:00Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401915302",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401843468",
+              "kickoff_at": "2026-10-30T18:00Z",
+              "competition": "2026 Eliteserien"
+            },
+            {
+              "event_id": "401843373",
+              "kickoff_at": "2026-10-25T13:30Z",
+              "competition": "2026 Eliteserien"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 103.0
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915291",
+        "file": "summary-401915291.raw",
+        "sha256": "39abfba4647de3593c6411c0b5041cf79a289f998428c865000fb8c1e0dde286",
+        "retrieved_at": "2026-11-24T10:10:41.978389+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Club Brugge",
+        "away": "Liverpool",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049638",
+        "home": {
+          "reported_team": "Club Brugge",
+          "predicted_lineup": "Sommer; Sabbe, Spileers, Mechele, Seys; Carlos Forbs, Vetlesen, Potts, Vanaken, Lemaréchal; Tresoldi",
+          "out": "Ordóñez (metatarsal fracture), Virgili (groin)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Liverpool",
+          "predicted_lineup": "Alisson Becker; Araújo, Jacquet, Van Dijk, Tsimikas; Mac Allister, Szoboszlai; Barcola, Wirtz, Ngumoha; Isak",
+          "out": "Bradley (knee), Ekitiké (Achilles tendon), Gakpo (calf), Jaroš (shin), Leoni (cruciate ligament)",
+          "doubtful": "Gravenberch (heel)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+340",
+          "decimal_odds": 4.4,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "-155",
+          "decimal_odds": 1.6451612903225805,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "600",
+        "fullName": "Jan Breydel Stadium",
+        "address": {
+          "city": "Brugge",
+          "country": "Belgium"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401878935",
+              "kickoff_at": "2026-11-21T19:45Z",
+              "competition": "2026-27 Belgian Pro League"
+            },
+            {
+              "event_id": "401878946",
+              "kickoff_at": "2026-11-08T12:30Z",
+              "competition": "2026-27 Belgian Pro League"
+            },
+            {
+              "event_id": "401915303",
+              "kickoff_at": "2026-11-04T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401878956",
+              "kickoff_at": "2026-10-30T19:45Z",
+              "competition": "2026-27 Belgian Pro League"
+            },
+            {
+              "event_id": "401878964",
+              "kickoff_at": "2026-10-25T15:00Z",
+              "competition": "2026-27 Belgian Pro League"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 96.25
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401878755",
+              "kickoff_at": "2026-11-22T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401879243",
+              "kickoff_at": "2026-11-08T14:00Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401915382",
+              "kickoff_at": "2026-11-04T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401879246",
+              "kickoff_at": "2026-11-01T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401921842",
+              "kickoff_at": "2026-10-28T20:00Z",
+              "competition": "2026-27 English Carabao Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 75.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915292",
+        "file": "summary-401915292.raw",
+        "sha256": "c8543b31e96843f956ccccc5748c34744396851029b4dfe8694b891ea100d1c7",
+        "retrieved_at": "2026-11-24T10:10:41.993873+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Inter",
+        "away": "Stuttgart",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049635",
+        "home": {
+          "reported_team": "Inter",
+          "predicted_lineup": "J. Martínez; Bisseck, Akanji, Carlos Augusto; Spence, Barella, Sučić, Zieliński, Dimarco; Esposito, L. Martínez",
+          "out": "Bonny (thigh), Hakan Çalhanoğlu (thigh)",
+          "doubtful": "None",
+          "suspension_risk": "Hakan Çalhanoğlu"
+        },
+        "away": {
+          "reported_team": "Stuttgart",
+          "predicted_lineup": "Bredlow; Hendriks, Chabot, Mittelstädt; Leweling, Prömel, Karazor, Führich; Undav, Demirović, El Khannouss",
+          "out": "None",
+          "doubtful": "Jaquez (rib), Sauer (muscular), Stiller (groin)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-240",
+          "decimal_odds": 1.4166666666666667,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+500",
+          "decimal_odds": 6.0,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "26",
+        "fullName": "San Siro",
+        "address": {
+          "city": "Milano",
+          "country": "Italy"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401875001",
+              "kickoff_at": "2026-11-22T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874808",
+              "kickoff_at": "2026-11-08T17:00Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401915307",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401874795",
+              "kickoff_at": "2026-10-31T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874773",
+              "kickoff_at": "2026-10-28T17:30Z",
+              "competition": "2026-27 Italian Serie A"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 72.25
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401884729",
+              "kickoff_at": "2026-11-21T17:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401884743",
+              "kickoff_at": "2026-11-07T17:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401915311",
+              "kickoff_at": "2026-11-03T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401884753",
+              "kickoff_at": "2026-10-31T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401917032",
+              "kickoff_at": "2026-10-28T17:00Z",
+              "competition": "2026-27 German Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 98.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915376",
+        "file": "summary-401915376.raw",
+        "sha256": "00abd3c04b9f3daae7052ceec1ff943c6000ce4358dacfaadde0c158f3cb84ce",
+        "retrieved_at": "2026-11-24T10:10:42.041546+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Shakhtar Donetsk",
+        "away": "Fenerbahçe",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049640",
+        "home": {
+          "reported_team": "Shakhtar",
+          "predicted_lineup": "Riznyk; Vinícius Tobías, Bondar, Matviyenko, Pedro Henrique; Nazaryna; Alisson Santana, Ocheretko, Marlon Gomes, Newertton; Luca Meirelles",
+          "out": "Kauã Elias (lower leg fracture), Marlon Santos (muscular), Mendoza (ankle)",
+          "doubtful": "None",
+          "suspension_risk": "Marlon Gomes"
+        },
+        "away": {
+          "reported_team": "Fenerbahçe",
+          "predicted_lineup": "Ederson; Nélson Semedo, Škriniar, Oppong, Brown; İsmail Yüksek, Guendouzi, Kanté; Greenwood, İrfan Can Kahveci, Muriqi",
+          "out": "Aké (hamstring), Asensio (knee)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+165",
+          "decimal_odds": 2.65,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+160",
+          "decimal_odds": 2.6,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "2.5_UST",
+          "bookmaker": "DraftKings",
+          "american_odds": "-135",
+          "decimal_odds": 1.7407407407407407,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "249",
+        "fullName": "Stamford Bridge",
+        "address": {
+          "city": "London",
+          "country": "England"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401915310",
+              "kickoff_at": "2026-11-03T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915390",
+              "kickoff_at": "2026-10-21T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401915406",
+              "kickoff_at": "2026-10-14T19:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401927908",
+              "kickoff_at": "2026-10-02T12:00Z",
+              "competition": "2026 Club Friendly"
+            },
+            {
+              "event_id": "401915422",
+              "kickoff_at": "2026-09-10T16:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            }
+          ],
+          "observed_matches_previous_14_days": 0,
+          "hours_since_last_observed_kickoff": 530.25
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401888244",
+              "kickoff_at": "2026-11-21T16:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401888372",
+              "kickoff_at": "2026-11-08T13:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401915382",
+              "kickoff_at": "2026-11-04T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401888258",
+              "kickoff_at": "2026-10-31T16:00Z",
+              "competition": "2026-27 Turkish Super Lig"
+            },
+            {
+              "event_id": "401888265",
+              "kickoff_at": "2026-10-26T18:30Z",
+              "competition": "2026-27 Turkish Super Lig"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 100.0
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915375",
+        "file": "summary-401915375.raw",
+        "sha256": "1a5a2ce496c6b9ab9cbffd962ae1a699ff4536c51699a12c6fe654feff1ec39c",
+        "retrieved_at": "2026-11-24T10:10:42.102861+00:00"
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Lille",
+        "away": "Bayern München",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049639",
+        "home": {
+          "reported_team": "Lille",
+          "predicted_lineup": "Berke Özer, Goffi, Ngoy, Alexsandro, Perraud; André, Bentaleb; Mbappé, Mukau, Haraldsson; Ueda",
+          "out": "Tiago Santos (knee)",
+          "doubtful": "Nianzou (muscle)",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Bayern",
+          "predicted_lineup": "Ubrig; Laimer, Upamecano, Tah, Stanisic; Kimmich, Pavlovic; Binder, Bischof, Brown; Karl",
+          "out": "Davies (hamstring), Gnabry (muscle), Kane (ankle), Neuer (foot), Saibari (ankle)",
+          "doubtful": "Luis Díaz (hamstring), Olise (foot)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+400",
+          "decimal_odds": 5.0,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "-165",
+          "decimal_odds": 1.606060606060606,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "2.5_UST",
+          "bookmaker": "DraftKings",
+          "american_odds": "-175",
+          "decimal_odds": 1.5714285714285714,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "4947",
+        "fullName": "Decathlon Arena - Stade Pierre-Mauroy",
+        "address": {
+          "city": "Lille",
+          "country": "France"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401876402",
+              "kickoff_at": "2026-11-21T19:45Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876406",
+              "kickoff_at": "2026-11-08T14:00Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401915384",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401876420",
+              "kickoff_at": "2026-10-30T20:05Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876425",
+              "kickoff_at": "2026-10-25T14:00Z",
+              "competition": "2026-27 Ligue 1"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 96.25
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401884736",
+              "kickoff_at": "2026-11-20T19:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401884740",
+              "kickoff_at": "2026-11-07T14:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401915386",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401884754",
+              "kickoff_at": "2026-10-31T17:30Z",
+              "competition": "2026-27 German Bundesliga"
+            },
+            {
+              "event_id": "401917035",
+              "kickoff_at": "2026-10-28T19:45Z",
+              "competition": "2026-27 German Cup"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 120.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915377",
+        "file": "summary-401915377.raw",
+        "sha256": "b196a401853b9de29da0c3c18c9f359fa7b279fd66e7a6196ae47ec59b647d5e",
+        "retrieved_at": "2026-11-24T10:10:42.098343+00:00"
+      },
+      "missing_market_quotes": [
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Paris Saint-Germain",
+        "away": "Roma",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049634",
+        "home": {
+          "reported_team": "Paris",
+          "predicted_lineup": "Safonov; Hakimi, Marquinhos, Willian Pacho, Nuno Mendes; Zaïre-Emery, Vitinha, Fabián Ruiz; Akliouche, Dembélé, Mayulu",
+          "out": "Doué (knee), Kvaratskhelia (knee)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Roma",
+          "predicted_lineup": "Svilar; Mancini, N'Dicka, Hermoso; Molina, Cristante, Koné, Wesley França; Rodrigo Mora, Malen, Soulé",
+          "out": "Pellegrini (hamstring)",
+          "doubtful": "Balerdi (ankle), Rensch (adductor)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "-235",
+          "decimal_odds": 1.425531914893617,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+550",
+          "decimal_odds": 6.5,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "2271",
+        "fullName": "Parc des Princes",
+        "address": {
+          "city": "Paris",
+          "country": "France"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401876398",
+              "kickoff_at": "2026-11-21T16:15Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876407",
+              "kickoff_at": "2026-11-07T20:05Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401915309",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401876421",
+              "kickoff_at": "2026-10-30T18:00Z",
+              "competition": "2026-27 Ligue 1"
+            },
+            {
+              "event_id": "401876422",
+              "kickoff_at": "2026-10-26T19:30Z",
+              "competition": "2026-27 Ligue 1"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 99.75
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401874967",
+              "kickoff_at": "2026-11-21T17:00Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874803",
+              "kickoff_at": "2026-11-07T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401915308",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401874990",
+              "kickoff_at": "2026-10-31T17:00Z",
+              "competition": "2026-27 Italian Serie A"
+            },
+            {
+              "event_id": "401874780",
+              "kickoff_at": "2026-10-27T19:45Z",
+              "competition": "2026-27 Italian Serie A"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 99.0
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915374",
+        "file": "summary-401915374.raw",
+        "sha256": "39386d91a7c72203f1ba0350a612a59739a76ca828a190b9145de836adfdb37f",
+        "retrieved_at": "2026-11-24T10:10:42.152937+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    },
+    {
+      "fixture": {
+        "date": "2026-11-25",
+        "kickoff_at": "2026-11-25T20:00:00Z",
+        "home": "Sporting CP",
+        "away": "Manchester United",
+        "league": "UCL"
+      },
+      "ex_g": null,
+      "ex_d": null,
+      "ex_final_allowed": false,
+      "decision": "NO_FINAL",
+      "uefa_preview": {
+        "uefa_match_id": "2049637",
+        "home": {
+          "reported_team": "Sporting CP",
+          "predicted_lineup": "Rui Silva; Fresneda, Gonçalo Inácio, Eduardo Quaresma, Araújo; Andersen, Sergi Altimira; Catamo, Zalazar, Irankunda; Suárez",
+          "out": "Debast (muscular), Nuno Santos (muscular)",
+          "doubtful": "None",
+          "suspension_risk": "None"
+        },
+        "away": {
+          "reported_team": "Manchester United",
+          "predicted_lineup": "Lammens; Yoro, Maguire, Martínez, Diogo Dalot, Mainoo, Tielemans; Mbeumo, Bruno Fernandes, Dorgu; Zirkzee",
+          "out": "Baleba (thigh), Matheus Cunha (suspended), Rashford (hip), Ugarte (knee), Šeško (calf)",
+          "doubtful": "Shaw (muscular)",
+          "suspension_risk": "None"
+        }
+      },
+      "market_quotes": [
+        {
+          "market": "MS1",
+          "bookmaker": "DraftKings",
+          "american_odds": "+150",
+          "decimal_odds": 2.5,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        },
+        {
+          "market": "MS2",
+          "bookmaker": "DraftKings",
+          "american_odds": "+165",
+          "decimal_odds": 2.65,
+          "observed_at": "2026-11-24T10:10:41.291663+00:00",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+          "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+          "odds_gate": "NO_FINAL"
+        }
+      ],
+      "scoreboard_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20261125",
+        "file": "scoreboard-2026-11-25.raw",
+        "sha256": "0e1a756a16159f2e15890230cd22f297dbaaa2ab0b04b279707ade3b36118d65",
+        "retrieved_at": "2026-11-24T10:10:41.291663+00:00"
+      },
+      "venue": {
+        "id": "2352",
+        "fullName": "Estádio José Alvalade",
+        "address": {
+          "city": "Lisbon",
+          "country": "Portugal"
+        }
+      },
+      "observed_match_load": {
+        "home": {
+          "matches_shown": [
+            {
+              "event_id": "401931820",
+              "kickoff_at": "2026-11-21T18:00Z",
+              "competition": "2026-27 Taca de Portugal"
+            },
+            {
+              "event_id": "401885395",
+              "kickoff_at": "2026-11-07T20:30Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            },
+            {
+              "event_id": "401915310",
+              "kickoff_at": "2026-11-03T17:45Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401885408",
+              "kickoff_at": "2026-10-30T20:15Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            },
+            {
+              "event_id": "401885413",
+              "kickoff_at": "2026-10-25T20:30Z",
+              "competition": "2026-27 Portuguese Primeira Liga"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 98.0
+        },
+        "away": {
+          "matches_shown": [
+            {
+              "event_id": "401878755",
+              "kickoff_at": "2026-11-22T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401879240",
+              "kickoff_at": "2026-11-08T16:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401915308",
+              "kickoff_at": "2026-11-03T20:00Z",
+              "competition": "2026-27 UEFA Champions League"
+            },
+            {
+              "event_id": "401879248",
+              "kickoff_at": "2026-10-31T12:30Z",
+              "competition": "2026-27 English Premier League"
+            },
+            {
+              "event_id": "401879252",
+              "kickoff_at": "2026-10-25T14:00Z",
+              "competition": "2026-27 English Premier League"
+            }
+          ],
+          "observed_matches_previous_14_days": 1,
+          "hours_since_last_observed_kickoff": 75.5
+        }
+      },
+      "neutral_site": false,
+      "summary_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/summary?event=401915373",
+        "file": "summary-401915373.raw",
+        "sha256": "410230c4ec7290fd781efc4ac37cf45e0ddfc5b61bf755ea7c4ec4e7ee6ef315",
+        "retrieved_at": "2026-11-24T10:10:42.105867+00:00"
+      },
+      "missing_market_quotes": [
+        "2.5_UST",
+        "KG_VAR"
+      ]
+    }
+  ],
+  "ex_final_allowed": false,
+  "notes": [
+    "UEFA lineups are predicted. Rotation and fatigue impact are not assigned scores.",
+    "Recent match counts are lower bounds from displayed completed games.",
+    "Quote capture time is the observation time, not the bookmaker's last update."
+  ]
+}

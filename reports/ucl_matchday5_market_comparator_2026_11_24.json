@@ -1,0 +1,316 @@
+{
+  "source": "https://matchpulsestats.com/en/league/2",
+  "recorded_at": "2026-11-24T10:24:34Z",
+  "status": "COMPARATOR_LISTED_QUOTES",
+  "source_access": "rendered web index; direct HTTP request returned 403",
+  "notes": "Named bookmaker prices reported by the comparison site. Bookmaker update timestamps and direct bookmaker verification are unavailable. Comparator model probabilities were not collected.",
+  "ex_final_allowed": false,
+  "fixtures": [
+    {
+      "home": "Bodø/Glimt",
+      "away": "LASK",
+      "kickoff_at": "2026-11-24T17:45:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.31
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betfair",
+          "decimal_odds": 1.4
+        }
+      ]
+    },
+    {
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "kickoff_at": "2026-11-24T17:45:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.42
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "William Hill",
+          "decimal_odds": 1.36
+        }
+      ]
+    },
+    {
+      "home": "Arsenal",
+      "away": "Borussia Dortmund",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.7
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Bet365",
+          "decimal_odds": 1.95
+        }
+      ]
+    },
+    {
+      "home": "Feyenoord",
+      "away": "Porto",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.66
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.5
+        }
+      ]
+    },
+    {
+      "home": "Manchester City",
+      "away": "Napoli",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.36
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.7
+        }
+      ]
+    },
+    {
+      "home": "Slovan Bratislava",
+      "away": "Real Betis",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.37
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.75
+        }
+      ]
+    },
+    {
+      "home": "Como",
+      "away": "AEK Athens",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.4
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betfair",
+          "decimal_odds": 1.65
+        }
+      ]
+    },
+    {
+      "home": "Leipzig",
+      "away": "Lens",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.32
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.5
+        }
+      ]
+    },
+    {
+      "home": "Real Madrid",
+      "away": "PSV Eindhoven",
+      "kickoff_at": "2026-11-24T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.2
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.52
+        }
+      ]
+    },
+    {
+      "home": "Sabah",
+      "away": "Barcelona",
+      "kickoff_at": "2026-11-25T17:45:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Bet365",
+          "decimal_odds": 1.11
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.6
+        }
+      ]
+    },
+    {
+      "home": "Slavia Praha",
+      "away": "Villarreal",
+      "kickoff_at": "2026-11-25T17:45:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.57
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.47
+        }
+      ]
+    },
+    {
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahçe",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.81
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.6
+        }
+      ]
+    },
+    {
+      "home": "Inter",
+      "away": "Stuttgart",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.27
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.4
+        }
+      ]
+    },
+    {
+      "home": "Sporting CP",
+      "away": "Manchester United",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.66
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.48
+        }
+      ]
+    },
+    {
+      "home": "Paris Saint-Germain",
+      "away": "Roma",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.34
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.53
+        }
+      ]
+    },
+    {
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "1xBet",
+          "decimal_odds": 1.34
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.37
+        }
+      ]
+    },
+    {
+      "home": "Atlético de Madrid",
+      "away": "Viking",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.3
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Betfair",
+          "decimal_odds": 2.38
+        }
+      ]
+    },
+    {
+      "home": "Lille",
+      "away": "Bayern München",
+      "kickoff_at": "2026-11-25T20:00:00Z",
+      "quotes": [
+        {
+          "market": "2.5_UST",
+          "bookmaker": "Betano",
+          "decimal_odds": 1.55
+        },
+        {
+          "market": "KG_VAR",
+          "bookmaker": "Bet365",
+          "decimal_odds": 1.57
+        }
+      ]
+    }
+  ]
+}

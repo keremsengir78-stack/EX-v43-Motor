@@ -1,0 +1,891 @@
+{
+  "league": "ua.1",
+  "club": "Shakhtar Donetsk",
+  "scope": "All 13 completed 2026/27 UPL matches before cutoff and all 30 previous-season UPL results, based on matching source content.",
+  "captured_on": "2026-11-24",
+  "fixtures": [
+    {
+      "date": "2025-08-03",
+      "home": "Epitsentr",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-08-03"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 66"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-10",
+      "home": "Karpaty",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-08-10"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 90"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-17",
+      "home": "Veres",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-08-17"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 112"
+        }
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "home": "Shakhtar Donetsk",
+      "away": "FC Oleksandriya",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-08-31"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 141"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-13",
+      "home": "Metalist-1925",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-09-13"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 156"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-22",
+      "home": "Shakhtar Donetsk",
+      "away": "Zorya Luhansk",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-09-22"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 187"
+        }
+      ]
+    },
+    {
+      "date": "2025-09-28",
+      "home": "Rukh Lviv",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        4
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-09-28"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 205"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "home": "Shakhtar Donetsk",
+      "away": "LNZ Cherkasy",
+      "score": [
+        1,
+        4
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-10-05"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 230"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-18",
+      "home": "Polissya",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-10-18"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 243"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "home": "Shakhtar Donetsk",
+      "away": "Kudrivka",
+      "score": [
+        4,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-10-26"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 278"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-02",
+      "home": "Shakhtar Donetsk",
+      "away": "Dynamo Kyiv",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-11-02"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 297"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "home": "Shakhtar Donetsk",
+      "away": "SC Poltava",
+      "score": [
+        7,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-11-09"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 323"
+        }
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "home": "Obolon",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        6
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-11-22"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 337"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "home": "Shakhtar Donetsk",
+      "away": "Kryvbas",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-12-01"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 373"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-06",
+      "home": "Kolos",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-12-06"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 383"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-14",
+      "home": "Shakhtar Donetsk",
+      "away": "Epitsentr",
+      "score": [
+        5,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2025-12-14"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 416"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-22",
+      "home": "Shakhtar Donetsk",
+      "away": "Karpaty Lviv",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-02-22"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 437"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-27",
+      "home": "Shakhtar Donetsk",
+      "away": "Veres Rivne",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-02-27"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 449"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "home": "FC Oleksandriya",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-03-06"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 473"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "home": "Shakhtar Donetsk",
+      "away": "Metalist 1925",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-03-15"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 508"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "home": "Shakhtar Donetsk",
+      "away": "Rukh Lviv",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-04-05"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 552"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-13",
+      "home": "LNZ",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-04-13"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 584"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-20",
+      "home": "Shakhtar Donetsk",
+      "away": "Polissya Zhytomyr",
+      "score": [
+        1,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-04-20"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 607"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-23",
+      "home": "Zorya",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-04-23"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 536"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "home": "Kudrivka",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        1,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-04-26"
+        },
+        {
+          "url": "https://rsssf.github.io/tables/oekr2026.html",
+          "locator": "rendered line 620"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-03",
+      "home": "Dynamo",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-05-03"
+        },
+        {
+          "url": "https://shakhtar.com/en/news/2026/may/3_news/3_dynamo_shakhtar/",
+          "locator": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-10",
+      "home": "SC Poltava",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        4
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-05-10"
+        },
+        {
+          "url": "https://shakhtar.com/en/news/2026/may/10_news/10_poltava_shakhtar/",
+          "locator": "2026-05-10"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-13",
+      "home": "Shakhtar Donetsk",
+      "away": "Obolon",
+      "score": [
+        3,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-05-13"
+        },
+        {
+          "url": "https://shakhtar.com/en/news/2026/may/13_news/13_shakhtar_obolon/",
+          "locator": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "home": "Kryvbas",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        2,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-05-17"
+        },
+        {
+          "url": "https://shakhtar.com/en/news/2026/may/17_news/17_kryvbas_shakhtar/",
+          "locator": "2026-05-17"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "home": "Shakhtar Donetsk",
+      "away": "Kolos Kovalivka",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://terrikon.com/en/football/teams/1/gamesarchive",
+          "locator": "2026-05-21"
+        },
+        {
+          "url": "https://shakhtar.com/en/news/2026/may/21_news/21_shakhtar_kolos/",
+          "locator": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-03",
+      "home": "Shakhtar Donetsk",
+      "away": "Kudrivka",
+      "score": [
+        5,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-08-03"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-08-03 H Kudrivka (UPL)",
+          "club_score": [
+            5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "home": "Epitsentr",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-08-09"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-08-09 A Epicentr (UPL)",
+          "club_score": [
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-16",
+      "home": "FC Kharkiv",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-08-16"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-08-16 A Kharkiv (UPL)",
+          "club_score": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Shakhtar Donetsk",
+      "away": "Polissya Zhytomyr",
+      "score": [
+        0,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-08-29"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-08-29 H Polissia (UPL)",
+          "club_score": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Karpaty Lviv",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        1,
+        2
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-09-05"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-09-05 A Karpaty (UPL)",
+          "club_score": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-09-14",
+      "home": "Shakhtar Donetsk",
+      "away": "Ch. Odesa",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-09-14"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-09-14 H Chornomorets (UPL)",
+          "club_score": [
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Shakhtar Donetsk",
+      "away": "LNZ Cherkasy",
+      "score": [
+        3,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-09-20"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-09-20 H LNZ (UPL)",
+          "club_score": [
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "home": "Veres-Rivne",
+      "away": "Shakhtar Donetsk",
+      "score": [
+        0,
+        3
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-10-09"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-10-09 A Veres (UPL)",
+          "club_score": [
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "home": "Shakhtar Donetsk",
+      "away": "Kolos Kovalivka",
+      "score": [
+        2,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-10-17"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-10-17 H Kolos (UPL)",
+          "club_score": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Shakhtar Donetsk",
+      "away": "FK Zorya Luhansk",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-10-24"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-10-24 H Zorya (UPL)",
+          "club_score": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "home": "Shakhtar Donetsk",
+      "away": "Obolon",
+      "score": [
+        2,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-10-30"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-10-30 H Obolon (UPL)",
+          "club_score": [
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Shakhtar Donetsk",
+      "away": "Dyn. Kyiv",
+      "score": [
+        0,
+        0
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-11-08"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-11-08 H Dynamo (UPL)",
+          "club_score": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "home": "Shakhtar Donetsk",
+      "away": "Livyi Bereg",
+      "score": [
+        1,
+        1
+      ],
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/oladeeayo/open-matchday/96677da89111985ef0b445ba45012b00d60d0490/data/UKR_1_premier-league/results_2627.csv",
+          "sha256": "15bbf8bc54c4998cb5a58ce8204103a7db6af4d258ebe6bd5204adf9e1d192d2",
+          "locator": "2026-11-20"
+        },
+        {
+          "url": "https://shakhtar.com/en/matchday/results/",
+          "locator": "2026-11-20 H Livyi Bereh (UPL)",
+          "club_score": [
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "ex_final_allowed": false
+}

@@ -1,0 +1,34 @@
+{
+  "travel": [
+    {
+      "event_id": "757776", "team_id": "364", "kickoff_date": "2026-01-21",
+      "published_date": "2026-01-20", "destination": "Marseille", "origin": "Liverpool John Lennon Airport",
+      "observation": "DEPARTURE_REPORTED",
+      "source": "https://www.liverpoolfc.com/news/liverpool-take-20-man-travelling-party-marseille-clash"
+    },
+    {
+      "event_id": "401862667", "team_id": "364", "kickoff_date": "2026-03-10",
+      "published_date": "2026-03-09", "destination": "Istanbul", "origin": "Liverpool John Lennon Airport",
+      "observation": "FLIGHT_DEPARTURE_REPORTED",
+      "source": "https://www.liverpoolfc.com/news/departure-photos-liverpool-set-ucl-clash-galatasaray?amp=1"
+    },
+    {
+      "event_id": "401862885", "team_id": "364", "kickoff_date": "2026-04-08",
+      "published_date": "2026-04-07", "destination": "Paris", "origin": null,
+      "observation": "FLIGHT_DEPARTURE_REPORTED",
+      "source": "https://www.liverpoolfc.com/news/departure-photos-liverpool-take-flight-paris-ucl-quarter-final"
+    },
+    {
+      "event_id": "401862891", "team_id": "86", "kickoff_date": "2026-04-15",
+      "published_date": "2026-04-13", "destination": "Munich", "origin": null,
+      "observation": "ARRIVAL_REPORTED",
+      "source": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/el-equipo-viaja-manana-a-munich-13-04-2026"
+    }
+  ],
+  "grounds": [
+    {
+      "venue_id": "2267", "venue_name": "Emirates Stadium", "observation": "GRASS_IRRIGATION_REPORTED",
+      "source": "https://www.arsenal.com/news/water-a-hot-topic-aIDtt3t4XGfe"
+    }
+  ]
+}
