@@ -1,0 +1,15 @@
+{
+  "calculated_at": "2026-11-28T13:29:46.636917+00:00",
+  "sealed_at": "2026-11-28T13:30:01.192800+00:00",
+  "baseline_commit": "be5e0571",
+  "engine_commit": "d089584",
+  "scope": "RESEARCH_ONLY",
+  "file_sha256": {
+    "raw-captures.tar.gz": "8c19eb3b1da67f96d8441589a08df97c5b063b738da7bff18658a15d3adf42d9",
+    "report.json": "2a729a8677279516f801d98c407cad10981b4f6e54f34f8883dab8073187d047",
+    "decision-refresh.json": "4ff5d9a4592c47a709450d12fcdea5d6b677e86ca2df8572f97ad8637788434e",
+    "rankings.json": "03c2d9064fb87bc45c6444ef385cab5f5ebbdb38ca60ea0a15d844f8776c33f4",
+    "all-markets.csv": "602f06407df419e84c4f43ce6fff8414772987e8a072d1099ef637c0c9cf8420",
+    "capture.json": "63efaf1de80d2de326455166f554af2f6c3839b8b27909e3173d808ced37bcb6"
+  }
+}
